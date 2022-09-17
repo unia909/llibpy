@@ -1,4 +1,3 @@
-require "libcstdiodef"
 require "posix/posixtypes"
 require "posix/errno"
 require("ffi").cdef[[
@@ -23,7 +22,7 @@ require("ffi").cdef[[
         unsigned char d_type;
         char d_name[256];
     };
-    DIR * opendir (const char *dirname);
-    struct dirent * readdir (DIR *dirstream);
-    int closedir (DIR *dirstream);
+    DIR* opendir(const char *dirname);
+    struct dirent* readdir(DIR *dirstream);
+    int closedir(DIR *dirstream);
 ]]

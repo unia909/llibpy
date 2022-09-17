@@ -1,21 +1,26 @@
 local ffi = require "ffi"
-require "libcdef"
+require "posix.posixdef"
 
 local function scandir(path)
+    path = path or "./"
     local dp = ffi.new("DIR*")
     local ep = ffi.new("struct dirent*")
     dp = ffi.C.opendir(path)
-    if dp ~= nil then
-        return function()
+    if dp == nil then
+        error("[Errno "..errno[0].."] "..ffi.string(ffi.C.strerror(errno[0]))..": "..path)
+    end
+    return function()
+        while true do
             ep = ffi.C.readdir(dp)
             if ep == nil then
                 ffi.C.closedir(dp)
                 return nil
             end
-            return ffi.string(ep.d_name)
+            local s = ffi.string(ep.d_name)
+            if s ~= "." and s ~= ".." then
+                return s
+            end
         end
-    else
-        error("[Errno "..errno[0].."] "..ffi.string(ffi.C.strerror(errno[0]))..": "..path)
     end
 end
 

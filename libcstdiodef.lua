@@ -1,3 +1,3 @@
 require("ffi").cdef[[
-    int puts (const char *s);
+    int puts(const char *s);
 ]]
