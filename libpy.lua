@@ -3,6 +3,9 @@ local io = require "io"
 -- from https://stackoverflow.com/a/779960
 -- converted to luajit code
 function string:replace(rep, with)
+    require "libcdef"
+    local ffi = require "ffi"
+
     local len_rep = #rep
     local len_with = #with
     local len_front = 0
@@ -51,8 +54,7 @@ function string:replace(rep, with)
     return luastr
 end
 
--- table to string code from https://gist.github.com/justnom/9816256
--- some modified for python compatible
+-- code based on https://gist.github.com/justnom/9816256
 function table:toString()
     local result = "["
     for k, v in pairs(self) do
@@ -61,15 +63,7 @@ function table:toString()
             result = result.."['"..k.."']".."="
         end
 
-        -- Check the value type
-        if type(v) == "table" then
-            result = result..table.toString(v)
-        elseif type(v) == "boolean" then
-            result = result..tostring(v)
-        else
-            result = result.."'"..v.."'"
-        end
-        result = result..", "
+        result = result..str(v)..", "
     end
     -- Remove leading commas from the result
     if result ~= "" then
@@ -86,15 +80,7 @@ function table:toStringLua()
             result = result.."['"..k.."']".."="
         end
 
-        -- Check the value type
-        if type(v) == "table" then
-            result = result..table.toStringLua(v)
-        elseif type(v) == "boolean" then
-            result = result..tostring(v)
-        else
-            result = result.."'"..v.."'"
-        end
-        result = result..", "
+        result = result..str(v)..", "
     end
     -- Remove leading commas from the result
     if result ~= "" then
@@ -112,13 +98,50 @@ function tostring(obj)
     end
 end
 
-local str = tostring
+str = tostring
+
+function chr(i)
+    return string.char(i)
+end
+
+function eval(expression)
+    return loadstring("return "..expression)()
+end
+
+function exec(expression)
+    loadstring(expression)()
+end
+
+float = eval
 
 function print(objects, sep, _end)
     sep = sep or " "
     _end = _end or "\n"
     io.write(str(objects))
     io.write(_end)
+end
+
+function range(start, stop, step)
+    if not stop then
+        local i = -1
+        return function()
+            i = i + 1
+            if i == start then
+                return nil
+            end
+            return i
+        end
+    else
+        step = step or 1
+        local i = start - step
+        return function()
+            i = i + step
+            if i == stop then
+                return nil
+            end
+            return i
+        end
+    end
 end
 
 function input(prompt)

@@ -3,6 +3,6 @@
 #include <dirent.h>
 
 int main() {
-    printf("%i", sizeof(off_t));
+    printf("%i", sizeof(pid_t));
     return 0;
 }

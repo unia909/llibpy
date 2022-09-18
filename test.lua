@@ -1,3 +1,3 @@
-require "pylib"
+require "libpy"
 local os = require "./os"
-print(os.listdir())
+print(os.getppid())

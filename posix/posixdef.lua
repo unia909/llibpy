@@ -25,4 +25,8 @@ require("ffi").cdef[[
     DIR* opendir(const char *dirname);
     struct dirent* readdir(DIR *dirstream);
     int closedir(DIR *dirstream);
+
+    typedef long unsigned int pid_t;
+    pid_t getpid();
+    pid_t getppid();
 ]]

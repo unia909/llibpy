@@ -33,5 +33,7 @@ return {
         end
         return out
     end,
-    scandir = scandir
+    scandir = scandir,
+    getpid = ffi.C.getpid,
+    getppid = ffi.C.getppid
 }

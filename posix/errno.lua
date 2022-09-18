@@ -105,7 +105,7 @@ ffi.cdef[[
         EOWNERDEAD      = 105,
         ELAST           = 105
     };
-    int *__errno_location (void);
-    char *strerror(int errnum);
+    int* __errno_location();
+    char* strerror(int errnum);
 ]]
 errno = ffi.C.__errno_location()
