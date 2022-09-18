@@ -99,10 +99,8 @@ function tostring(obj)
 end
 
 str = tostring
-
-function chr(i)
-    return string.char(i)
-end
+int = tonumber
+chr = string.char
 
 function eval(expression)
     return loadstring("return "..expression)()
@@ -115,10 +113,10 @@ end
 float = eval
 
 function print(objects, sep, _end)
+    local os = require "./os"
     sep = sep or " "
     _end = _end or "\n"
-    io.write(str(objects))
-    io.write(_end)
+    os.write(str(objects).._end)
 end
 
 function range(start, stop, step)

@@ -1,3 +1,3 @@
 require "libpy"
 local os = require "./os"
-print(os.getppid())
+print(os.strerror(18))

@@ -5,16 +5,27 @@ ffi.cdef[[
 
     typedef unsigned long *ULONG_PTR;
 
-    typedef char* PSTR;
-    typedef const char* PCSTR;
-    typedef wchar_t* PWSTR;
-    typedef const wchar_t* PCWSTR;
+    typedef char *PSTR;
+    typedef const char *PCSTR;
+    typedef wchar_t *PWSTR;
+    typedef const wchar_t *PCWSTR;
 
-    DWORD __stdcall GetLastError();
-    int __stdcall CloseHandle(void *hObject);
+    int CloseHandle(void *hObject);
+    void* GetStdHandle(DWORD nStdHandle);
+    int WriteConsoleW(void *hConsoleOutput, const void *lpBuffer, DWORD nNumberOfCharsToWrite, DWORD *lpNumberOfCharsWritten, void *lpReserved);
+    void ExitProcess(unsigned int uExitCode);
+    DWORD FormatMessageW(DWORD dwFlags, const void *lpSource, DWORD dwMessageId, DWORD dwLanguageId, wchar_t **lpBuffer, DWORD nSize, va_list *Arguments);
+    void* LocalFree(void *hMem);
 
     enum {
-        MAX_PATH = 260
+        MAX_PATH = 260,
+        INVALID_HANDLE_VALUE = 0xffffffff,
+
+        TH32CS_SNAPHEAPLIST = 0x00000001,
+        TH32CS_SNAPPROCESS = 0x00000002,
+        TH32CS_SNAPTHREAD = 0x00000004,
+        TH32CS_SNAPMODULE = 0x00000008,
+        TH32CS_SNAPMODULE32 = 0x00000010
     };
 
     typedef struct {
@@ -38,9 +49,9 @@ ffi.cdef[[
         WORD     wFinderFlags; // Obsolete. Do not use
     } WIN32_FIND_DATAW;
 
-    void* __stdcall FindFirstFileW(PCWSTR lpFileName, WIN32_FIND_DATAW *lpFindFileData);
-    int __stdcall FindNextFileW(void *hFindFile, WIN32_FIND_DATAW *lpFindFileData);
-    int __stdcall FindClose(void *hFindFile);
+    void* FindFirstFileW(PCWSTR lpFileName, WIN32_FIND_DATAW *lpFindFileData);
+    int FindNextFileW(void *hFindFile, WIN32_FIND_DATAW *lpFindFileData);
+    int FindClose(void *hFindFile);
 
     typedef struct {
         DWORD     dwSize;
@@ -55,24 +66,19 @@ ffi.cdef[[
         char      szExeFile[MAX_PATH];
     } PROCESSENTRY32;
 
-    void* __stdcall CreateToolhelp32Snapshot(DWORD dwFlags, DWORD th32ProcessID);
-    int __stdcall Process32First(void *, PROCESSENTRY32*);
-    int __stdcall Process32Next(void *, PROCESSENTRY32*);
+    void* CreateToolhelp32Snapshot(DWORD dwFlags, DWORD th32ProcessID);
+    int Process32First(void *hSnapshot, PROCESSENTRY32 *lppe);
+    int Process32Next(void *hSnapshot, PROCESSENTRY32 *lppe);
+
+    DWORD GetEnvironmentVariableW(const wchar_t *lpName, wchar_t *lpBuffer, DWORD nSize);
 
     // not currently in use
-    int __stdcall GetCurrentProcessId();
-    void* __stdcall GetCurrentProcess();
-    long __stdcall NtQueryInformationProcess(void *ProcessHandle, DWORD ProcessInformationClass, void *ProcessInformation,
+    int GetCurrentProcessId();
+    void* GetCurrentProcess();
+    long NtQueryInformationProcess(void *ProcessHandle, DWORD ProcessInformationClass, void *ProcessInformation,
                                              DWORD ProcessInformationLength, DWORD *ReturnLength);
 ]]
-NtDll = ffi.load("NTDLL.DLL")
-INVALID_HANDLE_VALUE = 0xffffffff
-
-TH32CS_SNAPHEAPLIST = 0x00000001
-TH32CS_SNAPPROCESS = 0x00000002
-TH32CS_SNAPTHREAD = 0x00000004
-TH32CS_SNAPMODULE = 0x00000008
-TH32CS_SNAPMODULE32 = 0x00000010
+--NtDll = ffi.load("NTDLL.DLL")
 
 require "win32.winntstringapisetdef"
 require "win32.winerror"

@@ -2,146 +2,146 @@ local ffi = require("ffi")
 
 ffi.cdef[[
 enum {
-    FACILITY_NULL                  =  0,
-    FACILITY_RPC                   =  1,
-    FACILITY_DISPATCH              =  2,
-    FACILITY_STORAGE               =  3,
-    FACILITY_ITF                   =  4,
-    FACILITY_WIN32                 =  7,
-    FACILITY_WINDOWS               =  8,
-    FACILITY_SSPI                  =  9,
-    FACILITY_SECURITY              =  9,
-    FACILITY_CONTROL               =  10,
-    FACILITY_CERT                  =  11,
-    FACILITY_INTERNET              =  12,
-    FACILITY_MEDIASERVER           =  13,
-    FACILITY_MSMQ                  =  14,
-    FACILITY_SETUPAPI              =  15,
-    FACILITY_SCARD                 =  16,
-    FACILITY_COMPLUS               =  17,
-    FACILITY_AAF                   =  18,
-    FACILITY_URT                   =  19,
-    FACILITY_ACS                   =  20,
-    FACILITY_DPLAY                 =  21,
-    FACILITY_UMI                   =  22,
-    FACILITY_SXS                   =  23,
-    FACILITY_WINDOWS_CE            =  24,
-    FACILITY_HTTP                  =  25,
-    FACILITY_USERMODE_COMMONLOG    =  26,
-    FACILITY_WER                   =  27,
-    FACILITY_USERMODE_FILTER_MANAGER =31,
-    FACILITY_BACKGROUNDCOPY        =  32,
-    FACILITY_CONFIGURATION         =  33,
-    FACILITY_WIA                   =  33,
-    FACILITY_STATE_MANAGEMENT      =  34,
-    FACILITY_METADIRECTORY         =  35,
-    FACILITY_WINDOWSUPDATE         =  36,
-    FACILITY_DIRECTORYSERVICE      =  37,
-    FACILITY_GRAPHICS              =  38,
-    FACILITY_SHELL                 =  39,
-    FACILITY_NAP                   =  39,
-    FACILITY_TPM_SERVICES          =  40,
-    FACILITY_TPM_SOFTWARE          =  41,
-    FACILITY_UI                    =  42,
-    FACILITY_XAML                  =  43,
-    FACILITY_ACTION_QUEUE          =  44,
-    FACILITY_PLA                   =  48,
-    FACILITY_WINDOWS_SETUP         =  48,
-    FACILITY_FVE                   =  49,
-    FACILITY_FWP                   =  50,
-    FACILITY_WINRM                 =  51,
-    FACILITY_NDIS                  =  52,
-    FACILITY_USERMODE_HYPERVISOR   =  53,
-    FACILITY_CMI                   =  54,
-    FACILITY_USERMODE_VIRTUALIZATION =55,
-    FACILITY_USERMODE_VOLMGR       =  56,
-    FACILITY_BCD                   =  57,
-    FACILITY_USERMODE_VHD          =  58,
-    FACILITY_USERMODE_HNS          =  59,
-    FACILITY_SDIAG                 =  60,
-    FACILITY_WEBSERVICES           =  61,
-    FACILITY_WINPE                 =  61,
-    FACILITY_WPN                   =  62,
-    FACILITY_WINDOWS_STORE         =  63,
-    FACILITY_INPUT                 =  64,
-    FACILITY_EAP                   =  66,
-    FACILITY_WINDOWS_DEFENDER      =  80,
-    FACILITY_OPC                   =  81,
-    FACILITY_XPS                   =  82,
-    FACILITY_MBN                   =  84,
-    FACILITY_POWERSHELL            =  84,
-    FACILITY_RAS                   =  83,
-    FACILITY_P2P_INT               =  98,
-    FACILITY_P2P                   =  99,
-    FACILITY_DAF                   =  100,
-    FACILITY_BLUETOOTH_ATT         =  101,
-    FACILITY_AUDIO                 =  102,
-    FACILITY_STATEREPOSITORY       =  103,
-    FACILITY_VISUALCPP             =  109,
-    FACILITY_SCRIPT                =  112,
-    FACILITY_PARSE                 =  113,
-    FACILITY_BLB                   =  120,
-    FACILITY_BLB_CLI               =  121,
-    FACILITY_WSBAPP                =  122,
-    FACILITY_BLBUI                 =  128,
-    FACILITY_USN                   =  129,
-    FACILITY_USERMODE_VOLSNAP      =  130,
-    FACILITY_TIERING               =  131,
-    FACILITY_WSB_ONLINE            =  133,
-    FACILITY_ONLINE_ID             =  134,
-    FACILITY_DEVICE_UPDATE_AGENT   =  135,
-    FACILITY_DLS                   =  153,
-    FACILITY_DELIVERY_OPTIMIZATION =  208,
-    FACILITY_USERMODE_SPACES       =  231,
-    FACILITY_USER_MODE_SECURITY_CORE= 232,
-    FACILITY_USERMODE_LICENSING    =  234,
-    FACILITY_SOS                   =  160,
-    FACILITY_DEBUGGERS             =  176,
-    FACILITY_SPP                   =  256,
-    FACILITY_RESTORE               =  256,
-    FACILITY_DMSERVER              =  256,
-    FACILITY_DEPLOYMENT_SERVICES_SERVER =257,
-    FACILITY_DEPLOYMENT_SERVICES_IMAGING =258,
-    FACILITY_DEPLOYMENT_SERVICES_MANAGEMENT =259,
-    FACILITY_DEPLOYMENT_SERVICES_UTIL =260,
-    FACILITY_DEPLOYMENT_SERVICES_BINLSVC =261,
-    FACILITY_DEPLOYMENT_SERVICES_PXE =263,
-    FACILITY_DEPLOYMENT_SERVICES_TFTP =264,
-    FACILITY_DEPLOYMENT_SERVICES_TRANSPORT_MANAGEMENT =272,
-    FACILITY_DEPLOYMENT_SERVICES_DRIVER_PROVISIONING =278,
-    FACILITY_DEPLOYMENT_SERVICES_MULTICAST_SERVER =289,
-    FACILITY_DEPLOYMENT_SERVICES_MULTICAST_CLIENT =290,
-    FACILITY_DEPLOYMENT_SERVICES_CONTENT_PROVIDER =293,
+    FACILITY_NULL,
+    FACILITY_RPC,
+    FACILITY_DISPATCH,
+    FACILITY_STORAGE,
+    FACILITY_ITF,
+    FACILITY_WIN32 = 7,
+    FACILITY_WINDOWS,
+    FACILITY_SSPI,
+    FACILITY_SECURITY = 9,
+    FACILITY_CONTROL,
+    FACILITY_CERT,
+    FACILITY_INTERNET,
+    FACILITY_MEDIASERVER,
+    FACILITY_MSMQ,
+    FACILITY_SETUPAPI,
+    FACILITY_SCARD,
+    FACILITY_COMPLUS,
+    FACILITY_AAF,
+    FACILITY_URT,
+    FACILITY_ACS,
+    FACILITY_DPLAY,
+    FACILITY_UMI,
+    FACILITY_SXS,
+    FACILITY_WINDOWS_CE,
+    FACILITY_HTTP,
+    FACILITY_USERMODE_COMMONLOG,
+    FACILITY_WER,
+    FACILITY_USERMODE_FILTER_MANAGER = 31,
+    FACILITY_BACKGROUNDCOPY,
+    FACILITY_CONFIGURATION,
+    FACILITY_WIA = 33,
+    FACILITY_STATE_MANAGEMENT,
+    FACILITY_METADIRECTORY,
+    FACILITY_WINDOWSUPDATE,
+    FACILITY_DIRECTORYSERVICE,
+    FACILITY_GRAPHICS,
+    FACILITY_SHELL,
+    FACILITY_NAP = 39,
+    FACILITY_TPM_SERVICES,
+    FACILITY_TPM_SOFTWARE,
+    FACILITY_UI,
+    FACILITY_XAML,
+    FACILITY_ACTION_QUEUE,
+    FACILITY_PLA = 48,
+    FACILITY_WINDOWS_SETUP = 48,
+    FACILITY_FVE,
+    FACILITY_FWP,
+    FACILITY_WINRM,
+    FACILITY_NDIS,
+    FACILITY_USERMODE_HYPERVISOR,
+    FACILITY_CMI,
+    FACILITY_USERMODE_VIRTUALIZATION,
+    FACILITY_USERMODE_VOLMGR,
+    FACILITY_BCD,
+    FACILITY_USERMODE_VHD,
+    FACILITY_USERMODE_HNS,
+    FACILITY_SDIAG,
+    FACILITY_WEBSERVICES,
+    FACILITY_WINPE = 61,
+    FACILITY_WPN,
+    FACILITY_WINDOWS_STORE,
+    FACILITY_INPUT,
+    FACILITY_EAP = 66,
+    FACILITY_WINDOWS_DEFENDER = 80,
+    FACILITY_OPC,
+    FACILITY_XPS,
+    FACILITY_RAS,
+    FACILITY_MBN,
+    FACILITY_POWERSHELL = 84,
+    FACILITY_EAS,
+    FACILITY_P2P_INT = 98,
+    FACILITY_P2P,
+    FACILITY_DAF,
+    FACILITY_BLUETOOTH_ATT,
+    FACILITY_AUDIO,
+    FACILITY_STATEREPOSITORY,
+    FACILITY_VISUALCPP = 109,
+    FACILITY_SCRIPT = 112,
+    FACILITY_PARSE,
+    FACILITY_BLB = 120,
+    FACILITY_BLB_CLI,
+    FACILITY_WSBAPP,
+    FACILITY_BLBUI = 128,
+    FACILITY_USN,
+    FACILITY_USERMODE_VOLSNAP,
+    FACILITY_TIERING,
+    FACILITY_WSB_ONLINE = 133,
+    FACILITY_ONLINE_ID,
+    FACILITY_DEVICE_UPDATE_AGENT,
+    FACILITY_DLS = 153,
+    FACILITY_SOS = 160,
+    FACILITY_DEBUGGERS = 176,
+    FACILITY_DELIVERY_OPTIMIZATION = 208,
+    FACILITY_USERMODE_SPACES = 231,
+    FACILITY_USER_MODE_SECURITY_CORE,
+    FACILITY_USERMODE_LICENSING = 234,
+    FACILITY_SPP = 256,
+    FACILITY_RESTORE = 256,
+    FACILITY_DMSERVER = 256,
+    FACILITY_DEPLOYMENT_SERVICES_SERVER,
+    FACILITY_DEPLOYMENT_SERVICES_IMAGING,
+    FACILITY_DEPLOYMENT_SERVICES_MANAGEMENT,
+    FACILITY_DEPLOYMENT_SERVICES_UTIL,
+    FACILITY_DEPLOYMENT_SERVICES_BINLSVC,
+    FACILITY_DEPLOYMENT_SERVICES_PXE = 263,
+    FACILITY_DEPLOYMENT_SERVICES_TFTP,
+    FACILITY_DEPLOYMENT_SERVICES_TRANSPORT_MANAGEMENT = 272,
+    FACILITY_DEPLOYMENT_SERVICES_DRIVER_PROVISIONING = 278,
+    FACILITY_DEPLOYMENT_SERVICES_MULTICAST_SERVER = 289,
+    FACILITY_DEPLOYMENT_SERVICES_MULTICAST_CLIENT,
+    FACILITY_DEPLOYMENT_SERVICES_CONTENT_PROVIDER = 293,
     FACILITY_LINGUISTIC_SERVICES    = 305,
+    FACILITY_WEB                    = 885,
+    FACILITY_WEB_SOCKET,
     FACILITY_AUDIOSTREAMING         = 1094,
     FACILITY_ACCELERATOR            = 1536,
-    FACILITY_WMAAECMA               = 1996,
-    FACILITY_DIRECTMUSIC            = 2168,
-    FACILITY_DIRECT3D10             = 2169,
-    FACILITY_DXGI                   = 2170,
-    FACILITY_DXGI_DDI               = 2171,
-    FACILITY_DIRECT3D11             = 2172,
-    FACILITY_DIRECT3D11_DEBUG       = 2173,
-    FACILITY_DIRECT3D12             = 2174,
-    FACILITY_DIRECT3D12_DEBUG       = 2175,
-    FACILITY_LEAP                   = 2184,
-    FACILITY_AUDCLNT                = 2185,
-    FACILITY_WINCODEC_DWRITE_DWM    = 2200,
-    FACILITY_WINML                  = 2192,
-    FACILITY_DIRECT2D               = 2201,
-    FACILITY_DEFRAG                 = 2304,
-    FACILITY_USERMODE_SDBUS         = 2305,
-    FACILITY_JSCRIPT                = 2306,
-    FACILITY_PIDGENX                = 2561,
-    FACILITY_EAS                    = 85,
-    FACILITY_WEB                    = 885,
-    FACILITY_WEB_SOCKET             = 886,
     FACILITY_MOBILE                 = 1793,
     FACILITY_SQLITE                 = 1967,
     FACILITY_UTC                    = 1989,
+    FACILITY_WMAAECMA               = 1996,
     FACILITY_WEP                    = 2049,
-    FACILITY_SYNCENGINE             = 2050,
+    FACILITY_SYNCENGINE,
+    FACILITY_DIRECTMUSIC            = 2168,
+    FACILITY_DIRECT3D10,
+    FACILITY_DXGI,
+    FACILITY_DXGI_DDI,
+    FACILITY_DIRECT3D11,
+    FACILITY_DIRECT3D11_DEBUG,
+    FACILITY_DIRECT3D12,
+    FACILITY_DIRECT3D12_DEBUG,
+    FACILITY_LEAP                   = 2184,
+    FACILITY_AUDCLNT,
+    FACILITY_WINML                  = 2192,
+    FACILITY_WINCODEC_DWRITE_DWM    = 2200,
+    FACILITY_DIRECT2D,
+    FACILITY_DEFRAG                 = 2304,
+    FACILITY_USERMODE_SDBUS,
+    FACILITY_JSCRIPT,
     FACILITY_XBOX                   = 2339,
+    FACILITY_PIDGENX                = 2561,
     FACILITY_PIX                    = 2748
 }
 ]]
@@ -151,34 +151,34 @@ enum {
     //
     // The operation completed successfully.
     //
-    ERROR_SUCCESS                  = 0L,
-    NO_ERROR                       = 0L,
+    ERROR_SUCCESS                  = 0,
+    NO_ERROR                       = 0,
     SEC_E_OK                       = 0,
 
     //
     // Incorrect function.
     //
-    ERROR_INVALID_FUNCTION          = 1L,    // dderror
+    ERROR_INVALID_FUNCTION          = 1,    // dderror
 
     //
     // The system cannot find the file specified.
     //
-    ERROR_FILE_NOT_FOUND             = 2L,
+    ERROR_FILE_NOT_FOUND             = 2,
 
     //
     // The system cannot find the path specified.
     //
-    ERROR_PATH_NOT_FOUND            = 3L,
+    ERROR_PATH_NOT_FOUND            = 3,
 
     //
     // The system cannot open the file.
     //
-    ERROR_TOO_MANY_OPEN_FILES        = 4L,
+    ERROR_TOO_MANY_OPEN_FILES        = 4,
 
     //
     // Access is denied.
     //
-    ERROR_ACCESS_DENIED             =  5L,
+    ERROR_ACCESS_DENIED             =  5,
     ERROR_INVALID_HANDLE         =  6,
     ERROR_ARENA_TRASHED          =  7,
     ERROR_NOT_ENOUGH_MEMORY      =  8,    // dderror
@@ -396,18 +396,15 @@ enum {
     ERROR_HANDLE_EOF                 = 38,
     ERROR_HANDLE_DISK_FULL           = 39,
     ERROR_NOT_SUPPORTED              = 50,
-}
-]]
 
---[[
-//
+    //
 // MessageId: ERROR_REM_NOT_LIST
 //
 // MessageText:
 //
 // Windows cannot find the network path. Verify that the network path is correct and the destination computer is not busy or turned off. If Windows still cannot find the network path, contact your network administrator.
 //
-static const int ERROR_REM_NOT_LIST               51L
+ERROR_REM_NOT_LIST = 51,
 
 //
 // MessageId: ERROR_DUP_NAME
@@ -416,7 +413,7 @@ static const int ERROR_REM_NOT_LIST               51L
 //
 // You were not connected because a duplicate name exists on the network. If joining a domain, go to System in Control Panel to change the computer name and try again. If joining a workgroup, choose another workgroup name.
 //
-static const int ERROR_DUP_NAME                   52L
+    ERROR_DUP_NAME = 52,
 
 //
 // MessageId: ERROR_BAD_NETPATH
@@ -425,7 +422,7 @@ static const int ERROR_DUP_NAME                   52L
 //
 // The network path was not found.
 //
-static const int ERROR_BAD_NETPATH                53L
+    ERROR_BAD_NETPATH = 53,
 
 //
 // MessageId: ERROR_NETWORK_BUSY
@@ -434,7 +431,7 @@ static const int ERROR_BAD_NETPATH                53L
 //
 // The network is busy.
 //
-static const int ERROR_NETWORK_BUSY               54L
+    ERROR_NETWORK_BUSY = 54,
 
 //
 // MessageId: ERROR_DEV_NOT_EXIST
@@ -443,7 +440,7 @@ static const int ERROR_NETWORK_BUSY               54L
 //
 // The specified network resource or device is no longer available.
 //
-static const int ERROR_DEV_NOT_EXIST              55L    // dderror
+    ERROR_DEV_NOT_EXIST = 55,    // dderror
 
 //
 // MessageId: ERROR_TOO_MANY_CMDS
@@ -452,7 +449,7 @@ static const int ERROR_DEV_NOT_EXIST              55L    // dderror
 //
 // The network BIOS command limit has been reached.
 //
-static const int ERROR_TOO_MANY_CMDS              56L
+    ERROR_TOO_MANY_CMDS = 56,
 
 //
 // MessageId: ERROR_ADAP_HDW_ERR
@@ -461,7 +458,7 @@ static const int ERROR_TOO_MANY_CMDS              56L
 //
 // A network adapter hardware error occurred.
 //
-static const int ERROR_ADAP_HDW_ERR               57L
+    ERROR_ADAP_HDW_ERR = 57,
 
 //
 // MessageId: ERROR_BAD_NET_RESP
@@ -470,7 +467,7 @@ static const int ERROR_ADAP_HDW_ERR               57L
 //
 // The specified server cannot perform the requested operation.
 //
-static const int ERROR_BAD_NET_RESP               58L
+    ERROR_BAD_NET_RESP = 58,
 
 //
 // MessageId: ERROR_UNEXP_NET_ERR
@@ -479,7 +476,7 @@ static const int ERROR_BAD_NET_RESP               58L
 //
 // An unexpected network error occurred.
 //
-static const int ERROR_UNEXP_NET_ERR              59L
+    ERROR_UNEXP_NET_ERR = 59,
 
 //
 // MessageId: ERROR_BAD_REM_ADAP
@@ -488,7 +485,7 @@ static const int ERROR_UNEXP_NET_ERR              59L
 //
 // The remote adapter is not compatible.
 //
-static const int ERROR_BAD_REM_ADAP               60L
+    ERROR_BAD_REM_ADAP = 60,
 
 //
 // MessageId: ERROR_PRINTQ_FULL
@@ -497,7 +494,7 @@ static const int ERROR_BAD_REM_ADAP               60L
 //
 // The printer queue is full.
 //
-static const int ERROR_PRINTQ_FULL                61L
+    ERROR_PRINTQ_FULL = 61,
 
 //
 // MessageId: ERROR_NO_SPOOL_SPACE
@@ -506,7 +503,7 @@ static const int ERROR_PRINTQ_FULL                61L
 //
 // Space to store the file waiting to be printed is not available on the server.
 //
-static const int ERROR_NO_SPOOL_SPACE             62L
+    ERROR_NO_SPOOL_SPACE = 62,
 
 //
 // MessageId: ERROR_PRINT_CANCELLED
@@ -515,7 +512,7 @@ static const int ERROR_NO_SPOOL_SPACE             62L
 //
 // Your file waiting to be printed was deleted.
 //
-static const int ERROR_PRINT_CANCELLED            63L
+    ERROR_PRINT_CANCELLED = 63,
 
 //
 // MessageId: ERROR_NETNAME_DELETED
@@ -524,7 +521,7 @@ static const int ERROR_PRINT_CANCELLED            63L
 //
 // The specified network name is no longer available.
 //
-static const int ERROR_NETNAME_DELETED            64L
+    ERROR_NETNAME_DELETED = 64,
 
 //
 // MessageId: ERROR_NETWORK_ACCESS_DENIED
@@ -533,7 +530,7 @@ static const int ERROR_NETNAME_DELETED            64L
 //
 // Network access is denied.
 //
-static const int ERROR_NETWORK_ACCESS_DENIED      65L
+    ERROR_NETWORK_ACCESS_DENIED = 65,
 
 //
 // MessageId: ERROR_BAD_DEV_TYPE
@@ -542,7 +539,7 @@ static const int ERROR_NETWORK_ACCESS_DENIED      65L
 //
 // The network resource type is not correct.
 //
-static const int ERROR_BAD_DEV_TYPE               66L
+    ERROR_BAD_DEV_TYPE = 66,
 
 //
 // MessageId: ERROR_BAD_NET_NAME
@@ -551,7 +548,7 @@ static const int ERROR_BAD_DEV_TYPE               66L
 //
 // The network name cannot be found.
 //
-static const int ERROR_BAD_NET_NAME               67L
+    ERROR_BAD_NET_NAME = 67,
 
 //
 // MessageId: ERROR_TOO_MANY_NAMES
@@ -560,7 +557,7 @@ static const int ERROR_BAD_NET_NAME               67L
 //
 // The name limit for the local computer network adapter card was exceeded.
 //
-static const int ERROR_TOO_MANY_NAMES             68L
+    ERROR_TOO_MANY_NAMES = 68,
 
 //
 // MessageId: ERROR_TOO_MANY_SESS
@@ -569,7 +566,7 @@ static const int ERROR_TOO_MANY_NAMES             68L
 //
 // The network BIOS session limit was exceeded.
 //
-static const int ERROR_TOO_MANY_SESS              69L
+    ERROR_TOO_MANY_SESS = 69,
 
 //
 // MessageId: ERROR_SHARING_PAUSED
@@ -578,7 +575,7 @@ static const int ERROR_TOO_MANY_SESS              69L
 //
 // The remote server has been paused or is in the process of being started.
 //
-static const int ERROR_SHARING_PAUSED             70L
+    ERROR_SHARING_PAUSED = 70,
 
 //
 // MessageId: ERROR_REQ_NOT_ACCEP
@@ -587,7 +584,7 @@ static const int ERROR_SHARING_PAUSED             70L
 //
 // No more connections can be made to this remote computer at this time because there are already as many connections as the computer can accept.
 //
-static const int ERROR_REQ_NOT_ACCEP              71L
+    ERROR_REQ_NOT_ACCEP = 71,
 
 //
 // MessageId: ERROR_REDIR_PAUSED
@@ -596,7 +593,7 @@ static const int ERROR_REQ_NOT_ACCEP              71L
 //
 // The specified printer or disk device has been paused.
 //
-static const int ERROR_REDIR_PAUSED               72L
+    ERROR_REDIR_PAUSED = 72,
 
 //
 // MessageId: ERROR_FILE_EXISTS
@@ -605,7 +602,7 @@ static const int ERROR_REDIR_PAUSED               72L
 //
 // The file exists.
 //
-static const int ERROR_FILE_EXISTS                80L
+    ERROR_FILE_EXISTS = 80,
 
 //
 // MessageId: ERROR_CANNOT_MAKE
@@ -614,7 +611,7 @@ static const int ERROR_FILE_EXISTS                80L
 //
 // The directory or file cannot be created.
 //
-static const int ERROR_CANNOT_MAKE                82L
+    ERROR_CANNOT_MAKE = 82,
 
 //
 // MessageId: ERROR_FAIL_I24
@@ -623,7 +620,7 @@ static const int ERROR_CANNOT_MAKE                82L
 //
 // Fail on INT 24.
 //
-static const int ERROR_FAIL_I24                   83L
+    ERROR_FAIL_I24  = 83,
 
 //
 // MessageId: ERROR_OUT_OF_STRUCTURES
@@ -632,7 +629,7 @@ static const int ERROR_FAIL_I24                   83L
 //
 // Storage to process this request is not available.
 //
-static const int ERROR_OUT_OF_STRUCTURES          84L
+    ERROR_OUT_OF_STRUCTURES = 84,
 
 //
 // MessageId: ERROR_ALREADY_ASSIGNED
@@ -641,19 +638,15 @@ static const int ERROR_OUT_OF_STRUCTURES          84L
 //
 // The local device name is already in use.
 //
-static const int ERROR_ALREADY_ASSIGNED           85L
---]]
+    ERROR_ALREADY_ASSIGNED = 85,
 
-ffi.cdef[[
-static const int ERROR_INVALID_PASSWORD         =  86L;
-static const int ERROR_INVALID_PARAMETER        =  87L;    // dderror
-static const int ERROR_NET_WRITE_FAULT          =  88L;
-static const int ERROR_NO_PROC_SLOTS            =  89L;
-static const int ERROR_TOO_MANY_SEMAPHORES      =  100L;
-static const int ERROR_EXCL_SEM_ALREADY_OWNED   =  101L;
-]]
+    ERROR_INVALID_PASSWORD         =  86,
+    ERROR_INVALID_PARAMETER        =  87,    // dderror
+    ERROR_NET_WRITE_FAULT          =  88,
+    ERROR_NO_PROC_SLOTS            =  89,
+    ERROR_TOO_MANY_SEMAPHORES      =  100,
+    ERROR_EXCL_SEM_ALREADY_OWNED   =  101,
 
-ffi.cdef[[
 //
 // MessageId: ERROR_SEM_IS_SET
 //
@@ -661,7 +654,7 @@ ffi.cdef[[
 //
 // The semaphore is set and cannot be closed.
 //
-static const int ERROR_SEM_IS_SET               =  102L;
+    ERROR_SEM_IS_SET               =  102,
 
 //
 // MessageId: ERROR_TOO_MANY_SEM_REQUESTS
@@ -670,7 +663,7 @@ static const int ERROR_SEM_IS_SET               =  102L;
 //
 // The semaphore cannot be set again.
 //
-static const int ERROR_TOO_MANY_SEM_REQUESTS     = 103L;
+    ERROR_TOO_MANY_SEM_REQUESTS     = 103,
 
 //
 // MessageId: ERROR_INVALID_AT_INTERRUPT_TIME
@@ -679,7 +672,7 @@ static const int ERROR_TOO_MANY_SEM_REQUESTS     = 103L;
 //
 // Cannot request exclusive semaphores at interrupt time.
 //
-static const int ERROR_INVALID_AT_INTERRUPT_TIME = 104L;
+    ERROR_INVALID_AT_INTERRUPT_TIME = 104,
 
 //
 // MessageId: ERROR_SEM_OWNER_DIED
@@ -688,7 +681,7 @@ static const int ERROR_INVALID_AT_INTERRUPT_TIME = 104L;
 //
 // The previous ownership of this semaphore has ended.
 //
-static const int ERROR_SEM_OWNER_DIED            = 105L;
+    ERROR_SEM_OWNER_DIED            = 105,
 
 //
 // MessageId: ERROR_SEM_USER_LIMIT
@@ -697,7 +690,7 @@ static const int ERROR_SEM_OWNER_DIED            = 105L;
 //
 // Insert the diskette for drive %1.
 //
-static const int ERROR_SEM_USER_LIMIT           =  106L;
+    ERROR_SEM_USER_LIMIT           =  106,
 
 //
 // MessageId: ERROR_DISK_CHANGE
@@ -706,7 +699,7 @@ static const int ERROR_SEM_USER_LIMIT           =  106L;
 //
 // The program stopped because an alternate diskette was not inserted.
 //
-static const int ERROR_DISK_CHANGE              =  107L;
+    ERROR_DISK_CHANGE              =  107,
 
 //
 // MessageId: ERROR_DRIVE_LOCKED
@@ -715,7 +708,7 @@ static const int ERROR_DISK_CHANGE              =  107L;
 //
 // The disk is in use or locked by another process.
 //
-static const int ERROR_DRIVE_LOCKED             =  108L;
+    ERROR_DRIVE_LOCKED             =  108,
 
 //
 // MessageId: ERROR_BROKEN_PIPE
@@ -724,7 +717,7 @@ static const int ERROR_DRIVE_LOCKED             =  108L;
 //
 // The pipe has been ended.
 //
-static const int ERROR_BROKEN_PIPE              =  109L;
+    ERROR_BROKEN_PIPE              =  109,
 
 //
 // MessageId: ERROR_OPEN_FAILED
@@ -733,7 +726,7 @@ static const int ERROR_BROKEN_PIPE              =  109L;
 //
 // The system cannot open the device or file specified.
 //
-static const int ERROR_OPEN_FAILED              =  110L;
+    ERROR_OPEN_FAILED              =  110,
 
 //
 // MessageId: ERROR_BUFFER_OVERFLOW
@@ -742,7 +735,7 @@ static const int ERROR_OPEN_FAILED              =  110L;
 //
 // The file name is too long.
 //
-static const int ERROR_BUFFER_OVERFLOW          =  111L;
+    ERROR_BUFFER_OVERFLOW          =  111,
 
 //
 // MessageId: ERROR_DISK_FULL
@@ -751,7 +744,7 @@ static const int ERROR_BUFFER_OVERFLOW          =  111L;
 //
 // There is not enough space on the disk.
 //
-static const int ERROR_DISK_FULL                =  112L;
+    ERROR_DISK_FULL                =  112,
 
 //
 // MessageId: ERROR_NO_MORE_SEARCH_HANDLES
@@ -760,7 +753,7 @@ static const int ERROR_DISK_FULL                =  112L;
 //
 // No more internal file identifiers available.
 //
-static const int ERROR_NO_MORE_SEARCH_HANDLES   =  113L;
+    ERROR_NO_MORE_SEARCH_HANDLES   =  113,
 
 //
 // MessageId: ERROR_INVALID_TARGET_HANDLE
@@ -769,7 +762,7 @@ static const int ERROR_NO_MORE_SEARCH_HANDLES   =  113L;
 //
 // The target internal file identifier is incorrect.
 //
-static const int ERROR_INVALID_TARGET_HANDLE    =  114L;
+    ERROR_INVALID_TARGET_HANDLE    =  114,
 
 //
 // MessageId: ERROR_INVALID_CATEGORY
@@ -778,7 +771,7 @@ static const int ERROR_INVALID_TARGET_HANDLE    =  114L;
 //
 // The IOCTL call made by the application program is not correct.
 //
-static const int ERROR_INVALID_CATEGORY         =  117L;
+    ERROR_INVALID_CATEGORY         =  117,
 
 //
 // MessageId: ERROR_INVALID_VERIFY_SWITCH
@@ -787,7 +780,7 @@ static const int ERROR_INVALID_CATEGORY         =  117L;
 //
 // The verify-on-write switch parameter value is not correct.
 //
-static const int ERROR_INVALID_VERIFY_SWITCH    =  118L;
+    ERROR_INVALID_VERIFY_SWITCH    =  118,
 
 //
 // MessageId: ERROR_BAD_DRIVER_LEVEL
@@ -796,7 +789,7 @@ static const int ERROR_INVALID_VERIFY_SWITCH    =  118L;
 //
 // The system does not support the command requested.
 //
-static const int ERROR_BAD_DRIVER_LEVEL        =   119L;
+    ERROR_BAD_DRIVER_LEVEL        =   119,
 
 //
 // MessageId: ERROR_CALL_NOT_IMPLEMENTED
@@ -805,7 +798,7 @@ static const int ERROR_BAD_DRIVER_LEVEL        =   119L;
 //
 // This function is not supported on this system.
 //
-static const int ERROR_CALL_NOT_IMPLEMENTED    =   120L;
+    ERROR_CALL_NOT_IMPLEMENTED    =   120,
 
 //
 // MessageId: ERROR_SEM_TIMEOUT
@@ -814,7 +807,7 @@ static const int ERROR_CALL_NOT_IMPLEMENTED    =   120L;
 //
 // The semaphore timeout period has expired.
 //
-static const int ERROR_SEM_TIMEOUT             =   121L;
+    ERROR_SEM_TIMEOUT             =   121,
 
 //
 // MessageId: ERROR_INSUFFICIENT_BUFFER
@@ -823,7 +816,7 @@ static const int ERROR_SEM_TIMEOUT             =   121L;
 //
 // The data area passed to a system call is too small.
 //
-static const int ERROR_INSUFFICIENT_BUFFER     =   122L;    // dderror
+    ERROR_INSUFFICIENT_BUFFER     =   122,    // dderror
 
 //
 // MessageId: ERROR_INVALID_NAME
@@ -832,7 +825,7 @@ static const int ERROR_INSUFFICIENT_BUFFER     =   122L;    // dderror
 //
 // The filename, directory name, or volume label syntax is incorrect.
 //
-static const int ERROR_INVALID_NAME             =  123L;    // dderror
+    ERROR_INVALID_NAME             =  123,    // dderror
 
 //
 // MessageId: ERROR_INVALID_LEVEL
@@ -841,7 +834,7 @@ static const int ERROR_INVALID_NAME             =  123L;    // dderror
 //
 // The system call level is not correct.
 //
-static const int ERROR_INVALID_LEVEL           =   124L;
+    ERROR_INVALID_LEVEL           =   124,
 
 //
 // MessageId: ERROR_NO_VOLUME_LABEL
@@ -850,7 +843,7 @@ static const int ERROR_INVALID_LEVEL           =   124L;
 //
 // The disk has no volume label.
 //
-static const int ERROR_NO_VOLUME_LABEL        =    125L;
+    ERROR_NO_VOLUME_LABEL        =    125,
 
 //
 // MessageId: ERROR_MOD_NOT_FOUND
@@ -859,7 +852,7 @@ static const int ERROR_NO_VOLUME_LABEL        =    125L;
 //
 // The specified module could not be found.
 //
-static const int ERROR_MOD_NOT_FOUND           =   126L;
+    ERROR_MOD_NOT_FOUND           =   126,
 
 //
 // MessageId: ERROR_PROC_NOT_FOUND
@@ -868,7 +861,7 @@ static const int ERROR_MOD_NOT_FOUND           =   126L;
 //
 // The specified procedure could not be found.
 //
-static const int ERROR_PROC_NOT_FOUND         =    127L;
+    ERROR_PROC_NOT_FOUND         =    127,
 
 //
 // MessageId: ERROR_WAIT_NO_CHILDREN
@@ -877,7 +870,7 @@ static const int ERROR_PROC_NOT_FOUND         =    127L;
 //
 // There are no child processes to wait for.
 //
-static const int ERROR_WAIT_NO_CHILDREN        =   128L;
+    ERROR_WAIT_NO_CHILDREN        =   128,
 
 //
 // MessageId: ERROR_CHILD_NOT_COMPLETE
@@ -886,7 +879,7 @@ static const int ERROR_WAIT_NO_CHILDREN        =   128L;
 //
 // The %1 application cannot be run in Win32 mode.
 //
-static const int ERROR_CHILD_NOT_COMPLETE      =   129L;
+    ERROR_CHILD_NOT_COMPLETE      =   129,
 
 //
 // MessageId: ERROR_DIRECT_ACCESS_HANDLE
@@ -895,7 +888,7 @@ static const int ERROR_CHILD_NOT_COMPLETE      =   129L;
 //
 // Attempt to use a file handle to an open disk partition for an operation other than raw disk I/O.
 //
-static const int ERROR_DIRECT_ACCESS_HANDLE    =   130L;
+    ERROR_DIRECT_ACCESS_HANDLE    =   130,
 
 //
 // MessageId: ERROR_NEGATIVE_SEEK
@@ -904,7 +897,7 @@ static const int ERROR_DIRECT_ACCESS_HANDLE    =   130L;
 //
 // An attempt was made to move the file pointer before the beginning of the file.
 //
-static const int ERROR_NEGATIVE_SEEK           =   131L;
+    ERROR_NEGATIVE_SEEK           =   131,
 
 //
 // MessageId: ERROR_SEEK_ON_DEVICE
@@ -913,7 +906,7 @@ static const int ERROR_NEGATIVE_SEEK           =   131L;
 //
 // The file pointer cannot be set on the specified device or file.
 //
-static const int ERROR_SEEK_ON_DEVICE          =   132L;
+    ERROR_SEEK_ON_DEVICE          =   132,
 
 //
 // MessageId: ERROR_IS_JOIN_TARGET
@@ -922,7 +915,7 @@ static const int ERROR_SEEK_ON_DEVICE          =   132L;
 //
 // A JOIN or SUBST command cannot be used for a drive that contains previously joined drives.
 //
-static const int ERROR_IS_JOIN_TARGET         =    133L;
+    ERROR_IS_JOIN_TARGET         =    133,
 
 //
 // MessageId: ERROR_IS_JOINED
@@ -931,7 +924,7 @@ static const int ERROR_IS_JOIN_TARGET         =    133L;
 //
 // An attempt was made to use a JOIN or SUBST command on a drive that has already been joined.
 //
-static const int ERROR_IS_JOINED               =   134L;
+    ERROR_IS_JOINED               =   134,
 
 //
 // MessageId: ERROR_IS_SUBSTED
@@ -940,7 +933,7 @@ static const int ERROR_IS_JOINED               =   134L;
 //
 // An attempt was made to use a JOIN or SUBST command on a drive that has already been substituted.
 //
-static const int ERROR_IS_SUBSTED             =    135L;
+    ERROR_IS_SUBSTED             =    135,
 
 //
 // MessageId: ERROR_NOT_JOINED
@@ -949,7 +942,7 @@ static const int ERROR_IS_SUBSTED             =    135L;
 //
 // The system tried to delete the JOIN of a drive that is not joined.
 //
-static const int ERROR_NOT_JOINED             =    136L;
+    ERROR_NOT_JOINED             =    136,
 
 //
 // MessageId: ERROR_NOT_SUBSTED
@@ -958,7 +951,7 @@ static const int ERROR_NOT_JOINED             =    136L;
 //
 // The system tried to delete the substitution of a drive that is not substituted.
 //
-static const int ERROR_NOT_SUBSTED            =    137L;
+    ERROR_NOT_SUBSTED            =    137,
 
 //
 // MessageId: ERROR_JOIN_TO_JOIN
@@ -967,7 +960,7 @@ static const int ERROR_NOT_SUBSTED            =    137L;
 //
 // The system tried to join a drive to a directory on a joined drive.
 //
-static const int ERROR_JOIN_TO_JOIN           =    138L;
+    ERROR_JOIN_TO_JOIN           =    138,
 
 //
 // MessageId: ERROR_SUBST_TO_SUBST
@@ -976,7 +969,7 @@ static const int ERROR_JOIN_TO_JOIN           =    138L;
 //
 // The system tried to substitute a drive to a directory on a substituted drive.
 //
-static const int ERROR_SUBST_TO_SUBST         =    139L;
+    ERROR_SUBST_TO_SUBST         =    139,
 
 //
 // MessageId: ERROR_JOIN_TO_SUBST
@@ -985,7 +978,7 @@ static const int ERROR_SUBST_TO_SUBST         =    139L;
 //
 // The system tried to join a drive to a directory on a substituted drive.
 //
-static const int ERROR_JOIN_TO_SUBST             = 140L;
+    ERROR_JOIN_TO_SUBST             = 140,
 
 //
 // MessageId: ERROR_SUBST_TO_JOIN
@@ -994,7 +987,7 @@ static const int ERROR_JOIN_TO_SUBST             = 140L;
 //
 // The system tried to SUBST a drive to a directory on a joined drive.
 //
-static const int ERROR_SUBST_TO_JOIN             = 141L;
+    ERROR_SUBST_TO_JOIN             = 141,
 
 //
 // MessageId: ERROR_BUSY_DRIVE
@@ -1003,7 +996,7 @@ static const int ERROR_SUBST_TO_JOIN             = 141L;
 //
 // The system cannot perform a JOIN or SUBST at this time.
 //
-static const int ERROR_BUSY_DRIVE                = 142L;
+    ERROR_BUSY_DRIVE                = 142,
 
 //
 // MessageId: ERROR_SAME_DRIVE
@@ -1012,7 +1005,7 @@ static const int ERROR_BUSY_DRIVE                = 142L;
 //
 // The system cannot join or substitute a drive to or for a directory on the same drive.
 //
-static const int ERROR_SAME_DRIVE                = 143L;
+    ERROR_SAME_DRIVE                = 143,
 
 //
 // MessageId: ERROR_DIR_NOT_ROOT
@@ -1021,7 +1014,7 @@ static const int ERROR_SAME_DRIVE                = 143L;
 //
 // The directory is not a subdirectory of the root directory.
 //
-static const int ERROR_DIR_NOT_ROOT              = 144L;
+    ERROR_DIR_NOT_ROOT              = 144,
 
 //
 // MessageId: ERROR_DIR_NOT_EMPTY
@@ -1030,7 +1023,7 @@ static const int ERROR_DIR_NOT_ROOT              = 144L;
 //
 // The directory is not empty.
 //
-static const int ERROR_DIR_NOT_EMPTY             = 145L;
+    ERROR_DIR_NOT_EMPTY             = 145,
 
 //
 // MessageId: ERROR_IS_SUBST_PATH
@@ -1039,7 +1032,7 @@ static const int ERROR_DIR_NOT_EMPTY             = 145L;
 //
 // The path specified is being used in a substitute.
 //
-static const int ERROR_IS_SUBST_PATH             = 146L;
+    ERROR_IS_SUBST_PATH             = 146,
 
 //
 // MessageId: ERROR_IS_JOIN_PATH
@@ -1048,7 +1041,7 @@ static const int ERROR_IS_SUBST_PATH             = 146L;
 //
 // Not enough resources are available to process this command.
 //
-static const int ERROR_IS_JOIN_PATH              = 147L;
+    ERROR_IS_JOIN_PATH              = 147,
 
 //
 // MessageId: ERROR_PATH_BUSY
@@ -1057,7 +1050,7 @@ static const int ERROR_IS_JOIN_PATH              = 147L;
 //
 // The path specified cannot be used at this time.
 //
-static const int ERROR_PATH_BUSY                 = 148L;
+    ERROR_PATH_BUSY                 = 148,
 
 //
 // MessageId: ERROR_IS_SUBST_TARGET
@@ -1066,7 +1059,7 @@ static const int ERROR_PATH_BUSY                 = 148L;
 //
 // An attempt was made to join or substitute a drive for which a directory on the drive is the target of a previous substitute.
 //
-static const int ERROR_IS_SUBST_TARGET           = 149L;
+    ERROR_IS_SUBST_TARGET           = 149,
 
 //
 // MessageId: ERROR_SYSTEM_TRACE
@@ -1075,7 +1068,7 @@ static const int ERROR_IS_SUBST_TARGET           = 149L;
 //
 // System trace information was not specified in your CONFIG.SYS file, or tracing is disallowed.
 //
-static const int ERROR_SYSTEM_TRACE              = 150L;
+    ERROR_SYSTEM_TRACE              = 150,
 
 //
 // MessageId: ERROR_INVALID_EVENT_COUNT
@@ -1084,7 +1077,7 @@ static const int ERROR_SYSTEM_TRACE              = 150L;
 //
 // The number of specified semaphore events for DosMuxSemWait is not correct.
 //
-static const int ERROR_INVALID_EVENT_COUNT       = 151L;
+    ERROR_INVALID_EVENT_COUNT       = 151,
 
 //
 // MessageId: ERROR_TOO_MANY_MUXWAITERS
@@ -1093,7 +1086,7 @@ static const int ERROR_INVALID_EVENT_COUNT       = 151L;
 //
 // DosMuxSemWait did not execute; too many semaphores are already set.
 //
-static const int ERROR_TOO_MANY_MUXWAITERS       = 152L;
+    ERROR_TOO_MANY_MUXWAITERS       = 152,
 
 //
 // MessageId: ERROR_INVALID_LIST_FORMAT
@@ -1102,7 +1095,7 @@ static const int ERROR_TOO_MANY_MUXWAITERS       = 152L;
 //
 // The DosMuxSemWait list is not correct.
 //
-static const int ERROR_INVALID_LIST_FORMAT       = 153L;
+    ERROR_INVALID_LIST_FORMAT       = 153,
 
 //
 // MessageId: ERROR_LABEL_TOO_LONG
@@ -1111,7 +1104,7 @@ static const int ERROR_INVALID_LIST_FORMAT       = 153L;
 //
 // The volume label you entered exceeds the label character limit of the target file system.
 //
-static const int ERROR_LABEL_TOO_LONG            = 154L;
+    ERROR_LABEL_TOO_LONG            = 154,
 
 //
 // MessageId: ERROR_TOO_MANY_TCBS
@@ -1120,7 +1113,7 @@ static const int ERROR_LABEL_TOO_LONG            = 154L;
 //
 // Cannot create another thread.
 //
-static const int ERROR_TOO_MANY_TCBS             = 155L;
+    ERROR_TOO_MANY_TCBS             = 155,
 
 //
 // MessageId: ERROR_SIGNAL_REFUSED
@@ -1129,7 +1122,7 @@ static const int ERROR_TOO_MANY_TCBS             = 155L;
 //
 // The recipient process has refused the signal.
 //
-static const int ERROR_SIGNAL_REFUSED            = 156L;
+    ERROR_SIGNAL_REFUSED            = 156,
 
 //
 // MessageId: ERROR_DISCARDED
@@ -1138,7 +1131,7 @@ static const int ERROR_SIGNAL_REFUSED            = 156L;
 //
 // The segment is already discarded and cannot be locked.
 //
-static const int ERROR_DISCARDED                 = 157L;
+    ERROR_DISCARDED                 = 157,
 
 //
 // MessageId: ERROR_NOT_LOCKED
@@ -1147,7 +1140,7 @@ static const int ERROR_DISCARDED                 = 157L;
 //
 // The segment is already unlocked.
 //
-static const int ERROR_NOT_LOCKED                = 158L;
+    ERROR_NOT_LOCKED                = 158,
 
 //
 // MessageId: ERROR_BAD_THREADID_ADDR
@@ -1156,7 +1149,7 @@ static const int ERROR_NOT_LOCKED                = 158L;
 //
 // The address for the thread ID is not correct.
 //
-static const int ERROR_BAD_THREADID_ADDR         = 159L;
+    ERROR_BAD_THREADID_ADDR         = 159,
 
 //
 // MessageId: ERROR_BAD_ARGUMENTS
@@ -1165,7 +1158,7 @@ static const int ERROR_BAD_THREADID_ADDR         = 159L;
 //
 // One or more arguments are not correct.
 //
-static const int ERROR_BAD_ARGUMENTS             = 160L;
+    ERROR_BAD_ARGUMENTS             = 160,
 
 //
 // MessageId: ERROR_BAD_PATHNAME
@@ -1174,7 +1167,7 @@ static const int ERROR_BAD_ARGUMENTS             = 160L;
 //
 // The specified path is invalid.
 //
-static const int ERROR_BAD_PATHNAME              = 161L;
+    ERROR_BAD_PATHNAME              = 161,
 
 //
 // MessageId: ERROR_SIGNAL_PENDING
@@ -1183,7 +1176,7 @@ static const int ERROR_BAD_PATHNAME              = 161L;
 //
 // A signal is already pending.
 //
-static const int ERROR_SIGNAL_PENDING            = 162L;
+    ERROR_SIGNAL_PENDING            = 162,
 
 //
 // MessageId: ERROR_MAX_THRDS_REACHED
@@ -1192,7 +1185,7 @@ static const int ERROR_SIGNAL_PENDING            = 162L;
 //
 // No more threads can be created in the system.
 //
-static const int ERROR_MAX_THRDS_REACHED         = 164L;
+    ERROR_MAX_THRDS_REACHED         = 164,
 
 //
 // MessageId: ERROR_LOCK_FAILED
@@ -1201,7 +1194,7 @@ static const int ERROR_MAX_THRDS_REACHED         = 164L;
 //
 // Unable to lock a region of a file.
 //
-static const int ERROR_LOCK_FAILED               = 167L;
+    ERROR_LOCK_FAILED               = 167,
 
 //
 // MessageId: ERROR_BUSY
@@ -1210,7 +1203,7 @@ static const int ERROR_LOCK_FAILED               = 167L;
 //
 // The requested resource is in use.
 //
-static const int ERROR_BUSY                      = 170L;    // dderror
+    ERROR_BUSY                      = 170,    // dderror
 
 //
 // MessageId: ERROR_DEVICE_SUPPORT_IN_PROGRESS
@@ -1219,7 +1212,7 @@ static const int ERROR_BUSY                      = 170L;    // dderror
 //
 // Device's command support detection is in progress.
 //
-static const int ERROR_DEVICE_SUPPORT_IN_PROGRESS =171L;
+    ERROR_DEVICE_SUPPORT_IN_PROGRESS = 171,
 
 //
 // MessageId: ERROR_CANCEL_VIOLATION
@@ -1228,7 +1221,7 @@ static const int ERROR_DEVICE_SUPPORT_IN_PROGRESS =171L;
 //
 // A lock request was not outstanding for the supplied cancel region.
 //
-static const int ERROR_CANCEL_VIOLATION          = 173L;
+    ERROR_CANCEL_VIOLATION          = 173,
 
 //
 // MessageId: ERROR_ATOMIC_LOCKS_NOT_SUPPORTED
@@ -1237,7 +1230,7 @@ static const int ERROR_CANCEL_VIOLATION          = 173L;
 //
 // The file system does not support atomic changes to the lock type.
 //
-static const int ERROR_ATOMIC_LOCKS_NOT_SUPPORTED =174L;
+    ERROR_ATOMIC_LOCKS_NOT_SUPPORTED = 174,
 
 //
 // MessageId: ERROR_INVALID_SEGMENT_NUMBER
@@ -1246,7 +1239,7 @@ static const int ERROR_ATOMIC_LOCKS_NOT_SUPPORTED =174L;
 //
 // The system detected a segment number that was not correct.
 //
-static const int ERROR_INVALID_SEGMENT_NUMBER    = 180L;
+    ERROR_INVALID_SEGMENT_NUMBER    = 180,
 
 //
 // MessageId: ERROR_INVALID_ORDINAL
@@ -1255,7 +1248,7 @@ static const int ERROR_INVALID_SEGMENT_NUMBER    = 180L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INVALID_ORDINAL           = 182L;
+    ERROR_INVALID_ORDINAL           = 182,
 
 //
 // MessageId: ERROR_ALREADY_EXISTS
@@ -1264,7 +1257,7 @@ static const int ERROR_INVALID_ORDINAL           = 182L;
 //
 // Cannot create a file when that file already exists.
 //
-static const int ERROR_ALREADY_EXISTS            = 183L;
+    ERROR_ALREADY_EXISTS            = 183,
 
 //
 // MessageId: ERROR_INVALID_FLAG_NUMBER
@@ -1273,7 +1266,7 @@ static const int ERROR_ALREADY_EXISTS            = 183L;
 //
 // The flag passed is not correct.
 //
-static const int ERROR_INVALID_FLAG_NUMBER       = 186L;
+    ERROR_INVALID_FLAG_NUMBER       = 186,
 
 //
 // MessageId: ERROR_SEM_NOT_FOUND
@@ -1282,7 +1275,7 @@ static const int ERROR_INVALID_FLAG_NUMBER       = 186L;
 //
 // The specified system semaphore name was not found.
 //
-static const int ERROR_SEM_NOT_FOUND             = 187L;
+    ERROR_SEM_NOT_FOUND             = 187,
 
 //
 // MessageId: ERROR_INVALID_STARTING_CODESEG
@@ -1291,7 +1284,7 @@ static const int ERROR_SEM_NOT_FOUND             = 187L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INVALID_STARTING_CODESEG  = 188L;
+    ERROR_INVALID_STARTING_CODESEG  = 188,
 
 //
 // MessageId: ERROR_INVALID_STACKSEG
@@ -1300,7 +1293,7 @@ static const int ERROR_INVALID_STARTING_CODESEG  = 188L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INVALID_STACKSEG          = 189L;
+    ERROR_INVALID_STACKSEG          = 189,
 
 //
 // MessageId: ERROR_INVALID_MODULETYPE
@@ -1309,7 +1302,7 @@ static const int ERROR_INVALID_STACKSEG          = 189L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INVALID_MODULETYPE        = 190L;
+    ERROR_INVALID_MODULETYPE        = 190,
 
 //
 // MessageId: ERROR_INVALID_EXE_SIGNATURE
@@ -1318,7 +1311,7 @@ static const int ERROR_INVALID_MODULETYPE        = 190L;
 //
 // Cannot run %1 in Win32 mode.
 //
-static const int ERROR_INVALID_EXE_SIGNATURE     = 191L;
+    ERROR_INVALID_EXE_SIGNATURE     = 191,
 
 //
 // MessageId: ERROR_EXE_MARKED_INVALID
@@ -1327,7 +1320,7 @@ static const int ERROR_INVALID_EXE_SIGNATURE     = 191L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_EXE_MARKED_INVALID        = 192L;
+    ERROR_EXE_MARKED_INVALID        = 192,
 
 //
 // MessageId: ERROR_BAD_EXE_FORMAT
@@ -1336,7 +1329,7 @@ static const int ERROR_EXE_MARKED_INVALID        = 192L;
 //
 // %1 is not a valid Win32 application.
 //
-static const int ERROR_BAD_EXE_FORMAT            = 193L;
+    ERROR_BAD_EXE_FORMAT            = 193,
 
 //
 // MessageId: ERROR_ITERATED_DATA_EXCEEDS_64k
@@ -1345,7 +1338,7 @@ static const int ERROR_BAD_EXE_FORMAT            = 193L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_ITERATED_DATA_EXCEEDS_64k = 194L;
+    ERROR_ITERATED_DATA_EXCEEDS_64k = 194,
 
 //
 // MessageId: ERROR_INVALID_MINALLOCSIZE
@@ -1354,7 +1347,7 @@ static const int ERROR_ITERATED_DATA_EXCEEDS_64k = 194L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INVALID_MINALLOCSIZE      = 195L;
+    ERROR_INVALID_MINALLOCSIZE      = 195,
 
 //
 // MessageId: ERROR_DYNLINK_FROM_INVALID_RING
@@ -1363,7 +1356,7 @@ static const int ERROR_INVALID_MINALLOCSIZE      = 195L;
 //
 // The operating system cannot run this application program.
 //
-static const int ERROR_DYNLINK_FROM_INVALID_RING = 196L;
+    ERROR_DYNLINK_FROM_INVALID_RING = 196,
 
 //
 // MessageId: ERROR_IOPL_NOT_ENABLED
@@ -1372,7 +1365,7 @@ static const int ERROR_DYNLINK_FROM_INVALID_RING = 196L;
 //
 // The operating system is not presently configured to run this application.
 //
-static const int ERROR_IOPL_NOT_ENABLED          = 197L;
+    ERROR_IOPL_NOT_ENABLED          = 197,
 
 //
 // MessageId: ERROR_INVALID_SEGDPL
@@ -1381,7 +1374,7 @@ static const int ERROR_IOPL_NOT_ENABLED          = 197L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INVALID_SEGDPL            = 198L;
+    ERROR_INVALID_SEGDPL            = 198,
 
 //
 // MessageId: ERROR_AUTODATASEG_EXCEEDS_64k
@@ -1390,7 +1383,7 @@ static const int ERROR_INVALID_SEGDPL            = 198L;
 //
 // The operating system cannot run this application program.
 //
-static const int ERROR_AUTODATASEG_EXCEEDS_64k   = 199L;
+    ERROR_AUTODATASEG_EXCEEDS_64k   = 199,
 
 //
 // MessageId: ERROR_RING2SEG_MUST_BE_MOVABLE
@@ -1399,7 +1392,7 @@ static const int ERROR_AUTODATASEG_EXCEEDS_64k   = 199L;
 //
 // The code segment cannot be greater than or equal to 64K.
 //
-static const int ERROR_RING2SEG_MUST_BE_MOVABLE  = 200L;
+    ERROR_RING2SEG_MUST_BE_MOVABLE  = 200,
 
 //
 // MessageId: ERROR_RELOC_CHAIN_XEEDS_SEGLIM
@@ -1408,7 +1401,7 @@ static const int ERROR_RING2SEG_MUST_BE_MOVABLE  = 200L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_RELOC_CHAIN_XEEDS_SEGLIM  = 201L;
+    ERROR_RELOC_CHAIN_XEEDS_SEGLIM  = 201,
 
 //
 // MessageId: ERROR_INFLOOP_IN_RELOC_CHAIN
@@ -1417,7 +1410,7 @@ static const int ERROR_RELOC_CHAIN_XEEDS_SEGLIM  = 201L;
 //
 // The operating system cannot run %1.
 //
-static const int ERROR_INFLOOP_IN_RELOC_CHAIN    = 202L;
+    ERROR_INFLOOP_IN_RELOC_CHAIN    = 202,
 
 //
 // MessageId: ERROR_ENVVAR_NOT_FOUND
@@ -1426,7 +1419,7 @@ static const int ERROR_INFLOOP_IN_RELOC_CHAIN    = 202L;
 //
 // The system could not find the environment option that was entered.
 //
-static const int ERROR_ENVVAR_NOT_FOUND          = 203L;
+    ERROR_ENVVAR_NOT_FOUND          = 203,
 
 //
 // MessageId: ERROR_NO_SIGNAL_SENT
@@ -1435,7 +1428,7 @@ static const int ERROR_ENVVAR_NOT_FOUND          = 203L;
 //
 // No process in the command subtree has a signal handler.
 //
-static const int ERROR_NO_SIGNAL_SENT            = 205L;
+    ERROR_NO_SIGNAL_SENT            = 205,
 
 //
 // MessageId: ERROR_FILENAME_EXCED_RANGE
@@ -1444,7 +1437,7 @@ static const int ERROR_NO_SIGNAL_SENT            = 205L;
 //
 // The filename or extension is too long.
 //
-static const int ERROR_FILENAME_EXCED_RANGE      = 206L;
+    ERROR_FILENAME_EXCED_RANGE      = 206,
 
 //
 // MessageId: ERROR_RING2_STACK_IN_USE
@@ -1453,7 +1446,7 @@ static const int ERROR_FILENAME_EXCED_RANGE      = 206L;
 //
 // The ring 2 stack is in use.
 //
-static const int ERROR_RING2_STACK_IN_USE        = 207L;
+    ERROR_RING2_STACK_IN_USE        = 207,
 
 //
 // MessageId: ERROR_META_EXPANSION_TOO_LONG
@@ -1462,7 +1455,7 @@ static const int ERROR_RING2_STACK_IN_USE        = 207L;
 //
 // The global filename characters, * or ?, are entered incorrectly or too many global filename characters are specified.
 //
-static const int ERROR_META_EXPANSION_TOO_LONG   = 208L;
+    ERROR_META_EXPANSION_TOO_LONG   = 208,
 
 //
 // MessageId: ERROR_INVALID_SIGNAL_NUMBER
@@ -1471,7 +1464,7 @@ static const int ERROR_META_EXPANSION_TOO_LONG   = 208L;
 //
 // The signal being posted is not correct.
 //
-static const int ERROR_INVALID_SIGNAL_NUMBER     = 209L;
+    ERROR_INVALID_SIGNAL_NUMBER     = 209,
 
 //
 // MessageId: ERROR_THREAD_1_INACTIVE
@@ -1480,7 +1473,7 @@ static const int ERROR_INVALID_SIGNAL_NUMBER     = 209L;
 //
 // The signal handler cannot be set.
 //
-static const int ERROR_THREAD_1_INACTIVE         = 210L;
+    ERROR_THREAD_1_INACTIVE         = 210,
 
 //
 // MessageId: ERROR_LOCKED
@@ -1489,7 +1482,7 @@ static const int ERROR_THREAD_1_INACTIVE         = 210L;
 //
 // The segment is locked and cannot be reallocated.
 //
-static const int ERROR_LOCKED                    = 212L;
+    ERROR_LOCKED                    = 212,
 
 //
 // MessageId: ERROR_TOO_MANY_MODULES
@@ -1498,7 +1491,7 @@ static const int ERROR_LOCKED                    = 212L;
 //
 // Too many dynamic-link modules are attached to this program or dynamic-link module.
 //
-static const int ERROR_TOO_MANY_MODULES          = 214L;
+    ERROR_TOO_MANY_MODULES          = 214,
 
 //
 // MessageId: ERROR_NESTING_NOT_ALLOWED
@@ -1507,7 +1500,7 @@ static const int ERROR_TOO_MANY_MODULES          = 214L;
 //
 // Cannot nest calls to LoadModule.
 //
-static const int ERROR_NESTING_NOT_ALLOWED       = 215L;
+    ERROR_NESTING_NOT_ALLOWED       = 215,
 
 //
 // MessageId: ERROR_EXE_MACHINE_TYPE_MISMATCH
@@ -1516,7 +1509,7 @@ static const int ERROR_NESTING_NOT_ALLOWED       = 215L;
 //
 // This version of %1 is not compatible with the version of Windows you're running. Check your computer's system information and then contact the software publisher.
 //
-static const int ERROR_EXE_MACHINE_TYPE_MISMATCH  =216L;
+    ERROR_EXE_MACHINE_TYPE_MISMATCH  = 216,
 
 //
 // MessageId: ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY
@@ -1525,7 +1518,7 @@ static const int ERROR_EXE_MACHINE_TYPE_MISMATCH  =216L;
 //
 // The image file %1 is signed, unable to modify.
 //
-static const int ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY =217L;
+    ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY = 217,
 
 //
 // MessageId: ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY
@@ -1534,7 +1527,7 @@ static const int ERROR_EXE_CANNOT_MODIFY_SIGNED_BINARY =217L;
 //
 // The image file %1 is strong signed, unable to modify.
 //
-static const int ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY =218L;
+    ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY = 218,
 
 //
 // MessageId: ERROR_FILE_CHECKED_OUT
@@ -1543,7 +1536,7 @@ static const int ERROR_EXE_CANNOT_MODIFY_STRONG_SIGNED_BINARY =218L;
 //
 // This file is checked out or locked for editing by another user.
 //
-static const int ERROR_FILE_CHECKED_OUT          = 220L;
+    ERROR_FILE_CHECKED_OUT          = 220,
 
 //
 // MessageId: ERROR_CHECKOUT_REQUIRED
@@ -1552,7 +1545,7 @@ static const int ERROR_FILE_CHECKED_OUT          = 220L;
 //
 // The file must be checked out before saving changes.
 //
-static const int ERROR_CHECKOUT_REQUIRED         = 221L;
+    ERROR_CHECKOUT_REQUIRED         = 221,
 
 //
 // MessageId: ERROR_BAD_FILE_TYPE
@@ -1561,7 +1554,7 @@ static const int ERROR_CHECKOUT_REQUIRED         = 221L;
 //
 // The file type being saved or retrieved has been blocked.
 //
-static const int ERROR_BAD_FILE_TYPE            =  222L;
+    ERROR_BAD_FILE_TYPE            =  222,
 
 //
 // MessageId: ERROR_FILE_TOO_LARGE
@@ -1570,7 +1563,7 @@ static const int ERROR_BAD_FILE_TYPE            =  222L;
 //
 // The file size exceeds the limit allowed and cannot be saved.
 //
-static const int ERROR_FILE_TOO_LARGE            = 223L;
+    ERROR_FILE_TOO_LARGE            = 223,
 
 //
 // MessageId: ERROR_FORMS_AUTH_REQUIRED
@@ -1579,7 +1572,7 @@ static const int ERROR_FILE_TOO_LARGE            = 223L;
 //
 // Access Denied. Before opening files in this location, you must first add the web site to your trusted sites list, browse to the web site, and select the option to login automatically.
 //
-static const int ERROR_FORMS_AUTH_REQUIRED       = 224L;
+    ERROR_FORMS_AUTH_REQUIRED       = 224,
 
 //
 // MessageId: ERROR_VIRUS_INFECTED
@@ -1588,7 +1581,7 @@ static const int ERROR_FORMS_AUTH_REQUIRED       = 224L;
 //
 // Operation did not complete successfully because the file contains a virus or potentially unwanted software.
 //
-static const int ERROR_VIRUS_INFECTED            = 225L;
+    ERROR_VIRUS_INFECTED            = 225,
 
 //
 // MessageId: ERROR_VIRUS_DELETED
@@ -1597,7 +1590,7 @@ static const int ERROR_VIRUS_INFECTED            = 225L;
 //
 // This file contains a virus or potentially unwanted software and cannot be opened. Due to the nature of this virus or potentially unwanted software, the file has been removed from this location.
 //
-static const int ERROR_VIRUS_DELETED             = 226L;
+    ERROR_VIRUS_DELETED             = 226,
 
 //
 // MessageId: ERROR_PIPE_LOCAL
@@ -1606,7 +1599,7 @@ static const int ERROR_VIRUS_DELETED             = 226L;
 //
 // The pipe is local.
 //
-static const int ERROR_PIPE_LOCAL                = 229L;
+    ERROR_PIPE_LOCAL                = 229,
 
 //
 // MessageId: ERROR_BAD_PIPE
@@ -1615,7 +1608,7 @@ static const int ERROR_PIPE_LOCAL                = 229L;
 //
 // The pipe state is invalid.
 //
-static const int ERROR_BAD_PIPE                  = 230L;
+    ERROR_BAD_PIPE                  = 230,
 
 //
 // MessageId: ERROR_PIPE_BUSY
@@ -1624,7 +1617,7 @@ static const int ERROR_BAD_PIPE                  = 230L;
 //
 // All pipe instances are busy.
 //
-static const int ERROR_PIPE_BUSY                 = 231L;
+    ERROR_PIPE_BUSY                 = 231,
 
 //
 // MessageId: ERROR_NO_DATA
@@ -1633,7 +1626,7 @@ static const int ERROR_PIPE_BUSY                 = 231L;
 //
 // The pipe is being closed.
 //
-static const int ERROR_NO_DATA                   = 232L;
+    ERROR_NO_DATA                   = 232,
 
 //
 // MessageId: ERROR_PIPE_NOT_CONNECTED
@@ -1642,13 +1635,11 @@ static const int ERROR_NO_DATA                   = 232L;
 //
 // No process is on the other end of the pipe.
 //
-static const int ERROR_PIPE_NOT_CONNECTED        = 233L;
-]]
+    ERROR_PIPE_NOT_CONNECTED        = 233,
 
-ffi.cdef[[
 // More data is available.
 //
-static const int ERROR_MORE_DATA                 = 234L;  // dderror
+    ERROR_MORE_DATA                 = 234,  // dderror
 
 //
 // MessageId: ERROR_NO_WORK_DONE
@@ -1657,7 +1648,7 @@ static const int ERROR_MORE_DATA                 = 234L;  // dderror
 //
 // The action requested resulted in no work being done. Error-style clean-up has been performed.
 //
-static const int ERROR_NO_WORK_DONE              = 235L;
+    ERROR_NO_WORK_DONE              = 235,
 
 //
 // MessageId: ERROR_VC_DISCONNECTED
@@ -1666,7 +1657,7 @@ static const int ERROR_NO_WORK_DONE              = 235L;
 //
 // The session was canceled.
 //
-static const int ERROR_VC_DISCONNECTED           = 240L;
+    ERROR_VC_DISCONNECTED           = 240,
 
 //
 // MessageId: ERROR_INVALID_EA_NAME
@@ -1675,7 +1666,7 @@ static const int ERROR_VC_DISCONNECTED           = 240L;
 //
 // The specified extended attribute name was invalid.
 //
-static const int ERROR_INVALID_EA_NAME           = 254L;
+    ERROR_INVALID_EA_NAME           = 254,
 
 //
 // MessageId: ERROR_EA_LIST_INCONSISTENT
@@ -1684,72 +1675,29 @@ static const int ERROR_INVALID_EA_NAME           = 254L;
 //
 // The extended attributes are inconsistent.
 //
-static const int ERROR_EA_LIST_INCONSISTENT      = 255L;
-]]
+    ERROR_EA_LIST_INCONSISTENT      = 255,
+    WAIT_TIMEOUT                    = 258,    // dderror
+    ERROR_NO_MORE_ITEMS             = 259,
 
-ffi.cdef[[
-
-static const int WAIT_TIMEOUT                    = 258L;    // dderror
-static const int ERROR_NO_MORE_ITEMS             = 259L;
-]]
-
---[[
-
-static const int ERROR_CANNOT_COPY               = 266L
-
-
-static const int ERROR_DIRECTORY                 = 267L
-
-static const int ERROR_EAS_DIDNT_FIT             = 275L
-
-
-static const int ERROR_EA_FILE_CORRUPT           = 276L
-
-
-static const int ERROR_EA_TABLE_FULL             = 277L
-
-
-static const int ERROR_INVALID_EA_HANDLE         = 278L
-
-
-static const int ERROR_EAS_NOT_SUPPORTED         = 282L
-
-
-static const int ERROR_NOT_OWNER                =  288L
-
-
-static const int ERROR_TOO_MANY_POSTS             298L
-
-
-static const int ERROR_PARTIAL_COPY               299L
-
-
-static const int ERROR_OPLOCK_NOT_GRANTED         300L
-
-
-static const int ERROR_INVALID_OPLOCK_PROTOCOL    301L
-
-
-static const int ERROR_DISK_TOO_FRAGMENTED        302L
-
-
-static const int ERROR_DELETE_PENDING             303L
-
-
-static const int ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING 304L
-
-
-static const int ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME 305L
-
-
-static const int ERROR_SECURITY_STREAM_IS_INCONSISTENT 306L
-
-
-static const int ERROR_INVALID_LOCK_RANGE         307L
-
-
-static const int ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT 308L
-
+    ERROR_CANNOT_COPY               = 266,
+    ERROR_DIRECTORY                 = 267,
+    ERROR_EAS_DIDNT_FIT             = 275,
+    ERROR_EA_FILE_CORRUPT           = 276,
+    ERROR_EA_TABLE_FULL             = 277,
+    ERROR_INVALID_EA_HANDLE         = 278,
+    ERROR_EAS_NOT_SUPPORTED         = 282,
+    ERROR_NOT_OWNER                 = 288,
+    ERROR_TOO_MANY_POSTS = 298,
+    ERROR_PARTIAL_COPY = 299,
+    ERROR_OPLOCK_NOT_GRANTED = 300,
+    ERROR_INVALID_OPLOCK_PROTOCOL = 301,
+    ERROR_DISK_TOO_FRAGMENTED = 302,
+    ERROR_DELETE_PENDING = 303,
+    ERROR_INCOMPATIBLE_WITH_GLOBAL_SHORT_NAME_REGISTRY_SETTING = 304,
+    ERROR_SHORT_NAMES_NOT_ENABLED_ON_VOLUME = 305,
+    ERROR_SECURITY_STREAM_IS_INCONSISTENT = 306,
+    ERROR_INVALID_LOCK_RANGE = 307,
+    ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT = 308,
 //
 // MessageId: ERROR_NOTIFICATION_GUID_ALREADY_DEFINED
 //
@@ -1757,7 +1705,7 @@ static const int ERROR_IMAGE_SUBSYSTEM_NOT_PRESENT 308L
 //
 // The specified file already has a notification GUID associated with it.
 //
-static const int ERROR_NOTIFICATION_GUID_ALREADY_DEFINED 309L
+    ERROR_NOTIFICATION_GUID_ALREADY_DEFINED = 309,
 
 //
 // MessageId: ERROR_INVALID_EXCEPTION_HANDLER
@@ -1766,7 +1714,7 @@ static const int ERROR_NOTIFICATION_GUID_ALREADY_DEFINED 309L
 //
 // An invalid exception handler routine has been detected.
 //
-static const int ERROR_INVALID_EXCEPTION_HANDLER  310L
+    ERROR_INVALID_EXCEPTION_HANDLER = 310,
 
 //
 // MessageId: ERROR_DUPLICATE_PRIVILEGES
@@ -1775,7 +1723,7 @@ static const int ERROR_INVALID_EXCEPTION_HANDLER  310L
 //
 // Duplicate privileges were specified for the token.
 //
-static const int ERROR_DUPLICATE_PRIVILEGES       311L
+    ERROR_DUPLICATE_PRIVILEGES = 311,
 
 //
 // MessageId: ERROR_NO_RANGES_PROCESSED
@@ -1784,7 +1732,7 @@ static const int ERROR_DUPLICATE_PRIVILEGES       311L
 //
 // No ranges for the specified operation were able to be processed.
 //
-static const int ERROR_NO_RANGES_PROCESSED        312L
+    ERROR_NO_RANGES_PROCESSED = 312,
 
 //
 // MessageId: ERROR_NOT_ALLOWED_ON_SYSTEM_FILE
@@ -1793,7 +1741,7 @@ static const int ERROR_NO_RANGES_PROCESSED        312L
 //
 // Operation is not allowed on a file system internal file.
 //
-static const int ERROR_NOT_ALLOWED_ON_SYSTEM_FILE 313L
+    ERROR_NOT_ALLOWED_ON_SYSTEM_FILE = 313,
 
 //
 // MessageId: ERROR_DISK_RESOURCES_EXHAUSTED
@@ -1802,7 +1750,7 @@ static const int ERROR_NOT_ALLOWED_ON_SYSTEM_FILE 313L
 //
 // The physical resources of this disk have been exhausted.
 //
-static const int ERROR_DISK_RESOURCES_EXHAUSTED   314L
+    ERROR_DISK_RESOURCES_EXHAUSTED = 314,
 
 //
 // MessageId: ERROR_INVALID_TOKEN
@@ -1811,7 +1759,7 @@ static const int ERROR_DISK_RESOURCES_EXHAUSTED   314L
 //
 // The token representing the data is invalid.
 //
-static const int ERROR_INVALID_TOKEN              315L
+    ERROR_INVALID_TOKEN = 315,
 
 //
 // MessageId: ERROR_DEVICE_FEATURE_NOT_SUPPORTED
@@ -1820,16 +1768,16 @@ static const int ERROR_INVALID_TOKEN              315L
 //
 // The device does not support the command feature.
 //
-static const int ERROR_DEVICE_FEATURE_NOT_SUPPORTED 316L
+    ERROR_DEVICE_FEATURE_NOT_SUPPORTED = 316,
 
 //
 // MessageId: ERROR_MR_MID_NOT_FOUND
 //
 // MessageText:
 //
-// The system cannot find message text for message number 0x%1 in the message file for %2.
+// The system cannot find message text for message number = 0,x%1 in the message file for %2.
 //
-static const int ERROR_MR_MID_NOT_FOUND           317L
+    ERROR_MR_MID_NOT_FOUND = 317,
 
 //
 // MessageId: ERROR_SCOPE_NOT_FOUND
@@ -1838,7 +1786,7 @@ static const int ERROR_MR_MID_NOT_FOUND           317L
 //
 // The scope specified was not found.
 //
-static const int ERROR_SCOPE_NOT_FOUND            318L
+    ERROR_SCOPE_NOT_FOUND = 318,
 
 //
 // MessageId: ERROR_UNDEFINED_SCOPE
@@ -1847,7 +1795,7 @@ static const int ERROR_SCOPE_NOT_FOUND            318L
 //
 // The Central Access Policy specified is not defined on the target machine.
 //
-static const int ERROR_UNDEFINED_SCOPE            319L
+    ERROR_UNDEFINED_SCOPE = 319,
 
 //
 // MessageId: ERROR_INVALID_CAP
@@ -1856,7 +1804,7 @@ static const int ERROR_UNDEFINED_SCOPE            319L
 //
 // The Central Access Policy obtained from Active Directory is invalid.
 //
-static const int ERROR_INVALID_CAP                320L
+    ERROR_INVALID_CAP = 320,
 
 //
 // MessageId: ERROR_DEVICE_UNREACHABLE
@@ -1865,7 +1813,7 @@ static const int ERROR_INVALID_CAP                320L
 //
 // The device is unreachable.
 //
-static const int ERROR_DEVICE_UNREACHABLE         321L
+    ERROR_DEVICE_UNREACHABLE = 321,
 
 //
 // MessageId: ERROR_DEVICE_NO_RESOURCES
@@ -1874,7 +1822,7 @@ static const int ERROR_DEVICE_UNREACHABLE         321L
 //
 // The target device has insufficient resources to complete the operation.
 //
-static const int ERROR_DEVICE_NO_RESOURCES        322L
+    ERROR_DEVICE_NO_RESOURCES = 322,
 
 //
 // MessageId: ERROR_DATA_CHECKSUM_ERROR
@@ -1883,7 +1831,7 @@ static const int ERROR_DEVICE_NO_RESOURCES        322L
 //
 // A data integrity checksum error occurred. Data in the file stream is corrupt.
 //
-static const int ERROR_DATA_CHECKSUM_ERROR        323L
+    ERROR_DATA_CHECKSUM_ERROR = 323,
 
 //
 // MessageId: ERROR_INTERMIXED_KERNEL_EA_OPERATION
@@ -1892,7 +1840,7 @@ static const int ERROR_DATA_CHECKSUM_ERROR        323L
 //
 // An attempt was made to modify both a KERNEL and normal Extended Attribute (EA) in the same operation.
 //
-static const int ERROR_INTERMIXED_KERNEL_EA_OPERATION 324L
+    ERROR_INTERMIXED_KERNEL_EA_OPERATION = 324,
 
 //
 // MessageId: ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED
@@ -1901,7 +1849,7 @@ static const int ERROR_INTERMIXED_KERNEL_EA_OPERATION 324L
 //
 // Device does not support file-level TRIM.
 //
-static const int ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED 326L
+    ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED = 326,
 
 //
 // MessageId: ERROR_OFFSET_ALIGNMENT_VIOLATION
@@ -1910,7 +1858,7 @@ static const int ERROR_FILE_LEVEL_TRIM_NOT_SUPPORTED 326L
 //
 // The command specified a data offset that does not align to the device's granularity/alignment.
 //
-static const int ERROR_OFFSET_ALIGNMENT_VIOLATION 327L
+    ERROR_OFFSET_ALIGNMENT_VIOLATION = 327,
 
 //
 // MessageId: ERROR_INVALID_FIELD_IN_PARAMETER_LIST
@@ -1919,7 +1867,7 @@ static const int ERROR_OFFSET_ALIGNMENT_VIOLATION 327L
 //
 // The command specified an invalid field in its parameter list.
 //
-static const int ERROR_INVALID_FIELD_IN_PARAMETER_LIST 328L
+    ERROR_INVALID_FIELD_IN_PARAMETER_LIST = 328,
 
 //
 // MessageId: ERROR_OPERATION_IN_PROGRESS
@@ -1928,7 +1876,7 @@ static const int ERROR_INVALID_FIELD_IN_PARAMETER_LIST 328L
 //
 // An operation is currently in progress with the device.
 //
-static const int ERROR_OPERATION_IN_PROGRESS      329L
+    ERROR_OPERATION_IN_PROGRESS = 329,
 
 //
 // MessageId: ERROR_BAD_DEVICE_PATH
@@ -1937,7 +1885,7 @@ static const int ERROR_OPERATION_IN_PROGRESS      329L
 //
 // An attempt was made to send down the command via an invalid path to the target device.
 //
-static const int ERROR_BAD_DEVICE_PATH            330L
+    ERROR_BAD_DEVICE_PATH = 330,
 
 //
 // MessageId: ERROR_TOO_MANY_DESCRIPTORS
@@ -1946,7 +1894,7 @@ static const int ERROR_BAD_DEVICE_PATH            330L
 //
 // The command specified a number of descriptors that exceeded the maximum supported by the device.
 //
-static const int ERROR_TOO_MANY_DESCRIPTORS       331L
+    ERROR_TOO_MANY_DESCRIPTORS = 331,
 
 //
 // MessageId: ERROR_SCRUB_DATA_DISABLED
@@ -1955,7 +1903,7 @@ static const int ERROR_TOO_MANY_DESCRIPTORS       331L
 //
 // Scrub is disabled on the specified file.
 //
-static const int ERROR_SCRUB_DATA_DISABLED        332L
+    ERROR_SCRUB_DATA_DISABLED = 332,
 
 //
 // MessageId: ERROR_NOT_REDUNDANT_STORAGE
@@ -1964,7 +1912,7 @@ static const int ERROR_SCRUB_DATA_DISABLED        332L
 //
 // The storage device does not provide redundancy.
 //
-static const int ERROR_NOT_REDUNDANT_STORAGE      333L
+    ERROR_NOT_REDUNDANT_STORAGE = 333,
 
 //
 // MessageId: ERROR_RESIDENT_FILE_NOT_SUPPORTED
@@ -1973,7 +1921,7 @@ static const int ERROR_NOT_REDUNDANT_STORAGE      333L
 //
 // An operation is not supported on a resident file.
 //
-static const int ERROR_RESIDENT_FILE_NOT_SUPPORTED 334L
+    ERROR_RESIDENT_FILE_NOT_SUPPORTED = 334,
 
 //
 // MessageId: ERROR_COMPRESSED_FILE_NOT_SUPPORTED
@@ -1982,7 +1930,7 @@ static const int ERROR_RESIDENT_FILE_NOT_SUPPORTED 334L
 //
 // An operation is not supported on a compressed file.
 //
-static const int ERROR_COMPRESSED_FILE_NOT_SUPPORTED 335L
+    ERROR_COMPRESSED_FILE_NOT_SUPPORTED = 335,
 
 //
 // MessageId: ERROR_DIRECTORY_NOT_SUPPORTED
@@ -1991,7 +1939,7 @@ static const int ERROR_COMPRESSED_FILE_NOT_SUPPORTED 335L
 //
 // An operation is not supported on a directory.
 //
-static const int ERROR_DIRECTORY_NOT_SUPPORTED    336L
+    ERROR_DIRECTORY_NOT_SUPPORTED = 336,
 
 //
 // MessageId: ERROR_NOT_READ_FROM_COPY
@@ -2000,7 +1948,7 @@ static const int ERROR_DIRECTORY_NOT_SUPPORTED    336L
 //
 // The specified copy of the requested data could not be read.
 //
-static const int ERROR_NOT_READ_FROM_COPY         337L
+    ERROR_NOT_READ_FROM_COPY = 337,
 
 //
 // MessageId: ERROR_FT_WRITE_FAILURE
@@ -2009,7 +1957,7 @@ static const int ERROR_NOT_READ_FROM_COPY         337L
 //
 // The specified data could not be written to any of the copies.
 //
-static const int ERROR_FT_WRITE_FAILURE           338L
+    ERROR_FT_WRITE_FAILURE = 338,
 
 //
 // MessageId: ERROR_FT_DI_SCAN_REQUIRED
@@ -2018,7 +1966,7 @@ static const int ERROR_FT_WRITE_FAILURE           338L
 //
 // One or more copies of data on this device may be out of sync. No writes may be performed until a data integrity scan is completed.
 //
-static const int ERROR_FT_DI_SCAN_REQUIRED        339L
+    ERROR_FT_DI_SCAN_REQUIRED = 339,
 
 //
 // MessageId: ERROR_INVALID_KERNEL_INFO_VERSION
@@ -2027,7 +1975,7 @@ static const int ERROR_FT_DI_SCAN_REQUIRED        339L
 //
 // The supplied kernel information version is invalid.
 //
-static const int ERROR_INVALID_KERNEL_INFO_VERSION 340L
+    ERROR_INVALID_KERNEL_INFO_VERSION = 340,
 
 //
 // MessageId: ERROR_INVALID_PEP_INFO_VERSION
@@ -2036,7 +1984,7 @@ static const int ERROR_INVALID_KERNEL_INFO_VERSION 340L
 //
 // The supplied PEP information version is invalid.
 //
-static const int ERROR_INVALID_PEP_INFO_VERSION   341L
+    ERROR_INVALID_PEP_INFO_VERSION = 341,
 
 //
 // MessageId: ERROR_OBJECT_NOT_EXTERNALLY_BACKED
@@ -2045,7 +1993,7 @@ static const int ERROR_INVALID_PEP_INFO_VERSION   341L
 //
 // This object is not externally backed by any provider.
 //
-static const int ERROR_OBJECT_NOT_EXTERNALLY_BACKED 342L
+    ERROR_OBJECT_NOT_EXTERNALLY_BACKED = 342,
 
 //
 // MessageId: ERROR_EXTERNAL_BACKING_PROVIDER_UNKNOWN
@@ -2054,7 +2002,7 @@ static const int ERROR_OBJECT_NOT_EXTERNALLY_BACKED 342L
 //
 // The external backing provider is not recognized.
 //
-static const int ERROR_EXTERNAL_BACKING_PROVIDER_UNKNOWN 343L
+    ERROR_EXTERNAL_BACKING_PROVIDER_UNKNOWN = 343,
 
 //
 // MessageId: ERROR_COMPRESSION_NOT_BENEFICIAL
@@ -2063,7 +2011,7 @@ static const int ERROR_EXTERNAL_BACKING_PROVIDER_UNKNOWN 343L
 //
 // Compressing this object would not save space.
 //
-static const int ERROR_COMPRESSION_NOT_BENEFICIAL 344L
+    ERROR_COMPRESSION_NOT_BENEFICIAL = 344,
 
 //
 // MessageId: ERROR_STORAGE_TOPOLOGY_ID_MISMATCH
@@ -2072,7 +2020,7 @@ static const int ERROR_COMPRESSION_NOT_BENEFICIAL 344L
 //
 // The request failed due to a storage topology ID mismatch.
 //
-static const int ERROR_STORAGE_TOPOLOGY_ID_MISMATCH 345L
+    ERROR_STORAGE_TOPOLOGY_ID_MISMATCH = 345,
 
 //
 // MessageId: ERROR_BLOCKED_BY_PARENTAL_CONTROLS
@@ -2081,7 +2029,7 @@ static const int ERROR_STORAGE_TOPOLOGY_ID_MISMATCH 345L
 //
 // The operation was blocked by parental controls.
 //
-static const int ERROR_BLOCKED_BY_PARENTAL_CONTROLS 346L
+    ERROR_BLOCKED_BY_PARENTAL_CONTROLS = 346,
 
 //
 // MessageId: ERROR_BLOCK_TOO_MANY_REFERENCES
@@ -2090,7 +2038,7 @@ static const int ERROR_BLOCKED_BY_PARENTAL_CONTROLS 346L
 //
 // A file system block being referenced has already reached the maximum reference count and can't be referenced any further.
 //
-static const int ERROR_BLOCK_TOO_MANY_REFERENCES  347L
+    ERROR_BLOCK_TOO_MANY_REFERENCES = 347,
 
 //
 // MessageId: ERROR_MARKED_TO_DISALLOW_WRITES
@@ -2099,7 +2047,7 @@ static const int ERROR_BLOCK_TOO_MANY_REFERENCES  347L
 //
 // The requested operation failed because the file stream is marked to disallow writes.
 //
-static const int ERROR_MARKED_TO_DISALLOW_WRITES  348L
+    ERROR_MARKED_TO_DISALLOW_WRITES = 348,
 
 //
 // MessageId: ERROR_ENCLAVE_FAILURE
@@ -2108,7 +2056,7 @@ static const int ERROR_MARKED_TO_DISALLOW_WRITES  348L
 //
 // The requested operation failed with an architecture-specific failure code.
 //
-static const int ERROR_ENCLAVE_FAILURE            349L
+    ERROR_ENCLAVE_FAILURE = 349,
 
 //
 // MessageId: ERROR_FAIL_NOACTION_REBOOT
@@ -2117,7 +2065,7 @@ static const int ERROR_ENCLAVE_FAILURE            349L
 //
 // No action was taken as a system reboot is required.
 //
-static const int ERROR_FAIL_NOACTION_REBOOT       350L
+    ERROR_FAIL_NOACTION_REBOOT = 350,
 
 //
 // MessageId: ERROR_FAIL_SHUTDOWN
@@ -2126,7 +2074,7 @@ static const int ERROR_FAIL_NOACTION_REBOOT       350L
 //
 // The shutdown operation failed.
 //
-static const int ERROR_FAIL_SHUTDOWN              351L
+    ERROR_FAIL_SHUTDOWN = 351,
 
 //
 // MessageId: ERROR_FAIL_RESTART
@@ -2135,7 +2083,7 @@ static const int ERROR_FAIL_SHUTDOWN              351L
 //
 // The restart operation failed.
 //
-static const int ERROR_FAIL_RESTART               352L
+    ERROR_FAIL_RESTART = 352,
 
 //
 // MessageId: ERROR_MAX_SESSIONS_REACHED
@@ -2144,7 +2092,7 @@ static const int ERROR_FAIL_RESTART               352L
 //
 // The maximum number of sessions has been reached.
 //
-static const int ERROR_MAX_SESSIONS_REACHED       353L
+    ERROR_MAX_SESSIONS_REACHED = 353,
 
 //
 // MessageId: ERROR_NETWORK_ACCESS_DENIED_EDP
@@ -2153,7 +2101,7 @@ static const int ERROR_MAX_SESSIONS_REACHED       353L
 //
 // Windows Information Protection policy does not allow access to this network resource.
 //
-static const int ERROR_NETWORK_ACCESS_DENIED_EDP  354L
+    ERROR_NETWORK_ACCESS_DENIED_EDP = 354,
 
 //
 // MessageId: ERROR_DEVICE_HINT_NAME_BUFFER_TOO_SMALL
@@ -2162,7 +2110,7 @@ static const int ERROR_NETWORK_ACCESS_DENIED_EDP  354L
 //
 // The device hint name buffer is too small to receive the remaining name.
 //
-static const int ERROR_DEVICE_HINT_NAME_BUFFER_TOO_SMALL 355L
+    ERROR_DEVICE_HINT_NAME_BUFFER_TOO_SMALL = 355,
 
 //
 // MessageId: ERROR_EDP_POLICY_DENIES_OPERATION
@@ -2171,7 +2119,7 @@ static const int ERROR_DEVICE_HINT_NAME_BUFFER_TOO_SMALL 355L
 //
 // The requested operation was blocked by Windows Information Protection policy. For more information, contact your system administrator.
 //
-static const int ERROR_EDP_POLICY_DENIES_OPERATION 356L
+    ERROR_EDP_POLICY_DENIES_OPERATION = 356,
 
 //
 // MessageId: ERROR_EDP_DPL_POLICY_CANT_BE_SATISFIED
@@ -2180,7 +2128,7 @@ static const int ERROR_EDP_POLICY_DENIES_OPERATION 356L
 //
 // The requested operation cannot be performed because hardware or software configuration of the device does not comply with Windows Information Protection under Lock policy. Please, verify that user PIN has been created. For more information, contact your system administrator.
 //
-static const int ERROR_EDP_DPL_POLICY_CANT_BE_SATISFIED 357L
+    ERROR_EDP_DPL_POLICY_CANT_BE_SATISFIED = 357,
 
 //
 // MessageId: ERROR_CLOUD_FILE_SYNC_ROOT_METADATA_CORRUPT
@@ -2189,7 +2137,7 @@ static const int ERROR_EDP_DPL_POLICY_CANT_BE_SATISFIED 357L
 //
 // The cloud sync root metadata is corrupted.
 //
-static const int ERROR_CLOUD_FILE_SYNC_ROOT_METADATA_CORRUPT 358L
+    ERROR_CLOUD_FILE_SYNC_ROOT_METADATA_CORRUPT = 358,
 
 //
 // MessageId: ERROR_DEVICE_IN_MAINTENANCE
@@ -2198,7 +2146,7 @@ static const int ERROR_CLOUD_FILE_SYNC_ROOT_METADATA_CORRUPT 358L
 //
 // The device is in maintenance mode.
 //
-static const int ERROR_DEVICE_IN_MAINTENANCE      359L
+    ERROR_DEVICE_IN_MAINTENANCE = 359,
 
 //
 // MessageId: ERROR_NOT_SUPPORTED_ON_DAX
@@ -2207,7 +2155,7 @@ static const int ERROR_DEVICE_IN_MAINTENANCE      359L
 //
 // This operation is not supported on a DAX volume.
 //
-static const int ERROR_NOT_SUPPORTED_ON_DAX       360L
+    ERROR_NOT_SUPPORTED_ON_DAX = 360,
 
 //
 // MessageId: ERROR_DAX_MAPPING_EXISTS
@@ -2216,7 +2164,7 @@ static const int ERROR_NOT_SUPPORTED_ON_DAX       360L
 //
 // The volume has active DAX mappings.
 //
-static const int ERROR_DAX_MAPPING_EXISTS         361L
+    ERROR_DAX_MAPPING_EXISTS = 361,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROVIDER_NOT_RUNNING
@@ -2225,7 +2173,7 @@ static const int ERROR_DAX_MAPPING_EXISTS         361L
 //
 // The cloud file provider is not running.
 //
-static const int ERROR_CLOUD_FILE_PROVIDER_NOT_RUNNING 362L
+    ERROR_CLOUD_FILE_PROVIDER_NOT_RUNNING = 362,
 
 //
 // MessageId: ERROR_CLOUD_FILE_METADATA_CORRUPT
@@ -2234,7 +2182,7 @@ static const int ERROR_CLOUD_FILE_PROVIDER_NOT_RUNNING 362L
 //
 // The cloud file metadata is corrupt and unreadable.
 //
-static const int ERROR_CLOUD_FILE_METADATA_CORRUPT 363L
+    ERROR_CLOUD_FILE_METADATA_CORRUPT = 363,
 
 //
 // MessageId: ERROR_CLOUD_FILE_METADATA_TOO_LARGE
@@ -2243,7 +2191,7 @@ static const int ERROR_CLOUD_FILE_METADATA_CORRUPT 363L
 //
 // The cloud file metadata is too large.
 //
-static const int ERROR_CLOUD_FILE_METADATA_TOO_LARGE 364L
+    ERROR_CLOUD_FILE_METADATA_TOO_LARGE = 364,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROPERTY_BLOB_TOO_LARGE
@@ -2252,7 +2200,7 @@ static const int ERROR_CLOUD_FILE_METADATA_TOO_LARGE 364L
 //
 // The cloud file property is too large.
 //
-static const int ERROR_CLOUD_FILE_PROPERTY_BLOB_TOO_LARGE 365L
+    ERROR_CLOUD_FILE_PROPERTY_BLOB_TOO_LARGE = 365,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROPERTY_BLOB_CHECKSUM_MISMATCH
@@ -2261,7 +2209,7 @@ static const int ERROR_CLOUD_FILE_PROPERTY_BLOB_TOO_LARGE 365L
 //
 // The cloud file property is possibly corrupt. The on-disk checksum does not match the computed checksum.
 //
-static const int ERROR_CLOUD_FILE_PROPERTY_BLOB_CHECKSUM_MISMATCH 366L
+    ERROR_CLOUD_FILE_PROPERTY_BLOB_CHECKSUM_MISMATCH = 366,
 
 //
 // MessageId: ERROR_CHILD_PROCESS_BLOCKED
@@ -2270,7 +2218,7 @@ static const int ERROR_CLOUD_FILE_PROPERTY_BLOB_CHECKSUM_MISMATCH 366L
 //
 // The process creation has been blocked.
 //
-static const int ERROR_CHILD_PROCESS_BLOCKED      367L
+    ERROR_CHILD_PROCESS_BLOCKED = 367,
 
 //
 // MessageId: ERROR_STORAGE_LOST_DATA_PERSISTENCE
@@ -2279,7 +2227,7 @@ static const int ERROR_CHILD_PROCESS_BLOCKED      367L
 //
 // The storage device has lost data or persistence.
 //
-static const int ERROR_STORAGE_LOST_DATA_PERSISTENCE 368L
+    ERROR_STORAGE_LOST_DATA_PERSISTENCE = 368,
 
 //
 // MessageId: ERROR_FILE_SYSTEM_VIRTUALIZATION_UNAVAILABLE
@@ -2288,7 +2236,7 @@ static const int ERROR_STORAGE_LOST_DATA_PERSISTENCE 368L
 //
 // The provider that supports file system virtualization is temporarily unavailable.
 //
-static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_UNAVAILABLE 369L
+    ERROR_FILE_SYSTEM_VIRTUALIZATION_UNAVAILABLE = 369,
 
 //
 // MessageId: ERROR_FILE_SYSTEM_VIRTUALIZATION_METADATA_CORRUPT
@@ -2297,7 +2245,7 @@ static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_UNAVAILABLE 369L
 //
 // The metadata for file system virtualization is corrupt and unreadable.
 //
-static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_METADATA_CORRUPT 370L
+    ERROR_FILE_SYSTEM_VIRTUALIZATION_METADATA_CORRUPT = 370,
 
 //
 // MessageId: ERROR_FILE_SYSTEM_VIRTUALIZATION_BUSY
@@ -2306,7 +2254,7 @@ static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_METADATA_CORRUPT 370L
 //
 // The provider that supports file system virtualization is too busy to complete this operation.
 //
-static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_BUSY 371L
+    ERROR_FILE_SYSTEM_VIRTUALIZATION_BUSY = 371,
 
 //
 // MessageId: ERROR_FILE_SYSTEM_VIRTUALIZATION_PROVIDER_UNKNOWN
@@ -2315,7 +2263,7 @@ static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_BUSY 371L
 //
 // The provider that supports file system virtualization is unknown.
 //
-static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_PROVIDER_UNKNOWN 372L
+    ERROR_FILE_SYSTEM_VIRTUALIZATION_PROVIDER_UNKNOWN = 372,
 
 //
 // MessageId: ERROR_GDI_HANDLE_LEAK
@@ -2324,7 +2272,7 @@ static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_PROVIDER_UNKNOWN 372L
 //
 // GDI handles were potentially leaked by the application.
 //
-static const int ERROR_GDI_HANDLE_LEAK            373L
+    ERROR_GDI_HANDLE_LEAK = 373,
 
 //
 // MessageId: ERROR_CLOUD_FILE_TOO_MANY_PROPERTY_BLOBS
@@ -2333,7 +2281,7 @@ static const int ERROR_GDI_HANDLE_LEAK            373L
 //
 // The maximum number of cloud file properties has been reached.
 //
-static const int ERROR_CLOUD_FILE_TOO_MANY_PROPERTY_BLOBS 374L
+    ERROR_CLOUD_FILE_TOO_MANY_PROPERTY_BLOBS = 374,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROPERTY_VERSION_NOT_SUPPORTED
@@ -2342,7 +2290,7 @@ static const int ERROR_CLOUD_FILE_TOO_MANY_PROPERTY_BLOBS 374L
 //
 // The version of the cloud file property store is not supported.
 //
-static const int ERROR_CLOUD_FILE_PROPERTY_VERSION_NOT_SUPPORTED 375L
+    ERROR_CLOUD_FILE_PROPERTY_VERSION_NOT_SUPPORTED = 375,
 
 //
 // MessageId: ERROR_NOT_A_CLOUD_FILE
@@ -2351,7 +2299,7 @@ static const int ERROR_CLOUD_FILE_PROPERTY_VERSION_NOT_SUPPORTED 375L
 //
 // The file is not a cloud file.
 //
-static const int ERROR_NOT_A_CLOUD_FILE           376L
+    ERROR_NOT_A_CLOUD_FILE = 376,
 
 //
 // MessageId: ERROR_CLOUD_FILE_NOT_IN_SYNC
@@ -2360,7 +2308,7 @@ static const int ERROR_NOT_A_CLOUD_FILE           376L
 //
 // The file is not in sync with the cloud.
 //
-static const int ERROR_CLOUD_FILE_NOT_IN_SYNC     377L
+    ERROR_CLOUD_FILE_NOT_IN_SYNC = 377,
 
 //
 // MessageId: ERROR_CLOUD_FILE_ALREADY_CONNECTED
@@ -2369,7 +2317,7 @@ static const int ERROR_CLOUD_FILE_NOT_IN_SYNC     377L
 //
 // The cloud sync root is already connected with another cloud sync provider.
 //
-static const int ERROR_CLOUD_FILE_ALREADY_CONNECTED 378L
+    ERROR_CLOUD_FILE_ALREADY_CONNECTED = 378,
 
 //
 // MessageId: ERROR_CLOUD_FILE_NOT_SUPPORTED
@@ -2378,7 +2326,7 @@ static const int ERROR_CLOUD_FILE_ALREADY_CONNECTED 378L
 //
 // The operation is not supported by the cloud sync provider.
 //
-static const int ERROR_CLOUD_FILE_NOT_SUPPORTED   379L
+    ERROR_CLOUD_FILE_NOT_SUPPORTED = 379,
 
 //
 // MessageId: ERROR_CLOUD_FILE_INVALID_REQUEST
@@ -2387,7 +2335,7 @@ static const int ERROR_CLOUD_FILE_NOT_SUPPORTED   379L
 //
 // The cloud operation is invalid.
 //
-static const int ERROR_CLOUD_FILE_INVALID_REQUEST 380L
+    ERROR_CLOUD_FILE_INVALID_REQUEST = 380,
 
 //
 // MessageId: ERROR_CLOUD_FILE_READ_ONLY_VOLUME
@@ -2396,7 +2344,7 @@ static const int ERROR_CLOUD_FILE_INVALID_REQUEST 380L
 //
 // The cloud operation is not supported on a read-only volume.
 //
-static const int ERROR_CLOUD_FILE_READ_ONLY_VOLUME 381L
+    ERROR_CLOUD_FILE_READ_ONLY_VOLUME = 381,
 
 //
 // MessageId: ERROR_CLOUD_FILE_CONNECTED_PROVIDER_ONLY
@@ -2405,7 +2353,7 @@ static const int ERROR_CLOUD_FILE_READ_ONLY_VOLUME 381L
 //
 // The operation is reserved for a connected cloud sync provider.
 //
-static const int ERROR_CLOUD_FILE_CONNECTED_PROVIDER_ONLY 382L
+    ERROR_CLOUD_FILE_CONNECTED_PROVIDER_ONLY = 382,
 
 //
 // MessageId: ERROR_CLOUD_FILE_VALIDATION_FAILED
@@ -2414,7 +2362,7 @@ static const int ERROR_CLOUD_FILE_CONNECTED_PROVIDER_ONLY 382L
 //
 // The cloud sync provider failed to validate the downloaded data.
 //
-static const int ERROR_CLOUD_FILE_VALIDATION_FAILED 383L
+    ERROR_CLOUD_FILE_VALIDATION_FAILED = 383,
 
 //
 // MessageId: ERROR_SMB1_NOT_AVAILABLE
@@ -2424,7 +2372,7 @@ static const int ERROR_CLOUD_FILE_VALIDATION_FAILED 383L
 // You can't connect to the file share because it's not secure. This share requires the obsolete SMB1 protocol, which is unsafe and could expose your system to attack.
 // Your system requires SMB2 or higher. For more info on resolving this issue, see: https://go.microsoft.com/fwlink/?linkid=852747
 //
-static const int ERROR_SMB1_NOT_AVAILABLE         384L
+    ERROR_SMB1_NOT_AVAILABLE = 384,
 
 //
 // MessageId: ERROR_FILE_SYSTEM_VIRTUALIZATION_INVALID_OPERATION
@@ -2433,7 +2381,7 @@ static const int ERROR_SMB1_NOT_AVAILABLE         384L
 //
 // The virtualization operation is not allowed on the file in its current state.
 //
-static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_INVALID_OPERATION 385L
+    ERROR_FILE_SYSTEM_VIRTUALIZATION_INVALID_OPERATION = 385,
 
 //
 // MessageId: ERROR_CLOUD_FILE_AUTHENTICATION_FAILED
@@ -2442,7 +2390,7 @@ static const int ERROR_FILE_SYSTEM_VIRTUALIZATION_INVALID_OPERATION 385L
 //
 // The cloud sync provider failed user authentication.
 //
-static const int ERROR_CLOUD_FILE_AUTHENTICATION_FAILED 386L
+    ERROR_CLOUD_FILE_AUTHENTICATION_FAILED = 386,
 
 //
 // MessageId: ERROR_CLOUD_FILE_INSUFFICIENT_RESOURCES
@@ -2451,7 +2399,7 @@ static const int ERROR_CLOUD_FILE_AUTHENTICATION_FAILED 386L
 //
 // The cloud sync provider failed to perform the operation due to low system resources.
 //
-static const int ERROR_CLOUD_FILE_INSUFFICIENT_RESOURCES 387L
+    ERROR_CLOUD_FILE_INSUFFICIENT_RESOURCES = 387,
 
 //
 // MessageId: ERROR_CLOUD_FILE_NETWORK_UNAVAILABLE
@@ -2460,7 +2408,7 @@ static const int ERROR_CLOUD_FILE_INSUFFICIENT_RESOURCES 387L
 //
 // The cloud sync provider failed to perform the operation due to network being unavailable.
 //
-static const int ERROR_CLOUD_FILE_NETWORK_UNAVAILABLE 388L
+    ERROR_CLOUD_FILE_NETWORK_UNAVAILABLE = 388,
 
 //
 // MessageId: ERROR_CLOUD_FILE_UNSUCCESSFUL
@@ -2469,7 +2417,7 @@ static const int ERROR_CLOUD_FILE_NETWORK_UNAVAILABLE 388L
 //
 // The cloud operation was unsuccessful.
 //
-static const int ERROR_CLOUD_FILE_UNSUCCESSFUL    389L
+    ERROR_CLOUD_FILE_UNSUCCESSFUL = 389,
 
 //
 // MessageId: ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT
@@ -2478,7 +2426,7 @@ static const int ERROR_CLOUD_FILE_UNSUCCESSFUL    389L
 //
 // The operation is only supported on files under a cloud sync root.
 //
-static const int ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT 390L
+    ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT = 390,
 
 //
 // MessageId: ERROR_CLOUD_FILE_IN_USE
@@ -2487,7 +2435,7 @@ static const int ERROR_CLOUD_FILE_NOT_UNDER_SYNC_ROOT 390L
 //
 // The operation cannot be performed on cloud files in use.
 //
-static const int ERROR_CLOUD_FILE_IN_USE          391L
+    ERROR_CLOUD_FILE_IN_USE = 391,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PINNED
@@ -2496,7 +2444,7 @@ static const int ERROR_CLOUD_FILE_IN_USE          391L
 //
 // The operation cannot be performed on pinned cloud files.
 //
-static const int ERROR_CLOUD_FILE_PINNED          392L
+    ERROR_CLOUD_FILE_PINNED = 392,
 
 //
 // MessageId: ERROR_CLOUD_FILE_REQUEST_ABORTED
@@ -2505,7 +2453,7 @@ static const int ERROR_CLOUD_FILE_PINNED          392L
 //
 // The cloud operation was aborted.
 //
-static const int ERROR_CLOUD_FILE_REQUEST_ABORTED 393L
+    ERROR_CLOUD_FILE_REQUEST_ABORTED = 393,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROPERTY_CORRUPT
@@ -2514,7 +2462,7 @@ static const int ERROR_CLOUD_FILE_REQUEST_ABORTED 393L
 //
 // The cloud file's property store is corrupt.
 //
-static const int ERROR_CLOUD_FILE_PROPERTY_CORRUPT 394L
+    ERROR_CLOUD_FILE_PROPERTY_CORRUPT = 394,
 
 //
 // MessageId: ERROR_CLOUD_FILE_ACCESS_DENIED
@@ -2523,7 +2471,7 @@ static const int ERROR_CLOUD_FILE_PROPERTY_CORRUPT 394L
 //
 // Access to the cloud file is denied.
 //
-static const int ERROR_CLOUD_FILE_ACCESS_DENIED   395L
+    ERROR_CLOUD_FILE_ACCESS_DENIED = 395,
 
 //
 // MessageId: ERROR_CLOUD_FILE_INCOMPATIBLE_HARDLINKS
@@ -2532,7 +2480,7 @@ static const int ERROR_CLOUD_FILE_ACCESS_DENIED   395L
 //
 // The cloud operation cannot be performed on a file with incompatible hardlinks.
 //
-static const int ERROR_CLOUD_FILE_INCOMPATIBLE_HARDLINKS 396L
+    ERROR_CLOUD_FILE_INCOMPATIBLE_HARDLINKS = 396,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROPERTY_LOCK_CONFLICT
@@ -2541,7 +2489,7 @@ static const int ERROR_CLOUD_FILE_INCOMPATIBLE_HARDLINKS 396L
 //
 // The operation failed due to a conflicting cloud file property lock.
 //
-static const int ERROR_CLOUD_FILE_PROPERTY_LOCK_CONFLICT 397L
+    ERROR_CLOUD_FILE_PROPERTY_LOCK_CONFLICT = 397,
 
 //
 // MessageId: ERROR_CLOUD_FILE_REQUEST_CANCELED
@@ -2550,7 +2498,7 @@ static const int ERROR_CLOUD_FILE_PROPERTY_LOCK_CONFLICT 397L
 //
 // The cloud operation was canceled by user.
 //
-static const int ERROR_CLOUD_FILE_REQUEST_CANCELED 398L
+    ERROR_CLOUD_FILE_REQUEST_CANCELED = 398,
 
 //
 // MessageId: ERROR_EXTERNAL_SYSKEY_NOT_SUPPORTED
@@ -2559,7 +2507,7 @@ static const int ERROR_CLOUD_FILE_REQUEST_CANCELED 398L
 //
 // An externally encrypted syskey has been configured, but the system no longer supports this feature.  Please see https://go.microsoft.com/fwlink/?linkid=851152 for more information.
 //
-static const int ERROR_EXTERNAL_SYSKEY_NOT_SUPPORTED 399L
+    ERROR_EXTERNAL_SYSKEY_NOT_SUPPORTED = 399,
 
 //
 // MessageId: ERROR_THREAD_MODE_ALREADY_BACKGROUND
@@ -2568,7 +2516,7 @@ static const int ERROR_EXTERNAL_SYSKEY_NOT_SUPPORTED 399L
 //
 // The thread is already in background processing mode.
 //
-static const int ERROR_THREAD_MODE_ALREADY_BACKGROUND 400L
+    ERROR_THREAD_MODE_ALREADY_BACKGROUND = 400,
 
 //
 // MessageId: ERROR_THREAD_MODE_NOT_BACKGROUND
@@ -2577,7 +2525,7 @@ static const int ERROR_THREAD_MODE_ALREADY_BACKGROUND 400L
 //
 // The thread is not in background processing mode.
 //
-static const int ERROR_THREAD_MODE_NOT_BACKGROUND 401L
+    ERROR_THREAD_MODE_NOT_BACKGROUND = 401,
 
 //
 // MessageId: ERROR_PROCESS_MODE_ALREADY_BACKGROUND
@@ -2586,7 +2534,7 @@ static const int ERROR_THREAD_MODE_NOT_BACKGROUND 401L
 //
 // The process is already in background processing mode.
 //
-static const int ERROR_PROCESS_MODE_ALREADY_BACKGROUND 402L
+    ERROR_PROCESS_MODE_ALREADY_BACKGROUND = 402,
 
 //
 // MessageId: ERROR_PROCESS_MODE_NOT_BACKGROUND
@@ -2595,7 +2543,7 @@ static const int ERROR_PROCESS_MODE_ALREADY_BACKGROUND 402L
 //
 // The process is not in background processing mode.
 //
-static const int ERROR_PROCESS_MODE_NOT_BACKGROUND 403L
+    ERROR_PROCESS_MODE_NOT_BACKGROUND = 403,
 
 //
 // MessageId: ERROR_CLOUD_FILE_PROVIDER_TERMINATED
@@ -2604,7 +2552,7 @@ static const int ERROR_PROCESS_MODE_NOT_BACKGROUND 403L
 //
 // The cloud file provider exited unexpectedly.
 //
-static const int ERROR_CLOUD_FILE_PROVIDER_TERMINATED 404L
+    ERROR_CLOUD_FILE_PROVIDER_TERMINATED = 404,
 
 //
 // MessageId: ERROR_NOT_A_CLOUD_SYNC_ROOT
@@ -2613,7 +2561,7 @@ static const int ERROR_CLOUD_FILE_PROVIDER_TERMINATED 404L
 //
 // The file is not a cloud sync root.
 //
-static const int ERROR_NOT_A_CLOUD_SYNC_ROOT      405L
+    ERROR_NOT_A_CLOUD_SYNC_ROOT = 405,
 
 //
 // MessageId: ERROR_FILE_PROTECTED_UNDER_DPL
@@ -2622,7 +2570,7 @@ static const int ERROR_NOT_A_CLOUD_SYNC_ROOT      405L
 //
 // File is not accessible because it's currently protected under DPL.
 //
-static const int ERROR_FILE_PROTECTED_UNDER_DPL   406L
+    ERROR_FILE_PROTECTED_UNDER_DPL = 406,
 
 //
 // MessageId: ERROR_VOLUME_NOT_CLUSTER_ALIGNED
@@ -2631,7 +2579,7 @@ static const int ERROR_FILE_PROTECTED_UNDER_DPL   406L
 //
 // The volume is not cluster aligned on the disk.
 //
-static const int ERROR_VOLUME_NOT_CLUSTER_ALIGNED 407L
+    ERROR_VOLUME_NOT_CLUSTER_ALIGNED = 407,
 
 //
 // MessageId: ERROR_NO_PHYSICALLY_ALIGNED_FREE_SPACE_FOUND
@@ -2640,7 +2588,7 @@ static const int ERROR_VOLUME_NOT_CLUSTER_ALIGNED 407L
 //
 // No physically aligned free space was found on the volume.
 //
-static const int ERROR_NO_PHYSICALLY_ALIGNED_FREE_SPACE_FOUND 408L
+    ERROR_NO_PHYSICALLY_ALIGNED_FREE_SPACE_FOUND = 408,
 
 //
 // MessageId: ERROR_APPX_FILE_NOT_ENCRYPTED
@@ -2649,7 +2597,7 @@ static const int ERROR_NO_PHYSICALLY_ALIGNED_FREE_SPACE_FOUND 408L
 //
 // The APPX file can not be accessed because it is not encrypted as expected.
 //
-static const int ERROR_APPX_FILE_NOT_ENCRYPTED    409L
+    ERROR_APPX_FILE_NOT_ENCRYPTED = 409,
 
 //
 // MessageId: ERROR_RWRAW_ENCRYPTED_FILE_NOT_ENCRYPTED
@@ -2658,7 +2606,7 @@ static const int ERROR_APPX_FILE_NOT_ENCRYPTED    409L
 //
 // A read or write of raw encrypted data cannot be performed because the file is not encrypted.
 //
-static const int ERROR_RWRAW_ENCRYPTED_FILE_NOT_ENCRYPTED 410L
+    ERROR_RWRAW_ENCRYPTED_FILE_NOT_ENCRYPTED = 410,
 
 //
 // MessageId: ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILEOFFSET
@@ -2667,7 +2615,7 @@ static const int ERROR_RWRAW_ENCRYPTED_FILE_NOT_ENCRYPTED 410L
 //
 // An invalid file offset in the encrypted data info block was passed for read or write operation of file's raw encrypted data.
 //
-static const int ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILEOFFSET 411L
+    ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILEOFFSET = 411,
 
 //
 // MessageId: ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILERANGE
@@ -2676,7 +2624,7 @@ static const int ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILEOFFSET 411L
 //
 // An invalid offset and length combination in the encrypted data info block was passed for read or write operation of file's raw encrypted data.
 //
-static const int ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILERANGE 412L
+    ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILERANGE = 412,
 
 //
 // MessageId: ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_PARAMETER
@@ -2685,7 +2633,7 @@ static const int ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_FILERANGE 412L
 //
 // An invalid parameter in the encrypted data info block was passed for read or write operation of file's raw encrypted data.
 //
-static const int ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_PARAMETER 413L
+    ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_PARAMETER = 413,
 
 //
 // MessageId: ERROR_LINUX_SUBSYSTEM_NOT_PRESENT
@@ -2694,7 +2642,7 @@ static const int ERROR_RWRAW_ENCRYPTED_INVALID_EDATAINFO_PARAMETER 413L
 //
 // The Windows Subsystem for Linux has not been enabled.
 //
-static const int ERROR_LINUX_SUBSYSTEM_NOT_PRESENT 414L
+    ERROR_LINUX_SUBSYSTEM_NOT_PRESENT = 414,
 
 //
 // **** Available SYSTEM error codes ****
@@ -2714,7 +2662,7 @@ static const int ERROR_LINUX_SUBSYSTEM_NOT_PRESENT 414L
 //
 // Neither developer unlocked mode nor side loading mode is enabled on the device.
 //
-static const int ERROR_CAPAUTHZ_NOT_DEVUNLOCKED   450L
+    ERROR_CAPAUTHZ_NOT_DEVUNLOCKED = 450,
 
 //
 // MessageId: ERROR_CAPAUTHZ_CHANGE_TYPE
@@ -2723,7 +2671,7 @@ static const int ERROR_CAPAUTHZ_NOT_DEVUNLOCKED   450L
 //
 // Can not change application type during upgrade or re-provision.
 //
-static const int ERROR_CAPAUTHZ_CHANGE_TYPE       451L
+    ERROR_CAPAUTHZ_CHANGE_TYPE = 451,
 
 //
 // MessageId: ERROR_CAPAUTHZ_NOT_PROVISIONED
@@ -2732,7 +2680,7 @@ static const int ERROR_CAPAUTHZ_CHANGE_TYPE       451L
 //
 // The application has not been provisioned.
 //
-static const int ERROR_CAPAUTHZ_NOT_PROVISIONED   452L
+    ERROR_CAPAUTHZ_NOT_PROVISIONED = 452,
 
 //
 // MessageId: ERROR_CAPAUTHZ_NOT_AUTHORIZED
@@ -2741,7 +2689,7 @@ static const int ERROR_CAPAUTHZ_NOT_PROVISIONED   452L
 //
 // The requested capability can not be authorized for this application.
 //
-static const int ERROR_CAPAUTHZ_NOT_AUTHORIZED    453L
+    ERROR_CAPAUTHZ_NOT_AUTHORIZED = 453,
 
 //
 // MessageId: ERROR_CAPAUTHZ_NO_POLICY
@@ -2750,7 +2698,7 @@ static const int ERROR_CAPAUTHZ_NOT_AUTHORIZED    453L
 //
 // There is no capability authorization policy on the device.
 //
-static const int ERROR_CAPAUTHZ_NO_POLICY         454L
+    ERROR_CAPAUTHZ_NO_POLICY = 454,
 
 //
 // MessageId: ERROR_CAPAUTHZ_DB_CORRUPTED
@@ -2759,7 +2707,7 @@ static const int ERROR_CAPAUTHZ_NO_POLICY         454L
 //
 // The capability authorization database has been corrupted.
 //
-static const int ERROR_CAPAUTHZ_DB_CORRUPTED      455L
+    ERROR_CAPAUTHZ_DB_CORRUPTED = 455,
 
 //
 // MessageId: ERROR_CAPAUTHZ_SCCD_INVALID_CATALOG
@@ -2768,7 +2716,7 @@ static const int ERROR_CAPAUTHZ_DB_CORRUPTED      455L
 //
 // The custom capability's SCCD has an invalid catalog.
 //
-static const int ERROR_CAPAUTHZ_SCCD_INVALID_CATALOG 456L
+    ERROR_CAPAUTHZ_SCCD_INVALID_CATALOG = 456,
 
 //
 // MessageId: ERROR_CAPAUTHZ_SCCD_NO_AUTH_ENTITY
@@ -2777,7 +2725,7 @@ static const int ERROR_CAPAUTHZ_SCCD_INVALID_CATALOG 456L
 //
 // None of the authorized entity elements in the SCCD matched the app being installed; either the PFNs don't match, or the element's signature hash doesn't validate.
 //
-static const int ERROR_CAPAUTHZ_SCCD_NO_AUTH_ENTITY 457L
+    ERROR_CAPAUTHZ_SCCD_NO_AUTH_ENTITY = 457,
 
 //
 // MessageId: ERROR_CAPAUTHZ_SCCD_PARSE_ERROR
@@ -2786,7 +2734,7 @@ static const int ERROR_CAPAUTHZ_SCCD_NO_AUTH_ENTITY 457L
 //
 // The custom capability's SCCD failed to parse.
 //
-static const int ERROR_CAPAUTHZ_SCCD_PARSE_ERROR  458L
+    ERROR_CAPAUTHZ_SCCD_PARSE_ERROR = 458,
 
 //
 // MessageId: ERROR_CAPAUTHZ_SCCD_DEV_MODE_REQUIRED
@@ -2795,7 +2743,7 @@ static const int ERROR_CAPAUTHZ_SCCD_PARSE_ERROR  458L
 //
 // The custom capability's SCCD requires developer mode.
 //
-static const int ERROR_CAPAUTHZ_SCCD_DEV_MODE_REQUIRED 459L
+    ERROR_CAPAUTHZ_SCCD_DEV_MODE_REQUIRED = 459,
 
 //
 // MessageId: ERROR_CAPAUTHZ_SCCD_NO_CAPABILITY_MATCH
@@ -2804,7 +2752,7 @@ static const int ERROR_CAPAUTHZ_SCCD_DEV_MODE_REQUIRED 459L
 //
 // There not all declared custom capabilities are found in the SCCD.
 //
-static const int ERROR_CAPAUTHZ_SCCD_NO_CAPABILITY_MATCH 460L
+    ERROR_CAPAUTHZ_SCCD_NO_CAPABILITY_MATCH = 460,
 
 //
 // **** Available SYSTEM error codes ****
@@ -2816,7 +2764,7 @@ static const int ERROR_CAPAUTHZ_SCCD_NO_CAPABILITY_MATCH 460L
 //
 // The operation timed out waiting for this device to complete a PnP query-remove request due to a potential hang in its device stack. The system may need to be rebooted to complete the request.
 //
-static const int ERROR_PNP_QUERY_REMOVE_DEVICE_TIMEOUT 480L
+    ERROR_PNP_QUERY_REMOVE_DEVICE_TIMEOUT = 480,
 
 //
 // MessageId: ERROR_PNP_QUERY_REMOVE_RELATED_DEVICE_TIMEOUT
@@ -2825,7 +2773,7 @@ static const int ERROR_PNP_QUERY_REMOVE_DEVICE_TIMEOUT 480L
 //
 // The operation timed out waiting for this device to complete a PnP query-remove request due to a potential hang in the device stack of a related device. The system may need to be rebooted to complete the operation.
 //
-static const int ERROR_PNP_QUERY_REMOVE_RELATED_DEVICE_TIMEOUT 481L
+    ERROR_PNP_QUERY_REMOVE_RELATED_DEVICE_TIMEOUT = 481,
 
 //
 // MessageId: ERROR_PNP_QUERY_REMOVE_UNRELATED_DEVICE_TIMEOUT
@@ -2834,7 +2782,7 @@ static const int ERROR_PNP_QUERY_REMOVE_RELATED_DEVICE_TIMEOUT 481L
 //
 // The operation timed out waiting for this device to complete a PnP query-remove request due to a potential hang in the device stack of an unrelated device. The system may need to be rebooted to complete the operation.
 //
-static const int ERROR_PNP_QUERY_REMOVE_UNRELATED_DEVICE_TIMEOUT 482L
+    ERROR_PNP_QUERY_REMOVE_UNRELATED_DEVICE_TIMEOUT = 482,
 
 //
 // MessageId: ERROR_DEVICE_HARDWARE_ERROR
@@ -2843,7 +2791,7 @@ static const int ERROR_PNP_QUERY_REMOVE_UNRELATED_DEVICE_TIMEOUT 482L
 //
 // The request failed due to a fatal device hardware error.
 //
-static const int ERROR_DEVICE_HARDWARE_ERROR      483L
+    ERROR_DEVICE_HARDWARE_ERROR = 483,
 
 //
 // MessageId: ERROR_INVALID_ADDRESS
@@ -2852,7 +2800,7 @@ static const int ERROR_DEVICE_HARDWARE_ERROR      483L
 //
 // Attempt to access invalid address.
 //
-static const int ERROR_INVALID_ADDRESS            487L
+    ERROR_INVALID_ADDRESS = 487,
 
 //
 // MessageId: ERROR_VRF_CFG_ENABLED
@@ -2861,7 +2809,7 @@ static const int ERROR_INVALID_ADDRESS            487L
 //
 // Driver Verifier Volatile settings cannot be set when CFG is enabled.
 //
-static const int ERROR_VRF_CFG_ENABLED            1183L
+    ERROR_VRF_CFG_ENABLED = 1183,
 
 //
 // MessageId: ERROR_PARTITION_TERMINATING
@@ -2870,7 +2818,7 @@ static const int ERROR_VRF_CFG_ENABLED            1183L
 //
 // An attempt was made to access a partition that has begun termination.
 //
-static const int ERROR_PARTITION_TERMINATING      1184L
+    ERROR_PARTITION_TERMINATING = 1184,
 
 //
 // **** Available SYSTEM error codes ****
@@ -2882,7 +2830,7 @@ static const int ERROR_PARTITION_TERMINATING      1184L
 //
 // User profile cannot be loaded.
 //
-static const int ERROR_USER_PROFILE_LOAD          500L
+    ERROR_USER_PROFILE_LOAD = 500,
 
 //
 // **** Available SYSTEM error codes ****
@@ -2894,7 +2842,7 @@ static const int ERROR_USER_PROFILE_LOAD          500L
 //
 // Arithmetic result exceeded 32 bits.
 //
-static const int ERROR_ARITHMETIC_OVERFLOW        534L
+    ERROR_ARITHMETIC_OVERFLOW = 534,
 
 //
 // MessageId: ERROR_PIPE_CONNECTED
@@ -2903,7 +2851,7 @@ static const int ERROR_ARITHMETIC_OVERFLOW        534L
 //
 // There is a process on other end of the pipe.
 //
-static const int ERROR_PIPE_CONNECTED             535L
+    ERROR_PIPE_CONNECTED = 535,
 
 //
 // MessageId: ERROR_PIPE_LISTENING
@@ -2912,7 +2860,7 @@ static const int ERROR_PIPE_CONNECTED             535L
 //
 // Waiting for a process to open the other end of the pipe.
 //
-static const int ERROR_PIPE_LISTENING             536L
+    ERROR_PIPE_LISTENING = 536,
 
 //
 // MessageId: ERROR_VERIFIER_STOP
@@ -2921,7 +2869,7 @@ static const int ERROR_PIPE_LISTENING             536L
 //
 // Application verifier has found an error in the current process.
 //
-static const int ERROR_VERIFIER_STOP              537L
+    ERROR_VERIFIER_STOP = 537,
 
 //
 // MessageId: ERROR_ABIOS_ERROR
@@ -2930,7 +2878,7 @@ static const int ERROR_VERIFIER_STOP              537L
 //
 // An error occurred in the ABIOS subsystem.
 //
-static const int ERROR_ABIOS_ERROR                538L
+    ERROR_ABIOS_ERROR = 538,
 
 //
 // MessageId: ERROR_WX86_WARNING
@@ -2939,7 +2887,7 @@ static const int ERROR_ABIOS_ERROR                538L
 //
 // A warning occurred in the WX86 subsystem.
 //
-static const int ERROR_WX86_WARNING               539L
+    ERROR_WX86_WARNING = 539,
 
 //
 // MessageId: ERROR_WX86_ERROR
@@ -2948,7 +2896,7 @@ static const int ERROR_WX86_WARNING               539L
 //
 // An error occurred in the WX86 subsystem.
 //
-static const int ERROR_WX86_ERROR                 540L
+    ERROR_WX86_ERROR = 540,
 
 //
 // MessageId: ERROR_TIMER_NOT_CANCELED
@@ -2957,7 +2905,7 @@ static const int ERROR_WX86_ERROR                 540L
 //
 // An attempt was made to cancel or set a timer that has an associated APC and the subject thread is not the thread that originally set the timer with an associated APC routine.
 //
-static const int ERROR_TIMER_NOT_CANCELED         541L
+    ERROR_TIMER_NOT_CANCELED = 541,
 
 //
 // MessageId: ERROR_UNWIND
@@ -2966,7 +2914,7 @@ static const int ERROR_TIMER_NOT_CANCELED         541L
 //
 // Unwind exception code.
 //
-static const int ERROR_UNWIND                     542L
+    ERROR_UNWIND = 542,
 
 //
 // MessageId: ERROR_BAD_STACK
@@ -2975,7 +2923,7 @@ static const int ERROR_UNWIND                     542L
 //
 // An invalid or unaligned stack was encountered during an unwind operation.
 //
-static const int ERROR_BAD_STACK                  543L
+    ERROR_BAD_STACK = 543,
 
 //
 // MessageId: ERROR_INVALID_UNWIND_TARGET
@@ -2984,7 +2932,7 @@ static const int ERROR_BAD_STACK                  543L
 //
 // An invalid unwind target was encountered during an unwind operation.
 //
-static const int ERROR_INVALID_UNWIND_TARGET      544L
+    ERROR_INVALID_UNWIND_TARGET = 544,
 
 //
 // MessageId: ERROR_INVALID_PORT_ATTRIBUTES
@@ -2993,7 +2941,7 @@ static const int ERROR_INVALID_UNWIND_TARGET      544L
 //
 // Invalid Object Attributes specified to NtCreatePort or invalid Port Attributes specified to NtConnectPort
 //
-static const int ERROR_INVALID_PORT_ATTRIBUTES    545L
+    ERROR_INVALID_PORT_ATTRIBUTES = 545,
 
 //
 // MessageId: ERROR_PORT_MESSAGE_TOO_LONG
@@ -3002,7 +2950,7 @@ static const int ERROR_INVALID_PORT_ATTRIBUTES    545L
 //
 // Length of message passed to NtRequestPort or NtRequestWaitReplyPort was longer than the maximum message allowed by the port.
 //
-static const int ERROR_PORT_MESSAGE_TOO_LONG      546L
+    ERROR_PORT_MESSAGE_TOO_LONG = 546,
 
 //
 // MessageId: ERROR_INVALID_QUOTA_LOWER
@@ -3011,7 +2959,7 @@ static const int ERROR_PORT_MESSAGE_TOO_LONG      546L
 //
 // An attempt was made to lower a quota limit below the current usage.
 //
-static const int ERROR_INVALID_QUOTA_LOWER        547L
+    ERROR_INVALID_QUOTA_LOWER = 547,
 
 //
 // MessageId: ERROR_DEVICE_ALREADY_ATTACHED
@@ -3020,7 +2968,7 @@ static const int ERROR_INVALID_QUOTA_LOWER        547L
 //
 // An attempt was made to attach to a device that was already attached to another device.
 //
-static const int ERROR_DEVICE_ALREADY_ATTACHED    548L
+    ERROR_DEVICE_ALREADY_ATTACHED = 548,
 
 //
 // MessageId: ERROR_INSTRUCTION_MISALIGNMENT
@@ -3029,7 +2977,7 @@ static const int ERROR_DEVICE_ALREADY_ATTACHED    548L
 //
 // An attempt was made to execute an instruction at an unaligned address and the host system does not support unaligned instruction references.
 //
-static const int ERROR_INSTRUCTION_MISALIGNMENT   549L
+    ERROR_INSTRUCTION_MISALIGNMENT = 549,
 
 //
 // MessageId: ERROR_PROFILING_NOT_STARTED
@@ -3038,7 +2986,7 @@ static const int ERROR_INSTRUCTION_MISALIGNMENT   549L
 //
 // Profiling not started.
 //
-static const int ERROR_PROFILING_NOT_STARTED      550L
+    ERROR_PROFILING_NOT_STARTED = 550,
 
 //
 // MessageId: ERROR_PROFILING_NOT_STOPPED
@@ -3047,7 +2995,7 @@ static const int ERROR_PROFILING_NOT_STARTED      550L
 //
 // Profiling not stopped.
 //
-static const int ERROR_PROFILING_NOT_STOPPED      551L
+    ERROR_PROFILING_NOT_STOPPED = 551,
 
 //
 // MessageId: ERROR_COULD_NOT_INTERPRET
@@ -3056,7 +3004,7 @@ static const int ERROR_PROFILING_NOT_STOPPED      551L
 //
 // The passed ACL did not contain the minimum required information.
 //
-static const int ERROR_COULD_NOT_INTERPRET        552L
+    ERROR_COULD_NOT_INTERPRET = 552,
 
 //
 // MessageId: ERROR_PROFILING_AT_LIMIT
@@ -3065,7 +3013,7 @@ static const int ERROR_COULD_NOT_INTERPRET        552L
 //
 // The number of active profiling objects is at the maximum and no more may be started.
 //
-static const int ERROR_PROFILING_AT_LIMIT         553L
+    ERROR_PROFILING_AT_LIMIT = 553,
 
 //
 // MessageId: ERROR_CANT_WAIT
@@ -3074,7 +3022,7 @@ static const int ERROR_PROFILING_AT_LIMIT         553L
 //
 // Used to indicate that an operation cannot continue without blocking for I/O.
 //
-static const int ERROR_CANT_WAIT                  554L
+    ERROR_CANT_WAIT = 554,
 
 //
 // MessageId: ERROR_CANT_TERMINATE_SELF
@@ -3083,7 +3031,7 @@ static const int ERROR_CANT_WAIT                  554L
 //
 // Indicates that a thread attempted to terminate itself by default (called NtTerminateThread with NULL) and it was the last thread in the current process.
 //
-static const int ERROR_CANT_TERMINATE_SELF        555L
+    ERROR_CANT_TERMINATE_SELF = 555,
 
 //
 // MessageId: ERROR_UNEXPECTED_MM_CREATE_ERR
@@ -3093,7 +3041,7 @@ static const int ERROR_CANT_TERMINATE_SELF        555L
 // If an MM error is returned which is not defined in the standard FsRtl filter, it is converted to one of the following errors which is guaranteed to be in the filter.
 // In this case information is lost, however, the filter correctly handles the exception.
 //
-static const int ERROR_UNEXPECTED_MM_CREATE_ERR   556L
+    ERROR_UNEXPECTED_MM_CREATE_ERR = 556,
 
 //
 // MessageId: ERROR_UNEXPECTED_MM_MAP_ERROR
@@ -3103,7 +3051,7 @@ static const int ERROR_UNEXPECTED_MM_CREATE_ERR   556L
 // If an MM error is returned which is not defined in the standard FsRtl filter, it is converted to one of the following errors which is guaranteed to be in the filter.
 // In this case information is lost, however, the filter correctly handles the exception.
 //
-static const int ERROR_UNEXPECTED_MM_MAP_ERROR    557L
+    ERROR_UNEXPECTED_MM_MAP_ERROR = 557,
 
 //
 // MessageId: ERROR_UNEXPECTED_MM_EXTEND_ERR
@@ -3113,7 +3061,7 @@ static const int ERROR_UNEXPECTED_MM_MAP_ERROR    557L
 // If an MM error is returned which is not defined in the standard FsRtl filter, it is converted to one of the following errors which is guaranteed to be in the filter.
 // In this case information is lost, however, the filter correctly handles the exception.
 //
-static const int ERROR_UNEXPECTED_MM_EXTEND_ERR   558L
+    ERROR_UNEXPECTED_MM_EXTEND_ERR = 558,
 
 //
 // MessageId: ERROR_BAD_FUNCTION_TABLE
@@ -3122,7 +3070,7 @@ static const int ERROR_UNEXPECTED_MM_EXTEND_ERR   558L
 //
 // A malformed function table was encountered during an unwind operation.
 //
-static const int ERROR_BAD_FUNCTION_TABLE         559L
+    ERROR_BAD_FUNCTION_TABLE = 559,
 
 //
 // MessageId: ERROR_NO_GUID_TRANSLATION
@@ -3132,7 +3080,7 @@ static const int ERROR_BAD_FUNCTION_TABLE         559L
 // Indicates that an attempt was made to assign protection to a file system file or directory and one of the SIDs in the security descriptor could not be translated into a GUID that could be stored by the file system.
 // This causes the protection attempt to fail, which may cause a file creation attempt to fail.
 //
-static const int ERROR_NO_GUID_TRANSLATION        560L
+    ERROR_NO_GUID_TRANSLATION = 560,
 
 //
 // MessageId: ERROR_INVALID_LDT_SIZE
@@ -3141,7 +3089,7 @@ static const int ERROR_NO_GUID_TRANSLATION        560L
 //
 // Indicates that an attempt was made to grow an LDT by setting its size, or that the size was not an even number of selectors.
 //
-static const int ERROR_INVALID_LDT_SIZE           561L
+    ERROR_INVALID_LDT_SIZE = 561,
 
 //
 // MessageId: ERROR_INVALID_LDT_OFFSET
@@ -3150,7 +3098,7 @@ static const int ERROR_INVALID_LDT_SIZE           561L
 //
 // Indicates that the starting value for the LDT information was not an integral multiple of the selector size.
 //
-static const int ERROR_INVALID_LDT_OFFSET         563L
+    ERROR_INVALID_LDT_OFFSET = 563,
 
 //
 // MessageId: ERROR_INVALID_LDT_DESCRIPTOR
@@ -3159,7 +3107,7 @@ static const int ERROR_INVALID_LDT_OFFSET         563L
 //
 // Indicates that the user supplied an invalid descriptor when trying to set up Ldt descriptors.
 //
-static const int ERROR_INVALID_LDT_DESCRIPTOR     564L
+    ERROR_INVALID_LDT_DESCRIPTOR = 564,
 
 //
 // MessageId: ERROR_TOO_MANY_THREADS
@@ -3168,7 +3116,7 @@ static const int ERROR_INVALID_LDT_DESCRIPTOR     564L
 //
 // Indicates a process has too many threads to perform the requested action. For example, assignment of a primary token may only be performed when a process has zero or one threads.
 //
-static const int ERROR_TOO_MANY_THREADS           565L
+    ERROR_TOO_MANY_THREADS = 565,
 
 //
 // MessageId: ERROR_THREAD_NOT_IN_PROCESS
@@ -3177,7 +3125,7 @@ static const int ERROR_TOO_MANY_THREADS           565L
 //
 // An attempt was made to operate on a thread within a specific process, but the thread specified is not in the process specified.
 //
-static const int ERROR_THREAD_NOT_IN_PROCESS      566L
+    ERROR_THREAD_NOT_IN_PROCESS = 566,
 
 //
 // MessageId: ERROR_PAGEFILE_QUOTA_EXCEEDED
@@ -3186,7 +3134,7 @@ static const int ERROR_THREAD_NOT_IN_PROCESS      566L
 //
 // Page file quota was exceeded.
 //
-static const int ERROR_PAGEFILE_QUOTA_EXCEEDED    567L
+    ERROR_PAGEFILE_QUOTA_EXCEEDED = 567,
 
 //
 // MessageId: ERROR_LOGON_SERVER_CONFLICT
@@ -3195,7 +3143,7 @@ static const int ERROR_PAGEFILE_QUOTA_EXCEEDED    567L
 //
 // The Netlogon service cannot start because another Netlogon service running in the domain conflicts with the specified role.
 //
-static const int ERROR_LOGON_SERVER_CONFLICT      568L
+    ERROR_LOGON_SERVER_CONFLICT = 568,
 
 //
 // MessageId: ERROR_SYNCHRONIZATION_REQUIRED
@@ -3204,7 +3152,7 @@ static const int ERROR_LOGON_SERVER_CONFLICT      568L
 //
 // The SAM database on a Windows Server is significantly out of synchronization with the copy on the Domain Controller. A complete synchronization is required.
 //
-static const int ERROR_SYNCHRONIZATION_REQUIRED   569L
+    ERROR_SYNCHRONIZATION_REQUIRED = 569,
 
 //
 // MessageId: ERROR_NET_OPEN_FAILED
@@ -3213,7 +3161,7 @@ static const int ERROR_SYNCHRONIZATION_REQUIRED   569L
 //
 // The NtCreateFile API failed. This error should never be returned to an application, it is a place holder for the Windows Lan Manager Redirector to use in its internal error mapping routines.
 //
-static const int ERROR_NET_OPEN_FAILED            570L
+    ERROR_NET_OPEN_FAILED = 570,
 
 //
 // MessageId: ERROR_IO_PRIVILEGE_FAILED
@@ -3223,7 +3171,7 @@ static const int ERROR_NET_OPEN_FAILED            570L
 // {Privilege Failed}
 // The I/O permissions for the process could not be changed.
 //
-static const int ERROR_IO_PRIVILEGE_FAILED        571L
+    ERROR_IO_PRIVILEGE_FAILED = 571,
 
 //
 // MessageId: ERROR_CONTROL_C_EXIT
@@ -3233,7 +3181,7 @@ static const int ERROR_IO_PRIVILEGE_FAILED        571L
 // {Application Exit by CTRL+C}
 // The application terminated as a result of a CTRL+C.
 //
-static const int ERROR_CONTROL_C_EXIT             572L    // winnt
+    ERROR_CONTROL_C_EXIT = 572,    // winnt
 
 //
 // MessageId: ERROR_MISSING_SYSTEMFILE
@@ -3243,7 +3191,7 @@ static const int ERROR_CONTROL_C_EXIT             572L    // winnt
 // {Missing System File}
 // The required system file %hs is bad or missing.
 //
-static const int ERROR_MISSING_SYSTEMFILE         573L
+    ERROR_MISSING_SYSTEMFILE = 573,
 
 //
 // MessageId: ERROR_UNHANDLED_EXCEPTION
@@ -3251,9 +3199,9 @@ static const int ERROR_MISSING_SYSTEMFILE         573L
 // MessageText:
 //
 // {Application Error}
-// The exception %s (0x%08lx) occurred in the application at location 0x%08lx.
+// The exception %s (0x%08x) occurred in the application at location 0x%08x.
 //
-static const int ERROR_UNHANDLED_EXCEPTION        574L
+    ERROR_UNHANDLED_EXCEPTION = 574,
 
 //
 // MessageId: ERROR_APP_INIT_FAILURE
@@ -3263,7 +3211,7 @@ static const int ERROR_UNHANDLED_EXCEPTION        574L
 // {Application Error}
 // The application was unable to start correctly (0x%lx). Click OK to close the application.
 //
-static const int ERROR_APP_INIT_FAILURE           575L
+    ERROR_APP_INIT_FAILURE = 575,
 
 //
 // MessageId: ERROR_PAGEFILE_CREATE_FAILED
@@ -3273,7 +3221,7 @@ static const int ERROR_APP_INIT_FAILURE           575L
 // {Unable to Create Paging File}
 // The creation of the paging file %hs failed (%lx). The requested size was %ld.
 //
-static const int ERROR_PAGEFILE_CREATE_FAILED     576L
+    ERROR_PAGEFILE_CREATE_FAILED = 576,
 
 //
 // MessageId: ERROR_INVALID_IMAGE_HASH
@@ -3282,7 +3230,7 @@ static const int ERROR_PAGEFILE_CREATE_FAILED     576L
 //
 // Windows cannot verify the digital signature for this file. A recent hardware or software change might have installed a file that is signed incorrectly or damaged, or that might be malicious software from an unknown source.
 //
-static const int ERROR_INVALID_IMAGE_HASH         577L
+    ERROR_INVALID_IMAGE_HASH = 577,
 
 //
 // MessageId: ERROR_NO_PAGEFILE
@@ -3292,7 +3240,7 @@ static const int ERROR_INVALID_IMAGE_HASH         577L
 // {No Paging File Specified}
 // No paging file was specified in the system configuration.
 //
-static const int ERROR_NO_PAGEFILE                578L
+    ERROR_NO_PAGEFILE = 578,
 
 //
 // MessageId: ERROR_ILLEGAL_FLOAT_CONTEXT
@@ -3302,7 +3250,7 @@ static const int ERROR_NO_PAGEFILE                578L
 // {EXCEPTION}
 // A real-mode application issued a floating-point instruction and floating-point hardware is not present.
 //
-static const int ERROR_ILLEGAL_FLOAT_CONTEXT      579L
+    ERROR_ILLEGAL_FLOAT_CONTEXT = 579,
 
 //
 // MessageId: ERROR_NO_EVENT_PAIR
@@ -3311,7 +3259,7 @@ static const int ERROR_ILLEGAL_FLOAT_CONTEXT      579L
 //
 // An event pair synchronization operation was performed using the thread specific client/server event pair object, but no event pair object was associated with the thread.
 //
-static const int ERROR_NO_EVENT_PAIR              580L
+    ERROR_NO_EVENT_PAIR = 580,
 
 //
 // MessageId: ERROR_DOMAIN_CTRLR_CONFIG_ERROR
@@ -3320,7 +3268,7 @@ static const int ERROR_NO_EVENT_PAIR              580L
 //
 // A Windows Server has an incorrect configuration.
 //
-static const int ERROR_DOMAIN_CTRLR_CONFIG_ERROR  581L
+    ERROR_DOMAIN_CTRLR_CONFIG_ERROR = 581,
 
 //
 // MessageId: ERROR_ILLEGAL_CHARACTER
@@ -3329,7 +3277,7 @@ static const int ERROR_DOMAIN_CTRLR_CONFIG_ERROR  581L
 //
 // An illegal character was encountered. For a multi-byte character set this includes a lead byte without a succeeding trail byte. For the Unicode character set this includes the characters 0xFFFF and 0xFFFE.
 //
-static const int ERROR_ILLEGAL_CHARACTER          582L
+    ERROR_ILLEGAL_CHARACTER = 582,
 
 //
 // MessageId: ERROR_UNDEFINED_CHARACTER
@@ -3338,7 +3286,7 @@ static const int ERROR_ILLEGAL_CHARACTER          582L
 //
 // The Unicode character is not defined in the Unicode character set installed on the system.
 //
-static const int ERROR_UNDEFINED_CHARACTER        583L
+    ERROR_UNDEFINED_CHARACTER = 583,
 
 //
 // MessageId: ERROR_FLOPPY_VOLUME
@@ -3347,7 +3295,7 @@ static const int ERROR_UNDEFINED_CHARACTER        583L
 //
 // The paging file cannot be created on a floppy diskette.
 //
-static const int ERROR_FLOPPY_VOLUME              584L
+    ERROR_FLOPPY_VOLUME = 584,
 
 //
 // MessageId: ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT
@@ -3356,7 +3304,7 @@ static const int ERROR_FLOPPY_VOLUME              584L
 //
 // The system BIOS failed to connect a system interrupt to the device or bus for which the device is connected.
 //
-static const int ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT 585L
+    ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT = 585,
 
 //
 // MessageId: ERROR_BACKUP_CONTROLLER
@@ -3365,7 +3313,7 @@ static const int ERROR_BIOS_FAILED_TO_CONNECT_INTERRUPT 585L
 //
 // This operation is only allowed for the Primary Domain Controller of the domain.
 //
-static const int ERROR_BACKUP_CONTROLLER          586L
+    ERROR_BACKUP_CONTROLLER = 586,
 
 //
 // MessageId: ERROR_MUTANT_LIMIT_EXCEEDED
@@ -3374,7 +3322,7 @@ static const int ERROR_BACKUP_CONTROLLER          586L
 //
 // An attempt was made to acquire a mutant such that its maximum count would have been exceeded.
 //
-static const int ERROR_MUTANT_LIMIT_EXCEEDED      587L
+    ERROR_MUTANT_LIMIT_EXCEEDED = 587,
 
 //
 // MessageId: ERROR_FS_DRIVER_REQUIRED
@@ -3383,7 +3331,7 @@ static const int ERROR_MUTANT_LIMIT_EXCEEDED      587L
 //
 // A volume has been accessed for which a file system driver is required that has not yet been loaded.
 //
-static const int ERROR_FS_DRIVER_REQUIRED         588L
+    ERROR_FS_DRIVER_REQUIRED = 588,
 
 //
 // MessageId: ERROR_CANNOT_LOAD_REGISTRY_FILE
@@ -3396,7 +3344,7 @@ static const int ERROR_FS_DRIVER_REQUIRED         588L
 // or its log or alternate.
 // It is corrupt, absent, or not writable.
 //
-static const int ERROR_CANNOT_LOAD_REGISTRY_FILE  589L
+    ERROR_CANNOT_LOAD_REGISTRY_FILE = 589,
 
 //
 // MessageId: ERROR_DEBUG_ATTACH_FAILED
@@ -3406,7 +3354,7 @@ static const int ERROR_CANNOT_LOAD_REGISTRY_FILE  589L
 // {Unexpected Failure in DebugActiveProcess}
 // An unexpected failure occurred while processing a DebugActiveProcess API request. You may choose OK to terminate the process, or Cancel to ignore the error.
 //
-static const int ERROR_DEBUG_ATTACH_FAILED        590L
+    ERROR_DEBUG_ATTACH_FAILED = 590,
 
 //
 // MessageId: ERROR_SYSTEM_PROCESS_TERMINATED
@@ -3417,7 +3365,7 @@ static const int ERROR_DEBUG_ATTACH_FAILED        590L
 // The %hs system process terminated unexpectedly with a status of 0x%08x (0x%08x 0x%08x).
 // The system has been shut down.
 //
-static const int ERROR_SYSTEM_PROCESS_TERMINATED  591L
+    ERROR_SYSTEM_PROCESS_TERMINATED = 591,
 
 //
 // MessageId: ERROR_DATA_NOT_ACCEPTED
@@ -3427,7 +3375,7 @@ static const int ERROR_SYSTEM_PROCESS_TERMINATED  591L
 // {Data Not Accepted}
 // The TDI client could not handle the data received during an indication.
 //
-static const int ERROR_DATA_NOT_ACCEPTED          592L
+    ERROR_DATA_NOT_ACCEPTED = 592,
 
 //
 // MessageId: ERROR_VDM_HARD_ERROR
@@ -3436,7 +3384,7 @@ static const int ERROR_DATA_NOT_ACCEPTED          592L
 //
 // NTVDM encountered a hard error.
 //
-static const int ERROR_VDM_HARD_ERROR             593L
+    ERROR_VDM_HARD_ERROR = 593,
 
 //
 // MessageId: ERROR_DRIVER_CANCEL_TIMEOUT
@@ -3446,7 +3394,7 @@ static const int ERROR_VDM_HARD_ERROR             593L
 // {Cancel Timeout}
 // The driver %hs failed to complete a cancelled I/O request in the allotted time.
 //
-static const int ERROR_DRIVER_CANCEL_TIMEOUT      594L
+    ERROR_DRIVER_CANCEL_TIMEOUT = 594,
 
 //
 // MessageId: ERROR_REPLY_MESSAGE_MISMATCH
@@ -3456,7 +3404,7 @@ static const int ERROR_DRIVER_CANCEL_TIMEOUT      594L
 // {Reply Message Mismatch}
 // An attempt was made to reply to an LPC message, but the thread specified by the client ID in the message was not waiting on that message.
 //
-static const int ERROR_REPLY_MESSAGE_MISMATCH     595L
+    ERROR_REPLY_MESSAGE_MISMATCH = 595,
 
 //
 // MessageId: ERROR_LOST_WRITEBEHIND_DATA
@@ -3467,7 +3415,7 @@ static const int ERROR_REPLY_MESSAGE_MISMATCH     595L
 // Windows was unable to save all the data for the file %hs. The data has been lost.
 // This error may be caused by a failure of your computer hardware or network connection. Please try to save this file elsewhere.
 //
-static const int ERROR_LOST_WRITEBEHIND_DATA      596L
+    ERROR_LOST_WRITEBEHIND_DATA = 596,
 
 //
 // MessageId: ERROR_CLIENT_SERVER_PARAMETERS_INVALID
@@ -3476,7 +3424,7 @@ static const int ERROR_LOST_WRITEBEHIND_DATA      596L
 //
 // The parameter(s) passed to the server in the client/server shared memory window were invalid. Too much data may have been put in the shared memory window.
 //
-static const int ERROR_CLIENT_SERVER_PARAMETERS_INVALID 597L
+    ERROR_CLIENT_SERVER_PARAMETERS_INVALID = 597,
 
 //
 // MessageId: ERROR_NOT_TINY_STREAM
@@ -3485,7 +3433,7 @@ static const int ERROR_CLIENT_SERVER_PARAMETERS_INVALID 597L
 //
 // The stream is not a tiny stream.
 //
-static const int ERROR_NOT_TINY_STREAM            598L
+    ERROR_NOT_TINY_STREAM = 598,
 
 //
 // MessageId: ERROR_STACK_OVERFLOW_READ
@@ -3494,7 +3442,7 @@ static const int ERROR_NOT_TINY_STREAM            598L
 //
 // The request must be handled by the stack overflow code.
 //
-static const int ERROR_STACK_OVERFLOW_READ        599L
+    ERROR_STACK_OVERFLOW_READ = 599,
 
 //
 // MessageId: ERROR_CONVERT_TO_LARGE
@@ -3503,7 +3451,7 @@ static const int ERROR_STACK_OVERFLOW_READ        599L
 //
 // Internal OFS status codes indicating how an allocation operation is handled. Either it is retried after the containing onode is moved or the extent stream is converted to a large stream.
 //
-static const int ERROR_CONVERT_TO_LARGE           600L
+    ERROR_CONVERT_TO_LARGE = 600,
 
 //
 // MessageId: ERROR_FOUND_OUT_OF_SCOPE
@@ -3512,7 +3460,7 @@ static const int ERROR_CONVERT_TO_LARGE           600L
 //
 // The attempt to find the object found an object matching by ID on the volume but it is out of the scope of the handle used for the operation.
 //
-static const int ERROR_FOUND_OUT_OF_SCOPE         601L
+    ERROR_FOUND_OUT_OF_SCOPE = 601,
 
 //
 // MessageId: ERROR_ALLOCATE_BUCKET
@@ -3521,7 +3469,7 @@ static const int ERROR_FOUND_OUT_OF_SCOPE         601L
 //
 // The bucket array must be grown. Retry transaction after doing so.
 //
-static const int ERROR_ALLOCATE_BUCKET            602L
+    ERROR_ALLOCATE_BUCKET = 602,
 
 //
 // MessageId: ERROR_MARSHALL_OVERFLOW
@@ -3530,7 +3478,7 @@ static const int ERROR_ALLOCATE_BUCKET            602L
 //
 // The user/kernel marshalling buffer has overflowed.
 //
-static const int ERROR_MARSHALL_OVERFLOW          603L
+    ERROR_MARSHALL_OVERFLOW = 603,
 
 //
 // MessageId: ERROR_INVALID_VARIANT
@@ -3539,7 +3487,7 @@ static const int ERROR_MARSHALL_OVERFLOW          603L
 //
 // The supplied variant structure contains invalid data.
 //
-static const int ERROR_INVALID_VARIANT            604L
+    ERROR_INVALID_VARIANT = 604,
 
 //
 // MessageId: ERROR_BAD_COMPRESSION_BUFFER
@@ -3548,7 +3496,7 @@ static const int ERROR_INVALID_VARIANT            604L
 //
 // The specified buffer contains ill-formed data.
 //
-static const int ERROR_BAD_COMPRESSION_BUFFER     605L
+    ERROR_BAD_COMPRESSION_BUFFER = 605,
 
 //
 // MessageId: ERROR_AUDIT_FAILED
@@ -3558,7 +3506,7 @@ static const int ERROR_BAD_COMPRESSION_BUFFER     605L
 // {Audit Failed}
 // An attempt to generate a security audit failed.
 //
-static const int ERROR_AUDIT_FAILED               606L
+    ERROR_AUDIT_FAILED = 606,
 
 //
 // MessageId: ERROR_TIMER_RESOLUTION_NOT_SET
@@ -3567,7 +3515,7 @@ static const int ERROR_AUDIT_FAILED               606L
 //
 // The timer resolution was not previously set by the current process.
 //
-static const int ERROR_TIMER_RESOLUTION_NOT_SET   607L
+    ERROR_TIMER_RESOLUTION_NOT_SET = 607,
 
 //
 // MessageId: ERROR_INSUFFICIENT_LOGON_INFO
@@ -3576,7 +3524,7 @@ static const int ERROR_TIMER_RESOLUTION_NOT_SET   607L
 //
 // There is insufficient account information to log you on.
 //
-static const int ERROR_INSUFFICIENT_LOGON_INFO    608L
+    ERROR_INSUFFICIENT_LOGON_INFO = 608,
 
 //
 // MessageId: ERROR_BAD_DLL_ENTRYPOINT
@@ -3587,7 +3535,7 @@ static const int ERROR_INSUFFICIENT_LOGON_INFO    608L
 // The dynamic link library %hs is not written correctly. The stack pointer has been left in an inconsistent state.
 // The entrypoint should be declared as WINAPI or STDCALL. Select YES to fail the DLL load. Select NO to continue execution. Selecting NO may cause the application to operate incorrectly.
 //
-static const int ERROR_BAD_DLL_ENTRYPOINT         609L
+    ERROR_BAD_DLL_ENTRYPOINT = 609,
 
 //
 // MessageId: ERROR_BAD_SERVICE_ENTRYPOINT
@@ -3598,7 +3546,7 @@ static const int ERROR_BAD_DLL_ENTRYPOINT         609L
 // The %hs service is not written correctly. The stack pointer has been left in an inconsistent state.
 // The callback entrypoint should be declared as WINAPI or STDCALL. Selecting OK will cause the service to continue operation. However, the service process may operate incorrectly.
 //
-static const int ERROR_BAD_SERVICE_ENTRYPOINT     610L
+    ERROR_BAD_SERVICE_ENTRYPOINT = 610,
 
 //
 // MessageId: ERROR_IP_ADDRESS_CONFLICT1
@@ -3607,7 +3555,7 @@ static const int ERROR_BAD_SERVICE_ENTRYPOINT     610L
 //
 // There is an IP address conflict with another system on the network
 //
-static const int ERROR_IP_ADDRESS_CONFLICT1       611L
+    ERROR_IP_ADDRESS_CONFLICT1 = 611,
 
 //
 // MessageId: ERROR_IP_ADDRESS_CONFLICT2
@@ -3616,7 +3564,7 @@ static const int ERROR_IP_ADDRESS_CONFLICT1       611L
 //
 // There is an IP address conflict with another system on the network
 //
-static const int ERROR_IP_ADDRESS_CONFLICT2       612L
+    ERROR_IP_ADDRESS_CONFLICT2 = 612,
 
 //
 // MessageId: ERROR_REGISTRY_QUOTA_LIMIT
@@ -3626,7 +3574,7 @@ static const int ERROR_IP_ADDRESS_CONFLICT2       612L
 // {Low On Registry Space}
 // The system has reached the maximum size allowed for the system part of the registry. Additional storage requests will be ignored.
 //
-static const int ERROR_REGISTRY_QUOTA_LIMIT       613L
+    ERROR_REGISTRY_QUOTA_LIMIT = 613,
 
 //
 // MessageId: ERROR_NO_CALLBACK_ACTIVE
@@ -3635,7 +3583,7 @@ static const int ERROR_REGISTRY_QUOTA_LIMIT       613L
 //
 // A callback return system service cannot be executed when no callback is active.
 //
-static const int ERROR_NO_CALLBACK_ACTIVE         614L
+    ERROR_NO_CALLBACK_ACTIVE = 614,
 
 //
 // MessageId: ERROR_PWD_TOO_SHORT
@@ -3645,7 +3593,7 @@ static const int ERROR_NO_CALLBACK_ACTIVE         614L
 // The password provided is too short to meet the policy of your user account.
 // Please choose a longer password.
 //
-static const int ERROR_PWD_TOO_SHORT              615L
+    ERROR_PWD_TOO_SHORT = 615,
 
 //
 // MessageId: ERROR_PWD_TOO_RECENT
@@ -3656,7 +3604,7 @@ static const int ERROR_PWD_TOO_SHORT              615L
 // This is done to prevent users from changing back to a familiar, but potentially discovered, password.
 // If you feel your password has been compromised then please contact your administrator immediately to have a new one assigned.
 //
-static const int ERROR_PWD_TOO_RECENT             616L
+    ERROR_PWD_TOO_RECENT = 616,
 
 //
 // MessageId: ERROR_PWD_HISTORY_CONFLICT
@@ -3666,7 +3614,7 @@ static const int ERROR_PWD_TOO_RECENT             616L
 // You have attempted to change your password to one that you have used in the past.
 // The policy of your user account does not allow this. Please select a password that you have not previously used.
 //
-static const int ERROR_PWD_HISTORY_CONFLICT       617L
+    ERROR_PWD_HISTORY_CONFLICT = 617,
 
 //
 // MessageId: ERROR_UNSUPPORTED_COMPRESSION
@@ -3675,7 +3623,7 @@ static const int ERROR_PWD_HISTORY_CONFLICT       617L
 //
 // The specified compression format is unsupported.
 //
-static const int ERROR_UNSUPPORTED_COMPRESSION    618L
+    ERROR_UNSUPPORTED_COMPRESSION = 618,
 
 //
 // MessageId: ERROR_INVALID_HW_PROFILE
@@ -3684,7 +3632,7 @@ static const int ERROR_UNSUPPORTED_COMPRESSION    618L
 //
 // The specified hardware profile configuration is invalid.
 //
-static const int ERROR_INVALID_HW_PROFILE         619L
+    ERROR_INVALID_HW_PROFILE = 619,
 
 //
 // MessageId: ERROR_INVALID_PLUGPLAY_DEVICE_PATH
@@ -3693,7 +3641,7 @@ static const int ERROR_INVALID_HW_PROFILE         619L
 //
 // The specified Plug and Play registry device path is invalid.
 //
-static const int ERROR_INVALID_PLUGPLAY_DEVICE_PATH 620L
+    ERROR_INVALID_PLUGPLAY_DEVICE_PATH = 620,
 
 //
 // MessageId: ERROR_QUOTA_LIST_INCONSISTENT
@@ -3702,7 +3650,7 @@ static const int ERROR_INVALID_PLUGPLAY_DEVICE_PATH 620L
 //
 // The specified quota list is internally inconsistent with its descriptor.
 //
-static const int ERROR_QUOTA_LIST_INCONSISTENT    621L
+    ERROR_QUOTA_LIST_INCONSISTENT = 621,
 
 //
 // MessageId: ERROR_EVALUATION_EXPIRATION
@@ -3712,7 +3660,7 @@ static const int ERROR_QUOTA_LIST_INCONSISTENT    621L
 // {Windows Evaluation Notification}
 // The evaluation period for this installation of Windows has expired. This system will shutdown in 1 hour. To restore access to this installation of Windows, please upgrade this installation using a licensed distribution of this product.
 //
-static const int ERROR_EVALUATION_EXPIRATION      622L
+    ERROR_EVALUATION_EXPIRATION = 622,
 
 //
 // MessageId: ERROR_ILLEGAL_DLL_RELOCATION
@@ -3723,7 +3671,7 @@ static const int ERROR_EVALUATION_EXPIRATION      622L
 // The system DLL %hs was relocated in memory. The application will not run properly.
 // The relocation occurred because the DLL %hs occupied an address range reserved for Windows system DLLs. The vendor supplying the DLL should be contacted for a new DLL.
 //
-static const int ERROR_ILLEGAL_DLL_RELOCATION     623L
+    ERROR_ILLEGAL_DLL_RELOCATION = 623,
 
 //
 // MessageId: ERROR_DLL_INIT_FAILED_LOGOFF
@@ -3733,7 +3681,7 @@ static const int ERROR_ILLEGAL_DLL_RELOCATION     623L
 // {DLL Initialization Failed}
 // The application failed to initialize because the window station is shutting down.
 //
-static const int ERROR_DLL_INIT_FAILED_LOGOFF     624L
+    ERROR_DLL_INIT_FAILED_LOGOFF = 624,
 
 //
 // MessageId: ERROR_VALIDATE_CONTINUE
@@ -3742,7 +3690,7 @@ static const int ERROR_DLL_INIT_FAILED_LOGOFF     624L
 //
 // The validation process needs to continue on to the next step.
 //
-static const int ERROR_VALIDATE_CONTINUE          625L
+    ERROR_VALIDATE_CONTINUE = 625,
 
 //
 // MessageId: ERROR_NO_MORE_MATCHES
@@ -3751,7 +3699,7 @@ static const int ERROR_VALIDATE_CONTINUE          625L
 //
 // There are no more matches for the current index enumeration.
 //
-static const int ERROR_NO_MORE_MATCHES            626L
+    ERROR_NO_MORE_MATCHES = 626,
 
 //
 // MessageId: ERROR_RANGE_LIST_CONFLICT
@@ -3760,7 +3708,7 @@ static const int ERROR_NO_MORE_MATCHES            626L
 //
 // The range could not be added to the range list because of a conflict.
 //
-static const int ERROR_RANGE_LIST_CONFLICT        627L
+    ERROR_RANGE_LIST_CONFLICT = 627,
 
 //
 // MessageId: ERROR_SERVER_SID_MISMATCH
@@ -3769,7 +3717,7 @@ static const int ERROR_RANGE_LIST_CONFLICT        627L
 //
 // The server process is running under a SID different than that required by client.
 //
-static const int ERROR_SERVER_SID_MISMATCH        628L
+    ERROR_SERVER_SID_MISMATCH = 628,
 
 //
 // MessageId: ERROR_CANT_ENABLE_DENY_ONLY
@@ -3778,7 +3726,7 @@ static const int ERROR_SERVER_SID_MISMATCH        628L
 //
 // A group marked use for deny only cannot be enabled.
 //
-static const int ERROR_CANT_ENABLE_DENY_ONLY      629L
+    ERROR_CANT_ENABLE_DENY_ONLY = 629,
 
 //
 // MessageId: ERROR_FLOAT_MULTIPLE_FAULTS
@@ -3788,7 +3736,7 @@ static const int ERROR_CANT_ENABLE_DENY_ONLY      629L
 // {EXCEPTION}
 // Multiple floating point faults.
 //
-static const int ERROR_FLOAT_MULTIPLE_FAULTS      630L    // winnt
+    ERROR_FLOAT_MULTIPLE_FAULTS = 630,    // winnt
 
 //
 // MessageId: ERROR_FLOAT_MULTIPLE_TRAPS
@@ -3798,7 +3746,7 @@ static const int ERROR_FLOAT_MULTIPLE_FAULTS      630L    // winnt
 // {EXCEPTION}
 // Multiple floating point traps.
 //
-static const int ERROR_FLOAT_MULTIPLE_TRAPS       631L    // winnt
+    ERROR_FLOAT_MULTIPLE_TRAPS = 631,    // winnt
 
 //
 // MessageId: ERROR_NOINTERFACE
@@ -3807,7 +3755,7 @@ static const int ERROR_FLOAT_MULTIPLE_TRAPS       631L    // winnt
 //
 // The requested interface is not supported.
 //
-static const int ERROR_NOINTERFACE                632L
+    ERROR_NOINTERFACE = 632,
 
 //
 // MessageId: ERROR_DRIVER_FAILED_SLEEP
@@ -3817,7 +3765,7 @@ static const int ERROR_NOINTERFACE                632L
 // {System Standby Failed}
 // The driver %hs does not support standby mode. Updating this driver may allow the system to go to standby mode.
 //
-static const int ERROR_DRIVER_FAILED_SLEEP        633L
+    ERROR_DRIVER_FAILED_SLEEP = 633,
 
 //
 // MessageId: ERROR_CORRUPT_SYSTEM_FILE
@@ -3826,7 +3774,7 @@ static const int ERROR_DRIVER_FAILED_SLEEP        633L
 //
 // The system file %1 has become corrupt and has been replaced.
 //
-static const int ERROR_CORRUPT_SYSTEM_FILE        634L
+    ERROR_CORRUPT_SYSTEM_FILE = 634,
 
 //
 // MessageId: ERROR_COMMITMENT_MINIMUM
@@ -3837,7 +3785,7 @@ static const int ERROR_CORRUPT_SYSTEM_FILE        634L
 // Your system is low on virtual memory. Windows is increasing the size of your virtual memory paging file.
 // During this process, memory requests for some applications may be denied. For more information, see Help.
 //
-static const int ERROR_COMMITMENT_MINIMUM         635L
+    ERROR_COMMITMENT_MINIMUM = 635,
 
 //
 // MessageId: ERROR_PNP_RESTART_ENUMERATION
@@ -3846,7 +3794,7 @@ static const int ERROR_COMMITMENT_MINIMUM         635L
 //
 // A device was removed so enumeration must be restarted.
 //
-static const int ERROR_PNP_RESTART_ENUMERATION    636L
+    ERROR_PNP_RESTART_ENUMERATION = 636,
 
 //
 // MessageId: ERROR_SYSTEM_IMAGE_BAD_SIGNATURE
@@ -3858,7 +3806,7 @@ static const int ERROR_PNP_RESTART_ENUMERATION    636L
 // The file has been replaced with the signed file.
 // The system has been shut down.
 //
-static const int ERROR_SYSTEM_IMAGE_BAD_SIGNATURE 637L
+    ERROR_SYSTEM_IMAGE_BAD_SIGNATURE = 637,
 
 //
 // MessageId: ERROR_PNP_REBOOT_REQUIRED
@@ -3867,7 +3815,7 @@ static const int ERROR_SYSTEM_IMAGE_BAD_SIGNATURE 637L
 //
 // Device will not start without a reboot.
 //
-static const int ERROR_PNP_REBOOT_REQUIRED        638L
+    ERROR_PNP_REBOOT_REQUIRED = 638,
 
 //
 // MessageId: ERROR_INSUFFICIENT_POWER
@@ -3876,7 +3824,7 @@ static const int ERROR_PNP_REBOOT_REQUIRED        638L
 //
 // There is not enough power to complete the requested operation.
 //
-static const int ERROR_INSUFFICIENT_POWER         639L
+    ERROR_INSUFFICIENT_POWER = 639,
 
 //
 // MessageId: ERROR_MULTIPLE_FAULT_VIOLATION
@@ -3885,7 +3833,7 @@ static const int ERROR_INSUFFICIENT_POWER         639L
 //
 //  ERROR_MULTIPLE_FAULT_VIOLATION
 //
-static const int ERROR_MULTIPLE_FAULT_VIOLATION   640L
+    ERROR_MULTIPLE_FAULT_VIOLATION = 640,
 
 //
 // MessageId: ERROR_SYSTEM_SHUTDOWN
@@ -3894,7 +3842,7 @@ static const int ERROR_MULTIPLE_FAULT_VIOLATION   640L
 //
 // The system is in the process of shutting down.
 //
-static const int ERROR_SYSTEM_SHUTDOWN            641L
+    ERROR_SYSTEM_SHUTDOWN = 641,
 
 //
 // MessageId: ERROR_PORT_NOT_SET
@@ -3903,7 +3851,7 @@ static const int ERROR_SYSTEM_SHUTDOWN            641L
 //
 // An attempt to remove a processes DebugPort was made, but a port was not already associated with the process.
 //
-static const int ERROR_PORT_NOT_SET               642L
+    ERROR_PORT_NOT_SET = 642,
 
 //
 // MessageId: ERROR_DS_VERSION_CHECK_FAILURE
@@ -3912,7 +3860,7 @@ static const int ERROR_PORT_NOT_SET               642L
 //
 // This version of Windows is not compatible with the behavior version of directory forest, domain or domain controller.
 //
-static const int ERROR_DS_VERSION_CHECK_FAILURE   643L
+    ERROR_DS_VERSION_CHECK_FAILURE = 643,
 
 //
 // MessageId: ERROR_RANGE_NOT_FOUND
@@ -3921,7 +3869,7 @@ static const int ERROR_DS_VERSION_CHECK_FAILURE   643L
 //
 // The specified range could not be found in the range list.
 //
-static const int ERROR_RANGE_NOT_FOUND            644L
+    ERROR_RANGE_NOT_FOUND = 644,
 
 //
 // MessageId: ERROR_NOT_SAFE_MODE_DRIVER
@@ -3930,7 +3878,7 @@ static const int ERROR_RANGE_NOT_FOUND            644L
 //
 // The driver was not loaded because the system is booting into safe mode.
 //
-static const int ERROR_NOT_SAFE_MODE_DRIVER       646L
+    ERROR_NOT_SAFE_MODE_DRIVER = 646,
 
 //
 // MessageId: ERROR_FAILED_DRIVER_ENTRY
@@ -3939,7 +3887,7 @@ static const int ERROR_NOT_SAFE_MODE_DRIVER       646L
 //
 // The driver was not loaded because it failed its initialization call.
 //
-static const int ERROR_FAILED_DRIVER_ENTRY        647L
+    ERROR_FAILED_DRIVER_ENTRY = 647,
 
 //
 // MessageId: ERROR_DEVICE_ENUMERATION_ERROR
@@ -3949,7 +3897,7 @@ static const int ERROR_FAILED_DRIVER_ENTRY        647L
 // The "%hs" encountered an error while applying power or reading the device configuration.
 // This may be caused by a failure of your hardware or by a poor connection.
 //
-static const int ERROR_DEVICE_ENUMERATION_ERROR   648L
+    ERROR_DEVICE_ENUMERATION_ERROR = 648,
 
 //
 // MessageId: ERROR_MOUNT_POINT_NOT_RESOLVED
@@ -3958,7 +3906,7 @@ static const int ERROR_DEVICE_ENUMERATION_ERROR   648L
 //
 // The create operation failed because the name contained at least one mount point which resolves to a volume to which the specified device object is not attached.
 //
-static const int ERROR_MOUNT_POINT_NOT_RESOLVED   649L
+    ERROR_MOUNT_POINT_NOT_RESOLVED = 649,
 
 //
 // MessageId: ERROR_INVALID_DEVICE_OBJECT_PARAMETER
@@ -3967,7 +3915,7 @@ static const int ERROR_MOUNT_POINT_NOT_RESOLVED   649L
 //
 // The device object parameter is either not a valid device object or is not attached to the volume specified by the file name.
 //
-static const int ERROR_INVALID_DEVICE_OBJECT_PARAMETER 650L
+    ERROR_INVALID_DEVICE_OBJECT_PARAMETER = 650,
 
 //
 // MessageId: ERROR_MCA_OCCURED
@@ -3976,7 +3924,7 @@ static const int ERROR_INVALID_DEVICE_OBJECT_PARAMETER 650L
 //
 // A Machine Check Error has occurred. Please check the system eventlog for additional information.
 //
-static const int ERROR_MCA_OCCURED                651L
+    ERROR_MCA_OCCURED = 651,
 
 //
 // MessageId: ERROR_DRIVER_DATABASE_ERROR
@@ -3985,7 +3933,7 @@ static const int ERROR_MCA_OCCURED                651L
 //
 // There was error [%2] processing the driver database.
 //
-static const int ERROR_DRIVER_DATABASE_ERROR      652L
+    ERROR_DRIVER_DATABASE_ERROR = 652,
 
 //
 // MessageId: ERROR_SYSTEM_HIVE_TOO_LARGE
@@ -3994,7 +3942,7 @@ static const int ERROR_DRIVER_DATABASE_ERROR      652L
 //
 // System hive size has exceeded its limit.
 //
-static const int ERROR_SYSTEM_HIVE_TOO_LARGE      653L
+    ERROR_SYSTEM_HIVE_TOO_LARGE = 653,
 
 //
 // MessageId: ERROR_DRIVER_FAILED_PRIOR_UNLOAD
@@ -4003,7 +3951,7 @@ static const int ERROR_SYSTEM_HIVE_TOO_LARGE      653L
 //
 // The driver could not be loaded because a previous version of the driver is still in memory.
 //
-static const int ERROR_DRIVER_FAILED_PRIOR_UNLOAD 654L
+    ERROR_DRIVER_FAILED_PRIOR_UNLOAD = 654,
 
 //
 // MessageId: ERROR_VOLSNAP_PREPARE_HIBERNATE
@@ -4013,7 +3961,7 @@ static const int ERROR_DRIVER_FAILED_PRIOR_UNLOAD 654L
 // {Volume Shadow Copy Service}
 // Please wait while the Volume Shadow Copy Service prepares volume %hs for hibernation.
 //
-static const int ERROR_VOLSNAP_PREPARE_HIBERNATE  655L
+    ERROR_VOLSNAP_PREPARE_HIBERNATE = 655,
 
 //
 // MessageId: ERROR_HIBERNATION_FAILURE
@@ -4022,7 +3970,7 @@ static const int ERROR_VOLSNAP_PREPARE_HIBERNATE  655L
 //
 // The system has failed to hibernate (The error code is %hs). Hibernation will be disabled until the system is restarted.
 //
-static const int ERROR_HIBERNATION_FAILURE        656L
+    ERROR_HIBERNATION_FAILURE = 656,
 
 //
 // MessageId: ERROR_PWD_TOO_LONG
@@ -4032,7 +3980,7 @@ static const int ERROR_HIBERNATION_FAILURE        656L
 // The password provided is too long to meet the policy of your user account.
 // Please choose a shorter password.
 //
-static const int ERROR_PWD_TOO_LONG               657L
+    ERROR_PWD_TOO_LONG = 657,
 
 //
 // MessageId: ERROR_FILE_SYSTEM_LIMITATION
@@ -4041,7 +3989,7 @@ static const int ERROR_PWD_TOO_LONG               657L
 //
 // The requested operation could not be completed due to a file system limitation
 //
-static const int ERROR_FILE_SYSTEM_LIMITATION     665L
+    ERROR_FILE_SYSTEM_LIMITATION = 665,
 
 //
 // MessageId: ERROR_ASSERTION_FAILURE
@@ -4050,7 +3998,7 @@ static const int ERROR_FILE_SYSTEM_LIMITATION     665L
 //
 // An assertion failure has occurred.
 //
-static const int ERROR_ASSERTION_FAILURE          668L
+    ERROR_ASSERTION_FAILURE = 668,
 
 //
 // MessageId: ERROR_ACPI_ERROR
@@ -4059,7 +4007,7 @@ static const int ERROR_ASSERTION_FAILURE          668L
 //
 // An error occurred in the ACPI subsystem.
 //
-static const int ERROR_ACPI_ERROR                 669L
+    ERROR_ACPI_ERROR = 669,
 
 //
 // MessageId: ERROR_WOW_ASSERTION
@@ -4068,7 +4016,7 @@ static const int ERROR_ACPI_ERROR                 669L
 //
 // WOW Assertion Error.
 //
-static const int ERROR_WOW_ASSERTION              670L
+    ERROR_WOW_ASSERTION = 670,
 
 //
 // MessageId: ERROR_PNP_BAD_MPS_TABLE
@@ -4078,7 +4026,7 @@ static const int ERROR_WOW_ASSERTION              670L
 // A device is missing in the system BIOS MPS table. This device will not be used.
 // Please contact your system vendor for system BIOS update.
 //
-static const int ERROR_PNP_BAD_MPS_TABLE          671L
+    ERROR_PNP_BAD_MPS_TABLE = 671,
 
 //
 // MessageId: ERROR_PNP_TRANSLATION_FAILED
@@ -4087,7 +4035,7 @@ static const int ERROR_PNP_BAD_MPS_TABLE          671L
 //
 // A translator failed to translate resources.
 //
-static const int ERROR_PNP_TRANSLATION_FAILED     672L
+    ERROR_PNP_TRANSLATION_FAILED = 672,
 
 //
 // MessageId: ERROR_PNP_IRQ_TRANSLATION_FAILED
@@ -4096,7 +4044,7 @@ static const int ERROR_PNP_TRANSLATION_FAILED     672L
 //
 // A IRQ translator failed to translate resources.
 //
-static const int ERROR_PNP_IRQ_TRANSLATION_FAILED 673L
+    ERROR_PNP_IRQ_TRANSLATION_FAILED = 673,
 
 //
 // MessageId: ERROR_PNP_INVALID_ID
@@ -4105,7 +4053,7 @@ static const int ERROR_PNP_IRQ_TRANSLATION_FAILED 673L
 //
 // Driver %2 returned invalid ID for a child device (%3).
 //
-static const int ERROR_PNP_INVALID_ID             674L
+    ERROR_PNP_INVALID_ID = 674,
 
 //
 // MessageId: ERROR_WAKE_SYSTEM_DEBUGGER
@@ -4115,7 +4063,7 @@ static const int ERROR_PNP_INVALID_ID             674L
 // {Kernel Debugger Awakened}
 // the system debugger was awakened by an interrupt.
 //
-static const int ERROR_WAKE_SYSTEM_DEBUGGER       675L
+    ERROR_WAKE_SYSTEM_DEBUGGER = 675,
 
 //
 // MessageId: ERROR_HANDLES_CLOSED
@@ -4125,7 +4073,7 @@ static const int ERROR_WAKE_SYSTEM_DEBUGGER       675L
 // {Handles Closed}
 // Handles to objects have been automatically closed as a result of the requested operation.
 //
-static const int ERROR_HANDLES_CLOSED             676L
+    ERROR_HANDLES_CLOSED = 676,
 
 //
 // MessageId: ERROR_EXTRANEOUS_INFORMATION
@@ -4135,7 +4083,7 @@ static const int ERROR_HANDLES_CLOSED             676L
 // {Too Much Information}
 // The specified access control list (ACL) contained more information than was expected.
 //
-static const int ERROR_EXTRANEOUS_INFORMATION     677L
+    ERROR_EXTRANEOUS_INFORMATION = 677,
 
 //
 // MessageId: ERROR_RXACT_COMMIT_NECESSARY
@@ -4145,7 +4093,7 @@ static const int ERROR_EXTRANEOUS_INFORMATION     677L
 // This warning level status indicates that the transaction state already exists for the registry sub-tree, but that a transaction commit was previously aborted.
 // The commit has NOT been completed, but has not been rolled back either (so it may still be committed if desired).
 //
-static const int ERROR_RXACT_COMMIT_NECESSARY     678L
+    ERROR_RXACT_COMMIT_NECESSARY = 678,
 
 //
 // MessageId: ERROR_MEDIA_CHECK
@@ -4155,7 +4103,7 @@ static const int ERROR_RXACT_COMMIT_NECESSARY     678L
 // {Media Changed}
 // The media may have changed.
 //
-static const int ERROR_MEDIA_CHECK                679L
+    ERROR_MEDIA_CHECK = 679,
 
 //
 // MessageId: ERROR_GUID_SUBSTITUTION_MADE
@@ -4166,7 +4114,7 @@ static const int ERROR_MEDIA_CHECK                679L
 // During the translation of a global identifier (GUID) to a Windows security ID (SID), no administratively-defined GUID prefix was found.
 // A substitute prefix was used, which will not compromise system security. However, this may provide a more restrictive access than intended.
 //
-static const int ERROR_GUID_SUBSTITUTION_MADE     680L
+    ERROR_GUID_SUBSTITUTION_MADE = 680,
 
 //
 // MessageId: ERROR_STOPPED_ON_SYMLINK
@@ -4175,7 +4123,7 @@ static const int ERROR_GUID_SUBSTITUTION_MADE     680L
 //
 // The create operation stopped after reaching a symbolic link
 //
-static const int ERROR_STOPPED_ON_SYMLINK         681L
+    ERROR_STOPPED_ON_SYMLINK = 681,
 
 //
 // MessageId: ERROR_LONGJUMP
@@ -4184,7 +4132,7 @@ static const int ERROR_STOPPED_ON_SYMLINK         681L
 //
 // A long jump has been executed.
 //
-static const int ERROR_LONGJUMP                   682L
+    ERROR_LONGJUMP = 682,
 
 //
 // MessageId: ERROR_PLUGPLAY_QUERY_VETOED
@@ -4193,7 +4141,7 @@ static const int ERROR_LONGJUMP                   682L
 //
 // The Plug and Play query operation was not successful.
 //
-static const int ERROR_PLUGPLAY_QUERY_VETOED      683L
+    ERROR_PLUGPLAY_QUERY_VETOED = 683,
 
 //
 // MessageId: ERROR_UNWIND_CONSOLIDATE
@@ -4202,7 +4150,7 @@ static const int ERROR_PLUGPLAY_QUERY_VETOED      683L
 //
 // A frame consolidation has been executed.
 //
-static const int ERROR_UNWIND_CONSOLIDATE         684L
+    ERROR_UNWIND_CONSOLIDATE = 684,
 
 //
 // MessageId: ERROR_REGISTRY_HIVE_RECOVERED
@@ -4214,7 +4162,7 @@ static const int ERROR_UNWIND_CONSOLIDATE         684L
 // %hs
 // was corrupted and it has been recovered. Some data might have been lost.
 //
-static const int ERROR_REGISTRY_HIVE_RECOVERED    685L
+    ERROR_REGISTRY_HIVE_RECOVERED = 685,
 
 //
 // MessageId: ERROR_DLL_MIGHT_BE_INSECURE
@@ -4223,7 +4171,7 @@ static const int ERROR_REGISTRY_HIVE_RECOVERED    685L
 //
 // The application is attempting to run executable code from the module %hs. This may be insecure. An alternative, %hs, is available. Should the application use the secure module %hs?
 //
-static const int ERROR_DLL_MIGHT_BE_INSECURE      686L
+    ERROR_DLL_MIGHT_BE_INSECURE = 686,
 
 //
 // MessageId: ERROR_DLL_MIGHT_BE_INCOMPATIBLE
@@ -4232,7 +4180,7 @@ static const int ERROR_DLL_MIGHT_BE_INSECURE      686L
 //
 // The application is loading executable code from the module %hs. This is secure, but may be incompatible with previous releases of the operating system. An alternative, %hs, is available. Should the application use the secure module %hs?
 //
-static const int ERROR_DLL_MIGHT_BE_INCOMPATIBLE  687L
+    ERROR_DLL_MIGHT_BE_INCOMPATIBLE = 687,
 
 //
 // MessageId: ERROR_DBG_EXCEPTION_NOT_HANDLED
@@ -4241,7 +4189,7 @@ static const int ERROR_DLL_MIGHT_BE_INCOMPATIBLE  687L
 //
 // Debugger did not handle the exception.
 //
-static const int ERROR_DBG_EXCEPTION_NOT_HANDLED  688L    // winnt
+    ERROR_DBG_EXCEPTION_NOT_HANDLED = 688,    // winnt
 
 //
 // MessageId: ERROR_DBG_REPLY_LATER
@@ -4250,7 +4198,7 @@ static const int ERROR_DBG_EXCEPTION_NOT_HANDLED  688L    // winnt
 //
 // Debugger will reply later.
 //
-static const int ERROR_DBG_REPLY_LATER            689L
+    ERROR_DBG_REPLY_LATER = 689,
 
 //
 // MessageId: ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE
@@ -4259,7 +4207,7 @@ static const int ERROR_DBG_REPLY_LATER            689L
 //
 // Debugger cannot provide handle.
 //
-static const int ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE 690L
+    ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE = 690,
 
 //
 // MessageId: ERROR_DBG_TERMINATE_THREAD
@@ -4268,7 +4216,7 @@ static const int ERROR_DBG_UNABLE_TO_PROVIDE_HANDLE 690L
 //
 // Debugger terminated thread.
 //
-static const int ERROR_DBG_TERMINATE_THREAD       691L    // winnt
+    ERROR_DBG_TERMINATE_THREAD = 691,    // winnt
 
 //
 // MessageId: ERROR_DBG_TERMINATE_PROCESS
@@ -4277,7 +4225,7 @@ static const int ERROR_DBG_TERMINATE_THREAD       691L    // winnt
 //
 // Debugger terminated process.
 //
-static const int ERROR_DBG_TERMINATE_PROCESS      692L    // winnt
+    ERROR_DBG_TERMINATE_PROCESS = 692,    // winnt
 
 //
 // MessageId: ERROR_DBG_CONTROL_C
@@ -4286,7 +4234,7 @@ static const int ERROR_DBG_TERMINATE_PROCESS      692L    // winnt
 //
 // Debugger got control C.
 //
-static const int ERROR_DBG_CONTROL_C              693L    // winnt
+    ERROR_DBG_CONTROL_C = 693,    // winnt
 
 //
 // MessageId: ERROR_DBG_PRINTEXCEPTION_C
@@ -4295,7 +4243,7 @@ static const int ERROR_DBG_CONTROL_C              693L    // winnt
 //
 // Debugger printed exception on control C.
 //
-static const int ERROR_DBG_PRINTEXCEPTION_C       694L
+    ERROR_DBG_PRINTEXCEPTION_C = 694,
 
 //
 // MessageId: ERROR_DBG_RIPEXCEPTION
@@ -4304,7 +4252,7 @@ static const int ERROR_DBG_PRINTEXCEPTION_C       694L
 //
 // Debugger received RIP exception.
 //
-static const int ERROR_DBG_RIPEXCEPTION           695L
+    ERROR_DBG_RIPEXCEPTION = 695,
 
 //
 // MessageId: ERROR_DBG_CONTROL_BREAK
@@ -4313,7 +4261,7 @@ static const int ERROR_DBG_RIPEXCEPTION           695L
 //
 // Debugger received control break.
 //
-static const int ERROR_DBG_CONTROL_BREAK          696L    // winnt
+    ERROR_DBG_CONTROL_BREAK = 696,    // winnt
 
 //
 // MessageId: ERROR_DBG_COMMAND_EXCEPTION
@@ -4322,7 +4270,7 @@ static const int ERROR_DBG_CONTROL_BREAK          696L    // winnt
 //
 // Debugger command communication exception.
 //
-static const int ERROR_DBG_COMMAND_EXCEPTION      697L    // winnt
+    ERROR_DBG_COMMAND_EXCEPTION = 697,    // winnt
 
 //
 // MessageId: ERROR_OBJECT_NAME_EXISTS
@@ -4332,7 +4280,7 @@ static const int ERROR_DBG_COMMAND_EXCEPTION      697L    // winnt
 // {Object Exists}
 // An attempt was made to create an object and the object name already existed.
 //
-static const int ERROR_OBJECT_NAME_EXISTS         698L
+    ERROR_OBJECT_NAME_EXISTS = 698,
 
 //
 // MessageId: ERROR_THREAD_WAS_SUSPENDED
@@ -4342,7 +4290,7 @@ static const int ERROR_OBJECT_NAME_EXISTS         698L
 // {Thread Suspended}
 // A thread termination occurred while the thread was suspended. The thread was resumed, and termination proceeded.
 //
-static const int ERROR_THREAD_WAS_SUSPENDED       699L
+    ERROR_THREAD_WAS_SUSPENDED = 699,
 
 //
 // MessageId: ERROR_IMAGE_NOT_AT_BASE
@@ -4352,7 +4300,7 @@ static const int ERROR_THREAD_WAS_SUSPENDED       699L
 // {Image Relocated}
 // An image file could not be mapped at the address specified in the image file. Local fixups must be performed on this image.
 //
-static const int ERROR_IMAGE_NOT_AT_BASE          700L
+    ERROR_IMAGE_NOT_AT_BASE = 700,
 
 //
 // MessageId: ERROR_RXACT_STATE_CREATED
@@ -4361,7 +4309,7 @@ static const int ERROR_IMAGE_NOT_AT_BASE          700L
 //
 // This informational level status indicates that a specified registry sub-tree transaction state did not yet exist and had to be created.
 //
-static const int ERROR_RXACT_STATE_CREATED        701L
+    ERROR_RXACT_STATE_CREATED = 701,
 
 //
 // MessageId: ERROR_SEGMENT_NOTIFICATION
@@ -4372,7 +4320,7 @@ static const int ERROR_RXACT_STATE_CREATED        701L
 // A virtual DOS machine (VDM) is loading, unloading, or moving an MS-DOS or Win16 program segment image.
 // An exception is raised so a debugger can load, unload or track symbols and breakpoints within these 16-bit segments.
 //
-static const int ERROR_SEGMENT_NOTIFICATION       702L    // winnt
+    ERROR_SEGMENT_NOTIFICATION = 702,    // winnt
 
 //
 // MessageId: ERROR_BAD_CURRENT_DIRECTORY
@@ -4383,7 +4331,7 @@ static const int ERROR_SEGMENT_NOTIFICATION       702L    // winnt
 // The process cannot switch to the startup current directory %hs.
 // Select OK to set current directory to %hs, or select CANCEL to exit.
 //
-static const int ERROR_BAD_CURRENT_DIRECTORY      703L
+    ERROR_BAD_CURRENT_DIRECTORY = 703,
 
 //
 // MessageId: ERROR_FT_READ_RECOVERY_FROM_BACKUP
@@ -4394,7 +4342,7 @@ static const int ERROR_BAD_CURRENT_DIRECTORY      703L
 // To satisfy a read request, the NT fault-tolerant file system successfully read the requested data from a redundant copy.
 // This was done because the file system encountered a failure on a member of the fault-tolerant volume, but was unable to reassign the failing area of the device.
 //
-static const int ERROR_FT_READ_RECOVERY_FROM_BACKUP 704L
+    ERROR_FT_READ_RECOVERY_FROM_BACKUP = 704,
 
 //
 // MessageId: ERROR_FT_WRITE_RECOVERY
@@ -4405,7 +4353,7 @@ static const int ERROR_FT_READ_RECOVERY_FROM_BACKUP 704L
 // To satisfy a write request, the NT fault-tolerant file system successfully wrote a redundant copy of the information.
 // This was done because the file system encountered a failure on a member of the fault-tolerant volume, but was not able to reassign the failing area of the device.
 //
-static const int ERROR_FT_WRITE_RECOVERY          705L
+    ERROR_FT_WRITE_RECOVERY = 705,
 
 //
 // MessageId: ERROR_IMAGE_MACHINE_TYPE_MISMATCH
@@ -4415,7 +4363,7 @@ static const int ERROR_FT_WRITE_RECOVERY          705L
 // {Machine Type Mismatch}
 // The image file %hs is valid, but is for a machine type other than the current machine. Select OK to continue, or CANCEL to fail the DLL load.
 //
-static const int ERROR_IMAGE_MACHINE_TYPE_MISMATCH 706L
+    ERROR_IMAGE_MACHINE_TYPE_MISMATCH = 706,
 
 //
 // MessageId: ERROR_RECEIVE_PARTIAL
@@ -4425,7 +4373,7 @@ static const int ERROR_IMAGE_MACHINE_TYPE_MISMATCH 706L
 // {Partial Data Received}
 // The network transport returned partial data to its client. The remaining data will be sent later.
 //
-static const int ERROR_RECEIVE_PARTIAL            707L
+    ERROR_RECEIVE_PARTIAL = 707,
 
 //
 // MessageId: ERROR_RECEIVE_EXPEDITED
@@ -4435,7 +4383,7 @@ static const int ERROR_RECEIVE_PARTIAL            707L
 // {Expedited Data Received}
 // The network transport returned data to its client that was marked as expedited by the remote system.
 //
-static const int ERROR_RECEIVE_EXPEDITED          708L
+    ERROR_RECEIVE_EXPEDITED = 708,
 
 //
 // MessageId: ERROR_RECEIVE_PARTIAL_EXPEDITED
@@ -4445,7 +4393,7 @@ static const int ERROR_RECEIVE_EXPEDITED          708L
 // {Partial Expedited Data Received}
 // The network transport returned partial data to its client and this data was marked as expedited by the remote system. The remaining data will be sent later.
 //
-static const int ERROR_RECEIVE_PARTIAL_EXPEDITED  709L
+    ERROR_RECEIVE_PARTIAL_EXPEDITED = 709,
 
 //
 // MessageId: ERROR_EVENT_DONE
@@ -4455,7 +4403,7 @@ static const int ERROR_RECEIVE_PARTIAL_EXPEDITED  709L
 // {TDI Event Done}
 // The TDI indication has completed successfully.
 //
-static const int ERROR_EVENT_DONE                 710L
+    ERROR_EVENT_DONE = 710,
 
 //
 // MessageId: ERROR_EVENT_PENDING
@@ -4465,7 +4413,7 @@ static const int ERROR_EVENT_DONE                 710L
 // {TDI Event Pending}
 // The TDI indication has entered the pending state.
 //
-static const int ERROR_EVENT_PENDING              711L
+    ERROR_EVENT_PENDING = 711,
 
 //
 // MessageId: ERROR_CHECKING_FILE_SYSTEM
@@ -4474,7 +4422,7 @@ static const int ERROR_EVENT_PENDING              711L
 //
 // Checking file system on %wZ
 //
-static const int ERROR_CHECKING_FILE_SYSTEM       712L
+    ERROR_CHECKING_FILE_SYSTEM = 712,
 
 //
 // MessageId: ERROR_FATAL_APP_EXIT
@@ -4484,7 +4432,7 @@ static const int ERROR_CHECKING_FILE_SYSTEM       712L
 // {Fatal Application Exit}
 // %hs
 //
-static const int ERROR_FATAL_APP_EXIT             713L
+    ERROR_FATAL_APP_EXIT = 713,
 
 //
 // MessageId: ERROR_PREDEFINED_HANDLE
@@ -4493,7 +4441,7 @@ static const int ERROR_FATAL_APP_EXIT             713L
 //
 // The specified registry key is referenced by a predefined handle.
 //
-static const int ERROR_PREDEFINED_HANDLE          714L
+    ERROR_PREDEFINED_HANDLE = 714,
 
 //
 // MessageId: ERROR_WAS_UNLOCKED
@@ -4503,7 +4451,7 @@ static const int ERROR_PREDEFINED_HANDLE          714L
 // {Page Unlocked}
 // The page protection of a locked page was changed to 'No Access' and the page was unlocked from memory and from the process.
 //
-static const int ERROR_WAS_UNLOCKED               715L
+    ERROR_WAS_UNLOCKED = 715,
 
 //
 // MessageId: ERROR_SERVICE_NOTIFICATION
@@ -4512,7 +4460,7 @@ static const int ERROR_WAS_UNLOCKED               715L
 //
 // %hs
 //
-static const int ERROR_SERVICE_NOTIFICATION       716L
+    ERROR_SERVICE_NOTIFICATION = 716,
 
 //
 // MessageId: ERROR_WAS_LOCKED
@@ -4522,7 +4470,7 @@ static const int ERROR_SERVICE_NOTIFICATION       716L
 // {Page Locked}
 // One of the pages to lock was already locked.
 //
-static const int ERROR_WAS_LOCKED                 717L
+    ERROR_WAS_LOCKED = 717,
 
 //
 // MessageId: ERROR_LOG_HARD_ERROR
@@ -4531,7 +4479,7 @@ static const int ERROR_WAS_LOCKED                 717L
 //
 // Application popup: %1 : %2
 //
-static const int ERROR_LOG_HARD_ERROR             718L
+    ERROR_LOG_HARD_ERROR = 718,
 
 //
 // MessageId: ERROR_ALREADY_WIN32
@@ -4540,7 +4488,7 @@ static const int ERROR_LOG_HARD_ERROR             718L
 //
 //  ERROR_ALREADY_WIN32
 //
-static const int ERROR_ALREADY_WIN32              719L
+    ERROR_ALREADY_WIN32 = 719,
 
 //
 // MessageId: ERROR_IMAGE_MACHINE_TYPE_MISMATCH_EXE
@@ -4550,7 +4498,7 @@ static const int ERROR_ALREADY_WIN32              719L
 // {Machine Type Mismatch}
 // The image file %hs is valid, but is for a machine type other than the current machine.
 //
-static const int ERROR_IMAGE_MACHINE_TYPE_MISMATCH_EXE 720L
+    ERROR_IMAGE_MACHINE_TYPE_MISMATCH_EXE = 720,
 
 //
 // MessageId: ERROR_NO_YIELD_PERFORMED
@@ -4559,7 +4507,7 @@ static const int ERROR_IMAGE_MACHINE_TYPE_MISMATCH_EXE 720L
 //
 // A yield execution was performed and no thread was available to run.
 //
-static const int ERROR_NO_YIELD_PERFORMED         721L
+    ERROR_NO_YIELD_PERFORMED = 721,
 
 //
 // MessageId: ERROR_TIMER_RESUME_IGNORED
@@ -4568,7 +4516,7 @@ static const int ERROR_NO_YIELD_PERFORMED         721L
 //
 // The resumable flag to a timer API was ignored.
 //
-static const int ERROR_TIMER_RESUME_IGNORED       722L
+    ERROR_TIMER_RESUME_IGNORED = 722,
 
 //
 // MessageId: ERROR_ARBITRATION_UNHANDLED
@@ -4577,7 +4525,7 @@ static const int ERROR_TIMER_RESUME_IGNORED       722L
 //
 // The arbiter has deferred arbitration of these resources to its parent
 //
-static const int ERROR_ARBITRATION_UNHANDLED      723L
+    ERROR_ARBITRATION_UNHANDLED = 723,
 
 //
 // MessageId: ERROR_CARDBUS_NOT_SUPPORTED
@@ -4586,7 +4534,7 @@ static const int ERROR_ARBITRATION_UNHANDLED      723L
 //
 // The inserted CardBus device cannot be started because of a configuration error on "%hs".
 //
-static const int ERROR_CARDBUS_NOT_SUPPORTED      724L
+    ERROR_CARDBUS_NOT_SUPPORTED = 724,
 
 //
 // MessageId: ERROR_MP_PROCESSOR_MISMATCH
@@ -4595,7 +4543,7 @@ static const int ERROR_CARDBUS_NOT_SUPPORTED      724L
 //
 // The CPUs in this multiprocessor system are not all the same revision level. To use all processors the operating system restricts itself to the features of the least capable processor in the system. Should problems occur with this system, contact the CPU manufacturer to see if this mix of processors is supported.
 //
-static const int ERROR_MP_PROCESSOR_MISMATCH      725L
+    ERROR_MP_PROCESSOR_MISMATCH = 725,
 
 //
 // MessageId: ERROR_HIBERNATED
@@ -4604,7 +4552,7 @@ static const int ERROR_MP_PROCESSOR_MISMATCH      725L
 //
 // The system was put into hibernation.
 //
-static const int ERROR_HIBERNATED                 726L
+    ERROR_HIBERNATED = 726,
 
 //
 // MessageId: ERROR_RESUME_HIBERNATION
@@ -4613,7 +4561,7 @@ static const int ERROR_HIBERNATED                 726L
 //
 // The system was resumed from hibernation.
 //
-static const int ERROR_RESUME_HIBERNATION         727L
+    ERROR_RESUME_HIBERNATION = 727,
 
 //
 // MessageId: ERROR_FIRMWARE_UPDATED
@@ -4622,7 +4570,7 @@ static const int ERROR_RESUME_HIBERNATION         727L
 //
 // Windows has detected that the system firmware (BIOS) was updated [previous firmware date = %2, current firmware date %3].
 //
-static const int ERROR_FIRMWARE_UPDATED           728L
+    ERROR_FIRMWARE_UPDATED = 728,
 
 //
 // MessageId: ERROR_DRIVERS_LEAKING_LOCKED_PAGES
@@ -4631,7 +4579,7 @@ static const int ERROR_FIRMWARE_UPDATED           728L
 //
 // A device driver is leaking locked I/O pages causing system degradation. The system has automatically enabled tracking code in order to try and catch the culprit.
 //
-static const int ERROR_DRIVERS_LEAKING_LOCKED_PAGES 729L
+    ERROR_DRIVERS_LEAKING_LOCKED_PAGES = 729,
 
 //
 // MessageId: ERROR_WAKE_SYSTEM
@@ -4640,7 +4588,7 @@ static const int ERROR_DRIVERS_LEAKING_LOCKED_PAGES 729L
 //
 // The system has awoken
 //
-static const int ERROR_WAKE_SYSTEM                730L
+    ERROR_WAKE_SYSTEM = 730,
 
 //
 // MessageId: ERROR_WAIT_1
@@ -4649,7 +4597,7 @@ static const int ERROR_WAKE_SYSTEM                730L
 //
 //  ERROR_WAIT_1
 //
-static const int ERROR_WAIT_1                     731L
+    ERROR_WAIT_1 = 731,
 
 //
 // MessageId: ERROR_WAIT_2
@@ -4658,7 +4606,7 @@ static const int ERROR_WAIT_1                     731L
 //
 //  ERROR_WAIT_2
 //
-static const int ERROR_WAIT_2                     732L
+    ERROR_WAIT_2 = 732,
 
 //
 // MessageId: ERROR_WAIT_3
@@ -4667,7 +4615,7 @@ static const int ERROR_WAIT_2                     732L
 //
 //  ERROR_WAIT_3
 //
-static const int ERROR_WAIT_3                     733L
+    ERROR_WAIT_3 = 733,
 
 //
 // MessageId: ERROR_WAIT_63
@@ -4676,7 +4624,7 @@ static const int ERROR_WAIT_3                     733L
 //
 //  ERROR_WAIT_63
 //
-static const int ERROR_WAIT_63                    734L
+    ERROR_WAIT_63 = 734,
 
 //
 // MessageId: ERROR_ABANDONED_WAIT_0
@@ -4685,7 +4633,7 @@ static const int ERROR_WAIT_63                    734L
 //
 //  ERROR_ABANDONED_WAIT_0
 //
-static const int ERROR_ABANDONED_WAIT_0           735L    // winnt
+    ERROR_ABANDONED_WAIT_0 = 735,    // winnt
 
 //
 // MessageId: ERROR_ABANDONED_WAIT_63
@@ -4694,7 +4642,7 @@ static const int ERROR_ABANDONED_WAIT_0           735L    // winnt
 //
 //  ERROR_ABANDONED_WAIT_63
 //
-static const int ERROR_ABANDONED_WAIT_63          736L
+    ERROR_ABANDONED_WAIT_63 = 736,
 
 //
 // MessageId: ERROR_USER_APC
@@ -4703,7 +4651,7 @@ static const int ERROR_ABANDONED_WAIT_63          736L
 //
 //  ERROR_USER_APC
 //
-static const int ERROR_USER_APC                   737L    // winnt
+    ERROR_USER_APC = 737,    // winnt
 
 //
 // MessageId: ERROR_KERNEL_APC
@@ -4712,7 +4660,7 @@ static const int ERROR_USER_APC                   737L    // winnt
 //
 //  ERROR_KERNEL_APC
 //
-static const int ERROR_KERNEL_APC                 738L
+    ERROR_KERNEL_APC = 738,
 
 //
 // MessageId: ERROR_ALERTED
@@ -4721,7 +4669,7 @@ static const int ERROR_KERNEL_APC                 738L
 //
 //  ERROR_ALERTED
 //
-static const int ERROR_ALERTED                    739L
+    ERROR_ALERTED = 739,
 
 //
 // MessageId: ERROR_ELEVATION_REQUIRED
@@ -4730,7 +4678,7 @@ static const int ERROR_ALERTED                    739L
 //
 // The requested operation requires elevation.
 //
-static const int ERROR_ELEVATION_REQUIRED         740L
+    ERROR_ELEVATION_REQUIRED = 740,
 
 //
 // MessageId: ERROR_REPARSE
@@ -4739,7 +4687,7 @@ static const int ERROR_ELEVATION_REQUIRED         740L
 //
 // A reparse should be performed by the Object Manager since the name of the file resulted in a symbolic link.
 //
-static const int ERROR_REPARSE                    741L
+    ERROR_REPARSE = 741,
 
 //
 // MessageId: ERROR_OPLOCK_BREAK_IN_PROGRESS
@@ -4748,7 +4696,7 @@ static const int ERROR_REPARSE                    741L
 //
 // An open/create operation completed while an oplock break is underway.
 //
-static const int ERROR_OPLOCK_BREAK_IN_PROGRESS   742L
+    ERROR_OPLOCK_BREAK_IN_PROGRESS = 742,
 
 //
 // MessageId: ERROR_VOLUME_MOUNTED
@@ -4757,7 +4705,7 @@ static const int ERROR_OPLOCK_BREAK_IN_PROGRESS   742L
 //
 // A new volume has been mounted by a file system.
 //
-static const int ERROR_VOLUME_MOUNTED             743L
+    ERROR_VOLUME_MOUNTED = 743,
 
 //
 // MessageId: ERROR_RXACT_COMMITTED
@@ -4767,7 +4715,7 @@ static const int ERROR_VOLUME_MOUNTED             743L
 // This success level status indicates that the transaction state already exists for the registry sub-tree, but that a transaction commit was previously aborted.
 // The commit has now been completed.
 //
-static const int ERROR_RXACT_COMMITTED            744L
+    ERROR_RXACT_COMMITTED = 744,
 
 //
 // MessageId: ERROR_NOTIFY_CLEANUP
@@ -4776,7 +4724,7 @@ static const int ERROR_RXACT_COMMITTED            744L
 //
 // This indicates that a notify change request has been completed due to closing the handle which made the notify change request.
 //
-static const int ERROR_NOTIFY_CLEANUP             745L
+    ERROR_NOTIFY_CLEANUP = 745,
 
 //
 // MessageId: ERROR_PRIMARY_TRANSPORT_CONNECT_FAILED
@@ -4787,7 +4735,7 @@ static const int ERROR_NOTIFY_CLEANUP             745L
 // An attempt was made to connect to the remote server %hs on the primary transport, but the connection failed.
 // The computer WAS able to connect on a secondary transport.
 //
-static const int ERROR_PRIMARY_TRANSPORT_CONNECT_FAILED 746L
+    ERROR_PRIMARY_TRANSPORT_CONNECT_FAILED = 746,
 
 //
 // MessageId: ERROR_PAGE_FAULT_TRANSITION
@@ -4796,7 +4744,7 @@ static const int ERROR_PRIMARY_TRANSPORT_CONNECT_FAILED 746L
 //
 // Page fault was a transition fault.
 //
-static const int ERROR_PAGE_FAULT_TRANSITION      747L
+    ERROR_PAGE_FAULT_TRANSITION = 747,
 
 //
 // MessageId: ERROR_PAGE_FAULT_DEMAND_ZERO
@@ -4805,7 +4753,7 @@ static const int ERROR_PAGE_FAULT_TRANSITION      747L
 //
 // Page fault was a demand zero fault.
 //
-static const int ERROR_PAGE_FAULT_DEMAND_ZERO     748L
+    ERROR_PAGE_FAULT_DEMAND_ZERO = 748,
 
 //
 // MessageId: ERROR_PAGE_FAULT_COPY_ON_WRITE
@@ -4814,7 +4762,7 @@ static const int ERROR_PAGE_FAULT_DEMAND_ZERO     748L
 //
 // Page fault was a demand zero fault.
 //
-static const int ERROR_PAGE_FAULT_COPY_ON_WRITE   749L
+    ERROR_PAGE_FAULT_COPY_ON_WRITE = 749,
 
 //
 // MessageId: ERROR_PAGE_FAULT_GUARD_PAGE
@@ -4823,7 +4771,7 @@ static const int ERROR_PAGE_FAULT_COPY_ON_WRITE   749L
 //
 // Page fault was a demand zero fault.
 //
-static const int ERROR_PAGE_FAULT_GUARD_PAGE      750L
+    ERROR_PAGE_FAULT_GUARD_PAGE = 750,
 
 //
 // MessageId: ERROR_PAGE_FAULT_PAGING_FILE
@@ -4832,7 +4780,7 @@ static const int ERROR_PAGE_FAULT_GUARD_PAGE      750L
 //
 // Page fault was satisfied by reading from a secondary storage device.
 //
-static const int ERROR_PAGE_FAULT_PAGING_FILE     751L
+    ERROR_PAGE_FAULT_PAGING_FILE = 751,
 
 //
 // MessageId: ERROR_CACHE_PAGE_LOCKED
@@ -4841,7 +4789,7 @@ static const int ERROR_PAGE_FAULT_PAGING_FILE     751L
 //
 // Cached page was locked during operation.
 //
-static const int ERROR_CACHE_PAGE_LOCKED          752L
+    ERROR_CACHE_PAGE_LOCKED = 752,
 
 //
 // MessageId: ERROR_CRASH_DUMP
@@ -4850,7 +4798,7 @@ static const int ERROR_CACHE_PAGE_LOCKED          752L
 //
 // Crash dump exists in paging file.
 //
-static const int ERROR_CRASH_DUMP                 753L
+    ERROR_CRASH_DUMP = 753,
 
 //
 // MessageId: ERROR_BUFFER_ALL_ZEROS
@@ -4859,7 +4807,7 @@ static const int ERROR_CRASH_DUMP                 753L
 //
 // Specified buffer contains all zeros.
 //
-static const int ERROR_BUFFER_ALL_ZEROS           754L
+    ERROR_BUFFER_ALL_ZEROS = 754,
 
 //
 // MessageId: ERROR_REPARSE_OBJECT
@@ -4868,7 +4816,7 @@ static const int ERROR_BUFFER_ALL_ZEROS           754L
 //
 // A reparse should be performed by the Object Manager since the name of the file resulted in a symbolic link.
 //
-static const int ERROR_REPARSE_OBJECT             755L
+    ERROR_REPARSE_OBJECT = 755,
 
 //
 // MessageId: ERROR_RESOURCE_REQUIREMENTS_CHANGED
@@ -4877,7 +4825,7 @@ static const int ERROR_REPARSE_OBJECT             755L
 //
 // The device has succeeded a query-stop and its resource requirements have changed.
 //
-static const int ERROR_RESOURCE_REQUIREMENTS_CHANGED 756L
+    ERROR_RESOURCE_REQUIREMENTS_CHANGED = 756,
 
 //
 // MessageId: ERROR_TRANSLATION_COMPLETE
@@ -4886,7 +4834,7 @@ static const int ERROR_RESOURCE_REQUIREMENTS_CHANGED 756L
 //
 // The translator has translated these resources into the global space and no further translations should be performed.
 //
-static const int ERROR_TRANSLATION_COMPLETE       757L
+    ERROR_TRANSLATION_COMPLETE = 757,
 
 //
 // MessageId: ERROR_NOTHING_TO_TERMINATE
@@ -4895,7 +4843,7 @@ static const int ERROR_TRANSLATION_COMPLETE       757L
 //
 // A process being terminated has no threads to terminate.
 //
-static const int ERROR_NOTHING_TO_TERMINATE       758L
+    ERROR_NOTHING_TO_TERMINATE = 758,
 
 //
 // MessageId: ERROR_PROCESS_NOT_IN_JOB
@@ -4904,7 +4852,7 @@ static const int ERROR_NOTHING_TO_TERMINATE       758L
 //
 // The specified process is not part of a job.
 //
-static const int ERROR_PROCESS_NOT_IN_JOB         759L
+    ERROR_PROCESS_NOT_IN_JOB = 759,
 
 //
 // MessageId: ERROR_PROCESS_IN_JOB
@@ -4913,7 +4861,7 @@ static const int ERROR_PROCESS_NOT_IN_JOB         759L
 //
 // The specified process is part of a job.
 //
-static const int ERROR_PROCESS_IN_JOB             760L
+    ERROR_PROCESS_IN_JOB = 760,
 
 //
 // MessageId: ERROR_VOLSNAP_HIBERNATE_READY
@@ -4923,7 +4871,7 @@ static const int ERROR_PROCESS_IN_JOB             760L
 // {Volume Shadow Copy Service}
 // The system is now ready for hibernation.
 //
-static const int ERROR_VOLSNAP_HIBERNATE_READY    761L
+    ERROR_VOLSNAP_HIBERNATE_READY = 761,
 
 //
 // MessageId: ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY
@@ -4932,7 +4880,7 @@ static const int ERROR_VOLSNAP_HIBERNATE_READY    761L
 //
 // A file system or file system filter driver has successfully completed an FsFilter operation.
 //
-static const int ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY 762L
+    ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY = 762,
 
 //
 // MessageId: ERROR_INTERRUPT_VECTOR_ALREADY_CONNECTED
@@ -4941,7 +4889,7 @@ static const int ERROR_FSFILTER_OP_COMPLETED_SUCCESSFULLY 762L
 //
 // The specified interrupt vector was already connected.
 //
-static const int ERROR_INTERRUPT_VECTOR_ALREADY_CONNECTED 763L
+    ERROR_INTERRUPT_VECTOR_ALREADY_CONNECTED = 763,
 
 //
 // MessageId: ERROR_INTERRUPT_STILL_CONNECTED
@@ -4950,7 +4898,7 @@ static const int ERROR_INTERRUPT_VECTOR_ALREADY_CONNECTED 763L
 //
 // The specified interrupt vector is still connected.
 //
-static const int ERROR_INTERRUPT_STILL_CONNECTED  764L
+    ERROR_INTERRUPT_STILL_CONNECTED = 764,
 
 //
 // MessageId: ERROR_WAIT_FOR_OPLOCK
@@ -4959,7 +4907,7 @@ static const int ERROR_INTERRUPT_STILL_CONNECTED  764L
 //
 // An operation is blocked waiting for an oplock.
 //
-static const int ERROR_WAIT_FOR_OPLOCK            765L
+    ERROR_WAIT_FOR_OPLOCK = 765,
 
 //
 // MessageId: ERROR_DBG_EXCEPTION_HANDLED
@@ -4968,7 +4916,7 @@ static const int ERROR_WAIT_FOR_OPLOCK            765L
 //
 // Debugger handled exception
 //
-static const int ERROR_DBG_EXCEPTION_HANDLED      766L    // winnt
+    ERROR_DBG_EXCEPTION_HANDLED = 766,    // winnt
 
 //
 // MessageId: ERROR_DBG_CONTINUE
@@ -4977,7 +4925,7 @@ static const int ERROR_DBG_EXCEPTION_HANDLED      766L    // winnt
 //
 // Debugger continued
 //
-static const int ERROR_DBG_CONTINUE               767L    // winnt
+    ERROR_DBG_CONTINUE = 767,    // winnt
 
 //
 // MessageId: ERROR_CALLBACK_POP_STACK
@@ -4986,7 +4934,7 @@ static const int ERROR_DBG_CONTINUE               767L    // winnt
 //
 // An exception occurred in a user mode callback and the kernel callback frame should be removed.
 //
-static const int ERROR_CALLBACK_POP_STACK         768L
+    ERROR_CALLBACK_POP_STACK = 768,
 
 //
 // MessageId: ERROR_COMPRESSION_DISABLED
@@ -4995,7 +4943,7 @@ static const int ERROR_CALLBACK_POP_STACK         768L
 //
 // Compression is disabled for this volume.
 //
-static const int ERROR_COMPRESSION_DISABLED       769L
+    ERROR_COMPRESSION_DISABLED = 769,
 
 //
 // MessageId: ERROR_CANTFETCHBACKWARDS
@@ -5004,7 +4952,7 @@ static const int ERROR_COMPRESSION_DISABLED       769L
 //
 // The data provider cannot fetch backwards through a result set.
 //
-static const int ERROR_CANTFETCHBACKWARDS         770L
+    ERROR_CANTFETCHBACKWARDS = 770,
 
 //
 // MessageId: ERROR_CANTSCROLLBACKWARDS
@@ -5013,7 +4961,7 @@ static const int ERROR_CANTFETCHBACKWARDS         770L
 //
 // The data provider cannot scroll backwards through a result set.
 //
-static const int ERROR_CANTSCROLLBACKWARDS        771L
+    ERROR_CANTSCROLLBACKWARDS = 771,
 
 //
 // MessageId: ERROR_ROWSNOTRELEASED
@@ -5022,7 +4970,7 @@ static const int ERROR_CANTSCROLLBACKWARDS        771L
 //
 // The data provider requires that previously fetched data is released before asking for more data.
 //
-static const int ERROR_ROWSNOTRELEASED            772L
+    ERROR_ROWSNOTRELEASED = 772,
 
 //
 // MessageId: ERROR_BAD_ACCESSOR_FLAGS
@@ -5031,7 +4979,7 @@ static const int ERROR_ROWSNOTRELEASED            772L
 //
 // The data provider was not able to interpret the flags set for a column binding in an accessor.
 //
-static const int ERROR_BAD_ACCESSOR_FLAGS         773L
+    ERROR_BAD_ACCESSOR_FLAGS = 773,
 
 //
 // MessageId: ERROR_ERRORS_ENCOUNTERED
@@ -5040,7 +4988,7 @@ static const int ERROR_BAD_ACCESSOR_FLAGS         773L
 //
 // One or more errors occurred while processing the request.
 //
-static const int ERROR_ERRORS_ENCOUNTERED         774L
+    ERROR_ERRORS_ENCOUNTERED = 774,
 
 //
 // MessageId: ERROR_NOT_CAPABLE
@@ -5049,7 +4997,7 @@ static const int ERROR_ERRORS_ENCOUNTERED         774L
 //
 // The implementation is not capable of performing the request.
 //
-static const int ERROR_NOT_CAPABLE                775L
+    ERROR_NOT_CAPABLE = 775,
 
 //
 // MessageId: ERROR_REQUEST_OUT_OF_SEQUENCE
@@ -5058,7 +5006,7 @@ static const int ERROR_NOT_CAPABLE                775L
 //
 // The client of a component requested an operation which is not valid given the state of the component instance.
 //
-static const int ERROR_REQUEST_OUT_OF_SEQUENCE    776L
+    ERROR_REQUEST_OUT_OF_SEQUENCE = 776,
 
 //
 // MessageId: ERROR_VERSION_PARSE_ERROR
@@ -5067,7 +5015,7 @@ static const int ERROR_REQUEST_OUT_OF_SEQUENCE    776L
 //
 // A version number could not be parsed.
 //
-static const int ERROR_VERSION_PARSE_ERROR        777L
+    ERROR_VERSION_PARSE_ERROR = 777,
 
 //
 // MessageId: ERROR_BADSTARTPOSITION
@@ -5076,7 +5024,7 @@ static const int ERROR_VERSION_PARSE_ERROR        777L
 //
 // The iterator's start position is invalid.
 //
-static const int ERROR_BADSTARTPOSITION           778L
+    ERROR_BADSTARTPOSITION = 778,
 
 //
 // MessageId: ERROR_MEMORY_HARDWARE
@@ -5085,7 +5033,7 @@ static const int ERROR_BADSTARTPOSITION           778L
 //
 // The hardware has reported an uncorrectable memory error.
 //
-static const int ERROR_MEMORY_HARDWARE            779L
+    ERROR_MEMORY_HARDWARE = 779,
 
 //
 // MessageId: ERROR_DISK_REPAIR_DISABLED
@@ -5094,7 +5042,7 @@ static const int ERROR_MEMORY_HARDWARE            779L
 //
 // The attempted operation required self healing to be enabled.
 //
-static const int ERROR_DISK_REPAIR_DISABLED       780L
+    ERROR_DISK_REPAIR_DISABLED = 780,
 
 //
 // MessageId: ERROR_INSUFFICIENT_RESOURCE_FOR_SPECIFIED_SHARED_SECTION_SIZE
@@ -5103,7 +5051,7 @@ static const int ERROR_DISK_REPAIR_DISABLED       780L
 //
 // The Desktop heap encountered an error while allocating session memory. There is more information in the system event log.
 //
-static const int ERROR_INSUFFICIENT_RESOURCE_FOR_SPECIFIED_SHARED_SECTION_SIZE 781L
+    ERROR_INSUFFICIENT_RESOURCE_FOR_SPECIFIED_SHARED_SECTION_SIZE = 781,
 
 //
 // MessageId: ERROR_SYSTEM_POWERSTATE_TRANSITION
@@ -5112,7 +5060,7 @@ static const int ERROR_INSUFFICIENT_RESOURCE_FOR_SPECIFIED_SHARED_SECTION_SIZE 7
 //
 // The system power state is transitioning from %2 to %3.
 //
-static const int ERROR_SYSTEM_POWERSTATE_TRANSITION 782L
+    ERROR_SYSTEM_POWERSTATE_TRANSITION = 782,
 
 //
 // MessageId: ERROR_SYSTEM_POWERSTATE_COMPLEX_TRANSITION
@@ -5121,7 +5069,7 @@ static const int ERROR_SYSTEM_POWERSTATE_TRANSITION 782L
 //
 // The system power state is transitioning from %2 to %3 but could enter %4.
 //
-static const int ERROR_SYSTEM_POWERSTATE_COMPLEX_TRANSITION 783L
+    ERROR_SYSTEM_POWERSTATE_COMPLEX_TRANSITION = 783,
 
 //
 // MessageId: ERROR_MCA_EXCEPTION
@@ -5130,7 +5078,7 @@ static const int ERROR_SYSTEM_POWERSTATE_COMPLEX_TRANSITION 783L
 //
 // A thread is getting dispatched with MCA EXCEPTION because of MCA.
 //
-static const int ERROR_MCA_EXCEPTION              784L
+    ERROR_MCA_EXCEPTION = 784,
 
 //
 // MessageId: ERROR_ACCESS_AUDIT_BY_POLICY
@@ -5139,7 +5087,7 @@ static const int ERROR_MCA_EXCEPTION              784L
 //
 // Access to %1 is monitored by policy rule %2.
 //
-static const int ERROR_ACCESS_AUDIT_BY_POLICY     785L
+    ERROR_ACCESS_AUDIT_BY_POLICY = 785,
 
 //
 // MessageId: ERROR_ACCESS_DISABLED_NO_SAFER_UI_BY_POLICY
@@ -5148,7 +5096,7 @@ static const int ERROR_ACCESS_AUDIT_BY_POLICY     785L
 //
 // Access to %1 has been restricted by your Administrator by policy rule %2.
 //
-static const int ERROR_ACCESS_DISABLED_NO_SAFER_UI_BY_POLICY 786L
+    ERROR_ACCESS_DISABLED_NO_SAFER_UI_BY_POLICY = 786,
 
 //
 // MessageId: ERROR_ABANDON_HIBERFILE
@@ -5157,7 +5105,7 @@ static const int ERROR_ACCESS_DISABLED_NO_SAFER_UI_BY_POLICY 786L
 //
 // A valid hibernation file has been invalidated and should be abandoned.
 //
-static const int ERROR_ABANDON_HIBERFILE          787L
+    ERROR_ABANDON_HIBERFILE = 787,
 
 //
 // MessageId: ERROR_LOST_WRITEBEHIND_DATA_NETWORK_DISCONNECTED
@@ -5168,7 +5116,7 @@ static const int ERROR_ABANDON_HIBERFILE          787L
 // Windows was unable to save all the data for the file %hs; the data has been lost.
 // This error may be caused by network connectivity issues. Please try to save this file elsewhere.
 //
-static const int ERROR_LOST_WRITEBEHIND_DATA_NETWORK_DISCONNECTED 788L
+    ERROR_LOST_WRITEBEHIND_DATA_NETWORK_DISCONNECTED = 788,
 
 //
 // MessageId: ERROR_LOST_WRITEBEHIND_DATA_NETWORK_SERVER_ERROR
@@ -5179,7 +5127,7 @@ static const int ERROR_LOST_WRITEBEHIND_DATA_NETWORK_DISCONNECTED 788L
 // Windows was unable to save all the data for the file %hs; the data has been lost.
 // This error was returned by the server on which the file exists. Please try to save this file elsewhere.
 //
-static const int ERROR_LOST_WRITEBEHIND_DATA_NETWORK_SERVER_ERROR 789L
+    ERROR_LOST_WRITEBEHIND_DATA_NETWORK_SERVER_ERROR = 789,
 
 //
 // MessageId: ERROR_LOST_WRITEBEHIND_DATA_LOCAL_DISK_ERROR
@@ -5190,7 +5138,7 @@ static const int ERROR_LOST_WRITEBEHIND_DATA_NETWORK_SERVER_ERROR 789L
 // Windows was unable to save all the data for the file %hs; the data has been lost.
 // This error may be caused if the device has been removed or the media is write-protected.
 //
-static const int ERROR_LOST_WRITEBEHIND_DATA_LOCAL_DISK_ERROR 790L
+    ERROR_LOST_WRITEBEHIND_DATA_LOCAL_DISK_ERROR = 790,
 
 //
 // MessageId: ERROR_BAD_MCFG_TABLE
@@ -5199,7 +5147,7 @@ static const int ERROR_LOST_WRITEBEHIND_DATA_LOCAL_DISK_ERROR 790L
 //
 // The resources required for this device conflict with the MCFG table.
 //
-static const int ERROR_BAD_MCFG_TABLE             791L
+    ERROR_BAD_MCFG_TABLE = 791,
 
 //
 // MessageId: ERROR_DISK_REPAIR_REDIRECTED
@@ -5209,7 +5157,7 @@ static const int ERROR_BAD_MCFG_TABLE             791L
 // The volume repair could not be performed while it is online.
 // Please schedule to take the volume offline so that it can be repaired.
 //
-static const int ERROR_DISK_REPAIR_REDIRECTED     792L
+    ERROR_DISK_REPAIR_REDIRECTED = 792,
 
 //
 // MessageId: ERROR_DISK_REPAIR_UNSUCCESSFUL
@@ -5218,7 +5166,7 @@ static const int ERROR_DISK_REPAIR_REDIRECTED     792L
 //
 // The volume repair was not successful.
 //
-static const int ERROR_DISK_REPAIR_UNSUCCESSFUL   793L
+    ERROR_DISK_REPAIR_UNSUCCESSFUL = 793,
 
 //
 // MessageId: ERROR_CORRUPT_LOG_OVERFULL
@@ -5227,7 +5175,7 @@ static const int ERROR_DISK_REPAIR_UNSUCCESSFUL   793L
 //
 // One of the volume corruption logs is full. Further corruptions that may be detected won't be logged.
 //
-static const int ERROR_CORRUPT_LOG_OVERFULL       794L
+    ERROR_CORRUPT_LOG_OVERFULL = 794,
 
 //
 // MessageId: ERROR_CORRUPT_LOG_CORRUPTED
@@ -5236,7 +5184,7 @@ static const int ERROR_CORRUPT_LOG_OVERFULL       794L
 //
 // One of the volume corruption logs is internally corrupted and needs to be recreated. The volume may contain undetected corruptions and must be scanned.
 //
-static const int ERROR_CORRUPT_LOG_CORRUPTED      795L
+    ERROR_CORRUPT_LOG_CORRUPTED = 795,
 
 //
 // MessageId: ERROR_CORRUPT_LOG_UNAVAILABLE
@@ -5245,7 +5193,7 @@ static const int ERROR_CORRUPT_LOG_CORRUPTED      795L
 //
 // One of the volume corruption logs is unavailable for being operated on.
 //
-static const int ERROR_CORRUPT_LOG_UNAVAILABLE    796L
+    ERROR_CORRUPT_LOG_UNAVAILABLE = 796,
 
 //
 // MessageId: ERROR_CORRUPT_LOG_DELETED_FULL
@@ -5254,7 +5202,7 @@ static const int ERROR_CORRUPT_LOG_UNAVAILABLE    796L
 //
 // One of the volume corruption logs was deleted while still having corruption records in them. The volume contains detected corruptions and must be scanned.
 //
-static const int ERROR_CORRUPT_LOG_DELETED_FULL   797L
+    ERROR_CORRUPT_LOG_DELETED_FULL = 797,
 
 //
 // MessageId: ERROR_CORRUPT_LOG_CLEARED
@@ -5263,7 +5211,7 @@ static const int ERROR_CORRUPT_LOG_DELETED_FULL   797L
 //
 // One of the volume corruption logs was cleared by chkdsk and no longer contains real corruptions.
 //
-static const int ERROR_CORRUPT_LOG_CLEARED        798L
+    ERROR_CORRUPT_LOG_CLEARED = 798,
 
 //
 // MessageId: ERROR_ORPHAN_NAME_EXHAUSTED
@@ -5272,7 +5220,7 @@ static const int ERROR_CORRUPT_LOG_CLEARED        798L
 //
 // Orphaned files exist on the volume but could not be recovered because no more new names could be created in the recovery directory. Files must be moved from the recovery directory.
 //
-static const int ERROR_ORPHAN_NAME_EXHAUSTED      799L
+    ERROR_ORPHAN_NAME_EXHAUSTED = 799,
 
 //
 // MessageId: ERROR_OPLOCK_SWITCHED_TO_NEW_HANDLE
@@ -5281,7 +5229,7 @@ static const int ERROR_ORPHAN_NAME_EXHAUSTED      799L
 //
 // The oplock that was associated with this handle is now associated with a different handle.
 //
-static const int ERROR_OPLOCK_SWITCHED_TO_NEW_HANDLE 800L
+    ERROR_OPLOCK_SWITCHED_TO_NEW_HANDLE = 800,
 
 //
 // MessageId: ERROR_CANNOT_GRANT_REQUESTED_OPLOCK
@@ -5290,7 +5238,7 @@ static const int ERROR_OPLOCK_SWITCHED_TO_NEW_HANDLE 800L
 //
 // An oplock of the requested level cannot be granted.  An oplock of a lower level may be available.
 //
-static const int ERROR_CANNOT_GRANT_REQUESTED_OPLOCK 801L
+    ERROR_CANNOT_GRANT_REQUESTED_OPLOCK = 801,
 
 //
 // MessageId: ERROR_CANNOT_BREAK_OPLOCK
@@ -5299,7 +5247,7 @@ static const int ERROR_CANNOT_GRANT_REQUESTED_OPLOCK 801L
 //
 // The operation did not complete successfully because it would cause an oplock to be broken. The caller has requested that existing oplocks not be broken.
 //
-static const int ERROR_CANNOT_BREAK_OPLOCK        802L
+    ERROR_CANNOT_BREAK_OPLOCK = 802,
 
 //
 // MessageId: ERROR_OPLOCK_HANDLE_CLOSED
@@ -5308,7 +5256,7 @@ static const int ERROR_CANNOT_BREAK_OPLOCK        802L
 //
 // The handle with which this oplock was associated has been closed.  The oplock is now broken.
 //
-static const int ERROR_OPLOCK_HANDLE_CLOSED       803L
+    ERROR_OPLOCK_HANDLE_CLOSED = 803,
 
 //
 // MessageId: ERROR_NO_ACE_CONDITION
@@ -5317,7 +5265,7 @@ static const int ERROR_OPLOCK_HANDLE_CLOSED       803L
 //
 // The specified access control entry (ACE) does not contain a condition.
 //
-static const int ERROR_NO_ACE_CONDITION           804L
+    ERROR_NO_ACE_CONDITION = 804,
 
 //
 // MessageId: ERROR_INVALID_ACE_CONDITION
@@ -5326,7 +5274,7 @@ static const int ERROR_NO_ACE_CONDITION           804L
 //
 // The specified access control entry (ACE) contains an invalid condition.
 //
-static const int ERROR_INVALID_ACE_CONDITION      805L
+    ERROR_INVALID_ACE_CONDITION = 805,
 
 //
 // MessageId: ERROR_FILE_HANDLE_REVOKED
@@ -5335,7 +5283,7 @@ static const int ERROR_INVALID_ACE_CONDITION      805L
 //
 // Access to the specified file handle has been revoked.
 //
-static const int ERROR_FILE_HANDLE_REVOKED        806L
+    ERROR_FILE_HANDLE_REVOKED = 806,
 
 //
 // MessageId: ERROR_IMAGE_AT_DIFFERENT_BASE
@@ -5345,7 +5293,7 @@ static const int ERROR_FILE_HANDLE_REVOKED        806L
 // {Image Relocated}
 // An image file was mapped at a different address from the one specified in the image file but fixups will still be automatically performed on the image.
 //
-static const int ERROR_IMAGE_AT_DIFFERENT_BASE    807L
+    ERROR_IMAGE_AT_DIFFERENT_BASE = 807,
 
 //
 // MessageId: ERROR_ENCRYPTED_IO_NOT_POSSIBLE
@@ -5354,7 +5302,7 @@ static const int ERROR_IMAGE_AT_DIFFERENT_BASE    807L
 //
 // The read or write operation to an encrypted file could not be completed because the file has not been opened for data access.
 //
-static const int ERROR_ENCRYPTED_IO_NOT_POSSIBLE  808L
+    ERROR_ENCRYPTED_IO_NOT_POSSIBLE = 808,
 
 //
 // MessageId: ERROR_FILE_METADATA_OPTIMIZATION_IN_PROGRESS
@@ -5363,7 +5311,7 @@ static const int ERROR_ENCRYPTED_IO_NOT_POSSIBLE  808L
 //
 // File metadata optimization is already in progress.
 //
-static const int ERROR_FILE_METADATA_OPTIMIZATION_IN_PROGRESS 809L
+    ERROR_FILE_METADATA_OPTIMIZATION_IN_PROGRESS = 809,
 
 //
 // MessageId: ERROR_QUOTA_ACTIVITY
@@ -5372,7 +5320,7 @@ static const int ERROR_FILE_METADATA_OPTIMIZATION_IN_PROGRESS 809L
 //
 // The requested operation failed due to quota operation is still in progress.
 //
-static const int ERROR_QUOTA_ACTIVITY             810L
+    ERROR_QUOTA_ACTIVITY = 810,
 
 //
 // MessageId: ERROR_HANDLE_REVOKED
@@ -5381,7 +5329,7 @@ static const int ERROR_QUOTA_ACTIVITY             810L
 //
 // Access to the specified handle has been revoked.
 //
-static const int ERROR_HANDLE_REVOKED             811L
+    ERROR_HANDLE_REVOKED = 811,
 
 //
 // MessageId: ERROR_CALLBACK_INVOKE_INLINE
@@ -5390,7 +5338,7 @@ static const int ERROR_HANDLE_REVOKED             811L
 //
 // The callback function must be invoked inline.
 //
-static const int ERROR_CALLBACK_INVOKE_INLINE     812L
+    ERROR_CALLBACK_INVOKE_INLINE = 812,
 
 //
 // MessageId: ERROR_CPU_SET_INVALID
@@ -5399,7 +5347,7 @@ static const int ERROR_CALLBACK_INVOKE_INLINE     812L
 //
 // The specified CPU Set IDs are invalid.
 //
-static const int ERROR_CPU_SET_INVALID            813L
+    ERROR_CPU_SET_INVALID = 813,
 
 //
 // MessageId: ERROR_ENCLAVE_NOT_TERMINATED
@@ -5408,7 +5356,7 @@ static const int ERROR_CPU_SET_INVALID            813L
 //
 // The specified enclave has not yet been terminated.
 //
-static const int ERROR_ENCLAVE_NOT_TERMINATED     814L
+    ERROR_ENCLAVE_NOT_TERMINATED = 814,
 
 //
 // MessageId: ERROR_ENCLAVE_VIOLATION
@@ -5417,26 +5365,24 @@ static const int ERROR_ENCLAVE_NOT_TERMINATED     814L
 //
 // An attempt was made to access protected memory in violation of its secure access policy.
 //
-static const int ERROR_ENCLAVE_VIOLATION          815L
+    ERROR_ENCLAVE_VIOLATION = 815,
 
-//
-// **** Available SYSTEM error codes ****
-//
-//
-// MessageId: ERROR_EA_ACCESS_DENIED
-//
-// MessageText:
-//
-// Access to the extended attribute was denied.
-//
-static const int ERROR_EA_ACCESS_DENIED           994L
---]]
-
-ffi.cdef[[
-static const int ERROR_OPERATION_ABORTED        =  995L;
-static const int ERROR_IO_INCOMPLETE            =  996L;
-static const int ERROR_IO_PENDING               =  997L;    // dderror
-static const int ERROR_NOACCESS                 =  998L;
+    //
+    // **** Available SYSTEM error codes ****
+    //
+    //
+    // MessageId: ERROR_EA_ACCESS_DENIED
+    //
+    // MessageText:
+    //
+    // Access to the extended attribute was denied.
+    //
+    ERROR_EA_ACCESS_DENIED = 994,
+    ERROR_OPERATION_ABORTED        =  995,
+    ERROR_IO_INCOMPLETE            =  996,
+    ERROR_IO_PENDING               =  997,    // dderror
+    ERROR_NOACCESS                 =  998,
+}
 ]]
 
 --[[
@@ -5447,7 +5393,7 @@ static const int ERROR_NOACCESS                 =  998L;
 //
 // Error performing inpage operation.
 //
-static const int ERROR_SWAPERROR                  999L
+    ERROR_SWAPERROR                  999
 
 //
 // MessageId: ERROR_STACK_OVERFLOW
@@ -5456,7 +5402,7 @@ static const int ERROR_SWAPERROR                  999L
 //
 // Recursion too deep; the stack overflowed.
 //
-static const int ERROR_STACK_OVERFLOW             1001L
+    ERROR_STACK_OVERFLOW             1001
 
 //
 // MessageId: ERROR_INVALID_MESSAGE
@@ -5465,7 +5411,7 @@ static const int ERROR_STACK_OVERFLOW             1001L
 //
 // The window cannot act on the sent message.
 //
-static const int ERROR_INVALID_MESSAGE            1002L
+    ERROR_INVALID_MESSAGE            1002
 
 //
 // MessageId: ERROR_CAN_NOT_COMPLETE
@@ -5474,7 +5420,7 @@ static const int ERROR_INVALID_MESSAGE            1002L
 //
 // Cannot complete this function.
 //
-static const int ERROR_CAN_NOT_COMPLETE           1003L
+    ERROR_CAN_NOT_COMPLETE           1003
 
 //
 // MessageId: ERROR_INVALID_FLAGS
@@ -5483,7 +5429,7 @@ static const int ERROR_CAN_NOT_COMPLETE           1003L
 //
 // Invalid flags.
 //
-static const int ERROR_INVALID_FLAGS              1004L
+    ERROR_INVALID_FLAGS              1004
 
 //
 // MessageId: ERROR_UNRECOGNIZED_VOLUME
@@ -5493,7 +5439,7 @@ static const int ERROR_INVALID_FLAGS              1004L
 // The volume does not contain a recognized file system.
 // Please make sure that all required file system drivers are loaded and that the volume is not corrupted.
 //
-static const int ERROR_UNRECOGNIZED_VOLUME        1005L
+    ERROR_UNRECOGNIZED_VOLUME        1005
 
 //
 // MessageId: ERROR_FILE_INVALID
@@ -5502,7 +5448,7 @@ static const int ERROR_UNRECOGNIZED_VOLUME        1005L
 //
 // The volume for a file has been externally altered so that the opened file is no longer valid.
 //
-static const int ERROR_FILE_INVALID               1006L
+    ERROR_FILE_INVALID               1006
 
 //
 // MessageId: ERROR_FULLSCREEN_MODE
@@ -5511,7 +5457,7 @@ static const int ERROR_FILE_INVALID               1006L
 //
 // The requested operation cannot be performed in full-screen mode.
 //
-static const int ERROR_FULLSCREEN_MODE            1007L
+    ERROR_FULLSCREEN_MODE            1007
 
 //
 // MessageId: ERROR_NO_TOKEN
@@ -5520,7 +5466,7 @@ static const int ERROR_FULLSCREEN_MODE            1007L
 //
 // An attempt was made to reference a token that does not exist.
 //
-static const int ERROR_NO_TOKEN                   1008L
+    ERROR_NO_TOKEN                   1008
 
 //
 // MessageId: ERROR_BADDB
@@ -5529,7 +5475,7 @@ static const int ERROR_NO_TOKEN                   1008L
 //
 // The configuration registry database is corrupt.
 //
-static const int ERROR_BADDB                      1009L
+    ERROR_BADDB                      1009
 
 //
 // MessageId: ERROR_BADKEY
@@ -5538,7 +5484,7 @@ static const int ERROR_BADDB                      1009L
 //
 // The configuration registry key is invalid.
 //
-static const int ERROR_BADKEY                     1010L
+    ERROR_BADKEY                     1010
 
 //
 // MessageId: ERROR_CANTOPEN
@@ -5547,7 +5493,7 @@ static const int ERROR_BADKEY                     1010L
 //
 // The configuration registry key could not be opened.
 //
-static const int ERROR_CANTOPEN                   1011L
+    ERROR_CANTOPEN                   1011
 
 //
 // MessageId: ERROR_CANTREAD
@@ -5556,7 +5502,7 @@ static const int ERROR_CANTOPEN                   1011L
 //
 // The configuration registry key could not be read.
 //
-static const int ERROR_CANTREAD                   1012L
+    ERROR_CANTREAD                   1012
 
 //
 // MessageId: ERROR_CANTWRITE
@@ -5565,7 +5511,7 @@ static const int ERROR_CANTREAD                   1012L
 //
 // The configuration registry key could not be written.
 //
-static const int ERROR_CANTWRITE                  1013L
+    ERROR_CANTWRITE                  1013
 
 //
 // MessageId: ERROR_REGISTRY_RECOVERED
@@ -5574,7 +5520,7 @@ static const int ERROR_CANTWRITE                  1013L
 //
 // One of the files in the registry database had to be recovered by use of a log or alternate copy. The recovery was successful.
 //
-static const int ERROR_REGISTRY_RECOVERED         1014L
+    ERROR_REGISTRY_RECOVERED         1014
 
 //
 // MessageId: ERROR_REGISTRY_CORRUPT
@@ -5583,7 +5529,7 @@ static const int ERROR_REGISTRY_RECOVERED         1014L
 //
 // The registry is corrupted. The structure of one of the files containing registry data is corrupted, or the system's memory image of the file is corrupted, or the file could not be recovered because the alternate copy or log was absent or corrupted.
 //
-static const int ERROR_REGISTRY_CORRUPT           1015L
+    ERROR_REGISTRY_CORRUPT           1015
 
 //
 // MessageId: ERROR_REGISTRY_IO_FAILED
@@ -5592,7 +5538,7 @@ static const int ERROR_REGISTRY_CORRUPT           1015L
 //
 // An I/O operation initiated by the registry failed unrecoverably. The registry could not read in, or write out, or flush, one of the files that contain the system's image of the registry.
 //
-static const int ERROR_REGISTRY_IO_FAILED         1016L
+    ERROR_REGISTRY_IO_FAILED         1016
 
 //
 // MessageId: ERROR_NOT_REGISTRY_FILE
@@ -5601,7 +5547,7 @@ static const int ERROR_REGISTRY_IO_FAILED         1016L
 //
 // The system has attempted to load or restore a file into the registry, but the specified file is not in a registry file format.
 //
-static const int ERROR_NOT_REGISTRY_FILE          1017L
+    ERROR_NOT_REGISTRY_FILE          1017
 
 //
 // MessageId: ERROR_KEY_DELETED
@@ -5610,7 +5556,7 @@ static const int ERROR_NOT_REGISTRY_FILE          1017L
 //
 // Illegal operation attempted on a registry key that has been marked for deletion.
 //
-static const int ERROR_KEY_DELETED                1018L
+    ERROR_KEY_DELETED                1018
 
 //
 // MessageId: ERROR_NO_LOG_SPACE
@@ -5619,7 +5565,7 @@ static const int ERROR_KEY_DELETED                1018L
 //
 // System could not allocate the required space in a registry log.
 //
-static const int ERROR_NO_LOG_SPACE               1019L
+    ERROR_NO_LOG_SPACE               1019
 
 //
 // MessageId: ERROR_KEY_HAS_CHILDREN
@@ -5628,7 +5574,7 @@ static const int ERROR_NO_LOG_SPACE               1019L
 //
 // Cannot create a symbolic link in a registry key that already has subkeys or values.
 //
-static const int ERROR_KEY_HAS_CHILDREN           1020L
+    ERROR_KEY_HAS_CHILDREN           1020
 
 //
 // MessageId: ERROR_CHILD_MUST_BE_VOLATILE
@@ -5637,7 +5583,7 @@ static const int ERROR_KEY_HAS_CHILDREN           1020L
 //
 // Cannot create a stable subkey under a volatile parent key.
 //
-static const int ERROR_CHILD_MUST_BE_VOLATILE     1021L
+    ERROR_CHILD_MUST_BE_VOLATILE     1021
 
 //
 // MessageId: ERROR_NOTIFY_ENUM_DIR
@@ -5646,7 +5592,7 @@ static const int ERROR_CHILD_MUST_BE_VOLATILE     1021L
 //
 // A notify change request is being completed and the information is not being returned in the caller's buffer. The caller now needs to enumerate the files to find the changes.
 //
-static const int ERROR_NOTIFY_ENUM_DIR            1022L
+    ERROR_NOTIFY_ENUM_DIR            1022
 
 //
 // MessageId: ERROR_DEPENDENT_SERVICES_RUNNING
@@ -5655,7 +5601,7 @@ static const int ERROR_NOTIFY_ENUM_DIR            1022L
 //
 // A stop control has been sent to a service that other running services are dependent on.
 //
-static const int ERROR_DEPENDENT_SERVICES_RUNNING 1051L
+    ERROR_DEPENDENT_SERVICES_RUNNING 1051
 
 //
 // MessageId: ERROR_INVALID_SERVICE_CONTROL
@@ -5664,7 +5610,7 @@ static const int ERROR_DEPENDENT_SERVICES_RUNNING 1051L
 //
 // The requested control is not valid for this service.
 //
-static const int ERROR_INVALID_SERVICE_CONTROL    1052L
+    ERROR_INVALID_SERVICE_CONTROL    1052
 
 //
 // MessageId: ERROR_SERVICE_REQUEST_TIMEOUT
@@ -5673,7 +5619,7 @@ static const int ERROR_INVALID_SERVICE_CONTROL    1052L
 //
 // The service did not respond to the start or control request in a timely fashion.
 //
-static const int ERROR_SERVICE_REQUEST_TIMEOUT    1053L
+    ERROR_SERVICE_REQUEST_TIMEOUT    1053
 
 //
 // MessageId: ERROR_SERVICE_NO_THREAD
@@ -5682,7 +5628,7 @@ static const int ERROR_SERVICE_REQUEST_TIMEOUT    1053L
 //
 // A thread could not be created for the service.
 //
-static const int ERROR_SERVICE_NO_THREAD          1054L
+    ERROR_SERVICE_NO_THREAD          1054
 
 //
 // MessageId: ERROR_SERVICE_DATABASE_LOCKED
@@ -5691,7 +5637,7 @@ static const int ERROR_SERVICE_NO_THREAD          1054L
 //
 // The service database is locked.
 //
-static const int ERROR_SERVICE_DATABASE_LOCKED    1055L
+    ERROR_SERVICE_DATABASE_LOCKED    1055
 
 //
 // MessageId: ERROR_SERVICE_ALREADY_RUNNING
@@ -5700,7 +5646,7 @@ static const int ERROR_SERVICE_DATABASE_LOCKED    1055L
 //
 // An instance of the service is already running.
 //
-static const int ERROR_SERVICE_ALREADY_RUNNING    1056L
+    ERROR_SERVICE_ALREADY_RUNNING    1056
 
 //
 // MessageId: ERROR_INVALID_SERVICE_ACCOUNT
@@ -5709,7 +5655,7 @@ static const int ERROR_SERVICE_ALREADY_RUNNING    1056L
 //
 // The account name is invalid or does not exist, or the password is invalid for the account name specified.
 //
-static const int ERROR_INVALID_SERVICE_ACCOUNT    1057L
+    ERROR_INVALID_SERVICE_ACCOUNT    1057
 
 //
 // MessageId: ERROR_SERVICE_DISABLED
@@ -5718,7 +5664,7 @@ static const int ERROR_INVALID_SERVICE_ACCOUNT    1057L
 //
 // The service cannot be started, either because it is disabled or because it has no enabled devices associated with it.
 //
-static const int ERROR_SERVICE_DISABLED           1058L
+    ERROR_SERVICE_DISABLED           1058
 
 //
 // MessageId: ERROR_CIRCULAR_DEPENDENCY
@@ -5727,7 +5673,7 @@ static const int ERROR_SERVICE_DISABLED           1058L
 //
 // Circular service dependency was specified.
 //
-static const int ERROR_CIRCULAR_DEPENDENCY        1059L
+    ERROR_CIRCULAR_DEPENDENCY        1059
 
 //
 // MessageId: ERROR_SERVICE_DOES_NOT_EXIST
@@ -5736,7 +5682,7 @@ static const int ERROR_CIRCULAR_DEPENDENCY        1059L
 //
 // The specified service does not exist as an installed service.
 //
-static const int ERROR_SERVICE_DOES_NOT_EXIST     1060L
+    ERROR_SERVICE_DOES_NOT_EXIST     1060
 
 //
 // MessageId: ERROR_SERVICE_CANNOT_ACCEPT_CTRL
@@ -5745,7 +5691,7 @@ static const int ERROR_SERVICE_DOES_NOT_EXIST     1060L
 //
 // The service cannot accept control messages at this time.
 //
-static const int ERROR_SERVICE_CANNOT_ACCEPT_CTRL 1061L
+    ERROR_SERVICE_CANNOT_ACCEPT_CTRL 1061
 
 //
 // MessageId: ERROR_SERVICE_NOT_ACTIVE
@@ -5754,7 +5700,7 @@ static const int ERROR_SERVICE_CANNOT_ACCEPT_CTRL 1061L
 //
 // The service has not been started.
 //
-static const int ERROR_SERVICE_NOT_ACTIVE         1062L
+    ERROR_SERVICE_NOT_ACTIVE         1062
 
 //
 // MessageId: ERROR_FAILED_SERVICE_CONTROLLER_CONNECT
@@ -5763,7 +5709,7 @@ static const int ERROR_SERVICE_NOT_ACTIVE         1062L
 //
 // The service process could not connect to the service controller.
 //
-static const int ERROR_FAILED_SERVICE_CONTROLLER_CONNECT 1063L
+    ERROR_FAILED_SERVICE_CONTROLLER_CONNECT 1063
 
 //
 // MessageId: ERROR_EXCEPTION_IN_SERVICE
@@ -5772,7 +5718,7 @@ static const int ERROR_FAILED_SERVICE_CONTROLLER_CONNECT 1063L
 //
 // An exception occurred in the service when handling the control request.
 //
-static const int ERROR_EXCEPTION_IN_SERVICE       1064L
+    ERROR_EXCEPTION_IN_SERVICE       1064
 
 //
 // MessageId: ERROR_DATABASE_DOES_NOT_EXIST
@@ -5781,7 +5727,7 @@ static const int ERROR_EXCEPTION_IN_SERVICE       1064L
 //
 // The database specified does not exist.
 //
-static const int ERROR_DATABASE_DOES_NOT_EXIST    1065L
+    ERROR_DATABASE_DOES_NOT_EXIST    1065
 
 //
 // MessageId: ERROR_SERVICE_SPECIFIC_ERROR
@@ -5790,7 +5736,7 @@ static const int ERROR_DATABASE_DOES_NOT_EXIST    1065L
 //
 // The service has returned a service-specific error code.
 //
-static const int ERROR_SERVICE_SPECIFIC_ERROR     1066L
+    ERROR_SERVICE_SPECIFIC_ERROR     1066
 
 //
 // MessageId: ERROR_PROCESS_ABORTED
@@ -5799,7 +5745,7 @@ static const int ERROR_SERVICE_SPECIFIC_ERROR     1066L
 //
 // The process terminated unexpectedly.
 //
-static const int ERROR_PROCESS_ABORTED            1067L
+    ERROR_PROCESS_ABORTED            1067
 
 //
 // MessageId: ERROR_SERVICE_DEPENDENCY_FAIL
@@ -5808,7 +5754,7 @@ static const int ERROR_PROCESS_ABORTED            1067L
 //
 // The dependency service or group failed to start.
 //
-static const int ERROR_SERVICE_DEPENDENCY_FAIL    1068L
+    ERROR_SERVICE_DEPENDENCY_FAIL    1068
 
 //
 // MessageId: ERROR_SERVICE_LOGON_FAILED
@@ -5817,7 +5763,7 @@ static const int ERROR_SERVICE_DEPENDENCY_FAIL    1068L
 //
 // The service did not start due to a logon failure.
 //
-static const int ERROR_SERVICE_LOGON_FAILED       1069L
+    ERROR_SERVICE_LOGON_FAILED       1069
 
 //
 // MessageId: ERROR_SERVICE_START_HANG
@@ -5826,7 +5772,7 @@ static const int ERROR_SERVICE_LOGON_FAILED       1069L
 //
 // After starting, the service hung in a start-pending state.
 //
-static const int ERROR_SERVICE_START_HANG         1070L
+    ERROR_SERVICE_START_HANG         1070
 
 //
 // MessageId: ERROR_INVALID_SERVICE_LOCK
@@ -5835,7 +5781,7 @@ static const int ERROR_SERVICE_START_HANG         1070L
 //
 // The specified service database lock is invalid.
 //
-static const int ERROR_INVALID_SERVICE_LOCK       1071L
+    ERROR_INVALID_SERVICE_LOCK       1071
 
 //
 // MessageId: ERROR_SERVICE_MARKED_FOR_DELETE
@@ -5844,7 +5790,7 @@ static const int ERROR_INVALID_SERVICE_LOCK       1071L
 //
 // The specified service has been marked for deletion.
 //
-static const int ERROR_SERVICE_MARKED_FOR_DELETE  1072L
+    ERROR_SERVICE_MARKED_FOR_DELETE  1072
 
 //
 // MessageId: ERROR_SERVICE_EXISTS
@@ -5853,7 +5799,7 @@ static const int ERROR_SERVICE_MARKED_FOR_DELETE  1072L
 //
 // The specified service already exists.
 //
-static const int ERROR_SERVICE_EXISTS             1073L
+    ERROR_SERVICE_EXISTS             1073
 
 //
 // MessageId: ERROR_ALREADY_RUNNING_LKG
@@ -5862,7 +5808,7 @@ static const int ERROR_SERVICE_EXISTS             1073L
 //
 // The system is currently running with the last-known-good configuration.
 //
-static const int ERROR_ALREADY_RUNNING_LKG        1074L
+    ERROR_ALREADY_RUNNING_LKG        1074
 
 //
 // MessageId: ERROR_SERVICE_DEPENDENCY_DELETED
@@ -5871,7 +5817,7 @@ static const int ERROR_ALREADY_RUNNING_LKG        1074L
 //
 // The dependency service does not exist or has been marked for deletion.
 //
-static const int ERROR_SERVICE_DEPENDENCY_DELETED 1075L
+    ERROR_SERVICE_DEPENDENCY_DELETED 1075
 
 //
 // MessageId: ERROR_BOOT_ALREADY_ACCEPTED
@@ -5880,7 +5826,7 @@ static const int ERROR_SERVICE_DEPENDENCY_DELETED 1075L
 //
 // The current boot has already been accepted for use as the last-known-good control set.
 //
-static const int ERROR_BOOT_ALREADY_ACCEPTED      1076L
+    ERROR_BOOT_ALREADY_ACCEPTED      1076
 
 //
 // MessageId: ERROR_SERVICE_NEVER_STARTED
@@ -5889,7 +5835,7 @@ static const int ERROR_BOOT_ALREADY_ACCEPTED      1076L
 //
 // No attempts to start the service have been made since the last boot.
 //
-static const int ERROR_SERVICE_NEVER_STARTED      1077L
+    ERROR_SERVICE_NEVER_STARTED      1077
 
 //
 // MessageId: ERROR_DUPLICATE_SERVICE_NAME
@@ -5898,7 +5844,7 @@ static const int ERROR_SERVICE_NEVER_STARTED      1077L
 //
 // The name is already in use as either a service name or a service display name.
 //
-static const int ERROR_DUPLICATE_SERVICE_NAME     1078L
+    ERROR_DUPLICATE_SERVICE_NAME     1078
 
 //
 // MessageId: ERROR_DIFFERENT_SERVICE_ACCOUNT
@@ -5907,7 +5853,7 @@ static const int ERROR_DUPLICATE_SERVICE_NAME     1078L
 //
 // The account specified for this service is different from the account specified for other services running in the same process.
 //
-static const int ERROR_DIFFERENT_SERVICE_ACCOUNT  1079L
+    ERROR_DIFFERENT_SERVICE_ACCOUNT  1079
 
 //
 // MessageId: ERROR_CANNOT_DETECT_DRIVER_FAILURE
@@ -5916,7 +5862,7 @@ static const int ERROR_DIFFERENT_SERVICE_ACCOUNT  1079L
 //
 // Failure actions can only be set for Win32 services, not for drivers.
 //
-static const int ERROR_CANNOT_DETECT_DRIVER_FAILURE 1080L
+    ERROR_CANNOT_DETECT_DRIVER_FAILURE 1080
 
 //
 // MessageId: ERROR_CANNOT_DETECT_PROCESS_ABORT
@@ -5926,7 +5872,7 @@ static const int ERROR_CANNOT_DETECT_DRIVER_FAILURE 1080L
 // This service runs in the same process as the service control manager.
 // Therefore, the service control manager cannot take action if this service's process terminates unexpectedly.
 //
-static const int ERROR_CANNOT_DETECT_PROCESS_ABORT 1081L
+    ERROR_CANNOT_DETECT_PROCESS_ABORT 1081
 
 //
 // MessageId: ERROR_NO_RECOVERY_PROGRAM
@@ -5935,7 +5881,7 @@ static const int ERROR_CANNOT_DETECT_PROCESS_ABORT 1081L
 //
 // No recovery program has been configured for this service.
 //
-static const int ERROR_NO_RECOVERY_PROGRAM        1082L
+    ERROR_NO_RECOVERY_PROGRAM        1082
 
 //
 // MessageId: ERROR_SERVICE_NOT_IN_EXE
@@ -5944,7 +5890,7 @@ static const int ERROR_NO_RECOVERY_PROGRAM        1082L
 //
 // The executable program that this service is configured to run in does not implement the service.
 //
-static const int ERROR_SERVICE_NOT_IN_EXE         1083L
+    ERROR_SERVICE_NOT_IN_EXE         1083
 
 //
 // MessageId: ERROR_NOT_SAFEBOOT_SERVICE
@@ -5953,7 +5899,7 @@ static const int ERROR_SERVICE_NOT_IN_EXE         1083L
 //
 // This service cannot be started in Safe Mode
 //
-static const int ERROR_NOT_SAFEBOOT_SERVICE       1084L
+    ERROR_NOT_SAFEBOOT_SERVICE       1084
 
 //
 // MessageId: ERROR_END_OF_MEDIA
@@ -5962,7 +5908,7 @@ static const int ERROR_NOT_SAFEBOOT_SERVICE       1084L
 //
 // The physical end of the tape has been reached.
 //
-static const int ERROR_END_OF_MEDIA               1100L
+    ERROR_END_OF_MEDIA               1100
 
 //
 // MessageId: ERROR_FILEMARK_DETECTED
@@ -5971,7 +5917,7 @@ static const int ERROR_END_OF_MEDIA               1100L
 //
 // A tape access reached a filemark.
 //
-static const int ERROR_FILEMARK_DETECTED          1101L
+    ERROR_FILEMARK_DETECTED          1101
 
 //
 // MessageId: ERROR_BEGINNING_OF_MEDIA
@@ -5980,7 +5926,7 @@ static const int ERROR_FILEMARK_DETECTED          1101L
 //
 // The beginning of the tape or a partition was encountered.
 //
-static const int ERROR_BEGINNING_OF_MEDIA         1102L
+    ERROR_BEGINNING_OF_MEDIA         1102
 
 //
 // MessageId: ERROR_SETMARK_DETECTED
@@ -5989,7 +5935,7 @@ static const int ERROR_BEGINNING_OF_MEDIA         1102L
 //
 // A tape access reached the end of a set of files.
 //
-static const int ERROR_SETMARK_DETECTED           1103L
+    ERROR_SETMARK_DETECTED           1103
 
 //
 // MessageId: ERROR_NO_DATA_DETECTED
@@ -5998,7 +5944,7 @@ static const int ERROR_SETMARK_DETECTED           1103L
 //
 // No more data is on the tape.
 //
-static const int ERROR_NO_DATA_DETECTED           1104L
+    ERROR_NO_DATA_DETECTED           1104
 
 //
 // MessageId: ERROR_PARTITION_FAILURE
@@ -6007,7 +5953,7 @@ static const int ERROR_NO_DATA_DETECTED           1104L
 //
 // Tape could not be partitioned.
 //
-static const int ERROR_PARTITION_FAILURE          1105L
+    ERROR_PARTITION_FAILURE          1105
 
 //
 // MessageId: ERROR_INVALID_BLOCK_LENGTH
@@ -6016,7 +5962,7 @@ static const int ERROR_PARTITION_FAILURE          1105L
 //
 // When accessing a new tape of a multivolume partition, the current block size is incorrect.
 //
-static const int ERROR_INVALID_BLOCK_LENGTH       1106L
+    ERROR_INVALID_BLOCK_LENGTH       1106
 
 //
 // MessageId: ERROR_DEVICE_NOT_PARTITIONED
@@ -6025,7 +5971,7 @@ static const int ERROR_INVALID_BLOCK_LENGTH       1106L
 //
 // Tape partition information could not be found when loading a tape.
 //
-static const int ERROR_DEVICE_NOT_PARTITIONED     1107L
+    ERROR_DEVICE_NOT_PARTITIONED     1107
 
 //
 // MessageId: ERROR_UNABLE_TO_LOCK_MEDIA
@@ -6034,7 +5980,7 @@ static const int ERROR_DEVICE_NOT_PARTITIONED     1107L
 //
 // Unable to lock the media eject mechanism.
 //
-static const int ERROR_UNABLE_TO_LOCK_MEDIA       1108L
+    ERROR_UNABLE_TO_LOCK_MEDIA       1108
 
 //
 // MessageId: ERROR_UNABLE_TO_UNLOAD_MEDIA
@@ -6043,7 +5989,7 @@ static const int ERROR_UNABLE_TO_LOCK_MEDIA       1108L
 //
 // Unable to unload the media.
 //
-static const int ERROR_UNABLE_TO_UNLOAD_MEDIA     1109L
+    ERROR_UNABLE_TO_UNLOAD_MEDIA     1109
 
 //
 // MessageId: ERROR_MEDIA_CHANGED
@@ -6052,7 +5998,7 @@ static const int ERROR_UNABLE_TO_UNLOAD_MEDIA     1109L
 //
 // The media in the drive may have changed.
 //
-static const int ERROR_MEDIA_CHANGED              1110L
+    ERROR_MEDIA_CHANGED              1110
 
 //
 // MessageId: ERROR_BUS_RESET
@@ -6061,7 +6007,7 @@ static const int ERROR_MEDIA_CHANGED              1110L
 //
 // The I/O bus was reset.
 //
-static const int ERROR_BUS_RESET                  1111L
+    ERROR_BUS_RESET                  1111
 
 //
 // MessageId: ERROR_NO_MEDIA_IN_DRIVE
@@ -6070,7 +6016,7 @@ static const int ERROR_BUS_RESET                  1111L
 //
 // No media in drive.
 //
-static const int ERROR_NO_MEDIA_IN_DRIVE          1112L
+    ERROR_NO_MEDIA_IN_DRIVE          1112
 
 //
 // MessageId: ERROR_NO_UNICODE_TRANSLATION
@@ -6079,7 +6025,7 @@ static const int ERROR_NO_MEDIA_IN_DRIVE          1112L
 //
 // No mapping for the Unicode character exists in the target multi-byte code page.
 //
-static const int ERROR_NO_UNICODE_TRANSLATION     1113L
+    ERROR_NO_UNICODE_TRANSLATION     1113
 
 //
 // MessageId: ERROR_DLL_INIT_FAILED
@@ -6088,7 +6034,7 @@ static const int ERROR_NO_UNICODE_TRANSLATION     1113L
 //
 // A dynamic link library (DLL) initialization routine failed.
 //
-static const int ERROR_DLL_INIT_FAILED            1114L
+    ERROR_DLL_INIT_FAILED            1114
 
 //
 // MessageId: ERROR_SHUTDOWN_IN_PROGRESS
@@ -6097,7 +6043,7 @@ static const int ERROR_DLL_INIT_FAILED            1114L
 //
 // A system shutdown is in progress.
 //
-static const int ERROR_SHUTDOWN_IN_PROGRESS       1115L
+    ERROR_SHUTDOWN_IN_PROGRESS       1115
 
 //
 // MessageId: ERROR_NO_SHUTDOWN_IN_PROGRESS
@@ -6106,7 +6052,7 @@ static const int ERROR_SHUTDOWN_IN_PROGRESS       1115L
 //
 // Unable to abort the system shutdown because no shutdown was in progress.
 //
-static const int ERROR_NO_SHUTDOWN_IN_PROGRESS    1116L
+    ERROR_NO_SHUTDOWN_IN_PROGRESS    1116
 
 //
 // MessageId: ERROR_IO_DEVICE
@@ -6115,7 +6061,7 @@ static const int ERROR_NO_SHUTDOWN_IN_PROGRESS    1116L
 //
 // The request could not be performed because of an I/O device error.
 //
-static const int ERROR_IO_DEVICE                  1117L
+    ERROR_IO_DEVICE                  1117
 
 //
 // MessageId: ERROR_SERIAL_NO_DEVICE
@@ -6124,7 +6070,7 @@ static const int ERROR_IO_DEVICE                  1117L
 //
 // No serial device was successfully initialized. The serial driver will unload.
 //
-static const int ERROR_SERIAL_NO_DEVICE           1118L
+    ERROR_SERIAL_NO_DEVICE           1118
 
 //
 // MessageId: ERROR_IRQ_BUSY
@@ -6133,7 +6079,7 @@ static const int ERROR_SERIAL_NO_DEVICE           1118L
 //
 // Unable to open a device that was sharing an interrupt request (IRQ) with other devices. At least one other device that uses that IRQ was already opened.
 //
-static const int ERROR_IRQ_BUSY                   1119L
+    ERROR_IRQ_BUSY                   1119
 
 //
 // MessageId: ERROR_MORE_WRITES
@@ -6143,7 +6089,7 @@ static const int ERROR_IRQ_BUSY                   1119L
 // A serial I/O operation was completed by another write to the serial port.
 // (The IOCTL_SERIAL_XOFF_COUNTER reached zero.)
 //
-static const int ERROR_MORE_WRITES                1120L
+    ERROR_MORE_WRITES                1120
 
 //
 // MessageId: ERROR_COUNTER_TIMEOUT
@@ -6153,7 +6099,7 @@ static const int ERROR_MORE_WRITES                1120L
 // A serial I/O operation completed because the timeout period expired.
 // (The IOCTL_SERIAL_XOFF_COUNTER did not reach zero.)
 //
-static const int ERROR_COUNTER_TIMEOUT            1121L
+    ERROR_COUNTER_TIMEOUT            1121
 
 //
 // MessageId: ERROR_FLOPPY_ID_MARK_NOT_FOUND
@@ -6162,7 +6108,7 @@ static const int ERROR_COUNTER_TIMEOUT            1121L
 //
 // No ID address mark was found on the floppy disk.
 //
-static const int ERROR_FLOPPY_ID_MARK_NOT_FOUND   1122L
+    ERROR_FLOPPY_ID_MARK_NOT_FOUND   1122
 
 //
 // MessageId: ERROR_FLOPPY_WRONG_CYLINDER
@@ -6171,7 +6117,7 @@ static const int ERROR_FLOPPY_ID_MARK_NOT_FOUND   1122L
 //
 // Mismatch between the floppy disk sector ID field and the floppy disk controller track address.
 //
-static const int ERROR_FLOPPY_WRONG_CYLINDER      1123L
+    ERROR_FLOPPY_WRONG_CYLINDER      1123
 
 //
 // MessageId: ERROR_FLOPPY_UNKNOWN_ERROR
@@ -6180,7 +6126,7 @@ static const int ERROR_FLOPPY_WRONG_CYLINDER      1123L
 //
 // The floppy disk controller reported an error that is not recognized by the floppy disk driver.
 //
-static const int ERROR_FLOPPY_UNKNOWN_ERROR       1124L
+    ERROR_FLOPPY_UNKNOWN_ERROR       1124
 
 //
 // MessageId: ERROR_FLOPPY_BAD_REGISTERS
@@ -6189,7 +6135,7 @@ static const int ERROR_FLOPPY_UNKNOWN_ERROR       1124L
 //
 // The floppy disk controller returned inconsistent results in its registers.
 //
-static const int ERROR_FLOPPY_BAD_REGISTERS       1125L
+    ERROR_FLOPPY_BAD_REGISTERS       1125
 
 //
 // MessageId: ERROR_DISK_RECALIBRATE_FAILED
@@ -6198,7 +6144,7 @@ static const int ERROR_FLOPPY_BAD_REGISTERS       1125L
 //
 // While accessing the hard disk, a recalibrate operation failed, even after retries.
 //
-static const int ERROR_DISK_RECALIBRATE_FAILED    1126L
+    ERROR_DISK_RECALIBRATE_FAILED    1126
 
 //
 // MessageId: ERROR_DISK_OPERATION_FAILED
@@ -6207,7 +6153,7 @@ static const int ERROR_DISK_RECALIBRATE_FAILED    1126L
 //
 // While accessing the hard disk, a disk operation failed even after retries.
 //
-static const int ERROR_DISK_OPERATION_FAILED      1127L
+    ERROR_DISK_OPERATION_FAILED      1127
 
 //
 // MessageId: ERROR_DISK_RESET_FAILED
@@ -6216,7 +6162,7 @@ static const int ERROR_DISK_OPERATION_FAILED      1127L
 //
 // While accessing the hard disk, a disk controller reset was needed, but even that failed.
 //
-static const int ERROR_DISK_RESET_FAILED          1128L
+    ERROR_DISK_RESET_FAILED          1128
 
 //
 // MessageId: ERROR_EOM_OVERFLOW
@@ -6225,7 +6171,7 @@ static const int ERROR_DISK_RESET_FAILED          1128L
 //
 // Physical end of tape encountered.
 //
-static const int ERROR_EOM_OVERFLOW               1129L
+    ERROR_EOM_OVERFLOW               1129
 
 //
 // MessageId: ERROR_NOT_ENOUGH_SERVER_MEMORY
@@ -6234,7 +6180,7 @@ static const int ERROR_EOM_OVERFLOW               1129L
 //
 // Not enough server memory resources are available to process this command.
 //
-static const int ERROR_NOT_ENOUGH_SERVER_MEMORY   1130L
+    ERROR_NOT_ENOUGH_SERVER_MEMORY   1130
 
 //
 // MessageId: ERROR_POSSIBLE_DEADLOCK
@@ -6243,7 +6189,7 @@ static const int ERROR_NOT_ENOUGH_SERVER_MEMORY   1130L
 //
 // A potential deadlock condition has been detected.
 //
-static const int ERROR_POSSIBLE_DEADLOCK          1131L
+    ERROR_POSSIBLE_DEADLOCK          1131
 
 //
 // MessageId: ERROR_MAPPED_ALIGNMENT
@@ -6252,7 +6198,7 @@ static const int ERROR_POSSIBLE_DEADLOCK          1131L
 //
 // The base address or the file offset specified does not have the proper alignment.
 //
-static const int ERROR_MAPPED_ALIGNMENT           1132L
+    ERROR_MAPPED_ALIGNMENT           1132
 
 //
 // MessageId: ERROR_SET_POWER_STATE_VETOED
@@ -6261,7 +6207,7 @@ static const int ERROR_MAPPED_ALIGNMENT           1132L
 //
 // An attempt to change the system power state was vetoed by another application or driver.
 //
-static const int ERROR_SET_POWER_STATE_VETOED     1140L
+    ERROR_SET_POWER_STATE_VETOED     1140
 
 //
 // MessageId: ERROR_SET_POWER_STATE_FAILED
@@ -6270,7 +6216,7 @@ static const int ERROR_SET_POWER_STATE_VETOED     1140L
 //
 // The system BIOS failed an attempt to change the system power state.
 //
-static const int ERROR_SET_POWER_STATE_FAILED     1141L
+    ERROR_SET_POWER_STATE_FAILED     1141
 
 //
 // MessageId: ERROR_TOO_MANY_LINKS
@@ -6279,7 +6225,7 @@ static const int ERROR_SET_POWER_STATE_FAILED     1141L
 //
 // An attempt was made to create more links on a file than the file system supports.
 //
-static const int ERROR_TOO_MANY_LINKS             1142L
+    ERROR_TOO_MANY_LINKS             1142
 
 //
 // MessageId: ERROR_OLD_WIN_VERSION
@@ -6288,7 +6234,7 @@ static const int ERROR_TOO_MANY_LINKS             1142L
 //
 // The specified program requires a newer version of Windows.
 //
-static const int ERROR_OLD_WIN_VERSION            1150L
+    ERROR_OLD_WIN_VERSION            1150
 
 //
 // MessageId: ERROR_APP_WRONG_OS
@@ -6297,7 +6243,7 @@ static const int ERROR_OLD_WIN_VERSION            1150L
 //
 // The specified program is not a Windows or MS-DOS program.
 //
-static const int ERROR_APP_WRONG_OS               1151L
+    ERROR_APP_WRONG_OS               1151
 
 //
 // MessageId: ERROR_SINGLE_INSTANCE_APP
@@ -6306,7 +6252,7 @@ static const int ERROR_APP_WRONG_OS               1151L
 //
 // Cannot start more than one instance of the specified program.
 //
-static const int ERROR_SINGLE_INSTANCE_APP        1152L
+    ERROR_SINGLE_INSTANCE_APP        1152
 
 //
 // MessageId: ERROR_RMODE_APP
@@ -6315,7 +6261,7 @@ static const int ERROR_SINGLE_INSTANCE_APP        1152L
 //
 // The specified program was written for an earlier version of Windows.
 //
-static const int ERROR_RMODE_APP                  1153L
+    ERROR_RMODE_APP                  1153
 
 //
 // MessageId: ERROR_INVALID_DLL
@@ -6324,7 +6270,7 @@ static const int ERROR_RMODE_APP                  1153L
 //
 // One of the library files needed to run this application is damaged.
 //
-static const int ERROR_INVALID_DLL                1154L
+    ERROR_INVALID_DLL                1154
 
 //
 // MessageId: ERROR_NO_ASSOCIATION
@@ -6333,7 +6279,7 @@ static const int ERROR_INVALID_DLL                1154L
 //
 // No application is associated with the specified file for this operation.
 //
-static const int ERROR_NO_ASSOCIATION             1155L
+    ERROR_NO_ASSOCIATION             1155
 
 //
 // MessageId: ERROR_DDE_FAIL
@@ -6342,7 +6288,7 @@ static const int ERROR_NO_ASSOCIATION             1155L
 //
 // An error occurred in sending the command to the application.
 //
-static const int ERROR_DDE_FAIL                   1156L
+    ERROR_DDE_FAIL                   1156
 
 //
 // MessageId: ERROR_DLL_NOT_FOUND
@@ -6351,7 +6297,7 @@ static const int ERROR_DDE_FAIL                   1156L
 //
 // One of the library files needed to run this application cannot be found.
 //
-static const int ERROR_DLL_NOT_FOUND              1157L
+    ERROR_DLL_NOT_FOUND              1157
 
 //
 // MessageId: ERROR_NO_MORE_USER_HANDLES
@@ -6360,7 +6306,7 @@ static const int ERROR_DLL_NOT_FOUND              1157L
 //
 // The current process has used all of its system allowance of handles for Window Manager objects.
 //
-static const int ERROR_NO_MORE_USER_HANDLES       1158L
+    ERROR_NO_MORE_USER_HANDLES       1158
 
 //
 // MessageId: ERROR_MESSAGE_SYNC_ONLY
@@ -6369,7 +6315,7 @@ static const int ERROR_NO_MORE_USER_HANDLES       1158L
 //
 // The message can be used only with synchronous operations.
 //
-static const int ERROR_MESSAGE_SYNC_ONLY          1159L
+    ERROR_MESSAGE_SYNC_ONLY          1159
 
 //
 // MessageId: ERROR_SOURCE_ELEMENT_EMPTY
@@ -6378,7 +6324,7 @@ static const int ERROR_MESSAGE_SYNC_ONLY          1159L
 //
 // The indicated source element has no media.
 //
-static const int ERROR_SOURCE_ELEMENT_EMPTY       1160L
+    ERROR_SOURCE_ELEMENT_EMPTY       1160
 
 //
 // MessageId: ERROR_DESTINATION_ELEMENT_FULL
@@ -6387,7 +6333,7 @@ static const int ERROR_SOURCE_ELEMENT_EMPTY       1160L
 //
 // The indicated destination element already contains media.
 //
-static const int ERROR_DESTINATION_ELEMENT_FULL   1161L
+    ERROR_DESTINATION_ELEMENT_FULL   1161
 
 //
 // MessageId: ERROR_ILLEGAL_ELEMENT_ADDRESS
@@ -6396,7 +6342,7 @@ static const int ERROR_DESTINATION_ELEMENT_FULL   1161L
 //
 // The indicated element does not exist.
 //
-static const int ERROR_ILLEGAL_ELEMENT_ADDRESS    1162L
+    ERROR_ILLEGAL_ELEMENT_ADDRESS    1162
 
 //
 // MessageId: ERROR_MAGAZINE_NOT_PRESENT
@@ -6405,7 +6351,7 @@ static const int ERROR_ILLEGAL_ELEMENT_ADDRESS    1162L
 //
 // The indicated element is part of a magazine that is not present.
 //
-static const int ERROR_MAGAZINE_NOT_PRESENT       1163L
+    ERROR_MAGAZINE_NOT_PRESENT       1163
 
 //
 // MessageId: ERROR_DEVICE_REINITIALIZATION_NEEDED
@@ -6414,7 +6360,7 @@ static const int ERROR_MAGAZINE_NOT_PRESENT       1163L
 //
 // The indicated device requires reinitialization due to hardware errors.
 //
-static const int ERROR_DEVICE_REINITIALIZATION_NEEDED 1164L    // dderror
+    ERROR_DEVICE_REINITIALIZATION_NEEDED 1164    // dderror
 
 //
 // MessageId: ERROR_DEVICE_REQUIRES_CLEANING
@@ -6423,7 +6369,7 @@ static const int ERROR_DEVICE_REINITIALIZATION_NEEDED 1164L    // dderror
 //
 // The device has indicated that cleaning is required before further operations are attempted.
 //
-static const int ERROR_DEVICE_REQUIRES_CLEANING   1165L
+    ERROR_DEVICE_REQUIRES_CLEANING   1165
 
 //
 // MessageId: ERROR_DEVICE_DOOR_OPEN
@@ -6432,7 +6378,7 @@ static const int ERROR_DEVICE_REQUIRES_CLEANING   1165L
 //
 // The device has indicated that its door is open.
 //
-static const int ERROR_DEVICE_DOOR_OPEN           1166L
+    ERROR_DEVICE_DOOR_OPEN           1166
 
 //
 // MessageId: ERROR_DEVICE_NOT_CONNECTED
@@ -6441,7 +6387,7 @@ static const int ERROR_DEVICE_DOOR_OPEN           1166L
 //
 // The device is not connected.
 //
-static const int ERROR_DEVICE_NOT_CONNECTED       1167L
+    ERROR_DEVICE_NOT_CONNECTED       1167
 
 //
 // MessageId: ERROR_NOT_FOUND
@@ -6450,7 +6396,7 @@ static const int ERROR_DEVICE_NOT_CONNECTED       1167L
 //
 // Element not found.
 //
-static const int ERROR_NOT_FOUND                  1168L
+    ERROR_NOT_FOUND                  1168
 
 //
 // MessageId: ERROR_NO_MATCH
@@ -6459,7 +6405,7 @@ static const int ERROR_NOT_FOUND                  1168L
 //
 // There was no match for the specified key in the index.
 //
-static const int ERROR_NO_MATCH                   1169L
+    ERROR_NO_MATCH                   1169
 
 //
 // MessageId: ERROR_SET_NOT_FOUND
@@ -6468,7 +6414,7 @@ static const int ERROR_NO_MATCH                   1169L
 //
 // The property set specified does not exist on the object.
 //
-static const int ERROR_SET_NOT_FOUND              1170L
+    ERROR_SET_NOT_FOUND              1170
 
 //
 // MessageId: ERROR_POINT_NOT_FOUND
@@ -6477,7 +6423,7 @@ static const int ERROR_SET_NOT_FOUND              1170L
 //
 // The point passed to GetMouseMovePoints is not in the buffer.
 //
-static const int ERROR_POINT_NOT_FOUND            1171L
+    ERROR_POINT_NOT_FOUND            1171
 
 //
 // MessageId: ERROR_NO_TRACKING_SERVICE
@@ -6486,7 +6432,7 @@ static const int ERROR_POINT_NOT_FOUND            1171L
 //
 // The tracking (workstation) service is not running.
 //
-static const int ERROR_NO_TRACKING_SERVICE        1172L
+    ERROR_NO_TRACKING_SERVICE        1172
 
 //
 // MessageId: ERROR_NO_VOLUME_ID
@@ -6495,7 +6441,7 @@ static const int ERROR_NO_TRACKING_SERVICE        1172L
 //
 // The Volume ID could not be found.
 //
-static const int ERROR_NO_VOLUME_ID               1173L
+    ERROR_NO_VOLUME_ID               1173
 
 //
 // MessageId: ERROR_UNABLE_TO_REMOVE_REPLACED
@@ -6504,7 +6450,7 @@ static const int ERROR_NO_VOLUME_ID               1173L
 //
 // Unable to remove the file to be replaced.
 //
-static const int ERROR_UNABLE_TO_REMOVE_REPLACED  1175L
+    ERROR_UNABLE_TO_REMOVE_REPLACED  1175
 
 //
 // MessageId: ERROR_UNABLE_TO_MOVE_REPLACEMENT
@@ -6513,7 +6459,7 @@ static const int ERROR_UNABLE_TO_REMOVE_REPLACED  1175L
 //
 // Unable to move the replacement file to the file to be replaced. The file to be replaced has retained its original name.
 //
-static const int ERROR_UNABLE_TO_MOVE_REPLACEMENT 1176L
+    ERROR_UNABLE_TO_MOVE_REPLACEMENT 1176
 
 //
 // MessageId: ERROR_UNABLE_TO_MOVE_REPLACEMENT_2
@@ -6522,7 +6468,7 @@ static const int ERROR_UNABLE_TO_MOVE_REPLACEMENT 1176L
 //
 // Unable to move the replacement file to the file to be replaced. The file to be replaced has been renamed using the backup name.
 //
-static const int ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 1177L
+    ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 1177
 
 //
 // MessageId: ERROR_JOURNAL_DELETE_IN_PROGRESS
@@ -6531,7 +6477,7 @@ static const int ERROR_UNABLE_TO_MOVE_REPLACEMENT_2 1177L
 //
 // The volume change journal is being deleted.
 //
-static const int ERROR_JOURNAL_DELETE_IN_PROGRESS 1178L
+    ERROR_JOURNAL_DELETE_IN_PROGRESS 1178
 
 //
 // MessageId: ERROR_JOURNAL_NOT_ACTIVE
@@ -6540,7 +6486,7 @@ static const int ERROR_JOURNAL_DELETE_IN_PROGRESS 1178L
 //
 // The volume change journal is not active.
 //
-static const int ERROR_JOURNAL_NOT_ACTIVE         1179L
+    ERROR_JOURNAL_NOT_ACTIVE         1179
 
 //
 // MessageId: ERROR_POTENTIAL_FILE_FOUND
@@ -6549,7 +6495,7 @@ static const int ERROR_JOURNAL_NOT_ACTIVE         1179L
 //
 // A file was found, but it may not be the correct file.
 //
-static const int ERROR_POTENTIAL_FILE_FOUND       1180L
+    ERROR_POTENTIAL_FILE_FOUND       1180
 
 //
 // MessageId: ERROR_JOURNAL_ENTRY_DELETED
@@ -6558,7 +6504,7 @@ static const int ERROR_POTENTIAL_FILE_FOUND       1180L
 //
 // The journal entry has been deleted from the journal.
 //
-static const int ERROR_JOURNAL_ENTRY_DELETED      1181L
+    ERROR_JOURNAL_ENTRY_DELETED      1181
 
 //
 // MessageId: ERROR_SHUTDOWN_IS_SCHEDULED
@@ -6567,7 +6513,7 @@ static const int ERROR_JOURNAL_ENTRY_DELETED      1181L
 //
 // A system shutdown has already been scheduled.
 //
-static const int ERROR_SHUTDOWN_IS_SCHEDULED      1190L
+    ERROR_SHUTDOWN_IS_SCHEDULED      1190
 
 //
 // MessageId: ERROR_SHUTDOWN_USERS_LOGGED_ON
@@ -6576,7 +6522,7 @@ static const int ERROR_SHUTDOWN_IS_SCHEDULED      1190L
 //
 // The system shutdown cannot be initiated because there are other users logged on to the computer.
 //
-static const int ERROR_SHUTDOWN_USERS_LOGGED_ON   1191L
+    ERROR_SHUTDOWN_USERS_LOGGED_ON   1191
 
 //
 // MessageId: ERROR_BAD_DEVICE
@@ -6585,7 +6531,7 @@ static const int ERROR_SHUTDOWN_USERS_LOGGED_ON   1191L
 //
 // The specified device name is invalid.
 //
-static const int ERROR_BAD_DEVICE                 1200L
+    ERROR_BAD_DEVICE                 1200
 
 //
 // MessageId: ERROR_CONNECTION_UNAVAIL
@@ -6594,7 +6540,7 @@ static const int ERROR_BAD_DEVICE                 1200L
 //
 // The device is not currently connected but it is a remembered connection.
 //
-static const int ERROR_CONNECTION_UNAVAIL         1201L
+    ERROR_CONNECTION_UNAVAIL         1201
 
 //
 // MessageId: ERROR_DEVICE_ALREADY_REMEMBERED
@@ -6603,7 +6549,7 @@ static const int ERROR_CONNECTION_UNAVAIL         1201L
 //
 // The local device name has a remembered connection to another network resource.
 //
-static const int ERROR_DEVICE_ALREADY_REMEMBERED  1202L
+    ERROR_DEVICE_ALREADY_REMEMBERED  1202
 
 //
 // MessageId: ERROR_NO_NET_OR_BAD_PATH
@@ -6612,7 +6558,7 @@ static const int ERROR_DEVICE_ALREADY_REMEMBERED  1202L
 //
 // The network path was either typed incorrectly, does not exist, or the network provider is not currently available. Please try retyping the path or contact your network administrator.
 //
-static const int ERROR_NO_NET_OR_BAD_PATH         1203L
+    ERROR_NO_NET_OR_BAD_PATH         1203
 
 //
 // MessageId: ERROR_BAD_PROVIDER
@@ -6621,7 +6567,7 @@ static const int ERROR_NO_NET_OR_BAD_PATH         1203L
 //
 // The specified network provider name is invalid.
 //
-static const int ERROR_BAD_PROVIDER               1204L
+    ERROR_BAD_PROVIDER               1204
 
 //
 // MessageId: ERROR_CANNOT_OPEN_PROFILE
@@ -6630,7 +6576,7 @@ static const int ERROR_BAD_PROVIDER               1204L
 //
 // Unable to open the network connection profile.
 //
-static const int ERROR_CANNOT_OPEN_PROFILE        1205L
+    ERROR_CANNOT_OPEN_PROFILE        1205
 
 //
 // MessageId: ERROR_BAD_PROFILE
@@ -6639,7 +6585,7 @@ static const int ERROR_CANNOT_OPEN_PROFILE        1205L
 //
 // The network connection profile is corrupted.
 //
-static const int ERROR_BAD_PROFILE                1206L
+    ERROR_BAD_PROFILE                1206
 
 //
 // MessageId: ERROR_NOT_CONTAINER
@@ -6648,7 +6594,7 @@ static const int ERROR_BAD_PROFILE                1206L
 //
 // Cannot enumerate a noncontainer.
 //
-static const int ERROR_NOT_CONTAINER              1207L
+    ERROR_NOT_CONTAINER              1207
 
 //
 // MessageId: ERROR_EXTENDED_ERROR
@@ -6657,7 +6603,7 @@ static const int ERROR_NOT_CONTAINER              1207L
 //
 // An extended error has occurred.
 //
-static const int ERROR_EXTENDED_ERROR             1208L
+    ERROR_EXTENDED_ERROR             1208
 
 //
 // MessageId: ERROR_INVALID_GROUPNAME
@@ -6666,7 +6612,7 @@ static const int ERROR_EXTENDED_ERROR             1208L
 //
 // The format of the specified group name is invalid.
 //
-static const int ERROR_INVALID_GROUPNAME          1209L
+    ERROR_INVALID_GROUPNAME          1209
 
 //
 // MessageId: ERROR_INVALID_COMPUTERNAME
@@ -6675,7 +6621,7 @@ static const int ERROR_INVALID_GROUPNAME          1209L
 //
 // The format of the specified computer name is invalid.
 //
-static const int ERROR_INVALID_COMPUTERNAME       1210L
+    ERROR_INVALID_COMPUTERNAME       1210
 
 //
 // MessageId: ERROR_INVALID_EVENTNAME
@@ -6684,7 +6630,7 @@ static const int ERROR_INVALID_COMPUTERNAME       1210L
 //
 // The format of the specified event name is invalid.
 //
-static const int ERROR_INVALID_EVENTNAME          1211L
+    ERROR_INVALID_EVENTNAME          1211
 
 //
 // MessageId: ERROR_INVALID_DOMAINNAME
@@ -6693,7 +6639,7 @@ static const int ERROR_INVALID_EVENTNAME          1211L
 //
 // The format of the specified domain name is invalid.
 //
-static const int ERROR_INVALID_DOMAINNAME         1212L
+    ERROR_INVALID_DOMAINNAME         1212
 
 //
 // MessageId: ERROR_INVALID_SERVICENAME
@@ -6702,7 +6648,7 @@ static const int ERROR_INVALID_DOMAINNAME         1212L
 //
 // The format of the specified service name is invalid.
 //
-static const int ERROR_INVALID_SERVICENAME        1213L
+    ERROR_INVALID_SERVICENAME        1213
 
 //
 // MessageId: ERROR_INVALID_NETNAME
@@ -6711,7 +6657,7 @@ static const int ERROR_INVALID_SERVICENAME        1213L
 //
 // The format of the specified network name is invalid.
 //
-static const int ERROR_INVALID_NETNAME            1214L
+    ERROR_INVALID_NETNAME            1214
 
 //
 // MessageId: ERROR_INVALID_SHARENAME
@@ -6720,7 +6666,7 @@ static const int ERROR_INVALID_NETNAME            1214L
 //
 // The format of the specified share name is invalid.
 //
-static const int ERROR_INVALID_SHARENAME          1215L
+    ERROR_INVALID_SHARENAME          1215
 
 //
 // MessageId: ERROR_INVALID_PASSWORDNAME
@@ -6729,7 +6675,7 @@ static const int ERROR_INVALID_SHARENAME          1215L
 //
 // The format of the specified password is invalid.
 //
-static const int ERROR_INVALID_PASSWORDNAME       1216L
+    ERROR_INVALID_PASSWORDNAME       1216
 
 //
 // MessageId: ERROR_INVALID_MESSAGENAME
@@ -6738,7 +6684,7 @@ static const int ERROR_INVALID_PASSWORDNAME       1216L
 //
 // The format of the specified message name is invalid.
 //
-static const int ERROR_INVALID_MESSAGENAME        1217L
+    ERROR_INVALID_MESSAGENAME        1217
 
 //
 // MessageId: ERROR_INVALID_MESSAGEDEST
@@ -6747,7 +6693,7 @@ static const int ERROR_INVALID_MESSAGENAME        1217L
 //
 // The format of the specified message destination is invalid.
 //
-static const int ERROR_INVALID_MESSAGEDEST        1218L
+    ERROR_INVALID_MESSAGEDEST        1218
 
 //
 // MessageId: ERROR_SESSION_CREDENTIAL_CONFLICT
@@ -6756,7 +6702,7 @@ static const int ERROR_INVALID_MESSAGEDEST        1218L
 //
 // Multiple connections to a server or shared resource by the same user, using more than one user name, are not allowed. Disconnect all previous connections to the server or shared resource and try again.
 //
-static const int ERROR_SESSION_CREDENTIAL_CONFLICT 1219L
+    ERROR_SESSION_CREDENTIAL_CONFLICT 1219
 
 //
 // MessageId: ERROR_REMOTE_SESSION_LIMIT_EXCEEDED
@@ -6765,7 +6711,7 @@ static const int ERROR_SESSION_CREDENTIAL_CONFLICT 1219L
 //
 // An attempt was made to establish a session to a network server, but there are already too many sessions established to that server.
 //
-static const int ERROR_REMOTE_SESSION_LIMIT_EXCEEDED 1220L
+    ERROR_REMOTE_SESSION_LIMIT_EXCEEDED 1220
 
 //
 // MessageId: ERROR_DUP_DOMAINNAME
@@ -6774,7 +6720,7 @@ static const int ERROR_REMOTE_SESSION_LIMIT_EXCEEDED 1220L
 //
 // The workgroup or domain name is already in use by another computer on the network.
 //
-static const int ERROR_DUP_DOMAINNAME             1221L
+    ERROR_DUP_DOMAINNAME             1221
 
 //
 // MessageId: ERROR_NO_NETWORK
@@ -6783,7 +6729,7 @@ static const int ERROR_DUP_DOMAINNAME             1221L
 //
 // The network is not present or not started.
 //
-static const int ERROR_NO_NETWORK                 1222L
+    ERROR_NO_NETWORK                 1222
 
 //
 // MessageId: ERROR_CANCELLED
@@ -6792,7 +6738,7 @@ static const int ERROR_NO_NETWORK                 1222L
 //
 // The operation was canceled by the user.
 //
-static const int ERROR_CANCELLED                  1223L
+    ERROR_CANCELLED                  1223
 
 //
 // MessageId: ERROR_USER_MAPPED_FILE
@@ -6801,7 +6747,7 @@ static const int ERROR_CANCELLED                  1223L
 //
 // The requested operation cannot be performed on a file with a user-mapped section open.
 //
-static const int ERROR_USER_MAPPED_FILE           1224L
+    ERROR_USER_MAPPED_FILE           1224
 
 //
 // MessageId: ERROR_CONNECTION_REFUSED
@@ -6810,7 +6756,7 @@ static const int ERROR_USER_MAPPED_FILE           1224L
 //
 // The remote computer refused the network connection.
 //
-static const int ERROR_CONNECTION_REFUSED         1225L
+    ERROR_CONNECTION_REFUSED         1225
 
 //
 // MessageId: ERROR_GRACEFUL_DISCONNECT
@@ -6819,7 +6765,7 @@ static const int ERROR_CONNECTION_REFUSED         1225L
 //
 // The network connection was gracefully closed.
 //
-static const int ERROR_GRACEFUL_DISCONNECT        1226L
+    ERROR_GRACEFUL_DISCONNECT        1226
 
 //
 // MessageId: ERROR_ADDRESS_ALREADY_ASSOCIATED
@@ -6828,7 +6774,7 @@ static const int ERROR_GRACEFUL_DISCONNECT        1226L
 //
 // The network transport endpoint already has an address associated with it.
 //
-static const int ERROR_ADDRESS_ALREADY_ASSOCIATED 1227L
+    ERROR_ADDRESS_ALREADY_ASSOCIATED 1227
 
 //
 // MessageId: ERROR_ADDRESS_NOT_ASSOCIATED
@@ -6837,7 +6783,7 @@ static const int ERROR_ADDRESS_ALREADY_ASSOCIATED 1227L
 //
 // An address has not yet been associated with the network endpoint.
 //
-static const int ERROR_ADDRESS_NOT_ASSOCIATED     1228L
+    ERROR_ADDRESS_NOT_ASSOCIATED     1228
 
 //
 // MessageId: ERROR_CONNECTION_INVALID
@@ -6846,7 +6792,7 @@ static const int ERROR_ADDRESS_NOT_ASSOCIATED     1228L
 //
 // An operation was attempted on a nonexistent network connection.
 //
-static const int ERROR_CONNECTION_INVALID         1229L
+    ERROR_CONNECTION_INVALID         1229
 
 //
 // MessageId: ERROR_CONNECTION_ACTIVE
@@ -6855,7 +6801,7 @@ static const int ERROR_CONNECTION_INVALID         1229L
 //
 // An invalid operation was attempted on an active network connection.
 //
-static const int ERROR_CONNECTION_ACTIVE          1230L
+    ERROR_CONNECTION_ACTIVE          1230
 
 //
 // MessageId: ERROR_NETWORK_UNREACHABLE
@@ -6864,7 +6810,7 @@ static const int ERROR_CONNECTION_ACTIVE          1230L
 //
 // The network location cannot be reached. For information about network troubleshooting, see Windows Help.
 //
-static const int ERROR_NETWORK_UNREACHABLE        1231L
+    ERROR_NETWORK_UNREACHABLE        1231
 
 //
 // MessageId: ERROR_HOST_UNREACHABLE
@@ -6873,7 +6819,7 @@ static const int ERROR_NETWORK_UNREACHABLE        1231L
 //
 // The network location cannot be reached. For information about network troubleshooting, see Windows Help.
 //
-static const int ERROR_HOST_UNREACHABLE           1232L
+    ERROR_HOST_UNREACHABLE           1232
 
 //
 // MessageId: ERROR_PROTOCOL_UNREACHABLE
@@ -6882,7 +6828,7 @@ static const int ERROR_HOST_UNREACHABLE           1232L
 //
 // The network location cannot be reached. For information about network troubleshooting, see Windows Help.
 //
-static const int ERROR_PROTOCOL_UNREACHABLE       1233L
+    ERROR_PROTOCOL_UNREACHABLE       1233
 
 //
 // MessageId: ERROR_PORT_UNREACHABLE
@@ -6891,7 +6837,7 @@ static const int ERROR_PROTOCOL_UNREACHABLE       1233L
 //
 // No service is operating at the destination network endpoint on the remote system.
 //
-static const int ERROR_PORT_UNREACHABLE           1234L
+    ERROR_PORT_UNREACHABLE           1234
 
 //
 // MessageId: ERROR_REQUEST_ABORTED
@@ -6900,7 +6846,7 @@ static const int ERROR_PORT_UNREACHABLE           1234L
 //
 // The request was aborted.
 //
-static const int ERROR_REQUEST_ABORTED            1235L
+    ERROR_REQUEST_ABORTED            1235
 
 //
 // MessageId: ERROR_CONNECTION_ABORTED
@@ -6909,7 +6855,7 @@ static const int ERROR_REQUEST_ABORTED            1235L
 //
 // The network connection was aborted by the local system.
 //
-static const int ERROR_CONNECTION_ABORTED         1236L
+    ERROR_CONNECTION_ABORTED         1236
 
 //
 // MessageId: ERROR_RETRY
@@ -6918,7 +6864,7 @@ static const int ERROR_CONNECTION_ABORTED         1236L
 //
 // The operation could not be completed. A retry should be performed.
 //
-static const int ERROR_RETRY                      1237L
+    ERROR_RETRY                      1237
 
 //
 // MessageId: ERROR_CONNECTION_COUNT_LIMIT
@@ -6927,7 +6873,7 @@ static const int ERROR_RETRY                      1237L
 //
 // A connection to the server could not be made because the limit on the number of concurrent connections for this account has been reached.
 //
-static const int ERROR_CONNECTION_COUNT_LIMIT     1238L
+    ERROR_CONNECTION_COUNT_LIMIT     1238
 
 //
 // MessageId: ERROR_LOGIN_TIME_RESTRICTION
@@ -6936,7 +6882,7 @@ static const int ERROR_CONNECTION_COUNT_LIMIT     1238L
 //
 // Attempting to log in during an unauthorized time of day for this account.
 //
-static const int ERROR_LOGIN_TIME_RESTRICTION     1239L
+    ERROR_LOGIN_TIME_RESTRICTION     1239
 
 //
 // MessageId: ERROR_LOGIN_WKSTA_RESTRICTION
@@ -6945,7 +6891,7 @@ static const int ERROR_LOGIN_TIME_RESTRICTION     1239L
 //
 // The account is not authorized to log in from this station.
 //
-static const int ERROR_LOGIN_WKSTA_RESTRICTION    1240L
+    ERROR_LOGIN_WKSTA_RESTRICTION    1240
 
 //
 // MessageId: ERROR_INCORRECT_ADDRESS
@@ -6954,7 +6900,7 @@ static const int ERROR_LOGIN_WKSTA_RESTRICTION    1240L
 //
 // The network address could not be used for the operation requested.
 //
-static const int ERROR_INCORRECT_ADDRESS          1241L
+    ERROR_INCORRECT_ADDRESS          1241
 
 //
 // MessageId: ERROR_ALREADY_REGISTERED
@@ -6963,7 +6909,7 @@ static const int ERROR_INCORRECT_ADDRESS          1241L
 //
 // The service is already registered.
 //
-static const int ERROR_ALREADY_REGISTERED         1242L
+    ERROR_ALREADY_REGISTERED         1242
 
 //
 // MessageId: ERROR_SERVICE_NOT_FOUND
@@ -6972,7 +6918,7 @@ static const int ERROR_ALREADY_REGISTERED         1242L
 //
 // The specified service does not exist.
 //
-static const int ERROR_SERVICE_NOT_FOUND          1243L
+    ERROR_SERVICE_NOT_FOUND          1243
 
 //
 // MessageId: ERROR_NOT_AUTHENTICATED
@@ -6981,7 +6927,7 @@ static const int ERROR_SERVICE_NOT_FOUND          1243L
 //
 // The operation being requested was not performed because the user has not been authenticated.
 //
-static const int ERROR_NOT_AUTHENTICATED          1244L
+    ERROR_NOT_AUTHENTICATED          1244
 
 //
 // MessageId: ERROR_NOT_LOGGED_ON
@@ -6990,7 +6936,7 @@ static const int ERROR_NOT_AUTHENTICATED          1244L
 //
 // The operation being requested was not performed because the user has not logged on to the network. The specified service does not exist.
 //
-static const int ERROR_NOT_LOGGED_ON              1245L
+    ERROR_NOT_LOGGED_ON              1245
 
 //
 // MessageId: ERROR_CONTINUE
@@ -6999,7 +6945,7 @@ static const int ERROR_NOT_LOGGED_ON              1245L
 //
 // Continue with work in progress.
 //
-static const int ERROR_CONTINUE                   1246L    // dderror
+    ERROR_CONTINUE                   1246    // dderror
 
 //
 // MessageId: ERROR_ALREADY_INITIALIZED
@@ -7008,7 +6954,7 @@ static const int ERROR_CONTINUE                   1246L    // dderror
 //
 // An attempt was made to perform an initialization operation when initialization has already been completed.
 //
-static const int ERROR_ALREADY_INITIALIZED        1247L
+    ERROR_ALREADY_INITIALIZED        1247
 
 //
 // MessageId: ERROR_NO_MORE_DEVICES
@@ -7017,7 +6963,7 @@ static const int ERROR_ALREADY_INITIALIZED        1247L
 //
 // No more local devices.
 //
-static const int ERROR_NO_MORE_DEVICES            1248L    // dderror
+    ERROR_NO_MORE_DEVICES            1248    // dderror
 
 //
 // MessageId: ERROR_NO_SUCH_SITE
@@ -7026,7 +6972,7 @@ static const int ERROR_NO_MORE_DEVICES            1248L    // dderror
 //
 // The specified site does not exist.
 //
-static const int ERROR_NO_SUCH_SITE               1249L
+    ERROR_NO_SUCH_SITE               1249
 
 //
 // MessageId: ERROR_DOMAIN_CONTROLLER_EXISTS
@@ -7035,7 +6981,7 @@ static const int ERROR_NO_SUCH_SITE               1249L
 //
 // A domain controller with the specified name already exists.
 //
-static const int ERROR_DOMAIN_CONTROLLER_EXISTS   1250L
+    ERROR_DOMAIN_CONTROLLER_EXISTS   1250
 
 //
 // MessageId: ERROR_ONLY_IF_CONNECTED
@@ -7044,7 +6990,7 @@ static const int ERROR_DOMAIN_CONTROLLER_EXISTS   1250L
 //
 // This operation is supported only when you are connected to the server.
 //
-static const int ERROR_ONLY_IF_CONNECTED          1251L
+    ERROR_ONLY_IF_CONNECTED          1251
 
 //
 // MessageId: ERROR_OVERRIDE_NOCHANGES
@@ -7053,7 +6999,7 @@ static const int ERROR_ONLY_IF_CONNECTED          1251L
 //
 // The group policy framework should call the extension even if there are no changes.
 //
-static const int ERROR_OVERRIDE_NOCHANGES         1252L
+    ERROR_OVERRIDE_NOCHANGES         1252
 
 //
 // MessageId: ERROR_BAD_USER_PROFILE
@@ -7062,7 +7008,7 @@ static const int ERROR_OVERRIDE_NOCHANGES         1252L
 //
 // The specified user does not have a valid profile.
 //
-static const int ERROR_BAD_USER_PROFILE           1253L
+    ERROR_BAD_USER_PROFILE           1253
 
 //
 // MessageId: ERROR_NOT_SUPPORTED_ON_SBS
@@ -7071,7 +7017,7 @@ static const int ERROR_BAD_USER_PROFILE           1253L
 //
 // This operation is not supported on a computer running Windows Server 2003 for Small Business Server
 //
-static const int ERROR_NOT_SUPPORTED_ON_SBS       1254L
+    ERROR_NOT_SUPPORTED_ON_SBS       1254
 
 //
 // MessageId: ERROR_SERVER_SHUTDOWN_IN_PROGRESS
@@ -7080,7 +7026,7 @@ static const int ERROR_NOT_SUPPORTED_ON_SBS       1254L
 //
 // The server machine is shutting down.
 //
-static const int ERROR_SERVER_SHUTDOWN_IN_PROGRESS 1255L
+    ERROR_SERVER_SHUTDOWN_IN_PROGRESS 1255
 
 //
 // MessageId: ERROR_HOST_DOWN
@@ -7089,7 +7035,7 @@ static const int ERROR_SERVER_SHUTDOWN_IN_PROGRESS 1255L
 //
 // The remote system is not available. For information about network troubleshooting, see Windows Help.
 //
-static const int ERROR_HOST_DOWN                  1256L
+    ERROR_HOST_DOWN                  1256
 
 //
 // MessageId: ERROR_NON_ACCOUNT_SID
@@ -7098,7 +7044,7 @@ static const int ERROR_HOST_DOWN                  1256L
 //
 // The security identifier provided is not from an account domain.
 //
-static const int ERROR_NON_ACCOUNT_SID            1257L
+    ERROR_NON_ACCOUNT_SID            1257
 
 //
 // MessageId: ERROR_NON_DOMAIN_SID
@@ -7107,7 +7053,7 @@ static const int ERROR_NON_ACCOUNT_SID            1257L
 //
 // The security identifier provided does not have a domain component.
 //
-static const int ERROR_NON_DOMAIN_SID             1258L
+    ERROR_NON_DOMAIN_SID             1258
 
 //
 // MessageId: ERROR_APPHELP_BLOCK
@@ -7116,7 +7062,7 @@ static const int ERROR_NON_DOMAIN_SID             1258L
 //
 // AppHelp dialog canceled thus preventing the application from starting.
 //
-static const int ERROR_APPHELP_BLOCK              1259L
+    ERROR_APPHELP_BLOCK              1259
 
 //
 // MessageId: ERROR_ACCESS_DISABLED_BY_POLICY
@@ -7125,7 +7071,7 @@ static const int ERROR_APPHELP_BLOCK              1259L
 //
 // This program is blocked by group policy. For more information, contact your system administrator.
 //
-static const int ERROR_ACCESS_DISABLED_BY_POLICY  1260L
+    ERROR_ACCESS_DISABLED_BY_POLICY  1260
 
 //
 // MessageId: ERROR_REG_NAT_CONSUMPTION
@@ -7134,7 +7080,7 @@ static const int ERROR_ACCESS_DISABLED_BY_POLICY  1260L
 //
 // A program attempt to use an invalid register value. Normally caused by an uninitialized register. This error is Itanium specific.
 //
-static const int ERROR_REG_NAT_CONSUMPTION        1261L
+    ERROR_REG_NAT_CONSUMPTION        1261
 
 //
 // MessageId: ERROR_CSCSHARE_OFFLINE
@@ -7143,7 +7089,7 @@ static const int ERROR_REG_NAT_CONSUMPTION        1261L
 //
 // The share is currently offline or does not exist.
 //
-static const int ERROR_CSCSHARE_OFFLINE           1262L
+    ERROR_CSCSHARE_OFFLINE           1262
 
 //
 // MessageId: ERROR_PKINIT_FAILURE
@@ -7152,7 +7098,7 @@ static const int ERROR_CSCSHARE_OFFLINE           1262L
 //
 // The Kerberos protocol encountered an error while validating the KDC certificate during smartcard logon. There is more information in the system event log.
 //
-static const int ERROR_PKINIT_FAILURE             1263L
+    ERROR_PKINIT_FAILURE             1263
 
 //
 // MessageId: ERROR_SMARTCARD_SUBSYSTEM_FAILURE
@@ -7161,7 +7107,7 @@ static const int ERROR_PKINIT_FAILURE             1263L
 //
 // The Kerberos protocol encountered an error while attempting to utilize the smartcard subsystem.
 //
-static const int ERROR_SMARTCARD_SUBSYSTEM_FAILURE 1264L
+    ERROR_SMARTCARD_SUBSYSTEM_FAILURE 1264
 
 //
 // MessageId: ERROR_DOWNGRADE_DETECTED
@@ -7170,7 +7116,7 @@ static const int ERROR_SMARTCARD_SUBSYSTEM_FAILURE 1264L
 //
 // The system cannot contact a domain controller to service the authentication request. Please try again later.
 //
-static const int ERROR_DOWNGRADE_DETECTED         1265L
+    ERROR_DOWNGRADE_DETECTED         1265
 
 //
 // Do not use ID's 1266 - 1270 as the symbolicNames have been moved to SEC_E_*
@@ -7182,7 +7128,7 @@ static const int ERROR_DOWNGRADE_DETECTED         1265L
 //
 // The machine is locked and cannot be shut down without the force option.
 //
-static const int ERROR_MACHINE_LOCKED             1271L
+    ERROR_MACHINE_LOCKED             1271
 
 //
 // MessageId: ERROR_SMB_GUEST_LOGON_BLOCKED
@@ -7191,7 +7137,7 @@ static const int ERROR_MACHINE_LOCKED             1271L
 //
 // You can't access this shared folder because your organization's security policies block unauthenticated guest access. These policies help protect your PC from unsafe or malicious devices on the network.
 //
-static const int ERROR_SMB_GUEST_LOGON_BLOCKED    1272L
+    ERROR_SMB_GUEST_LOGON_BLOCKED    1272
 
 //
 // MessageId: ERROR_CALLBACK_SUPPLIED_INVALID_DATA
@@ -7200,7 +7146,7 @@ static const int ERROR_SMB_GUEST_LOGON_BLOCKED    1272L
 //
 // An application-defined callback gave invalid data when called.
 //
-static const int ERROR_CALLBACK_SUPPLIED_INVALID_DATA 1273L
+    ERROR_CALLBACK_SUPPLIED_INVALID_DATA 1273
 
 //
 // MessageId: ERROR_SYNC_FOREGROUND_REFRESH_REQUIRED
@@ -7209,7 +7155,7 @@ static const int ERROR_CALLBACK_SUPPLIED_INVALID_DATA 1273L
 //
 // The group policy framework should call the extension in the synchronous foreground policy refresh.
 //
-static const int ERROR_SYNC_FOREGROUND_REFRESH_REQUIRED 1274L
+    ERROR_SYNC_FOREGROUND_REFRESH_REQUIRED 1274
 
 //
 // MessageId: ERROR_DRIVER_BLOCKED
@@ -7218,7 +7164,7 @@ static const int ERROR_SYNC_FOREGROUND_REFRESH_REQUIRED 1274L
 //
 // This driver has been blocked from loading
 //
-static const int ERROR_DRIVER_BLOCKED             1275L
+    ERROR_DRIVER_BLOCKED             1275
 
 //
 // MessageId: ERROR_INVALID_IMPORT_OF_NON_DLL
@@ -7227,7 +7173,7 @@ static const int ERROR_DRIVER_BLOCKED             1275L
 //
 // A dynamic link library (DLL) referenced a module that was neither a DLL nor the process's executable image.
 //
-static const int ERROR_INVALID_IMPORT_OF_NON_DLL  1276L
+    ERROR_INVALID_IMPORT_OF_NON_DLL  1276
 
 //
 // MessageId: ERROR_ACCESS_DISABLED_WEBBLADE
@@ -7236,7 +7182,7 @@ static const int ERROR_INVALID_IMPORT_OF_NON_DLL  1276L
 //
 // Windows cannot open this program since it has been disabled.
 //
-static const int ERROR_ACCESS_DISABLED_WEBBLADE   1277L
+    ERROR_ACCESS_DISABLED_WEBBLADE   1277
 
 //
 // MessageId: ERROR_ACCESS_DISABLED_WEBBLADE_TAMPER
@@ -7245,7 +7191,7 @@ static const int ERROR_ACCESS_DISABLED_WEBBLADE   1277L
 //
 // Windows cannot open this program because the license enforcement system has been tampered with or become corrupted.
 //
-static const int ERROR_ACCESS_DISABLED_WEBBLADE_TAMPER 1278L
+    ERROR_ACCESS_DISABLED_WEBBLADE_TAMPER 1278
 
 //
 // MessageId: ERROR_RECOVERY_FAILURE
@@ -7254,7 +7200,7 @@ static const int ERROR_ACCESS_DISABLED_WEBBLADE_TAMPER 1278L
 //
 // A transaction recover failed.
 //
-static const int ERROR_RECOVERY_FAILURE           1279L
+    ERROR_RECOVERY_FAILURE           1279
 
 //
 // MessageId: ERROR_ALREADY_FIBER
@@ -7263,7 +7209,7 @@ static const int ERROR_RECOVERY_FAILURE           1279L
 //
 // The current thread has already been converted to a fiber.
 //
-static const int ERROR_ALREADY_FIBER              1280L
+    ERROR_ALREADY_FIBER              1280
 
 //
 // MessageId: ERROR_ALREADY_THREAD
@@ -7272,7 +7218,7 @@ static const int ERROR_ALREADY_FIBER              1280L
 //
 // The current thread has already been converted from a fiber.
 //
-static const int ERROR_ALREADY_THREAD             1281L
+    ERROR_ALREADY_THREAD             1281
 
 //
 // MessageId: ERROR_STACK_BUFFER_OVERRUN
@@ -7281,7 +7227,7 @@ static const int ERROR_ALREADY_THREAD             1281L
 //
 // The system detected an overrun of a stack-based buffer in this application. This overrun could potentially allow a malicious user to gain control of this application.
 //
-static const int ERROR_STACK_BUFFER_OVERRUN       1282L
+    ERROR_STACK_BUFFER_OVERRUN       1282
 
 //
 // MessageId: ERROR_PARAMETER_QUOTA_EXCEEDED
@@ -7290,7 +7236,7 @@ static const int ERROR_STACK_BUFFER_OVERRUN       1282L
 //
 // Data present in one of the parameters is more than the function can operate on.
 //
-static const int ERROR_PARAMETER_QUOTA_EXCEEDED   1283L
+    ERROR_PARAMETER_QUOTA_EXCEEDED   1283
 
 //
 // MessageId: ERROR_DEBUGGER_INACTIVE
@@ -7299,7 +7245,7 @@ static const int ERROR_PARAMETER_QUOTA_EXCEEDED   1283L
 //
 // An attempt to do an operation on a debug object failed because the object is in the process of being deleted.
 //
-static const int ERROR_DEBUGGER_INACTIVE          1284L
+    ERROR_DEBUGGER_INACTIVE          1284
 
 //
 // MessageId: ERROR_DELAY_LOAD_FAILED
@@ -7308,7 +7254,7 @@ static const int ERROR_DEBUGGER_INACTIVE          1284L
 //
 // An attempt to delay-load a .dll or get a function address in a delay-loaded .dll failed.
 //
-static const int ERROR_DELAY_LOAD_FAILED          1285L
+    ERROR_DELAY_LOAD_FAILED          1285
 
 //
 // MessageId: ERROR_VDM_DISALLOWED
@@ -7317,7 +7263,7 @@ static const int ERROR_DELAY_LOAD_FAILED          1285L
 //
 // %1 is a 16-bit application. You do not have permissions to execute 16-bit applications. Check your permissions with your system administrator.
 //
-static const int ERROR_VDM_DISALLOWED             1286L
+    ERROR_VDM_DISALLOWED             1286
 
 //
 // MessageId: ERROR_UNIDENTIFIED_ERROR
@@ -7326,7 +7272,7 @@ static const int ERROR_VDM_DISALLOWED             1286L
 //
 // Insufficient information exists to identify the cause of failure.
 //
-static const int ERROR_UNIDENTIFIED_ERROR         1287L
+    ERROR_UNIDENTIFIED_ERROR         1287
 
 //
 // MessageId: ERROR_INVALID_CRUNTIME_PARAMETER
@@ -7335,7 +7281,7 @@ static const int ERROR_UNIDENTIFIED_ERROR         1287L
 //
 // The parameter passed to a C runtime function is incorrect.
 //
-static const int ERROR_INVALID_CRUNTIME_PARAMETER 1288L
+    ERROR_INVALID_CRUNTIME_PARAMETER 1288
 
 //
 // MessageId: ERROR_BEYOND_VDL
@@ -7344,7 +7290,7 @@ static const int ERROR_INVALID_CRUNTIME_PARAMETER 1288L
 //
 // The operation occurred beyond the valid data length of the file.
 //
-static const int ERROR_BEYOND_VDL                 1289L
+    ERROR_BEYOND_VDL                 1289
 
 //
 // MessageId: ERROR_INCOMPATIBLE_SERVICE_SID_TYPE
@@ -7353,7 +7299,7 @@ static const int ERROR_BEYOND_VDL                 1289L
 //
 // The service start failed since one or more services in the same process have an incompatible service SID type setting. A service with restricted service SID type can only coexist in the same process with other services with a restricted SID type. If the service SID type for this service was just configured, the hosting process must be restarted in order to start this service.
 //
-static const int ERROR_INCOMPATIBLE_SERVICE_SID_TYPE 1290L
+    ERROR_INCOMPATIBLE_SERVICE_SID_TYPE 1290
 
 //
 // MessageId: ERROR_DRIVER_PROCESS_TERMINATED
@@ -7362,7 +7308,7 @@ static const int ERROR_INCOMPATIBLE_SERVICE_SID_TYPE 1290L
 //
 // The process hosting the driver for this device has been terminated.
 //
-static const int ERROR_DRIVER_PROCESS_TERMINATED  1291L
+    ERROR_DRIVER_PROCESS_TERMINATED  1291
 
 //
 // MessageId: ERROR_IMPLEMENTATION_LIMIT
@@ -7371,7 +7317,7 @@ static const int ERROR_DRIVER_PROCESS_TERMINATED  1291L
 //
 // An operation attempted to exceed an implementation-defined limit.
 //
-static const int ERROR_IMPLEMENTATION_LIMIT       1292L
+    ERROR_IMPLEMENTATION_LIMIT       1292
 
 //
 // MessageId: ERROR_PROCESS_IS_PROTECTED
@@ -7380,7 +7326,7 @@ static const int ERROR_IMPLEMENTATION_LIMIT       1292L
 //
 // Either the target process, or the target thread's containing process, is a protected process.
 //
-static const int ERROR_PROCESS_IS_PROTECTED       1293L
+    ERROR_PROCESS_IS_PROTECTED       1293
 
 //
 // MessageId: ERROR_SERVICE_NOTIFY_CLIENT_LAGGING
@@ -7389,7 +7335,7 @@ static const int ERROR_PROCESS_IS_PROTECTED       1293L
 //
 // The service notification client is lagging too far behind the current state of services in the machine.
 //
-static const int ERROR_SERVICE_NOTIFY_CLIENT_LAGGING 1294L
+    ERROR_SERVICE_NOTIFY_CLIENT_LAGGING 1294
 
 //
 // MessageId: ERROR_DISK_QUOTA_EXCEEDED
@@ -7399,7 +7345,7 @@ static const int ERROR_SERVICE_NOTIFY_CLIENT_LAGGING 1294L
 // The requested file operation failed because the storage quota was exceeded.
 // To free up disk space, move files to a different location or delete unnecessary files. For more information, contact your system administrator.
 //
-static const int ERROR_DISK_QUOTA_EXCEEDED        1295L
+    ERROR_DISK_QUOTA_EXCEEDED        1295
 
 //
 // MessageId: ERROR_CONTENT_BLOCKED
@@ -7408,7 +7354,7 @@ static const int ERROR_DISK_QUOTA_EXCEEDED        1295L
 //
 // The requested file operation failed because the storage policy blocks that type of file. For more information, contact your system administrator.
 //
-static const int ERROR_CONTENT_BLOCKED            1296L
+    ERROR_CONTENT_BLOCKED            1296
 
 //
 // MessageId: ERROR_INCOMPATIBLE_SERVICE_PRIVILEGE
@@ -7418,7 +7364,7 @@ static const int ERROR_CONTENT_BLOCKED            1296L
 // A privilege that the service requires to function properly does not exist in the service account configuration.
 // You may use the Services Microsoft Management Console (MMC) snap-in (services.msc) and the Local Security Settings MMC snap-in (secpol.msc) to view the service configuration and the account configuration.
 //
-static const int ERROR_INCOMPATIBLE_SERVICE_PRIVILEGE 1297L
+    ERROR_INCOMPATIBLE_SERVICE_PRIVILEGE 1297
 
 //
 // MessageId: ERROR_APP_HANG
@@ -7427,7 +7373,7 @@ static const int ERROR_INCOMPATIBLE_SERVICE_PRIVILEGE 1297L
 //
 // A thread involved in this operation appears to be unresponsive.
 //
-static const int ERROR_APP_HANG                   1298L
+    ERROR_APP_HANG                   1298
 
 
 ///////////////////////////////////////////////////
@@ -7444,7 +7390,7 @@ static const int ERROR_APP_HANG                   1298L
 //
 // Indicates a particular Security ID may not be assigned as the label of an object.
 //
-static const int ERROR_INVALID_LABEL              1299L
+    ERROR_INVALID_LABEL              1299
 
 //
 // MessageId: ERROR_NOT_ALL_ASSIGNED
@@ -7453,7 +7399,7 @@ static const int ERROR_INVALID_LABEL              1299L
 //
 // Not all privileges or groups referenced are assigned to the caller.
 //
-static const int ERROR_NOT_ALL_ASSIGNED           1300L
+    ERROR_NOT_ALL_ASSIGNED           1300
 
 //
 // MessageId: ERROR_SOME_NOT_MAPPED
@@ -7462,7 +7408,7 @@ static const int ERROR_NOT_ALL_ASSIGNED           1300L
 //
 // Some mapping between account names and security IDs was not done.
 //
-static const int ERROR_SOME_NOT_MAPPED            1301L
+    ERROR_SOME_NOT_MAPPED            1301
 
 //
 // MessageId: ERROR_NO_QUOTAS_FOR_ACCOUNT
@@ -7471,7 +7417,7 @@ static const int ERROR_SOME_NOT_MAPPED            1301L
 //
 // No system quota limits are specifically set for this account.
 //
-static const int ERROR_NO_QUOTAS_FOR_ACCOUNT      1302L
+    ERROR_NO_QUOTAS_FOR_ACCOUNT      1302
 
 //
 // MessageId: ERROR_LOCAL_USER_SESSION_KEY
@@ -7480,7 +7426,7 @@ static const int ERROR_NO_QUOTAS_FOR_ACCOUNT      1302L
 //
 // No encryption key is available. A well-known encryption key was returned.
 //
-static const int ERROR_LOCAL_USER_SESSION_KEY     1303L
+    ERROR_LOCAL_USER_SESSION_KEY     1303
 
 //
 // MessageId: ERROR_NULL_LM_PASSWORD
@@ -7489,7 +7435,7 @@ static const int ERROR_LOCAL_USER_SESSION_KEY     1303L
 //
 // The password is too complex to be converted to a LAN Manager password. The LAN Manager password returned is a NULL string.
 //
-static const int ERROR_NULL_LM_PASSWORD           1304L
+    ERROR_NULL_LM_PASSWORD           1304
 
 //
 // MessageId: ERROR_UNKNOWN_REVISION
@@ -7498,7 +7444,7 @@ static const int ERROR_NULL_LM_PASSWORD           1304L
 //
 // The revision level is unknown.
 //
-static const int ERROR_UNKNOWN_REVISION           1305L
+    ERROR_UNKNOWN_REVISION           1305
 
 //
 // MessageId: ERROR_REVISION_MISMATCH
@@ -7507,7 +7453,7 @@ static const int ERROR_UNKNOWN_REVISION           1305L
 //
 // Indicates two revision levels are incompatible.
 //
-static const int ERROR_REVISION_MISMATCH          1306L
+    ERROR_REVISION_MISMATCH          1306
 
 //
 // MessageId: ERROR_INVALID_OWNER
@@ -7516,7 +7462,7 @@ static const int ERROR_REVISION_MISMATCH          1306L
 //
 // This security ID may not be assigned as the owner of this object.
 //
-static const int ERROR_INVALID_OWNER              1307L
+    ERROR_INVALID_OWNER              1307
 
 //
 // MessageId: ERROR_INVALID_PRIMARY_GROUP
@@ -7525,7 +7471,7 @@ static const int ERROR_INVALID_OWNER              1307L
 //
 // This security ID may not be assigned as the primary group of an object.
 //
-static const int ERROR_INVALID_PRIMARY_GROUP      1308L
+    ERROR_INVALID_PRIMARY_GROUP      1308
 
 //
 // MessageId: ERROR_NO_IMPERSONATION_TOKEN
@@ -7534,7 +7480,7 @@ static const int ERROR_INVALID_PRIMARY_GROUP      1308L
 //
 // An attempt has been made to operate on an impersonation token by a thread that is not currently impersonating a client.
 //
-static const int ERROR_NO_IMPERSONATION_TOKEN     1309L
+    ERROR_NO_IMPERSONATION_TOKEN     1309
 
 //
 // MessageId: ERROR_CANT_DISABLE_MANDATORY
@@ -7543,7 +7489,7 @@ static const int ERROR_NO_IMPERSONATION_TOKEN     1309L
 //
 // The group may not be disabled.
 //
-static const int ERROR_CANT_DISABLE_MANDATORY     1310L
+    ERROR_CANT_DISABLE_MANDATORY     1310
 
 //
 // MessageId: ERROR_NO_LOGON_SERVERS
@@ -7552,7 +7498,7 @@ static const int ERROR_CANT_DISABLE_MANDATORY     1310L
 //
 // We can't sign you in with this credential because your domain isn't available. Make sure your device is connected to your organization's network and try again. If you previously signed in on this device with another credential, you can sign in with that credential.
 //
-static const int ERROR_NO_LOGON_SERVERS           1311L
+    ERROR_NO_LOGON_SERVERS           1311
 
 //
 // MessageId: ERROR_NO_SUCH_LOGON_SESSION
@@ -7561,7 +7507,7 @@ static const int ERROR_NO_LOGON_SERVERS           1311L
 //
 // A specified logon session does not exist. It may already have been terminated.
 //
-static const int ERROR_NO_SUCH_LOGON_SESSION      1312L
+    ERROR_NO_SUCH_LOGON_SESSION      1312
 
 //
 // MessageId: ERROR_NO_SUCH_PRIVILEGE
@@ -7570,7 +7516,7 @@ static const int ERROR_NO_SUCH_LOGON_SESSION      1312L
 //
 // A specified privilege does not exist.
 //
-static const int ERROR_NO_SUCH_PRIVILEGE          1313L
+    ERROR_NO_SUCH_PRIVILEGE          1313
 
 //
 // MessageId: ERROR_PRIVILEGE_NOT_HELD
@@ -7579,7 +7525,7 @@ static const int ERROR_NO_SUCH_PRIVILEGE          1313L
 //
 // A required privilege is not held by the client.
 //
-static const int ERROR_PRIVILEGE_NOT_HELD         1314L
+    ERROR_PRIVILEGE_NOT_HELD         1314
 
 //
 // MessageId: ERROR_INVALID_ACCOUNT_NAME
@@ -7588,7 +7534,7 @@ static const int ERROR_PRIVILEGE_NOT_HELD         1314L
 //
 // The name provided is not a properly formed account name.
 //
-static const int ERROR_INVALID_ACCOUNT_NAME       1315L
+    ERROR_INVALID_ACCOUNT_NAME       1315
 
 //
 // MessageId: ERROR_USER_EXISTS
@@ -7597,7 +7543,7 @@ static const int ERROR_INVALID_ACCOUNT_NAME       1315L
 //
 // The specified account already exists.
 //
-static const int ERROR_USER_EXISTS                1316L
+    ERROR_USER_EXISTS                1316
 
 //
 // MessageId: ERROR_NO_SUCH_USER
@@ -7606,7 +7552,7 @@ static const int ERROR_USER_EXISTS                1316L
 //
 // The specified account does not exist.
 //
-static const int ERROR_NO_SUCH_USER               1317L
+    ERROR_NO_SUCH_USER               1317
 
 //
 // MessageId: ERROR_GROUP_EXISTS
@@ -7615,7 +7561,7 @@ static const int ERROR_NO_SUCH_USER               1317L
 //
 // The specified group already exists.
 //
-static const int ERROR_GROUP_EXISTS               1318L
+    ERROR_GROUP_EXISTS               1318
 
 //
 // MessageId: ERROR_NO_SUCH_GROUP
@@ -7624,7 +7570,7 @@ static const int ERROR_GROUP_EXISTS               1318L
 //
 // The specified group does not exist.
 //
-static const int ERROR_NO_SUCH_GROUP              1319L
+    ERROR_NO_SUCH_GROUP              1319
 
 //
 // MessageId: ERROR_MEMBER_IN_GROUP
@@ -7633,7 +7579,7 @@ static const int ERROR_NO_SUCH_GROUP              1319L
 //
 // Either the specified user account is already a member of the specified group, or the specified group cannot be deleted because it contains a member.
 //
-static const int ERROR_MEMBER_IN_GROUP            1320L
+    ERROR_MEMBER_IN_GROUP            1320
 
 //
 // MessageId: ERROR_MEMBER_NOT_IN_GROUP
@@ -7642,7 +7588,7 @@ static const int ERROR_MEMBER_IN_GROUP            1320L
 //
 // The specified user account is not a member of the specified group account.
 //
-static const int ERROR_MEMBER_NOT_IN_GROUP        1321L
+    ERROR_MEMBER_NOT_IN_GROUP        1321
 
 //
 // MessageId: ERROR_LAST_ADMIN
@@ -7651,7 +7597,7 @@ static const int ERROR_MEMBER_NOT_IN_GROUP        1321L
 //
 // This operation is disallowed as it could result in an administration account being disabled, deleted or unable to logon.
 //
-static const int ERROR_LAST_ADMIN                 1322L
+    ERROR_LAST_ADMIN                 1322
 
 //
 // MessageId: ERROR_WRONG_PASSWORD
@@ -7660,7 +7606,7 @@ static const int ERROR_LAST_ADMIN                 1322L
 //
 // Unable to update the password. The value provided as the current password is incorrect.
 //
-static const int ERROR_WRONG_PASSWORD             1323L
+    ERROR_WRONG_PASSWORD             1323
 
 //
 // MessageId: ERROR_ILL_FORMED_PASSWORD
@@ -7669,7 +7615,7 @@ static const int ERROR_WRONG_PASSWORD             1323L
 //
 // Unable to update the password. The value provided for the new password contains values that are not allowed in passwords.
 //
-static const int ERROR_ILL_FORMED_PASSWORD        1324L
+    ERROR_ILL_FORMED_PASSWORD        1324
 
 //
 // MessageId: ERROR_PASSWORD_RESTRICTION
@@ -7678,7 +7624,7 @@ static const int ERROR_ILL_FORMED_PASSWORD        1324L
 //
 // Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.
 //
-static const int ERROR_PASSWORD_RESTRICTION       1325L
+    ERROR_PASSWORD_RESTRICTION       1325
 
 //
 // MessageId: ERROR_LOGON_FAILURE
@@ -7687,7 +7633,7 @@ static const int ERROR_PASSWORD_RESTRICTION       1325L
 //
 // The user name or password is incorrect.
 //
-static const int ERROR_LOGON_FAILURE              1326L
+    ERROR_LOGON_FAILURE              1326
 
 //
 // MessageId: ERROR_ACCOUNT_RESTRICTION
@@ -7696,7 +7642,7 @@ static const int ERROR_LOGON_FAILURE              1326L
 //
 // Account restrictions are preventing this user from signing in. For example: blank passwords aren't allowed, sign-in times are limited, or a policy restriction has been enforced.
 //
-static const int ERROR_ACCOUNT_RESTRICTION        1327L
+    ERROR_ACCOUNT_RESTRICTION        1327
 
 //
 // MessageId: ERROR_INVALID_LOGON_HOURS
@@ -7705,7 +7651,7 @@ static const int ERROR_ACCOUNT_RESTRICTION        1327L
 //
 // Your account has time restrictions that keep you from signing in right now.
 //
-static const int ERROR_INVALID_LOGON_HOURS        1328L
+    ERROR_INVALID_LOGON_HOURS        1328
 
 //
 // MessageId: ERROR_INVALID_WORKSTATION
@@ -7714,7 +7660,7 @@ static const int ERROR_INVALID_LOGON_HOURS        1328L
 //
 // This user isn't allowed to sign in to this computer.
 //
-static const int ERROR_INVALID_WORKSTATION        1329L
+    ERROR_INVALID_WORKSTATION        1329
 
 //
 // MessageId: ERROR_PASSWORD_EXPIRED
@@ -7723,7 +7669,7 @@ static const int ERROR_INVALID_WORKSTATION        1329L
 //
 // The password for this account has expired.
 //
-static const int ERROR_PASSWORD_EXPIRED           1330L
+    ERROR_PASSWORD_EXPIRED           1330
 
 //
 // MessageId: ERROR_ACCOUNT_DISABLED
@@ -7732,7 +7678,7 @@ static const int ERROR_PASSWORD_EXPIRED           1330L
 //
 // This user can't sign in because this account is currently disabled.
 //
-static const int ERROR_ACCOUNT_DISABLED           1331L
+    ERROR_ACCOUNT_DISABLED           1331
 
 //
 // MessageId: ERROR_NONE_MAPPED
@@ -7741,7 +7687,7 @@ static const int ERROR_ACCOUNT_DISABLED           1331L
 //
 // No mapping between account names and security IDs was done.
 //
-static const int ERROR_NONE_MAPPED                1332L
+    ERROR_NONE_MAPPED                1332
 
 //
 // MessageId: ERROR_TOO_MANY_LUIDS_REQUESTED
@@ -7750,7 +7696,7 @@ static const int ERROR_NONE_MAPPED                1332L
 //
 // Too many local user identifiers (LUIDs) were requested at one time.
 //
-static const int ERROR_TOO_MANY_LUIDS_REQUESTED   1333L
+    ERROR_TOO_MANY_LUIDS_REQUESTED   1333
 
 //
 // MessageId: ERROR_LUIDS_EXHAUSTED
@@ -7759,7 +7705,7 @@ static const int ERROR_TOO_MANY_LUIDS_REQUESTED   1333L
 //
 // No more local user identifiers (LUIDs) are available.
 //
-static const int ERROR_LUIDS_EXHAUSTED            1334L
+    ERROR_LUIDS_EXHAUSTED            1334
 
 //
 // MessageId: ERROR_INVALID_SUB_AUTHORITY
@@ -7768,7 +7714,7 @@ static const int ERROR_LUIDS_EXHAUSTED            1334L
 //
 // The subauthority part of a security ID is invalid for this particular use.
 //
-static const int ERROR_INVALID_SUB_AUTHORITY      1335L
+    ERROR_INVALID_SUB_AUTHORITY      1335
 
 //
 // MessageId: ERROR_INVALID_ACL
@@ -7777,7 +7723,7 @@ static const int ERROR_INVALID_SUB_AUTHORITY      1335L
 //
 // The access control list (ACL) structure is invalid.
 //
-static const int ERROR_INVALID_ACL                1336L
+    ERROR_INVALID_ACL                1336
 
 //
 // MessageId: ERROR_INVALID_SID
@@ -7786,7 +7732,7 @@ static const int ERROR_INVALID_ACL                1336L
 //
 // The security ID structure is invalid.
 //
-static const int ERROR_INVALID_SID                1337L
+    ERROR_INVALID_SID                1337
 
 //
 // MessageId: ERROR_INVALID_SECURITY_DESCR
@@ -7795,7 +7741,7 @@ static const int ERROR_INVALID_SID                1337L
 //
 // The security descriptor structure is invalid.
 //
-static const int ERROR_INVALID_SECURITY_DESCR     1338L
+    ERROR_INVALID_SECURITY_DESCR     1338
 
 //
 // MessageId: ERROR_BAD_INHERITANCE_ACL
@@ -7804,7 +7750,7 @@ static const int ERROR_INVALID_SECURITY_DESCR     1338L
 //
 // The inherited access control list (ACL) or access control entry (ACE) could not be built.
 //
-static const int ERROR_BAD_INHERITANCE_ACL        1340L
+    ERROR_BAD_INHERITANCE_ACL        1340
 
 //
 // MessageId: ERROR_SERVER_DISABLED
@@ -7813,7 +7759,7 @@ static const int ERROR_BAD_INHERITANCE_ACL        1340L
 //
 // The server is currently disabled.
 //
-static const int ERROR_SERVER_DISABLED            1341L
+    ERROR_SERVER_DISABLED            1341
 
 //
 // MessageId: ERROR_SERVER_NOT_DISABLED
@@ -7822,7 +7768,7 @@ static const int ERROR_SERVER_DISABLED            1341L
 //
 // The server is currently enabled.
 //
-static const int ERROR_SERVER_NOT_DISABLED        1342L
+    ERROR_SERVER_NOT_DISABLED        1342
 
 //
 // MessageId: ERROR_INVALID_ID_AUTHORITY
@@ -7831,7 +7777,7 @@ static const int ERROR_SERVER_NOT_DISABLED        1342L
 //
 // The value provided was an invalid value for an identifier authority.
 //
-static const int ERROR_INVALID_ID_AUTHORITY       1343L
+    ERROR_INVALID_ID_AUTHORITY       1343
 
 //
 // MessageId: ERROR_ALLOTTED_SPACE_EXCEEDED
@@ -7840,7 +7786,7 @@ static const int ERROR_INVALID_ID_AUTHORITY       1343L
 //
 // No more memory is available for security information updates.
 //
-static const int ERROR_ALLOTTED_SPACE_EXCEEDED    1344L
+    ERROR_ALLOTTED_SPACE_EXCEEDED    1344
 
 //
 // MessageId: ERROR_INVALID_GROUP_ATTRIBUTES
@@ -7849,7 +7795,7 @@ static const int ERROR_ALLOTTED_SPACE_EXCEEDED    1344L
 //
 // The specified attributes are invalid, or incompatible with the attributes for the group as a whole.
 //
-static const int ERROR_INVALID_GROUP_ATTRIBUTES   1345L
+    ERROR_INVALID_GROUP_ATTRIBUTES   1345
 
 //
 // MessageId: ERROR_BAD_IMPERSONATION_LEVEL
@@ -7858,7 +7804,7 @@ static const int ERROR_INVALID_GROUP_ATTRIBUTES   1345L
 //
 // Either a required impersonation level was not provided, or the provided impersonation level is invalid.
 //
-static const int ERROR_BAD_IMPERSONATION_LEVEL    1346L
+    ERROR_BAD_IMPERSONATION_LEVEL    1346
 
 //
 // MessageId: ERROR_CANT_OPEN_ANONYMOUS
@@ -7867,7 +7813,7 @@ static const int ERROR_BAD_IMPERSONATION_LEVEL    1346L
 //
 // Cannot open an anonymous level security token.
 //
-static const int ERROR_CANT_OPEN_ANONYMOUS        1347L
+    ERROR_CANT_OPEN_ANONYMOUS        1347
 
 //
 // MessageId: ERROR_BAD_VALIDATION_CLASS
@@ -7876,7 +7822,7 @@ static const int ERROR_CANT_OPEN_ANONYMOUS        1347L
 //
 // The validation information class requested was invalid.
 //
-static const int ERROR_BAD_VALIDATION_CLASS       1348L
+    ERROR_BAD_VALIDATION_CLASS       1348
 
 //
 // MessageId: ERROR_BAD_TOKEN_TYPE
@@ -7885,7 +7831,7 @@ static const int ERROR_BAD_VALIDATION_CLASS       1348L
 //
 // The type of the token is inappropriate for its attempted use.
 //
-static const int ERROR_BAD_TOKEN_TYPE             1349L
+    ERROR_BAD_TOKEN_TYPE             1349
 
 //
 // MessageId: ERROR_NO_SECURITY_ON_OBJECT
@@ -7894,7 +7840,7 @@ static const int ERROR_BAD_TOKEN_TYPE             1349L
 //
 // Unable to perform a security operation on an object that has no associated security.
 //
-static const int ERROR_NO_SECURITY_ON_OBJECT      1350L
+    ERROR_NO_SECURITY_ON_OBJECT      1350
 
 //
 // MessageId: ERROR_CANT_ACCESS_DOMAIN_INFO
@@ -7903,7 +7849,7 @@ static const int ERROR_NO_SECURITY_ON_OBJECT      1350L
 //
 // Configuration information could not be read from the domain controller, either because the machine is unavailable, or access has been denied.
 //
-static const int ERROR_CANT_ACCESS_DOMAIN_INFO    1351L
+    ERROR_CANT_ACCESS_DOMAIN_INFO    1351
 
 //
 // MessageId: ERROR_INVALID_SERVER_STATE
@@ -7912,7 +7858,7 @@ static const int ERROR_CANT_ACCESS_DOMAIN_INFO    1351L
 //
 // The security account manager (SAM) or local security authority (LSA) server was in the wrong state to perform the security operation.
 //
-static const int ERROR_INVALID_SERVER_STATE       1352L
+    ERROR_INVALID_SERVER_STATE       1352
 
 //
 // MessageId: ERROR_INVALID_DOMAIN_STATE
@@ -7921,7 +7867,7 @@ static const int ERROR_INVALID_SERVER_STATE       1352L
 //
 // The domain was in the wrong state to perform the security operation.
 //
-static const int ERROR_INVALID_DOMAIN_STATE       1353L
+    ERROR_INVALID_DOMAIN_STATE       1353
 
 //
 // MessageId: ERROR_INVALID_DOMAIN_ROLE
@@ -7930,7 +7876,7 @@ static const int ERROR_INVALID_DOMAIN_STATE       1353L
 //
 // This operation is only allowed for the Primary Domain Controller of the domain.
 //
-static const int ERROR_INVALID_DOMAIN_ROLE        1354L
+    ERROR_INVALID_DOMAIN_ROLE        1354
 
 //
 // MessageId: ERROR_NO_SUCH_DOMAIN
@@ -7939,7 +7885,7 @@ static const int ERROR_INVALID_DOMAIN_ROLE        1354L
 //
 // The specified domain either does not exist or could not be contacted.
 //
-static const int ERROR_NO_SUCH_DOMAIN             1355L
+    ERROR_NO_SUCH_DOMAIN             1355
 
 //
 // MessageId: ERROR_DOMAIN_EXISTS
@@ -7948,7 +7894,7 @@ static const int ERROR_NO_SUCH_DOMAIN             1355L
 //
 // The specified domain already exists.
 //
-static const int ERROR_DOMAIN_EXISTS              1356L
+    ERROR_DOMAIN_EXISTS              1356
 
 //
 // MessageId: ERROR_DOMAIN_LIMIT_EXCEEDED
@@ -7957,7 +7903,7 @@ static const int ERROR_DOMAIN_EXISTS              1356L
 //
 // An attempt was made to exceed the limit on the number of domains per server.
 //
-static const int ERROR_DOMAIN_LIMIT_EXCEEDED      1357L
+    ERROR_DOMAIN_LIMIT_EXCEEDED      1357
 
 //
 // MessageId: ERROR_INTERNAL_DB_CORRUPTION
@@ -7966,7 +7912,7 @@ static const int ERROR_DOMAIN_LIMIT_EXCEEDED      1357L
 //
 // Unable to complete the requested operation because of either a catastrophic media failure or a data structure corruption on the disk.
 //
-static const int ERROR_INTERNAL_DB_CORRUPTION     1358L
+    ERROR_INTERNAL_DB_CORRUPTION     1358
 
 //
 // MessageId: ERROR_INTERNAL_ERROR
@@ -7975,7 +7921,7 @@ static const int ERROR_INTERNAL_DB_CORRUPTION     1358L
 //
 // An internal error occurred.
 //
-static const int ERROR_INTERNAL_ERROR             1359L
+    ERROR_INTERNAL_ERROR             1359
 
 //
 // MessageId: ERROR_GENERIC_NOT_MAPPED
@@ -7984,7 +7930,7 @@ static const int ERROR_INTERNAL_ERROR             1359L
 //
 // Generic access types were contained in an access mask which should already be mapped to nongeneric types.
 //
-static const int ERROR_GENERIC_NOT_MAPPED         1360L
+    ERROR_GENERIC_NOT_MAPPED         1360
 
 //
 // MessageId: ERROR_BAD_DESCRIPTOR_FORMAT
@@ -7993,7 +7939,7 @@ static const int ERROR_GENERIC_NOT_MAPPED         1360L
 //
 // A security descriptor is not in the right format (absolute or self-relative).
 //
-static const int ERROR_BAD_DESCRIPTOR_FORMAT      1361L
+    ERROR_BAD_DESCRIPTOR_FORMAT      1361
 
 //
 // MessageId: ERROR_NOT_LOGON_PROCESS
@@ -8002,7 +7948,7 @@ static const int ERROR_BAD_DESCRIPTOR_FORMAT      1361L
 //
 // The requested action is restricted for use by logon processes only. The calling process has not registered as a logon process.
 //
-static const int ERROR_NOT_LOGON_PROCESS          1362L
+    ERROR_NOT_LOGON_PROCESS          1362
 
 //
 // MessageId: ERROR_LOGON_SESSION_EXISTS
@@ -8011,7 +7957,7 @@ static const int ERROR_NOT_LOGON_PROCESS          1362L
 //
 // Cannot start a new logon session with an ID that is already in use.
 //
-static const int ERROR_LOGON_SESSION_EXISTS       1363L
+    ERROR_LOGON_SESSION_EXISTS       1363
 
 //
 // MessageId: ERROR_NO_SUCH_PACKAGE
@@ -8020,7 +7966,7 @@ static const int ERROR_LOGON_SESSION_EXISTS       1363L
 //
 // A specified authentication package is unknown.
 //
-static const int ERROR_NO_SUCH_PACKAGE            1364L
+    ERROR_NO_SUCH_PACKAGE            1364
 
 //
 // MessageId: ERROR_BAD_LOGON_SESSION_STATE
@@ -8029,7 +7975,7 @@ static const int ERROR_NO_SUCH_PACKAGE            1364L
 //
 // The logon session is not in a state that is consistent with the requested operation.
 //
-static const int ERROR_BAD_LOGON_SESSION_STATE    1365L
+    ERROR_BAD_LOGON_SESSION_STATE    1365
 
 //
 // MessageId: ERROR_LOGON_SESSION_COLLISION
@@ -8038,7 +7984,7 @@ static const int ERROR_BAD_LOGON_SESSION_STATE    1365L
 //
 // The logon session ID is already in use.
 //
-static const int ERROR_LOGON_SESSION_COLLISION    1366L
+    ERROR_LOGON_SESSION_COLLISION    1366
 
 //
 // MessageId: ERROR_INVALID_LOGON_TYPE
@@ -8047,7 +7993,7 @@ static const int ERROR_LOGON_SESSION_COLLISION    1366L
 //
 // A logon request contained an invalid logon type value.
 //
-static const int ERROR_INVALID_LOGON_TYPE         1367L
+    ERROR_INVALID_LOGON_TYPE         1367
 
 //
 // MessageId: ERROR_CANNOT_IMPERSONATE
@@ -8056,7 +8002,7 @@ static const int ERROR_INVALID_LOGON_TYPE         1367L
 //
 // Unable to impersonate using a named pipe until data has been read from that pipe.
 //
-static const int ERROR_CANNOT_IMPERSONATE         1368L
+    ERROR_CANNOT_IMPERSONATE         1368
 
 //
 // MessageId: ERROR_RXACT_INVALID_STATE
@@ -8065,7 +8011,7 @@ static const int ERROR_CANNOT_IMPERSONATE         1368L
 //
 // The transaction state of a registry subtree is incompatible with the requested operation.
 //
-static const int ERROR_RXACT_INVALID_STATE        1369L
+    ERROR_RXACT_INVALID_STATE        1369
 
 //
 // MessageId: ERROR_RXACT_COMMIT_FAILURE
@@ -8074,7 +8020,7 @@ static const int ERROR_RXACT_INVALID_STATE        1369L
 //
 // An internal security database corruption has been encountered.
 //
-static const int ERROR_RXACT_COMMIT_FAILURE       1370L
+    ERROR_RXACT_COMMIT_FAILURE       1370
 
 //
 // MessageId: ERROR_SPECIAL_ACCOUNT
@@ -8083,7 +8029,7 @@ static const int ERROR_RXACT_COMMIT_FAILURE       1370L
 //
 // Cannot perform this operation on built-in accounts.
 //
-static const int ERROR_SPECIAL_ACCOUNT            1371L
+    ERROR_SPECIAL_ACCOUNT            1371
 
 //
 // MessageId: ERROR_SPECIAL_GROUP
@@ -8092,7 +8038,7 @@ static const int ERROR_SPECIAL_ACCOUNT            1371L
 //
 // Cannot perform this operation on this built-in special group.
 //
-static const int ERROR_SPECIAL_GROUP              1372L
+    ERROR_SPECIAL_GROUP              1372
 
 //
 // MessageId: ERROR_SPECIAL_USER
@@ -8101,7 +8047,7 @@ static const int ERROR_SPECIAL_GROUP              1372L
 //
 // Cannot perform this operation on this built-in special user.
 //
-static const int ERROR_SPECIAL_USER               1373L
+    ERROR_SPECIAL_USER               1373
 
 //
 // MessageId: ERROR_MEMBERS_PRIMARY_GROUP
@@ -8110,7 +8056,7 @@ static const int ERROR_SPECIAL_USER               1373L
 //
 // The user cannot be removed from a group because the group is currently the user's primary group.
 //
-static const int ERROR_MEMBERS_PRIMARY_GROUP      1374L
+    ERROR_MEMBERS_PRIMARY_GROUP      1374
 
 //
 // MessageId: ERROR_TOKEN_ALREADY_IN_USE
@@ -8119,7 +8065,7 @@ static const int ERROR_MEMBERS_PRIMARY_GROUP      1374L
 //
 // The token is already in use as a primary token.
 //
-static const int ERROR_TOKEN_ALREADY_IN_USE       1375L
+    ERROR_TOKEN_ALREADY_IN_USE       1375
 
 //
 // MessageId: ERROR_NO_SUCH_ALIAS
@@ -8128,7 +8074,7 @@ static const int ERROR_TOKEN_ALREADY_IN_USE       1375L
 //
 // The specified local group does not exist.
 //
-static const int ERROR_NO_SUCH_ALIAS              1376L
+    ERROR_NO_SUCH_ALIAS              1376
 
 //
 // MessageId: ERROR_MEMBER_NOT_IN_ALIAS
@@ -8137,7 +8083,7 @@ static const int ERROR_NO_SUCH_ALIAS              1376L
 //
 // The specified account name is not a member of the group.
 //
-static const int ERROR_MEMBER_NOT_IN_ALIAS        1377L
+    ERROR_MEMBER_NOT_IN_ALIAS        1377
 
 //
 // MessageId: ERROR_MEMBER_IN_ALIAS
@@ -8146,7 +8092,7 @@ static const int ERROR_MEMBER_NOT_IN_ALIAS        1377L
 //
 // The specified account name is already a member of the group.
 //
-static const int ERROR_MEMBER_IN_ALIAS            1378L
+    ERROR_MEMBER_IN_ALIAS            1378
 
 //
 // MessageId: ERROR_ALIAS_EXISTS
@@ -8155,7 +8101,7 @@ static const int ERROR_MEMBER_IN_ALIAS            1378L
 //
 // The specified local group already exists.
 //
-static const int ERROR_ALIAS_EXISTS               1379L
+    ERROR_ALIAS_EXISTS               1379
 
 //
 // MessageId: ERROR_LOGON_NOT_GRANTED
@@ -8164,7 +8110,7 @@ static const int ERROR_ALIAS_EXISTS               1379L
 //
 // Logon failure: the user has not been granted the requested logon type at this computer.
 //
-static const int ERROR_LOGON_NOT_GRANTED          1380L
+    ERROR_LOGON_NOT_GRANTED          1380
 
 //
 // MessageId: ERROR_TOO_MANY_SECRETS
@@ -8173,7 +8119,7 @@ static const int ERROR_LOGON_NOT_GRANTED          1380L
 //
 // The maximum number of secrets that may be stored in a single system has been exceeded.
 //
-static const int ERROR_TOO_MANY_SECRETS           1381L
+    ERROR_TOO_MANY_SECRETS           1381
 
 //
 // MessageId: ERROR_SECRET_TOO_LONG
@@ -8182,7 +8128,7 @@ static const int ERROR_TOO_MANY_SECRETS           1381L
 //
 // The length of a secret exceeds the maximum length allowed.
 //
-static const int ERROR_SECRET_TOO_LONG            1382L
+    ERROR_SECRET_TOO_LONG            1382
 
 //
 // MessageId: ERROR_INTERNAL_DB_ERROR
@@ -8191,7 +8137,7 @@ static const int ERROR_SECRET_TOO_LONG            1382L
 //
 // The local security authority database contains an internal inconsistency.
 //
-static const int ERROR_INTERNAL_DB_ERROR          1383L
+    ERROR_INTERNAL_DB_ERROR          1383
 
 //
 // MessageId: ERROR_TOO_MANY_CONTEXT_IDS
@@ -8200,7 +8146,7 @@ static const int ERROR_INTERNAL_DB_ERROR          1383L
 //
 // During a logon attempt, the user's security context accumulated too many security IDs.
 //
-static const int ERROR_TOO_MANY_CONTEXT_IDS       1384L
+    ERROR_TOO_MANY_CONTEXT_IDS       1384
 
 //
 // MessageId: ERROR_LOGON_TYPE_NOT_GRANTED
@@ -8209,7 +8155,7 @@ static const int ERROR_TOO_MANY_CONTEXT_IDS       1384L
 //
 // Logon failure: the user has not been granted the requested logon type at this computer.
 //
-static const int ERROR_LOGON_TYPE_NOT_GRANTED     1385L
+    ERROR_LOGON_TYPE_NOT_GRANTED     1385
 
 //
 // MessageId: ERROR_NT_CROSS_ENCRYPTION_REQUIRED
@@ -8218,7 +8164,7 @@ static const int ERROR_LOGON_TYPE_NOT_GRANTED     1385L
 //
 // A cross-encrypted password is necessary to change a user password.
 //
-static const int ERROR_NT_CROSS_ENCRYPTION_REQUIRED 1386L
+    ERROR_NT_CROSS_ENCRYPTION_REQUIRED 1386
 
 //
 // MessageId: ERROR_NO_SUCH_MEMBER
@@ -8227,7 +8173,7 @@ static const int ERROR_NT_CROSS_ENCRYPTION_REQUIRED 1386L
 //
 // A member could not be added to or removed from the local group because the member does not exist.
 //
-static const int ERROR_NO_SUCH_MEMBER             1387L
+    ERROR_NO_SUCH_MEMBER             1387
 
 //
 // MessageId: ERROR_INVALID_MEMBER
@@ -8236,7 +8182,7 @@ static const int ERROR_NO_SUCH_MEMBER             1387L
 //
 // A new member could not be added to a local group because the member has the wrong account type.
 //
-static const int ERROR_INVALID_MEMBER             1388L
+    ERROR_INVALID_MEMBER             1388
 
 //
 // MessageId: ERROR_TOO_MANY_SIDS
@@ -8245,7 +8191,7 @@ static const int ERROR_INVALID_MEMBER             1388L
 //
 // Too many security IDs have been specified.
 //
-static const int ERROR_TOO_MANY_SIDS              1389L
+    ERROR_TOO_MANY_SIDS              1389
 
 //
 // MessageId: ERROR_LM_CROSS_ENCRYPTION_REQUIRED
@@ -8254,7 +8200,7 @@ static const int ERROR_TOO_MANY_SIDS              1389L
 //
 // A cross-encrypted password is necessary to change this user password.
 //
-static const int ERROR_LM_CROSS_ENCRYPTION_REQUIRED 1390L
+    ERROR_LM_CROSS_ENCRYPTION_REQUIRED 1390
 
 //
 // MessageId: ERROR_NO_INHERITANCE
@@ -8263,7 +8209,7 @@ static const int ERROR_LM_CROSS_ENCRYPTION_REQUIRED 1390L
 //
 // Indicates an ACL contains no inheritable components.
 //
-static const int ERROR_NO_INHERITANCE             1391L
+    ERROR_NO_INHERITANCE             1391
 
 //
 // MessageId: ERROR_FILE_CORRUPT
@@ -8272,7 +8218,7 @@ static const int ERROR_NO_INHERITANCE             1391L
 //
 // The file or directory is corrupted and unreadable.
 //
-static const int ERROR_FILE_CORRUPT               1392L
+    ERROR_FILE_CORRUPT               1392
 
 //
 // MessageId: ERROR_DISK_CORRUPT
@@ -8281,7 +8227,7 @@ static const int ERROR_FILE_CORRUPT               1392L
 //
 // The disk structure is corrupted and unreadable.
 //
-static const int ERROR_DISK_CORRUPT               1393L
+    ERROR_DISK_CORRUPT               1393
 
 //
 // MessageId: ERROR_NO_USER_SESSION_KEY
@@ -8290,7 +8236,7 @@ static const int ERROR_DISK_CORRUPT               1393L
 //
 // There is no user session key for the specified logon session.
 //
-static const int ERROR_NO_USER_SESSION_KEY        1394L
+    ERROR_NO_USER_SESSION_KEY        1394
 
 //
 // MessageId: ERROR_LICENSE_QUOTA_EXCEEDED
@@ -8299,7 +8245,7 @@ static const int ERROR_NO_USER_SESSION_KEY        1394L
 //
 // The service being accessed is licensed for a particular number of connections. No more connections can be made to the service at this time because there are already as many connections as the service can accept.
 //
-static const int ERROR_LICENSE_QUOTA_EXCEEDED     1395L
+    ERROR_LICENSE_QUOTA_EXCEEDED     1395
 
 //
 // MessageId: ERROR_WRONG_TARGET_NAME
@@ -8308,7 +8254,7 @@ static const int ERROR_LICENSE_QUOTA_EXCEEDED     1395L
 //
 // The target account name is incorrect.
 //
-static const int ERROR_WRONG_TARGET_NAME          1396L
+    ERROR_WRONG_TARGET_NAME          1396
 
 //
 // MessageId: ERROR_MUTUAL_AUTH_FAILED
@@ -8317,7 +8263,7 @@ static const int ERROR_WRONG_TARGET_NAME          1396L
 //
 // Mutual Authentication failed. The server's password is out of date at the domain controller.
 //
-static const int ERROR_MUTUAL_AUTH_FAILED         1397L
+    ERROR_MUTUAL_AUTH_FAILED         1397
 
 //
 // MessageId: ERROR_TIME_SKEW
@@ -8326,7 +8272,7 @@ static const int ERROR_MUTUAL_AUTH_FAILED         1397L
 //
 // There is a time and/or date difference between the client and server.
 //
-static const int ERROR_TIME_SKEW                  1398L
+    ERROR_TIME_SKEW                  1398
 
 //
 // MessageId: ERROR_CURRENT_DOMAIN_NOT_ALLOWED
@@ -8335,7 +8281,7 @@ static const int ERROR_TIME_SKEW                  1398L
 //
 // This operation cannot be performed on the current domain.
 //
-static const int ERROR_CURRENT_DOMAIN_NOT_ALLOWED 1399L
+    ERROR_CURRENT_DOMAIN_NOT_ALLOWED 1399
 
 
 ///////////////////////////////////////////////////
@@ -8352,7 +8298,7 @@ static const int ERROR_CURRENT_DOMAIN_NOT_ALLOWED 1399L
 //
 // Invalid window handle.
 //
-static const int ERROR_INVALID_WINDOW_HANDLE      1400L
+    ERROR_INVALID_WINDOW_HANDLE      1400
 
 //
 // MessageId: ERROR_INVALID_MENU_HANDLE
@@ -8361,7 +8307,7 @@ static const int ERROR_INVALID_WINDOW_HANDLE      1400L
 //
 // Invalid menu handle.
 //
-static const int ERROR_INVALID_MENU_HANDLE        1401L
+    ERROR_INVALID_MENU_HANDLE        1401
 
 //
 // MessageId: ERROR_INVALID_CURSOR_HANDLE
@@ -8370,7 +8316,7 @@ static const int ERROR_INVALID_MENU_HANDLE        1401L
 //
 // Invalid cursor handle.
 //
-static const int ERROR_INVALID_CURSOR_HANDLE      1402L
+    ERROR_INVALID_CURSOR_HANDLE      1402
 
 //
 // MessageId: ERROR_INVALID_ACCEL_HANDLE
@@ -8379,7 +8325,7 @@ static const int ERROR_INVALID_CURSOR_HANDLE      1402L
 //
 // Invalid accelerator table handle.
 //
-static const int ERROR_INVALID_ACCEL_HANDLE       1403L
+    ERROR_INVALID_ACCEL_HANDLE       1403
 
 //
 // MessageId: ERROR_INVALID_HOOK_HANDLE
@@ -8388,7 +8334,7 @@ static const int ERROR_INVALID_ACCEL_HANDLE       1403L
 //
 // Invalid hook handle.
 //
-static const int ERROR_INVALID_HOOK_HANDLE        1404L
+    ERROR_INVALID_HOOK_HANDLE        1404
 
 //
 // MessageId: ERROR_INVALID_DWP_HANDLE
@@ -8397,7 +8343,7 @@ static const int ERROR_INVALID_HOOK_HANDLE        1404L
 //
 // Invalid handle to a multiple-window position structure.
 //
-static const int ERROR_INVALID_DWP_HANDLE         1405L
+    ERROR_INVALID_DWP_HANDLE         1405
 
 //
 // MessageId: ERROR_TLW_WITH_WSCHILD
@@ -8406,7 +8352,7 @@ static const int ERROR_INVALID_DWP_HANDLE         1405L
 //
 // Cannot create a top-level child window.
 //
-static const int ERROR_TLW_WITH_WSCHILD           1406L
+    ERROR_TLW_WITH_WSCHILD           1406
 
 //
 // MessageId: ERROR_CANNOT_FIND_WND_CLASS
@@ -8415,7 +8361,7 @@ static const int ERROR_TLW_WITH_WSCHILD           1406L
 //
 // Cannot find window class.
 //
-static const int ERROR_CANNOT_FIND_WND_CLASS      1407L
+    ERROR_CANNOT_FIND_WND_CLASS      1407
 
 //
 // MessageId: ERROR_WINDOW_OF_OTHER_THREAD
@@ -8424,7 +8370,7 @@ static const int ERROR_CANNOT_FIND_WND_CLASS      1407L
 //
 // Invalid window; it belongs to other thread.
 //
-static const int ERROR_WINDOW_OF_OTHER_THREAD     1408L
+    ERROR_WINDOW_OF_OTHER_THREAD     1408
 
 //
 // MessageId: ERROR_HOTKEY_ALREADY_REGISTERED
@@ -8433,7 +8379,7 @@ static const int ERROR_WINDOW_OF_OTHER_THREAD     1408L
 //
 // Hot key is already registered.
 //
-static const int ERROR_HOTKEY_ALREADY_REGISTERED  1409L
+    ERROR_HOTKEY_ALREADY_REGISTERED  1409
 
 //
 // MessageId: ERROR_CLASS_ALREADY_EXISTS
@@ -8442,7 +8388,7 @@ static const int ERROR_HOTKEY_ALREADY_REGISTERED  1409L
 //
 // Class already exists.
 //
-static const int ERROR_CLASS_ALREADY_EXISTS       1410L
+    ERROR_CLASS_ALREADY_EXISTS       1410
 
 //
 // MessageId: ERROR_CLASS_DOES_NOT_EXIST
@@ -8451,7 +8397,7 @@ static const int ERROR_CLASS_ALREADY_EXISTS       1410L
 //
 // Class does not exist.
 //
-static const int ERROR_CLASS_DOES_NOT_EXIST       1411L
+    ERROR_CLASS_DOES_NOT_EXIST       1411
 
 //
 // MessageId: ERROR_CLASS_HAS_WINDOWS
@@ -8460,7 +8406,7 @@ static const int ERROR_CLASS_DOES_NOT_EXIST       1411L
 //
 // Class still has open windows.
 //
-static const int ERROR_CLASS_HAS_WINDOWS          1412L
+    ERROR_CLASS_HAS_WINDOWS          1412
 
 //
 // MessageId: ERROR_INVALID_INDEX
@@ -8469,7 +8415,7 @@ static const int ERROR_CLASS_HAS_WINDOWS          1412L
 //
 // Invalid index.
 //
-static const int ERROR_INVALID_INDEX              1413L
+    ERROR_INVALID_INDEX              1413
 
 //
 // MessageId: ERROR_INVALID_ICON_HANDLE
@@ -8478,7 +8424,7 @@ static const int ERROR_INVALID_INDEX              1413L
 //
 // Invalid icon handle.
 //
-static const int ERROR_INVALID_ICON_HANDLE        1414L
+    ERROR_INVALID_ICON_HANDLE        1414
 
 //
 // MessageId: ERROR_PRIVATE_DIALOG_INDEX
@@ -8487,7 +8433,7 @@ static const int ERROR_INVALID_ICON_HANDLE        1414L
 //
 // Using private DIALOG window words.
 //
-static const int ERROR_PRIVATE_DIALOG_INDEX       1415L
+    ERROR_PRIVATE_DIALOG_INDEX       1415
 
 //
 // MessageId: ERROR_LISTBOX_ID_NOT_FOUND
@@ -8496,7 +8442,7 @@ static const int ERROR_PRIVATE_DIALOG_INDEX       1415L
 //
 // The list box identifier was not found.
 //
-static const int ERROR_LISTBOX_ID_NOT_FOUND       1416L
+    ERROR_LISTBOX_ID_NOT_FOUND       1416
 
 //
 // MessageId: ERROR_NO_WILDCARD_CHARACTERS
@@ -8505,7 +8451,7 @@ static const int ERROR_LISTBOX_ID_NOT_FOUND       1416L
 //
 // No wildcards were found.
 //
-static const int ERROR_NO_WILDCARD_CHARACTERS     1417L
+    ERROR_NO_WILDCARD_CHARACTERS     1417
 
 //
 // MessageId: ERROR_CLIPBOARD_NOT_OPEN
@@ -8514,7 +8460,7 @@ static const int ERROR_NO_WILDCARD_CHARACTERS     1417L
 //
 // Thread does not have a clipboard open.
 //
-static const int ERROR_CLIPBOARD_NOT_OPEN         1418L
+    ERROR_CLIPBOARD_NOT_OPEN         1418
 
 //
 // MessageId: ERROR_HOTKEY_NOT_REGISTERED
@@ -8523,7 +8469,7 @@ static const int ERROR_CLIPBOARD_NOT_OPEN         1418L
 //
 // Hot key is not registered.
 //
-static const int ERROR_HOTKEY_NOT_REGISTERED      1419L
+    ERROR_HOTKEY_NOT_REGISTERED      1419
 
 //
 // MessageId: ERROR_WINDOW_NOT_DIALOG
@@ -8532,7 +8478,7 @@ static const int ERROR_HOTKEY_NOT_REGISTERED      1419L
 //
 // The window is not a valid dialog window.
 //
-static const int ERROR_WINDOW_NOT_DIALOG          1420L
+    ERROR_WINDOW_NOT_DIALOG          1420
 
 //
 // MessageId: ERROR_CONTROL_ID_NOT_FOUND
@@ -8541,7 +8487,7 @@ static const int ERROR_WINDOW_NOT_DIALOG          1420L
 //
 // Control ID not found.
 //
-static const int ERROR_CONTROL_ID_NOT_FOUND       1421L
+    ERROR_CONTROL_ID_NOT_FOUND       1421
 
 //
 // MessageId: ERROR_INVALID_COMBOBOX_MESSAGE
@@ -8550,7 +8496,7 @@ static const int ERROR_CONTROL_ID_NOT_FOUND       1421L
 //
 // Invalid message for a combo box because it does not have an edit control.
 //
-static const int ERROR_INVALID_COMBOBOX_MESSAGE   1422L
+    ERROR_INVALID_COMBOBOX_MESSAGE   1422
 
 //
 // MessageId: ERROR_WINDOW_NOT_COMBOBOX
@@ -8559,7 +8505,7 @@ static const int ERROR_INVALID_COMBOBOX_MESSAGE   1422L
 //
 // The window is not a combo box.
 //
-static const int ERROR_WINDOW_NOT_COMBOBOX        1423L
+    ERROR_WINDOW_NOT_COMBOBOX        1423
 
 //
 // MessageId: ERROR_INVALID_EDIT_HEIGHT
@@ -8568,7 +8514,7 @@ static const int ERROR_WINDOW_NOT_COMBOBOX        1423L
 //
 // Height must be less than 256.
 //
-static const int ERROR_INVALID_EDIT_HEIGHT        1424L
+    ERROR_INVALID_EDIT_HEIGHT        1424
 
 //
 // MessageId: ERROR_DC_NOT_FOUND
@@ -8577,7 +8523,7 @@ static const int ERROR_INVALID_EDIT_HEIGHT        1424L
 //
 // Invalid device context (DC) handle.
 //
-static const int ERROR_DC_NOT_FOUND               1425L
+    ERROR_DC_NOT_FOUND               1425
 
 //
 // MessageId: ERROR_INVALID_HOOK_FILTER
@@ -8586,7 +8532,7 @@ static const int ERROR_DC_NOT_FOUND               1425L
 //
 // Invalid hook procedure type.
 //
-static const int ERROR_INVALID_HOOK_FILTER        1426L
+    ERROR_INVALID_HOOK_FILTER        1426
 
 //
 // MessageId: ERROR_INVALID_FILTER_PROC
@@ -8595,7 +8541,7 @@ static const int ERROR_INVALID_HOOK_FILTER        1426L
 //
 // Invalid hook procedure.
 //
-static const int ERROR_INVALID_FILTER_PROC        1427L
+    ERROR_INVALID_FILTER_PROC        1427
 
 //
 // MessageId: ERROR_HOOK_NEEDS_HMOD
@@ -8604,7 +8550,7 @@ static const int ERROR_INVALID_FILTER_PROC        1427L
 //
 // Cannot set nonlocal hook without a module handle.
 //
-static const int ERROR_HOOK_NEEDS_HMOD            1428L
+    ERROR_HOOK_NEEDS_HMOD            1428
 
 //
 // MessageId: ERROR_GLOBAL_ONLY_HOOK
@@ -8613,7 +8559,7 @@ static const int ERROR_HOOK_NEEDS_HMOD            1428L
 //
 // This hook procedure can only be set globally.
 //
-static const int ERROR_GLOBAL_ONLY_HOOK           1429L
+    ERROR_GLOBAL_ONLY_HOOK           1429
 
 //
 // MessageId: ERROR_JOURNAL_HOOK_SET
@@ -8622,7 +8568,7 @@ static const int ERROR_GLOBAL_ONLY_HOOK           1429L
 //
 // The journal hook procedure is already installed.
 //
-static const int ERROR_JOURNAL_HOOK_SET           1430L
+    ERROR_JOURNAL_HOOK_SET           1430
 
 //
 // MessageId: ERROR_HOOK_NOT_INSTALLED
@@ -8631,7 +8577,7 @@ static const int ERROR_JOURNAL_HOOK_SET           1430L
 //
 // The hook procedure is not installed.
 //
-static const int ERROR_HOOK_NOT_INSTALLED         1431L
+    ERROR_HOOK_NOT_INSTALLED         1431
 
 //
 // MessageId: ERROR_INVALID_LB_MESSAGE
@@ -8640,7 +8586,7 @@ static const int ERROR_HOOK_NOT_INSTALLED         1431L
 //
 // Invalid message for single-selection list box.
 //
-static const int ERROR_INVALID_LB_MESSAGE         1432L
+    ERROR_INVALID_LB_MESSAGE         1432
 
 //
 // MessageId: ERROR_SETCOUNT_ON_BAD_LB
@@ -8649,7 +8595,7 @@ static const int ERROR_INVALID_LB_MESSAGE         1432L
 //
 // LB_SETCOUNT sent to non-lazy list box.
 //
-static const int ERROR_SETCOUNT_ON_BAD_LB         1433L
+    ERROR_SETCOUNT_ON_BAD_LB         1433
 
 //
 // MessageId: ERROR_LB_WITHOUT_TABSTOPS
@@ -8658,7 +8604,7 @@ static const int ERROR_SETCOUNT_ON_BAD_LB         1433L
 //
 // This list box does not support tab stops.
 //
-static const int ERROR_LB_WITHOUT_TABSTOPS        1434L
+    ERROR_LB_WITHOUT_TABSTOPS        1434
 
 //
 // MessageId: ERROR_DESTROY_OBJECT_OF_OTHER_THREAD
@@ -8667,7 +8613,7 @@ static const int ERROR_LB_WITHOUT_TABSTOPS        1434L
 //
 // Cannot destroy object created by another thread.
 //
-static const int ERROR_DESTROY_OBJECT_OF_OTHER_THREAD 1435L
+    ERROR_DESTROY_OBJECT_OF_OTHER_THREAD 1435
 
 //
 // MessageId: ERROR_CHILD_WINDOW_MENU
@@ -8676,7 +8622,7 @@ static const int ERROR_DESTROY_OBJECT_OF_OTHER_THREAD 1435L
 //
 // Child windows cannot have menus.
 //
-static const int ERROR_CHILD_WINDOW_MENU          1436L
+    ERROR_CHILD_WINDOW_MENU          1436
 
 //
 // MessageId: ERROR_NO_SYSTEM_MENU
@@ -8685,7 +8631,7 @@ static const int ERROR_CHILD_WINDOW_MENU          1436L
 //
 // The window does not have a system menu.
 //
-static const int ERROR_NO_SYSTEM_MENU             1437L
+    ERROR_NO_SYSTEM_MENU             1437
 
 //
 // MessageId: ERROR_INVALID_MSGBOX_STYLE
@@ -8694,7 +8640,7 @@ static const int ERROR_NO_SYSTEM_MENU             1437L
 //
 // Invalid message box style.
 //
-static const int ERROR_INVALID_MSGBOX_STYLE       1438L
+    ERROR_INVALID_MSGBOX_STYLE       1438
 
 //
 // MessageId: ERROR_INVALID_SPI_VALUE
@@ -8703,7 +8649,7 @@ static const int ERROR_INVALID_MSGBOX_STYLE       1438L
 //
 // Invalid system-wide (SPI_*) parameter.
 //
-static const int ERROR_INVALID_SPI_VALUE          1439L
+    ERROR_INVALID_SPI_VALUE          1439
 
 //
 // MessageId: ERROR_SCREEN_ALREADY_LOCKED
@@ -8712,7 +8658,7 @@ static const int ERROR_INVALID_SPI_VALUE          1439L
 //
 // Screen already locked.
 //
-static const int ERROR_SCREEN_ALREADY_LOCKED      1440L
+    ERROR_SCREEN_ALREADY_LOCKED      1440
 
 //
 // MessageId: ERROR_HWNDS_HAVE_DIFF_PARENT
@@ -8721,7 +8667,7 @@ static const int ERROR_SCREEN_ALREADY_LOCKED      1440L
 //
 // All handles to windows in a multiple-window position structure must have the same parent.
 //
-static const int ERROR_HWNDS_HAVE_DIFF_PARENT     1441L
+    ERROR_HWNDS_HAVE_DIFF_PARENT     1441
 
 //
 // MessageId: ERROR_NOT_CHILD_WINDOW
@@ -8730,7 +8676,7 @@ static const int ERROR_HWNDS_HAVE_DIFF_PARENT     1441L
 //
 // The window is not a child window.
 //
-static const int ERROR_NOT_CHILD_WINDOW           1442L
+    ERROR_NOT_CHILD_WINDOW           1442
 
 //
 // MessageId: ERROR_INVALID_GW_COMMAND
@@ -8739,7 +8685,7 @@ static const int ERROR_NOT_CHILD_WINDOW           1442L
 //
 // Invalid GW_* command.
 //
-static const int ERROR_INVALID_GW_COMMAND         1443L
+    ERROR_INVALID_GW_COMMAND         1443
 
 //
 // MessageId: ERROR_INVALID_THREAD_ID
@@ -8748,7 +8694,7 @@ static const int ERROR_INVALID_GW_COMMAND         1443L
 //
 // Invalid thread identifier.
 //
-static const int ERROR_INVALID_THREAD_ID          1444L
+    ERROR_INVALID_THREAD_ID          1444
 
 //
 // MessageId: ERROR_NON_MDICHILD_WINDOW
@@ -8757,7 +8703,7 @@ static const int ERROR_INVALID_THREAD_ID          1444L
 //
 // Cannot process a message from a window that is not a multiple document interface (MDI) window.
 //
-static const int ERROR_NON_MDICHILD_WINDOW        1445L
+    ERROR_NON_MDICHILD_WINDOW        1445
 
 //
 // MessageId: ERROR_POPUP_ALREADY_ACTIVE
@@ -8766,7 +8712,7 @@ static const int ERROR_NON_MDICHILD_WINDOW        1445L
 //
 // Popup menu already active.
 //
-static const int ERROR_POPUP_ALREADY_ACTIVE       1446L
+    ERROR_POPUP_ALREADY_ACTIVE       1446
 
 //
 // MessageId: ERROR_NO_SCROLLBARS
@@ -8775,7 +8721,7 @@ static const int ERROR_POPUP_ALREADY_ACTIVE       1446L
 //
 // The window does not have scroll bars.
 //
-static const int ERROR_NO_SCROLLBARS              1447L
+    ERROR_NO_SCROLLBARS              1447
 
 //
 // MessageId: ERROR_INVALID_SCROLLBAR_RANGE
@@ -8784,7 +8730,7 @@ static const int ERROR_NO_SCROLLBARS              1447L
 //
 // Scroll bar range cannot be greater than MAXLONG.
 //
-static const int ERROR_INVALID_SCROLLBAR_RANGE    1448L
+    ERROR_INVALID_SCROLLBAR_RANGE    1448
 
 //
 // MessageId: ERROR_INVALID_SHOWWIN_COMMAND
@@ -8793,7 +8739,7 @@ static const int ERROR_INVALID_SCROLLBAR_RANGE    1448L
 //
 // Cannot show or remove the window in the way specified.
 //
-static const int ERROR_INVALID_SHOWWIN_COMMAND    1449L
+    ERROR_INVALID_SHOWWIN_COMMAND    1449
 
 //
 // MessageId: ERROR_NO_SYSTEM_RESOURCES
@@ -8802,7 +8748,7 @@ static const int ERROR_INVALID_SHOWWIN_COMMAND    1449L
 //
 // Insufficient system resources exist to complete the requested service.
 //
-static const int ERROR_NO_SYSTEM_RESOURCES        1450L
+    ERROR_NO_SYSTEM_RESOURCES        1450
 
 //
 // MessageId: ERROR_NONPAGED_SYSTEM_RESOURCES
@@ -8811,7 +8757,7 @@ static const int ERROR_NO_SYSTEM_RESOURCES        1450L
 //
 // Insufficient system resources exist to complete the requested service.
 //
-static const int ERROR_NONPAGED_SYSTEM_RESOURCES  1451L
+    ERROR_NONPAGED_SYSTEM_RESOURCES  1451
 
 //
 // MessageId: ERROR_PAGED_SYSTEM_RESOURCES
@@ -8820,7 +8766,7 @@ static const int ERROR_NONPAGED_SYSTEM_RESOURCES  1451L
 //
 // Insufficient system resources exist to complete the requested service.
 //
-static const int ERROR_PAGED_SYSTEM_RESOURCES     1452L
+    ERROR_PAGED_SYSTEM_RESOURCES     1452
 
 //
 // MessageId: ERROR_WORKING_SET_QUOTA
@@ -8829,7 +8775,7 @@ static const int ERROR_PAGED_SYSTEM_RESOURCES     1452L
 //
 // Insufficient quota to complete the requested service.
 //
-static const int ERROR_WORKING_SET_QUOTA          1453L
+    ERROR_WORKING_SET_QUOTA          1453
 
 //
 // MessageId: ERROR_PAGEFILE_QUOTA
@@ -8838,7 +8784,7 @@ static const int ERROR_WORKING_SET_QUOTA          1453L
 //
 // Insufficient quota to complete the requested service.
 //
-static const int ERROR_PAGEFILE_QUOTA             1454L
+    ERROR_PAGEFILE_QUOTA             1454
 
 //
 // MessageId: ERROR_COMMITMENT_LIMIT
@@ -8847,7 +8793,7 @@ static const int ERROR_PAGEFILE_QUOTA             1454L
 //
 // The paging file is too small for this operation to complete.
 //
-static const int ERROR_COMMITMENT_LIMIT           1455L
+    ERROR_COMMITMENT_LIMIT           1455
 
 //
 // MessageId: ERROR_MENU_ITEM_NOT_FOUND
@@ -8856,7 +8802,7 @@ static const int ERROR_COMMITMENT_LIMIT           1455L
 //
 // A menu item was not found.
 //
-static const int ERROR_MENU_ITEM_NOT_FOUND        1456L
+    ERROR_MENU_ITEM_NOT_FOUND        1456
 
 //
 // MessageId: ERROR_INVALID_KEYBOARD_HANDLE
@@ -8865,7 +8811,7 @@ static const int ERROR_MENU_ITEM_NOT_FOUND        1456L
 //
 // Invalid keyboard layout handle.
 //
-static const int ERROR_INVALID_KEYBOARD_HANDLE    1457L
+    ERROR_INVALID_KEYBOARD_HANDLE    1457
 
 //
 // MessageId: ERROR_HOOK_TYPE_NOT_ALLOWED
@@ -8874,7 +8820,7 @@ static const int ERROR_INVALID_KEYBOARD_HANDLE    1457L
 //
 // Hook type not allowed.
 //
-static const int ERROR_HOOK_TYPE_NOT_ALLOWED      1458L
+    ERROR_HOOK_TYPE_NOT_ALLOWED      1458
 
 //
 // MessageId: ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION
@@ -8883,7 +8829,7 @@ static const int ERROR_HOOK_TYPE_NOT_ALLOWED      1458L
 //
 // This operation requires an interactive window station.
 //
-static const int ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION 1459L
+    ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION 1459
 
 //
 // MessageId: ERROR_TIMEOUT
@@ -8892,7 +8838,7 @@ static const int ERROR_REQUIRES_INTERACTIVE_WINDOWSTATION 1459L
 //
 // This operation returned because the timeout period expired.
 //
-static const int ERROR_TIMEOUT                    1460L
+    ERROR_TIMEOUT                    1460
 
 //
 // MessageId: ERROR_INVALID_MONITOR_HANDLE
@@ -8901,7 +8847,7 @@ static const int ERROR_TIMEOUT                    1460L
 //
 // Invalid monitor handle.
 //
-static const int ERROR_INVALID_MONITOR_HANDLE     1461L
+    ERROR_INVALID_MONITOR_HANDLE     1461
 
 //
 // MessageId: ERROR_INCORRECT_SIZE
@@ -8910,7 +8856,7 @@ static const int ERROR_INVALID_MONITOR_HANDLE     1461L
 //
 // Incorrect size argument.
 //
-static const int ERROR_INCORRECT_SIZE             1462L
+    ERROR_INCORRECT_SIZE             1462
 
 //
 // MessageId: ERROR_SYMLINK_CLASS_DISABLED
@@ -8919,7 +8865,7 @@ static const int ERROR_INCORRECT_SIZE             1462L
 //
 // The symbolic link cannot be followed because its type is disabled.
 //
-static const int ERROR_SYMLINK_CLASS_DISABLED     1463L
+    ERROR_SYMLINK_CLASS_DISABLED     1463
 
 //
 // MessageId: ERROR_SYMLINK_NOT_SUPPORTED
@@ -8928,7 +8874,7 @@ static const int ERROR_SYMLINK_CLASS_DISABLED     1463L
 //
 // This application does not support the current operation on symbolic links.
 //
-static const int ERROR_SYMLINK_NOT_SUPPORTED      1464L
+    ERROR_SYMLINK_NOT_SUPPORTED      1464
 
 //
 // MessageId: ERROR_XML_PARSE_ERROR
@@ -8937,7 +8883,7 @@ static const int ERROR_SYMLINK_NOT_SUPPORTED      1464L
 //
 // Windows was unable to parse the requested XML data.
 //
-static const int ERROR_XML_PARSE_ERROR            1465L
+    ERROR_XML_PARSE_ERROR            1465
 
 //
 // MessageId: ERROR_XMLDSIG_ERROR
@@ -8946,7 +8892,7 @@ static const int ERROR_XML_PARSE_ERROR            1465L
 //
 // An error was encountered while processing an XML digital signature.
 //
-static const int ERROR_XMLDSIG_ERROR              1466L
+    ERROR_XMLDSIG_ERROR              1466
 
 //
 // MessageId: ERROR_RESTART_APPLICATION
@@ -8955,7 +8901,7 @@ static const int ERROR_XMLDSIG_ERROR              1466L
 //
 // This application must be restarted.
 //
-static const int ERROR_RESTART_APPLICATION        1467L
+    ERROR_RESTART_APPLICATION        1467
 
 //
 // MessageId: ERROR_WRONG_COMPARTMENT
@@ -8964,7 +8910,7 @@ static const int ERROR_RESTART_APPLICATION        1467L
 //
 // The caller made the connection request in the wrong routing compartment.
 //
-static const int ERROR_WRONG_COMPARTMENT          1468L
+    ERROR_WRONG_COMPARTMENT          1468
 
 //
 // MessageId: ERROR_AUTHIP_FAILURE
@@ -8973,7 +8919,7 @@ static const int ERROR_WRONG_COMPARTMENT          1468L
 //
 // There was an AuthIP failure when attempting to connect to the remote host.
 //
-static const int ERROR_AUTHIP_FAILURE             1469L
+    ERROR_AUTHIP_FAILURE             1469
 
 //
 // MessageId: ERROR_NO_NVRAM_RESOURCES
@@ -8982,7 +8928,7 @@ static const int ERROR_AUTHIP_FAILURE             1469L
 //
 // Insufficient NVRAM resources exist to complete the requested service. A reboot might be required.
 //
-static const int ERROR_NO_NVRAM_RESOURCES         1470L
+    ERROR_NO_NVRAM_RESOURCES         1470
 
 //
 // MessageId: ERROR_NOT_GUI_PROCESS
@@ -8991,7 +8937,7 @@ static const int ERROR_NO_NVRAM_RESOURCES         1470L
 //
 // Unable to finish the requested operation because the specified process is not a GUI process.
 //
-static const int ERROR_NOT_GUI_PROCESS            1471L
+    ERROR_NOT_GUI_PROCESS            1471
 
 
 ///////////////////////////////////////////////////
@@ -9008,7 +8954,7 @@ static const int ERROR_NOT_GUI_PROCESS            1471L
 //
 // The event log file is corrupted.
 //
-static const int ERROR_EVENTLOG_FILE_CORRUPT      1500L
+    ERROR_EVENTLOG_FILE_CORRUPT      1500
 
 //
 // MessageId: ERROR_EVENTLOG_CANT_START
@@ -9017,7 +8963,7 @@ static const int ERROR_EVENTLOG_FILE_CORRUPT      1500L
 //
 // No event log file could be opened, so the event logging service did not start.
 //
-static const int ERROR_EVENTLOG_CANT_START        1501L
+    ERROR_EVENTLOG_CANT_START        1501
 
 //
 // MessageId: ERROR_LOG_FILE_FULL
@@ -9026,7 +8972,7 @@ static const int ERROR_EVENTLOG_CANT_START        1501L
 //
 // The event log file is full.
 //
-static const int ERROR_LOG_FILE_FULL              1502L
+    ERROR_LOG_FILE_FULL              1502
 
 //
 // MessageId: ERROR_EVENTLOG_FILE_CHANGED
@@ -9035,7 +8981,7 @@ static const int ERROR_LOG_FILE_FULL              1502L
 //
 // The event log file has changed between read operations.
 //
-static const int ERROR_EVENTLOG_FILE_CHANGED      1503L
+    ERROR_EVENTLOG_FILE_CHANGED      1503
 
 //
 // MessageId: ERROR_CONTAINER_ASSIGNED
@@ -9044,7 +8990,7 @@ static const int ERROR_EVENTLOG_FILE_CHANGED      1503L
 //
 // The specified Job already has a container assigned to it.
 //
-static const int ERROR_CONTAINER_ASSIGNED         1504L
+    ERROR_CONTAINER_ASSIGNED         1504
 
 //
 // MessageId: ERROR_JOB_NO_CONTAINER
@@ -9053,7 +8999,7 @@ static const int ERROR_CONTAINER_ASSIGNED         1504L
 //
 // The specified Job does not have a container assigned to it.
 //
-static const int ERROR_JOB_NO_CONTAINER           1505L
+    ERROR_JOB_NO_CONTAINER           1505
 
 
 ///////////////////////////////////////////////////
@@ -9070,7 +9016,7 @@ static const int ERROR_JOB_NO_CONTAINER           1505L
 //
 // The specified task name is invalid.
 //
-static const int ERROR_INVALID_TASK_NAME          1550L
+    ERROR_INVALID_TASK_NAME          1550
 
 //
 // MessageId: ERROR_INVALID_TASK_INDEX
@@ -9079,7 +9025,7 @@ static const int ERROR_INVALID_TASK_NAME          1550L
 //
 // The specified task index is invalid.
 //
-static const int ERROR_INVALID_TASK_INDEX         1551L
+    ERROR_INVALID_TASK_INDEX         1551
 
 //
 // MessageId: ERROR_THREAD_ALREADY_IN_TASK
@@ -9088,7 +9034,7 @@ static const int ERROR_INVALID_TASK_INDEX         1551L
 //
 // The specified thread is already joining a task.
 //
-static const int ERROR_THREAD_ALREADY_IN_TASK     1552L
+    ERROR_THREAD_ALREADY_IN_TASK     1552
 
 
 ///////////////////////////////////////////////////
@@ -9105,7 +9051,7 @@ static const int ERROR_THREAD_ALREADY_IN_TASK     1552L
 //
 // The Windows Installer Service could not be accessed. This can occur if the Windows Installer is not correctly installed. Contact your support personnel for assistance.
 //
-static const int ERROR_INSTALL_SERVICE_FAILURE    1601L
+    ERROR_INSTALL_SERVICE_FAILURE    1601
 
 //
 // MessageId: ERROR_INSTALL_USEREXIT
@@ -9114,7 +9060,7 @@ static const int ERROR_INSTALL_SERVICE_FAILURE    1601L
 //
 // User cancelled installation.
 //
-static const int ERROR_INSTALL_USEREXIT           1602L
+    ERROR_INSTALL_USEREXIT           1602
 
 //
 // MessageId: ERROR_INSTALL_FAILURE
@@ -9123,7 +9069,7 @@ static const int ERROR_INSTALL_USEREXIT           1602L
 //
 // Fatal error during installation.
 //
-static const int ERROR_INSTALL_FAILURE            1603L
+    ERROR_INSTALL_FAILURE            1603
 
 //
 // MessageId: ERROR_INSTALL_SUSPEND
@@ -9132,7 +9078,7 @@ static const int ERROR_INSTALL_FAILURE            1603L
 //
 // Installation suspended, incomplete.
 //
-static const int ERROR_INSTALL_SUSPEND            1604L
+    ERROR_INSTALL_SUSPEND            1604
 
 //
 // MessageId: ERROR_UNKNOWN_PRODUCT
@@ -9141,7 +9087,7 @@ static const int ERROR_INSTALL_SUSPEND            1604L
 //
 // This action is only valid for products that are currently installed.
 //
-static const int ERROR_UNKNOWN_PRODUCT            1605L
+    ERROR_UNKNOWN_PRODUCT            1605
 
 //
 // MessageId: ERROR_UNKNOWN_FEATURE
@@ -9150,7 +9096,7 @@ static const int ERROR_UNKNOWN_PRODUCT            1605L
 //
 // Feature ID not registered.
 //
-static const int ERROR_UNKNOWN_FEATURE            1606L
+    ERROR_UNKNOWN_FEATURE            1606
 
 //
 // MessageId: ERROR_UNKNOWN_COMPONENT
@@ -9159,7 +9105,7 @@ static const int ERROR_UNKNOWN_FEATURE            1606L
 //
 // Component ID not registered.
 //
-static const int ERROR_UNKNOWN_COMPONENT          1607L
+    ERROR_UNKNOWN_COMPONENT          1607
 
 //
 // MessageId: ERROR_UNKNOWN_PROPERTY
@@ -9168,7 +9114,7 @@ static const int ERROR_UNKNOWN_COMPONENT          1607L
 //
 // Unknown property.
 //
-static const int ERROR_UNKNOWN_PROPERTY           1608L
+    ERROR_UNKNOWN_PROPERTY           1608
 
 //
 // MessageId: ERROR_INVALID_HANDLE_STATE
@@ -9177,7 +9123,7 @@ static const int ERROR_UNKNOWN_PROPERTY           1608L
 //
 // Handle is in an invalid state.
 //
-static const int ERROR_INVALID_HANDLE_STATE       1609L
+    ERROR_INVALID_HANDLE_STATE       1609
 
 //
 // MessageId: ERROR_BAD_CONFIGURATION
@@ -9186,7 +9132,7 @@ static const int ERROR_INVALID_HANDLE_STATE       1609L
 //
 // The configuration data for this product is corrupt. Contact your support personnel.
 //
-static const int ERROR_BAD_CONFIGURATION          1610L
+    ERROR_BAD_CONFIGURATION          1610
 
 //
 // MessageId: ERROR_INDEX_ABSENT
@@ -9195,7 +9141,7 @@ static const int ERROR_BAD_CONFIGURATION          1610L
 //
 // Component qualifier not present.
 //
-static const int ERROR_INDEX_ABSENT               1611L
+    ERROR_INDEX_ABSENT               1611
 
 //
 // MessageId: ERROR_INSTALL_SOURCE_ABSENT
@@ -9204,7 +9150,7 @@ static const int ERROR_INDEX_ABSENT               1611L
 //
 // The installation source for this product is not available. Verify that the source exists and that you can access it.
 //
-static const int ERROR_INSTALL_SOURCE_ABSENT      1612L
+    ERROR_INSTALL_SOURCE_ABSENT      1612
 
 //
 // MessageId: ERROR_INSTALL_PACKAGE_VERSION
@@ -9213,7 +9159,7 @@ static const int ERROR_INSTALL_SOURCE_ABSENT      1612L
 //
 // This installation package cannot be installed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service.
 //
-static const int ERROR_INSTALL_PACKAGE_VERSION    1613L
+    ERROR_INSTALL_PACKAGE_VERSION    1613
 
 //
 // MessageId: ERROR_PRODUCT_UNINSTALLED
@@ -9222,7 +9168,7 @@ static const int ERROR_INSTALL_PACKAGE_VERSION    1613L
 //
 // Product is uninstalled.
 //
-static const int ERROR_PRODUCT_UNINSTALLED        1614L
+    ERROR_PRODUCT_UNINSTALLED        1614
 
 //
 // MessageId: ERROR_BAD_QUERY_SYNTAX
@@ -9231,7 +9177,7 @@ static const int ERROR_PRODUCT_UNINSTALLED        1614L
 //
 // SQL query syntax invalid or unsupported.
 //
-static const int ERROR_BAD_QUERY_SYNTAX           1615L
+    ERROR_BAD_QUERY_SYNTAX           1615
 
 //
 // MessageId: ERROR_INVALID_FIELD
@@ -9240,7 +9186,7 @@ static const int ERROR_BAD_QUERY_SYNTAX           1615L
 //
 // Record field does not exist.
 //
-static const int ERROR_INVALID_FIELD              1616L
+    ERROR_INVALID_FIELD              1616
 
 //
 // MessageId: ERROR_DEVICE_REMOVED
@@ -9249,7 +9195,7 @@ static const int ERROR_INVALID_FIELD              1616L
 //
 // The device has been removed.
 //
-static const int ERROR_DEVICE_REMOVED             1617L
+    ERROR_DEVICE_REMOVED             1617
 
 //
 // MessageId: ERROR_INSTALL_ALREADY_RUNNING
@@ -9258,7 +9204,7 @@ static const int ERROR_DEVICE_REMOVED             1617L
 //
 // Another installation is already in progress. Complete that installation before proceeding with this install.
 //
-static const int ERROR_INSTALL_ALREADY_RUNNING    1618L
+    ERROR_INSTALL_ALREADY_RUNNING    1618
 
 //
 // MessageId: ERROR_INSTALL_PACKAGE_OPEN_FAILED
@@ -9267,7 +9213,7 @@ static const int ERROR_INSTALL_ALREADY_RUNNING    1618L
 //
 // This installation package could not be opened. Verify that the package exists and that you can access it, or contact the application vendor to verify that this is a valid Windows Installer package.
 //
-static const int ERROR_INSTALL_PACKAGE_OPEN_FAILED 1619L
+    ERROR_INSTALL_PACKAGE_OPEN_FAILED 1619
 
 //
 // MessageId: ERROR_INSTALL_PACKAGE_INVALID
@@ -9276,7 +9222,7 @@ static const int ERROR_INSTALL_PACKAGE_OPEN_FAILED 1619L
 //
 // This installation package could not be opened. Contact the application vendor to verify that this is a valid Windows Installer package.
 //
-static const int ERROR_INSTALL_PACKAGE_INVALID    1620L
+    ERROR_INSTALL_PACKAGE_INVALID    1620
 
 //
 // MessageId: ERROR_INSTALL_UI_FAILURE
@@ -9285,7 +9231,7 @@ static const int ERROR_INSTALL_PACKAGE_INVALID    1620L
 //
 // There was an error starting the Windows Installer service user interface. Contact your support personnel.
 //
-static const int ERROR_INSTALL_UI_FAILURE         1621L
+    ERROR_INSTALL_UI_FAILURE         1621
 
 //
 // MessageId: ERROR_INSTALL_LOG_FAILURE
@@ -9294,7 +9240,7 @@ static const int ERROR_INSTALL_UI_FAILURE         1621L
 //
 // Error opening installation log file. Verify that the specified log file location exists and that you can write to it.
 //
-static const int ERROR_INSTALL_LOG_FAILURE        1622L
+    ERROR_INSTALL_LOG_FAILURE        1622
 
 //
 // MessageId: ERROR_INSTALL_LANGUAGE_UNSUPPORTED
@@ -9303,7 +9249,7 @@ static const int ERROR_INSTALL_LOG_FAILURE        1622L
 //
 // The language of this installation package is not supported by your system.
 //
-static const int ERROR_INSTALL_LANGUAGE_UNSUPPORTED 1623L
+    ERROR_INSTALL_LANGUAGE_UNSUPPORTED 1623
 
 //
 // MessageId: ERROR_INSTALL_TRANSFORM_FAILURE
@@ -9312,7 +9258,7 @@ static const int ERROR_INSTALL_LANGUAGE_UNSUPPORTED 1623L
 //
 // Error applying transforms. Verify that the specified transform paths are valid.
 //
-static const int ERROR_INSTALL_TRANSFORM_FAILURE  1624L
+    ERROR_INSTALL_TRANSFORM_FAILURE  1624
 
 //
 // MessageId: ERROR_INSTALL_PACKAGE_REJECTED
@@ -9321,7 +9267,7 @@ static const int ERROR_INSTALL_TRANSFORM_FAILURE  1624L
 //
 // This installation is forbidden by system policy. Contact your system administrator.
 //
-static const int ERROR_INSTALL_PACKAGE_REJECTED   1625L
+    ERROR_INSTALL_PACKAGE_REJECTED   1625
 
 //
 // MessageId: ERROR_FUNCTION_NOT_CALLED
@@ -9330,7 +9276,7 @@ static const int ERROR_INSTALL_PACKAGE_REJECTED   1625L
 //
 // Function could not be executed.
 //
-static const int ERROR_FUNCTION_NOT_CALLED        1626L
+    ERROR_FUNCTION_NOT_CALLED        1626
 
 //
 // MessageId: ERROR_FUNCTION_FAILED
@@ -9339,7 +9285,7 @@ static const int ERROR_FUNCTION_NOT_CALLED        1626L
 //
 // Function failed during execution.
 //
-static const int ERROR_FUNCTION_FAILED            1627L
+    ERROR_FUNCTION_FAILED            1627
 
 //
 // MessageId: ERROR_INVALID_TABLE
@@ -9348,7 +9294,7 @@ static const int ERROR_FUNCTION_FAILED            1627L
 //
 // Invalid or unknown table specified.
 //
-static const int ERROR_INVALID_TABLE              1628L
+    ERROR_INVALID_TABLE              1628
 
 //
 // MessageId: ERROR_DATATYPE_MISMATCH
@@ -9357,7 +9303,7 @@ static const int ERROR_INVALID_TABLE              1628L
 //
 // Data supplied is of wrong type.
 //
-static const int ERROR_DATATYPE_MISMATCH          1629L
+    ERROR_DATATYPE_MISMATCH          1629
 
 //
 // MessageId: ERROR_UNSUPPORTED_TYPE
@@ -9366,7 +9312,7 @@ static const int ERROR_DATATYPE_MISMATCH          1629L
 //
 // Data of this type is not supported.
 //
-static const int ERROR_UNSUPPORTED_TYPE           1630L
+    ERROR_UNSUPPORTED_TYPE           1630
 
 //
 // MessageId: ERROR_CREATE_FAILED
@@ -9375,7 +9321,7 @@ static const int ERROR_UNSUPPORTED_TYPE           1630L
 //
 // The Windows Installer service failed to start. Contact your support personnel.
 //
-static const int ERROR_CREATE_FAILED              1631L
+    ERROR_CREATE_FAILED              1631
 
 //
 // MessageId: ERROR_INSTALL_TEMP_UNWRITABLE
@@ -9384,7 +9330,7 @@ static const int ERROR_CREATE_FAILED              1631L
 //
 // The Temp folder is on a drive that is full or is inaccessible. Free up space on the drive or verify that you have write permission on the Temp folder.
 //
-static const int ERROR_INSTALL_TEMP_UNWRITABLE    1632L
+    ERROR_INSTALL_TEMP_UNWRITABLE    1632
 
 //
 // MessageId: ERROR_INSTALL_PLATFORM_UNSUPPORTED
@@ -9393,7 +9339,7 @@ static const int ERROR_INSTALL_TEMP_UNWRITABLE    1632L
 //
 // This installation package is not supported by this processor type. Contact your product vendor.
 //
-static const int ERROR_INSTALL_PLATFORM_UNSUPPORTED 1633L
+    ERROR_INSTALL_PLATFORM_UNSUPPORTED 1633
 
 //
 // MessageId: ERROR_INSTALL_NOTUSED
@@ -9402,7 +9348,7 @@ static const int ERROR_INSTALL_PLATFORM_UNSUPPORTED 1633L
 //
 // Component not used on this computer.
 //
-static const int ERROR_INSTALL_NOTUSED            1634L
+    ERROR_INSTALL_NOTUSED            1634
 
 //
 // MessageId: ERROR_PATCH_PACKAGE_OPEN_FAILED
@@ -9411,7 +9357,7 @@ static const int ERROR_INSTALL_NOTUSED            1634L
 //
 // This update package could not be opened. Verify that the update package exists and that you can access it, or contact the application vendor to verify that this is a valid Windows Installer update package.
 //
-static const int ERROR_PATCH_PACKAGE_OPEN_FAILED  1635L
+    ERROR_PATCH_PACKAGE_OPEN_FAILED  1635
 
 //
 // MessageId: ERROR_PATCH_PACKAGE_INVALID
@@ -9420,7 +9366,7 @@ static const int ERROR_PATCH_PACKAGE_OPEN_FAILED  1635L
 //
 // This update package could not be opened. Contact the application vendor to verify that this is a valid Windows Installer update package.
 //
-static const int ERROR_PATCH_PACKAGE_INVALID      1636L
+    ERROR_PATCH_PACKAGE_INVALID      1636
 
 //
 // MessageId: ERROR_PATCH_PACKAGE_UNSUPPORTED
@@ -9429,7 +9375,7 @@ static const int ERROR_PATCH_PACKAGE_INVALID      1636L
 //
 // This update package cannot be processed by the Windows Installer service. You must install a Windows service pack that contains a newer version of the Windows Installer service.
 //
-static const int ERROR_PATCH_PACKAGE_UNSUPPORTED  1637L
+    ERROR_PATCH_PACKAGE_UNSUPPORTED  1637
 
 //
 // MessageId: ERROR_PRODUCT_VERSION
@@ -9438,7 +9384,7 @@ static const int ERROR_PATCH_PACKAGE_UNSUPPORTED  1637L
 //
 // Another version of this product is already installed. Installation of this version cannot continue. To configure or remove the existing version of this product, use Add/Remove Programs on the Control Panel.
 //
-static const int ERROR_PRODUCT_VERSION            1638L
+    ERROR_PRODUCT_VERSION            1638
 
 //
 // MessageId: ERROR_INVALID_COMMAND_LINE
@@ -9447,7 +9393,7 @@ static const int ERROR_PRODUCT_VERSION            1638L
 //
 // Invalid command line argument. Consult the Windows Installer SDK for detailed command line help.
 //
-static const int ERROR_INVALID_COMMAND_LINE       1639L
+    ERROR_INVALID_COMMAND_LINE       1639
 
 //
 // MessageId: ERROR_INSTALL_REMOTE_DISALLOWED
@@ -9456,7 +9402,7 @@ static const int ERROR_INVALID_COMMAND_LINE       1639L
 //
 // Only administrators have permission to add, remove, or configure server software during a Terminal services remote session. If you want to install or configure software on the server, contact your network administrator.
 //
-static const int ERROR_INSTALL_REMOTE_DISALLOWED  1640L
+    ERROR_INSTALL_REMOTE_DISALLOWED  1640
 
 //
 // MessageId: ERROR_SUCCESS_REBOOT_INITIATED
@@ -9465,7 +9411,7 @@ static const int ERROR_INSTALL_REMOTE_DISALLOWED  1640L
 //
 // The requested operation completed successfully. The system will be restarted so the changes can take effect.
 //
-static const int ERROR_SUCCESS_REBOOT_INITIATED   1641L
+    ERROR_SUCCESS_REBOOT_INITIATED   1641
 
 //
 // MessageId: ERROR_PATCH_TARGET_NOT_FOUND
@@ -9474,7 +9420,7 @@ static const int ERROR_SUCCESS_REBOOT_INITIATED   1641L
 //
 // The upgrade cannot be installed by the Windows Installer service because the program to be upgraded may be missing, or the upgrade may update a different version of the program. Verify that the program to be upgraded exists on your computer and that you have the correct upgrade.
 //
-static const int ERROR_PATCH_TARGET_NOT_FOUND     1642L
+    ERROR_PATCH_TARGET_NOT_FOUND     1642
 
 //
 // MessageId: ERROR_PATCH_PACKAGE_REJECTED
@@ -9483,7 +9429,7 @@ static const int ERROR_PATCH_TARGET_NOT_FOUND     1642L
 //
 // The update package is not permitted by software restriction policy.
 //
-static const int ERROR_PATCH_PACKAGE_REJECTED     1643L
+    ERROR_PATCH_PACKAGE_REJECTED     1643
 
 //
 // MessageId: ERROR_INSTALL_TRANSFORM_REJECTED
@@ -9492,7 +9438,7 @@ static const int ERROR_PATCH_PACKAGE_REJECTED     1643L
 //
 // One or more customizations are not permitted by software restriction policy.
 //
-static const int ERROR_INSTALL_TRANSFORM_REJECTED 1644L
+    ERROR_INSTALL_TRANSFORM_REJECTED 1644
 
 //
 // MessageId: ERROR_INSTALL_REMOTE_PROHIBITED
@@ -9501,7 +9447,7 @@ static const int ERROR_INSTALL_TRANSFORM_REJECTED 1644L
 //
 // The Windows Installer does not permit installation from a Remote Desktop Connection.
 //
-static const int ERROR_INSTALL_REMOTE_PROHIBITED  1645L
+    ERROR_INSTALL_REMOTE_PROHIBITED  1645
 
 //
 // MessageId: ERROR_PATCH_REMOVAL_UNSUPPORTED
@@ -9510,7 +9456,7 @@ static const int ERROR_INSTALL_REMOTE_PROHIBITED  1645L
 //
 // Uninstallation of the update package is not supported.
 //
-static const int ERROR_PATCH_REMOVAL_UNSUPPORTED  1646L
+    ERROR_PATCH_REMOVAL_UNSUPPORTED  1646
 
 //
 // MessageId: ERROR_UNKNOWN_PATCH
@@ -9519,7 +9465,7 @@ static const int ERROR_PATCH_REMOVAL_UNSUPPORTED  1646L
 //
 // The update is not applied to this product.
 //
-static const int ERROR_UNKNOWN_PATCH              1647L
+    ERROR_UNKNOWN_PATCH              1647
 
 //
 // MessageId: ERROR_PATCH_NO_SEQUENCE
@@ -9528,7 +9474,7 @@ static const int ERROR_UNKNOWN_PATCH              1647L
 //
 // No valid sequence could be found for the set of updates.
 //
-static const int ERROR_PATCH_NO_SEQUENCE          1648L
+    ERROR_PATCH_NO_SEQUENCE          1648
 
 //
 // MessageId: ERROR_PATCH_REMOVAL_DISALLOWED
@@ -9537,7 +9483,7 @@ static const int ERROR_PATCH_NO_SEQUENCE          1648L
 //
 // Update removal was disallowed by policy.
 //
-static const int ERROR_PATCH_REMOVAL_DISALLOWED   1649L
+    ERROR_PATCH_REMOVAL_DISALLOWED   1649
 
 //
 // MessageId: ERROR_INVALID_PATCH_XML
@@ -9546,7 +9492,7 @@ static const int ERROR_PATCH_REMOVAL_DISALLOWED   1649L
 //
 // The XML update data is invalid.
 //
-static const int ERROR_INVALID_PATCH_XML          1650L
+    ERROR_INVALID_PATCH_XML          1650
 
 //
 // MessageId: ERROR_PATCH_MANAGED_ADVERTISED_PRODUCT
@@ -9555,7 +9501,7 @@ static const int ERROR_INVALID_PATCH_XML          1650L
 //
 // Windows Installer does not permit updating of managed advertised products. At least one feature of the product must be installed before applying the update.
 //
-static const int ERROR_PATCH_MANAGED_ADVERTISED_PRODUCT 1651L
+    ERROR_PATCH_MANAGED_ADVERTISED_PRODUCT 1651
 
 //
 // MessageId: ERROR_INSTALL_SERVICE_SAFEBOOT
@@ -9564,7 +9510,7 @@ static const int ERROR_PATCH_MANAGED_ADVERTISED_PRODUCT 1651L
 //
 // The Windows Installer service is not accessible in Safe Mode. Please try again when your computer is not in Safe Mode or you can use System Restore to return your machine to a previous good state.
 //
-static const int ERROR_INSTALL_SERVICE_SAFEBOOT   1652L
+    ERROR_INSTALL_SERVICE_SAFEBOOT   1652
 
 //
 // MessageId: ERROR_FAIL_FAST_EXCEPTION
@@ -9573,7 +9519,7 @@ static const int ERROR_INSTALL_SERVICE_SAFEBOOT   1652L
 //
 // A fail fast exception occurred. Exception handlers will not be invoked and the process will be terminated immediately.
 //
-static const int ERROR_FAIL_FAST_EXCEPTION        1653L
+    ERROR_FAIL_FAST_EXCEPTION        1653
 
 //
 // MessageId: ERROR_INSTALL_REJECTED
@@ -9582,7 +9528,7 @@ static const int ERROR_FAIL_FAST_EXCEPTION        1653L
 //
 // The app that you are trying to run is not supported on this version of Windows.
 //
-static const int ERROR_INSTALL_REJECTED           1654L
+    ERROR_INSTALL_REJECTED           1654
 
 //
 // MessageId: ERROR_DYNAMIC_CODE_BLOCKED
@@ -9591,7 +9537,7 @@ static const int ERROR_INSTALL_REJECTED           1654L
 //
 // The operation was blocked as the process prohibits dynamic code generation.
 //
-static const int ERROR_DYNAMIC_CODE_BLOCKED       1655L
+    ERROR_DYNAMIC_CODE_BLOCKED       1655
 
 //
 // MessageId: ERROR_NOT_SAME_OBJECT
@@ -9600,7 +9546,7 @@ static const int ERROR_DYNAMIC_CODE_BLOCKED       1655L
 //
 // The objects are not identical.
 //
-static const int ERROR_NOT_SAME_OBJECT            1656L
+    ERROR_NOT_SAME_OBJECT            1656
 
 //
 // MessageId: ERROR_STRICT_CFG_VIOLATION
@@ -9609,7 +9555,7 @@ static const int ERROR_NOT_SAME_OBJECT            1656L
 //
 // The specified image file was blocked from loading because it does not enable a feature required by the process: Control Flow Guard.
 //
-static const int ERROR_STRICT_CFG_VIOLATION       1657L
+    ERROR_STRICT_CFG_VIOLATION       1657
 
 //
 // MessageId: ERROR_SET_CONTEXT_DENIED
@@ -9618,7 +9564,7 @@ static const int ERROR_STRICT_CFG_VIOLATION       1657L
 //
 // The thread context could not be updated because this has been restricted for the process.
 //
-static const int ERROR_SET_CONTEXT_DENIED         1660L
+    ERROR_SET_CONTEXT_DENIED         1660
 
 //
 // MessageId: ERROR_CROSS_PARTITION_VIOLATION
@@ -9627,7 +9573,7 @@ static const int ERROR_SET_CONTEXT_DENIED         1660L
 //
 // An invalid cross-partition private file/section access was attempted.
 //
-static const int ERROR_CROSS_PARTITION_VIOLATION  1661L
+    ERROR_CROSS_PARTITION_VIOLATION  1661
 
 
 ///////////////////////////////////////////////////
@@ -9644,7 +9590,7 @@ static const int ERROR_CROSS_PARTITION_VIOLATION  1661L
 //
 // The string binding is invalid.
 //
-static const int RPC_S_INVALID_STRING_BINDING     1700L
+    RPC_S_INVALID_STRING_BINDING     1700
 
 //
 // MessageId: RPC_S_WRONG_KIND_OF_BINDING
@@ -9653,7 +9599,7 @@ static const int RPC_S_INVALID_STRING_BINDING     1700L
 //
 // The binding handle is not the correct type.
 //
-static const int RPC_S_WRONG_KIND_OF_BINDING      1701L
+    RPC_S_WRONG_KIND_OF_BINDING      1701
 
 //
 // MessageId: RPC_S_INVALID_BINDING
@@ -9662,7 +9608,7 @@ static const int RPC_S_WRONG_KIND_OF_BINDING      1701L
 //
 // The binding handle is invalid.
 //
-static const int RPC_S_INVALID_BINDING            1702L
+    RPC_S_INVALID_BINDING            1702
 
 //
 // MessageId: RPC_S_PROTSEQ_NOT_SUPPORTED
@@ -9671,7 +9617,7 @@ static const int RPC_S_INVALID_BINDING            1702L
 //
 // The RPC protocol sequence is not supported.
 //
-static const int RPC_S_PROTSEQ_NOT_SUPPORTED      1703L
+    RPC_S_PROTSEQ_NOT_SUPPORTED      1703
 
 //
 // MessageId: RPC_S_INVALID_RPC_PROTSEQ
@@ -9680,7 +9626,7 @@ static const int RPC_S_PROTSEQ_NOT_SUPPORTED      1703L
 //
 // The RPC protocol sequence is invalid.
 //
-static const int RPC_S_INVALID_RPC_PROTSEQ        1704L
+    RPC_S_INVALID_RPC_PROTSEQ        1704
 
 //
 // MessageId: RPC_S_INVALID_STRING_UUID
@@ -9689,7 +9635,7 @@ static const int RPC_S_INVALID_RPC_PROTSEQ        1704L
 //
 // The string universal unique identifier (UUID) is invalid.
 //
-static const int RPC_S_INVALID_STRING_UUID        1705L
+    RPC_S_INVALID_STRING_UUID        1705
 
 //
 // MessageId: RPC_S_INVALID_ENDPOINT_FORMAT
@@ -9698,7 +9644,7 @@ static const int RPC_S_INVALID_STRING_UUID        1705L
 //
 // The endpoint format is invalid.
 //
-static const int RPC_S_INVALID_ENDPOINT_FORMAT    1706L
+    RPC_S_INVALID_ENDPOINT_FORMAT    1706
 
 //
 // MessageId: RPC_S_INVALID_NET_ADDR
@@ -9707,7 +9653,7 @@ static const int RPC_S_INVALID_ENDPOINT_FORMAT    1706L
 //
 // The network address is invalid.
 //
-static const int RPC_S_INVALID_NET_ADDR           1707L
+    RPC_S_INVALID_NET_ADDR           1707
 
 //
 // MessageId: RPC_S_NO_ENDPOINT_FOUND
@@ -9716,7 +9662,7 @@ static const int RPC_S_INVALID_NET_ADDR           1707L
 //
 // No endpoint was found.
 //
-static const int RPC_S_NO_ENDPOINT_FOUND          1708L
+    RPC_S_NO_ENDPOINT_FOUND          1708
 
 //
 // MessageId: RPC_S_INVALID_TIMEOUT
@@ -9725,7 +9671,7 @@ static const int RPC_S_NO_ENDPOINT_FOUND          1708L
 //
 // The timeout value is invalid.
 //
-static const int RPC_S_INVALID_TIMEOUT            1709L
+    RPC_S_INVALID_TIMEOUT            1709
 
 //
 // MessageId: RPC_S_OBJECT_NOT_FOUND
@@ -9734,7 +9680,7 @@ static const int RPC_S_INVALID_TIMEOUT            1709L
 //
 // The object universal unique identifier (UUID) was not found.
 //
-static const int RPC_S_OBJECT_NOT_FOUND           1710L
+    RPC_S_OBJECT_NOT_FOUND           1710
 
 //
 // MessageId: RPC_S_ALREADY_REGISTERED
@@ -9743,7 +9689,7 @@ static const int RPC_S_OBJECT_NOT_FOUND           1710L
 //
 // The object universal unique identifier (UUID) has already been registered.
 //
-static const int RPC_S_ALREADY_REGISTERED         1711L
+    RPC_S_ALREADY_REGISTERED         1711
 
 //
 // MessageId: RPC_S_TYPE_ALREADY_REGISTERED
@@ -9752,7 +9698,7 @@ static const int RPC_S_ALREADY_REGISTERED         1711L
 //
 // The type universal unique identifier (UUID) has already been registered.
 //
-static const int RPC_S_TYPE_ALREADY_REGISTERED    1712L
+    RPC_S_TYPE_ALREADY_REGISTERED    1712
 
 //
 // MessageId: RPC_S_ALREADY_LISTENING
@@ -9761,7 +9707,7 @@ static const int RPC_S_TYPE_ALREADY_REGISTERED    1712L
 //
 // The RPC server is already listening.
 //
-static const int RPC_S_ALREADY_LISTENING          1713L
+    RPC_S_ALREADY_LISTENING          1713
 
 //
 // MessageId: RPC_S_NO_PROTSEQS_REGISTERED
@@ -9770,7 +9716,7 @@ static const int RPC_S_ALREADY_LISTENING          1713L
 //
 // No protocol sequences have been registered.
 //
-static const int RPC_S_NO_PROTSEQS_REGISTERED     1714L
+    RPC_S_NO_PROTSEQS_REGISTERED     1714
 
 //
 // MessageId: RPC_S_NOT_LISTENING
@@ -9779,7 +9725,7 @@ static const int RPC_S_NO_PROTSEQS_REGISTERED     1714L
 //
 // The RPC server is not listening.
 //
-static const int RPC_S_NOT_LISTENING              1715L
+    RPC_S_NOT_LISTENING              1715
 
 //
 // MessageId: RPC_S_UNKNOWN_MGR_TYPE
@@ -9788,7 +9734,7 @@ static const int RPC_S_NOT_LISTENING              1715L
 //
 // The manager type is unknown.
 //
-static const int RPC_S_UNKNOWN_MGR_TYPE           1716L
+    RPC_S_UNKNOWN_MGR_TYPE           1716
 
 //
 // MessageId: RPC_S_UNKNOWN_IF
@@ -9797,7 +9743,7 @@ static const int RPC_S_UNKNOWN_MGR_TYPE           1716L
 //
 // The interface is unknown.
 //
-static const int RPC_S_UNKNOWN_IF                 1717L
+    RPC_S_UNKNOWN_IF                 1717
 
 //
 // MessageId: RPC_S_NO_BINDINGS
@@ -9806,7 +9752,7 @@ static const int RPC_S_UNKNOWN_IF                 1717L
 //
 // There are no bindings.
 //
-static const int RPC_S_NO_BINDINGS                1718L
+    RPC_S_NO_BINDINGS                1718
 
 //
 // MessageId: RPC_S_NO_PROTSEQS
@@ -9815,7 +9761,7 @@ static const int RPC_S_NO_BINDINGS                1718L
 //
 // There are no protocol sequences.
 //
-static const int RPC_S_NO_PROTSEQS                1719L
+    RPC_S_NO_PROTSEQS                1719
 
 //
 // MessageId: RPC_S_CANT_CREATE_ENDPOINT
@@ -9824,7 +9770,7 @@ static const int RPC_S_NO_PROTSEQS                1719L
 //
 // The endpoint cannot be created.
 //
-static const int RPC_S_CANT_CREATE_ENDPOINT       1720L
+    RPC_S_CANT_CREATE_ENDPOINT       1720
 
 //
 // MessageId: RPC_S_OUT_OF_RESOURCES
@@ -9833,7 +9779,7 @@ static const int RPC_S_CANT_CREATE_ENDPOINT       1720L
 //
 // Not enough resources are available to complete this operation.
 //
-static const int RPC_S_OUT_OF_RESOURCES           1721L
+    RPC_S_OUT_OF_RESOURCES           1721
 
 //
 // MessageId: RPC_S_SERVER_UNAVAILABLE
@@ -9842,7 +9788,7 @@ static const int RPC_S_OUT_OF_RESOURCES           1721L
 //
 // The RPC server is unavailable.
 //
-static const int RPC_S_SERVER_UNAVAILABLE         1722L
+    RPC_S_SERVER_UNAVAILABLE         1722
 
 //
 // MessageId: RPC_S_SERVER_TOO_BUSY
@@ -9851,7 +9797,7 @@ static const int RPC_S_SERVER_UNAVAILABLE         1722L
 //
 // The RPC server is too busy to complete this operation.
 //
-static const int RPC_S_SERVER_TOO_BUSY            1723L
+    RPC_S_SERVER_TOO_BUSY            1723
 
 //
 // MessageId: RPC_S_INVALID_NETWORK_OPTIONS
@@ -9860,7 +9806,7 @@ static const int RPC_S_SERVER_TOO_BUSY            1723L
 //
 // The network options are invalid.
 //
-static const int RPC_S_INVALID_NETWORK_OPTIONS    1724L
+    RPC_S_INVALID_NETWORK_OPTIONS    1724
 
 //
 // MessageId: RPC_S_NO_CALL_ACTIVE
@@ -9869,7 +9815,7 @@ static const int RPC_S_INVALID_NETWORK_OPTIONS    1724L
 //
 // There are no remote procedure calls active on this thread.
 //
-static const int RPC_S_NO_CALL_ACTIVE             1725L
+    RPC_S_NO_CALL_ACTIVE             1725
 
 //
 // MessageId: RPC_S_CALL_FAILED
@@ -9878,7 +9824,7 @@ static const int RPC_S_NO_CALL_ACTIVE             1725L
 //
 // The remote procedure call failed.
 //
-static const int RPC_S_CALL_FAILED                1726L
+    RPC_S_CALL_FAILED                1726
 
 //
 // MessageId: RPC_S_CALL_FAILED_DNE
@@ -9887,7 +9833,7 @@ static const int RPC_S_CALL_FAILED                1726L
 //
 // The remote procedure call failed and did not execute.
 //
-static const int RPC_S_CALL_FAILED_DNE            1727L
+    RPC_S_CALL_FAILED_DNE            1727
 
 //
 // MessageId: RPC_S_PROTOCOL_ERROR
@@ -9896,7 +9842,7 @@ static const int RPC_S_CALL_FAILED_DNE            1727L
 //
 // A remote procedure call (RPC) protocol error occurred.
 //
-static const int RPC_S_PROTOCOL_ERROR             1728L
+    RPC_S_PROTOCOL_ERROR             1728
 
 //
 // MessageId: RPC_S_PROXY_ACCESS_DENIED
@@ -9905,7 +9851,7 @@ static const int RPC_S_PROTOCOL_ERROR             1728L
 //
 // Access to the HTTP proxy is denied.
 //
-static const int RPC_S_PROXY_ACCESS_DENIED        1729L
+    RPC_S_PROXY_ACCESS_DENIED        1729
 
 //
 // MessageId: RPC_S_UNSUPPORTED_TRANS_SYN
@@ -9914,7 +9860,7 @@ static const int RPC_S_PROXY_ACCESS_DENIED        1729L
 //
 // The transfer syntax is not supported by the RPC server.
 //
-static const int RPC_S_UNSUPPORTED_TRANS_SYN      1730L
+    RPC_S_UNSUPPORTED_TRANS_SYN      1730
 
 //
 // MessageId: RPC_S_UNSUPPORTED_TYPE
@@ -9923,7 +9869,7 @@ static const int RPC_S_UNSUPPORTED_TRANS_SYN      1730L
 //
 // The universal unique identifier (UUID) type is not supported.
 //
-static const int RPC_S_UNSUPPORTED_TYPE           1732L
+    RPC_S_UNSUPPORTED_TYPE           1732
 
 //
 // MessageId: RPC_S_INVALID_TAG
@@ -9932,7 +9878,7 @@ static const int RPC_S_UNSUPPORTED_TYPE           1732L
 //
 // The tag is invalid.
 //
-static const int RPC_S_INVALID_TAG                1733L
+    RPC_S_INVALID_TAG                1733
 
 //
 // MessageId: RPC_S_INVALID_BOUND
@@ -9941,7 +9887,7 @@ static const int RPC_S_INVALID_TAG                1733L
 //
 // The array bounds are invalid.
 //
-static const int RPC_S_INVALID_BOUND              1734L
+    RPC_S_INVALID_BOUND              1734
 
 //
 // MessageId: RPC_S_NO_ENTRY_NAME
@@ -9950,7 +9896,7 @@ static const int RPC_S_INVALID_BOUND              1734L
 //
 // The binding does not contain an entry name.
 //
-static const int RPC_S_NO_ENTRY_NAME              1735L
+    RPC_S_NO_ENTRY_NAME              1735
 
 //
 // MessageId: RPC_S_INVALID_NAME_SYNTAX
@@ -9959,7 +9905,7 @@ static const int RPC_S_NO_ENTRY_NAME              1735L
 //
 // The name syntax is invalid.
 //
-static const int RPC_S_INVALID_NAME_SYNTAX        1736L
+    RPC_S_INVALID_NAME_SYNTAX        1736
 
 //
 // MessageId: RPC_S_UNSUPPORTED_NAME_SYNTAX
@@ -9968,7 +9914,7 @@ static const int RPC_S_INVALID_NAME_SYNTAX        1736L
 //
 // The name syntax is not supported.
 //
-static const int RPC_S_UNSUPPORTED_NAME_SYNTAX    1737L
+    RPC_S_UNSUPPORTED_NAME_SYNTAX    1737
 
 //
 // MessageId: RPC_S_UUID_NO_ADDRESS
@@ -9977,7 +9923,7 @@ static const int RPC_S_UNSUPPORTED_NAME_SYNTAX    1737L
 //
 // No network address is available to use to construct a universal unique identifier (UUID).
 //
-static const int RPC_S_UUID_NO_ADDRESS            1739L
+    RPC_S_UUID_NO_ADDRESS            1739
 
 //
 // MessageId: RPC_S_DUPLICATE_ENDPOINT
@@ -9986,7 +9932,7 @@ static const int RPC_S_UUID_NO_ADDRESS            1739L
 //
 // The endpoint is a duplicate.
 //
-static const int RPC_S_DUPLICATE_ENDPOINT         1740L
+    RPC_S_DUPLICATE_ENDPOINT         1740
 
 //
 // MessageId: RPC_S_UNKNOWN_AUTHN_TYPE
@@ -9995,7 +9941,7 @@ static const int RPC_S_DUPLICATE_ENDPOINT         1740L
 //
 // The authentication type is unknown.
 //
-static const int RPC_S_UNKNOWN_AUTHN_TYPE         1741L
+    RPC_S_UNKNOWN_AUTHN_TYPE         1741
 
 //
 // MessageId: RPC_S_MAX_CALLS_TOO_SMALL
@@ -10004,7 +9950,7 @@ static const int RPC_S_UNKNOWN_AUTHN_TYPE         1741L
 //
 // The maximum number of calls is too small.
 //
-static const int RPC_S_MAX_CALLS_TOO_SMALL        1742L
+    RPC_S_MAX_CALLS_TOO_SMALL        1742
 
 //
 // MessageId: RPC_S_STRING_TOO_LONG
@@ -10013,7 +9959,7 @@ static const int RPC_S_MAX_CALLS_TOO_SMALL        1742L
 //
 // The string is too long.
 //
-static const int RPC_S_STRING_TOO_LONG            1743L
+    RPC_S_STRING_TOO_LONG            1743
 
 //
 // MessageId: RPC_S_PROTSEQ_NOT_FOUND
@@ -10022,7 +9968,7 @@ static const int RPC_S_STRING_TOO_LONG            1743L
 //
 // The RPC protocol sequence was not found.
 //
-static const int RPC_S_PROTSEQ_NOT_FOUND          1744L
+    RPC_S_PROTSEQ_NOT_FOUND          1744
 
 //
 // MessageId: RPC_S_PROCNUM_OUT_OF_RANGE
@@ -10031,7 +9977,7 @@ static const int RPC_S_PROTSEQ_NOT_FOUND          1744L
 //
 // The procedure number is out of range.
 //
-static const int RPC_S_PROCNUM_OUT_OF_RANGE       1745L
+    RPC_S_PROCNUM_OUT_OF_RANGE       1745
 
 //
 // MessageId: RPC_S_BINDING_HAS_NO_AUTH
@@ -10040,7 +9986,7 @@ static const int RPC_S_PROCNUM_OUT_OF_RANGE       1745L
 //
 // The binding does not contain any authentication information.
 //
-static const int RPC_S_BINDING_HAS_NO_AUTH        1746L
+    RPC_S_BINDING_HAS_NO_AUTH        1746
 
 //
 // MessageId: RPC_S_UNKNOWN_AUTHN_SERVICE
@@ -10049,7 +9995,7 @@ static const int RPC_S_BINDING_HAS_NO_AUTH        1746L
 //
 // The authentication service is unknown.
 //
-static const int RPC_S_UNKNOWN_AUTHN_SERVICE      1747L
+    RPC_S_UNKNOWN_AUTHN_SERVICE      1747
 
 //
 // MessageId: RPC_S_UNKNOWN_AUTHN_LEVEL
@@ -10058,7 +10004,7 @@ static const int RPC_S_UNKNOWN_AUTHN_SERVICE      1747L
 //
 // The authentication level is unknown.
 //
-static const int RPC_S_UNKNOWN_AUTHN_LEVEL        1748L
+    RPC_S_UNKNOWN_AUTHN_LEVEL        1748
 
 //
 // MessageId: RPC_S_INVALID_AUTH_IDENTITY
@@ -10067,7 +10013,7 @@ static const int RPC_S_UNKNOWN_AUTHN_LEVEL        1748L
 //
 // The security context is invalid.
 //
-static const int RPC_S_INVALID_AUTH_IDENTITY      1749L
+    RPC_S_INVALID_AUTH_IDENTITY      1749
 
 //
 // MessageId: RPC_S_UNKNOWN_AUTHZ_SERVICE
@@ -10076,7 +10022,7 @@ static const int RPC_S_INVALID_AUTH_IDENTITY      1749L
 //
 // The authorization service is unknown.
 //
-static const int RPC_S_UNKNOWN_AUTHZ_SERVICE      1750L
+    RPC_S_UNKNOWN_AUTHZ_SERVICE      1750
 
 //
 // MessageId: EPT_S_INVALID_ENTRY
@@ -10085,7 +10031,7 @@ static const int RPC_S_UNKNOWN_AUTHZ_SERVICE      1750L
 //
 // The entry is invalid.
 //
-static const int EPT_S_INVALID_ENTRY              1751L
+    EPT_S_INVALID_ENTRY              1751
 
 //
 // MessageId: EPT_S_CANT_PERFORM_OP
@@ -10094,7 +10040,7 @@ static const int EPT_S_INVALID_ENTRY              1751L
 //
 // The server endpoint cannot perform the operation.
 //
-static const int EPT_S_CANT_PERFORM_OP            1752L
+    EPT_S_CANT_PERFORM_OP            1752
 
 //
 // MessageId: EPT_S_NOT_REGISTERED
@@ -10103,7 +10049,7 @@ static const int EPT_S_CANT_PERFORM_OP            1752L
 //
 // There are no more endpoints available from the endpoint mapper.
 //
-static const int EPT_S_NOT_REGISTERED             1753L
+    EPT_S_NOT_REGISTERED             1753
 
 //
 // MessageId: RPC_S_NOTHING_TO_EXPORT
@@ -10112,7 +10058,7 @@ static const int EPT_S_NOT_REGISTERED             1753L
 //
 // No interfaces have been exported.
 //
-static const int RPC_S_NOTHING_TO_EXPORT          1754L
+    RPC_S_NOTHING_TO_EXPORT          1754
 
 //
 // MessageId: RPC_S_INCOMPLETE_NAME
@@ -10121,7 +10067,7 @@ static const int RPC_S_NOTHING_TO_EXPORT          1754L
 //
 // The entry name is incomplete.
 //
-static const int RPC_S_INCOMPLETE_NAME            1755L
+    RPC_S_INCOMPLETE_NAME            1755
 
 //
 // MessageId: RPC_S_INVALID_VERS_OPTION
@@ -10130,7 +10076,7 @@ static const int RPC_S_INCOMPLETE_NAME            1755L
 //
 // The version option is invalid.
 //
-static const int RPC_S_INVALID_VERS_OPTION        1756L
+    RPC_S_INVALID_VERS_OPTION        1756
 
 //
 // MessageId: RPC_S_NO_MORE_MEMBERS
@@ -10139,7 +10085,7 @@ static const int RPC_S_INVALID_VERS_OPTION        1756L
 //
 // There are no more members.
 //
-static const int RPC_S_NO_MORE_MEMBERS            1757L
+    RPC_S_NO_MORE_MEMBERS            1757
 
 //
 // MessageId: RPC_S_NOT_ALL_OBJS_UNEXPORTED
@@ -10148,7 +10094,7 @@ static const int RPC_S_NO_MORE_MEMBERS            1757L
 //
 // There is nothing to unexport.
 //
-static const int RPC_S_NOT_ALL_OBJS_UNEXPORTED    1758L
+    RPC_S_NOT_ALL_OBJS_UNEXPORTED    1758
 
 //
 // MessageId: RPC_S_INTERFACE_NOT_FOUND
@@ -10157,7 +10103,7 @@ static const int RPC_S_NOT_ALL_OBJS_UNEXPORTED    1758L
 //
 // The interface was not found.
 //
-static const int RPC_S_INTERFACE_NOT_FOUND        1759L
+    RPC_S_INTERFACE_NOT_FOUND        1759
 
 //
 // MessageId: RPC_S_ENTRY_ALREADY_EXISTS
@@ -10166,7 +10112,7 @@ static const int RPC_S_INTERFACE_NOT_FOUND        1759L
 //
 // The entry already exists.
 //
-static const int RPC_S_ENTRY_ALREADY_EXISTS       1760L
+    RPC_S_ENTRY_ALREADY_EXISTS       1760
 
 //
 // MessageId: RPC_S_ENTRY_NOT_FOUND
@@ -10175,7 +10121,7 @@ static const int RPC_S_ENTRY_ALREADY_EXISTS       1760L
 //
 // The entry is not found.
 //
-static const int RPC_S_ENTRY_NOT_FOUND            1761L
+    RPC_S_ENTRY_NOT_FOUND            1761
 
 //
 // MessageId: RPC_S_NAME_SERVICE_UNAVAILABLE
@@ -10184,7 +10130,7 @@ static const int RPC_S_ENTRY_NOT_FOUND            1761L
 //
 // The name service is unavailable.
 //
-static const int RPC_S_NAME_SERVICE_UNAVAILABLE   1762L
+    RPC_S_NAME_SERVICE_UNAVAILABLE   1762
 
 //
 // MessageId: RPC_S_INVALID_NAF_ID
@@ -10193,7 +10139,7 @@ static const int RPC_S_NAME_SERVICE_UNAVAILABLE   1762L
 //
 // The network address family is invalid.
 //
-static const int RPC_S_INVALID_NAF_ID             1763L
+    RPC_S_INVALID_NAF_ID             1763
 
 //
 // MessageId: RPC_S_CANNOT_SUPPORT
@@ -10202,7 +10148,7 @@ static const int RPC_S_INVALID_NAF_ID             1763L
 //
 // The requested operation is not supported.
 //
-static const int RPC_S_CANNOT_SUPPORT             1764L
+    RPC_S_CANNOT_SUPPORT             1764
 
 //
 // MessageId: RPC_S_NO_CONTEXT_AVAILABLE
@@ -10211,7 +10157,7 @@ static const int RPC_S_CANNOT_SUPPORT             1764L
 //
 // No security context is available to allow impersonation.
 //
-static const int RPC_S_NO_CONTEXT_AVAILABLE       1765L
+    RPC_S_NO_CONTEXT_AVAILABLE       1765
 
 //
 // MessageId: RPC_S_INTERNAL_ERROR
@@ -10220,7 +10166,7 @@ static const int RPC_S_NO_CONTEXT_AVAILABLE       1765L
 //
 // An internal error occurred in a remote procedure call (RPC).
 //
-static const int RPC_S_INTERNAL_ERROR             1766L
+    RPC_S_INTERNAL_ERROR             1766
 
 //
 // MessageId: RPC_S_ZERO_DIVIDE
@@ -10229,7 +10175,7 @@ static const int RPC_S_INTERNAL_ERROR             1766L
 //
 // The RPC server attempted an integer division by zero.
 //
-static const int RPC_S_ZERO_DIVIDE                1767L
+    RPC_S_ZERO_DIVIDE                1767
 
 //
 // MessageId: RPC_S_ADDRESS_ERROR
@@ -10238,7 +10184,7 @@ static const int RPC_S_ZERO_DIVIDE                1767L
 //
 // An addressing error occurred in the RPC server.
 //
-static const int RPC_S_ADDRESS_ERROR              1768L
+    RPC_S_ADDRESS_ERROR              1768
 
 //
 // MessageId: RPC_S_FP_DIV_ZERO
@@ -10247,7 +10193,7 @@ static const int RPC_S_ADDRESS_ERROR              1768L
 //
 // A floating-point operation at the RPC server caused a division by zero.
 //
-static const int RPC_S_FP_DIV_ZERO                1769L
+    RPC_S_FP_DIV_ZERO                1769
 
 //
 // MessageId: RPC_S_FP_UNDERFLOW
@@ -10256,7 +10202,7 @@ static const int RPC_S_FP_DIV_ZERO                1769L
 //
 // A floating-point underflow occurred at the RPC server.
 //
-static const int RPC_S_FP_UNDERFLOW               1770L
+    RPC_S_FP_UNDERFLOW               1770
 
 //
 // MessageId: RPC_S_FP_OVERFLOW
@@ -10265,7 +10211,7 @@ static const int RPC_S_FP_UNDERFLOW               1770L
 //
 // A floating-point overflow occurred at the RPC server.
 //
-static const int RPC_S_FP_OVERFLOW                1771L
+    RPC_S_FP_OVERFLOW                1771
 
 //
 // MessageId: RPC_X_NO_MORE_ENTRIES
@@ -10274,7 +10220,7 @@ static const int RPC_S_FP_OVERFLOW                1771L
 //
 // The list of RPC servers available for the binding of auto handles has been exhausted.
 //
-static const int RPC_X_NO_MORE_ENTRIES            1772L
+    RPC_X_NO_MORE_ENTRIES            1772
 
 //
 // MessageId: RPC_X_SS_CHAR_TRANS_OPEN_FAIL
@@ -10283,7 +10229,7 @@ static const int RPC_X_NO_MORE_ENTRIES            1772L
 //
 // Unable to open the character translation table file.
 //
-static const int RPC_X_SS_CHAR_TRANS_OPEN_FAIL    1773L
+    RPC_X_SS_CHAR_TRANS_OPEN_FAIL    1773
 
 //
 // MessageId: RPC_X_SS_CHAR_TRANS_SHORT_FILE
@@ -10292,7 +10238,7 @@ static const int RPC_X_SS_CHAR_TRANS_OPEN_FAIL    1773L
 //
 // The file containing the character translation table has fewer than 512 bytes.
 //
-static const int RPC_X_SS_CHAR_TRANS_SHORT_FILE   1774L
+    RPC_X_SS_CHAR_TRANS_SHORT_FILE   1774
 
 //
 // MessageId: RPC_X_SS_IN_NULL_CONTEXT
@@ -10301,7 +10247,7 @@ static const int RPC_X_SS_CHAR_TRANS_SHORT_FILE   1774L
 //
 // A null context handle was passed from the client to the host during a remote procedure call.
 //
-static const int RPC_X_SS_IN_NULL_CONTEXT         1775L
+    RPC_X_SS_IN_NULL_CONTEXT         1775
 
 //
 // MessageId: RPC_X_SS_CONTEXT_DAMAGED
@@ -10310,7 +10256,7 @@ static const int RPC_X_SS_IN_NULL_CONTEXT         1775L
 //
 // The context handle changed during a remote procedure call.
 //
-static const int RPC_X_SS_CONTEXT_DAMAGED         1777L
+    RPC_X_SS_CONTEXT_DAMAGED         1777
 
 //
 // MessageId: RPC_X_SS_HANDLES_MISMATCH
@@ -10319,7 +10265,7 @@ static const int RPC_X_SS_CONTEXT_DAMAGED         1777L
 //
 // The binding handles passed to a remote procedure call do not match.
 //
-static const int RPC_X_SS_HANDLES_MISMATCH        1778L
+    RPC_X_SS_HANDLES_MISMATCH        1778
 
 //
 // MessageId: RPC_X_SS_CANNOT_GET_CALL_HANDLE
@@ -10328,7 +10274,7 @@ static const int RPC_X_SS_HANDLES_MISMATCH        1778L
 //
 // The stub is unable to get the remote procedure call handle.
 //
-static const int RPC_X_SS_CANNOT_GET_CALL_HANDLE  1779L
+    RPC_X_SS_CANNOT_GET_CALL_HANDLE  1779
 
 //
 // MessageId: RPC_X_NULL_REF_POINTER
@@ -10337,7 +10283,7 @@ static const int RPC_X_SS_CANNOT_GET_CALL_HANDLE  1779L
 //
 // A null reference pointer was passed to the stub.
 //
-static const int RPC_X_NULL_REF_POINTER           1780L
+    RPC_X_NULL_REF_POINTER           1780
 
 //
 // MessageId: RPC_X_ENUM_VALUE_OUT_OF_RANGE
@@ -10346,7 +10292,7 @@ static const int RPC_X_NULL_REF_POINTER           1780L
 //
 // The enumeration value is out of range.
 //
-static const int RPC_X_ENUM_VALUE_OUT_OF_RANGE    1781L
+    RPC_X_ENUM_VALUE_OUT_OF_RANGE    1781
 
 //
 // MessageId: RPC_X_BYTE_COUNT_TOO_SMALL
@@ -10355,7 +10301,7 @@ static const int RPC_X_ENUM_VALUE_OUT_OF_RANGE    1781L
 //
 // The byte count is too small.
 //
-static const int RPC_X_BYTE_COUNT_TOO_SMALL       1782L
+    RPC_X_BYTE_COUNT_TOO_SMALL       1782
 
 //
 // MessageId: RPC_X_BAD_STUB_DATA
@@ -10364,10 +10310,10 @@ static const int RPC_X_BYTE_COUNT_TOO_SMALL       1782L
 //
 // The stub received bad data.
 //
-static const int RPC_X_BAD_STUB_DATA              1783L
+    RPC_X_BAD_STUB_DATA              1783
 --]]
 
-ffi.cdef[[
+--[[
 //
 // MessageId: ERROR_INVALID_USER_BUFFER
 //
@@ -10375,7 +10321,7 @@ ffi.cdef[[
 //
 // The supplied user buffer is not valid for the requested operation.
 //
-static const int ERROR_INVALID_USER_BUFFER     =   1784L;
+    ERROR_INVALID_USER_BUFFER     =   1784,
 ]]
 
 --[[
@@ -10386,7 +10332,7 @@ static const int ERROR_INVALID_USER_BUFFER     =   1784L;
 //
 // The disk media is not recognized. It may not be formatted.
 //
-static const int ERROR_UNRECOGNIZED_MEDIA         1785L
+    ERROR_UNRECOGNIZED_MEDIA         1785
 
 //
 // MessageId: ERROR_NO_TRUST_LSA_SECRET
@@ -10395,7 +10341,7 @@ static const int ERROR_UNRECOGNIZED_MEDIA         1785L
 //
 // The workstation does not have a trust secret.
 //
-static const int ERROR_NO_TRUST_LSA_SECRET        1786L
+    ERROR_NO_TRUST_LSA_SECRET        1786
 
 //
 // MessageId: ERROR_NO_TRUST_SAM_ACCOUNT
@@ -10404,7 +10350,7 @@ static const int ERROR_NO_TRUST_LSA_SECRET        1786L
 //
 // The security database on the server does not have a computer account for this workstation trust relationship.
 //
-static const int ERROR_NO_TRUST_SAM_ACCOUNT       1787L
+    ERROR_NO_TRUST_SAM_ACCOUNT       1787
 
 //
 // MessageId: ERROR_TRUSTED_DOMAIN_FAILURE
@@ -10413,7 +10359,7 @@ static const int ERROR_NO_TRUST_SAM_ACCOUNT       1787L
 //
 // The trust relationship between the primary domain and the trusted domain failed.
 //
-static const int ERROR_TRUSTED_DOMAIN_FAILURE     1788L
+    ERROR_TRUSTED_DOMAIN_FAILURE     1788
 
 //
 // MessageId: ERROR_TRUSTED_RELATIONSHIP_FAILURE
@@ -10422,7 +10368,7 @@ static const int ERROR_TRUSTED_DOMAIN_FAILURE     1788L
 //
 // The trust relationship between this workstation and the primary domain failed.
 //
-static const int ERROR_TRUSTED_RELATIONSHIP_FAILURE 1789L
+    ERROR_TRUSTED_RELATIONSHIP_FAILURE 1789
 
 //
 // MessageId: ERROR_TRUST_FAILURE
@@ -10431,7 +10377,7 @@ static const int ERROR_TRUSTED_RELATIONSHIP_FAILURE 1789L
 //
 // The network logon failed.
 //
-static const int ERROR_TRUST_FAILURE              1790L
+    ERROR_TRUST_FAILURE              1790
 
 //
 // MessageId: RPC_S_CALL_IN_PROGRESS
@@ -10440,7 +10386,7 @@ static const int ERROR_TRUST_FAILURE              1790L
 //
 // A remote procedure call is already in progress for this thread.
 //
-static const int RPC_S_CALL_IN_PROGRESS           1791L
+    RPC_S_CALL_IN_PROGRESS           1791
 
 //
 // MessageId: ERROR_NETLOGON_NOT_STARTED
@@ -10449,7 +10395,7 @@ static const int RPC_S_CALL_IN_PROGRESS           1791L
 //
 // An attempt was made to logon, but the network logon service was not started.
 //
-static const int ERROR_NETLOGON_NOT_STARTED       1792L
+    ERROR_NETLOGON_NOT_STARTED       1792
 
 //
 // MessageId: ERROR_ACCOUNT_EXPIRED
@@ -10458,7 +10404,7 @@ static const int ERROR_NETLOGON_NOT_STARTED       1792L
 //
 // The user's account has expired.
 //
-static const int ERROR_ACCOUNT_EXPIRED            1793L
+    ERROR_ACCOUNT_EXPIRED            1793
 
 //
 // MessageId: ERROR_REDIRECTOR_HAS_OPEN_HANDLES
@@ -10467,7 +10413,7 @@ static const int ERROR_ACCOUNT_EXPIRED            1793L
 //
 // The redirector is in use and cannot be unloaded.
 //
-static const int ERROR_REDIRECTOR_HAS_OPEN_HANDLES 1794L
+    ERROR_REDIRECTOR_HAS_OPEN_HANDLES 1794
 
 //
 // MessageId: ERROR_PRINTER_DRIVER_ALREADY_INSTALLED
@@ -10476,7 +10422,7 @@ static const int ERROR_REDIRECTOR_HAS_OPEN_HANDLES 1794L
 //
 // The specified printer driver is already installed.
 //
-static const int ERROR_PRINTER_DRIVER_ALREADY_INSTALLED 1795L
+    ERROR_PRINTER_DRIVER_ALREADY_INSTALLED 1795
 
 //
 // MessageId: ERROR_UNKNOWN_PORT
@@ -10485,7 +10431,7 @@ static const int ERROR_PRINTER_DRIVER_ALREADY_INSTALLED 1795L
 //
 // The specified port is unknown.
 //
-static const int ERROR_UNKNOWN_PORT               1796L
+    ERROR_UNKNOWN_PORT               1796
 
 //
 // MessageId: ERROR_UNKNOWN_PRINTER_DRIVER
@@ -10494,7 +10440,7 @@ static const int ERROR_UNKNOWN_PORT               1796L
 //
 // The printer driver is unknown.
 //
-static const int ERROR_UNKNOWN_PRINTER_DRIVER     1797L
+    ERROR_UNKNOWN_PRINTER_DRIVER     1797
 
 //
 // MessageId: ERROR_UNKNOWN_PRINTPROCESSOR
@@ -10503,7 +10449,7 @@ static const int ERROR_UNKNOWN_PRINTER_DRIVER     1797L
 //
 // The print processor is unknown.
 //
-static const int ERROR_UNKNOWN_PRINTPROCESSOR     1798L
+    ERROR_UNKNOWN_PRINTPROCESSOR     1798
 
 //
 // MessageId: ERROR_INVALID_SEPARATOR_FILE
@@ -10512,7 +10458,7 @@ static const int ERROR_UNKNOWN_PRINTPROCESSOR     1798L
 //
 // The specified separator file is invalid.
 //
-static const int ERROR_INVALID_SEPARATOR_FILE     1799L
+    ERROR_INVALID_SEPARATOR_FILE     1799
 
 //
 // MessageId: ERROR_INVALID_PRIORITY
@@ -10521,7 +10467,7 @@ static const int ERROR_INVALID_SEPARATOR_FILE     1799L
 //
 // The specified priority is invalid.
 //
-static const int ERROR_INVALID_PRIORITY           1800L
+    ERROR_INVALID_PRIORITY           1800
 
 //
 // MessageId: ERROR_INVALID_PRINTER_NAME
@@ -10530,7 +10476,7 @@ static const int ERROR_INVALID_PRIORITY           1800L
 //
 // The printer name is invalid.
 //
-static const int ERROR_INVALID_PRINTER_NAME       1801L
+    ERROR_INVALID_PRINTER_NAME       1801
 
 //
 // MessageId: ERROR_PRINTER_ALREADY_EXISTS
@@ -10539,7 +10485,7 @@ static const int ERROR_INVALID_PRINTER_NAME       1801L
 //
 // The printer already exists.
 //
-static const int ERROR_PRINTER_ALREADY_EXISTS     1802L
+    ERROR_PRINTER_ALREADY_EXISTS     1802
 
 //
 // MessageId: ERROR_INVALID_PRINTER_COMMAND
@@ -10548,7 +10494,7 @@ static const int ERROR_PRINTER_ALREADY_EXISTS     1802L
 //
 // The printer command is invalid.
 //
-static const int ERROR_INVALID_PRINTER_COMMAND    1803L
+    ERROR_INVALID_PRINTER_COMMAND    1803
 
 //
 // MessageId: ERROR_INVALID_DATATYPE
@@ -10557,7 +10503,7 @@ static const int ERROR_INVALID_PRINTER_COMMAND    1803L
 //
 // The specified datatype is invalid.
 //
-static const int ERROR_INVALID_DATATYPE           1804L
+    ERROR_INVALID_DATATYPE           1804
 
 //
 // MessageId: ERROR_INVALID_ENVIRONMENT
@@ -10566,7 +10512,7 @@ static const int ERROR_INVALID_DATATYPE           1804L
 //
 // The environment specified is invalid.
 //
-static const int ERROR_INVALID_ENVIRONMENT        1805L
+    ERROR_INVALID_ENVIRONMENT        1805
 
 //
 // MessageId: RPC_S_NO_MORE_BINDINGS
@@ -10575,7 +10521,7 @@ static const int ERROR_INVALID_ENVIRONMENT        1805L
 //
 // There are no more bindings.
 //
-static const int RPC_S_NO_MORE_BINDINGS           1806L
+    RPC_S_NO_MORE_BINDINGS           1806
 
 //
 // MessageId: ERROR_NOLOGON_INTERDOMAIN_TRUST_ACCOUNT
@@ -10584,7 +10530,7 @@ static const int RPC_S_NO_MORE_BINDINGS           1806L
 //
 // The account used is an interdomain trust account. Use your global user account or local user account to access this server.
 //
-static const int ERROR_NOLOGON_INTERDOMAIN_TRUST_ACCOUNT 1807L
+    ERROR_NOLOGON_INTERDOMAIN_TRUST_ACCOUNT 1807
 
 //
 // MessageId: ERROR_NOLOGON_WORKSTATION_TRUST_ACCOUNT
@@ -10593,7 +10539,7 @@ static const int ERROR_NOLOGON_INTERDOMAIN_TRUST_ACCOUNT 1807L
 //
 // The account used is a computer account. Use your global user account or local user account to access this server.
 //
-static const int ERROR_NOLOGON_WORKSTATION_TRUST_ACCOUNT 1808L
+    ERROR_NOLOGON_WORKSTATION_TRUST_ACCOUNT 1808
 
 //
 // MessageId: ERROR_NOLOGON_SERVER_TRUST_ACCOUNT
@@ -10602,7 +10548,7 @@ static const int ERROR_NOLOGON_WORKSTATION_TRUST_ACCOUNT 1808L
 //
 // The account used is a server trust account. Use your global user account or local user account to access this server.
 //
-static const int ERROR_NOLOGON_SERVER_TRUST_ACCOUNT 1809L
+    ERROR_NOLOGON_SERVER_TRUST_ACCOUNT 1809
 
 //
 // MessageId: ERROR_DOMAIN_TRUST_INCONSISTENT
@@ -10611,7 +10557,7 @@ static const int ERROR_NOLOGON_SERVER_TRUST_ACCOUNT 1809L
 //
 // The name or security ID (SID) of the domain specified is inconsistent with the trust information for that domain.
 //
-static const int ERROR_DOMAIN_TRUST_INCONSISTENT  1810L
+    ERROR_DOMAIN_TRUST_INCONSISTENT  1810
 
 //
 // MessageId: ERROR_SERVER_HAS_OPEN_HANDLES
@@ -10620,7 +10566,7 @@ static const int ERROR_DOMAIN_TRUST_INCONSISTENT  1810L
 //
 // The server is in use and cannot be unloaded.
 //
-static const int ERROR_SERVER_HAS_OPEN_HANDLES    1811L
+    ERROR_SERVER_HAS_OPEN_HANDLES    1811
 
 //
 // MessageId: ERROR_RESOURCE_DATA_NOT_FOUND
@@ -10629,7 +10575,7 @@ static const int ERROR_SERVER_HAS_OPEN_HANDLES    1811L
 //
 // The specified image file did not contain a resource section.
 //
-static const int ERROR_RESOURCE_DATA_NOT_FOUND    1812L
+    ERROR_RESOURCE_DATA_NOT_FOUND    1812
 
 //
 // MessageId: ERROR_RESOURCE_TYPE_NOT_FOUND
@@ -10638,7 +10584,7 @@ static const int ERROR_RESOURCE_DATA_NOT_FOUND    1812L
 //
 // The specified resource type cannot be found in the image file.
 //
-static const int ERROR_RESOURCE_TYPE_NOT_FOUND    1813L
+    ERROR_RESOURCE_TYPE_NOT_FOUND    1813
 
 //
 // MessageId: ERROR_RESOURCE_NAME_NOT_FOUND
@@ -10647,7 +10593,7 @@ static const int ERROR_RESOURCE_TYPE_NOT_FOUND    1813L
 //
 // The specified resource name cannot be found in the image file.
 //
-static const int ERROR_RESOURCE_NAME_NOT_FOUND    1814L
+    ERROR_RESOURCE_NAME_NOT_FOUND    1814
 
 //
 // MessageId: ERROR_RESOURCE_LANG_NOT_FOUND
@@ -10656,7 +10602,7 @@ static const int ERROR_RESOURCE_NAME_NOT_FOUND    1814L
 //
 // The specified resource language ID cannot be found in the image file.
 //
-static const int ERROR_RESOURCE_LANG_NOT_FOUND    1815L
+    ERROR_RESOURCE_LANG_NOT_FOUND    1815
 
 //
 // MessageId: ERROR_NOT_ENOUGH_QUOTA
@@ -10665,7 +10611,7 @@ static const int ERROR_RESOURCE_LANG_NOT_FOUND    1815L
 //
 // Not enough quota is available to process this command.
 //
-static const int ERROR_NOT_ENOUGH_QUOTA           1816L
+    ERROR_NOT_ENOUGH_QUOTA           1816
 
 //
 // MessageId: RPC_S_NO_INTERFACES
@@ -10674,7 +10620,7 @@ static const int ERROR_NOT_ENOUGH_QUOTA           1816L
 //
 // No interfaces have been registered.
 //
-static const int RPC_S_NO_INTERFACES              1817L
+    RPC_S_NO_INTERFACES              1817
 
 //
 // MessageId: RPC_S_CALL_CANCELLED
@@ -10683,7 +10629,7 @@ static const int RPC_S_NO_INTERFACES              1817L
 //
 // The remote procedure call was cancelled.
 //
-static const int RPC_S_CALL_CANCELLED             1818L
+    RPC_S_CALL_CANCELLED             1818
 
 //
 // MessageId: RPC_S_BINDING_INCOMPLETE
@@ -10692,7 +10638,7 @@ static const int RPC_S_CALL_CANCELLED             1818L
 //
 // The binding handle does not contain all required information.
 //
-static const int RPC_S_BINDING_INCOMPLETE         1819L
+    RPC_S_BINDING_INCOMPLETE         1819
 
 //
 // MessageId: RPC_S_COMM_FAILURE
@@ -10701,7 +10647,7 @@ static const int RPC_S_BINDING_INCOMPLETE         1819L
 //
 // A communications failure occurred during a remote procedure call.
 //
-static const int RPC_S_COMM_FAILURE               1820L
+    RPC_S_COMM_FAILURE               1820
 
 //
 // MessageId: RPC_S_UNSUPPORTED_AUTHN_LEVEL
@@ -10710,7 +10656,7 @@ static const int RPC_S_COMM_FAILURE               1820L
 //
 // The requested authentication level is not supported.
 //
-static const int RPC_S_UNSUPPORTED_AUTHN_LEVEL    1821L
+    RPC_S_UNSUPPORTED_AUTHN_LEVEL    1821
 
 //
 // MessageId: RPC_S_NO_PRINC_NAME
@@ -10719,7 +10665,7 @@ static const int RPC_S_UNSUPPORTED_AUTHN_LEVEL    1821L
 //
 // No principal name registered.
 //
-static const int RPC_S_NO_PRINC_NAME              1822L
+    RPC_S_NO_PRINC_NAME              1822
 
 //
 // MessageId: RPC_S_NOT_RPC_ERROR
@@ -10728,7 +10674,7 @@ static const int RPC_S_NO_PRINC_NAME              1822L
 //
 // The error specified is not a valid Windows RPC error code.
 //
-static const int RPC_S_NOT_RPC_ERROR              1823L
+    RPC_S_NOT_RPC_ERROR              1823
 
 //
 // MessageId: RPC_S_UUID_LOCAL_ONLY
@@ -10737,7 +10683,7 @@ static const int RPC_S_NOT_RPC_ERROR              1823L
 //
 // A UUID that is valid only on this computer has been allocated.
 //
-static const int RPC_S_UUID_LOCAL_ONLY            1824L
+    RPC_S_UUID_LOCAL_ONLY            1824
 
 //
 // MessageId: RPC_S_SEC_PKG_ERROR
@@ -10746,7 +10692,7 @@ static const int RPC_S_UUID_LOCAL_ONLY            1824L
 //
 // A security package specific error occurred.
 //
-static const int RPC_S_SEC_PKG_ERROR              1825L
+    RPC_S_SEC_PKG_ERROR              1825
 
 //
 // MessageId: RPC_S_NOT_CANCELLED
@@ -10755,7 +10701,7 @@ static const int RPC_S_SEC_PKG_ERROR              1825L
 //
 // Thread is not canceled.
 //
-static const int RPC_S_NOT_CANCELLED              1826L
+    RPC_S_NOT_CANCELLED              1826
 
 //
 // MessageId: RPC_X_INVALID_ES_ACTION
@@ -10764,7 +10710,7 @@ static const int RPC_S_NOT_CANCELLED              1826L
 //
 // Invalid operation on the encoding/decoding handle.
 //
-static const int RPC_X_INVALID_ES_ACTION          1827L
+    RPC_X_INVALID_ES_ACTION          1827
 
 //
 // MessageId: RPC_X_WRONG_ES_VERSION
@@ -10773,7 +10719,7 @@ static const int RPC_X_INVALID_ES_ACTION          1827L
 //
 // Incompatible version of the serializing package.
 //
-static const int RPC_X_WRONG_ES_VERSION           1828L
+    RPC_X_WRONG_ES_VERSION           1828
 
 //
 // MessageId: RPC_X_WRONG_STUB_VERSION
@@ -10782,7 +10728,7 @@ static const int RPC_X_WRONG_ES_VERSION           1828L
 //
 // Incompatible version of the RPC stub.
 //
-static const int RPC_X_WRONG_STUB_VERSION         1829L
+    RPC_X_WRONG_STUB_VERSION         1829
 
 //
 // MessageId: RPC_X_INVALID_PIPE_OBJECT
@@ -10791,7 +10737,7 @@ static const int RPC_X_WRONG_STUB_VERSION         1829L
 //
 // The RPC pipe object is invalid or corrupted.
 //
-static const int RPC_X_INVALID_PIPE_OBJECT        1830L
+    RPC_X_INVALID_PIPE_OBJECT        1830
 
 //
 // MessageId: RPC_X_WRONG_PIPE_ORDER
@@ -10800,7 +10746,7 @@ static const int RPC_X_INVALID_PIPE_OBJECT        1830L
 //
 // An invalid operation was attempted on an RPC pipe object.
 //
-static const int RPC_X_WRONG_PIPE_ORDER           1831L
+    RPC_X_WRONG_PIPE_ORDER           1831
 
 //
 // MessageId: RPC_X_WRONG_PIPE_VERSION
@@ -10809,7 +10755,7 @@ static const int RPC_X_WRONG_PIPE_ORDER           1831L
 //
 // Unsupported RPC pipe version.
 //
-static const int RPC_X_WRONG_PIPE_VERSION         1832L
+    RPC_X_WRONG_PIPE_VERSION         1832
 
 //
 // MessageId: RPC_S_COOKIE_AUTH_FAILED
@@ -10818,7 +10764,7 @@ static const int RPC_X_WRONG_PIPE_VERSION         1832L
 //
 // HTTP proxy server rejected the connection because the cookie authentication failed.
 //
-static const int RPC_S_COOKIE_AUTH_FAILED         1833L
+    RPC_S_COOKIE_AUTH_FAILED         1833
 
 //
 // MessageId: RPC_S_DO_NOT_DISTURB
@@ -10827,7 +10773,7 @@ static const int RPC_S_COOKIE_AUTH_FAILED         1833L
 //
 // The RPC server is suspended, and could not be resumed for this request. The call did not execute.
 //
-static const int RPC_S_DO_NOT_DISTURB             1834L
+    RPC_S_DO_NOT_DISTURB             1834
 
 //
 // MessageId: RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED
@@ -10836,7 +10782,7 @@ static const int RPC_S_DO_NOT_DISTURB             1834L
 //
 // The RPC call contains too many handles to be transmitted in a single request.
 //
-static const int RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED 1835L
+    RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED 1835
 
 //
 // MessageId: RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH
@@ -10845,7 +10791,7 @@ static const int RPC_S_SYSTEM_HANDLE_COUNT_EXCEEDED 1835L
 //
 // The RPC call contains a handle that differs from the declared handle type.
 //
-static const int RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH 1836L
+    RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH 1836
 
 //
 // MessageId: RPC_S_GROUP_MEMBER_NOT_FOUND
@@ -10854,7 +10800,7 @@ static const int RPC_S_SYSTEM_HANDLE_TYPE_MISMATCH 1836L
 //
 // The group member was not found.
 //
-static const int RPC_S_GROUP_MEMBER_NOT_FOUND     1898L
+    RPC_S_GROUP_MEMBER_NOT_FOUND     1898
 
 //
 // MessageId: EPT_S_CANT_CREATE
@@ -10863,7 +10809,7 @@ static const int RPC_S_GROUP_MEMBER_NOT_FOUND     1898L
 //
 // The endpoint mapper database entry could not be created.
 //
-static const int EPT_S_CANT_CREATE                1899L
+    EPT_S_CANT_CREATE                1899
 
 //
 // MessageId: RPC_S_INVALID_OBJECT
@@ -10872,7 +10818,7 @@ static const int EPT_S_CANT_CREATE                1899L
 //
 // The object universal unique identifier (UUID) is the nil UUID.
 //
-static const int RPC_S_INVALID_OBJECT             1900L
+    RPC_S_INVALID_OBJECT             1900
 
 //
 // MessageId: ERROR_INVALID_TIME
@@ -10881,7 +10827,7 @@ static const int RPC_S_INVALID_OBJECT             1900L
 //
 // The specified time is invalid.
 //
-static const int ERROR_INVALID_TIME               1901L
+    ERROR_INVALID_TIME               1901
 
 //
 // MessageId: ERROR_INVALID_FORM_NAME
@@ -10890,7 +10836,7 @@ static const int ERROR_INVALID_TIME               1901L
 //
 // The specified form name is invalid.
 //
-static const int ERROR_INVALID_FORM_NAME          1902L
+    ERROR_INVALID_FORM_NAME          1902
 
 //
 // MessageId: ERROR_INVALID_FORM_SIZE
@@ -10899,7 +10845,7 @@ static const int ERROR_INVALID_FORM_NAME          1902L
 //
 // The specified form size is invalid.
 //
-static const int ERROR_INVALID_FORM_SIZE          1903L
+    ERROR_INVALID_FORM_SIZE          1903
 
 //
 // MessageId: ERROR_ALREADY_WAITING
@@ -10908,7 +10854,7 @@ static const int ERROR_INVALID_FORM_SIZE          1903L
 //
 // The specified printer handle is already being waited on
 //
-static const int ERROR_ALREADY_WAITING            1904L
+    ERROR_ALREADY_WAITING            1904
 
 //
 // MessageId: ERROR_PRINTER_DELETED
@@ -10917,7 +10863,7 @@ static const int ERROR_ALREADY_WAITING            1904L
 //
 // The specified printer has been deleted.
 //
-static const int ERROR_PRINTER_DELETED            1905L
+    ERROR_PRINTER_DELETED            1905
 
 //
 // MessageId: ERROR_INVALID_PRINTER_STATE
@@ -10926,7 +10872,7 @@ static const int ERROR_PRINTER_DELETED            1905L
 //
 // The state of the printer is invalid.
 //
-static const int ERROR_INVALID_PRINTER_STATE      1906L
+    ERROR_INVALID_PRINTER_STATE      1906
 
 //
 // MessageId: ERROR_PASSWORD_MUST_CHANGE
@@ -10935,7 +10881,7 @@ static const int ERROR_INVALID_PRINTER_STATE      1906L
 //
 // The user's password must be changed before signing in.
 //
-static const int ERROR_PASSWORD_MUST_CHANGE       1907L
+    ERROR_PASSWORD_MUST_CHANGE       1907
 
 //
 // MessageId: ERROR_DOMAIN_CONTROLLER_NOT_FOUND
@@ -10944,7 +10890,7 @@ static const int ERROR_PASSWORD_MUST_CHANGE       1907L
 //
 // Could not find the domain controller for this domain.
 //
-static const int ERROR_DOMAIN_CONTROLLER_NOT_FOUND 1908L
+    ERROR_DOMAIN_CONTROLLER_NOT_FOUND 1908
 
 //
 // MessageId: ERROR_ACCOUNT_LOCKED_OUT
@@ -10953,7 +10899,7 @@ static const int ERROR_DOMAIN_CONTROLLER_NOT_FOUND 1908L
 //
 // The referenced account is currently locked out and may not be logged on to.
 //
-static const int ERROR_ACCOUNT_LOCKED_OUT         1909L
+    ERROR_ACCOUNT_LOCKED_OUT         1909
 
 //
 // MessageId: OR_INVALID_OXID
@@ -10962,7 +10908,7 @@ static const int ERROR_ACCOUNT_LOCKED_OUT         1909L
 //
 // The object exporter specified was not found.
 //
-static const int OR_INVALID_OXID                  1910L
+    OR_INVALID_OXID                  1910
 
 //
 // MessageId: OR_INVALID_OID
@@ -10971,7 +10917,7 @@ static const int OR_INVALID_OXID                  1910L
 //
 // The object specified was not found.
 //
-static const int OR_INVALID_OID                   1911L
+    OR_INVALID_OID                   1911
 
 //
 // MessageId: OR_INVALID_SET
@@ -10980,7 +10926,7 @@ static const int OR_INVALID_OID                   1911L
 //
 // The object resolver set specified was not found.
 //
-static const int OR_INVALID_SET                   1912L
+    OR_INVALID_SET                   1912
 
 //
 // MessageId: RPC_S_SEND_INCOMPLETE
@@ -10989,7 +10935,7 @@ static const int OR_INVALID_SET                   1912L
 //
 // Some data remains to be sent in the request buffer.
 //
-static const int RPC_S_SEND_INCOMPLETE            1913L
+    RPC_S_SEND_INCOMPLETE            1913
 
 //
 // MessageId: RPC_S_INVALID_ASYNC_HANDLE
@@ -10998,7 +10944,7 @@ static const int RPC_S_SEND_INCOMPLETE            1913L
 //
 // Invalid asynchronous remote procedure call handle.
 //
-static const int RPC_S_INVALID_ASYNC_HANDLE       1914L
+    RPC_S_INVALID_ASYNC_HANDLE       1914
 
 //
 // MessageId: RPC_S_INVALID_ASYNC_CALL
@@ -11007,7 +10953,7 @@ static const int RPC_S_INVALID_ASYNC_HANDLE       1914L
 //
 // Invalid asynchronous RPC call handle for this operation.
 //
-static const int RPC_S_INVALID_ASYNC_CALL         1915L
+    RPC_S_INVALID_ASYNC_CALL         1915
 
 //
 // MessageId: RPC_X_PIPE_CLOSED
@@ -11016,7 +10962,7 @@ static const int RPC_S_INVALID_ASYNC_CALL         1915L
 //
 // The RPC pipe object has already been closed.
 //
-static const int RPC_X_PIPE_CLOSED                1916L
+    RPC_X_PIPE_CLOSED                1916
 
 //
 // MessageId: RPC_X_PIPE_DISCIPLINE_ERROR
@@ -11025,7 +10971,7 @@ static const int RPC_X_PIPE_CLOSED                1916L
 //
 // The RPC call completed before all pipes were processed.
 //
-static const int RPC_X_PIPE_DISCIPLINE_ERROR      1917L
+    RPC_X_PIPE_DISCIPLINE_ERROR      1917
 
 //
 // MessageId: RPC_X_PIPE_EMPTY
@@ -11034,7 +10980,7 @@ static const int RPC_X_PIPE_DISCIPLINE_ERROR      1917L
 //
 // No more data is available from the RPC pipe.
 //
-static const int RPC_X_PIPE_EMPTY                 1918L
+    RPC_X_PIPE_EMPTY                 1918
 
 //
 // MessageId: ERROR_NO_SITENAME
@@ -11043,7 +10989,7 @@ static const int RPC_X_PIPE_EMPTY                 1918L
 //
 // No site name is available for this machine.
 //
-static const int ERROR_NO_SITENAME                1919L
+    ERROR_NO_SITENAME                1919
 
 //
 // MessageId: ERROR_CANT_ACCESS_FILE
@@ -11052,7 +10998,7 @@ static const int ERROR_NO_SITENAME                1919L
 //
 // The file cannot be accessed by the system.
 //
-static const int ERROR_CANT_ACCESS_FILE           1920L
+    ERROR_CANT_ACCESS_FILE           1920
 
 //
 // MessageId: ERROR_CANT_RESOLVE_FILENAME
@@ -11061,7 +11007,7 @@ static const int ERROR_CANT_ACCESS_FILE           1920L
 //
 // The name of the file cannot be resolved by the system.
 //
-static const int ERROR_CANT_RESOLVE_FILENAME      1921L
+    ERROR_CANT_RESOLVE_FILENAME      1921
 
 //
 // MessageId: RPC_S_ENTRY_TYPE_MISMATCH
@@ -11070,7 +11016,7 @@ static const int ERROR_CANT_RESOLVE_FILENAME      1921L
 //
 // The entry is not of the expected type.
 //
-static const int RPC_S_ENTRY_TYPE_MISMATCH        1922L
+    RPC_S_ENTRY_TYPE_MISMATCH        1922
 
 //
 // MessageId: RPC_S_NOT_ALL_OBJS_EXPORTED
@@ -11079,7 +11025,7 @@ static const int RPC_S_ENTRY_TYPE_MISMATCH        1922L
 //
 // Not all object UUIDs could be exported to the specified entry.
 //
-static const int RPC_S_NOT_ALL_OBJS_EXPORTED      1923L
+    RPC_S_NOT_ALL_OBJS_EXPORTED      1923
 
 //
 // MessageId: RPC_S_INTERFACE_NOT_EXPORTED
@@ -11088,7 +11034,7 @@ static const int RPC_S_NOT_ALL_OBJS_EXPORTED      1923L
 //
 // Interface could not be exported to the specified entry.
 //
-static const int RPC_S_INTERFACE_NOT_EXPORTED     1924L
+    RPC_S_INTERFACE_NOT_EXPORTED     1924
 
 //
 // MessageId: RPC_S_PROFILE_NOT_ADDED
@@ -11097,7 +11043,7 @@ static const int RPC_S_INTERFACE_NOT_EXPORTED     1924L
 //
 // The specified profile entry could not be added.
 //
-static const int RPC_S_PROFILE_NOT_ADDED          1925L
+    RPC_S_PROFILE_NOT_ADDED          1925
 
 //
 // MessageId: RPC_S_PRF_ELT_NOT_ADDED
@@ -11106,7 +11052,7 @@ static const int RPC_S_PROFILE_NOT_ADDED          1925L
 //
 // The specified profile element could not be added.
 //
-static const int RPC_S_PRF_ELT_NOT_ADDED          1926L
+    RPC_S_PRF_ELT_NOT_ADDED          1926
 
 //
 // MessageId: RPC_S_PRF_ELT_NOT_REMOVED
@@ -11115,7 +11061,7 @@ static const int RPC_S_PRF_ELT_NOT_ADDED          1926L
 //
 // The specified profile element could not be removed.
 //
-static const int RPC_S_PRF_ELT_NOT_REMOVED        1927L
+    RPC_S_PRF_ELT_NOT_REMOVED        1927
 
 //
 // MessageId: RPC_S_GRP_ELT_NOT_ADDED
@@ -11124,7 +11070,7 @@ static const int RPC_S_PRF_ELT_NOT_REMOVED        1927L
 //
 // The group element could not be added.
 //
-static const int RPC_S_GRP_ELT_NOT_ADDED          1928L
+    RPC_S_GRP_ELT_NOT_ADDED          1928
 
 //
 // MessageId: RPC_S_GRP_ELT_NOT_REMOVED
@@ -11133,7 +11079,7 @@ static const int RPC_S_GRP_ELT_NOT_ADDED          1928L
 //
 // The group element could not be removed.
 //
-static const int RPC_S_GRP_ELT_NOT_REMOVED        1929L
+    RPC_S_GRP_ELT_NOT_REMOVED        1929
 
 //
 // MessageId: ERROR_KM_DRIVER_BLOCKED
@@ -11142,7 +11088,7 @@ static const int RPC_S_GRP_ELT_NOT_REMOVED        1929L
 //
 // The printer driver is not compatible with a policy enabled on your computer that blocks NT 4.0 drivers.
 //
-static const int ERROR_KM_DRIVER_BLOCKED          1930L
+    ERROR_KM_DRIVER_BLOCKED          1930
 
 //
 // MessageId: ERROR_CONTEXT_EXPIRED
@@ -11151,7 +11097,7 @@ static const int ERROR_KM_DRIVER_BLOCKED          1930L
 //
 // The context has expired and can no longer be used.
 //
-static const int ERROR_CONTEXT_EXPIRED            1931L
+    ERROR_CONTEXT_EXPIRED            1931
 
 //
 // MessageId: ERROR_PER_USER_TRUST_QUOTA_EXCEEDED
@@ -11160,7 +11106,7 @@ static const int ERROR_CONTEXT_EXPIRED            1931L
 //
 // The current user's delegated trust creation quota has been exceeded.
 //
-static const int ERROR_PER_USER_TRUST_QUOTA_EXCEEDED 1932L
+    ERROR_PER_USER_TRUST_QUOTA_EXCEEDED 1932
 
 //
 // MessageId: ERROR_ALL_USER_TRUST_QUOTA_EXCEEDED
@@ -11169,7 +11115,7 @@ static const int ERROR_PER_USER_TRUST_QUOTA_EXCEEDED 1932L
 //
 // The total delegated trust creation quota has been exceeded.
 //
-static const int ERROR_ALL_USER_TRUST_QUOTA_EXCEEDED 1933L
+    ERROR_ALL_USER_TRUST_QUOTA_EXCEEDED 1933
 
 //
 // MessageId: ERROR_USER_DELETE_TRUST_QUOTA_EXCEEDED
@@ -11178,7 +11124,7 @@ static const int ERROR_ALL_USER_TRUST_QUOTA_EXCEEDED 1933L
 //
 // The current user's delegated trust deletion quota has been exceeded.
 //
-static const int ERROR_USER_DELETE_TRUST_QUOTA_EXCEEDED 1934L
+    ERROR_USER_DELETE_TRUST_QUOTA_EXCEEDED 1934
 
 //
 // MessageId: ERROR_AUTHENTICATION_FIREWALL_FAILED
@@ -11187,7 +11133,7 @@ static const int ERROR_USER_DELETE_TRUST_QUOTA_EXCEEDED 1934L
 //
 // The computer you are signing into is protected by an authentication firewall. The specified account is not allowed to authenticate to the computer.
 //
-static const int ERROR_AUTHENTICATION_FIREWALL_FAILED 1935L
+    ERROR_AUTHENTICATION_FIREWALL_FAILED 1935
 
 //
 // MessageId: ERROR_REMOTE_PRINT_CONNECTIONS_BLOCKED
@@ -11196,7 +11142,7 @@ static const int ERROR_AUTHENTICATION_FIREWALL_FAILED 1935L
 //
 // Remote connections to the Print Spooler are blocked by a policy set on your machine.
 //
-static const int ERROR_REMOTE_PRINT_CONNECTIONS_BLOCKED 1936L
+    ERROR_REMOTE_PRINT_CONNECTIONS_BLOCKED 1936
 
 //
 // MessageId: ERROR_NTLM_BLOCKED
@@ -11205,7 +11151,7 @@ static const int ERROR_REMOTE_PRINT_CONNECTIONS_BLOCKED 1936L
 //
 // Authentication failed because NTLM authentication has been disabled.
 //
-static const int ERROR_NTLM_BLOCKED               1937L
+    ERROR_NTLM_BLOCKED               1937
 
 //
 // MessageId: ERROR_PASSWORD_CHANGE_REQUIRED
@@ -11214,7 +11160,7 @@ static const int ERROR_NTLM_BLOCKED               1937L
 //
 // Logon Failure: EAS policy requires that the user change their password before this operation can be performed.
 //
-static const int ERROR_PASSWORD_CHANGE_REQUIRED   1938L
+    ERROR_PASSWORD_CHANGE_REQUIRED   1938
 
 //
 // MessageId: ERROR_LOST_MODE_LOGON_RESTRICTION
@@ -11223,7 +11169,7 @@ static const int ERROR_PASSWORD_CHANGE_REQUIRED   1938L
 //
 // An administrator has restricted sign in. To sign in, make sure your device is connected to the Internet, and have your administrator sign in first.
 //
-static const int ERROR_LOST_MODE_LOGON_RESTRICTION 1939L
+    ERROR_LOST_MODE_LOGON_RESTRICTION 1939
 
 
 ///////////////////////////////////////////////////
@@ -11240,7 +11186,7 @@ static const int ERROR_LOST_MODE_LOGON_RESTRICTION 1939L
 //
 // The pixel format is invalid.
 //
-static const int ERROR_INVALID_PIXEL_FORMAT       2000L
+    ERROR_INVALID_PIXEL_FORMAT       2000
 
 //
 // MessageId: ERROR_BAD_DRIVER
@@ -11249,7 +11195,7 @@ static const int ERROR_INVALID_PIXEL_FORMAT       2000L
 //
 // The specified driver is invalid.
 //
-static const int ERROR_BAD_DRIVER                 2001L
+    ERROR_BAD_DRIVER                 2001
 
 //
 // MessageId: ERROR_INVALID_WINDOW_STYLE
@@ -11258,7 +11204,7 @@ static const int ERROR_BAD_DRIVER                 2001L
 //
 // The window style or class attribute is invalid for this operation.
 //
-static const int ERROR_INVALID_WINDOW_STYLE       2002L
+    ERROR_INVALID_WINDOW_STYLE       2002
 
 //
 // MessageId: ERROR_METAFILE_NOT_SUPPORTED
@@ -11267,7 +11213,7 @@ static const int ERROR_INVALID_WINDOW_STYLE       2002L
 //
 // The requested metafile operation is not supported.
 //
-static const int ERROR_METAFILE_NOT_SUPPORTED     2003L
+    ERROR_METAFILE_NOT_SUPPORTED     2003
 
 //
 // MessageId: ERROR_TRANSFORM_NOT_SUPPORTED
@@ -11276,7 +11222,7 @@ static const int ERROR_METAFILE_NOT_SUPPORTED     2003L
 //
 // The requested transformation operation is not supported.
 //
-static const int ERROR_TRANSFORM_NOT_SUPPORTED    2004L
+    ERROR_TRANSFORM_NOT_SUPPORTED    2004
 
 //
 // MessageId: ERROR_CLIPPING_NOT_SUPPORTED
@@ -11285,7 +11231,7 @@ static const int ERROR_TRANSFORM_NOT_SUPPORTED    2004L
 //
 // The requested clipping operation is not supported.
 //
-static const int ERROR_CLIPPING_NOT_SUPPORTED     2005L
+    ERROR_CLIPPING_NOT_SUPPORTED     2005
 
 
 ///////////////////////////////////////////////////
@@ -11302,7 +11248,7 @@ static const int ERROR_CLIPPING_NOT_SUPPORTED     2005L
 //
 // The specified color management module is invalid.
 //
-static const int ERROR_INVALID_CMM                2010L
+    ERROR_INVALID_CMM                2010
 
 //
 // MessageId: ERROR_INVALID_PROFILE
@@ -11311,7 +11257,7 @@ static const int ERROR_INVALID_CMM                2010L
 //
 // The specified color profile is invalid.
 //
-static const int ERROR_INVALID_PROFILE            2011L
+    ERROR_INVALID_PROFILE            2011
 
 //
 // MessageId: ERROR_TAG_NOT_FOUND
@@ -11320,7 +11266,7 @@ static const int ERROR_INVALID_PROFILE            2011L
 //
 // The specified tag was not found.
 //
-static const int ERROR_TAG_NOT_FOUND              2012L
+    ERROR_TAG_NOT_FOUND              2012
 
 //
 // MessageId: ERROR_TAG_NOT_PRESENT
@@ -11329,7 +11275,7 @@ static const int ERROR_TAG_NOT_FOUND              2012L
 //
 // A required tag is not present.
 //
-static const int ERROR_TAG_NOT_PRESENT            2013L
+    ERROR_TAG_NOT_PRESENT            2013
 
 //
 // MessageId: ERROR_DUPLICATE_TAG
@@ -11338,7 +11284,7 @@ static const int ERROR_TAG_NOT_PRESENT            2013L
 //
 // The specified tag is already present.
 //
-static const int ERROR_DUPLICATE_TAG              2014L
+    ERROR_DUPLICATE_TAG              2014
 
 //
 // MessageId: ERROR_PROFILE_NOT_ASSOCIATED_WITH_DEVICE
@@ -11347,7 +11293,7 @@ static const int ERROR_DUPLICATE_TAG              2014L
 //
 // The specified color profile is not associated with the specified device.
 //
-static const int ERROR_PROFILE_NOT_ASSOCIATED_WITH_DEVICE 2015L
+    ERROR_PROFILE_NOT_ASSOCIATED_WITH_DEVICE 2015
 
 //
 // MessageId: ERROR_PROFILE_NOT_FOUND
@@ -11356,7 +11302,7 @@ static const int ERROR_PROFILE_NOT_ASSOCIATED_WITH_DEVICE 2015L
 //
 // The specified color profile was not found.
 //
-static const int ERROR_PROFILE_NOT_FOUND          2016L
+    ERROR_PROFILE_NOT_FOUND          2016
 
 //
 // MessageId: ERROR_INVALID_COLORSPACE
@@ -11365,7 +11311,7 @@ static const int ERROR_PROFILE_NOT_FOUND          2016L
 //
 // The specified color space is invalid.
 //
-static const int ERROR_INVALID_COLORSPACE         2017L
+    ERROR_INVALID_COLORSPACE         2017
 
 //
 // MessageId: ERROR_ICM_NOT_ENABLED
@@ -11374,7 +11320,7 @@ static const int ERROR_INVALID_COLORSPACE         2017L
 //
 // Image Color Management is not enabled.
 //
-static const int ERROR_ICM_NOT_ENABLED            2018L
+    ERROR_ICM_NOT_ENABLED            2018
 
 //
 // MessageId: ERROR_DELETING_ICM_XFORM
@@ -11383,7 +11329,7 @@ static const int ERROR_ICM_NOT_ENABLED            2018L
 //
 // There was an error while deleting the color transform.
 //
-static const int ERROR_DELETING_ICM_XFORM         2019L
+    ERROR_DELETING_ICM_XFORM         2019
 
 //
 // MessageId: ERROR_INVALID_TRANSFORM
@@ -11392,7 +11338,7 @@ static const int ERROR_DELETING_ICM_XFORM         2019L
 //
 // The specified color transform is invalid.
 //
-static const int ERROR_INVALID_TRANSFORM          2020L
+    ERROR_INVALID_TRANSFORM          2020
 
 //
 // MessageId: ERROR_COLORSPACE_MISMATCH
@@ -11401,7 +11347,7 @@ static const int ERROR_INVALID_TRANSFORM          2020L
 //
 // The specified transform does not match the bitmap's color space.
 //
-static const int ERROR_COLORSPACE_MISMATCH        2021L
+    ERROR_COLORSPACE_MISMATCH        2021
 
 //
 // MessageId: ERROR_INVALID_COLORINDEX
@@ -11410,7 +11356,7 @@ static const int ERROR_COLORSPACE_MISMATCH        2021L
 //
 // The specified named color index is not present in the profile.
 //
-static const int ERROR_INVALID_COLORINDEX         2022L
+    ERROR_INVALID_COLORINDEX         2022
 
 //
 // MessageId: ERROR_PROFILE_DOES_NOT_MATCH_DEVICE
@@ -11419,7 +11365,7 @@ static const int ERROR_INVALID_COLORINDEX         2022L
 //
 // The specified profile is intended for a device of a different type than the specified device.
 //
-static const int ERROR_PROFILE_DOES_NOT_MATCH_DEVICE 2023L
+    ERROR_PROFILE_DOES_NOT_MATCH_DEVICE 2023
 
 
 ///////////////////////////////////////////////////
@@ -11440,7 +11386,7 @@ static const int ERROR_PROFILE_DOES_NOT_MATCH_DEVICE 2023L
 //
 // The network connection was made successfully, but the user had to be prompted for a password other than the one originally specified.
 //
-static const int ERROR_CONNECTED_OTHER_PASSWORD   2108L
+    ERROR_CONNECTED_OTHER_PASSWORD   2108
 
 //
 // MessageId: ERROR_CONNECTED_OTHER_PASSWORD_DEFAULT
@@ -11449,7 +11395,7 @@ static const int ERROR_CONNECTED_OTHER_PASSWORD   2108L
 //
 // The network connection was made successfully using default credentials.
 //
-static const int ERROR_CONNECTED_OTHER_PASSWORD_DEFAULT 2109L
+    ERROR_CONNECTED_OTHER_PASSWORD_DEFAULT 2109
 
 //
 // MessageId: ERROR_BAD_USERNAME
@@ -11458,7 +11404,7 @@ static const int ERROR_CONNECTED_OTHER_PASSWORD_DEFAULT 2109L
 //
 // The specified username is invalid.
 //
-static const int ERROR_BAD_USERNAME               2202L
+    ERROR_BAD_USERNAME               2202
 
 //
 // MessageId: ERROR_NOT_CONNECTED
@@ -11467,7 +11413,7 @@ static const int ERROR_BAD_USERNAME               2202L
 //
 // This network connection does not exist.
 //
-static const int ERROR_NOT_CONNECTED              2250L
+    ERROR_NOT_CONNECTED              2250
 
 //
 // MessageId: ERROR_OPEN_FILES
@@ -11476,7 +11422,7 @@ static const int ERROR_NOT_CONNECTED              2250L
 //
 // This network connection has files open or requests pending.
 //
-static const int ERROR_OPEN_FILES                 2401L
+    ERROR_OPEN_FILES                 2401
 
 //
 // MessageId: ERROR_ACTIVE_CONNECTIONS
@@ -11485,7 +11431,7 @@ static const int ERROR_OPEN_FILES                 2401L
 //
 // Active connections still exist.
 //
-static const int ERROR_ACTIVE_CONNECTIONS         2402L
+    ERROR_ACTIVE_CONNECTIONS         2402
 
 //
 // MessageId: ERROR_DEVICE_IN_USE
@@ -11494,7 +11440,7 @@ static const int ERROR_ACTIVE_CONNECTIONS         2402L
 //
 // The device is in use by an active process and cannot be disconnected.
 //
-static const int ERROR_DEVICE_IN_USE              2404L
+    ERROR_DEVICE_IN_USE              2404
 
 
 ///////////////////////////////////////////////////
@@ -11511,7 +11457,7 @@ static const int ERROR_DEVICE_IN_USE              2404L
 //
 // The specified print monitor is unknown.
 //
-static const int ERROR_UNKNOWN_PRINT_MONITOR      3000L
+    ERROR_UNKNOWN_PRINT_MONITOR      3000
 
 //
 // MessageId: ERROR_PRINTER_DRIVER_IN_USE
@@ -11520,7 +11466,7 @@ static const int ERROR_UNKNOWN_PRINT_MONITOR      3000L
 //
 // The specified printer driver is currently in use.
 //
-static const int ERROR_PRINTER_DRIVER_IN_USE      3001L
+    ERROR_PRINTER_DRIVER_IN_USE      3001
 
 //
 // MessageId: ERROR_SPOOL_FILE_NOT_FOUND
@@ -11529,7 +11475,7 @@ static const int ERROR_PRINTER_DRIVER_IN_USE      3001L
 //
 // The spool file was not found.
 //
-static const int ERROR_SPOOL_FILE_NOT_FOUND       3002L
+    ERROR_SPOOL_FILE_NOT_FOUND       3002
 
 //
 // MessageId: ERROR_SPL_NO_STARTDOC
@@ -11538,7 +11484,7 @@ static const int ERROR_SPOOL_FILE_NOT_FOUND       3002L
 //
 // A StartDocPrinter call was not issued.
 //
-static const int ERROR_SPL_NO_STARTDOC            3003L
+    ERROR_SPL_NO_STARTDOC            3003
 
 //
 // MessageId: ERROR_SPL_NO_ADDJOB
@@ -11547,7 +11493,7 @@ static const int ERROR_SPL_NO_STARTDOC            3003L
 //
 // An AddJob call was not issued.
 //
-static const int ERROR_SPL_NO_ADDJOB              3004L
+    ERROR_SPL_NO_ADDJOB              3004
 
 //
 // MessageId: ERROR_PRINT_PROCESSOR_ALREADY_INSTALLED
@@ -11556,7 +11502,7 @@ static const int ERROR_SPL_NO_ADDJOB              3004L
 //
 // The specified print processor has already been installed.
 //
-static const int ERROR_PRINT_PROCESSOR_ALREADY_INSTALLED 3005L
+    ERROR_PRINT_PROCESSOR_ALREADY_INSTALLED 3005
 
 //
 // MessageId: ERROR_PRINT_MONITOR_ALREADY_INSTALLED
@@ -11565,7 +11511,7 @@ static const int ERROR_PRINT_PROCESSOR_ALREADY_INSTALLED 3005L
 //
 // The specified print monitor has already been installed.
 //
-static const int ERROR_PRINT_MONITOR_ALREADY_INSTALLED 3006L
+    ERROR_PRINT_MONITOR_ALREADY_INSTALLED 3006
 
 //
 // MessageId: ERROR_INVALID_PRINT_MONITOR
@@ -11574,7 +11520,7 @@ static const int ERROR_PRINT_MONITOR_ALREADY_INSTALLED 3006L
 //
 // The specified print monitor does not have the required functions.
 //
-static const int ERROR_INVALID_PRINT_MONITOR      3007L
+    ERROR_INVALID_PRINT_MONITOR      3007
 
 //
 // MessageId: ERROR_PRINT_MONITOR_IN_USE
@@ -11583,7 +11529,7 @@ static const int ERROR_INVALID_PRINT_MONITOR      3007L
 //
 // The specified print monitor is currently in use.
 //
-static const int ERROR_PRINT_MONITOR_IN_USE       3008L
+    ERROR_PRINT_MONITOR_IN_USE       3008
 
 //
 // MessageId: ERROR_PRINTER_HAS_JOBS_QUEUED
@@ -11592,7 +11538,7 @@ static const int ERROR_PRINT_MONITOR_IN_USE       3008L
 //
 // The requested operation is not allowed when there are jobs queued to the printer.
 //
-static const int ERROR_PRINTER_HAS_JOBS_QUEUED    3009L
+    ERROR_PRINTER_HAS_JOBS_QUEUED    3009
 
 //
 // MessageId: ERROR_SUCCESS_REBOOT_REQUIRED
@@ -11601,7 +11547,7 @@ static const int ERROR_PRINTER_HAS_JOBS_QUEUED    3009L
 //
 // The requested operation is successful. Changes will not be effective until the system is rebooted.
 //
-static const int ERROR_SUCCESS_REBOOT_REQUIRED    3010L
+    ERROR_SUCCESS_REBOOT_REQUIRED    3010
 
 //
 // MessageId: ERROR_SUCCESS_RESTART_REQUIRED
@@ -11610,7 +11556,7 @@ static const int ERROR_SUCCESS_REBOOT_REQUIRED    3010L
 //
 // The requested operation is successful. Changes will not be effective until the service is restarted.
 //
-static const int ERROR_SUCCESS_RESTART_REQUIRED   3011L
+    ERROR_SUCCESS_RESTART_REQUIRED   3011
 
 //
 // MessageId: ERROR_PRINTER_NOT_FOUND
@@ -11619,7 +11565,7 @@ static const int ERROR_SUCCESS_RESTART_REQUIRED   3011L
 //
 // No printers were found.
 //
-static const int ERROR_PRINTER_NOT_FOUND          3012L
+    ERROR_PRINTER_NOT_FOUND          3012
 
 //
 // MessageId: ERROR_PRINTER_DRIVER_WARNED
@@ -11628,7 +11574,7 @@ static const int ERROR_PRINTER_NOT_FOUND          3012L
 //
 // The printer driver is known to be unreliable.
 //
-static const int ERROR_PRINTER_DRIVER_WARNED      3013L
+    ERROR_PRINTER_DRIVER_WARNED      3013
 
 //
 // MessageId: ERROR_PRINTER_DRIVER_BLOCKED
@@ -11637,7 +11583,7 @@ static const int ERROR_PRINTER_DRIVER_WARNED      3013L
 //
 // The printer driver is known to harm the system.
 //
-static const int ERROR_PRINTER_DRIVER_BLOCKED     3014L
+    ERROR_PRINTER_DRIVER_BLOCKED     3014
 
 //
 // MessageId: ERROR_PRINTER_DRIVER_PACKAGE_IN_USE
@@ -11646,7 +11592,7 @@ static const int ERROR_PRINTER_DRIVER_BLOCKED     3014L
 //
 // The specified printer driver package is currently in use.
 //
-static const int ERROR_PRINTER_DRIVER_PACKAGE_IN_USE 3015L
+    ERROR_PRINTER_DRIVER_PACKAGE_IN_USE 3015
 
 //
 // MessageId: ERROR_CORE_DRIVER_PACKAGE_NOT_FOUND
@@ -11655,7 +11601,7 @@ static const int ERROR_PRINTER_DRIVER_PACKAGE_IN_USE 3015L
 //
 // Unable to find a core driver package that is required by the printer driver package.
 //
-static const int ERROR_CORE_DRIVER_PACKAGE_NOT_FOUND 3016L
+    ERROR_CORE_DRIVER_PACKAGE_NOT_FOUND 3016
 
 //
 // MessageId: ERROR_FAIL_REBOOT_REQUIRED
@@ -11664,7 +11610,7 @@ static const int ERROR_CORE_DRIVER_PACKAGE_NOT_FOUND 3016L
 //
 // The requested operation failed. A system reboot is required to roll back changes made.
 //
-static const int ERROR_FAIL_REBOOT_REQUIRED       3017L
+    ERROR_FAIL_REBOOT_REQUIRED       3017
 
 //
 // MessageId: ERROR_FAIL_REBOOT_INITIATED
@@ -11673,7 +11619,7 @@ static const int ERROR_FAIL_REBOOT_REQUIRED       3017L
 //
 // The requested operation failed. A system reboot has been initiated to roll back changes made.
 //
-static const int ERROR_FAIL_REBOOT_INITIATED      3018L
+    ERROR_FAIL_REBOOT_INITIATED      3018
 
 //
 // MessageId: ERROR_PRINTER_DRIVER_DOWNLOAD_NEEDED
@@ -11682,7 +11628,7 @@ static const int ERROR_FAIL_REBOOT_INITIATED      3018L
 //
 // The specified printer driver was not found on the system and needs to be downloaded.
 //
-static const int ERROR_PRINTER_DRIVER_DOWNLOAD_NEEDED 3019L
+    ERROR_PRINTER_DRIVER_DOWNLOAD_NEEDED 3019
 
 //
 // MessageId: ERROR_PRINT_JOB_RESTART_REQUIRED
@@ -11691,7 +11637,7 @@ static const int ERROR_PRINTER_DRIVER_DOWNLOAD_NEEDED 3019L
 //
 // The requested print job has failed to print. A print system update requires the job to be resubmitted.
 //
-static const int ERROR_PRINT_JOB_RESTART_REQUIRED 3020L
+    ERROR_PRINT_JOB_RESTART_REQUIRED 3020
 
 //
 // MessageId: ERROR_INVALID_PRINTER_DRIVER_MANIFEST
@@ -11700,7 +11646,7 @@ static const int ERROR_PRINT_JOB_RESTART_REQUIRED 3020L
 //
 // The printer driver does not contain a valid manifest, or contains too many manifests.
 //
-static const int ERROR_INVALID_PRINTER_DRIVER_MANIFEST 3021L
+    ERROR_INVALID_PRINTER_DRIVER_MANIFEST 3021
 
 //
 // MessageId: ERROR_PRINTER_NOT_SHAREABLE
@@ -11709,7 +11655,7 @@ static const int ERROR_INVALID_PRINTER_DRIVER_MANIFEST 3021L
 //
 // The specified printer cannot be shared.
 //
-static const int ERROR_PRINTER_NOT_SHAREABLE      3022L
+    ERROR_PRINTER_NOT_SHAREABLE      3022
 
 
 ///////////////////////////////////////////////////
@@ -11726,7 +11672,7 @@ static const int ERROR_PRINTER_NOT_SHAREABLE      3022L
 //
 // The operation was paused.
 //
-static const int ERROR_REQUEST_PAUSED             3050L
+    ERROR_REQUEST_PAUSED             3050
 
 
 ///////////////////////////////////////////////////
@@ -11743,7 +11689,7 @@ static const int ERROR_REQUEST_PAUSED             3050L
 //
 // The condition supplied for the app execution request was not satisfied, so the request was not performed.
 //
-static const int ERROR_APPEXEC_CONDITION_NOT_SATISFIED 3060L
+    ERROR_APPEXEC_CONDITION_NOT_SATISFIED 3060
 
 //
 // MessageId: ERROR_APPEXEC_HANDLE_INVALIDATED
@@ -11752,7 +11698,7 @@ static const int ERROR_APPEXEC_CONDITION_NOT_SATISFIED 3060L
 //
 // The supplied handle has been invalidated and may not be used for the requested operation.
 //
-static const int ERROR_APPEXEC_HANDLE_INVALIDATED 3061L
+    ERROR_APPEXEC_HANDLE_INVALIDATED 3061
 
 //
 // MessageId: ERROR_APPEXEC_INVALID_HOST_GENERATION
@@ -11761,7 +11707,7 @@ static const int ERROR_APPEXEC_HANDLE_INVALIDATED 3061L
 //
 // The supplied host generation has been invalidated and may not be used for the requested operation.
 //
-static const int ERROR_APPEXEC_INVALID_HOST_GENERATION 3062L
+    ERROR_APPEXEC_INVALID_HOST_GENERATION 3062
 
 //
 // MessageId: ERROR_APPEXEC_UNEXPECTED_PROCESS_REGISTRATION
@@ -11770,7 +11716,7 @@ static const int ERROR_APPEXEC_INVALID_HOST_GENERATION 3062L
 //
 // An attempt to register a process failed because the target host was not in a valid state to receive process registrations.
 //
-static const int ERROR_APPEXEC_UNEXPECTED_PROCESS_REGISTRATION 3063L
+    ERROR_APPEXEC_UNEXPECTED_PROCESS_REGISTRATION 3063
 
 //
 // MessageId: ERROR_APPEXEC_INVALID_HOST_STATE
@@ -11779,7 +11725,7 @@ static const int ERROR_APPEXEC_UNEXPECTED_PROCESS_REGISTRATION 3063L
 //
 // The host is not in a valid state to support the execution request.
 //
-static const int ERROR_APPEXEC_INVALID_HOST_STATE 3064L
+    ERROR_APPEXEC_INVALID_HOST_STATE 3064
 
 //
 // MessageId: ERROR_APPEXEC_NO_DONOR
@@ -11788,7 +11734,7 @@ static const int ERROR_APPEXEC_INVALID_HOST_STATE 3064L
 //
 // The operation was not completed because a required resource donor was not found for the host.
 //
-static const int ERROR_APPEXEC_NO_DONOR           3065L
+    ERROR_APPEXEC_NO_DONOR           3065
 
 //
 // MessageId: ERROR_APPEXEC_HOST_ID_MISMATCH
@@ -11797,7 +11743,7 @@ static const int ERROR_APPEXEC_NO_DONOR           3065L
 //
 // The operation was not completed because an unexpected host ID was encountered.
 //
-static const int ERROR_APPEXEC_HOST_ID_MISMATCH   3066L
+    ERROR_APPEXEC_HOST_ID_MISMATCH   3066
 
 
 ///////////////////////////////////////////////////
@@ -11836,7 +11782,7 @@ static const int ERROR_APPEXEC_HOST_ID_MISMATCH   3066L
 //
 // Reissue the given operation as a cached IO operation
 //
-static const int ERROR_IO_REISSUE_AS_CACHED       3950L
+    ERROR_IO_REISSUE_AS_CACHED       3950
 
 
 
@@ -11854,7 +11800,7 @@ static const int ERROR_IO_REISSUE_AS_CACHED       3950L
 //
 // WINS encountered an error while processing the command.
 //
-static const int ERROR_WINS_INTERNAL              4000L
+    ERROR_WINS_INTERNAL              4000
 
 //
 // MessageId: ERROR_CAN_NOT_DEL_LOCAL_WINS
@@ -11863,7 +11809,7 @@ static const int ERROR_WINS_INTERNAL              4000L
 //
 // The local WINS cannot be deleted.
 //
-static const int ERROR_CAN_NOT_DEL_LOCAL_WINS     4001L
+    ERROR_CAN_NOT_DEL_LOCAL_WINS     4001
 
 //
 // MessageId: ERROR_STATIC_INIT
@@ -11872,7 +11818,7 @@ static const int ERROR_CAN_NOT_DEL_LOCAL_WINS     4001L
 //
 // The importation from the file failed.
 //
-static const int ERROR_STATIC_INIT                4002L
+    ERROR_STATIC_INIT                4002
 
 //
 // MessageId: ERROR_INC_BACKUP
@@ -11881,7 +11827,7 @@ static const int ERROR_STATIC_INIT                4002L
 //
 // The backup failed. Was a full backup done before?
 //
-static const int ERROR_INC_BACKUP                 4003L
+    ERROR_INC_BACKUP                 4003
 
 //
 // MessageId: ERROR_FULL_BACKUP
@@ -11890,7 +11836,7 @@ static const int ERROR_INC_BACKUP                 4003L
 //
 // The backup failed. Check the directory to which you are backing the database.
 //
-static const int ERROR_FULL_BACKUP                4004L
+    ERROR_FULL_BACKUP                4004
 
 //
 // MessageId: ERROR_REC_NON_EXISTENT
@@ -11899,7 +11845,7 @@ static const int ERROR_FULL_BACKUP                4004L
 //
 // The name does not exist in the WINS database.
 //
-static const int ERROR_REC_NON_EXISTENT           4005L
+    ERROR_REC_NON_EXISTENT           4005
 
 //
 // MessageId: ERROR_RPL_NOT_ALLOWED
@@ -11908,7 +11854,7 @@ static const int ERROR_REC_NON_EXISTENT           4005L
 //
 // Replication with a nonconfigured partner is not allowed.
 //
-static const int ERROR_RPL_NOT_ALLOWED            4006L
+    ERROR_RPL_NOT_ALLOWED            4006
 
 
 ///////////////////////////////////////////////////
@@ -11925,7 +11871,7 @@ static const int ERROR_RPL_NOT_ALLOWED            4006L
 //
 // The version of the supplied content information is not supported.
 //
-static const int PEERDIST_ERROR_CONTENTINFO_VERSION_UNSUPPORTED 4050L
+    PEERDIST_ERROR_CONTENTINFO_VERSION_UNSUPPORTED 4050
 
 //
 // MessageId: PEERDIST_ERROR_CANNOT_PARSE_CONTENTINFO
@@ -11934,7 +11880,7 @@ static const int PEERDIST_ERROR_CONTENTINFO_VERSION_UNSUPPORTED 4050L
 //
 // The supplied content information is malformed.
 //
-static const int PEERDIST_ERROR_CANNOT_PARSE_CONTENTINFO 4051L
+    PEERDIST_ERROR_CANNOT_PARSE_CONTENTINFO 4051
 
 //
 // MessageId: PEERDIST_ERROR_MISSING_DATA
@@ -11943,7 +11889,7 @@ static const int PEERDIST_ERROR_CANNOT_PARSE_CONTENTINFO 4051L
 //
 // The requested data cannot be found in local or peer caches.
 //
-static const int PEERDIST_ERROR_MISSING_DATA      4052L
+    PEERDIST_ERROR_MISSING_DATA      4052
 
 //
 // MessageId: PEERDIST_ERROR_NO_MORE
@@ -11952,7 +11898,7 @@ static const int PEERDIST_ERROR_MISSING_DATA      4052L
 //
 // No more data is available or required.
 //
-static const int PEERDIST_ERROR_NO_MORE           4053L
+    PEERDIST_ERROR_NO_MORE           4053
 
 //
 // MessageId: PEERDIST_ERROR_NOT_INITIALIZED
@@ -11961,7 +11907,7 @@ static const int PEERDIST_ERROR_NO_MORE           4053L
 //
 // The supplied object has not been initialized.
 //
-static const int PEERDIST_ERROR_NOT_INITIALIZED   4054L
+    PEERDIST_ERROR_NOT_INITIALIZED   4054
 
 //
 // MessageId: PEERDIST_ERROR_ALREADY_INITIALIZED
@@ -11970,7 +11916,7 @@ static const int PEERDIST_ERROR_NOT_INITIALIZED   4054L
 //
 // The supplied object has already been initialized.
 //
-static const int PEERDIST_ERROR_ALREADY_INITIALIZED 4055L
+    PEERDIST_ERROR_ALREADY_INITIALIZED 4055
 
 //
 // MessageId: PEERDIST_ERROR_SHUTDOWN_IN_PROGRESS
@@ -11979,7 +11925,7 @@ static const int PEERDIST_ERROR_ALREADY_INITIALIZED 4055L
 //
 // A shutdown operation is already in progress.
 //
-static const int PEERDIST_ERROR_SHUTDOWN_IN_PROGRESS 4056L
+    PEERDIST_ERROR_SHUTDOWN_IN_PROGRESS 4056
 
 //
 // MessageId: PEERDIST_ERROR_INVALIDATED
@@ -11988,7 +11934,7 @@ static const int PEERDIST_ERROR_SHUTDOWN_IN_PROGRESS 4056L
 //
 // The supplied object has already been invalidated.
 //
-static const int PEERDIST_ERROR_INVALIDATED       4057L
+    PEERDIST_ERROR_INVALIDATED       4057
 
 //
 // MessageId: PEERDIST_ERROR_ALREADY_EXISTS
@@ -11997,7 +11943,7 @@ static const int PEERDIST_ERROR_INVALIDATED       4057L
 //
 // An element already exists and was not replaced.
 //
-static const int PEERDIST_ERROR_ALREADY_EXISTS    4058L
+    PEERDIST_ERROR_ALREADY_EXISTS    4058
 
 //
 // MessageId: PEERDIST_ERROR_OPERATION_NOTFOUND
@@ -12006,7 +11952,7 @@ static const int PEERDIST_ERROR_ALREADY_EXISTS    4058L
 //
 // Can not cancel the requested operation as it has already been completed.
 //
-static const int PEERDIST_ERROR_OPERATION_NOTFOUND 4059L
+    PEERDIST_ERROR_OPERATION_NOTFOUND 4059
 
 //
 // MessageId: PEERDIST_ERROR_ALREADY_COMPLETED
@@ -12015,7 +11961,7 @@ static const int PEERDIST_ERROR_OPERATION_NOTFOUND 4059L
 //
 // Can not perform the reqested operation because it has already been carried out.
 //
-static const int PEERDIST_ERROR_ALREADY_COMPLETED 4060L
+    PEERDIST_ERROR_ALREADY_COMPLETED 4060
 
 //
 // MessageId: PEERDIST_ERROR_OUT_OF_BOUNDS
@@ -12024,7 +11970,7 @@ static const int PEERDIST_ERROR_ALREADY_COMPLETED 4060L
 //
 // An operation accessed data beyond the bounds of valid data.
 //
-static const int PEERDIST_ERROR_OUT_OF_BOUNDS     4061L
+    PEERDIST_ERROR_OUT_OF_BOUNDS     4061
 
 //
 // MessageId: PEERDIST_ERROR_VERSION_UNSUPPORTED
@@ -12033,7 +11979,7 @@ static const int PEERDIST_ERROR_OUT_OF_BOUNDS     4061L
 //
 // The requested version is not supported.
 //
-static const int PEERDIST_ERROR_VERSION_UNSUPPORTED 4062L
+    PEERDIST_ERROR_VERSION_UNSUPPORTED 4062
 
 //
 // MessageId: PEERDIST_ERROR_INVALID_CONFIGURATION
@@ -12042,7 +11988,7 @@ static const int PEERDIST_ERROR_VERSION_UNSUPPORTED 4062L
 //
 // A configuration value is invalid.
 //
-static const int PEERDIST_ERROR_INVALID_CONFIGURATION 4063L
+    PEERDIST_ERROR_INVALID_CONFIGURATION 4063
 
 //
 // MessageId: PEERDIST_ERROR_NOT_LICENSED
@@ -12051,7 +11997,7 @@ static const int PEERDIST_ERROR_INVALID_CONFIGURATION 4063L
 //
 // The SKU is not licensed.
 //
-static const int PEERDIST_ERROR_NOT_LICENSED      4064L
+    PEERDIST_ERROR_NOT_LICENSED      4064
 
 //
 // MessageId: PEERDIST_ERROR_SERVICE_UNAVAILABLE
@@ -12060,7 +12006,7 @@ static const int PEERDIST_ERROR_NOT_LICENSED      4064L
 //
 // PeerDist Service is still initializing and will be available shortly.
 //
-static const int PEERDIST_ERROR_SERVICE_UNAVAILABLE 4065L
+    PEERDIST_ERROR_SERVICE_UNAVAILABLE 4065
 
 //
 // MessageId: PEERDIST_ERROR_TRUST_FAILURE
@@ -12069,7 +12015,7 @@ static const int PEERDIST_ERROR_SERVICE_UNAVAILABLE 4065L
 //
 // Communication with one or more computers will be temporarily blocked due to recent errors.
 //
-static const int PEERDIST_ERROR_TRUST_FAILURE     4066L
+    PEERDIST_ERROR_TRUST_FAILURE     4066
 
 
 ///////////////////////////////////////////////////
@@ -12086,7 +12032,7 @@ static const int PEERDIST_ERROR_TRUST_FAILURE     4066L
 //
 // The DHCP client has obtained an IP address that is already in use on the network. The local interface will be disabled until the DHCP client can obtain a new address.
 //
-static const int ERROR_DHCP_ADDRESS_CONFLICT      4100L
+    ERROR_DHCP_ADDRESS_CONFLICT      4100
 
 
 ///////////////////////////////////////////////////
@@ -12111,7 +12057,7 @@ static const int ERROR_DHCP_ADDRESS_CONFLICT      4100L
 //
 // The GUID passed was not recognized as valid by a WMI data provider.
 //
-static const int ERROR_WMI_GUID_NOT_FOUND         4200L
+    ERROR_WMI_GUID_NOT_FOUND         4200
 
 //
 // MessageId: ERROR_WMI_INSTANCE_NOT_FOUND
@@ -12120,7 +12066,7 @@ static const int ERROR_WMI_GUID_NOT_FOUND         4200L
 //
 // The instance name passed was not recognized as valid by a WMI data provider.
 //
-static const int ERROR_WMI_INSTANCE_NOT_FOUND     4201L
+    ERROR_WMI_INSTANCE_NOT_FOUND     4201
 
 //
 // MessageId: ERROR_WMI_ITEMID_NOT_FOUND
@@ -12129,7 +12075,7 @@ static const int ERROR_WMI_INSTANCE_NOT_FOUND     4201L
 //
 // The data item ID passed was not recognized as valid by a WMI data provider.
 //
-static const int ERROR_WMI_ITEMID_NOT_FOUND       4202L
+    ERROR_WMI_ITEMID_NOT_FOUND       4202
 
 //
 // MessageId: ERROR_WMI_TRY_AGAIN
@@ -12138,7 +12084,7 @@ static const int ERROR_WMI_ITEMID_NOT_FOUND       4202L
 //
 // The WMI request could not be completed and should be retried.
 //
-static const int ERROR_WMI_TRY_AGAIN              4203L
+    ERROR_WMI_TRY_AGAIN              4203
 
 //
 // MessageId: ERROR_WMI_DP_NOT_FOUND
@@ -12147,7 +12093,7 @@ static const int ERROR_WMI_TRY_AGAIN              4203L
 //
 // The WMI data provider could not be located.
 //
-static const int ERROR_WMI_DP_NOT_FOUND           4204L
+    ERROR_WMI_DP_NOT_FOUND           4204
 
 //
 // MessageId: ERROR_WMI_UNRESOLVED_INSTANCE_REF
@@ -12156,7 +12102,7 @@ static const int ERROR_WMI_DP_NOT_FOUND           4204L
 //
 // The WMI data provider references an instance set that has not been registered.
 //
-static const int ERROR_WMI_UNRESOLVED_INSTANCE_REF 4205L
+    ERROR_WMI_UNRESOLVED_INSTANCE_REF 4205
 
 //
 // MessageId: ERROR_WMI_ALREADY_ENABLED
@@ -12165,7 +12111,7 @@ static const int ERROR_WMI_UNRESOLVED_INSTANCE_REF 4205L
 //
 // The WMI data block or event notification has already been enabled.
 //
-static const int ERROR_WMI_ALREADY_ENABLED        4206L
+    ERROR_WMI_ALREADY_ENABLED        4206
 
 //
 // MessageId: ERROR_WMI_GUID_DISCONNECTED
@@ -12174,7 +12120,7 @@ static const int ERROR_WMI_ALREADY_ENABLED        4206L
 //
 // The WMI data block is no longer available.
 //
-static const int ERROR_WMI_GUID_DISCONNECTED      4207L
+    ERROR_WMI_GUID_DISCONNECTED      4207
 
 //
 // MessageId: ERROR_WMI_SERVER_UNAVAILABLE
@@ -12183,7 +12129,7 @@ static const int ERROR_WMI_GUID_DISCONNECTED      4207L
 //
 // The WMI data service is not available.
 //
-static const int ERROR_WMI_SERVER_UNAVAILABLE     4208L
+    ERROR_WMI_SERVER_UNAVAILABLE     4208
 
 //
 // MessageId: ERROR_WMI_DP_FAILED
@@ -12192,7 +12138,7 @@ static const int ERROR_WMI_SERVER_UNAVAILABLE     4208L
 //
 // The WMI data provider failed to carry out the request.
 //
-static const int ERROR_WMI_DP_FAILED              4209L
+    ERROR_WMI_DP_FAILED              4209
 
 //
 // MessageId: ERROR_WMI_INVALID_MOF
@@ -12201,7 +12147,7 @@ static const int ERROR_WMI_DP_FAILED              4209L
 //
 // The WMI MOF information is not valid.
 //
-static const int ERROR_WMI_INVALID_MOF            4210L
+    ERROR_WMI_INVALID_MOF            4210
 
 //
 // MessageId: ERROR_WMI_INVALID_REGINFO
@@ -12210,7 +12156,7 @@ static const int ERROR_WMI_INVALID_MOF            4210L
 //
 // The WMI registration information is not valid.
 //
-static const int ERROR_WMI_INVALID_REGINFO        4211L
+    ERROR_WMI_INVALID_REGINFO        4211
 
 //
 // MessageId: ERROR_WMI_ALREADY_DISABLED
@@ -12219,7 +12165,7 @@ static const int ERROR_WMI_INVALID_REGINFO        4211L
 //
 // The WMI data block or event notification has already been disabled.
 //
-static const int ERROR_WMI_ALREADY_DISABLED       4212L
+    ERROR_WMI_ALREADY_DISABLED       4212
 
 //
 // MessageId: ERROR_WMI_READ_ONLY
@@ -12228,7 +12174,7 @@ static const int ERROR_WMI_ALREADY_DISABLED       4212L
 //
 // The WMI data item or data block is read only.
 //
-static const int ERROR_WMI_READ_ONLY              4213L
+    ERROR_WMI_READ_ONLY              4213
 
 //
 // MessageId: ERROR_WMI_SET_FAILURE
@@ -12237,7 +12183,7 @@ static const int ERROR_WMI_READ_ONLY              4213L
 //
 // The WMI data item or data block could not be changed.
 //
-static const int ERROR_WMI_SET_FAILURE            4214L
+    ERROR_WMI_SET_FAILURE            4214
 
 
 ///////////////////////////////////////////////////
@@ -12254,7 +12200,7 @@ static const int ERROR_WMI_SET_FAILURE            4214L
 //
 // This operation is only valid in the context of an app container.
 //
-static const int ERROR_NOT_APPCONTAINER           4250L
+    ERROR_NOT_APPCONTAINER           4250
 
 //
 // MessageId: ERROR_APPCONTAINER_REQUIRED
@@ -12263,7 +12209,7 @@ static const int ERROR_NOT_APPCONTAINER           4250L
 //
 // This application can only run in the context of an app container.
 //
-static const int ERROR_APPCONTAINER_REQUIRED      4251L
+    ERROR_APPCONTAINER_REQUIRED      4251
 
 //
 // MessageId: ERROR_NOT_SUPPORTED_IN_APPCONTAINER
@@ -12272,7 +12218,7 @@ static const int ERROR_APPCONTAINER_REQUIRED      4251L
 //
 // This functionality is not supported in the context of an app container.
 //
-static const int ERROR_NOT_SUPPORTED_IN_APPCONTAINER 4252L
+    ERROR_NOT_SUPPORTED_IN_APPCONTAINER 4252
 
 //
 // MessageId: ERROR_INVALID_PACKAGE_SID_LENGTH
@@ -12281,7 +12227,7 @@ static const int ERROR_NOT_SUPPORTED_IN_APPCONTAINER 4252L
 //
 // The length of the SID supplied is not a valid length for app container SIDs.
 //
-static const int ERROR_INVALID_PACKAGE_SID_LENGTH 4253L
+    ERROR_INVALID_PACKAGE_SID_LENGTH 4253
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -12297,7 +12243,7 @@ static const int ERROR_INVALID_PACKAGE_SID_LENGTH 4253L
 //
 // The media identifier does not represent a valid medium.
 //
-static const int ERROR_INVALID_MEDIA              4300L
+    ERROR_INVALID_MEDIA              4300
 
 //
 // MessageId: ERROR_INVALID_LIBRARY
@@ -12306,7 +12252,7 @@ static const int ERROR_INVALID_MEDIA              4300L
 //
 // The library identifier does not represent a valid library.
 //
-static const int ERROR_INVALID_LIBRARY            4301L
+    ERROR_INVALID_LIBRARY            4301
 
 //
 // MessageId: ERROR_INVALID_MEDIA_POOL
@@ -12315,7 +12261,7 @@ static const int ERROR_INVALID_LIBRARY            4301L
 //
 // The media pool identifier does not represent a valid media pool.
 //
-static const int ERROR_INVALID_MEDIA_POOL         4302L
+    ERROR_INVALID_MEDIA_POOL         4302
 
 //
 // MessageId: ERROR_DRIVE_MEDIA_MISMATCH
@@ -12324,7 +12270,7 @@ static const int ERROR_INVALID_MEDIA_POOL         4302L
 //
 // The drive and medium are not compatible or exist in different libraries.
 //
-static const int ERROR_DRIVE_MEDIA_MISMATCH       4303L
+    ERROR_DRIVE_MEDIA_MISMATCH       4303
 
 //
 // MessageId: ERROR_MEDIA_OFFLINE
@@ -12333,7 +12279,7 @@ static const int ERROR_DRIVE_MEDIA_MISMATCH       4303L
 //
 // The medium currently exists in an offline library and must be online to perform this operation.
 //
-static const int ERROR_MEDIA_OFFLINE              4304L
+    ERROR_MEDIA_OFFLINE              4304
 
 //
 // MessageId: ERROR_LIBRARY_OFFLINE
@@ -12342,7 +12288,7 @@ static const int ERROR_MEDIA_OFFLINE              4304L
 //
 // The operation cannot be performed on an offline library.
 //
-static const int ERROR_LIBRARY_OFFLINE            4305L
+    ERROR_LIBRARY_OFFLINE            4305
 
 //
 // MessageId: ERROR_EMPTY
@@ -12351,7 +12297,7 @@ static const int ERROR_LIBRARY_OFFLINE            4305L
 //
 // The library, drive, or media pool is empty.
 //
-static const int ERROR_EMPTY                      4306L
+    ERROR_EMPTY                      4306
 
 //
 // MessageId: ERROR_NOT_EMPTY
@@ -12360,7 +12306,7 @@ static const int ERROR_EMPTY                      4306L
 //
 // The library, drive, or media pool must be empty to perform this operation.
 //
-static const int ERROR_NOT_EMPTY                  4307L
+    ERROR_NOT_EMPTY                  4307
 
 //
 // MessageId: ERROR_MEDIA_UNAVAILABLE
@@ -12369,7 +12315,7 @@ static const int ERROR_NOT_EMPTY                  4307L
 //
 // No media is currently available in this media pool or library.
 //
-static const int ERROR_MEDIA_UNAVAILABLE          4308L
+    ERROR_MEDIA_UNAVAILABLE          4308
 
 //
 // MessageId: ERROR_RESOURCE_DISABLED
@@ -12378,7 +12324,7 @@ static const int ERROR_MEDIA_UNAVAILABLE          4308L
 //
 // A resource required for this operation is disabled.
 //
-static const int ERROR_RESOURCE_DISABLED          4309L
+    ERROR_RESOURCE_DISABLED          4309
 
 //
 // MessageId: ERROR_INVALID_CLEANER
@@ -12387,7 +12333,7 @@ static const int ERROR_RESOURCE_DISABLED          4309L
 //
 // The media identifier does not represent a valid cleaner.
 //
-static const int ERROR_INVALID_CLEANER            4310L
+    ERROR_INVALID_CLEANER            4310
 
 //
 // MessageId: ERROR_UNABLE_TO_CLEAN
@@ -12396,7 +12342,7 @@ static const int ERROR_INVALID_CLEANER            4310L
 //
 // The drive cannot be cleaned or does not support cleaning.
 //
-static const int ERROR_UNABLE_TO_CLEAN            4311L
+    ERROR_UNABLE_TO_CLEAN            4311
 
 //
 // MessageId: ERROR_OBJECT_NOT_FOUND
@@ -12405,7 +12351,7 @@ static const int ERROR_UNABLE_TO_CLEAN            4311L
 //
 // The object identifier does not represent a valid object.
 //
-static const int ERROR_OBJECT_NOT_FOUND           4312L
+    ERROR_OBJECT_NOT_FOUND           4312
 
 //
 // MessageId: ERROR_DATABASE_FAILURE
@@ -12414,7 +12360,7 @@ static const int ERROR_OBJECT_NOT_FOUND           4312L
 //
 // Unable to read from or write to the database.
 //
-static const int ERROR_DATABASE_FAILURE           4313L
+    ERROR_DATABASE_FAILURE           4313
 
 //
 // MessageId: ERROR_DATABASE_FULL
@@ -12423,7 +12369,7 @@ static const int ERROR_DATABASE_FAILURE           4313L
 //
 // The database is full.
 //
-static const int ERROR_DATABASE_FULL              4314L
+    ERROR_DATABASE_FULL              4314
 
 //
 // MessageId: ERROR_MEDIA_INCOMPATIBLE
@@ -12432,7 +12378,7 @@ static const int ERROR_DATABASE_FULL              4314L
 //
 // The medium is not compatible with the device or media pool.
 //
-static const int ERROR_MEDIA_INCOMPATIBLE         4315L
+    ERROR_MEDIA_INCOMPATIBLE         4315
 
 //
 // MessageId: ERROR_RESOURCE_NOT_PRESENT
@@ -12441,7 +12387,7 @@ static const int ERROR_MEDIA_INCOMPATIBLE         4315L
 //
 // The resource required for this operation does not exist.
 //
-static const int ERROR_RESOURCE_NOT_PRESENT       4316L
+    ERROR_RESOURCE_NOT_PRESENT       4316
 
 //
 // MessageId: ERROR_INVALID_OPERATION
@@ -12450,7 +12396,7 @@ static const int ERROR_RESOURCE_NOT_PRESENT       4316L
 //
 // The operation identifier is not valid.
 //
-static const int ERROR_INVALID_OPERATION          4317L
+    ERROR_INVALID_OPERATION          4317
 
 //
 // MessageId: ERROR_MEDIA_NOT_AVAILABLE
@@ -12459,7 +12405,7 @@ static const int ERROR_INVALID_OPERATION          4317L
 //
 // The media is not mounted or ready for use.
 //
-static const int ERROR_MEDIA_NOT_AVAILABLE        4318L
+    ERROR_MEDIA_NOT_AVAILABLE        4318
 
 //
 // MessageId: ERROR_DEVICE_NOT_AVAILABLE
@@ -12468,7 +12414,7 @@ static const int ERROR_MEDIA_NOT_AVAILABLE        4318L
 //
 // The device is not ready for use.
 //
-static const int ERROR_DEVICE_NOT_AVAILABLE       4319L
+    ERROR_DEVICE_NOT_AVAILABLE       4319
 
 //
 // MessageId: ERROR_REQUEST_REFUSED
@@ -12477,7 +12423,7 @@ static const int ERROR_DEVICE_NOT_AVAILABLE       4319L
 //
 // The operator or administrator has refused the request.
 //
-static const int ERROR_REQUEST_REFUSED            4320L
+    ERROR_REQUEST_REFUSED            4320
 
 //
 // MessageId: ERROR_INVALID_DRIVE_OBJECT
@@ -12486,7 +12432,7 @@ static const int ERROR_REQUEST_REFUSED            4320L
 //
 // The drive identifier does not represent a valid drive.
 //
-static const int ERROR_INVALID_DRIVE_OBJECT       4321L
+    ERROR_INVALID_DRIVE_OBJECT       4321
 
 //
 // MessageId: ERROR_LIBRARY_FULL
@@ -12495,7 +12441,7 @@ static const int ERROR_INVALID_DRIVE_OBJECT       4321L
 //
 // Library is full. No slot is available for use.
 //
-static const int ERROR_LIBRARY_FULL               4322L
+    ERROR_LIBRARY_FULL               4322
 
 //
 // MessageId: ERROR_MEDIUM_NOT_ACCESSIBLE
@@ -12504,7 +12450,7 @@ static const int ERROR_LIBRARY_FULL               4322L
 //
 // The transport cannot access the medium.
 //
-static const int ERROR_MEDIUM_NOT_ACCESSIBLE      4323L
+    ERROR_MEDIUM_NOT_ACCESSIBLE      4323
 
 //
 // MessageId: ERROR_UNABLE_TO_LOAD_MEDIUM
@@ -12513,7 +12459,7 @@ static const int ERROR_MEDIUM_NOT_ACCESSIBLE      4323L
 //
 // Unable to load the medium into the drive.
 //
-static const int ERROR_UNABLE_TO_LOAD_MEDIUM      4324L
+    ERROR_UNABLE_TO_LOAD_MEDIUM      4324
 
 //
 // MessageId: ERROR_UNABLE_TO_INVENTORY_DRIVE
@@ -12522,7 +12468,7 @@ static const int ERROR_UNABLE_TO_LOAD_MEDIUM      4324L
 //
 // Unable to retrieve the drive status.
 //
-static const int ERROR_UNABLE_TO_INVENTORY_DRIVE  4325L
+    ERROR_UNABLE_TO_INVENTORY_DRIVE  4325
 
 //
 // MessageId: ERROR_UNABLE_TO_INVENTORY_SLOT
@@ -12531,7 +12477,7 @@ static const int ERROR_UNABLE_TO_INVENTORY_DRIVE  4325L
 //
 // Unable to retrieve the slot status.
 //
-static const int ERROR_UNABLE_TO_INVENTORY_SLOT   4326L
+    ERROR_UNABLE_TO_INVENTORY_SLOT   4326
 
 //
 // MessageId: ERROR_UNABLE_TO_INVENTORY_TRANSPORT
@@ -12540,7 +12486,7 @@ static const int ERROR_UNABLE_TO_INVENTORY_SLOT   4326L
 //
 // Unable to retrieve status about the transport.
 //
-static const int ERROR_UNABLE_TO_INVENTORY_TRANSPORT 4327L
+    ERROR_UNABLE_TO_INVENTORY_TRANSPORT 4327
 
 //
 // MessageId: ERROR_TRANSPORT_FULL
@@ -12549,7 +12495,7 @@ static const int ERROR_UNABLE_TO_INVENTORY_TRANSPORT 4327L
 //
 // Cannot use the transport because it is already in use.
 //
-static const int ERROR_TRANSPORT_FULL             4328L
+    ERROR_TRANSPORT_FULL             4328
 
 //
 // MessageId: ERROR_CONTROLLING_IEPORT
@@ -12558,7 +12504,7 @@ static const int ERROR_TRANSPORT_FULL             4328L
 //
 // Unable to open or close the inject/eject port.
 //
-static const int ERROR_CONTROLLING_IEPORT         4329L
+    ERROR_CONTROLLING_IEPORT         4329
 
 //
 // MessageId: ERROR_UNABLE_TO_EJECT_MOUNTED_MEDIA
@@ -12567,7 +12513,7 @@ static const int ERROR_CONTROLLING_IEPORT         4329L
 //
 // Unable to eject the medium because it is in a drive.
 //
-static const int ERROR_UNABLE_TO_EJECT_MOUNTED_MEDIA 4330L
+    ERROR_UNABLE_TO_EJECT_MOUNTED_MEDIA 4330
 
 //
 // MessageId: ERROR_CLEANER_SLOT_SET
@@ -12576,7 +12522,7 @@ static const int ERROR_UNABLE_TO_EJECT_MOUNTED_MEDIA 4330L
 //
 // A cleaner slot is already reserved.
 //
-static const int ERROR_CLEANER_SLOT_SET           4331L
+    ERROR_CLEANER_SLOT_SET           4331
 
 //
 // MessageId: ERROR_CLEANER_SLOT_NOT_SET
@@ -12585,7 +12531,7 @@ static const int ERROR_CLEANER_SLOT_SET           4331L
 //
 // A cleaner slot is not reserved.
 //
-static const int ERROR_CLEANER_SLOT_NOT_SET       4332L
+    ERROR_CLEANER_SLOT_NOT_SET       4332
 
 //
 // MessageId: ERROR_CLEANER_CARTRIDGE_SPENT
@@ -12594,7 +12540,7 @@ static const int ERROR_CLEANER_SLOT_NOT_SET       4332L
 //
 // The cleaner cartridge has performed the maximum number of drive cleanings.
 //
-static const int ERROR_CLEANER_CARTRIDGE_SPENT    4333L
+    ERROR_CLEANER_CARTRIDGE_SPENT    4333
 
 //
 // MessageId: ERROR_UNEXPECTED_OMID
@@ -12603,7 +12549,7 @@ static const int ERROR_CLEANER_CARTRIDGE_SPENT    4333L
 //
 // Unexpected on-medium identifier.
 //
-static const int ERROR_UNEXPECTED_OMID            4334L
+    ERROR_UNEXPECTED_OMID            4334
 
 //
 // MessageId: ERROR_CANT_DELETE_LAST_ITEM
@@ -12612,7 +12558,7 @@ static const int ERROR_UNEXPECTED_OMID            4334L
 //
 // The last remaining item in this group or resource cannot be deleted.
 //
-static const int ERROR_CANT_DELETE_LAST_ITEM      4335L
+    ERROR_CANT_DELETE_LAST_ITEM      4335
 
 //
 // MessageId: ERROR_MESSAGE_EXCEEDS_MAX_SIZE
@@ -12621,7 +12567,7 @@ static const int ERROR_CANT_DELETE_LAST_ITEM      4335L
 //
 // The message provided exceeds the maximum size allowed for this parameter.
 //
-static const int ERROR_MESSAGE_EXCEEDS_MAX_SIZE   4336L
+    ERROR_MESSAGE_EXCEEDS_MAX_SIZE   4336
 
 //
 // MessageId: ERROR_VOLUME_CONTAINS_SYS_FILES
@@ -12630,7 +12576,7 @@ static const int ERROR_MESSAGE_EXCEEDS_MAX_SIZE   4336L
 //
 // The volume contains system or paging files.
 //
-static const int ERROR_VOLUME_CONTAINS_SYS_FILES  4337L
+    ERROR_VOLUME_CONTAINS_SYS_FILES  4337
 
 //
 // MessageId: ERROR_INDIGENOUS_TYPE
@@ -12639,7 +12585,7 @@ static const int ERROR_VOLUME_CONTAINS_SYS_FILES  4337L
 //
 // The media type cannot be removed from this library since at least one drive in the library reports it can support this media type.
 //
-static const int ERROR_INDIGENOUS_TYPE            4338L
+    ERROR_INDIGENOUS_TYPE            4338
 
 //
 // MessageId: ERROR_NO_SUPPORTING_DRIVES
@@ -12648,7 +12594,7 @@ static const int ERROR_INDIGENOUS_TYPE            4338L
 //
 // This offline media cannot be mounted on this system since no enabled drives are present which can be used.
 //
-static const int ERROR_NO_SUPPORTING_DRIVES       4339L
+    ERROR_NO_SUPPORTING_DRIVES       4339
 
 //
 // MessageId: ERROR_CLEANER_CARTRIDGE_INSTALLED
@@ -12657,7 +12603,7 @@ static const int ERROR_NO_SUPPORTING_DRIVES       4339L
 //
 // A cleaner cartridge is present in the tape library.
 //
-static const int ERROR_CLEANER_CARTRIDGE_INSTALLED 4340L
+    ERROR_CLEANER_CARTRIDGE_INSTALLED 4340
 
 //
 // MessageId: ERROR_IEPORT_FULL
@@ -12666,7 +12612,7 @@ static const int ERROR_CLEANER_CARTRIDGE_INSTALLED 4340L
 //
 // Cannot use the inject/eject port because it is not empty.
 //
-static const int ERROR_IEPORT_FULL                4341L
+    ERROR_IEPORT_FULL                4341
 
 
 ///////////////////////////////////////////////////
@@ -12683,7 +12629,7 @@ static const int ERROR_IEPORT_FULL                4341L
 //
 // This file is currently not available for use on this computer.
 //
-static const int ERROR_FILE_OFFLINE               4350L
+    ERROR_FILE_OFFLINE               4350
 
 //
 // MessageId: ERROR_REMOTE_STORAGE_NOT_ACTIVE
@@ -12692,7 +12638,7 @@ static const int ERROR_FILE_OFFLINE               4350L
 //
 // The remote storage service is not operational at this time.
 //
-static const int ERROR_REMOTE_STORAGE_NOT_ACTIVE  4351L
+    ERROR_REMOTE_STORAGE_NOT_ACTIVE  4351
 
 //
 // MessageId: ERROR_REMOTE_STORAGE_MEDIA_ERROR
@@ -12701,7 +12647,7 @@ static const int ERROR_REMOTE_STORAGE_NOT_ACTIVE  4351L
 //
 // The remote storage service encountered a media error.
 //
-static const int ERROR_REMOTE_STORAGE_MEDIA_ERROR 4352L
+    ERROR_REMOTE_STORAGE_MEDIA_ERROR 4352
 
 
 ///////////////////////////////////////////////////
@@ -12718,7 +12664,7 @@ static const int ERROR_REMOTE_STORAGE_MEDIA_ERROR 4352L
 //
 // The file or directory is not a reparse point.
 //
-static const int ERROR_NOT_A_REPARSE_POINT        4390L
+    ERROR_NOT_A_REPARSE_POINT        4390
 
 //
 // MessageId: ERROR_REPARSE_ATTRIBUTE_CONFLICT
@@ -12727,7 +12673,7 @@ static const int ERROR_NOT_A_REPARSE_POINT        4390L
 //
 // The reparse point attribute cannot be set because it conflicts with an existing attribute.
 //
-static const int ERROR_REPARSE_ATTRIBUTE_CONFLICT 4391L
+    ERROR_REPARSE_ATTRIBUTE_CONFLICT 4391
 
 //
 // MessageId: ERROR_INVALID_REPARSE_DATA
@@ -12736,7 +12682,7 @@ static const int ERROR_REPARSE_ATTRIBUTE_CONFLICT 4391L
 //
 // The data present in the reparse point buffer is invalid.
 //
-static const int ERROR_INVALID_REPARSE_DATA       4392L
+    ERROR_INVALID_REPARSE_DATA       4392
 
 //
 // MessageId: ERROR_REPARSE_TAG_INVALID
@@ -12745,7 +12691,7 @@ static const int ERROR_INVALID_REPARSE_DATA       4392L
 //
 // The tag present in the reparse point buffer is invalid.
 //
-static const int ERROR_REPARSE_TAG_INVALID        4393L
+    ERROR_REPARSE_TAG_INVALID        4393
 
 //
 // MessageId: ERROR_REPARSE_TAG_MISMATCH
@@ -12754,7 +12700,7 @@ static const int ERROR_REPARSE_TAG_INVALID        4393L
 //
 // There is a mismatch between the tag specified in the request and the tag present in the reparse point.
 //
-static const int ERROR_REPARSE_TAG_MISMATCH       4394L
+    ERROR_REPARSE_TAG_MISMATCH       4394
 
 //
 // MessageId: ERROR_REPARSE_POINT_ENCOUNTERED
@@ -12763,7 +12709,7 @@ static const int ERROR_REPARSE_TAG_MISMATCH       4394L
 //
 // The object manager encountered a reparse point while retrieving an object.
 //
-static const int ERROR_REPARSE_POINT_ENCOUNTERED  4395L
+    ERROR_REPARSE_POINT_ENCOUNTERED  4395
 
 
 ///////////////////////////////////////////////////
@@ -12780,7 +12726,7 @@ static const int ERROR_REPARSE_POINT_ENCOUNTERED  4395L
 //
 // Fast Cache data not found.
 //
-static const int ERROR_APP_DATA_NOT_FOUND         4400L
+    ERROR_APP_DATA_NOT_FOUND         4400
 
 //
 // MessageId: ERROR_APP_DATA_EXPIRED
@@ -12789,7 +12735,7 @@ static const int ERROR_APP_DATA_NOT_FOUND         4400L
 //
 // Fast Cache data expired.
 //
-static const int ERROR_APP_DATA_EXPIRED           4401L
+    ERROR_APP_DATA_EXPIRED           4401
 
 //
 // MessageId: ERROR_APP_DATA_CORRUPT
@@ -12798,7 +12744,7 @@ static const int ERROR_APP_DATA_EXPIRED           4401L
 //
 // Fast Cache data corrupt.
 //
-static const int ERROR_APP_DATA_CORRUPT           4402L
+    ERROR_APP_DATA_CORRUPT           4402
 
 //
 // MessageId: ERROR_APP_DATA_LIMIT_EXCEEDED
@@ -12807,7 +12753,7 @@ static const int ERROR_APP_DATA_CORRUPT           4402L
 //
 // Fast Cache data has exceeded its max size and cannot be updated.
 //
-static const int ERROR_APP_DATA_LIMIT_EXCEEDED    4403L
+    ERROR_APP_DATA_LIMIT_EXCEEDED    4403
 
 //
 // MessageId: ERROR_APP_DATA_REBOOT_REQUIRED
@@ -12816,7 +12762,7 @@ static const int ERROR_APP_DATA_LIMIT_EXCEEDED    4403L
 //
 // Fast Cache has been ReArmed and requires a reboot until it can be updated.
 //
-static const int ERROR_APP_DATA_REBOOT_REQUIRED   4404L
+    ERROR_APP_DATA_REBOOT_REQUIRED   4404
 
 
 ///////////////////////////////////////////////////
@@ -12833,7 +12779,7 @@ static const int ERROR_APP_DATA_REBOOT_REQUIRED   4404L
 //
 // Secure Boot detected that rollback of protected data has been attempted.
 //
-static const int ERROR_SECUREBOOT_ROLLBACK_DETECTED 4420L
+    ERROR_SECUREBOOT_ROLLBACK_DETECTED 4420
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_VIOLATION
@@ -12842,7 +12788,7 @@ static const int ERROR_SECUREBOOT_ROLLBACK_DETECTED 4420L
 //
 // The value is protected by Secure Boot policy and cannot be modified or deleted.
 //
-static const int ERROR_SECUREBOOT_POLICY_VIOLATION 4421L
+    ERROR_SECUREBOOT_POLICY_VIOLATION 4421
 
 //
 // MessageId: ERROR_SECUREBOOT_INVALID_POLICY
@@ -12851,7 +12797,7 @@ static const int ERROR_SECUREBOOT_POLICY_VIOLATION 4421L
 //
 // The Secure Boot policy is invalid.
 //
-static const int ERROR_SECUREBOOT_INVALID_POLICY  4422L
+    ERROR_SECUREBOOT_INVALID_POLICY  4422
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_PUBLISHER_NOT_FOUND
@@ -12860,7 +12806,7 @@ static const int ERROR_SECUREBOOT_INVALID_POLICY  4422L
 //
 // A new Secure Boot policy did not contain the current publisher on its update list.
 //
-static const int ERROR_SECUREBOOT_POLICY_PUBLISHER_NOT_FOUND 4423L
+    ERROR_SECUREBOOT_POLICY_PUBLISHER_NOT_FOUND 4423
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_NOT_SIGNED
@@ -12869,7 +12815,7 @@ static const int ERROR_SECUREBOOT_POLICY_PUBLISHER_NOT_FOUND 4423L
 //
 // The Secure Boot policy is either not signed or is signed by a non-trusted signer.
 //
-static const int ERROR_SECUREBOOT_POLICY_NOT_SIGNED 4424L
+    ERROR_SECUREBOOT_POLICY_NOT_SIGNED 4424
 
 //
 // MessageId: ERROR_SECUREBOOT_NOT_ENABLED
@@ -12878,7 +12824,7 @@ static const int ERROR_SECUREBOOT_POLICY_NOT_SIGNED 4424L
 //
 // Secure Boot is not enabled on this machine.
 //
-static const int ERROR_SECUREBOOT_NOT_ENABLED     4425L
+    ERROR_SECUREBOOT_NOT_ENABLED     4425
 
 //
 // MessageId: ERROR_SECUREBOOT_FILE_REPLACED
@@ -12887,7 +12833,7 @@ static const int ERROR_SECUREBOOT_NOT_ENABLED     4425L
 //
 // Secure Boot requires that certain files and drivers are not replaced by other files or drivers.
 //
-static const int ERROR_SECUREBOOT_FILE_REPLACED   4426L
+    ERROR_SECUREBOOT_FILE_REPLACED   4426
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_NOT_AUTHORIZED
@@ -12896,7 +12842,7 @@ static const int ERROR_SECUREBOOT_FILE_REPLACED   4426L
 //
 // The Secure Boot Supplemental Policy file was not authorized on this machine.
 //
-static const int ERROR_SECUREBOOT_POLICY_NOT_AUTHORIZED 4427L
+    ERROR_SECUREBOOT_POLICY_NOT_AUTHORIZED 4427
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_UNKNOWN
@@ -12905,7 +12851,7 @@ static const int ERROR_SECUREBOOT_POLICY_NOT_AUTHORIZED 4427L
 //
 // The Supplemntal Policy is not recognized on this device.
 //
-static const int ERROR_SECUREBOOT_POLICY_UNKNOWN  4428L
+    ERROR_SECUREBOOT_POLICY_UNKNOWN  4428
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_MISSING_ANTIROLLBACKVERSION
@@ -12914,7 +12860,7 @@ static const int ERROR_SECUREBOOT_POLICY_UNKNOWN  4428L
 //
 // The Antirollback version was not found in the Secure Boot Policy.
 //
-static const int ERROR_SECUREBOOT_POLICY_MISSING_ANTIROLLBACKVERSION 4429L
+    ERROR_SECUREBOOT_POLICY_MISSING_ANTIROLLBACKVERSION 4429
 
 //
 // MessageId: ERROR_SECUREBOOT_PLATFORM_ID_MISMATCH
@@ -12923,7 +12869,7 @@ static const int ERROR_SECUREBOOT_POLICY_MISSING_ANTIROLLBACKVERSION 4429L
 //
 // The Platform ID specified in the Secure Boot policy does not match the Platform ID on this device.
 //
-static const int ERROR_SECUREBOOT_PLATFORM_ID_MISMATCH 4430L
+    ERROR_SECUREBOOT_PLATFORM_ID_MISMATCH 4430
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_ROLLBACK_DETECTED
@@ -12932,7 +12878,7 @@ static const int ERROR_SECUREBOOT_PLATFORM_ID_MISMATCH 4430L
 //
 // The Secure Boot policy file has an older Antirollback Version than this device.
 //
-static const int ERROR_SECUREBOOT_POLICY_ROLLBACK_DETECTED 4431L
+    ERROR_SECUREBOOT_POLICY_ROLLBACK_DETECTED 4431
 
 //
 // MessageId: ERROR_SECUREBOOT_POLICY_UPGRADE_MISMATCH
@@ -12941,7 +12887,7 @@ static const int ERROR_SECUREBOOT_POLICY_ROLLBACK_DETECTED 4431L
 //
 // The Secure Boot policy file does not match the upgraded legacy policy.
 //
-static const int ERROR_SECUREBOOT_POLICY_UPGRADE_MISMATCH 4432L
+    ERROR_SECUREBOOT_POLICY_UPGRADE_MISMATCH 4432
 
 //
 // MessageId: ERROR_SECUREBOOT_REQUIRED_POLICY_FILE_MISSING
@@ -12950,7 +12896,7 @@ static const int ERROR_SECUREBOOT_POLICY_UPGRADE_MISMATCH 4432L
 //
 // The Secure Boot policy file is required but could not be found.
 //
-static const int ERROR_SECUREBOOT_REQUIRED_POLICY_FILE_MISSING 4433L
+    ERROR_SECUREBOOT_REQUIRED_POLICY_FILE_MISSING 4433
 
 //
 // MessageId: ERROR_SECUREBOOT_NOT_BASE_POLICY
@@ -12959,7 +12905,7 @@ static const int ERROR_SECUREBOOT_REQUIRED_POLICY_FILE_MISSING 4433L
 //
 // Supplemental Secure Boot policy file can not be loaded as a base Secure Boot policy.
 //
-static const int ERROR_SECUREBOOT_NOT_BASE_POLICY 4434L
+    ERROR_SECUREBOOT_NOT_BASE_POLICY 4434
 
 //
 // MessageId: ERROR_SECUREBOOT_NOT_SUPPLEMENTAL_POLICY
@@ -12968,7 +12914,7 @@ static const int ERROR_SECUREBOOT_NOT_BASE_POLICY 4434L
 //
 // Base Secure Boot policy file can not be loaded as a Supplemental Secure Boot policy.
 //
-static const int ERROR_SECUREBOOT_NOT_SUPPLEMENTAL_POLICY 4435L
+    ERROR_SECUREBOOT_NOT_SUPPLEMENTAL_POLICY 4435
 
 
 ///////////////////////////////////////////////////
@@ -12985,7 +12931,7 @@ static const int ERROR_SECUREBOOT_NOT_SUPPLEMENTAL_POLICY 4435L
 //
 // The copy offload read operation is not supported by a filter.
 //
-static const int ERROR_OFFLOAD_READ_FLT_NOT_SUPPORTED 4440L
+    ERROR_OFFLOAD_READ_FLT_NOT_SUPPORTED 4440
 
 //
 // MessageId: ERROR_OFFLOAD_WRITE_FLT_NOT_SUPPORTED
@@ -12994,7 +12940,7 @@ static const int ERROR_OFFLOAD_READ_FLT_NOT_SUPPORTED 4440L
 //
 // The copy offload write operation is not supported by a filter.
 //
-static const int ERROR_OFFLOAD_WRITE_FLT_NOT_SUPPORTED 4441L
+    ERROR_OFFLOAD_WRITE_FLT_NOT_SUPPORTED 4441
 
 //
 // MessageId: ERROR_OFFLOAD_READ_FILE_NOT_SUPPORTED
@@ -13003,7 +12949,7 @@ static const int ERROR_OFFLOAD_WRITE_FLT_NOT_SUPPORTED 4441L
 //
 // The copy offload read operation is not supported for the file.
 //
-static const int ERROR_OFFLOAD_READ_FILE_NOT_SUPPORTED 4442L
+    ERROR_OFFLOAD_READ_FILE_NOT_SUPPORTED 4442
 
 //
 // MessageId: ERROR_OFFLOAD_WRITE_FILE_NOT_SUPPORTED
@@ -13012,7 +12958,7 @@ static const int ERROR_OFFLOAD_READ_FILE_NOT_SUPPORTED 4442L
 //
 // The copy offload write operation is not supported for the file.
 //
-static const int ERROR_OFFLOAD_WRITE_FILE_NOT_SUPPORTED 4443L
+    ERROR_OFFLOAD_WRITE_FILE_NOT_SUPPORTED 4443
 
 //
 // MessageId: ERROR_ALREADY_HAS_STREAM_ID
@@ -13021,7 +12967,7 @@ static const int ERROR_OFFLOAD_WRITE_FILE_NOT_SUPPORTED 4443L
 //
 // This file is currently associated with a different stream id.
 //
-static const int ERROR_ALREADY_HAS_STREAM_ID      4444L
+    ERROR_ALREADY_HAS_STREAM_ID      4444
 
 //
 // MessageId: ERROR_SMR_GARBAGE_COLLECTION_REQUIRED
@@ -13030,7 +12976,7 @@ static const int ERROR_ALREADY_HAS_STREAM_ID      4444L
 //
 // The volume must undergo garbage collection.
 //
-static const int ERROR_SMR_GARBAGE_COLLECTION_REQUIRED 4445L
+    ERROR_SMR_GARBAGE_COLLECTION_REQUIRED 4445
 
 //
 // MessageId: ERROR_WOF_WIM_HEADER_CORRUPT
@@ -13039,7 +12985,7 @@ static const int ERROR_SMR_GARBAGE_COLLECTION_REQUIRED 4445L
 //
 // The WOF driver encountered a corruption in WIM image's Header.
 //
-static const int ERROR_WOF_WIM_HEADER_CORRUPT     4446L
+    ERROR_WOF_WIM_HEADER_CORRUPT     4446
 
 //
 // MessageId: ERROR_WOF_WIM_RESOURCE_TABLE_CORRUPT
@@ -13048,7 +12994,7 @@ static const int ERROR_WOF_WIM_HEADER_CORRUPT     4446L
 //
 // The WOF driver encountered a corruption in WIM image's Resource Table.
 //
-static const int ERROR_WOF_WIM_RESOURCE_TABLE_CORRUPT 4447L
+    ERROR_WOF_WIM_RESOURCE_TABLE_CORRUPT 4447
 
 //
 // MessageId: ERROR_WOF_FILE_RESOURCE_TABLE_CORRUPT
@@ -13057,7 +13003,7 @@ static const int ERROR_WOF_WIM_RESOURCE_TABLE_CORRUPT 4447L
 //
 // The WOF driver encountered a corruption in the compressed file's Resource Table.
 //
-static const int ERROR_WOF_FILE_RESOURCE_TABLE_CORRUPT 4448L
+    ERROR_WOF_FILE_RESOURCE_TABLE_CORRUPT 4448
 
 
 ///////////////////////////////////////////////////
@@ -13074,7 +13020,7 @@ static const int ERROR_WOF_FILE_RESOURCE_TABLE_CORRUPT 4448L
 //
 // Single Instance Storage is not available on this volume.
 //
-static const int ERROR_VOLUME_NOT_SIS_ENABLED     4500L
+    ERROR_VOLUME_NOT_SIS_ENABLED     4500
 
 
 ///////////////////////////////////////////////////
@@ -13091,7 +13037,7 @@ static const int ERROR_VOLUME_NOT_SIS_ENABLED     4500L
 //
 // System Integrity detected that policy rollback has been attempted.
 //
-static const int ERROR_SYSTEM_INTEGRITY_ROLLBACK_DETECTED 4550L
+    ERROR_SYSTEM_INTEGRITY_ROLLBACK_DETECTED 4550
 
 //
 // MessageId: ERROR_SYSTEM_INTEGRITY_POLICY_VIOLATION
@@ -13100,7 +13046,7 @@ static const int ERROR_SYSTEM_INTEGRITY_ROLLBACK_DETECTED 4550L
 //
 // Your organization used Device Guard to block this app. Contact your support person for more info.
 //
-static const int ERROR_SYSTEM_INTEGRITY_POLICY_VIOLATION 4551L
+    ERROR_SYSTEM_INTEGRITY_POLICY_VIOLATION 4551
 
 //
 // MessageId: ERROR_SYSTEM_INTEGRITY_INVALID_POLICY
@@ -13109,7 +13055,7 @@ static const int ERROR_SYSTEM_INTEGRITY_POLICY_VIOLATION 4551L
 //
 // The System Integrity policy is invalid.
 //
-static const int ERROR_SYSTEM_INTEGRITY_INVALID_POLICY 4552L
+    ERROR_SYSTEM_INTEGRITY_INVALID_POLICY 4552
 
 //
 // MessageId: ERROR_SYSTEM_INTEGRITY_POLICY_NOT_SIGNED
@@ -13118,7 +13064,7 @@ static const int ERROR_SYSTEM_INTEGRITY_INVALID_POLICY 4552L
 //
 // The System Integrity policy is either not signed or is signed by a non-trusted signer.
 //
-static const int ERROR_SYSTEM_INTEGRITY_POLICY_NOT_SIGNED 4553L
+    ERROR_SYSTEM_INTEGRITY_POLICY_NOT_SIGNED 4553
 
 
 ///////////////////////////////////////////////////
@@ -13135,7 +13081,7 @@ static const int ERROR_SYSTEM_INTEGRITY_POLICY_NOT_SIGNED 4553L
 //
 // Virtual Secure Mode (VSM) is not initialized. The hypervisor or VSM may not be present or enabled.
 //
-static const int ERROR_VSM_NOT_INITIALIZED        4560L
+    ERROR_VSM_NOT_INITIALIZED        4560
 
 //
 // MessageId: ERROR_VSM_DMA_PROTECTION_NOT_IN_USE
@@ -13144,7 +13090,7 @@ static const int ERROR_VSM_NOT_INITIALIZED        4560L
 //
 // The hypervisor is not protecting DMA because an IOMMU is not present or not enabled in the BIOS.
 //
-static const int ERROR_VSM_DMA_PROTECTION_NOT_IN_USE 4561L
+    ERROR_VSM_DMA_PROTECTION_NOT_IN_USE 4561
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -13160,7 +13106,7 @@ static const int ERROR_VSM_DMA_PROTECTION_NOT_IN_USE 4561L
 //
 // The Platform Manifest file was not authorized on this machine.
 //
-static const int ERROR_PLATFORM_MANIFEST_NOT_AUTHORIZED 4570L
+    ERROR_PLATFORM_MANIFEST_NOT_AUTHORIZED 4570
 
 //
 // MessageId: ERROR_PLATFORM_MANIFEST_INVALID
@@ -13169,7 +13115,7 @@ static const int ERROR_PLATFORM_MANIFEST_NOT_AUTHORIZED 4570L
 //
 // The Platform Manifest file was not valid.
 //
-static const int ERROR_PLATFORM_MANIFEST_INVALID  4571L
+    ERROR_PLATFORM_MANIFEST_INVALID  4571
 
 //
 // MessageId: ERROR_PLATFORM_MANIFEST_FILE_NOT_AUTHORIZED
@@ -13178,7 +13124,7 @@ static const int ERROR_PLATFORM_MANIFEST_INVALID  4571L
 //
 // The file is not authorized on this platform because an entry was not found in the Platform Manifest.
 //
-static const int ERROR_PLATFORM_MANIFEST_FILE_NOT_AUTHORIZED 4572L
+    ERROR_PLATFORM_MANIFEST_FILE_NOT_AUTHORIZED 4572
 
 //
 // MessageId: ERROR_PLATFORM_MANIFEST_CATALOG_NOT_AUTHORIZED
@@ -13187,7 +13133,7 @@ static const int ERROR_PLATFORM_MANIFEST_FILE_NOT_AUTHORIZED 4572L
 //
 // The catalog is not authorized on this platform because an entry was not found in the Platform Manifest.
 //
-static const int ERROR_PLATFORM_MANIFEST_CATALOG_NOT_AUTHORIZED 4573L
+    ERROR_PLATFORM_MANIFEST_CATALOG_NOT_AUTHORIZED 4573
 
 //
 // MessageId: ERROR_PLATFORM_MANIFEST_BINARY_ID_NOT_FOUND
@@ -13196,7 +13142,7 @@ static const int ERROR_PLATFORM_MANIFEST_CATALOG_NOT_AUTHORIZED 4573L
 //
 // The file is not authorized on this platform because a Binary ID was not found in the embedded signature.
 //
-static const int ERROR_PLATFORM_MANIFEST_BINARY_ID_NOT_FOUND 4574L
+    ERROR_PLATFORM_MANIFEST_BINARY_ID_NOT_FOUND 4574
 
 //
 // MessageId: ERROR_PLATFORM_MANIFEST_NOT_ACTIVE
@@ -13205,7 +13151,7 @@ static const int ERROR_PLATFORM_MANIFEST_BINARY_ID_NOT_FOUND 4574L
 //
 // No active Platform Manifest exists on this system.
 //
-static const int ERROR_PLATFORM_MANIFEST_NOT_ACTIVE 4575L
+    ERROR_PLATFORM_MANIFEST_NOT_ACTIVE 4575
 
 //
 // MessageId: ERROR_PLATFORM_MANIFEST_NOT_SIGNED
@@ -13214,7 +13160,7 @@ static const int ERROR_PLATFORM_MANIFEST_NOT_ACTIVE 4575L
 //
 // The Platform Manifest file was not properly signed.
 //
-static const int ERROR_PLATFORM_MANIFEST_NOT_SIGNED 4576L
+    ERROR_PLATFORM_MANIFEST_NOT_SIGNED 4576
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -13237,7 +13183,7 @@ static const int ERROR_PLATFORM_MANIFEST_NOT_SIGNED 4576L
 //
 // The operation cannot be completed because other resources are dependent on this resource.
 //
-static const int ERROR_DEPENDENT_RESOURCE_EXISTS  5001L
+    ERROR_DEPENDENT_RESOURCE_EXISTS  5001
 
 //
 // MessageId: ERROR_DEPENDENCY_NOT_FOUND
@@ -13246,7 +13192,7 @@ static const int ERROR_DEPENDENT_RESOURCE_EXISTS  5001L
 //
 // The cluster resource dependency cannot be found.
 //
-static const int ERROR_DEPENDENCY_NOT_FOUND       5002L
+    ERROR_DEPENDENCY_NOT_FOUND       5002
 
 //
 // MessageId: ERROR_DEPENDENCY_ALREADY_EXISTS
@@ -13255,7 +13201,7 @@ static const int ERROR_DEPENDENCY_NOT_FOUND       5002L
 //
 // The cluster resource cannot be made dependent on the specified resource because it is already dependent.
 //
-static const int ERROR_DEPENDENCY_ALREADY_EXISTS  5003L
+    ERROR_DEPENDENCY_ALREADY_EXISTS  5003
 
 //
 // MessageId: ERROR_RESOURCE_NOT_ONLINE
@@ -13264,7 +13210,7 @@ static const int ERROR_DEPENDENCY_ALREADY_EXISTS  5003L
 //
 // The cluster resource is not online.
 //
-static const int ERROR_RESOURCE_NOT_ONLINE        5004L
+    ERROR_RESOURCE_NOT_ONLINE        5004
 
 //
 // MessageId: ERROR_HOST_NODE_NOT_AVAILABLE
@@ -13273,7 +13219,7 @@ static const int ERROR_RESOURCE_NOT_ONLINE        5004L
 //
 // A cluster node is not available for this operation.
 //
-static const int ERROR_HOST_NODE_NOT_AVAILABLE    5005L
+    ERROR_HOST_NODE_NOT_AVAILABLE    5005
 
 //
 // MessageId: ERROR_RESOURCE_NOT_AVAILABLE
@@ -13282,7 +13228,7 @@ static const int ERROR_HOST_NODE_NOT_AVAILABLE    5005L
 //
 // The cluster resource is not available.
 //
-static const int ERROR_RESOURCE_NOT_AVAILABLE     5006L
+    ERROR_RESOURCE_NOT_AVAILABLE     5006
 
 //
 // MessageId: ERROR_RESOURCE_NOT_FOUND
@@ -13291,7 +13237,7 @@ static const int ERROR_RESOURCE_NOT_AVAILABLE     5006L
 //
 // The cluster resource could not be found.
 //
-static const int ERROR_RESOURCE_NOT_FOUND         5007L
+    ERROR_RESOURCE_NOT_FOUND         5007
 
 //
 // MessageId: ERROR_SHUTDOWN_CLUSTER
@@ -13300,7 +13246,7 @@ static const int ERROR_RESOURCE_NOT_FOUND         5007L
 //
 // The cluster is being shut down.
 //
-static const int ERROR_SHUTDOWN_CLUSTER           5008L
+    ERROR_SHUTDOWN_CLUSTER           5008
 
 //
 // MessageId: ERROR_CANT_EVICT_ACTIVE_NODE
@@ -13309,7 +13255,7 @@ static const int ERROR_SHUTDOWN_CLUSTER           5008L
 //
 // A cluster node cannot be evicted from the cluster unless the node is down or it is the last node.
 //
-static const int ERROR_CANT_EVICT_ACTIVE_NODE     5009L
+    ERROR_CANT_EVICT_ACTIVE_NODE     5009
 
 //
 // MessageId: ERROR_OBJECT_ALREADY_EXISTS
@@ -13318,7 +13264,7 @@ static const int ERROR_CANT_EVICT_ACTIVE_NODE     5009L
 //
 // The object already exists.
 //
-static const int ERROR_OBJECT_ALREADY_EXISTS      5010L
+    ERROR_OBJECT_ALREADY_EXISTS      5010
 
 //
 // MessageId: ERROR_OBJECT_IN_LIST
@@ -13327,7 +13273,7 @@ static const int ERROR_OBJECT_ALREADY_EXISTS      5010L
 //
 // The object is already in the list.
 //
-static const int ERROR_OBJECT_IN_LIST             5011L
+    ERROR_OBJECT_IN_LIST             5011
 
 //
 // MessageId: ERROR_GROUP_NOT_AVAILABLE
@@ -13336,7 +13282,7 @@ static const int ERROR_OBJECT_IN_LIST             5011L
 //
 // The cluster group is not available for any new requests.
 //
-static const int ERROR_GROUP_NOT_AVAILABLE        5012L
+    ERROR_GROUP_NOT_AVAILABLE        5012
 
 //
 // MessageId: ERROR_GROUP_NOT_FOUND
@@ -13345,7 +13291,7 @@ static const int ERROR_GROUP_NOT_AVAILABLE        5012L
 //
 // The cluster group could not be found.
 //
-static const int ERROR_GROUP_NOT_FOUND            5013L
+    ERROR_GROUP_NOT_FOUND            5013
 
 //
 // MessageId: ERROR_GROUP_NOT_ONLINE
@@ -13354,7 +13300,7 @@ static const int ERROR_GROUP_NOT_FOUND            5013L
 //
 // The operation could not be completed because the cluster group is not online.
 //
-static const int ERROR_GROUP_NOT_ONLINE           5014L
+    ERROR_GROUP_NOT_ONLINE           5014
 
 //
 // MessageId: ERROR_HOST_NODE_NOT_RESOURCE_OWNER
@@ -13363,7 +13309,7 @@ static const int ERROR_GROUP_NOT_ONLINE           5014L
 //
 // The operation failed because either the specified cluster node is not the owner of the resource, or the node is not a possible owner of the resource.
 //
-static const int ERROR_HOST_NODE_NOT_RESOURCE_OWNER 5015L
+    ERROR_HOST_NODE_NOT_RESOURCE_OWNER 5015
 
 //
 // MessageId: ERROR_HOST_NODE_NOT_GROUP_OWNER
@@ -13372,7 +13318,7 @@ static const int ERROR_HOST_NODE_NOT_RESOURCE_OWNER 5015L
 //
 // The operation failed because either the specified cluster node is not the owner of the group, or the node is not a possible owner of the group.
 //
-static const int ERROR_HOST_NODE_NOT_GROUP_OWNER  5016L
+    ERROR_HOST_NODE_NOT_GROUP_OWNER  5016
 
 //
 // MessageId: ERROR_RESMON_CREATE_FAILED
@@ -13381,7 +13327,7 @@ static const int ERROR_HOST_NODE_NOT_GROUP_OWNER  5016L
 //
 // The cluster resource could not be created in the specified resource monitor.
 //
-static const int ERROR_RESMON_CREATE_FAILED       5017L
+    ERROR_RESMON_CREATE_FAILED       5017
 
 //
 // MessageId: ERROR_RESMON_ONLINE_FAILED
@@ -13390,7 +13336,7 @@ static const int ERROR_RESMON_CREATE_FAILED       5017L
 //
 // The cluster resource could not be brought online by the resource monitor.
 //
-static const int ERROR_RESMON_ONLINE_FAILED       5018L
+    ERROR_RESMON_ONLINE_FAILED       5018
 
 //
 // MessageId: ERROR_RESOURCE_ONLINE
@@ -13399,7 +13345,7 @@ static const int ERROR_RESMON_ONLINE_FAILED       5018L
 //
 // The operation could not be completed because the cluster resource is online.
 //
-static const int ERROR_RESOURCE_ONLINE            5019L
+    ERROR_RESOURCE_ONLINE            5019
 
 //
 // MessageId: ERROR_QUORUM_RESOURCE
@@ -13408,7 +13354,7 @@ static const int ERROR_RESOURCE_ONLINE            5019L
 //
 // The cluster resource could not be deleted or brought offline because it is the quorum resource.
 //
-static const int ERROR_QUORUM_RESOURCE            5020L
+    ERROR_QUORUM_RESOURCE            5020
 
 //
 // MessageId: ERROR_NOT_QUORUM_CAPABLE
@@ -13417,7 +13363,7 @@ static const int ERROR_QUORUM_RESOURCE            5020L
 //
 // The cluster could not make the specified resource a quorum resource because it is not capable of being a quorum resource.
 //
-static const int ERROR_NOT_QUORUM_CAPABLE         5021L
+    ERROR_NOT_QUORUM_CAPABLE         5021
 
 //
 // MessageId: ERROR_CLUSTER_SHUTTING_DOWN
@@ -13426,7 +13372,7 @@ static const int ERROR_NOT_QUORUM_CAPABLE         5021L
 //
 // The cluster software is shutting down.
 //
-static const int ERROR_CLUSTER_SHUTTING_DOWN      5022L
+    ERROR_CLUSTER_SHUTTING_DOWN      5022
 
 //
 // MessageId: ERROR_INVALID_STATE
@@ -13435,7 +13381,7 @@ static const int ERROR_CLUSTER_SHUTTING_DOWN      5022L
 //
 // The group or resource is not in the correct state to perform the requested operation.
 //
-static const int ERROR_INVALID_STATE              5023L
+    ERROR_INVALID_STATE              5023
 
 //
 // MessageId: ERROR_RESOURCE_PROPERTIES_STORED
@@ -13444,7 +13390,7 @@ static const int ERROR_INVALID_STATE              5023L
 //
 // The properties were stored but not all changes will take effect until the next time the resource is brought online.
 //
-static const int ERROR_RESOURCE_PROPERTIES_STORED 5024L
+    ERROR_RESOURCE_PROPERTIES_STORED 5024
 
 //
 // MessageId: ERROR_NOT_QUORUM_CLASS
@@ -13453,7 +13399,7 @@ static const int ERROR_RESOURCE_PROPERTIES_STORED 5024L
 //
 // The cluster could not make the specified resource a quorum resource because it does not belong to a shared storage class.
 //
-static const int ERROR_NOT_QUORUM_CLASS           5025L
+    ERROR_NOT_QUORUM_CLASS           5025
 
 //
 // MessageId: ERROR_CORE_RESOURCE
@@ -13462,7 +13408,7 @@ static const int ERROR_NOT_QUORUM_CLASS           5025L
 //
 // The cluster resource could not be deleted since it is a core resource.
 //
-static const int ERROR_CORE_RESOURCE              5026L
+    ERROR_CORE_RESOURCE              5026
 
 //
 // MessageId: ERROR_QUORUM_RESOURCE_ONLINE_FAILED
@@ -13471,7 +13417,7 @@ static const int ERROR_CORE_RESOURCE              5026L
 //
 // The quorum resource failed to come online.
 //
-static const int ERROR_QUORUM_RESOURCE_ONLINE_FAILED 5027L
+    ERROR_QUORUM_RESOURCE_ONLINE_FAILED 5027
 
 //
 // MessageId: ERROR_QUORUMLOG_OPEN_FAILED
@@ -13480,7 +13426,7 @@ static const int ERROR_QUORUM_RESOURCE_ONLINE_FAILED 5027L
 //
 // The quorum log could not be created or mounted successfully.
 //
-static const int ERROR_QUORUMLOG_OPEN_FAILED      5028L
+    ERROR_QUORUMLOG_OPEN_FAILED      5028
 
 //
 // MessageId: ERROR_CLUSTERLOG_CORRUPT
@@ -13489,7 +13435,7 @@ static const int ERROR_QUORUMLOG_OPEN_FAILED      5028L
 //
 // The cluster log is corrupt.
 //
-static const int ERROR_CLUSTERLOG_CORRUPT         5029L
+    ERROR_CLUSTERLOG_CORRUPT         5029
 
 //
 // MessageId: ERROR_CLUSTERLOG_RECORD_EXCEEDS_MAXSIZE
@@ -13498,7 +13444,7 @@ static const int ERROR_CLUSTERLOG_CORRUPT         5029L
 //
 // The record could not be written to the cluster log since it exceeds the maximum size.
 //
-static const int ERROR_CLUSTERLOG_RECORD_EXCEEDS_MAXSIZE 5030L
+    ERROR_CLUSTERLOG_RECORD_EXCEEDS_MAXSIZE 5030
 
 //
 // MessageId: ERROR_CLUSTERLOG_EXCEEDS_MAXSIZE
@@ -13507,7 +13453,7 @@ static const int ERROR_CLUSTERLOG_RECORD_EXCEEDS_MAXSIZE 5030L
 //
 // The cluster log exceeds its maximum size.
 //
-static const int ERROR_CLUSTERLOG_EXCEEDS_MAXSIZE 5031L
+    ERROR_CLUSTERLOG_EXCEEDS_MAXSIZE 5031
 
 //
 // MessageId: ERROR_CLUSTERLOG_CHKPOINT_NOT_FOUND
@@ -13516,7 +13462,7 @@ static const int ERROR_CLUSTERLOG_EXCEEDS_MAXSIZE 5031L
 //
 // No checkpoint record was found in the cluster log.
 //
-static const int ERROR_CLUSTERLOG_CHKPOINT_NOT_FOUND 5032L
+    ERROR_CLUSTERLOG_CHKPOINT_NOT_FOUND 5032
 
 //
 // MessageId: ERROR_CLUSTERLOG_NOT_ENOUGH_SPACE
@@ -13525,7 +13471,7 @@ static const int ERROR_CLUSTERLOG_CHKPOINT_NOT_FOUND 5032L
 //
 // The minimum required disk space needed for logging is not available.
 //
-static const int ERROR_CLUSTERLOG_NOT_ENOUGH_SPACE 5033L
+    ERROR_CLUSTERLOG_NOT_ENOUGH_SPACE 5033
 
 //
 // MessageId: ERROR_QUORUM_OWNER_ALIVE
@@ -13534,7 +13480,7 @@ static const int ERROR_CLUSTERLOG_NOT_ENOUGH_SPACE 5033L
 //
 // The cluster node failed to take control of the quorum resource because the resource is owned by another active node.
 //
-static const int ERROR_QUORUM_OWNER_ALIVE         5034L
+    ERROR_QUORUM_OWNER_ALIVE         5034
 
 //
 // MessageId: ERROR_NETWORK_NOT_AVAILABLE
@@ -13543,7 +13489,7 @@ static const int ERROR_QUORUM_OWNER_ALIVE         5034L
 //
 // A cluster network is not available for this operation.
 //
-static const int ERROR_NETWORK_NOT_AVAILABLE      5035L
+    ERROR_NETWORK_NOT_AVAILABLE      5035
 
 //
 // MessageId: ERROR_NODE_NOT_AVAILABLE
@@ -13552,7 +13498,7 @@ static const int ERROR_NETWORK_NOT_AVAILABLE      5035L
 //
 // A cluster node is not available for this operation.
 //
-static const int ERROR_NODE_NOT_AVAILABLE         5036L
+    ERROR_NODE_NOT_AVAILABLE         5036
 
 //
 // MessageId: ERROR_ALL_NODES_NOT_AVAILABLE
@@ -13561,7 +13507,7 @@ static const int ERROR_NODE_NOT_AVAILABLE         5036L
 //
 // All cluster nodes must be running to perform this operation.
 //
-static const int ERROR_ALL_NODES_NOT_AVAILABLE    5037L
+    ERROR_ALL_NODES_NOT_AVAILABLE    5037
 
 //
 // MessageId: ERROR_RESOURCE_FAILED
@@ -13570,7 +13516,7 @@ static const int ERROR_ALL_NODES_NOT_AVAILABLE    5037L
 //
 // A cluster resource failed.
 //
-static const int ERROR_RESOURCE_FAILED            5038L
+    ERROR_RESOURCE_FAILED            5038
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_NODE
@@ -13579,7 +13525,7 @@ static const int ERROR_RESOURCE_FAILED            5038L
 //
 // The cluster node is not valid.
 //
-static const int ERROR_CLUSTER_INVALID_NODE       5039L
+    ERROR_CLUSTER_INVALID_NODE       5039
 
 //
 // MessageId: ERROR_CLUSTER_NODE_EXISTS
@@ -13588,7 +13534,7 @@ static const int ERROR_CLUSTER_INVALID_NODE       5039L
 //
 // The cluster node already exists.
 //
-static const int ERROR_CLUSTER_NODE_EXISTS        5040L
+    ERROR_CLUSTER_NODE_EXISTS        5040
 
 //
 // MessageId: ERROR_CLUSTER_JOIN_IN_PROGRESS
@@ -13597,7 +13543,7 @@ static const int ERROR_CLUSTER_NODE_EXISTS        5040L
 //
 // A node is in the process of joining the cluster.
 //
-static const int ERROR_CLUSTER_JOIN_IN_PROGRESS   5041L
+    ERROR_CLUSTER_JOIN_IN_PROGRESS   5041
 
 //
 // MessageId: ERROR_CLUSTER_NODE_NOT_FOUND
@@ -13606,7 +13552,7 @@ static const int ERROR_CLUSTER_JOIN_IN_PROGRESS   5041L
 //
 // The cluster node was not found.
 //
-static const int ERROR_CLUSTER_NODE_NOT_FOUND     5042L
+    ERROR_CLUSTER_NODE_NOT_FOUND     5042
 
 //
 // MessageId: ERROR_CLUSTER_LOCAL_NODE_NOT_FOUND
@@ -13615,7 +13561,7 @@ static const int ERROR_CLUSTER_NODE_NOT_FOUND     5042L
 //
 // The cluster local node information was not found.
 //
-static const int ERROR_CLUSTER_LOCAL_NODE_NOT_FOUND 5043L
+    ERROR_CLUSTER_LOCAL_NODE_NOT_FOUND 5043
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_EXISTS
@@ -13624,7 +13570,7 @@ static const int ERROR_CLUSTER_LOCAL_NODE_NOT_FOUND 5043L
 //
 // The cluster network already exists.
 //
-static const int ERROR_CLUSTER_NETWORK_EXISTS     5044L
+    ERROR_CLUSTER_NETWORK_EXISTS     5044
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_NOT_FOUND
@@ -13633,7 +13579,7 @@ static const int ERROR_CLUSTER_NETWORK_EXISTS     5044L
 //
 // The cluster network was not found.
 //
-static const int ERROR_CLUSTER_NETWORK_NOT_FOUND  5045L
+    ERROR_CLUSTER_NETWORK_NOT_FOUND  5045
 
 //
 // MessageId: ERROR_CLUSTER_NETINTERFACE_EXISTS
@@ -13642,7 +13588,7 @@ static const int ERROR_CLUSTER_NETWORK_NOT_FOUND  5045L
 //
 // The cluster network interface already exists.
 //
-static const int ERROR_CLUSTER_NETINTERFACE_EXISTS 5046L
+    ERROR_CLUSTER_NETINTERFACE_EXISTS 5046
 
 //
 // MessageId: ERROR_CLUSTER_NETINTERFACE_NOT_FOUND
@@ -13651,7 +13597,7 @@ static const int ERROR_CLUSTER_NETINTERFACE_EXISTS 5046L
 //
 // The cluster network interface was not found.
 //
-static const int ERROR_CLUSTER_NETINTERFACE_NOT_FOUND 5047L
+    ERROR_CLUSTER_NETINTERFACE_NOT_FOUND 5047
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_REQUEST
@@ -13660,7 +13606,7 @@ static const int ERROR_CLUSTER_NETINTERFACE_NOT_FOUND 5047L
 //
 // The cluster request is not valid for this object.
 //
-static const int ERROR_CLUSTER_INVALID_REQUEST    5048L
+    ERROR_CLUSTER_INVALID_REQUEST    5048
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_NETWORK_PROVIDER
@@ -13669,7 +13615,7 @@ static const int ERROR_CLUSTER_INVALID_REQUEST    5048L
 //
 // The cluster network provider is not valid.
 //
-static const int ERROR_CLUSTER_INVALID_NETWORK_PROVIDER 5049L
+    ERROR_CLUSTER_INVALID_NETWORK_PROVIDER 5049
 
 //
 // MessageId: ERROR_CLUSTER_NODE_DOWN
@@ -13678,7 +13624,7 @@ static const int ERROR_CLUSTER_INVALID_NETWORK_PROVIDER 5049L
 //
 // The cluster node is down.
 //
-static const int ERROR_CLUSTER_NODE_DOWN          5050L
+    ERROR_CLUSTER_NODE_DOWN          5050
 
 //
 // MessageId: ERROR_CLUSTER_NODE_UNREACHABLE
@@ -13687,7 +13633,7 @@ static const int ERROR_CLUSTER_NODE_DOWN          5050L
 //
 // The cluster node is not reachable.
 //
-static const int ERROR_CLUSTER_NODE_UNREACHABLE   5051L
+    ERROR_CLUSTER_NODE_UNREACHABLE   5051
 
 //
 // MessageId: ERROR_CLUSTER_NODE_NOT_MEMBER
@@ -13696,7 +13642,7 @@ static const int ERROR_CLUSTER_NODE_UNREACHABLE   5051L
 //
 // The cluster node is not a member of the cluster.
 //
-static const int ERROR_CLUSTER_NODE_NOT_MEMBER    5052L
+    ERROR_CLUSTER_NODE_NOT_MEMBER    5052
 
 //
 // MessageId: ERROR_CLUSTER_JOIN_NOT_IN_PROGRESS
@@ -13705,7 +13651,7 @@ static const int ERROR_CLUSTER_NODE_NOT_MEMBER    5052L
 //
 // A cluster join operation is not in progress.
 //
-static const int ERROR_CLUSTER_JOIN_NOT_IN_PROGRESS 5053L
+    ERROR_CLUSTER_JOIN_NOT_IN_PROGRESS 5053
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_NETWORK
@@ -13714,7 +13660,7 @@ static const int ERROR_CLUSTER_JOIN_NOT_IN_PROGRESS 5053L
 //
 // The cluster network is not valid.
 //
-static const int ERROR_CLUSTER_INVALID_NETWORK    5054L
+    ERROR_CLUSTER_INVALID_NETWORK    5054
 
 //
 // MessageId: ERROR_CLUSTER_NODE_UP
@@ -13723,7 +13669,7 @@ static const int ERROR_CLUSTER_INVALID_NETWORK    5054L
 //
 // The cluster node is up.
 //
-static const int ERROR_CLUSTER_NODE_UP            5056L
+    ERROR_CLUSTER_NODE_UP            5056
 
 //
 // MessageId: ERROR_CLUSTER_IPADDR_IN_USE
@@ -13732,7 +13678,7 @@ static const int ERROR_CLUSTER_NODE_UP            5056L
 //
 // The cluster IP address is already in use.
 //
-static const int ERROR_CLUSTER_IPADDR_IN_USE      5057L
+    ERROR_CLUSTER_IPADDR_IN_USE      5057
 
 //
 // MessageId: ERROR_CLUSTER_NODE_NOT_PAUSED
@@ -13741,7 +13687,7 @@ static const int ERROR_CLUSTER_IPADDR_IN_USE      5057L
 //
 // The cluster node is not paused.
 //
-static const int ERROR_CLUSTER_NODE_NOT_PAUSED    5058L
+    ERROR_CLUSTER_NODE_NOT_PAUSED    5058
 
 //
 // MessageId: ERROR_CLUSTER_NO_SECURITY_CONTEXT
@@ -13750,7 +13696,7 @@ static const int ERROR_CLUSTER_NODE_NOT_PAUSED    5058L
 //
 // No cluster security context is available.
 //
-static const int ERROR_CLUSTER_NO_SECURITY_CONTEXT 5059L
+    ERROR_CLUSTER_NO_SECURITY_CONTEXT 5059
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_NOT_INTERNAL
@@ -13759,7 +13705,7 @@ static const int ERROR_CLUSTER_NO_SECURITY_CONTEXT 5059L
 //
 // The cluster network is not configured for internal cluster communication.
 //
-static const int ERROR_CLUSTER_NETWORK_NOT_INTERNAL 5060L
+    ERROR_CLUSTER_NETWORK_NOT_INTERNAL 5060
 
 //
 // MessageId: ERROR_CLUSTER_NODE_ALREADY_UP
@@ -13768,7 +13714,7 @@ static const int ERROR_CLUSTER_NETWORK_NOT_INTERNAL 5060L
 //
 // The cluster node is already up.
 //
-static const int ERROR_CLUSTER_NODE_ALREADY_UP    5061L
+    ERROR_CLUSTER_NODE_ALREADY_UP    5061
 
 //
 // MessageId: ERROR_CLUSTER_NODE_ALREADY_DOWN
@@ -13777,7 +13723,7 @@ static const int ERROR_CLUSTER_NODE_ALREADY_UP    5061L
 //
 // The cluster node is already down.
 //
-static const int ERROR_CLUSTER_NODE_ALREADY_DOWN  5062L
+    ERROR_CLUSTER_NODE_ALREADY_DOWN  5062
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_ALREADY_ONLINE
@@ -13786,7 +13732,7 @@ static const int ERROR_CLUSTER_NODE_ALREADY_DOWN  5062L
 //
 // The cluster network is already online.
 //
-static const int ERROR_CLUSTER_NETWORK_ALREADY_ONLINE 5063L
+    ERROR_CLUSTER_NETWORK_ALREADY_ONLINE 5063
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_ALREADY_OFFLINE
@@ -13795,7 +13741,7 @@ static const int ERROR_CLUSTER_NETWORK_ALREADY_ONLINE 5063L
 //
 // The cluster network is already offline.
 //
-static const int ERROR_CLUSTER_NETWORK_ALREADY_OFFLINE 5064L
+    ERROR_CLUSTER_NETWORK_ALREADY_OFFLINE 5064
 
 //
 // MessageId: ERROR_CLUSTER_NODE_ALREADY_MEMBER
@@ -13804,7 +13750,7 @@ static const int ERROR_CLUSTER_NETWORK_ALREADY_OFFLINE 5064L
 //
 // The cluster node is already a member of the cluster.
 //
-static const int ERROR_CLUSTER_NODE_ALREADY_MEMBER 5065L
+    ERROR_CLUSTER_NODE_ALREADY_MEMBER 5065
 
 //
 // MessageId: ERROR_CLUSTER_LAST_INTERNAL_NETWORK
@@ -13813,7 +13759,7 @@ static const int ERROR_CLUSTER_NODE_ALREADY_MEMBER 5065L
 //
 // The cluster network is the only one configured for internal cluster communication between two or more active cluster nodes. The internal communication capability cannot be removed from the network.
 //
-static const int ERROR_CLUSTER_LAST_INTERNAL_NETWORK 5066L
+    ERROR_CLUSTER_LAST_INTERNAL_NETWORK 5066
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_HAS_DEPENDENTS
@@ -13822,7 +13768,7 @@ static const int ERROR_CLUSTER_LAST_INTERNAL_NETWORK 5066L
 //
 // One or more cluster resources depend on the network to provide service to clients. The client access capability cannot be removed from the network.
 //
-static const int ERROR_CLUSTER_NETWORK_HAS_DEPENDENTS 5067L
+    ERROR_CLUSTER_NETWORK_HAS_DEPENDENTS 5067
 
 //
 // MessageId: ERROR_INVALID_OPERATION_ON_QUORUM
@@ -13831,7 +13777,7 @@ static const int ERROR_CLUSTER_NETWORK_HAS_DEPENDENTS 5067L
 //
 // This operation cannot currently be performed on the cluster group containing the quorum resource.
 //
-static const int ERROR_INVALID_OPERATION_ON_QUORUM 5068L
+    ERROR_INVALID_OPERATION_ON_QUORUM 5068
 
 //
 // MessageId: ERROR_DEPENDENCY_NOT_ALLOWED
@@ -13840,7 +13786,7 @@ static const int ERROR_INVALID_OPERATION_ON_QUORUM 5068L
 //
 // The cluster quorum resource is not allowed to have any dependencies.
 //
-static const int ERROR_DEPENDENCY_NOT_ALLOWED     5069L
+    ERROR_DEPENDENCY_NOT_ALLOWED     5069
 
 //
 // MessageId: ERROR_CLUSTER_NODE_PAUSED
@@ -13849,7 +13795,7 @@ static const int ERROR_DEPENDENCY_NOT_ALLOWED     5069L
 //
 // The cluster node is paused.
 //
-static const int ERROR_CLUSTER_NODE_PAUSED        5070L
+    ERROR_CLUSTER_NODE_PAUSED        5070
 
 //
 // MessageId: ERROR_NODE_CANT_HOST_RESOURCE
@@ -13858,7 +13804,7 @@ static const int ERROR_CLUSTER_NODE_PAUSED        5070L
 //
 // The cluster resource cannot be brought online. The owner node cannot run this resource.
 //
-static const int ERROR_NODE_CANT_HOST_RESOURCE    5071L
+    ERROR_NODE_CANT_HOST_RESOURCE    5071
 
 //
 // MessageId: ERROR_CLUSTER_NODE_NOT_READY
@@ -13867,7 +13813,7 @@ static const int ERROR_NODE_CANT_HOST_RESOURCE    5071L
 //
 // The cluster node is not ready to perform the requested operation.
 //
-static const int ERROR_CLUSTER_NODE_NOT_READY     5072L
+    ERROR_CLUSTER_NODE_NOT_READY     5072
 
 //
 // MessageId: ERROR_CLUSTER_NODE_SHUTTING_DOWN
@@ -13876,7 +13822,7 @@ static const int ERROR_CLUSTER_NODE_NOT_READY     5072L
 //
 // The cluster node is shutting down.
 //
-static const int ERROR_CLUSTER_NODE_SHUTTING_DOWN 5073L
+    ERROR_CLUSTER_NODE_SHUTTING_DOWN 5073
 
 //
 // MessageId: ERROR_CLUSTER_JOIN_ABORTED
@@ -13885,7 +13831,7 @@ static const int ERROR_CLUSTER_NODE_SHUTTING_DOWN 5073L
 //
 // The cluster join operation was aborted.
 //
-static const int ERROR_CLUSTER_JOIN_ABORTED       5074L
+    ERROR_CLUSTER_JOIN_ABORTED       5074
 
 //
 // MessageId: ERROR_CLUSTER_INCOMPATIBLE_VERSIONS
@@ -13894,7 +13840,7 @@ static const int ERROR_CLUSTER_JOIN_ABORTED       5074L
 //
 // The node failed to join the cluster because the joining node and other nodes in the cluster have incompatible operating system versions. To get more information about operating system versions of the cluster, run the Validate a Configuration Wizard or the Test-Cluster Windows PowerShell cmdlet.
 //
-static const int ERROR_CLUSTER_INCOMPATIBLE_VERSIONS 5075L
+    ERROR_CLUSTER_INCOMPATIBLE_VERSIONS 5075
 
 //
 // MessageId: ERROR_CLUSTER_MAXNUM_OF_RESOURCES_EXCEEDED
@@ -13903,7 +13849,7 @@ static const int ERROR_CLUSTER_INCOMPATIBLE_VERSIONS 5075L
 //
 // This resource cannot be created because the cluster has reached the limit on the number of resources it can monitor.
 //
-static const int ERROR_CLUSTER_MAXNUM_OF_RESOURCES_EXCEEDED 5076L
+    ERROR_CLUSTER_MAXNUM_OF_RESOURCES_EXCEEDED 5076
 
 //
 // MessageId: ERROR_CLUSTER_SYSTEM_CONFIG_CHANGED
@@ -13912,7 +13858,7 @@ static const int ERROR_CLUSTER_MAXNUM_OF_RESOURCES_EXCEEDED 5076L
 //
 // The system configuration changed during the cluster join or form operation. The join or form operation was aborted.
 //
-static const int ERROR_CLUSTER_SYSTEM_CONFIG_CHANGED 5077L
+    ERROR_CLUSTER_SYSTEM_CONFIG_CHANGED 5077
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_TYPE_NOT_FOUND
@@ -13921,7 +13867,7 @@ static const int ERROR_CLUSTER_SYSTEM_CONFIG_CHANGED 5077L
 //
 // The specified resource type was not found.
 //
-static const int ERROR_CLUSTER_RESOURCE_TYPE_NOT_FOUND 5078L
+    ERROR_CLUSTER_RESOURCE_TYPE_NOT_FOUND 5078
 
 //
 // MessageId: ERROR_CLUSTER_RESTYPE_NOT_SUPPORTED
@@ -13930,7 +13876,7 @@ static const int ERROR_CLUSTER_RESOURCE_TYPE_NOT_FOUND 5078L
 //
 // The specified node does not support a resource of this type. This may be due to version inconsistencies or due to the absence of the resource DLL on this node.
 //
-static const int ERROR_CLUSTER_RESTYPE_NOT_SUPPORTED 5079L
+    ERROR_CLUSTER_RESTYPE_NOT_SUPPORTED 5079
 
 //
 // MessageId: ERROR_CLUSTER_RESNAME_NOT_FOUND
@@ -13939,7 +13885,7 @@ static const int ERROR_CLUSTER_RESTYPE_NOT_SUPPORTED 5079L
 //
 // The specified resource name is not supported by this resource DLL. This may be due to a bad (or changed) name supplied to the resource DLL.
 //
-static const int ERROR_CLUSTER_RESNAME_NOT_FOUND  5080L
+    ERROR_CLUSTER_RESNAME_NOT_FOUND  5080
 
 //
 // MessageId: ERROR_CLUSTER_NO_RPC_PACKAGES_REGISTERED
@@ -13948,7 +13894,7 @@ static const int ERROR_CLUSTER_RESNAME_NOT_FOUND  5080L
 //
 // No authentication package could be registered with the RPC server.
 //
-static const int ERROR_CLUSTER_NO_RPC_PACKAGES_REGISTERED 5081L
+    ERROR_CLUSTER_NO_RPC_PACKAGES_REGISTERED 5081
 
 //
 // MessageId: ERROR_CLUSTER_OWNER_NOT_IN_PREFLIST
@@ -13957,7 +13903,7 @@ static const int ERROR_CLUSTER_NO_RPC_PACKAGES_REGISTERED 5081L
 //
 // You cannot bring the group online because the owner of the group is not in the preferred list for the group. To change the owner node for the group, move the group.
 //
-static const int ERROR_CLUSTER_OWNER_NOT_IN_PREFLIST 5082L
+    ERROR_CLUSTER_OWNER_NOT_IN_PREFLIST 5082
 
 //
 // MessageId: ERROR_CLUSTER_DATABASE_SEQMISMATCH
@@ -13966,7 +13912,7 @@ static const int ERROR_CLUSTER_OWNER_NOT_IN_PREFLIST 5082L
 //
 // The join operation failed because the cluster database sequence number has changed or is incompatible with the locker node. This may happen during a join operation if the cluster database was changing during the join.
 //
-static const int ERROR_CLUSTER_DATABASE_SEQMISMATCH 5083L
+    ERROR_CLUSTER_DATABASE_SEQMISMATCH 5083
 
 //
 // MessageId: ERROR_RESMON_INVALID_STATE
@@ -13975,7 +13921,7 @@ static const int ERROR_CLUSTER_DATABASE_SEQMISMATCH 5083L
 //
 // The resource monitor will not allow the fail operation to be performed while the resource is in its current state. This may happen if the resource is in a pending state.
 //
-static const int ERROR_RESMON_INVALID_STATE       5084L
+    ERROR_RESMON_INVALID_STATE       5084
 
 //
 // MessageId: ERROR_CLUSTER_GUM_NOT_LOCKER
@@ -13984,7 +13930,7 @@ static const int ERROR_RESMON_INVALID_STATE       5084L
 //
 // A non locker code got a request to reserve the lock for making global updates.
 //
-static const int ERROR_CLUSTER_GUM_NOT_LOCKER     5085L
+    ERROR_CLUSTER_GUM_NOT_LOCKER     5085
 
 //
 // MessageId: ERROR_QUORUM_DISK_NOT_FOUND
@@ -13993,7 +13939,7 @@ static const int ERROR_CLUSTER_GUM_NOT_LOCKER     5085L
 //
 // The quorum disk could not be located by the cluster service.
 //
-static const int ERROR_QUORUM_DISK_NOT_FOUND      5086L
+    ERROR_QUORUM_DISK_NOT_FOUND      5086
 
 //
 // MessageId: ERROR_DATABASE_BACKUP_CORRUPT
@@ -14002,7 +13948,7 @@ static const int ERROR_QUORUM_DISK_NOT_FOUND      5086L
 //
 // The backed up cluster database is possibly corrupt.
 //
-static const int ERROR_DATABASE_BACKUP_CORRUPT    5087L
+    ERROR_DATABASE_BACKUP_CORRUPT    5087
 
 //
 // MessageId: ERROR_CLUSTER_NODE_ALREADY_HAS_DFS_ROOT
@@ -14011,7 +13957,7 @@ static const int ERROR_DATABASE_BACKUP_CORRUPT    5087L
 //
 // A DFS root already exists in this cluster node.
 //
-static const int ERROR_CLUSTER_NODE_ALREADY_HAS_DFS_ROOT 5088L
+    ERROR_CLUSTER_NODE_ALREADY_HAS_DFS_ROOT 5088
 
 //
 // MessageId: ERROR_RESOURCE_PROPERTY_UNCHANGEABLE
@@ -14020,7 +13966,7 @@ static const int ERROR_CLUSTER_NODE_ALREADY_HAS_DFS_ROOT 5088L
 //
 // An attempt to modify a resource property failed because it conflicts with another existing property.
 //
-static const int ERROR_RESOURCE_PROPERTY_UNCHANGEABLE 5089L
+    ERROR_RESOURCE_PROPERTY_UNCHANGEABLE 5089
 
 //
 // MessageId: ERROR_NO_ADMIN_ACCESS_POINT
@@ -14029,7 +13975,7 @@ static const int ERROR_RESOURCE_PROPERTY_UNCHANGEABLE 5089L
 //
 // This operation is not supported on a cluster without an Administrator Access Point.
 //
-static const int ERROR_NO_ADMIN_ACCESS_POINT      5090L
+    ERROR_NO_ADMIN_ACCESS_POINT      5090
 
 /*
  Codes from 4300 through 5889 overlap with codes in ds\published\inc\apperr2.w.
@@ -14042,7 +13988,7 @@ static const int ERROR_NO_ADMIN_ACCESS_POINT      5090L
 //
 // An operation was attempted that is incompatible with the current membership state of the node.
 //
-static const int ERROR_CLUSTER_MEMBERSHIP_INVALID_STATE 5890L
+    ERROR_CLUSTER_MEMBERSHIP_INVALID_STATE 5890
 
 //
 // MessageId: ERROR_CLUSTER_QUORUMLOG_NOT_FOUND
@@ -14051,7 +13997,7 @@ static const int ERROR_CLUSTER_MEMBERSHIP_INVALID_STATE 5890L
 //
 // The quorum resource does not contain the quorum log.
 //
-static const int ERROR_CLUSTER_QUORUMLOG_NOT_FOUND 5891L
+    ERROR_CLUSTER_QUORUMLOG_NOT_FOUND 5891
 
 //
 // MessageId: ERROR_CLUSTER_MEMBERSHIP_HALT
@@ -14060,7 +14006,7 @@ static const int ERROR_CLUSTER_QUORUMLOG_NOT_FOUND 5891L
 //
 // The membership engine requested shutdown of the cluster service on this node.
 //
-static const int ERROR_CLUSTER_MEMBERSHIP_HALT    5892L
+    ERROR_CLUSTER_MEMBERSHIP_HALT    5892
 
 //
 // MessageId: ERROR_CLUSTER_INSTANCE_ID_MISMATCH
@@ -14069,7 +14015,7 @@ static const int ERROR_CLUSTER_MEMBERSHIP_HALT    5892L
 //
 // The join operation failed because the cluster instance ID of the joining node does not match the cluster instance ID of the sponsor node.
 //
-static const int ERROR_CLUSTER_INSTANCE_ID_MISMATCH 5893L
+    ERROR_CLUSTER_INSTANCE_ID_MISMATCH 5893
 
 //
 // MessageId: ERROR_CLUSTER_NETWORK_NOT_FOUND_FOR_IP
@@ -14078,7 +14024,7 @@ static const int ERROR_CLUSTER_INSTANCE_ID_MISMATCH 5893L
 //
 // A matching cluster network for the specified IP address could not be found.
 //
-static const int ERROR_CLUSTER_NETWORK_NOT_FOUND_FOR_IP 5894L
+    ERROR_CLUSTER_NETWORK_NOT_FOUND_FOR_IP 5894
 
 //
 // MessageId: ERROR_CLUSTER_PROPERTY_DATA_TYPE_MISMATCH
@@ -14087,7 +14033,7 @@ static const int ERROR_CLUSTER_NETWORK_NOT_FOUND_FOR_IP 5894L
 //
 // The actual data type of the property did not match the expected data type of the property.
 //
-static const int ERROR_CLUSTER_PROPERTY_DATA_TYPE_MISMATCH 5895L
+    ERROR_CLUSTER_PROPERTY_DATA_TYPE_MISMATCH 5895
 
 //
 // MessageId: ERROR_CLUSTER_EVICT_WITHOUT_CLEANUP
@@ -14096,7 +14042,7 @@ static const int ERROR_CLUSTER_PROPERTY_DATA_TYPE_MISMATCH 5895L
 //
 // The cluster node was evicted from the cluster successfully, but the node was not cleaned up. To determine what cleanup steps failed and how to recover, see the Failover Clustering application event log using Event Viewer.
 //
-static const int ERROR_CLUSTER_EVICT_WITHOUT_CLEANUP 5896L
+    ERROR_CLUSTER_EVICT_WITHOUT_CLEANUP 5896
 
 //
 // MessageId: ERROR_CLUSTER_PARAMETER_MISMATCH
@@ -14105,7 +14051,7 @@ static const int ERROR_CLUSTER_EVICT_WITHOUT_CLEANUP 5896L
 //
 // Two or more parameter values specified for a resource's properties are in conflict.
 //
-static const int ERROR_CLUSTER_PARAMETER_MISMATCH 5897L
+    ERROR_CLUSTER_PARAMETER_MISMATCH 5897
 
 //
 // MessageId: ERROR_NODE_CANNOT_BE_CLUSTERED
@@ -14114,7 +14060,7 @@ static const int ERROR_CLUSTER_PARAMETER_MISMATCH 5897L
 //
 // This computer cannot be made a member of a cluster.
 //
-static const int ERROR_NODE_CANNOT_BE_CLUSTERED   5898L
+    ERROR_NODE_CANNOT_BE_CLUSTERED   5898
 
 //
 // MessageId: ERROR_CLUSTER_WRONG_OS_VERSION
@@ -14123,7 +14069,7 @@ static const int ERROR_NODE_CANNOT_BE_CLUSTERED   5898L
 //
 // This computer cannot be made a member of a cluster because it does not have the correct version of Windows installed.
 //
-static const int ERROR_CLUSTER_WRONG_OS_VERSION   5899L
+    ERROR_CLUSTER_WRONG_OS_VERSION   5899
 
 //
 // MessageId: ERROR_CLUSTER_CANT_CREATE_DUP_CLUSTER_NAME
@@ -14132,7 +14078,7 @@ static const int ERROR_CLUSTER_WRONG_OS_VERSION   5899L
 //
 // A cluster cannot be created with the specified cluster name because that cluster name is already in use. Specify a different name for the cluster.
 //
-static const int ERROR_CLUSTER_CANT_CREATE_DUP_CLUSTER_NAME 5900L
+    ERROR_CLUSTER_CANT_CREATE_DUP_CLUSTER_NAME 5900
 
 //
 // MessageId: ERROR_CLUSCFG_ALREADY_COMMITTED
@@ -14141,7 +14087,7 @@ static const int ERROR_CLUSTER_CANT_CREATE_DUP_CLUSTER_NAME 5900L
 //
 // The cluster configuration action has already been committed.
 //
-static const int ERROR_CLUSCFG_ALREADY_COMMITTED  5901L
+    ERROR_CLUSCFG_ALREADY_COMMITTED  5901
 
 //
 // MessageId: ERROR_CLUSCFG_ROLLBACK_FAILED
@@ -14150,7 +14096,7 @@ static const int ERROR_CLUSCFG_ALREADY_COMMITTED  5901L
 //
 // The cluster configuration action could not be rolled back.
 //
-static const int ERROR_CLUSCFG_ROLLBACK_FAILED    5902L
+    ERROR_CLUSCFG_ROLLBACK_FAILED    5902
 
 //
 // MessageId: ERROR_CLUSCFG_SYSTEM_DISK_DRIVE_LETTER_CONFLICT
@@ -14159,7 +14105,7 @@ static const int ERROR_CLUSCFG_ROLLBACK_FAILED    5902L
 //
 // The drive letter assigned to a system disk on one node conflicted with the drive letter assigned to a disk on another node.
 //
-static const int ERROR_CLUSCFG_SYSTEM_DISK_DRIVE_LETTER_CONFLICT 5903L
+    ERROR_CLUSCFG_SYSTEM_DISK_DRIVE_LETTER_CONFLICT 5903
 
 //
 // MessageId: ERROR_CLUSTER_OLD_VERSION
@@ -14168,7 +14114,7 @@ static const int ERROR_CLUSCFG_SYSTEM_DISK_DRIVE_LETTER_CONFLICT 5903L
 //
 // One or more nodes in the cluster are running a version of Windows that does not support this operation.
 //
-static const int ERROR_CLUSTER_OLD_VERSION        5904L
+    ERROR_CLUSTER_OLD_VERSION        5904
 
 //
 // MessageId: ERROR_CLUSTER_MISMATCHED_COMPUTER_ACCT_NAME
@@ -14177,7 +14123,7 @@ static const int ERROR_CLUSTER_OLD_VERSION        5904L
 //
 // The name of the corresponding computer account doesn't match the Network Name for this resource.
 //
-static const int ERROR_CLUSTER_MISMATCHED_COMPUTER_ACCT_NAME 5905L
+    ERROR_CLUSTER_MISMATCHED_COMPUTER_ACCT_NAME 5905
 
 //
 // MessageId: ERROR_CLUSTER_NO_NET_ADAPTERS
@@ -14186,7 +14132,7 @@ static const int ERROR_CLUSTER_MISMATCHED_COMPUTER_ACCT_NAME 5905L
 //
 // No network adapters are available.
 //
-static const int ERROR_CLUSTER_NO_NET_ADAPTERS    5906L
+    ERROR_CLUSTER_NO_NET_ADAPTERS    5906
 
 //
 // MessageId: ERROR_CLUSTER_POISONED
@@ -14195,7 +14141,7 @@ static const int ERROR_CLUSTER_NO_NET_ADAPTERS    5906L
 //
 // The cluster node has been poisoned.
 //
-static const int ERROR_CLUSTER_POISONED           5907L
+    ERROR_CLUSTER_POISONED           5907
 
 //
 // MessageId: ERROR_CLUSTER_GROUP_MOVING
@@ -14204,7 +14150,7 @@ static const int ERROR_CLUSTER_POISONED           5907L
 //
 // The group is unable to accept the request since it is moving to another node.
 //
-static const int ERROR_CLUSTER_GROUP_MOVING       5908L
+    ERROR_CLUSTER_GROUP_MOVING       5908
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_TYPE_BUSY
@@ -14213,7 +14159,7 @@ static const int ERROR_CLUSTER_GROUP_MOVING       5908L
 //
 // The resource type cannot accept the request since is too busy performing another operation.
 //
-static const int ERROR_CLUSTER_RESOURCE_TYPE_BUSY 5909L
+    ERROR_CLUSTER_RESOURCE_TYPE_BUSY 5909
 
 //
 // MessageId: ERROR_RESOURCE_CALL_TIMED_OUT
@@ -14222,7 +14168,7 @@ static const int ERROR_CLUSTER_RESOURCE_TYPE_BUSY 5909L
 //
 // The call to the cluster resource DLL timed out.
 //
-static const int ERROR_RESOURCE_CALL_TIMED_OUT    5910L
+    ERROR_RESOURCE_CALL_TIMED_OUT    5910
 
 //
 // MessageId: ERROR_INVALID_CLUSTER_IPV6_ADDRESS
@@ -14231,7 +14177,7 @@ static const int ERROR_RESOURCE_CALL_TIMED_OUT    5910L
 //
 // The address is not valid for an IPv6 Address resource. A global IPv6 address is required, and it must match a cluster network. Compatibility addresses are not permitted.
 //
-static const int ERROR_INVALID_CLUSTER_IPV6_ADDRESS 5911L
+    ERROR_INVALID_CLUSTER_IPV6_ADDRESS 5911
 
 //
 // MessageId: ERROR_CLUSTER_INTERNAL_INVALID_FUNCTION
@@ -14240,7 +14186,7 @@ static const int ERROR_INVALID_CLUSTER_IPV6_ADDRESS 5911L
 //
 // An internal cluster error occurred. A call to an invalid function was attempted.
 //
-static const int ERROR_CLUSTER_INTERNAL_INVALID_FUNCTION 5912L
+    ERROR_CLUSTER_INTERNAL_INVALID_FUNCTION 5912
 
 //
 // MessageId: ERROR_CLUSTER_PARAMETER_OUT_OF_BOUNDS
@@ -14249,7 +14195,7 @@ static const int ERROR_CLUSTER_INTERNAL_INVALID_FUNCTION 5912L
 //
 // A parameter value is out of acceptable range.
 //
-static const int ERROR_CLUSTER_PARAMETER_OUT_OF_BOUNDS 5913L
+    ERROR_CLUSTER_PARAMETER_OUT_OF_BOUNDS 5913
 
 //
 // MessageId: ERROR_CLUSTER_PARTIAL_SEND
@@ -14258,7 +14204,7 @@ static const int ERROR_CLUSTER_PARAMETER_OUT_OF_BOUNDS 5913L
 //
 // A network error occurred while sending data to another node in the cluster. The number of bytes transmitted was less than required.
 //
-static const int ERROR_CLUSTER_PARTIAL_SEND       5914L
+    ERROR_CLUSTER_PARTIAL_SEND       5914
 
 //
 // MessageId: ERROR_CLUSTER_REGISTRY_INVALID_FUNCTION
@@ -14267,7 +14213,7 @@ static const int ERROR_CLUSTER_PARTIAL_SEND       5914L
 //
 // An invalid cluster registry operation was attempted.
 //
-static const int ERROR_CLUSTER_REGISTRY_INVALID_FUNCTION 5915L
+    ERROR_CLUSTER_REGISTRY_INVALID_FUNCTION 5915
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_STRING_TERMINATION
@@ -14276,7 +14222,7 @@ static const int ERROR_CLUSTER_REGISTRY_INVALID_FUNCTION 5915L
 //
 // An input string of characters is not properly terminated.
 //
-static const int ERROR_CLUSTER_INVALID_STRING_TERMINATION 5916L
+    ERROR_CLUSTER_INVALID_STRING_TERMINATION 5916
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_STRING_FORMAT
@@ -14285,7 +14231,7 @@ static const int ERROR_CLUSTER_INVALID_STRING_TERMINATION 5916L
 //
 // An input string of characters is not in a valid format for the data it represents.
 //
-static const int ERROR_CLUSTER_INVALID_STRING_FORMAT 5917L
+    ERROR_CLUSTER_INVALID_STRING_FORMAT 5917
 
 //
 // MessageId: ERROR_CLUSTER_DATABASE_TRANSACTION_IN_PROGRESS
@@ -14294,7 +14240,7 @@ static const int ERROR_CLUSTER_INVALID_STRING_FORMAT 5917L
 //
 // An internal cluster error occurred. A cluster database transaction was attempted while a transaction was already in progress.
 //
-static const int ERROR_CLUSTER_DATABASE_TRANSACTION_IN_PROGRESS 5918L
+    ERROR_CLUSTER_DATABASE_TRANSACTION_IN_PROGRESS 5918
 
 //
 // MessageId: ERROR_CLUSTER_DATABASE_TRANSACTION_NOT_IN_PROGRESS
@@ -14303,7 +14249,7 @@ static const int ERROR_CLUSTER_DATABASE_TRANSACTION_IN_PROGRESS 5918L
 //
 // An internal cluster error occurred. There was an attempt to commit a cluster database transaction while no transaction was in progress.
 //
-static const int ERROR_CLUSTER_DATABASE_TRANSACTION_NOT_IN_PROGRESS 5919L
+    ERROR_CLUSTER_DATABASE_TRANSACTION_NOT_IN_PROGRESS 5919
 
 //
 // MessageId: ERROR_CLUSTER_NULL_DATA
@@ -14312,7 +14258,7 @@ static const int ERROR_CLUSTER_DATABASE_TRANSACTION_NOT_IN_PROGRESS 5919L
 //
 // An internal cluster error occurred. Data was not properly initialized.
 //
-static const int ERROR_CLUSTER_NULL_DATA          5920L
+    ERROR_CLUSTER_NULL_DATA          5920
 
 //
 // MessageId: ERROR_CLUSTER_PARTIAL_READ
@@ -14321,7 +14267,7 @@ static const int ERROR_CLUSTER_NULL_DATA          5920L
 //
 // An error occurred while reading from a stream of data. An unexpected number of bytes was returned.
 //
-static const int ERROR_CLUSTER_PARTIAL_READ       5921L
+    ERROR_CLUSTER_PARTIAL_READ       5921
 
 //
 // MessageId: ERROR_CLUSTER_PARTIAL_WRITE
@@ -14330,7 +14276,7 @@ static const int ERROR_CLUSTER_PARTIAL_READ       5921L
 //
 // An error occurred while writing to a stream of data. The required number of bytes could not be written.
 //
-static const int ERROR_CLUSTER_PARTIAL_WRITE      5922L
+    ERROR_CLUSTER_PARTIAL_WRITE      5922
 
 //
 // MessageId: ERROR_CLUSTER_CANT_DESERIALIZE_DATA
@@ -14339,7 +14285,7 @@ static const int ERROR_CLUSTER_PARTIAL_WRITE      5922L
 //
 // An error occurred while deserializing a stream of cluster data.
 //
-static const int ERROR_CLUSTER_CANT_DESERIALIZE_DATA 5923L
+    ERROR_CLUSTER_CANT_DESERIALIZE_DATA 5923
 
 //
 // MessageId: ERROR_DEPENDENT_RESOURCE_PROPERTY_CONFLICT
@@ -14348,7 +14294,7 @@ static const int ERROR_CLUSTER_CANT_DESERIALIZE_DATA 5923L
 //
 // One or more property values for this resource are in conflict with one or more property values associated with its dependent resource(s).
 //
-static const int ERROR_DEPENDENT_RESOURCE_PROPERTY_CONFLICT 5924L
+    ERROR_DEPENDENT_RESOURCE_PROPERTY_CONFLICT 5924
 
 //
 // MessageId: ERROR_CLUSTER_NO_QUORUM
@@ -14357,7 +14303,7 @@ static const int ERROR_DEPENDENT_RESOURCE_PROPERTY_CONFLICT 5924L
 //
 // A quorum of cluster nodes was not present to form a cluster.
 //
-static const int ERROR_CLUSTER_NO_QUORUM          5925L
+    ERROR_CLUSTER_NO_QUORUM          5925
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_IPV6_NETWORK
@@ -14366,7 +14312,7 @@ static const int ERROR_CLUSTER_NO_QUORUM          5925L
 //
 // The cluster network is not valid for an IPv6 Address resource, or it does not match the configured address.
 //
-static const int ERROR_CLUSTER_INVALID_IPV6_NETWORK 5926L
+    ERROR_CLUSTER_INVALID_IPV6_NETWORK 5926
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_IPV6_TUNNEL_NETWORK
@@ -14375,7 +14321,7 @@ static const int ERROR_CLUSTER_INVALID_IPV6_NETWORK 5926L
 //
 // The cluster network is not valid for an IPv6 Tunnel resource. Check the configuration of the IP Address resource on which the IPv6 Tunnel resource depends.
 //
-static const int ERROR_CLUSTER_INVALID_IPV6_TUNNEL_NETWORK 5927L
+    ERROR_CLUSTER_INVALID_IPV6_TUNNEL_NETWORK 5927
 
 //
 // MessageId: ERROR_QUORUM_NOT_ALLOWED_IN_THIS_GROUP
@@ -14384,7 +14330,7 @@ static const int ERROR_CLUSTER_INVALID_IPV6_TUNNEL_NETWORK 5927L
 //
 // Quorum resource cannot reside in the Available Storage group.
 //
-static const int ERROR_QUORUM_NOT_ALLOWED_IN_THIS_GROUP 5928L
+    ERROR_QUORUM_NOT_ALLOWED_IN_THIS_GROUP 5928
 
 //
 // MessageId: ERROR_DEPENDENCY_TREE_TOO_COMPLEX
@@ -14393,7 +14339,7 @@ static const int ERROR_QUORUM_NOT_ALLOWED_IN_THIS_GROUP 5928L
 //
 // The dependencies for this resource are nested too deeply.
 //
-static const int ERROR_DEPENDENCY_TREE_TOO_COMPLEX 5929L
+    ERROR_DEPENDENCY_TREE_TOO_COMPLEX 5929
 
 //
 // MessageId: ERROR_EXCEPTION_IN_RESOURCE_CALL
@@ -14402,7 +14348,7 @@ static const int ERROR_DEPENDENCY_TREE_TOO_COMPLEX 5929L
 //
 // The call into the resource DLL raised an unhandled exception.
 //
-static const int ERROR_EXCEPTION_IN_RESOURCE_CALL 5930L
+    ERROR_EXCEPTION_IN_RESOURCE_CALL 5930
 
 //
 // MessageId: ERROR_CLUSTER_RHS_FAILED_INITIALIZATION
@@ -14411,7 +14357,7 @@ static const int ERROR_EXCEPTION_IN_RESOURCE_CALL 5930L
 //
 // The RHS process failed to initialize.
 //
-static const int ERROR_CLUSTER_RHS_FAILED_INITIALIZATION 5931L
+    ERROR_CLUSTER_RHS_FAILED_INITIALIZATION 5931
 
 //
 // MessageId: ERROR_CLUSTER_NOT_INSTALLED
@@ -14420,7 +14366,7 @@ static const int ERROR_CLUSTER_RHS_FAILED_INITIALIZATION 5931L
 //
 // The Failover Clustering feature is not installed on this node.
 //
-static const int ERROR_CLUSTER_NOT_INSTALLED      5932L
+    ERROR_CLUSTER_NOT_INSTALLED      5932
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCES_MUST_BE_ONLINE_ON_THE_SAME_NODE
@@ -14429,7 +14375,7 @@ static const int ERROR_CLUSTER_NOT_INSTALLED      5932L
 //
 // The resources must be online on the same node for this operation
 //
-static const int ERROR_CLUSTER_RESOURCES_MUST_BE_ONLINE_ON_THE_SAME_NODE 5933L
+    ERROR_CLUSTER_RESOURCES_MUST_BE_ONLINE_ON_THE_SAME_NODE 5933
 
 //
 // MessageId: ERROR_CLUSTER_MAX_NODES_IN_CLUSTER
@@ -14438,7 +14384,7 @@ static const int ERROR_CLUSTER_RESOURCES_MUST_BE_ONLINE_ON_THE_SAME_NODE 5933L
 //
 // A new node can not be added since this cluster is already at its maximum number of nodes.
 //
-static const int ERROR_CLUSTER_MAX_NODES_IN_CLUSTER 5934L
+    ERROR_CLUSTER_MAX_NODES_IN_CLUSTER 5934
 
 //
 // MessageId: ERROR_CLUSTER_TOO_MANY_NODES
@@ -14447,7 +14393,7 @@ static const int ERROR_CLUSTER_MAX_NODES_IN_CLUSTER 5934L
 //
 // This cluster can not be created since the specified number of nodes exceeds the maximum allowed limit.
 //
-static const int ERROR_CLUSTER_TOO_MANY_NODES     5935L
+    ERROR_CLUSTER_TOO_MANY_NODES     5935
 
 //
 // MessageId: ERROR_CLUSTER_OBJECT_ALREADY_USED
@@ -14456,7 +14402,7 @@ static const int ERROR_CLUSTER_TOO_MANY_NODES     5935L
 //
 // An attempt to use the specified cluster name failed because an enabled computer object with the given name already exists in the domain.
 //
-static const int ERROR_CLUSTER_OBJECT_ALREADY_USED 5936L
+    ERROR_CLUSTER_OBJECT_ALREADY_USED 5936
 
 //
 // MessageId: ERROR_NONCORE_GROUPS_FOUND
@@ -14465,7 +14411,7 @@ static const int ERROR_CLUSTER_OBJECT_ALREADY_USED 5936L
 //
 // This cluster cannot be destroyed. It has non-core application groups which must be deleted before the cluster can be destroyed.
 //
-static const int ERROR_NONCORE_GROUPS_FOUND       5937L
+    ERROR_NONCORE_GROUPS_FOUND       5937
 
 //
 // MessageId: ERROR_FILE_SHARE_RESOURCE_CONFLICT
@@ -14474,7 +14420,7 @@ static const int ERROR_NONCORE_GROUPS_FOUND       5937L
 //
 // File share associated with file share witness resource cannot be hosted by this cluster or any of its nodes.
 //
-static const int ERROR_FILE_SHARE_RESOURCE_CONFLICT 5938L
+    ERROR_FILE_SHARE_RESOURCE_CONFLICT 5938
 
 //
 // MessageId: ERROR_CLUSTER_EVICT_INVALID_REQUEST
@@ -14484,7 +14430,7 @@ static const int ERROR_FILE_SHARE_RESOURCE_CONFLICT 5938L
 // Eviction of this node is invalid at this time. Due to quorum requirements node eviction will result in cluster shutdown.
 // If it is the last node in the cluster, destroy cluster command should be used.
 //
-static const int ERROR_CLUSTER_EVICT_INVALID_REQUEST 5939L
+    ERROR_CLUSTER_EVICT_INVALID_REQUEST 5939
 
 //
 // MessageId: ERROR_CLUSTER_SINGLETON_RESOURCE
@@ -14493,7 +14439,7 @@ static const int ERROR_CLUSTER_EVICT_INVALID_REQUEST 5939L
 //
 // Only one instance of this resource type is allowed in the cluster.
 //
-static const int ERROR_CLUSTER_SINGLETON_RESOURCE 5940L
+    ERROR_CLUSTER_SINGLETON_RESOURCE 5940
 
 //
 // MessageId: ERROR_CLUSTER_GROUP_SINGLETON_RESOURCE
@@ -14502,7 +14448,7 @@ static const int ERROR_CLUSTER_SINGLETON_RESOURCE 5940L
 //
 // Only one instance of this resource type is allowed per resource group.
 //
-static const int ERROR_CLUSTER_GROUP_SINGLETON_RESOURCE 5941L
+    ERROR_CLUSTER_GROUP_SINGLETON_RESOURCE 5941
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_PROVIDER_FAILED
@@ -14511,7 +14457,7 @@ static const int ERROR_CLUSTER_GROUP_SINGLETON_RESOURCE 5941L
 //
 // The resource failed to come online due to the failure of one or more provider resources.
 //
-static const int ERROR_CLUSTER_RESOURCE_PROVIDER_FAILED 5942L
+    ERROR_CLUSTER_RESOURCE_PROVIDER_FAILED 5942
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_CONFIGURATION_ERROR
@@ -14520,7 +14466,7 @@ static const int ERROR_CLUSTER_RESOURCE_PROVIDER_FAILED 5942L
 //
 // The resource has indicated that it cannot come online on any node.
 //
-static const int ERROR_CLUSTER_RESOURCE_CONFIGURATION_ERROR 5943L
+    ERROR_CLUSTER_RESOURCE_CONFIGURATION_ERROR 5943
 
 //
 // MessageId: ERROR_CLUSTER_GROUP_BUSY
@@ -14529,7 +14475,7 @@ static const int ERROR_CLUSTER_RESOURCE_CONFIGURATION_ERROR 5943L
 //
 // The current operation cannot be performed on this group at this time.
 //
-static const int ERROR_CLUSTER_GROUP_BUSY         5944L
+    ERROR_CLUSTER_GROUP_BUSY         5944
 
 //
 // MessageId: ERROR_CLUSTER_NOT_SHARED_VOLUME
@@ -14538,7 +14484,7 @@ static const int ERROR_CLUSTER_GROUP_BUSY         5944L
 //
 // The directory or file is not located on a cluster shared volume.
 //
-static const int ERROR_CLUSTER_NOT_SHARED_VOLUME  5945L
+    ERROR_CLUSTER_NOT_SHARED_VOLUME  5945
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_SECURITY_DESCRIPTOR
@@ -14547,7 +14493,7 @@ static const int ERROR_CLUSTER_NOT_SHARED_VOLUME  5945L
 //
 // The Security Descriptor does not meet the requirements for a cluster.
 //
-static const int ERROR_CLUSTER_INVALID_SECURITY_DESCRIPTOR 5946L
+    ERROR_CLUSTER_INVALID_SECURITY_DESCRIPTOR 5946
 
 //
 // MessageId: ERROR_CLUSTER_SHARED_VOLUMES_IN_USE
@@ -14557,7 +14503,7 @@ static const int ERROR_CLUSTER_INVALID_SECURITY_DESCRIPTOR 5946L
 // There is one or more shared volumes resources configured in the cluster.
 // Those resources must be moved to available storage in order for operation to succeed.
 //
-static const int ERROR_CLUSTER_SHARED_VOLUMES_IN_USE 5947L
+    ERROR_CLUSTER_SHARED_VOLUMES_IN_USE 5947
 
 //
 // MessageId: ERROR_CLUSTER_USE_SHARED_VOLUMES_API
@@ -14567,7 +14513,7 @@ static const int ERROR_CLUSTER_SHARED_VOLUMES_IN_USE 5947L
 // This group or resource cannot be directly manipulated.
 // Use shared volume APIs to perform desired operation.
 //
-static const int ERROR_CLUSTER_USE_SHARED_VOLUMES_API 5948L
+    ERROR_CLUSTER_USE_SHARED_VOLUMES_API 5948
 
 //
 // MessageId: ERROR_CLUSTER_BACKUP_IN_PROGRESS
@@ -14576,7 +14522,7 @@ static const int ERROR_CLUSTER_USE_SHARED_VOLUMES_API 5948L
 //
 // Back up is in progress. Please wait for backup completion before trying this operation again.
 //
-static const int ERROR_CLUSTER_BACKUP_IN_PROGRESS 5949L
+    ERROR_CLUSTER_BACKUP_IN_PROGRESS 5949
 
 //
 // MessageId: ERROR_NON_CSV_PATH
@@ -14585,7 +14531,7 @@ static const int ERROR_CLUSTER_BACKUP_IN_PROGRESS 5949L
 //
 // The path does not belong to a cluster shared volume.
 //
-static const int ERROR_NON_CSV_PATH               5950L
+    ERROR_NON_CSV_PATH               5950
 
 //
 // MessageId: ERROR_CSV_VOLUME_NOT_LOCAL
@@ -14594,7 +14540,7 @@ static const int ERROR_NON_CSV_PATH               5950L
 //
 // The cluster shared volume is not locally mounted on this node.
 //
-static const int ERROR_CSV_VOLUME_NOT_LOCAL       5951L
+    ERROR_CSV_VOLUME_NOT_LOCAL       5951
 
 //
 // MessageId: ERROR_CLUSTER_WATCHDOG_TERMINATING
@@ -14603,7 +14549,7 @@ static const int ERROR_CSV_VOLUME_NOT_LOCAL       5951L
 //
 // The cluster watchdog is terminating.
 //
-static const int ERROR_CLUSTER_WATCHDOG_TERMINATING 5952L
+    ERROR_CLUSTER_WATCHDOG_TERMINATING 5952
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_VETOED_MOVE_INCOMPATIBLE_NODES
@@ -14612,7 +14558,7 @@ static const int ERROR_CLUSTER_WATCHDOG_TERMINATING 5952L
 //
 // A resource vetoed a move between two nodes because they are incompatible.
 //
-static const int ERROR_CLUSTER_RESOURCE_VETOED_MOVE_INCOMPATIBLE_NODES 5953L
+    ERROR_CLUSTER_RESOURCE_VETOED_MOVE_INCOMPATIBLE_NODES 5953
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_NODE_WEIGHT
@@ -14621,7 +14567,7 @@ static const int ERROR_CLUSTER_RESOURCE_VETOED_MOVE_INCOMPATIBLE_NODES 5953L
 //
 // The request is invalid either because node weight cannot be changed while the cluster is in disk-only quorum mode, or because changing the node weight would violate the minimum cluster quorum requirements.
 //
-static const int ERROR_CLUSTER_INVALID_NODE_WEIGHT 5954L
+    ERROR_CLUSTER_INVALID_NODE_WEIGHT 5954
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_VETOED_CALL
@@ -14630,7 +14576,7 @@ static const int ERROR_CLUSTER_INVALID_NODE_WEIGHT 5954L
 //
 // The resource vetoed the call.
 //
-static const int ERROR_CLUSTER_RESOURCE_VETOED_CALL 5955L
+    ERROR_CLUSTER_RESOURCE_VETOED_CALL 5955
 
 //
 // MessageId: ERROR_RESMON_SYSTEM_RESOURCES_LACKING
@@ -14639,7 +14585,7 @@ static const int ERROR_CLUSTER_RESOURCE_VETOED_CALL 5955L
 //
 // Resource could not start or run because it could not reserve sufficient system resources.
 //
-static const int ERROR_RESMON_SYSTEM_RESOURCES_LACKING 5956L
+    ERROR_RESMON_SYSTEM_RESOURCES_LACKING 5956
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_DESTINATION
@@ -14648,7 +14594,7 @@ static const int ERROR_RESMON_SYSTEM_RESOURCES_LACKING 5956L
 //
 // A resource vetoed a move between two nodes because the destination currently does not have enough resources to complete the operation.
 //
-static const int ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_DESTINATION 5957L
+    ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_DESTINATION 5957
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_SOURCE
@@ -14658,7 +14604,7 @@ static const int ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_DEST
 //
 // A resource vetoed a move between two nodes because the source currently does not have enough resources to complete the operation.
 //
-static const int ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_SOURCE 5958L
+    ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_SOURCE 5958
 
 //
 // MessageId: ERROR_CLUSTER_GROUP_QUEUED
@@ -14668,7 +14614,7 @@ static const int ERROR_CLUSTER_RESOURCE_VETOED_MOVE_NOT_ENOUGH_RESOURCES_ON_SOUR
 //
 // The requested operation can not be completed because the group is queued for an operation.
 //
-static const int ERROR_CLUSTER_GROUP_QUEUED       5959L
+    ERROR_CLUSTER_GROUP_QUEUED       5959
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_LOCKED_STATUS
@@ -14678,7 +14624,7 @@ static const int ERROR_CLUSTER_GROUP_QUEUED       5959L
 //
 // The requested operation can not be completed because a resource has locked status.
 //
-static const int ERROR_CLUSTER_RESOURCE_LOCKED_STATUS 5960L
+    ERROR_CLUSTER_RESOURCE_LOCKED_STATUS 5960
 
 //
 // MessageId: ERROR_CLUSTER_SHARED_VOLUME_FAILOVER_NOT_ALLOWED
@@ -14688,7 +14634,7 @@ static const int ERROR_CLUSTER_RESOURCE_LOCKED_STATUS 5960L
 //
 // The resource cannot move to another node because a cluster shared volume vetoed the operation.
 //
-static const int ERROR_CLUSTER_SHARED_VOLUME_FAILOVER_NOT_ALLOWED 5961L
+    ERROR_CLUSTER_SHARED_VOLUME_FAILOVER_NOT_ALLOWED 5961
 
 //
 // MessageId: ERROR_CLUSTER_NODE_DRAIN_IN_PROGRESS
@@ -14698,7 +14644,7 @@ static const int ERROR_CLUSTER_SHARED_VOLUME_FAILOVER_NOT_ALLOWED 5961L
 //
 // A node drain is already in progress.
 //
-static const int ERROR_CLUSTER_NODE_DRAIN_IN_PROGRESS 5962L
+    ERROR_CLUSTER_NODE_DRAIN_IN_PROGRESS 5962
 
 //
 // MessageId: ERROR_CLUSTER_DISK_NOT_CONNECTED
@@ -14708,7 +14654,7 @@ static const int ERROR_CLUSTER_NODE_DRAIN_IN_PROGRESS 5962L
 //
 // Clustered storage is not connected to the node.
 //
-static const int ERROR_CLUSTER_DISK_NOT_CONNECTED 5963L
+    ERROR_CLUSTER_DISK_NOT_CONNECTED 5963
 
 //
 // MessageId: ERROR_DISK_NOT_CSV_CAPABLE
@@ -14718,7 +14664,7 @@ static const int ERROR_CLUSTER_DISK_NOT_CONNECTED 5963L
 //
 // The disk is not configured in a way to be used with CSV. CSV disks must have at least one partition that is formatted with NTFS or REFS.
 //
-static const int ERROR_DISK_NOT_CSV_CAPABLE       5964L
+    ERROR_DISK_NOT_CSV_CAPABLE       5964
 
 //
 // MessageId: ERROR_RESOURCE_NOT_IN_AVAILABLE_STORAGE
@@ -14728,7 +14674,7 @@ static const int ERROR_DISK_NOT_CSV_CAPABLE       5964L
 //
 // The resource must be part of the Available Storage group to complete this action.
 //
-static const int ERROR_RESOURCE_NOT_IN_AVAILABLE_STORAGE 5965L
+    ERROR_RESOURCE_NOT_IN_AVAILABLE_STORAGE 5965
 
 //
 // MessageId: ERROR_CLUSTER_SHARED_VOLUME_REDIRECTED
@@ -14738,7 +14684,7 @@ static const int ERROR_RESOURCE_NOT_IN_AVAILABLE_STORAGE 5965L
 //
 // CSVFS failed operation as volume is in redirected mode.
 //
-static const int ERROR_CLUSTER_SHARED_VOLUME_REDIRECTED 5966L
+    ERROR_CLUSTER_SHARED_VOLUME_REDIRECTED 5966
 
 //
 // MessageId: ERROR_CLUSTER_SHARED_VOLUME_NOT_REDIRECTED
@@ -14748,7 +14694,7 @@ static const int ERROR_CLUSTER_SHARED_VOLUME_REDIRECTED 5966L
 //
 // CSVFS failed operation as volume is not in redirected mode.
 //
-static const int ERROR_CLUSTER_SHARED_VOLUME_NOT_REDIRECTED 5967L
+    ERROR_CLUSTER_SHARED_VOLUME_NOT_REDIRECTED 5967
 
 //
 // MessageId: ERROR_CLUSTER_CANNOT_RETURN_PROPERTIES
@@ -14758,7 +14704,7 @@ static const int ERROR_CLUSTER_SHARED_VOLUME_NOT_REDIRECTED 5967L
 //
 // Cluster properties cannot be returned at this time.
 //
-static const int ERROR_CLUSTER_CANNOT_RETURN_PROPERTIES 5968L
+    ERROR_CLUSTER_CANNOT_RETURN_PROPERTIES 5968
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_CONTAINS_UNSUPPORTED_DIFF_AREA_FOR_SHARED_VOLUMES
@@ -14768,7 +14714,7 @@ static const int ERROR_CLUSTER_CANNOT_RETURN_PROPERTIES 5968L
 //
 // The clustered disk resource contains software snapshot diff area that are not supported for Cluster Shared Volumes.
 //
-static const int ERROR_CLUSTER_RESOURCE_CONTAINS_UNSUPPORTED_DIFF_AREA_FOR_SHARED_VOLUMES 5969L
+    ERROR_CLUSTER_RESOURCE_CONTAINS_UNSUPPORTED_DIFF_AREA_FOR_SHARED_VOLUMES 5969
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_IS_IN_MAINTENANCE_MODE
@@ -14778,7 +14724,7 @@ static const int ERROR_CLUSTER_RESOURCE_CONTAINS_UNSUPPORTED_DIFF_AREA_FOR_SHARE
 //
 // The operation cannot be completed because the resource is in maintenance mode.
 //
-static const int ERROR_CLUSTER_RESOURCE_IS_IN_MAINTENANCE_MODE 5970L
+    ERROR_CLUSTER_RESOURCE_IS_IN_MAINTENANCE_MODE 5970
 
 //
 // MessageId: ERROR_CLUSTER_AFFINITY_CONFLICT
@@ -14788,7 +14734,7 @@ static const int ERROR_CLUSTER_RESOURCE_IS_IN_MAINTENANCE_MODE 5970L
 //
 // The operation cannot be completed because of cluster affinity conflicts
 //
-static const int ERROR_CLUSTER_AFFINITY_CONFLICT  5971L
+    ERROR_CLUSTER_AFFINITY_CONFLICT  5971
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_IS_REPLICA_VIRTUAL_MACHINE
@@ -14798,7 +14744,7 @@ static const int ERROR_CLUSTER_AFFINITY_CONFLICT  5971L
 //
 // The operation cannot be completed because the resource is a replica virtual machine.
 //
-static const int ERROR_CLUSTER_RESOURCE_IS_REPLICA_VIRTUAL_MACHINE 5972L
+    ERROR_CLUSTER_RESOURCE_IS_REPLICA_VIRTUAL_MACHINE 5972
 
 //
 // MessageId: ERROR_CLUSTER_UPGRADE_INCOMPATIBLE_VERSIONS
@@ -14808,7 +14754,7 @@ static const int ERROR_CLUSTER_RESOURCE_IS_REPLICA_VIRTUAL_MACHINE 5972L
 //
 // The Cluster Functional Level could not be increased because not all nodes in the cluster support the updated version.
 //
-static const int ERROR_CLUSTER_UPGRADE_INCOMPATIBLE_VERSIONS 5973L
+    ERROR_CLUSTER_UPGRADE_INCOMPATIBLE_VERSIONS 5973
 
 //
 // MessageId: ERROR_CLUSTER_UPGRADE_FIX_QUORUM_NOT_SUPPORTED
@@ -14821,7 +14767,7 @@ static const int ERROR_CLUSTER_UPGRADE_INCOMPATIBLE_VERSIONS 5973L
 // switch out of fix quorum mode, or stop and restart the cluster without the FixQuorum switch. Once the cluster is out
 // of fix quorum mode retry the Update-ClusterFunctionalLevel PowerShell cmdlet to update the cluster functional level.
 //
-static const int ERROR_CLUSTER_UPGRADE_FIX_QUORUM_NOT_SUPPORTED 5974L
+    ERROR_CLUSTER_UPGRADE_FIX_QUORUM_NOT_SUPPORTED 5974
 
 //
 // MessageId: ERROR_CLUSTER_UPGRADE_RESTART_REQUIRED
@@ -14833,7 +14779,7 @@ static const int ERROR_CLUSTER_UPGRADE_FIX_QUORUM_NOT_SUPPORTED 5974L
 // using the Stop-Cluster PowerShell cmdlet followed by the Start-Cluster PowerShell cmdlet and all cluster features will
 // be available.
 //
-static const int ERROR_CLUSTER_UPGRADE_RESTART_REQUIRED 5975L
+    ERROR_CLUSTER_UPGRADE_RESTART_REQUIRED 5975
 
 //
 // MessageId: ERROR_CLUSTER_UPGRADE_IN_PROGRESS
@@ -14843,7 +14789,7 @@ static const int ERROR_CLUSTER_UPGRADE_RESTART_REQUIRED 5975L
 //
 // The cluster is currently performing a version upgrade.
 //
-static const int ERROR_CLUSTER_UPGRADE_IN_PROGRESS 5976L
+    ERROR_CLUSTER_UPGRADE_IN_PROGRESS 5976
 
 //
 // MessageId: ERROR_CLUSTER_UPGRADE_INCOMPLETE
@@ -14853,7 +14799,7 @@ static const int ERROR_CLUSTER_UPGRADE_IN_PROGRESS 5976L
 //
 // The cluster did not successfully complete the version upgrade.
 //
-static const int ERROR_CLUSTER_UPGRADE_INCOMPLETE 5977L
+    ERROR_CLUSTER_UPGRADE_INCOMPLETE 5977
 
 //
 // MessageId: ERROR_CLUSTER_NODE_IN_GRACE_PERIOD
@@ -14863,7 +14809,7 @@ static const int ERROR_CLUSTER_UPGRADE_INCOMPLETE 5977L
 //
 // The cluster node is in grace period.
 //
-static const int ERROR_CLUSTER_NODE_IN_GRACE_PERIOD 5978L
+    ERROR_CLUSTER_NODE_IN_GRACE_PERIOD 5978
 
 //
 // MessageId: ERROR_CLUSTER_CSV_IO_PAUSE_TIMEOUT
@@ -14873,7 +14819,7 @@ static const int ERROR_CLUSTER_NODE_IN_GRACE_PERIOD 5978L
 //
 // The operation has failed because CSV volume was not able to recover in time specified on this file object.
 //
-static const int ERROR_CLUSTER_CSV_IO_PAUSE_TIMEOUT 5979L
+    ERROR_CLUSTER_CSV_IO_PAUSE_TIMEOUT 5979
 
 //
 // MessageId: ERROR_NODE_NOT_ACTIVE_CLUSTER_MEMBER
@@ -14883,7 +14829,7 @@ static const int ERROR_CLUSTER_CSV_IO_PAUSE_TIMEOUT 5979L
 //
 // The operation failed because the requested node is not currently part of active cluster membership.
 //
-static const int ERROR_NODE_NOT_ACTIVE_CLUSTER_MEMBER 5980L
+    ERROR_NODE_NOT_ACTIVE_CLUSTER_MEMBER 5980
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_NOT_MONITORED
@@ -14893,7 +14839,7 @@ static const int ERROR_NODE_NOT_ACTIVE_CLUSTER_MEMBER 5980L
 //
 // The operation failed because the requested cluster resource is currently unmonitored.
 //
-static const int ERROR_CLUSTER_RESOURCE_NOT_MONITORED 5981L
+    ERROR_CLUSTER_RESOURCE_NOT_MONITORED 5981
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_DOES_NOT_SUPPORT_UNMONITORED
@@ -14903,7 +14849,7 @@ static const int ERROR_CLUSTER_RESOURCE_NOT_MONITORED 5981L
 //
 // The operation failed because a resource does not support running in an unmonitored state.
 //
-static const int ERROR_CLUSTER_RESOURCE_DOES_NOT_SUPPORT_UNMONITORED 5982L
+    ERROR_CLUSTER_RESOURCE_DOES_NOT_SUPPORT_UNMONITORED 5982
 
 //
 // MessageId: ERROR_CLUSTER_RESOURCE_IS_REPLICATED
@@ -14913,7 +14859,7 @@ static const int ERROR_CLUSTER_RESOURCE_DOES_NOT_SUPPORT_UNMONITORED 5982L
 //
 // The operation cannot be completed because a resource participates in replication.
 //
-static const int ERROR_CLUSTER_RESOURCE_IS_REPLICATED 5983L
+    ERROR_CLUSTER_RESOURCE_IS_REPLICATED 5983
 
 //
 // MessageId: ERROR_CLUSTER_NODE_ISOLATED
@@ -14923,7 +14869,7 @@ static const int ERROR_CLUSTER_RESOURCE_IS_REPLICATED 5983L
 //
 // The operation failed because the requested cluster node has been isolated
 //
-static const int ERROR_CLUSTER_NODE_ISOLATED      5984L
+    ERROR_CLUSTER_NODE_ISOLATED      5984
 
 //
 // MessageId: ERROR_CLUSTER_NODE_QUARANTINED
@@ -14933,7 +14879,7 @@ static const int ERROR_CLUSTER_NODE_ISOLATED      5984L
 //
 // The operation failed because the requested cluster node has been quarantined
 //
-static const int ERROR_CLUSTER_NODE_QUARANTINED   5985L
+    ERROR_CLUSTER_NODE_QUARANTINED   5985
 
 //
 // MessageId: ERROR_CLUSTER_DATABASE_UPDATE_CONDITION_FAILED
@@ -14943,7 +14889,7 @@ static const int ERROR_CLUSTER_NODE_QUARANTINED   5985L
 //
 // The operation failed because the specified database update condition was not met
 //
-static const int ERROR_CLUSTER_DATABASE_UPDATE_CONDITION_FAILED 5986L
+    ERROR_CLUSTER_DATABASE_UPDATE_CONDITION_FAILED 5986
 
 //
 // MessageId: ERROR_CLUSTER_SPACE_DEGRADED
@@ -14953,7 +14899,7 @@ static const int ERROR_CLUSTER_DATABASE_UPDATE_CONDITION_FAILED 5986L
 //
 // A clustered space is in a degraded condition and the requested action cannot be completed at this time.
 //
-static const int ERROR_CLUSTER_SPACE_DEGRADED     5987L
+    ERROR_CLUSTER_SPACE_DEGRADED     5987
 
 //
 // MessageId: ERROR_CLUSTER_TOKEN_DELEGATION_NOT_SUPPORTED
@@ -14963,7 +14909,7 @@ static const int ERROR_CLUSTER_SPACE_DEGRADED     5987L
 //
 // The operation failed because token delegation for this control is not supported.
 //
-static const int ERROR_CLUSTER_TOKEN_DELEGATION_NOT_SUPPORTED 5988L
+    ERROR_CLUSTER_TOKEN_DELEGATION_NOT_SUPPORTED 5988
 
 //
 // MessageId: ERROR_CLUSTER_CSV_INVALID_HANDLE
@@ -14973,7 +14919,7 @@ static const int ERROR_CLUSTER_TOKEN_DELEGATION_NOT_SUPPORTED 5988L
 //
 // The operation has failed because CSV has invalidated this file object.
 //
-static const int ERROR_CLUSTER_CSV_INVALID_HANDLE 5989L
+    ERROR_CLUSTER_CSV_INVALID_HANDLE 5989
 
 //
 // MessageId: ERROR_CLUSTER_CSV_SUPPORTED_ONLY_ON_COORDINATOR
@@ -14983,7 +14929,7 @@ static const int ERROR_CLUSTER_CSV_INVALID_HANDLE 5989L
 //
 // This operation is supported only on the CSV coordinator node.
 //
-static const int ERROR_CLUSTER_CSV_SUPPORTED_ONLY_ON_COORDINATOR 5990L
+    ERROR_CLUSTER_CSV_SUPPORTED_ONLY_ON_COORDINATOR 5990
 
 //
 // MessageId: ERROR_GROUPSET_NOT_AVAILABLE
@@ -14993,7 +14939,7 @@ static const int ERROR_CLUSTER_CSV_SUPPORTED_ONLY_ON_COORDINATOR 5990L
 //
 // The cluster group set is not available for any further requests.
 //
-static const int ERROR_GROUPSET_NOT_AVAILABLE     5991L
+    ERROR_GROUPSET_NOT_AVAILABLE     5991
 
 //
 // MessageId: ERROR_GROUPSET_NOT_FOUND
@@ -15003,7 +14949,7 @@ static const int ERROR_GROUPSET_NOT_AVAILABLE     5991L
 //
 // The cluster group set could not be found.
 //
-static const int ERROR_GROUPSET_NOT_FOUND         5992L
+    ERROR_GROUPSET_NOT_FOUND         5992
 
 //
 // MessageId: ERROR_GROUPSET_CANT_PROVIDE
@@ -15013,7 +14959,7 @@ static const int ERROR_GROUPSET_NOT_FOUND         5992L
 //
 // The action cannot be completed at this time because the cluster group set would fall below quorum and not be able to act as a provider.
 //
-static const int ERROR_GROUPSET_CANT_PROVIDE      5993L
+    ERROR_GROUPSET_CANT_PROVIDE      5993
 
 //
 // MessageId: ERROR_CLUSTER_FAULT_DOMAIN_PARENT_NOT_FOUND
@@ -15023,7 +14969,7 @@ static const int ERROR_GROUPSET_CANT_PROVIDE      5993L
 //
 // The specified parent fault domain is not found.
 //
-static const int ERROR_CLUSTER_FAULT_DOMAIN_PARENT_NOT_FOUND 5994L
+    ERROR_CLUSTER_FAULT_DOMAIN_PARENT_NOT_FOUND 5994
 
 //
 // MessageId: ERROR_CLUSTER_FAULT_DOMAIN_INVALID_HIERARCHY
@@ -15033,7 +14979,7 @@ static const int ERROR_CLUSTER_FAULT_DOMAIN_PARENT_NOT_FOUND 5994L
 //
 // The fault domain cannot be a child of the parent specified.
 //
-static const int ERROR_CLUSTER_FAULT_DOMAIN_INVALID_HIERARCHY 5995L
+    ERROR_CLUSTER_FAULT_DOMAIN_INVALID_HIERARCHY 5995
 
 //
 // MessageId: ERROR_CLUSTER_FAULT_DOMAIN_FAILED_S2D_VALIDATION
@@ -15043,7 +14989,7 @@ static const int ERROR_CLUSTER_FAULT_DOMAIN_INVALID_HIERARCHY 5995L
 //
 // Storage Spaces Direct has rejected the proposed fault domain changes because it impacts the fault tolerance of the storage.
 //
-static const int ERROR_CLUSTER_FAULT_DOMAIN_FAILED_S2D_VALIDATION 5996L
+    ERROR_CLUSTER_FAULT_DOMAIN_FAILED_S2D_VALIDATION 5996
 
 //
 // MessageId: ERROR_CLUSTER_FAULT_DOMAIN_S2D_CONNECTIVITY_LOSS
@@ -15053,7 +14999,7 @@ static const int ERROR_CLUSTER_FAULT_DOMAIN_FAILED_S2D_VALIDATION 5996L
 //
 // Storage Spaces Direct has rejected the proposed fault domain changes because it reduces the storage connected to the system.
 //
-static const int ERROR_CLUSTER_FAULT_DOMAIN_S2D_CONNECTIVITY_LOSS 5997L
+    ERROR_CLUSTER_FAULT_DOMAIN_S2D_CONNECTIVITY_LOSS 5997
 
 //
 // MessageId: ERROR_CLUSTER_INVALID_INFRASTRUCTURE_FILESERVER_NAME
@@ -15063,7 +15009,7 @@ static const int ERROR_CLUSTER_FAULT_DOMAIN_S2D_CONNECTIVITY_LOSS 5997L
 //
 // Cluster infrastructure file server creation failed because a valid non-empty file server name was not provided.
 //
-static const int ERROR_CLUSTER_INVALID_INFRASTRUCTURE_FILESERVER_NAME 5998L
+    ERROR_CLUSTER_INVALID_INFRASTRUCTURE_FILESERVER_NAME 5998
 
 //
 // MessageId: ERROR_CLUSTERSET_MANAGEMENT_CLUSTER_UNREACHABLE
@@ -15073,7 +15019,7 @@ static const int ERROR_CLUSTER_INVALID_INFRASTRUCTURE_FILESERVER_NAME 5998L
 //
 // The action cannot be completed because the cluster set managenement cluster is unreachable.
 //
-static const int ERROR_CLUSTERSET_MANAGEMENT_CLUSTER_UNREACHABLE 5999L
+    ERROR_CLUSTERSET_MANAGEMENT_CLUSTER_UNREACHABLE 5999
 
 
 ///////////////////////////////////////////////////
@@ -15090,7 +15036,7 @@ static const int ERROR_CLUSTERSET_MANAGEMENT_CLUSTER_UNREACHABLE 5999L
 //
 // The specified file could not be encrypted.
 //
-static const int ERROR_ENCRYPTION_FAILED          6000L
+    ERROR_ENCRYPTION_FAILED          6000
 
 //
 // MessageId: ERROR_DECRYPTION_FAILED
@@ -15099,7 +15045,7 @@ static const int ERROR_ENCRYPTION_FAILED          6000L
 //
 // The specified file could not be decrypted.
 //
-static const int ERROR_DECRYPTION_FAILED          6001L
+    ERROR_DECRYPTION_FAILED          6001
 
 //
 // MessageId: ERROR_FILE_ENCRYPTED
@@ -15108,7 +15054,7 @@ static const int ERROR_DECRYPTION_FAILED          6001L
 //
 // The specified file is encrypted and the user does not have the ability to decrypt it.
 //
-static const int ERROR_FILE_ENCRYPTED             6002L
+    ERROR_FILE_ENCRYPTED             6002
 
 //
 // MessageId: ERROR_NO_RECOVERY_POLICY
@@ -15117,7 +15063,7 @@ static const int ERROR_FILE_ENCRYPTED             6002L
 //
 // There is no valid encryption recovery policy configured for this system.
 //
-static const int ERROR_NO_RECOVERY_POLICY         6003L
+    ERROR_NO_RECOVERY_POLICY         6003
 
 //
 // MessageId: ERROR_NO_EFS
@@ -15126,7 +15072,7 @@ static const int ERROR_NO_RECOVERY_POLICY         6003L
 //
 // The required encryption driver is not loaded for this system.
 //
-static const int ERROR_NO_EFS                     6004L
+    ERROR_NO_EFS                     6004
 
 //
 // MessageId: ERROR_WRONG_EFS
@@ -15135,7 +15081,7 @@ static const int ERROR_NO_EFS                     6004L
 //
 // The file was encrypted with a different encryption driver than is currently loaded.
 //
-static const int ERROR_WRONG_EFS                  6005L
+    ERROR_WRONG_EFS                  6005
 
 //
 // MessageId: ERROR_NO_USER_KEYS
@@ -15144,7 +15090,7 @@ static const int ERROR_WRONG_EFS                  6005L
 //
 // There are no EFS keys defined for the user.
 //
-static const int ERROR_NO_USER_KEYS               6006L
+    ERROR_NO_USER_KEYS               6006
 
 //
 // MessageId: ERROR_FILE_NOT_ENCRYPTED
@@ -15153,7 +15099,7 @@ static const int ERROR_NO_USER_KEYS               6006L
 //
 // The specified file is not encrypted.
 //
-static const int ERROR_FILE_NOT_ENCRYPTED         6007L
+    ERROR_FILE_NOT_ENCRYPTED         6007
 
 //
 // MessageId: ERROR_NOT_EXPORT_FORMAT
@@ -15162,7 +15108,7 @@ static const int ERROR_FILE_NOT_ENCRYPTED         6007L
 //
 // The specified file is not in the defined EFS export format.
 //
-static const int ERROR_NOT_EXPORT_FORMAT          6008L
+    ERROR_NOT_EXPORT_FORMAT          6008
 
 //
 // MessageId: ERROR_FILE_READ_ONLY
@@ -15171,7 +15117,7 @@ static const int ERROR_NOT_EXPORT_FORMAT          6008L
 //
 // The specified file is read only.
 //
-static const int ERROR_FILE_READ_ONLY             6009L
+    ERROR_FILE_READ_ONLY             6009
 
 //
 // MessageId: ERROR_DIR_EFS_DISALLOWED
@@ -15180,7 +15126,7 @@ static const int ERROR_FILE_READ_ONLY             6009L
 //
 // The directory has been disabled for encryption.
 //
-static const int ERROR_DIR_EFS_DISALLOWED         6010L
+    ERROR_DIR_EFS_DISALLOWED         6010
 
 //
 // MessageId: ERROR_EFS_SERVER_NOT_TRUSTED
@@ -15189,7 +15135,7 @@ static const int ERROR_DIR_EFS_DISALLOWED         6010L
 //
 // The server is not trusted for remote encryption operation.
 //
-static const int ERROR_EFS_SERVER_NOT_TRUSTED     6011L
+    ERROR_EFS_SERVER_NOT_TRUSTED     6011
 
 //
 // MessageId: ERROR_BAD_RECOVERY_POLICY
@@ -15198,7 +15144,7 @@ static const int ERROR_EFS_SERVER_NOT_TRUSTED     6011L
 //
 // Recovery policy configured for this system contains invalid recovery certificate.
 //
-static const int ERROR_BAD_RECOVERY_POLICY        6012L
+    ERROR_BAD_RECOVERY_POLICY        6012
 
 //
 // MessageId: ERROR_EFS_ALG_BLOB_TOO_BIG
@@ -15207,7 +15153,7 @@ static const int ERROR_BAD_RECOVERY_POLICY        6012L
 //
 // The encryption algorithm used on the source file needs a bigger key buffer than the one on the destination file.
 //
-static const int ERROR_EFS_ALG_BLOB_TOO_BIG       6013L
+    ERROR_EFS_ALG_BLOB_TOO_BIG       6013
 
 //
 // MessageId: ERROR_VOLUME_NOT_SUPPORT_EFS
@@ -15216,7 +15162,7 @@ static const int ERROR_EFS_ALG_BLOB_TOO_BIG       6013L
 //
 // The disk partition does not support file encryption.
 //
-static const int ERROR_VOLUME_NOT_SUPPORT_EFS     6014L
+    ERROR_VOLUME_NOT_SUPPORT_EFS     6014
 
 //
 // MessageId: ERROR_EFS_DISABLED
@@ -15225,7 +15171,7 @@ static const int ERROR_VOLUME_NOT_SUPPORT_EFS     6014L
 //
 // This machine is disabled for file encryption.
 //
-static const int ERROR_EFS_DISABLED               6015L
+    ERROR_EFS_DISABLED               6015
 
 //
 // MessageId: ERROR_EFS_VERSION_NOT_SUPPORT
@@ -15234,7 +15180,7 @@ static const int ERROR_EFS_DISABLED               6015L
 //
 // A newer system is required to decrypt this encrypted file.
 //
-static const int ERROR_EFS_VERSION_NOT_SUPPORT    6016L
+    ERROR_EFS_VERSION_NOT_SUPPORT    6016
 
 //
 // MessageId: ERROR_CS_ENCRYPTION_INVALID_SERVER_RESPONSE
@@ -15243,7 +15189,7 @@ static const int ERROR_EFS_VERSION_NOT_SUPPORT    6016L
 //
 // The remote server sent an invalid response for a file being opened with Client Side Encryption.
 //
-static const int ERROR_CS_ENCRYPTION_INVALID_SERVER_RESPONSE 6017L
+    ERROR_CS_ENCRYPTION_INVALID_SERVER_RESPONSE 6017
 
 //
 // MessageId: ERROR_CS_ENCRYPTION_UNSUPPORTED_SERVER
@@ -15252,7 +15198,7 @@ static const int ERROR_CS_ENCRYPTION_INVALID_SERVER_RESPONSE 6017L
 //
 // Client Side Encryption is not supported by the remote server even though it claims to support it.
 //
-static const int ERROR_CS_ENCRYPTION_UNSUPPORTED_SERVER 6018L
+    ERROR_CS_ENCRYPTION_UNSUPPORTED_SERVER 6018
 
 //
 // MessageId: ERROR_CS_ENCRYPTION_EXISTING_ENCRYPTED_FILE
@@ -15261,7 +15207,7 @@ static const int ERROR_CS_ENCRYPTION_UNSUPPORTED_SERVER 6018L
 //
 // File is encrypted and should be opened in Client Side Encryption mode.
 //
-static const int ERROR_CS_ENCRYPTION_EXISTING_ENCRYPTED_FILE 6019L
+    ERROR_CS_ENCRYPTION_EXISTING_ENCRYPTED_FILE 6019
 
 //
 // MessageId: ERROR_CS_ENCRYPTION_NEW_ENCRYPTED_FILE
@@ -15270,7 +15216,7 @@ static const int ERROR_CS_ENCRYPTION_EXISTING_ENCRYPTED_FILE 6019L
 //
 // A new encrypted file is being created and a $EFS needs to be provided.
 //
-static const int ERROR_CS_ENCRYPTION_NEW_ENCRYPTED_FILE 6020L
+    ERROR_CS_ENCRYPTION_NEW_ENCRYPTED_FILE 6020
 
 //
 // MessageId: ERROR_CS_ENCRYPTION_FILE_NOT_CSE
@@ -15279,7 +15225,7 @@ static const int ERROR_CS_ENCRYPTION_NEW_ENCRYPTED_FILE 6020L
 //
 // The SMB client requested a CSE FSCTL on a non-CSE file.
 //
-static const int ERROR_CS_ENCRYPTION_FILE_NOT_CSE 6021L
+    ERROR_CS_ENCRYPTION_FILE_NOT_CSE 6021
 
 //
 // MessageId: ERROR_ENCRYPTION_POLICY_DENIES_OPERATION
@@ -15288,7 +15234,7 @@ static const int ERROR_CS_ENCRYPTION_FILE_NOT_CSE 6021L
 //
 // The requested operation was blocked by policy. For more information, contact your system administrator.
 //
-static const int ERROR_ENCRYPTION_POLICY_DENIES_OPERATION 6022L
+    ERROR_ENCRYPTION_POLICY_DENIES_OPERATION 6022
 
 
 ///////////////////////////////////////////////////
@@ -15306,7 +15252,7 @@ static const int ERROR_ENCRYPTION_POLICY_DENIES_OPERATION 6022L
 //
 // The list of servers for this workgroup is not currently available
 //
-static const int ERROR_NO_BROWSER_SERVERS_FOUND   6118L
+    ERROR_NO_BROWSER_SERVERS_FOUND   6118
 
 
 ///////////////////////////////////////////////////
@@ -15324,7 +15270,7 @@ static const int ERROR_NO_BROWSER_SERVERS_FOUND   6118L
 //
 // The Task Scheduler service must be configured to run in the System account to function properly. Individual tasks may be configured to run in other accounts.
 //
-static const int SCHED_E_SERVICE_NOT_LOCALSYSTEM  6200L
+    SCHED_E_SERVICE_NOT_LOCALSYSTEM  6200
 
 
 ///////////////////////////////////////////////////
@@ -15348,7 +15294,7 @@ static const int SCHED_E_SERVICE_NOT_LOCALSYSTEM  6200L
 //
 // Log service encountered an invalid log sector.
 //
-static const int ERROR_LOG_SECTOR_INVALID         6600L
+    ERROR_LOG_SECTOR_INVALID         6600
 
 //
 // MessageId: ERROR_LOG_SECTOR_PARITY_INVALID
@@ -15357,7 +15303,7 @@ static const int ERROR_LOG_SECTOR_INVALID         6600L
 //
 // Log service encountered a log sector with invalid block parity.
 //
-static const int ERROR_LOG_SECTOR_PARITY_INVALID  6601L
+    ERROR_LOG_SECTOR_PARITY_INVALID  6601
 
 //
 // MessageId: ERROR_LOG_SECTOR_REMAPPED
@@ -15366,7 +15312,7 @@ static const int ERROR_LOG_SECTOR_PARITY_INVALID  6601L
 //
 // Log service encountered a remapped log sector.
 //
-static const int ERROR_LOG_SECTOR_REMAPPED        6602L
+    ERROR_LOG_SECTOR_REMAPPED        6602
 
 //
 // MessageId: ERROR_LOG_BLOCK_INCOMPLETE
@@ -15375,7 +15321,7 @@ static const int ERROR_LOG_SECTOR_REMAPPED        6602L
 //
 // Log service encountered a partial or incomplete log block.
 //
-static const int ERROR_LOG_BLOCK_INCOMPLETE       6603L
+    ERROR_LOG_BLOCK_INCOMPLETE       6603
 
 //
 // MessageId: ERROR_LOG_INVALID_RANGE
@@ -15384,7 +15330,7 @@ static const int ERROR_LOG_BLOCK_INCOMPLETE       6603L
 //
 // Log service encountered an attempt access data outside the active log range.
 //
-static const int ERROR_LOG_INVALID_RANGE          6604L
+    ERROR_LOG_INVALID_RANGE          6604
 
 //
 // MessageId: ERROR_LOG_BLOCKS_EXHAUSTED
@@ -15393,7 +15339,7 @@ static const int ERROR_LOG_INVALID_RANGE          6604L
 //
 // Log service user marshalling buffers are exhausted.
 //
-static const int ERROR_LOG_BLOCKS_EXHAUSTED       6605L
+    ERROR_LOG_BLOCKS_EXHAUSTED       6605
 
 //
 // MessageId: ERROR_LOG_READ_CONTEXT_INVALID
@@ -15402,7 +15348,7 @@ static const int ERROR_LOG_BLOCKS_EXHAUSTED       6605L
 //
 // Log service encountered an attempt read from a marshalling area with an invalid read context.
 //
-static const int ERROR_LOG_READ_CONTEXT_INVALID   6606L
+    ERROR_LOG_READ_CONTEXT_INVALID   6606
 
 //
 // MessageId: ERROR_LOG_RESTART_INVALID
@@ -15411,7 +15357,7 @@ static const int ERROR_LOG_READ_CONTEXT_INVALID   6606L
 //
 // Log service encountered an invalid log restart area.
 //
-static const int ERROR_LOG_RESTART_INVALID        6607L
+    ERROR_LOG_RESTART_INVALID        6607
 
 //
 // MessageId: ERROR_LOG_BLOCK_VERSION
@@ -15420,7 +15366,7 @@ static const int ERROR_LOG_RESTART_INVALID        6607L
 //
 // Log service encountered an invalid log block version.
 //
-static const int ERROR_LOG_BLOCK_VERSION          6608L
+    ERROR_LOG_BLOCK_VERSION          6608
 
 //
 // MessageId: ERROR_LOG_BLOCK_INVALID
@@ -15429,7 +15375,7 @@ static const int ERROR_LOG_BLOCK_VERSION          6608L
 //
 // Log service encountered an invalid log block.
 //
-static const int ERROR_LOG_BLOCK_INVALID          6609L
+    ERROR_LOG_BLOCK_INVALID          6609
 
 //
 // MessageId: ERROR_LOG_READ_MODE_INVALID
@@ -15438,7 +15384,7 @@ static const int ERROR_LOG_BLOCK_INVALID          6609L
 //
 // Log service encountered an attempt to read the log with an invalid read mode.
 //
-static const int ERROR_LOG_READ_MODE_INVALID      6610L
+    ERROR_LOG_READ_MODE_INVALID      6610
 
 //
 // MessageId: ERROR_LOG_NO_RESTART
@@ -15447,7 +15393,7 @@ static const int ERROR_LOG_READ_MODE_INVALID      6610L
 //
 // Log service encountered a log stream with no restart area.
 //
-static const int ERROR_LOG_NO_RESTART             6611L
+    ERROR_LOG_NO_RESTART             6611
 
 //
 // MessageId: ERROR_LOG_METADATA_CORRUPT
@@ -15456,7 +15402,7 @@ static const int ERROR_LOG_NO_RESTART             6611L
 //
 // Log service encountered a corrupted metadata file.
 //
-static const int ERROR_LOG_METADATA_CORRUPT       6612L
+    ERROR_LOG_METADATA_CORRUPT       6612
 
 //
 // MessageId: ERROR_LOG_METADATA_INVALID
@@ -15465,7 +15411,7 @@ static const int ERROR_LOG_METADATA_CORRUPT       6612L
 //
 // Log service encountered a metadata file that could not be created by the log file system.
 //
-static const int ERROR_LOG_METADATA_INVALID       6613L
+    ERROR_LOG_METADATA_INVALID       6613
 
 //
 // MessageId: ERROR_LOG_METADATA_INCONSISTENT
@@ -15474,7 +15420,7 @@ static const int ERROR_LOG_METADATA_INVALID       6613L
 //
 // Log service encountered a metadata file with inconsistent data.
 //
-static const int ERROR_LOG_METADATA_INCONSISTENT  6614L
+    ERROR_LOG_METADATA_INCONSISTENT  6614
 
 //
 // MessageId: ERROR_LOG_RESERVATION_INVALID
@@ -15483,7 +15429,7 @@ static const int ERROR_LOG_METADATA_INCONSISTENT  6614L
 //
 // Log service encountered an attempt to erroneous allocate or dispose reservation space.
 //
-static const int ERROR_LOG_RESERVATION_INVALID    6615L
+    ERROR_LOG_RESERVATION_INVALID    6615
 
 //
 // MessageId: ERROR_LOG_CANT_DELETE
@@ -15492,7 +15438,7 @@ static const int ERROR_LOG_RESERVATION_INVALID    6615L
 //
 // Log service cannot delete log file or file system container.
 //
-static const int ERROR_LOG_CANT_DELETE            6616L
+    ERROR_LOG_CANT_DELETE            6616
 
 //
 // MessageId: ERROR_LOG_CONTAINER_LIMIT_EXCEEDED
@@ -15501,7 +15447,7 @@ static const int ERROR_LOG_CANT_DELETE            6616L
 //
 // Log service has reached the maximum allowable containers allocated to a log file.
 //
-static const int ERROR_LOG_CONTAINER_LIMIT_EXCEEDED 6617L
+    ERROR_LOG_CONTAINER_LIMIT_EXCEEDED 6617
 
 //
 // MessageId: ERROR_LOG_START_OF_LOG
@@ -15510,7 +15456,7 @@ static const int ERROR_LOG_CONTAINER_LIMIT_EXCEEDED 6617L
 //
 // Log service has attempted to read or write backward past the start of the log.
 //
-static const int ERROR_LOG_START_OF_LOG           6618L
+    ERROR_LOG_START_OF_LOG           6618
 
 //
 // MessageId: ERROR_LOG_POLICY_ALREADY_INSTALLED
@@ -15519,7 +15465,7 @@ static const int ERROR_LOG_START_OF_LOG           6618L
 //
 // Log policy could not be installed because a policy of the same type is already present.
 //
-static const int ERROR_LOG_POLICY_ALREADY_INSTALLED 6619L
+    ERROR_LOG_POLICY_ALREADY_INSTALLED 6619
 
 //
 // MessageId: ERROR_LOG_POLICY_NOT_INSTALLED
@@ -15528,7 +15474,7 @@ static const int ERROR_LOG_POLICY_ALREADY_INSTALLED 6619L
 //
 // Log policy in question was not installed at the time of the request.
 //
-static const int ERROR_LOG_POLICY_NOT_INSTALLED   6620L
+    ERROR_LOG_POLICY_NOT_INSTALLED   6620
 
 //
 // MessageId: ERROR_LOG_POLICY_INVALID
@@ -15537,7 +15483,7 @@ static const int ERROR_LOG_POLICY_NOT_INSTALLED   6620L
 //
 // The installed set of policies on the log is invalid.
 //
-static const int ERROR_LOG_POLICY_INVALID         6621L
+    ERROR_LOG_POLICY_INVALID         6621
 
 //
 // MessageId: ERROR_LOG_POLICY_CONFLICT
@@ -15546,7 +15492,7 @@ static const int ERROR_LOG_POLICY_INVALID         6621L
 //
 // A policy on the log in question prevented the operation from completing.
 //
-static const int ERROR_LOG_POLICY_CONFLICT        6622L
+    ERROR_LOG_POLICY_CONFLICT        6622
 
 //
 // MessageId: ERROR_LOG_PINNED_ARCHIVE_TAIL
@@ -15555,7 +15501,7 @@ static const int ERROR_LOG_POLICY_CONFLICT        6622L
 //
 // Log space cannot be reclaimed because the log is pinned by the archive tail.
 //
-static const int ERROR_LOG_PINNED_ARCHIVE_TAIL    6623L
+    ERROR_LOG_PINNED_ARCHIVE_TAIL    6623
 
 //
 // MessageId: ERROR_LOG_RECORD_NONEXISTENT
@@ -15564,7 +15510,7 @@ static const int ERROR_LOG_PINNED_ARCHIVE_TAIL    6623L
 //
 // Log record is not a record in the log file.
 //
-static const int ERROR_LOG_RECORD_NONEXISTENT     6624L
+    ERROR_LOG_RECORD_NONEXISTENT     6624
 
 //
 // MessageId: ERROR_LOG_RECORDS_RESERVED_INVALID
@@ -15573,7 +15519,7 @@ static const int ERROR_LOG_RECORD_NONEXISTENT     6624L
 //
 // Number of reserved log records or the adjustment of the number of reserved log records is invalid.
 //
-static const int ERROR_LOG_RECORDS_RESERVED_INVALID 6625L
+    ERROR_LOG_RECORDS_RESERVED_INVALID 6625
 
 //
 // MessageId: ERROR_LOG_SPACE_RESERVED_INVALID
@@ -15582,7 +15528,7 @@ static const int ERROR_LOG_RECORDS_RESERVED_INVALID 6625L
 //
 // Reserved log space or the adjustment of the log space is invalid.
 //
-static const int ERROR_LOG_SPACE_RESERVED_INVALID 6626L
+    ERROR_LOG_SPACE_RESERVED_INVALID 6626
 
 //
 // MessageId: ERROR_LOG_TAIL_INVALID
@@ -15591,7 +15537,7 @@ static const int ERROR_LOG_SPACE_RESERVED_INVALID 6626L
 //
 // An new or existing archive tail or base of the active log is invalid.
 //
-static const int ERROR_LOG_TAIL_INVALID           6627L
+    ERROR_LOG_TAIL_INVALID           6627
 
 //
 // MessageId: ERROR_LOG_FULL
@@ -15600,7 +15546,7 @@ static const int ERROR_LOG_TAIL_INVALID           6627L
 //
 // Log space is exhausted.
 //
-static const int ERROR_LOG_FULL                   6628L
+    ERROR_LOG_FULL                   6628
 
 //
 // MessageId: ERROR_COULD_NOT_RESIZE_LOG
@@ -15609,7 +15555,7 @@ static const int ERROR_LOG_FULL                   6628L
 //
 // The log could not be set to the requested size.
 //
-static const int ERROR_COULD_NOT_RESIZE_LOG       6629L
+    ERROR_COULD_NOT_RESIZE_LOG       6629
 
 //
 // MessageId: ERROR_LOG_MULTIPLEXED
@@ -15618,7 +15564,7 @@ static const int ERROR_COULD_NOT_RESIZE_LOG       6629L
 //
 // Log is multiplexed, no direct writes to the physical log is allowed.
 //
-static const int ERROR_LOG_MULTIPLEXED            6630L
+    ERROR_LOG_MULTIPLEXED            6630
 
 //
 // MessageId: ERROR_LOG_DEDICATED
@@ -15627,7 +15573,7 @@ static const int ERROR_LOG_MULTIPLEXED            6630L
 //
 // The operation failed because the log is a dedicated log.
 //
-static const int ERROR_LOG_DEDICATED              6631L
+    ERROR_LOG_DEDICATED              6631
 
 //
 // MessageId: ERROR_LOG_ARCHIVE_NOT_IN_PROGRESS
@@ -15636,7 +15582,7 @@ static const int ERROR_LOG_DEDICATED              6631L
 //
 // The operation requires an archive context.
 //
-static const int ERROR_LOG_ARCHIVE_NOT_IN_PROGRESS 6632L
+    ERROR_LOG_ARCHIVE_NOT_IN_PROGRESS 6632
 
 //
 // MessageId: ERROR_LOG_ARCHIVE_IN_PROGRESS
@@ -15645,7 +15591,7 @@ static const int ERROR_LOG_ARCHIVE_NOT_IN_PROGRESS 6632L
 //
 // Log archival is in progress.
 //
-static const int ERROR_LOG_ARCHIVE_IN_PROGRESS    6633L
+    ERROR_LOG_ARCHIVE_IN_PROGRESS    6633
 
 //
 // MessageId: ERROR_LOG_EPHEMERAL
@@ -15654,7 +15600,7 @@ static const int ERROR_LOG_ARCHIVE_IN_PROGRESS    6633L
 //
 // The operation requires a non-ephemeral log, but the log is ephemeral.
 //
-static const int ERROR_LOG_EPHEMERAL              6634L
+    ERROR_LOG_EPHEMERAL              6634
 
 //
 // MessageId: ERROR_LOG_NOT_ENOUGH_CONTAINERS
@@ -15663,7 +15609,7 @@ static const int ERROR_LOG_EPHEMERAL              6634L
 //
 // The log must have at least two containers before it can be read from or written to.
 //
-static const int ERROR_LOG_NOT_ENOUGH_CONTAINERS  6635L
+    ERROR_LOG_NOT_ENOUGH_CONTAINERS  6635
 
 //
 // MessageId: ERROR_LOG_CLIENT_ALREADY_REGISTERED
@@ -15672,7 +15618,7 @@ static const int ERROR_LOG_NOT_ENOUGH_CONTAINERS  6635L
 //
 // A log client has already registered on the stream.
 //
-static const int ERROR_LOG_CLIENT_ALREADY_REGISTERED 6636L
+    ERROR_LOG_CLIENT_ALREADY_REGISTERED 6636
 
 //
 // MessageId: ERROR_LOG_CLIENT_NOT_REGISTERED
@@ -15681,7 +15627,7 @@ static const int ERROR_LOG_CLIENT_ALREADY_REGISTERED 6636L
 //
 // A log client has not been registered on the stream.
 //
-static const int ERROR_LOG_CLIENT_NOT_REGISTERED  6637L
+    ERROR_LOG_CLIENT_NOT_REGISTERED  6637
 
 //
 // MessageId: ERROR_LOG_FULL_HANDLER_IN_PROGRESS
@@ -15690,7 +15636,7 @@ static const int ERROR_LOG_CLIENT_NOT_REGISTERED  6637L
 //
 // A request has already been made to handle the log full condition.
 //
-static const int ERROR_LOG_FULL_HANDLER_IN_PROGRESS 6638L
+    ERROR_LOG_FULL_HANDLER_IN_PROGRESS 6638
 
 //
 // MessageId: ERROR_LOG_CONTAINER_READ_FAILED
@@ -15699,7 +15645,7 @@ static const int ERROR_LOG_FULL_HANDLER_IN_PROGRESS 6638L
 //
 // Log service encountered an error when attempting to read from a log container.
 //
-static const int ERROR_LOG_CONTAINER_READ_FAILED  6639L
+    ERROR_LOG_CONTAINER_READ_FAILED  6639
 
 //
 // MessageId: ERROR_LOG_CONTAINER_WRITE_FAILED
@@ -15708,7 +15654,7 @@ static const int ERROR_LOG_CONTAINER_READ_FAILED  6639L
 //
 // Log service encountered an error when attempting to write to a log container.
 //
-static const int ERROR_LOG_CONTAINER_WRITE_FAILED 6640L
+    ERROR_LOG_CONTAINER_WRITE_FAILED 6640
 
 //
 // MessageId: ERROR_LOG_CONTAINER_OPEN_FAILED
@@ -15717,7 +15663,7 @@ static const int ERROR_LOG_CONTAINER_WRITE_FAILED 6640L
 //
 // Log service encountered an error when attempting open a log container.
 //
-static const int ERROR_LOG_CONTAINER_OPEN_FAILED  6641L
+    ERROR_LOG_CONTAINER_OPEN_FAILED  6641
 
 //
 // MessageId: ERROR_LOG_CONTAINER_STATE_INVALID
@@ -15726,7 +15672,7 @@ static const int ERROR_LOG_CONTAINER_OPEN_FAILED  6641L
 //
 // Log service encountered an invalid container state when attempting a requested action.
 //
-static const int ERROR_LOG_CONTAINER_STATE_INVALID 6642L
+    ERROR_LOG_CONTAINER_STATE_INVALID 6642
 
 //
 // MessageId: ERROR_LOG_STATE_INVALID
@@ -15735,7 +15681,7 @@ static const int ERROR_LOG_CONTAINER_STATE_INVALID 6642L
 //
 // Log service is not in the correct state to perform a requested action.
 //
-static const int ERROR_LOG_STATE_INVALID          6643L
+    ERROR_LOG_STATE_INVALID          6643
 
 //
 // MessageId: ERROR_LOG_PINNED
@@ -15744,7 +15690,7 @@ static const int ERROR_LOG_STATE_INVALID          6643L
 //
 // Log space cannot be reclaimed because the log is pinned.
 //
-static const int ERROR_LOG_PINNED                 6644L
+    ERROR_LOG_PINNED                 6644
 
 //
 // MessageId: ERROR_LOG_METADATA_FLUSH_FAILED
@@ -15753,7 +15699,7 @@ static const int ERROR_LOG_PINNED                 6644L
 //
 // Log metadata flush failed.
 //
-static const int ERROR_LOG_METADATA_FLUSH_FAILED  6645L
+    ERROR_LOG_METADATA_FLUSH_FAILED  6645
 
 //
 // MessageId: ERROR_LOG_INCONSISTENT_SECURITY
@@ -15762,7 +15708,7 @@ static const int ERROR_LOG_METADATA_FLUSH_FAILED  6645L
 //
 // Security on the log and its containers is inconsistent.
 //
-static const int ERROR_LOG_INCONSISTENT_SECURITY  6646L
+    ERROR_LOG_INCONSISTENT_SECURITY  6646
 
 //
 // MessageId: ERROR_LOG_APPENDED_FLUSH_FAILED
@@ -15771,7 +15717,7 @@ static const int ERROR_LOG_INCONSISTENT_SECURITY  6646L
 //
 // Records were appended to the log or reservation changes were made, but the log could not be flushed.
 //
-static const int ERROR_LOG_APPENDED_FLUSH_FAILED  6647L
+    ERROR_LOG_APPENDED_FLUSH_FAILED  6647
 
 //
 // MessageId: ERROR_LOG_PINNED_RESERVATION
@@ -15780,7 +15726,7 @@ static const int ERROR_LOG_APPENDED_FLUSH_FAILED  6647L
 //
 // The log is pinned due to reservation consuming most of the log space. Free some reserved records to make space available.
 //
-static const int ERROR_LOG_PINNED_RESERVATION     6648L
+    ERROR_LOG_PINNED_RESERVATION     6648
 
 
 ///////////////////////////////////////////////////
@@ -15797,7 +15743,7 @@ static const int ERROR_LOG_PINNED_RESERVATION     6648L
 //
 // The transaction handle associated with this operation is not valid.
 //
-static const int ERROR_INVALID_TRANSACTION        6700L
+    ERROR_INVALID_TRANSACTION        6700
 
 //
 // MessageId: ERROR_TRANSACTION_NOT_ACTIVE
@@ -15806,7 +15752,7 @@ static const int ERROR_INVALID_TRANSACTION        6700L
 //
 // The requested operation was made in the context of a transaction that is no longer active.
 //
-static const int ERROR_TRANSACTION_NOT_ACTIVE     6701L
+    ERROR_TRANSACTION_NOT_ACTIVE     6701
 
 //
 // MessageId: ERROR_TRANSACTION_REQUEST_NOT_VALID
@@ -15815,7 +15761,7 @@ static const int ERROR_TRANSACTION_NOT_ACTIVE     6701L
 //
 // The requested operation is not valid on the Transaction object in its current state.
 //
-static const int ERROR_TRANSACTION_REQUEST_NOT_VALID 6702L
+    ERROR_TRANSACTION_REQUEST_NOT_VALID 6702
 
 //
 // MessageId: ERROR_TRANSACTION_NOT_REQUESTED
@@ -15824,7 +15770,7 @@ static const int ERROR_TRANSACTION_REQUEST_NOT_VALID 6702L
 //
 // The caller has called a response API, but the response is not expected because the TM did not issue the corresponding request to the caller.
 //
-static const int ERROR_TRANSACTION_NOT_REQUESTED  6703L
+    ERROR_TRANSACTION_NOT_REQUESTED  6703
 
 //
 // MessageId: ERROR_TRANSACTION_ALREADY_ABORTED
@@ -15833,7 +15779,7 @@ static const int ERROR_TRANSACTION_NOT_REQUESTED  6703L
 //
 // It is too late to perform the requested operation, since the Transaction has already been aborted.
 //
-static const int ERROR_TRANSACTION_ALREADY_ABORTED 6704L
+    ERROR_TRANSACTION_ALREADY_ABORTED 6704
 
 //
 // MessageId: ERROR_TRANSACTION_ALREADY_COMMITTED
@@ -15842,7 +15788,7 @@ static const int ERROR_TRANSACTION_ALREADY_ABORTED 6704L
 //
 // It is too late to perform the requested operation, since the Transaction has already been committed.
 //
-static const int ERROR_TRANSACTION_ALREADY_COMMITTED 6705L
+    ERROR_TRANSACTION_ALREADY_COMMITTED 6705
 
 //
 // MessageId: ERROR_TM_INITIALIZATION_FAILED
@@ -15851,7 +15797,7 @@ static const int ERROR_TRANSACTION_ALREADY_COMMITTED 6705L
 //
 // The Transaction Manager was unable to be successfully initialized. Transacted operations are not supported.
 //
-static const int ERROR_TM_INITIALIZATION_FAILED   6706L
+    ERROR_TM_INITIALIZATION_FAILED   6706
 
 //
 // MessageId: ERROR_RESOURCEMANAGER_READ_ONLY
@@ -15860,7 +15806,7 @@ static const int ERROR_TM_INITIALIZATION_FAILED   6706L
 //
 // The specified ResourceManager made no changes or updates to the resource under this transaction.
 //
-static const int ERROR_RESOURCEMANAGER_READ_ONLY  6707L
+    ERROR_RESOURCEMANAGER_READ_ONLY  6707
 
 //
 // MessageId: ERROR_TRANSACTION_NOT_JOINED
@@ -15869,7 +15815,7 @@ static const int ERROR_RESOURCEMANAGER_READ_ONLY  6707L
 //
 // The resource manager has attempted to prepare a transaction that it has not successfully joined.
 //
-static const int ERROR_TRANSACTION_NOT_JOINED     6708L
+    ERROR_TRANSACTION_NOT_JOINED     6708
 
 //
 // MessageId: ERROR_TRANSACTION_SUPERIOR_EXISTS
@@ -15878,7 +15824,7 @@ static const int ERROR_TRANSACTION_NOT_JOINED     6708L
 //
 // The Transaction object already has a superior enlistment, and the caller attempted an operation that would have created a new superior. Only a single superior enlistment is allow.
 //
-static const int ERROR_TRANSACTION_SUPERIOR_EXISTS 6709L
+    ERROR_TRANSACTION_SUPERIOR_EXISTS 6709
 
 //
 // MessageId: ERROR_CRM_PROTOCOL_ALREADY_EXISTS
@@ -15887,7 +15833,7 @@ static const int ERROR_TRANSACTION_SUPERIOR_EXISTS 6709L
 //
 // The RM tried to register a protocol that already exists.
 //
-static const int ERROR_CRM_PROTOCOL_ALREADY_EXISTS 6710L
+    ERROR_CRM_PROTOCOL_ALREADY_EXISTS 6710
 
 //
 // MessageId: ERROR_TRANSACTION_PROPAGATION_FAILED
@@ -15896,7 +15842,7 @@ static const int ERROR_CRM_PROTOCOL_ALREADY_EXISTS 6710L
 //
 // The attempt to propagate the Transaction failed.
 //
-static const int ERROR_TRANSACTION_PROPAGATION_FAILED 6711L
+    ERROR_TRANSACTION_PROPAGATION_FAILED 6711
 
 //
 // MessageId: ERROR_CRM_PROTOCOL_NOT_FOUND
@@ -15905,7 +15851,7 @@ static const int ERROR_TRANSACTION_PROPAGATION_FAILED 6711L
 //
 // The requested propagation protocol was not registered as a CRM.
 //
-static const int ERROR_CRM_PROTOCOL_NOT_FOUND     6712L
+    ERROR_CRM_PROTOCOL_NOT_FOUND     6712
 
 //
 // MessageId: ERROR_TRANSACTION_INVALID_MARSHALL_BUFFER
@@ -15914,7 +15860,7 @@ static const int ERROR_CRM_PROTOCOL_NOT_FOUND     6712L
 //
 // The buffer passed in to PushTransaction or PullTransaction is not in a valid format.
 //
-static const int ERROR_TRANSACTION_INVALID_MARSHALL_BUFFER 6713L
+    ERROR_TRANSACTION_INVALID_MARSHALL_BUFFER 6713
 
 //
 // MessageId: ERROR_CURRENT_TRANSACTION_NOT_VALID
@@ -15923,7 +15869,7 @@ static const int ERROR_TRANSACTION_INVALID_MARSHALL_BUFFER 6713L
 //
 // The current transaction context associated with the thread is not a valid handle to a transaction object.
 //
-static const int ERROR_CURRENT_TRANSACTION_NOT_VALID 6714L
+    ERROR_CURRENT_TRANSACTION_NOT_VALID 6714
 
 //
 // MessageId: ERROR_TRANSACTION_NOT_FOUND
@@ -15932,7 +15878,7 @@ static const int ERROR_CURRENT_TRANSACTION_NOT_VALID 6714L
 //
 // The specified Transaction object could not be opened, because it was not found.
 //
-static const int ERROR_TRANSACTION_NOT_FOUND      6715L
+    ERROR_TRANSACTION_NOT_FOUND      6715
 
 //
 // MessageId: ERROR_RESOURCEMANAGER_NOT_FOUND
@@ -15941,7 +15887,7 @@ static const int ERROR_TRANSACTION_NOT_FOUND      6715L
 //
 // The specified ResourceManager object could not be opened, because it was not found.
 //
-static const int ERROR_RESOURCEMANAGER_NOT_FOUND  6716L
+    ERROR_RESOURCEMANAGER_NOT_FOUND  6716
 
 //
 // MessageId: ERROR_ENLISTMENT_NOT_FOUND
@@ -15950,7 +15896,7 @@ static const int ERROR_RESOURCEMANAGER_NOT_FOUND  6716L
 //
 // The specified Enlistment object could not be opened, because it was not found.
 //
-static const int ERROR_ENLISTMENT_NOT_FOUND       6717L
+    ERROR_ENLISTMENT_NOT_FOUND       6717
 
 //
 // MessageId: ERROR_TRANSACTIONMANAGER_NOT_FOUND
@@ -15959,7 +15905,7 @@ static const int ERROR_ENLISTMENT_NOT_FOUND       6717L
 //
 // The specified TransactionManager object could not be opened, because it was not found.
 //
-static const int ERROR_TRANSACTIONMANAGER_NOT_FOUND 6718L
+    ERROR_TRANSACTIONMANAGER_NOT_FOUND 6718
 
 //
 // MessageId: ERROR_TRANSACTIONMANAGER_NOT_ONLINE
@@ -15968,7 +15914,7 @@ static const int ERROR_TRANSACTIONMANAGER_NOT_FOUND 6718L
 //
 // The object specified could not be created or opened, because its associated TransactionManager is not online.  The TransactionManager must be brought fully Online by calling RecoverTransactionManager to recover to the end of its LogFile before objects in its Transaction or ResourceManager namespaces can be opened.  In addition, errors in writing records to its LogFile can cause a TransactionManager to go offline.
 //
-static const int ERROR_TRANSACTIONMANAGER_NOT_ONLINE 6719L
+    ERROR_TRANSACTIONMANAGER_NOT_ONLINE 6719
 
 //
 // MessageId: ERROR_TRANSACTIONMANAGER_RECOVERY_NAME_COLLISION
@@ -15977,7 +15923,7 @@ static const int ERROR_TRANSACTIONMANAGER_NOT_ONLINE 6719L
 //
 // The specified TransactionManager was unable to create the objects contained in its logfile in the Ob namespace. Therefore, the TransactionManager was unable to recover.
 //
-static const int ERROR_TRANSACTIONMANAGER_RECOVERY_NAME_COLLISION 6720L
+    ERROR_TRANSACTIONMANAGER_RECOVERY_NAME_COLLISION 6720
 
 //
 // MessageId: ERROR_TRANSACTION_NOT_ROOT
@@ -15986,7 +15932,7 @@ static const int ERROR_TRANSACTIONMANAGER_RECOVERY_NAME_COLLISION 6720L
 //
 // The call to create a superior Enlistment on this Transaction object could not be completed, because the Transaction object specified for the enlistment is a subordinate branch of the Transaction. Only the root of the Transaction can be enlisted on as a superior.
 //
-static const int ERROR_TRANSACTION_NOT_ROOT       6721L
+    ERROR_TRANSACTION_NOT_ROOT       6721
 
 //
 // MessageId: ERROR_TRANSACTION_OBJECT_EXPIRED
@@ -15995,7 +15941,7 @@ static const int ERROR_TRANSACTION_NOT_ROOT       6721L
 //
 // Because the associated transaction manager or resource manager has been closed, the handle is no longer valid.
 //
-static const int ERROR_TRANSACTION_OBJECT_EXPIRED 6722L
+    ERROR_TRANSACTION_OBJECT_EXPIRED 6722
 
 //
 // MessageId: ERROR_TRANSACTION_RESPONSE_NOT_ENLISTED
@@ -16004,7 +15950,7 @@ static const int ERROR_TRANSACTION_OBJECT_EXPIRED 6722L
 //
 // The specified operation could not be performed on this Superior enlistment, because the enlistment was not created with the corresponding completion response in the NotificationMask.
 //
-static const int ERROR_TRANSACTION_RESPONSE_NOT_ENLISTED 6723L
+    ERROR_TRANSACTION_RESPONSE_NOT_ENLISTED 6723
 
 //
 // MessageId: ERROR_TRANSACTION_RECORD_TOO_LONG
@@ -16013,7 +15959,7 @@ static const int ERROR_TRANSACTION_RESPONSE_NOT_ENLISTED 6723L
 //
 // The specified operation could not be performed, because the record that would be logged was too long. This can occur because of two conditions: either there are too many Enlistments on this Transaction, or the combined RecoveryInformation being logged on behalf of those Enlistments is too long.
 //
-static const int ERROR_TRANSACTION_RECORD_TOO_LONG 6724L
+    ERROR_TRANSACTION_RECORD_TOO_LONG 6724
 
 //
 // MessageId: ERROR_IMPLICIT_TRANSACTION_NOT_SUPPORTED
@@ -16022,7 +15968,7 @@ static const int ERROR_TRANSACTION_RECORD_TOO_LONG 6724L
 //
 // Implicit transaction are not supported.
 //
-static const int ERROR_IMPLICIT_TRANSACTION_NOT_SUPPORTED 6725L
+    ERROR_IMPLICIT_TRANSACTION_NOT_SUPPORTED 6725
 
 //
 // MessageId: ERROR_TRANSACTION_INTEGRITY_VIOLATED
@@ -16031,7 +15977,7 @@ static const int ERROR_IMPLICIT_TRANSACTION_NOT_SUPPORTED 6725L
 //
 // The kernel transaction manager had to abort or forget the transaction because it blocked forward progress.
 //
-static const int ERROR_TRANSACTION_INTEGRITY_VIOLATED 6726L
+    ERROR_TRANSACTION_INTEGRITY_VIOLATED 6726
 
 //
 // MessageId: ERROR_TRANSACTIONMANAGER_IDENTITY_MISMATCH
@@ -16040,7 +15986,7 @@ static const int ERROR_TRANSACTION_INTEGRITY_VIOLATED 6726L
 //
 // The TransactionManager identity that was supplied did not match the one recorded in the TransactionManager's log file.
 //
-static const int ERROR_TRANSACTIONMANAGER_IDENTITY_MISMATCH 6727L
+    ERROR_TRANSACTIONMANAGER_IDENTITY_MISMATCH 6727
 
 //
 // MessageId: ERROR_RM_CANNOT_BE_FROZEN_FOR_SNAPSHOT
@@ -16049,7 +15995,7 @@ static const int ERROR_TRANSACTIONMANAGER_IDENTITY_MISMATCH 6727L
 //
 // This snapshot operation cannot continue because a transactional resource manager cannot be frozen in its current state.  Please try again.
 //
-static const int ERROR_RM_CANNOT_BE_FROZEN_FOR_SNAPSHOT 6728L
+    ERROR_RM_CANNOT_BE_FROZEN_FOR_SNAPSHOT 6728
 
 //
 // MessageId: ERROR_TRANSACTION_MUST_WRITETHROUGH
@@ -16058,7 +16004,7 @@ static const int ERROR_RM_CANNOT_BE_FROZEN_FOR_SNAPSHOT 6728L
 //
 // The transaction cannot be enlisted on with the specified EnlistmentMask, because the transaction has already completed the PrePrepare phase.  In order to ensure correctness, the ResourceManager must switch to a write-through mode and cease caching data within this transaction.  Enlisting for only subsequent transaction phases may still succeed.
 //
-static const int ERROR_TRANSACTION_MUST_WRITETHROUGH 6729L
+    ERROR_TRANSACTION_MUST_WRITETHROUGH 6729
 
 //
 // MessageId: ERROR_TRANSACTION_NO_SUPERIOR
@@ -16067,7 +16013,7 @@ static const int ERROR_TRANSACTION_MUST_WRITETHROUGH 6729L
 //
 // The transaction does not have a superior enlistment.
 //
-static const int ERROR_TRANSACTION_NO_SUPERIOR    6730L
+    ERROR_TRANSACTION_NO_SUPERIOR    6730
 
 //
 // MessageId: ERROR_HEURISTIC_DAMAGE_POSSIBLE
@@ -16076,7 +16022,7 @@ static const int ERROR_TRANSACTION_NO_SUPERIOR    6730L
 //
 // The attempt to commit the Transaction completed, but it is possible that some portion of the transaction tree did not commit successfully due to heuristics.  Therefore it is possible that some data modified in the transaction may not have committed, resulting in transactional inconsistency.  If possible, check the consistency of the associated data.
 //
-static const int ERROR_HEURISTIC_DAMAGE_POSSIBLE  6731L
+    ERROR_HEURISTIC_DAMAGE_POSSIBLE  6731
 
 
 ///////////////////////////////////////////////////
@@ -16094,7 +16040,7 @@ static const int ERROR_HEURISTIC_DAMAGE_POSSIBLE  6731L
 //
 // The function attempted to use a name that is reserved for use by another transaction.
 //
-static const int ERROR_TRANSACTIONAL_CONFLICT     6800L
+    ERROR_TRANSACTIONAL_CONFLICT     6800
 
 //
 // MessageId: ERROR_RM_NOT_ACTIVE
@@ -16103,7 +16049,7 @@ static const int ERROR_TRANSACTIONAL_CONFLICT     6800L
 //
 // Transaction support within the specified resource manager is not started or was shut down due to an error.
 //
-static const int ERROR_RM_NOT_ACTIVE              6801L
+    ERROR_RM_NOT_ACTIVE              6801
 
 //
 // MessageId: ERROR_RM_METADATA_CORRUPT
@@ -16112,7 +16058,7 @@ static const int ERROR_RM_NOT_ACTIVE              6801L
 //
 // The metadata of the RM has been corrupted. The RM will not function.
 //
-static const int ERROR_RM_METADATA_CORRUPT        6802L
+    ERROR_RM_METADATA_CORRUPT        6802
 
 //
 // MessageId: ERROR_DIRECTORY_NOT_RM
@@ -16121,7 +16067,7 @@ static const int ERROR_RM_METADATA_CORRUPT        6802L
 //
 // The specified directory does not contain a resource manager.
 //
-static const int ERROR_DIRECTORY_NOT_RM           6803L
+    ERROR_DIRECTORY_NOT_RM           6803
 
 //
 // MessageId: ERROR_TRANSACTIONS_UNSUPPORTED_REMOTE
@@ -16130,7 +16076,7 @@ static const int ERROR_DIRECTORY_NOT_RM           6803L
 //
 // The remote server or share does not support transacted file operations.
 //
-static const int ERROR_TRANSACTIONS_UNSUPPORTED_REMOTE 6805L
+    ERROR_TRANSACTIONS_UNSUPPORTED_REMOTE 6805
 
 //
 // MessageId: ERROR_LOG_RESIZE_INVALID_SIZE
@@ -16139,7 +16085,7 @@ static const int ERROR_TRANSACTIONS_UNSUPPORTED_REMOTE 6805L
 //
 // The requested log size is invalid.
 //
-static const int ERROR_LOG_RESIZE_INVALID_SIZE    6806L
+    ERROR_LOG_RESIZE_INVALID_SIZE    6806
 
 //
 // MessageId: ERROR_OBJECT_NO_LONGER_EXISTS
@@ -16148,7 +16094,7 @@ static const int ERROR_LOG_RESIZE_INVALID_SIZE    6806L
 //
 // The object (file, stream, link) corresponding to the handle has been deleted by a Transaction Savepoint Rollback.
 //
-static const int ERROR_OBJECT_NO_LONGER_EXISTS    6807L
+    ERROR_OBJECT_NO_LONGER_EXISTS    6807
 
 //
 // MessageId: ERROR_STREAM_MINIVERSION_NOT_FOUND
@@ -16157,7 +16103,7 @@ static const int ERROR_OBJECT_NO_LONGER_EXISTS    6807L
 //
 // The specified file miniversion was not found for this transacted file open.
 //
-static const int ERROR_STREAM_MINIVERSION_NOT_FOUND 6808L
+    ERROR_STREAM_MINIVERSION_NOT_FOUND 6808
 
 //
 // MessageId: ERROR_STREAM_MINIVERSION_NOT_VALID
@@ -16166,7 +16112,7 @@ static const int ERROR_STREAM_MINIVERSION_NOT_FOUND 6808L
 //
 // The specified file miniversion was found but has been invalidated. Most likely cause is a transaction savepoint rollback.
 //
-static const int ERROR_STREAM_MINIVERSION_NOT_VALID 6809L
+    ERROR_STREAM_MINIVERSION_NOT_VALID 6809
 
 //
 // MessageId: ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION
@@ -16175,7 +16121,7 @@ static const int ERROR_STREAM_MINIVERSION_NOT_VALID 6809L
 //
 // A miniversion may only be opened in the context of the transaction that created it.
 //
-static const int ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION 6810L
+    ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION 6810
 
 //
 // MessageId: ERROR_CANT_OPEN_MINIVERSION_WITH_MODIFY_INTENT
@@ -16184,7 +16130,7 @@ static const int ERROR_MINIVERSION_INACCESSIBLE_FROM_SPECIFIED_TRANSACTION 6810L
 //
 // It is not possible to open a miniversion with modify access.
 //
-static const int ERROR_CANT_OPEN_MINIVERSION_WITH_MODIFY_INTENT 6811L
+    ERROR_CANT_OPEN_MINIVERSION_WITH_MODIFY_INTENT 6811
 
 //
 // MessageId: ERROR_CANT_CREATE_MORE_STREAM_MINIVERSIONS
@@ -16193,7 +16139,7 @@ static const int ERROR_CANT_OPEN_MINIVERSION_WITH_MODIFY_INTENT 6811L
 //
 // It is not possible to create any more miniversions for this stream.
 //
-static const int ERROR_CANT_CREATE_MORE_STREAM_MINIVERSIONS 6812L
+    ERROR_CANT_CREATE_MORE_STREAM_MINIVERSIONS 6812
 
 //
 // MessageId: ERROR_REMOTE_FILE_VERSION_MISMATCH
@@ -16202,7 +16148,7 @@ static const int ERROR_CANT_CREATE_MORE_STREAM_MINIVERSIONS 6812L
 //
 // The remote server sent mismatching version number or Fid for a file opened with transactions.
 //
-static const int ERROR_REMOTE_FILE_VERSION_MISMATCH 6814L
+    ERROR_REMOTE_FILE_VERSION_MISMATCH 6814
 
 //
 // MessageId: ERROR_HANDLE_NO_LONGER_VALID
@@ -16211,7 +16157,7 @@ static const int ERROR_REMOTE_FILE_VERSION_MISMATCH 6814L
 //
 // The handle has been invalidated by a transaction. The most likely cause is the presence of memory mapping on a file or an open handle when the transaction ended or rolled back to savepoint.
 //
-static const int ERROR_HANDLE_NO_LONGER_VALID     6815L
+    ERROR_HANDLE_NO_LONGER_VALID     6815
 
 //
 // MessageId: ERROR_NO_TXF_METADATA
@@ -16220,7 +16166,7 @@ static const int ERROR_HANDLE_NO_LONGER_VALID     6815L
 //
 // There is no transaction metadata on the file.
 //
-static const int ERROR_NO_TXF_METADATA            6816L
+    ERROR_NO_TXF_METADATA            6816
 
 //
 // MessageId: ERROR_LOG_CORRUPTION_DETECTED
@@ -16229,7 +16175,7 @@ static const int ERROR_NO_TXF_METADATA            6816L
 //
 // The log data is corrupt.
 //
-static const int ERROR_LOG_CORRUPTION_DETECTED    6817L
+    ERROR_LOG_CORRUPTION_DETECTED    6817
 
 //
 // MessageId: ERROR_CANT_RECOVER_WITH_HANDLE_OPEN
@@ -16238,7 +16184,7 @@ static const int ERROR_LOG_CORRUPTION_DETECTED    6817L
 //
 // The file can't be recovered because there is a handle still open on it.
 //
-static const int ERROR_CANT_RECOVER_WITH_HANDLE_OPEN 6818L
+    ERROR_CANT_RECOVER_WITH_HANDLE_OPEN 6818
 
 //
 // MessageId: ERROR_RM_DISCONNECTED
@@ -16247,7 +16193,7 @@ static const int ERROR_CANT_RECOVER_WITH_HANDLE_OPEN 6818L
 //
 // The transaction outcome is unavailable because the resource manager responsible for it has disconnected.
 //
-static const int ERROR_RM_DISCONNECTED            6819L
+    ERROR_RM_DISCONNECTED            6819
 
 //
 // MessageId: ERROR_ENLISTMENT_NOT_SUPERIOR
@@ -16256,7 +16202,7 @@ static const int ERROR_RM_DISCONNECTED            6819L
 //
 // The request was rejected because the enlistment in question is not a superior enlistment.
 //
-static const int ERROR_ENLISTMENT_NOT_SUPERIOR    6820L
+    ERROR_ENLISTMENT_NOT_SUPERIOR    6820
 
 //
 // MessageId: ERROR_RECOVERY_NOT_NEEDED
@@ -16265,7 +16211,7 @@ static const int ERROR_ENLISTMENT_NOT_SUPERIOR    6820L
 //
 // The transactional resource manager is already consistent. Recovery is not needed.
 //
-static const int ERROR_RECOVERY_NOT_NEEDED        6821L
+    ERROR_RECOVERY_NOT_NEEDED        6821
 
 //
 // MessageId: ERROR_RM_ALREADY_STARTED
@@ -16274,7 +16220,7 @@ static const int ERROR_RECOVERY_NOT_NEEDED        6821L
 //
 // The transactional resource manager has already been started.
 //
-static const int ERROR_RM_ALREADY_STARTED         6822L
+    ERROR_RM_ALREADY_STARTED         6822
 
 //
 // MessageId: ERROR_FILE_IDENTITY_NOT_PERSISTENT
@@ -16283,7 +16229,7 @@ static const int ERROR_RM_ALREADY_STARTED         6822L
 //
 // The file cannot be opened transactionally, because its identity depends on the outcome of an unresolved transaction.
 //
-static const int ERROR_FILE_IDENTITY_NOT_PERSISTENT 6823L
+    ERROR_FILE_IDENTITY_NOT_PERSISTENT 6823
 
 //
 // MessageId: ERROR_CANT_BREAK_TRANSACTIONAL_DEPENDENCY
@@ -16292,7 +16238,7 @@ static const int ERROR_FILE_IDENTITY_NOT_PERSISTENT 6823L
 //
 // The operation cannot be performed because another transaction is depending on the fact that this property will not change.
 //
-static const int ERROR_CANT_BREAK_TRANSACTIONAL_DEPENDENCY 6824L
+    ERROR_CANT_BREAK_TRANSACTIONAL_DEPENDENCY 6824
 
 //
 // MessageId: ERROR_CANT_CROSS_RM_BOUNDARY
@@ -16301,7 +16247,7 @@ static const int ERROR_CANT_BREAK_TRANSACTIONAL_DEPENDENCY 6824L
 //
 // The operation would involve a single file with two transactional resource managers and is therefore not allowed.
 //
-static const int ERROR_CANT_CROSS_RM_BOUNDARY     6825L
+    ERROR_CANT_CROSS_RM_BOUNDARY     6825
 
 //
 // MessageId: ERROR_TXF_DIR_NOT_EMPTY
@@ -16310,7 +16256,7 @@ static const int ERROR_CANT_CROSS_RM_BOUNDARY     6825L
 //
 // The $Txf directory must be empty for this operation to succeed.
 //
-static const int ERROR_TXF_DIR_NOT_EMPTY          6826L
+    ERROR_TXF_DIR_NOT_EMPTY          6826
 
 //
 // MessageId: ERROR_INDOUBT_TRANSACTIONS_EXIST
@@ -16319,7 +16265,7 @@ static const int ERROR_TXF_DIR_NOT_EMPTY          6826L
 //
 // The operation would leave a transactional resource manager in an inconsistent state and is therefore not allowed.
 //
-static const int ERROR_INDOUBT_TRANSACTIONS_EXIST 6827L
+    ERROR_INDOUBT_TRANSACTIONS_EXIST 6827
 
 //
 // MessageId: ERROR_TM_VOLATILE
@@ -16328,7 +16274,7 @@ static const int ERROR_INDOUBT_TRANSACTIONS_EXIST 6827L
 //
 // The operation could not be completed because the transaction manager does not have a log.
 //
-static const int ERROR_TM_VOLATILE                6828L
+    ERROR_TM_VOLATILE                6828
 
 //
 // MessageId: ERROR_ROLLBACK_TIMER_EXPIRED
@@ -16337,7 +16283,7 @@ static const int ERROR_TM_VOLATILE                6828L
 //
 // A rollback could not be scheduled because a previously scheduled rollback has already executed or been queued for execution.
 //
-static const int ERROR_ROLLBACK_TIMER_EXPIRED     6829L
+    ERROR_ROLLBACK_TIMER_EXPIRED     6829
 
 //
 // MessageId: ERROR_TXF_ATTRIBUTE_CORRUPT
@@ -16346,7 +16292,7 @@ static const int ERROR_ROLLBACK_TIMER_EXPIRED     6829L
 //
 // The transactional metadata attribute on the file or directory is corrupt and unreadable.
 //
-static const int ERROR_TXF_ATTRIBUTE_CORRUPT      6830L
+    ERROR_TXF_ATTRIBUTE_CORRUPT      6830
 
 //
 // MessageId: ERROR_EFS_NOT_ALLOWED_IN_TRANSACTION
@@ -16355,7 +16301,7 @@ static const int ERROR_TXF_ATTRIBUTE_CORRUPT      6830L
 //
 // The encryption operation could not be completed because a transaction is active.
 //
-static const int ERROR_EFS_NOT_ALLOWED_IN_TRANSACTION 6831L
+    ERROR_EFS_NOT_ALLOWED_IN_TRANSACTION 6831
 
 //
 // MessageId: ERROR_TRANSACTIONAL_OPEN_NOT_ALLOWED
@@ -16364,7 +16310,7 @@ static const int ERROR_EFS_NOT_ALLOWED_IN_TRANSACTION 6831L
 //
 // This object is not allowed to be opened in a transaction.
 //
-static const int ERROR_TRANSACTIONAL_OPEN_NOT_ALLOWED 6832L
+    ERROR_TRANSACTIONAL_OPEN_NOT_ALLOWED 6832
 
 //
 // MessageId: ERROR_LOG_GROWTH_FAILED
@@ -16373,7 +16319,7 @@ static const int ERROR_TRANSACTIONAL_OPEN_NOT_ALLOWED 6832L
 //
 // An attempt to create space in the transactional resource manager's log failed. The failure status has been recorded in the event log.
 //
-static const int ERROR_LOG_GROWTH_FAILED          6833L
+    ERROR_LOG_GROWTH_FAILED          6833
 
 //
 // MessageId: ERROR_TRANSACTED_MAPPING_UNSUPPORTED_REMOTE
@@ -16382,7 +16328,7 @@ static const int ERROR_LOG_GROWTH_FAILED          6833L
 //
 // Memory mapping (creating a mapped section) a remote file under a transaction is not supported.
 //
-static const int ERROR_TRANSACTED_MAPPING_UNSUPPORTED_REMOTE 6834L
+    ERROR_TRANSACTED_MAPPING_UNSUPPORTED_REMOTE 6834
 
 //
 // MessageId: ERROR_TXF_METADATA_ALREADY_PRESENT
@@ -16391,7 +16337,7 @@ static const int ERROR_TRANSACTED_MAPPING_UNSUPPORTED_REMOTE 6834L
 //
 // Transaction metadata is already present on this file and cannot be superseded.
 //
-static const int ERROR_TXF_METADATA_ALREADY_PRESENT 6835L
+    ERROR_TXF_METADATA_ALREADY_PRESENT 6835
 
 //
 // MessageId: ERROR_TRANSACTION_SCOPE_CALLBACKS_NOT_SET
@@ -16400,7 +16346,7 @@ static const int ERROR_TXF_METADATA_ALREADY_PRESENT 6835L
 //
 // A transaction scope could not be entered because the scope handler has not been initialized.
 //
-static const int ERROR_TRANSACTION_SCOPE_CALLBACKS_NOT_SET 6836L
+    ERROR_TRANSACTION_SCOPE_CALLBACKS_NOT_SET 6836
 
 //
 // MessageId: ERROR_TRANSACTION_REQUIRED_PROMOTION
@@ -16409,7 +16355,7 @@ static const int ERROR_TRANSACTION_SCOPE_CALLBACKS_NOT_SET 6836L
 //
 // Promotion was required in order to allow the resource manager to enlist, but the transaction was set to disallow it.
 //
-static const int ERROR_TRANSACTION_REQUIRED_PROMOTION 6837L
+    ERROR_TRANSACTION_REQUIRED_PROMOTION 6837
 
 //
 // MessageId: ERROR_CANNOT_EXECUTE_FILE_IN_TRANSACTION
@@ -16418,7 +16364,7 @@ static const int ERROR_TRANSACTION_REQUIRED_PROMOTION 6837L
 //
 // This file is open for modification in an unresolved transaction and may be opened for execute only by a transacted reader.
 //
-static const int ERROR_CANNOT_EXECUTE_FILE_IN_TRANSACTION 6838L
+    ERROR_CANNOT_EXECUTE_FILE_IN_TRANSACTION 6838
 
 //
 // MessageId: ERROR_TRANSACTIONS_NOT_FROZEN
@@ -16427,7 +16373,7 @@ static const int ERROR_CANNOT_EXECUTE_FILE_IN_TRANSACTION 6838L
 //
 // The request to thaw frozen transactions was ignored because transactions had not previously been frozen.
 //
-static const int ERROR_TRANSACTIONS_NOT_FROZEN    6839L
+    ERROR_TRANSACTIONS_NOT_FROZEN    6839
 
 //
 // MessageId: ERROR_TRANSACTION_FREEZE_IN_PROGRESS
@@ -16436,7 +16382,7 @@ static const int ERROR_TRANSACTIONS_NOT_FROZEN    6839L
 //
 // Transactions cannot be frozen because a freeze is already in progress.
 //
-static const int ERROR_TRANSACTION_FREEZE_IN_PROGRESS 6840L
+    ERROR_TRANSACTION_FREEZE_IN_PROGRESS 6840
 
 //
 // MessageId: ERROR_NOT_SNAPSHOT_VOLUME
@@ -16445,7 +16391,7 @@ static const int ERROR_TRANSACTION_FREEZE_IN_PROGRESS 6840L
 //
 // The target volume is not a snapshot volume. This operation is only valid on a volume mounted as a snapshot.
 //
-static const int ERROR_NOT_SNAPSHOT_VOLUME        6841L
+    ERROR_NOT_SNAPSHOT_VOLUME        6841
 
 //
 // MessageId: ERROR_NO_SAVEPOINT_WITH_OPEN_FILES
@@ -16454,7 +16400,7 @@ static const int ERROR_NOT_SNAPSHOT_VOLUME        6841L
 //
 // The savepoint operation failed because files are open on the transaction. This is not permitted.
 //
-static const int ERROR_NO_SAVEPOINT_WITH_OPEN_FILES 6842L
+    ERROR_NO_SAVEPOINT_WITH_OPEN_FILES 6842
 
 //
 // MessageId: ERROR_DATA_LOST_REPAIR
@@ -16463,7 +16409,7 @@ static const int ERROR_NO_SAVEPOINT_WITH_OPEN_FILES 6842L
 //
 // Windows has discovered corruption in a file, and that file has since been repaired. Data loss may have occurred.
 //
-static const int ERROR_DATA_LOST_REPAIR           6843L
+    ERROR_DATA_LOST_REPAIR           6843
 
 //
 // MessageId: ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION
@@ -16472,7 +16418,7 @@ static const int ERROR_DATA_LOST_REPAIR           6843L
 //
 // The sparse operation could not be completed because a transaction is active on the file.
 //
-static const int ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION 6844L
+    ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION 6844
 
 //
 // MessageId: ERROR_TM_IDENTITY_MISMATCH
@@ -16481,7 +16427,7 @@ static const int ERROR_SPARSE_NOT_ALLOWED_IN_TRANSACTION 6844L
 //
 // The call to create a TransactionManager object failed because the Tm Identity stored in the logfile does not match the Tm Identity that was passed in as an argument.
 //
-static const int ERROR_TM_IDENTITY_MISMATCH       6845L
+    ERROR_TM_IDENTITY_MISMATCH       6845
 
 //
 // MessageId: ERROR_FLOATED_SECTION
@@ -16490,7 +16436,7 @@ static const int ERROR_TM_IDENTITY_MISMATCH       6845L
 //
 // I/O was attempted on a section object that has been floated as a result of a transaction ending. There is no valid data.
 //
-static const int ERROR_FLOATED_SECTION            6846L
+    ERROR_FLOATED_SECTION            6846
 
 //
 // MessageId: ERROR_CANNOT_ACCEPT_TRANSACTED_WORK
@@ -16499,7 +16445,7 @@ static const int ERROR_FLOATED_SECTION            6846L
 //
 // The transactional resource manager cannot currently accept transacted work due to a transient condition such as low resources.
 //
-static const int ERROR_CANNOT_ACCEPT_TRANSACTED_WORK 6847L
+    ERROR_CANNOT_ACCEPT_TRANSACTED_WORK 6847
 
 //
 // MessageId: ERROR_CANNOT_ABORT_TRANSACTIONS
@@ -16508,7 +16454,7 @@ static const int ERROR_CANNOT_ACCEPT_TRANSACTED_WORK 6847L
 //
 // The transactional resource manager had too many tranactions outstanding that could not be aborted. The transactional resource manger has been shut down.
 //
-static const int ERROR_CANNOT_ABORT_TRANSACTIONS  6848L
+    ERROR_CANNOT_ABORT_TRANSACTIONS  6848
 
 //
 // MessageId: ERROR_BAD_CLUSTERS
@@ -16517,7 +16463,7 @@ static const int ERROR_CANNOT_ABORT_TRANSACTIONS  6848L
 //
 // The operation could not be completed due to bad clusters on disk.
 //
-static const int ERROR_BAD_CLUSTERS               6849L
+    ERROR_BAD_CLUSTERS               6849
 
 //
 // MessageId: ERROR_COMPRESSION_NOT_ALLOWED_IN_TRANSACTION
@@ -16526,7 +16472,7 @@ static const int ERROR_BAD_CLUSTERS               6849L
 //
 // The compression operation could not be completed because a transaction is active on the file.
 //
-static const int ERROR_COMPRESSION_NOT_ALLOWED_IN_TRANSACTION 6850L
+    ERROR_COMPRESSION_NOT_ALLOWED_IN_TRANSACTION 6850
 
 //
 // MessageId: ERROR_VOLUME_DIRTY
@@ -16535,7 +16481,7 @@ static const int ERROR_COMPRESSION_NOT_ALLOWED_IN_TRANSACTION 6850L
 //
 // The operation could not be completed because the volume is dirty. Please run chkdsk and try again.
 //
-static const int ERROR_VOLUME_DIRTY               6851L
+    ERROR_VOLUME_DIRTY               6851
 
 //
 // MessageId: ERROR_NO_LINK_TRACKING_IN_TRANSACTION
@@ -16544,7 +16490,7 @@ static const int ERROR_VOLUME_DIRTY               6851L
 //
 // The link tracking operation could not be completed because a transaction is active.
 //
-static const int ERROR_NO_LINK_TRACKING_IN_TRANSACTION 6852L
+    ERROR_NO_LINK_TRACKING_IN_TRANSACTION 6852
 
 //
 // MessageId: ERROR_OPERATION_NOT_SUPPORTED_IN_TRANSACTION
@@ -16553,7 +16499,7 @@ static const int ERROR_NO_LINK_TRACKING_IN_TRANSACTION 6852L
 //
 // This operation cannot be performed in a transaction.
 //
-static const int ERROR_OPERATION_NOT_SUPPORTED_IN_TRANSACTION 6853L
+    ERROR_OPERATION_NOT_SUPPORTED_IN_TRANSACTION 6853
 
 //
 // MessageId: ERROR_EXPIRED_HANDLE
@@ -16562,7 +16508,7 @@ static const int ERROR_OPERATION_NOT_SUPPORTED_IN_TRANSACTION 6853L
 //
 // The handle is no longer properly associated with its transaction.  It may have been opened in a transactional resource manager that was subsequently forced to restart.  Please close the handle and open a new one.
 //
-static const int ERROR_EXPIRED_HANDLE             6854L
+    ERROR_EXPIRED_HANDLE             6854
 
 //
 // MessageId: ERROR_TRANSACTION_NOT_ENLISTED
@@ -16571,7 +16517,7 @@ static const int ERROR_EXPIRED_HANDLE             6854L
 //
 // The specified operation could not be performed because the resource manager is not enlisted in the transaction.
 //
-static const int ERROR_TRANSACTION_NOT_ENLISTED   6855L
+    ERROR_TRANSACTION_NOT_ENLISTED   6855
 
 
 ///////////////////////////////////////////////////
@@ -16595,7 +16541,7 @@ static const int ERROR_TRANSACTION_NOT_ENLISTED   6855L
 //
 // The specified session name is invalid.
 //
-static const int ERROR_CTX_WINSTATION_NAME_INVALID 7001L
+    ERROR_CTX_WINSTATION_NAME_INVALID 7001
 
 //
 // MessageId: ERROR_CTX_INVALID_PD
@@ -16604,7 +16550,7 @@ static const int ERROR_CTX_WINSTATION_NAME_INVALID 7001L
 //
 // The specified protocol driver is invalid.
 //
-static const int ERROR_CTX_INVALID_PD             7002L
+    ERROR_CTX_INVALID_PD             7002
 
 //
 // MessageId: ERROR_CTX_PD_NOT_FOUND
@@ -16613,7 +16559,7 @@ static const int ERROR_CTX_INVALID_PD             7002L
 //
 // The specified protocol driver was not found in the system path.
 //
-static const int ERROR_CTX_PD_NOT_FOUND           7003L
+    ERROR_CTX_PD_NOT_FOUND           7003
 
 //
 // MessageId: ERROR_CTX_WD_NOT_FOUND
@@ -16622,7 +16568,7 @@ static const int ERROR_CTX_PD_NOT_FOUND           7003L
 //
 // The specified terminal connection driver was not found in the system path.
 //
-static const int ERROR_CTX_WD_NOT_FOUND           7004L
+    ERROR_CTX_WD_NOT_FOUND           7004
 
 //
 // MessageId: ERROR_CTX_CANNOT_MAKE_EVENTLOG_ENTRY
@@ -16631,7 +16577,7 @@ static const int ERROR_CTX_WD_NOT_FOUND           7004L
 //
 // A registry key for event logging could not be created for this session.
 //
-static const int ERROR_CTX_CANNOT_MAKE_EVENTLOG_ENTRY 7005L
+    ERROR_CTX_CANNOT_MAKE_EVENTLOG_ENTRY 7005
 
 //
 // MessageId: ERROR_CTX_SERVICE_NAME_COLLISION
@@ -16640,7 +16586,7 @@ static const int ERROR_CTX_CANNOT_MAKE_EVENTLOG_ENTRY 7005L
 //
 // A service with the same name already exists on the system.
 //
-static const int ERROR_CTX_SERVICE_NAME_COLLISION 7006L
+    ERROR_CTX_SERVICE_NAME_COLLISION 7006
 
 //
 // MessageId: ERROR_CTX_CLOSE_PENDING
@@ -16649,7 +16595,7 @@ static const int ERROR_CTX_SERVICE_NAME_COLLISION 7006L
 //
 // A close operation is pending on the session.
 //
-static const int ERROR_CTX_CLOSE_PENDING          7007L
+    ERROR_CTX_CLOSE_PENDING          7007
 
 //
 // MessageId: ERROR_CTX_NO_OUTBUF
@@ -16658,7 +16604,7 @@ static const int ERROR_CTX_CLOSE_PENDING          7007L
 //
 // There are no free output buffers available.
 //
-static const int ERROR_CTX_NO_OUTBUF              7008L
+    ERROR_CTX_NO_OUTBUF              7008
 
 //
 // MessageId: ERROR_CTX_MODEM_INF_NOT_FOUND
@@ -16667,7 +16613,7 @@ static const int ERROR_CTX_NO_OUTBUF              7008L
 //
 // The MODEM.INF file was not found.
 //
-static const int ERROR_CTX_MODEM_INF_NOT_FOUND    7009L
+    ERROR_CTX_MODEM_INF_NOT_FOUND    7009
 
 //
 // MessageId: ERROR_CTX_INVALID_MODEMNAME
@@ -16676,7 +16622,7 @@ static const int ERROR_CTX_MODEM_INF_NOT_FOUND    7009L
 //
 // The modem name was not found in MODEM.INF.
 //
-static const int ERROR_CTX_INVALID_MODEMNAME      7010L
+    ERROR_CTX_INVALID_MODEMNAME      7010
 
 //
 // MessageId: ERROR_CTX_MODEM_RESPONSE_ERROR
@@ -16685,7 +16631,7 @@ static const int ERROR_CTX_INVALID_MODEMNAME      7010L
 //
 // The modem did not accept the command sent to it. Verify that the configured modem name matches the attached modem.
 //
-static const int ERROR_CTX_MODEM_RESPONSE_ERROR   7011L
+    ERROR_CTX_MODEM_RESPONSE_ERROR   7011
 
 //
 // MessageId: ERROR_CTX_MODEM_RESPONSE_TIMEOUT
@@ -16694,7 +16640,7 @@ static const int ERROR_CTX_MODEM_RESPONSE_ERROR   7011L
 //
 // The modem did not respond to the command sent to it. Verify that the modem is properly cabled and powered on.
 //
-static const int ERROR_CTX_MODEM_RESPONSE_TIMEOUT 7012L
+    ERROR_CTX_MODEM_RESPONSE_TIMEOUT 7012
 
 //
 // MessageId: ERROR_CTX_MODEM_RESPONSE_NO_CARRIER
@@ -16703,7 +16649,7 @@ static const int ERROR_CTX_MODEM_RESPONSE_TIMEOUT 7012L
 //
 // Carrier detect has failed or carrier has been dropped due to disconnect.
 //
-static const int ERROR_CTX_MODEM_RESPONSE_NO_CARRIER 7013L
+    ERROR_CTX_MODEM_RESPONSE_NO_CARRIER 7013
 
 //
 // MessageId: ERROR_CTX_MODEM_RESPONSE_NO_DIALTONE
@@ -16712,7 +16658,7 @@ static const int ERROR_CTX_MODEM_RESPONSE_NO_CARRIER 7013L
 //
 // Dial tone not detected within the required time. Verify that the phone cable is properly attached and functional.
 //
-static const int ERROR_CTX_MODEM_RESPONSE_NO_DIALTONE 7014L
+    ERROR_CTX_MODEM_RESPONSE_NO_DIALTONE 7014
 
 //
 // MessageId: ERROR_CTX_MODEM_RESPONSE_BUSY
@@ -16721,7 +16667,7 @@ static const int ERROR_CTX_MODEM_RESPONSE_NO_DIALTONE 7014L
 //
 // Busy signal detected at remote site on callback.
 //
-static const int ERROR_CTX_MODEM_RESPONSE_BUSY    7015L
+    ERROR_CTX_MODEM_RESPONSE_BUSY    7015
 
 //
 // MessageId: ERROR_CTX_MODEM_RESPONSE_VOICE
@@ -16730,7 +16676,7 @@ static const int ERROR_CTX_MODEM_RESPONSE_BUSY    7015L
 //
 // Voice detected at remote site on callback.
 //
-static const int ERROR_CTX_MODEM_RESPONSE_VOICE   7016L
+    ERROR_CTX_MODEM_RESPONSE_VOICE   7016
 
 //
 // MessageId: ERROR_CTX_TD_ERROR
@@ -16739,7 +16685,7 @@ static const int ERROR_CTX_MODEM_RESPONSE_VOICE   7016L
 //
 // Transport driver error
 //
-static const int ERROR_CTX_TD_ERROR               7017L
+    ERROR_CTX_TD_ERROR               7017
 
 //
 // MessageId: ERROR_CTX_WINSTATION_NOT_FOUND
@@ -16748,7 +16694,7 @@ static const int ERROR_CTX_TD_ERROR               7017L
 //
 // The specified session cannot be found.
 //
-static const int ERROR_CTX_WINSTATION_NOT_FOUND   7022L
+    ERROR_CTX_WINSTATION_NOT_FOUND   7022
 
 //
 // MessageId: ERROR_CTX_WINSTATION_ALREADY_EXISTS
@@ -16757,7 +16703,7 @@ static const int ERROR_CTX_WINSTATION_NOT_FOUND   7022L
 //
 // The specified session name is already in use.
 //
-static const int ERROR_CTX_WINSTATION_ALREADY_EXISTS 7023L
+    ERROR_CTX_WINSTATION_ALREADY_EXISTS 7023
 
 //
 // MessageId: ERROR_CTX_WINSTATION_BUSY
@@ -16766,7 +16712,7 @@ static const int ERROR_CTX_WINSTATION_ALREADY_EXISTS 7023L
 //
 // The task you are trying to do can't be completed because Remote Desktop Services is currently busy. Please try again in a few minutes. Other users should still be able to log on.
 //
-static const int ERROR_CTX_WINSTATION_BUSY        7024L
+    ERROR_CTX_WINSTATION_BUSY        7024
 
 //
 // MessageId: ERROR_CTX_BAD_VIDEO_MODE
@@ -16775,7 +16721,7 @@ static const int ERROR_CTX_WINSTATION_BUSY        7024L
 //
 // An attempt has been made to connect to a session whose video mode is not supported by the current client.
 //
-static const int ERROR_CTX_BAD_VIDEO_MODE         7025L
+    ERROR_CTX_BAD_VIDEO_MODE         7025
 
 //
 // MessageId: ERROR_CTX_GRAPHICS_INVALID
@@ -16784,7 +16730,7 @@ static const int ERROR_CTX_BAD_VIDEO_MODE         7025L
 //
 // The application attempted to enable DOS graphics mode. DOS graphics mode is not supported.
 //
-static const int ERROR_CTX_GRAPHICS_INVALID       7035L
+    ERROR_CTX_GRAPHICS_INVALID       7035
 
 //
 // MessageId: ERROR_CTX_LOGON_DISABLED
@@ -16793,7 +16739,7 @@ static const int ERROR_CTX_GRAPHICS_INVALID       7035L
 //
 // Your interactive logon privilege has been disabled. Please contact your administrator.
 //
-static const int ERROR_CTX_LOGON_DISABLED         7037L
+    ERROR_CTX_LOGON_DISABLED         7037
 
 //
 // MessageId: ERROR_CTX_NOT_CONSOLE
@@ -16802,7 +16748,7 @@ static const int ERROR_CTX_LOGON_DISABLED         7037L
 //
 // The requested operation can be performed only on the system console. This is most often the result of a driver or system DLL requiring direct console access.
 //
-static const int ERROR_CTX_NOT_CONSOLE            7038L
+    ERROR_CTX_NOT_CONSOLE            7038
 
 //
 // MessageId: ERROR_CTX_CLIENT_QUERY_TIMEOUT
@@ -16811,7 +16757,7 @@ static const int ERROR_CTX_NOT_CONSOLE            7038L
 //
 // The client failed to respond to the server connect message.
 //
-static const int ERROR_CTX_CLIENT_QUERY_TIMEOUT   7040L
+    ERROR_CTX_CLIENT_QUERY_TIMEOUT   7040
 
 //
 // MessageId: ERROR_CTX_CONSOLE_DISCONNECT
@@ -16820,7 +16766,7 @@ static const int ERROR_CTX_CLIENT_QUERY_TIMEOUT   7040L
 //
 // Disconnecting the console session is not supported.
 //
-static const int ERROR_CTX_CONSOLE_DISCONNECT     7041L
+    ERROR_CTX_CONSOLE_DISCONNECT     7041
 
 //
 // MessageId: ERROR_CTX_CONSOLE_CONNECT
@@ -16829,7 +16775,7 @@ static const int ERROR_CTX_CONSOLE_DISCONNECT     7041L
 //
 // Reconnecting a disconnected session to the console is not supported.
 //
-static const int ERROR_CTX_CONSOLE_CONNECT        7042L
+    ERROR_CTX_CONSOLE_CONNECT        7042
 
 //
 // MessageId: ERROR_CTX_SHADOW_DENIED
@@ -16838,7 +16784,7 @@ static const int ERROR_CTX_CONSOLE_CONNECT        7042L
 //
 // The request to control another session remotely was denied.
 //
-static const int ERROR_CTX_SHADOW_DENIED          7044L
+    ERROR_CTX_SHADOW_DENIED          7044
 
 //
 // MessageId: ERROR_CTX_WINSTATION_ACCESS_DENIED
@@ -16847,7 +16793,7 @@ static const int ERROR_CTX_SHADOW_DENIED          7044L
 //
 // The requested session access is denied.
 //
-static const int ERROR_CTX_WINSTATION_ACCESS_DENIED 7045L
+    ERROR_CTX_WINSTATION_ACCESS_DENIED 7045
 
 //
 // MessageId: ERROR_CTX_INVALID_WD
@@ -16856,7 +16802,7 @@ static const int ERROR_CTX_WINSTATION_ACCESS_DENIED 7045L
 //
 // The specified terminal connection driver is invalid.
 //
-static const int ERROR_CTX_INVALID_WD             7049L
+    ERROR_CTX_INVALID_WD             7049
 
 //
 // MessageId: ERROR_CTX_SHADOW_INVALID
@@ -16866,7 +16812,7 @@ static const int ERROR_CTX_INVALID_WD             7049L
 // The requested session cannot be controlled remotely.
 // This may be because the session is disconnected or does not currently have a user logged on.
 //
-static const int ERROR_CTX_SHADOW_INVALID         7050L
+    ERROR_CTX_SHADOW_INVALID         7050
 
 //
 // MessageId: ERROR_CTX_SHADOW_DISABLED
@@ -16875,7 +16821,7 @@ static const int ERROR_CTX_SHADOW_INVALID         7050L
 //
 // The requested session is not configured to allow remote control.
 //
-static const int ERROR_CTX_SHADOW_DISABLED        7051L
+    ERROR_CTX_SHADOW_DISABLED        7051
 
 //
 // MessageId: ERROR_CTX_CLIENT_LICENSE_IN_USE
@@ -16884,7 +16830,7 @@ static const int ERROR_CTX_SHADOW_DISABLED        7051L
 //
 // Your request to connect to this Terminal Server has been rejected. Your Terminal Server client license number is currently being used by another user. Please call your system administrator to obtain a unique license number.
 //
-static const int ERROR_CTX_CLIENT_LICENSE_IN_USE  7052L
+    ERROR_CTX_CLIENT_LICENSE_IN_USE  7052
 
 //
 // MessageId: ERROR_CTX_CLIENT_LICENSE_NOT_SET
@@ -16893,7 +16839,7 @@ static const int ERROR_CTX_CLIENT_LICENSE_IN_USE  7052L
 //
 // Your request to connect to this Terminal Server has been rejected. Your Terminal Server client license number has not been entered for this copy of the Terminal Server client. Please contact your system administrator.
 //
-static const int ERROR_CTX_CLIENT_LICENSE_NOT_SET 7053L
+    ERROR_CTX_CLIENT_LICENSE_NOT_SET 7053
 
 //
 // MessageId: ERROR_CTX_LICENSE_NOT_AVAILABLE
@@ -16902,7 +16848,7 @@ static const int ERROR_CTX_CLIENT_LICENSE_NOT_SET 7053L
 //
 // The number of connections to this computer is limited and all connections are in use right now. Try connecting later or contact your system administrator.
 //
-static const int ERROR_CTX_LICENSE_NOT_AVAILABLE  7054L
+    ERROR_CTX_LICENSE_NOT_AVAILABLE  7054
 
 //
 // MessageId: ERROR_CTX_LICENSE_CLIENT_INVALID
@@ -16911,7 +16857,7 @@ static const int ERROR_CTX_LICENSE_NOT_AVAILABLE  7054L
 //
 // The client you are using is not licensed to use this system. Your logon request is denied.
 //
-static const int ERROR_CTX_LICENSE_CLIENT_INVALID 7055L
+    ERROR_CTX_LICENSE_CLIENT_INVALID 7055
 
 //
 // MessageId: ERROR_CTX_LICENSE_EXPIRED
@@ -16920,7 +16866,7 @@ static const int ERROR_CTX_LICENSE_CLIENT_INVALID 7055L
 //
 // The system license has expired. Your logon request is denied.
 //
-static const int ERROR_CTX_LICENSE_EXPIRED        7056L
+    ERROR_CTX_LICENSE_EXPIRED        7056
 
 //
 // MessageId: ERROR_CTX_SHADOW_NOT_RUNNING
@@ -16929,7 +16875,7 @@ static const int ERROR_CTX_LICENSE_EXPIRED        7056L
 //
 // Remote control could not be terminated because the specified session is not currently being remotely controlled.
 //
-static const int ERROR_CTX_SHADOW_NOT_RUNNING     7057L
+    ERROR_CTX_SHADOW_NOT_RUNNING     7057
 
 //
 // MessageId: ERROR_CTX_SHADOW_ENDED_BY_MODE_CHANGE
@@ -16938,7 +16884,7 @@ static const int ERROR_CTX_SHADOW_NOT_RUNNING     7057L
 //
 // The remote control of the console was terminated because the display mode was changed. Changing the display mode in a remote control session is not supported.
 //
-static const int ERROR_CTX_SHADOW_ENDED_BY_MODE_CHANGE 7058L
+    ERROR_CTX_SHADOW_ENDED_BY_MODE_CHANGE 7058
 
 //
 // MessageId: ERROR_ACTIVATION_COUNT_EXCEEDED
@@ -16947,7 +16893,7 @@ static const int ERROR_CTX_SHADOW_ENDED_BY_MODE_CHANGE 7058L
 //
 // Activation has already been reset the maximum number of times for this installation. Your activation timer will not be cleared.
 //
-static const int ERROR_ACTIVATION_COUNT_EXCEEDED  7059L
+    ERROR_ACTIVATION_COUNT_EXCEEDED  7059
 
 //
 // MessageId: ERROR_CTX_WINSTATIONS_DISABLED
@@ -16956,7 +16902,7 @@ static const int ERROR_ACTIVATION_COUNT_EXCEEDED  7059L
 //
 // Remote logins are currently disabled.
 //
-static const int ERROR_CTX_WINSTATIONS_DISABLED   7060L
+    ERROR_CTX_WINSTATIONS_DISABLED   7060
 
 //
 // MessageId: ERROR_CTX_ENCRYPTION_LEVEL_REQUIRED
@@ -16965,7 +16911,7 @@ static const int ERROR_CTX_WINSTATIONS_DISABLED   7060L
 //
 // You do not have the proper encryption level to access this Session.
 //
-static const int ERROR_CTX_ENCRYPTION_LEVEL_REQUIRED 7061L
+    ERROR_CTX_ENCRYPTION_LEVEL_REQUIRED 7061
 
 //
 // MessageId: ERROR_CTX_SESSION_IN_USE
@@ -16974,7 +16920,7 @@ static const int ERROR_CTX_ENCRYPTION_LEVEL_REQUIRED 7061L
 //
 // The user %s\\%s is currently logged on to this computer. Only the current user or an administrator can log on to this computer.
 //
-static const int ERROR_CTX_SESSION_IN_USE         7062L
+    ERROR_CTX_SESSION_IN_USE         7062
 
 //
 // MessageId: ERROR_CTX_NO_FORCE_LOGOFF
@@ -16983,7 +16929,7 @@ static const int ERROR_CTX_SESSION_IN_USE         7062L
 //
 // The user %s\\%s is already logged on to the console of this computer. You do not have permission to log in at this time. To resolve this issue, contact %s\\%s and have them log off.
 //
-static const int ERROR_CTX_NO_FORCE_LOGOFF        7063L
+    ERROR_CTX_NO_FORCE_LOGOFF        7063
 
 //
 // MessageId: ERROR_CTX_ACCOUNT_RESTRICTION
@@ -16992,7 +16938,7 @@ static const int ERROR_CTX_NO_FORCE_LOGOFF        7063L
 //
 // Unable to log you on because of an account restriction.
 //
-static const int ERROR_CTX_ACCOUNT_RESTRICTION    7064L
+    ERROR_CTX_ACCOUNT_RESTRICTION    7064
 
 //
 // MessageId: ERROR_RDP_PROTOCOL_ERROR
@@ -17001,7 +16947,7 @@ static const int ERROR_CTX_ACCOUNT_RESTRICTION    7064L
 //
 // The RDP protocol component %2 detected an error in the protocol stream and has disconnected the client.
 //
-static const int ERROR_RDP_PROTOCOL_ERROR         7065L
+    ERROR_RDP_PROTOCOL_ERROR         7065
 
 //
 // MessageId: ERROR_CTX_CDM_CONNECT
@@ -17010,7 +16956,7 @@ static const int ERROR_RDP_PROTOCOL_ERROR         7065L
 //
 // The Client Drive Mapping Service Has Connected on Terminal Connection.
 //
-static const int ERROR_CTX_CDM_CONNECT            7066L
+    ERROR_CTX_CDM_CONNECT            7066
 
 //
 // MessageId: ERROR_CTX_CDM_DISCONNECT
@@ -17019,7 +16965,7 @@ static const int ERROR_CTX_CDM_CONNECT            7066L
 //
 // The Client Drive Mapping Service Has Disconnected on Terminal Connection.
 //
-static const int ERROR_CTX_CDM_DISCONNECT         7067L
+    ERROR_CTX_CDM_DISCONNECT         7067
 
 //
 // MessageId: ERROR_CTX_SECURITY_LAYER_ERROR
@@ -17028,7 +16974,7 @@ static const int ERROR_CTX_CDM_DISCONNECT         7067L
 //
 // The Terminal Server security layer detected an error in the protocol stream and has disconnected the client.
 //
-static const int ERROR_CTX_SECURITY_LAYER_ERROR   7068L
+    ERROR_CTX_SECURITY_LAYER_ERROR   7068
 
 //
 // MessageId: ERROR_TS_INCOMPATIBLE_SESSIONS
@@ -17037,7 +16983,7 @@ static const int ERROR_CTX_SECURITY_LAYER_ERROR   7068L
 //
 // The target session is incompatible with the current session.
 //
-static const int ERROR_TS_INCOMPATIBLE_SESSIONS   7069L
+    ERROR_TS_INCOMPATIBLE_SESSIONS   7069
 
 //
 // MessageId: ERROR_TS_VIDEO_SUBSYSTEM_ERROR
@@ -17046,7 +16992,7 @@ static const int ERROR_TS_INCOMPATIBLE_SESSIONS   7069L
 //
 // Windows can't connect to your session because a problem occurred in the Windows video subsystem. Try connecting again later, or contact the server administrator for assistance.
 //
-static const int ERROR_TS_VIDEO_SUBSYSTEM_ERROR   7070L
+    ERROR_TS_VIDEO_SUBSYSTEM_ERROR   7070
 
 ///////////////////////////////////////////////////
 //                                               //
@@ -17086,7 +17032,7 @@ static const int ERROR_TS_VIDEO_SUBSYSTEM_ERROR   7070L
 //
 // The file replication service API was called incorrectly.
 //
-static const int FRS_ERR_INVALID_API_SEQUENCE     8001L
+    FRS_ERR_INVALID_API_SEQUENCE     8001
 
 //
 // MessageId: FRS_ERR_STARTING_SERVICE
@@ -17095,7 +17041,7 @@ static const int FRS_ERR_INVALID_API_SEQUENCE     8001L
 //
 // The file replication service cannot be started.
 //
-static const int FRS_ERR_STARTING_SERVICE         8002L
+    FRS_ERR_STARTING_SERVICE         8002
 
 //
 // MessageId: FRS_ERR_STOPPING_SERVICE
@@ -17104,7 +17050,7 @@ static const int FRS_ERR_STARTING_SERVICE         8002L
 //
 // The file replication service cannot be stopped.
 //
-static const int FRS_ERR_STOPPING_SERVICE         8003L
+    FRS_ERR_STOPPING_SERVICE         8003
 
 //
 // MessageId: FRS_ERR_INTERNAL_API
@@ -17113,7 +17059,7 @@ static const int FRS_ERR_STOPPING_SERVICE         8003L
 //
 // The file replication service API terminated the request. The event log may have more information.
 //
-static const int FRS_ERR_INTERNAL_API             8004L
+    FRS_ERR_INTERNAL_API             8004
 
 //
 // MessageId: FRS_ERR_INTERNAL
@@ -17122,7 +17068,7 @@ static const int FRS_ERR_INTERNAL_API             8004L
 //
 // The file replication service terminated the request. The event log may have more information.
 //
-static const int FRS_ERR_INTERNAL                 8005L
+    FRS_ERR_INTERNAL                 8005
 
 //
 // MessageId: FRS_ERR_SERVICE_COMM
@@ -17131,7 +17077,7 @@ static const int FRS_ERR_INTERNAL                 8005L
 //
 // The file replication service cannot be contacted. The event log may have more information.
 //
-static const int FRS_ERR_SERVICE_COMM             8006L
+    FRS_ERR_SERVICE_COMM             8006
 
 //
 // MessageId: FRS_ERR_INSUFFICIENT_PRIV
@@ -17140,7 +17086,7 @@ static const int FRS_ERR_SERVICE_COMM             8006L
 //
 // The file replication service cannot satisfy the request because the user has insufficient privileges. The event log may have more information.
 //
-static const int FRS_ERR_INSUFFICIENT_PRIV        8007L
+    FRS_ERR_INSUFFICIENT_PRIV        8007
 
 //
 // MessageId: FRS_ERR_AUTHENTICATION
@@ -17149,7 +17095,7 @@ static const int FRS_ERR_INSUFFICIENT_PRIV        8007L
 //
 // The file replication service cannot satisfy the request because authenticated RPC is not available. The event log may have more information.
 //
-static const int FRS_ERR_AUTHENTICATION           8008L
+    FRS_ERR_AUTHENTICATION           8008
 
 //
 // MessageId: FRS_ERR_PARENT_INSUFFICIENT_PRIV
@@ -17158,7 +17104,7 @@ static const int FRS_ERR_AUTHENTICATION           8008L
 //
 // The file replication service cannot satisfy the request because the user has insufficient privileges on the domain controller. The event log may have more information.
 //
-static const int FRS_ERR_PARENT_INSUFFICIENT_PRIV 8009L
+    FRS_ERR_PARENT_INSUFFICIENT_PRIV 8009
 
 //
 // MessageId: FRS_ERR_PARENT_AUTHENTICATION
@@ -17167,7 +17113,7 @@ static const int FRS_ERR_PARENT_INSUFFICIENT_PRIV 8009L
 //
 // The file replication service cannot satisfy the request because authenticated RPC is not available on the domain controller. The event log may have more information.
 //
-static const int FRS_ERR_PARENT_AUTHENTICATION    8010L
+    FRS_ERR_PARENT_AUTHENTICATION    8010
 
 //
 // MessageId: FRS_ERR_CHILD_TO_PARENT_COMM
@@ -17176,7 +17122,7 @@ static const int FRS_ERR_PARENT_AUTHENTICATION    8010L
 //
 // The file replication service cannot communicate with the file replication service on the domain controller. The event log may have more information.
 //
-static const int FRS_ERR_CHILD_TO_PARENT_COMM     8011L
+    FRS_ERR_CHILD_TO_PARENT_COMM     8011
 
 //
 // MessageId: FRS_ERR_PARENT_TO_CHILD_COMM
@@ -17185,7 +17131,7 @@ static const int FRS_ERR_CHILD_TO_PARENT_COMM     8011L
 //
 // The file replication service on the domain controller cannot communicate with the file replication service on this computer. The event log may have more information.
 //
-static const int FRS_ERR_PARENT_TO_CHILD_COMM     8012L
+    FRS_ERR_PARENT_TO_CHILD_COMM     8012
 
 //
 // MessageId: FRS_ERR_SYSVOL_POPULATE
@@ -17194,7 +17140,7 @@ static const int FRS_ERR_PARENT_TO_CHILD_COMM     8012L
 //
 // The file replication service cannot populate the system volume because of an internal error. The event log may have more information.
 //
-static const int FRS_ERR_SYSVOL_POPULATE          8013L
+    FRS_ERR_SYSVOL_POPULATE          8013
 
 //
 // MessageId: FRS_ERR_SYSVOL_POPULATE_TIMEOUT
@@ -17203,7 +17149,7 @@ static const int FRS_ERR_SYSVOL_POPULATE          8013L
 //
 // The file replication service cannot populate the system volume because of an internal timeout. The event log may have more information.
 //
-static const int FRS_ERR_SYSVOL_POPULATE_TIMEOUT  8014L
+    FRS_ERR_SYSVOL_POPULATE_TIMEOUT  8014
 
 //
 // MessageId: FRS_ERR_SYSVOL_IS_BUSY
@@ -17212,7 +17158,7 @@ static const int FRS_ERR_SYSVOL_POPULATE_TIMEOUT  8014L
 //
 // The file replication service cannot process the request. The system volume is busy with a previous request.
 //
-static const int FRS_ERR_SYSVOL_IS_BUSY           8015L
+    FRS_ERR_SYSVOL_IS_BUSY           8015
 
 //
 // MessageId: FRS_ERR_SYSVOL_DEMOTE
@@ -17221,7 +17167,7 @@ static const int FRS_ERR_SYSVOL_IS_BUSY           8015L
 //
 // The file replication service cannot stop replicating the system volume because of an internal error. The event log may have more information.
 //
-static const int FRS_ERR_SYSVOL_DEMOTE            8016L
+    FRS_ERR_SYSVOL_DEMOTE            8016
 
 //
 // MessageId: FRS_ERR_INVALID_SERVICE_PARAMETER
@@ -17230,12 +17176,12 @@ static const int FRS_ERR_SYSVOL_DEMOTE            8016L
 //
 // The file replication service detected an invalid parameter.
 //
-static const int FRS_ERR_INVALID_SERVICE_PARAMETER 8017L
+    FRS_ERR_INVALID_SERVICE_PARAMETER 8017
 
 // *****************
 // FACILITY DIRECTORY SERVICE
 // *****************
-static const int DS_S_SUCCESS NO_ERROR
+    DS_S_SUCCESS NO_ERROR
 //
 // MessageId: ERROR_DS_NOT_INSTALLED
 //
@@ -17243,7 +17189,7 @@ static const int DS_S_SUCCESS NO_ERROR
 //
 // An error occurred while installing the directory service. For more information, see the event log.
 //
-static const int ERROR_DS_NOT_INSTALLED           8200L
+    ERROR_DS_NOT_INSTALLED           8200
 
 //
 // MessageId: ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY
@@ -17252,7 +17198,7 @@ static const int ERROR_DS_NOT_INSTALLED           8200L
 //
 // The directory service evaluated group memberships locally.
 //
-static const int ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY 8201L
+    ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY 8201
 
 //
 // MessageId: ERROR_DS_NO_ATTRIBUTE_OR_VALUE
@@ -17261,7 +17207,7 @@ static const int ERROR_DS_MEMBERSHIP_EVALUATED_LOCALLY 8201L
 //
 // The specified directory service attribute or value does not exist.
 //
-static const int ERROR_DS_NO_ATTRIBUTE_OR_VALUE   8202L
+    ERROR_DS_NO_ATTRIBUTE_OR_VALUE   8202
 
 //
 // MessageId: ERROR_DS_INVALID_ATTRIBUTE_SYNTAX
@@ -17270,7 +17216,7 @@ static const int ERROR_DS_NO_ATTRIBUTE_OR_VALUE   8202L
 //
 // The attribute syntax specified to the directory service is invalid.
 //
-static const int ERROR_DS_INVALID_ATTRIBUTE_SYNTAX 8203L
+    ERROR_DS_INVALID_ATTRIBUTE_SYNTAX 8203
 
 //
 // MessageId: ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED
@@ -17279,7 +17225,7 @@ static const int ERROR_DS_INVALID_ATTRIBUTE_SYNTAX 8203L
 //
 // The attribute type specified to the directory service is not defined.
 //
-static const int ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED 8204L
+    ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED 8204
 
 //
 // MessageId: ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS
@@ -17288,7 +17234,7 @@ static const int ERROR_DS_ATTRIBUTE_TYPE_UNDEFINED 8204L
 //
 // The specified directory service attribute or value already exists.
 //
-static const int ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS 8205L
+    ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS 8205
 
 //
 // MessageId: ERROR_DS_BUSY
@@ -17297,7 +17243,7 @@ static const int ERROR_DS_ATTRIBUTE_OR_VALUE_EXISTS 8205L
 //
 // The directory service is busy.
 //
-static const int ERROR_DS_BUSY                    8206L
+    ERROR_DS_BUSY                    8206
 
 //
 // MessageId: ERROR_DS_UNAVAILABLE
@@ -17306,7 +17252,7 @@ static const int ERROR_DS_BUSY                    8206L
 //
 // The directory service is unavailable.
 //
-static const int ERROR_DS_UNAVAILABLE             8207L
+    ERROR_DS_UNAVAILABLE             8207
 
 //
 // MessageId: ERROR_DS_NO_RIDS_ALLOCATED
@@ -17315,7 +17261,7 @@ static const int ERROR_DS_UNAVAILABLE             8207L
 //
 // The directory service was unable to allocate a relative identifier.
 //
-static const int ERROR_DS_NO_RIDS_ALLOCATED       8208L
+    ERROR_DS_NO_RIDS_ALLOCATED       8208
 
 //
 // MessageId: ERROR_DS_NO_MORE_RIDS
@@ -17324,7 +17270,7 @@ static const int ERROR_DS_NO_RIDS_ALLOCATED       8208L
 //
 // The directory service has exhausted the pool of relative identifiers.
 //
-static const int ERROR_DS_NO_MORE_RIDS            8209L
+    ERROR_DS_NO_MORE_RIDS            8209
 
 //
 // MessageId: ERROR_DS_INCORRECT_ROLE_OWNER
@@ -17333,7 +17279,7 @@ static const int ERROR_DS_NO_MORE_RIDS            8209L
 //
 // The requested operation could not be performed because the directory service is not the master for that type of operation.
 //
-static const int ERROR_DS_INCORRECT_ROLE_OWNER    8210L
+    ERROR_DS_INCORRECT_ROLE_OWNER    8210
 
 //
 // MessageId: ERROR_DS_RIDMGR_INIT_ERROR
@@ -17342,7 +17288,7 @@ static const int ERROR_DS_INCORRECT_ROLE_OWNER    8210L
 //
 // The directory service was unable to initialize the subsystem that allocates relative identifiers.
 //
-static const int ERROR_DS_RIDMGR_INIT_ERROR       8211L
+    ERROR_DS_RIDMGR_INIT_ERROR       8211
 
 //
 // MessageId: ERROR_DS_OBJ_CLASS_VIOLATION
@@ -17351,7 +17297,7 @@ static const int ERROR_DS_RIDMGR_INIT_ERROR       8211L
 //
 // The requested operation did not satisfy one or more constraints associated with the class of the object.
 //
-static const int ERROR_DS_OBJ_CLASS_VIOLATION     8212L
+    ERROR_DS_OBJ_CLASS_VIOLATION     8212
 
 //
 // MessageId: ERROR_DS_CANT_ON_NON_LEAF
@@ -17360,7 +17306,7 @@ static const int ERROR_DS_OBJ_CLASS_VIOLATION     8212L
 //
 // The directory service can perform the requested operation only on a leaf object.
 //
-static const int ERROR_DS_CANT_ON_NON_LEAF        8213L
+    ERROR_DS_CANT_ON_NON_LEAF        8213
 
 //
 // MessageId: ERROR_DS_CANT_ON_RDN
@@ -17369,7 +17315,7 @@ static const int ERROR_DS_CANT_ON_NON_LEAF        8213L
 //
 // The directory service cannot perform the requested operation on the RDN attribute of an object.
 //
-static const int ERROR_DS_CANT_ON_RDN             8214L
+    ERROR_DS_CANT_ON_RDN             8214
 
 //
 // MessageId: ERROR_DS_CANT_MOD_OBJ_CLASS
@@ -17378,7 +17324,7 @@ static const int ERROR_DS_CANT_ON_RDN             8214L
 //
 // The directory service detected an attempt to modify the object class of an object.
 //
-static const int ERROR_DS_CANT_MOD_OBJ_CLASS      8215L
+    ERROR_DS_CANT_MOD_OBJ_CLASS      8215
 
 //
 // MessageId: ERROR_DS_CROSS_DOM_MOVE_ERROR
@@ -17387,7 +17333,7 @@ static const int ERROR_DS_CANT_MOD_OBJ_CLASS      8215L
 //
 // The requested cross-domain move operation could not be performed.
 //
-static const int ERROR_DS_CROSS_DOM_MOVE_ERROR    8216L
+    ERROR_DS_CROSS_DOM_MOVE_ERROR    8216
 
 //
 // MessageId: ERROR_DS_GC_NOT_AVAILABLE
@@ -17396,7 +17342,7 @@ static const int ERROR_DS_CROSS_DOM_MOVE_ERROR    8216L
 //
 // Unable to contact the global catalog server.
 //
-static const int ERROR_DS_GC_NOT_AVAILABLE        8217L
+    ERROR_DS_GC_NOT_AVAILABLE        8217
 
 //
 // MessageId: ERROR_SHARED_POLICY
@@ -17405,7 +17351,7 @@ static const int ERROR_DS_GC_NOT_AVAILABLE        8217L
 //
 // The policy object is shared and can only be modified at the root.
 //
-static const int ERROR_SHARED_POLICY              8218L
+    ERROR_SHARED_POLICY              8218
 
 //
 // MessageId: ERROR_POLICY_OBJECT_NOT_FOUND
@@ -17414,7 +17360,7 @@ static const int ERROR_SHARED_POLICY              8218L
 //
 // The policy object does not exist.
 //
-static const int ERROR_POLICY_OBJECT_NOT_FOUND    8219L
+    ERROR_POLICY_OBJECT_NOT_FOUND    8219
 
 //
 // MessageId: ERROR_POLICY_ONLY_IN_DS
@@ -17423,7 +17369,7 @@ static const int ERROR_POLICY_OBJECT_NOT_FOUND    8219L
 //
 // The requested policy information is only in the directory service.
 //
-static const int ERROR_POLICY_ONLY_IN_DS          8220L
+    ERROR_POLICY_ONLY_IN_DS          8220
 
 //
 // MessageId: ERROR_PROMOTION_ACTIVE
@@ -17432,7 +17378,7 @@ static const int ERROR_POLICY_ONLY_IN_DS          8220L
 //
 // A domain controller promotion is currently active.
 //
-static const int ERROR_PROMOTION_ACTIVE           8221L
+    ERROR_PROMOTION_ACTIVE           8221
 
 //
 // MessageId: ERROR_NO_PROMOTION_ACTIVE
@@ -17441,7 +17387,7 @@ static const int ERROR_PROMOTION_ACTIVE           8221L
 //
 // A domain controller promotion is not currently active
 //
-static const int ERROR_NO_PROMOTION_ACTIVE        8222L
+    ERROR_NO_PROMOTION_ACTIVE        8222
 
 // 8223 unused
 //
@@ -17451,7 +17397,7 @@ static const int ERROR_NO_PROMOTION_ACTIVE        8222L
 //
 // An operations error occurred.
 //
-static const int ERROR_DS_OPERATIONS_ERROR        8224L
+    ERROR_DS_OPERATIONS_ERROR        8224
 
 //
 // MessageId: ERROR_DS_PROTOCOL_ERROR
@@ -17460,7 +17406,7 @@ static const int ERROR_DS_OPERATIONS_ERROR        8224L
 //
 // A protocol error occurred.
 //
-static const int ERROR_DS_PROTOCOL_ERROR          8225L
+    ERROR_DS_PROTOCOL_ERROR          8225
 
 //
 // MessageId: ERROR_DS_TIMELIMIT_EXCEEDED
@@ -17469,7 +17415,7 @@ static const int ERROR_DS_PROTOCOL_ERROR          8225L
 //
 // The time limit for this request was exceeded.
 //
-static const int ERROR_DS_TIMELIMIT_EXCEEDED      8226L
+    ERROR_DS_TIMELIMIT_EXCEEDED      8226
 
 //
 // MessageId: ERROR_DS_SIZELIMIT_EXCEEDED
@@ -17478,7 +17424,7 @@ static const int ERROR_DS_TIMELIMIT_EXCEEDED      8226L
 //
 // The size limit for this request was exceeded.
 //
-static const int ERROR_DS_SIZELIMIT_EXCEEDED      8227L
+    ERROR_DS_SIZELIMIT_EXCEEDED      8227
 
 //
 // MessageId: ERROR_DS_ADMIN_LIMIT_EXCEEDED
@@ -17487,7 +17433,7 @@ static const int ERROR_DS_SIZELIMIT_EXCEEDED      8227L
 //
 // The administrative limit for this request was exceeded.
 //
-static const int ERROR_DS_ADMIN_LIMIT_EXCEEDED    8228L
+    ERROR_DS_ADMIN_LIMIT_EXCEEDED    8228
 
 //
 // MessageId: ERROR_DS_COMPARE_FALSE
@@ -17496,7 +17442,7 @@ static const int ERROR_DS_ADMIN_LIMIT_EXCEEDED    8228L
 //
 // The compare response was false.
 //
-static const int ERROR_DS_COMPARE_FALSE           8229L
+    ERROR_DS_COMPARE_FALSE           8229
 
 //
 // MessageId: ERROR_DS_COMPARE_TRUE
@@ -17505,7 +17451,7 @@ static const int ERROR_DS_COMPARE_FALSE           8229L
 //
 // The compare response was true.
 //
-static const int ERROR_DS_COMPARE_TRUE            8230L
+    ERROR_DS_COMPARE_TRUE            8230
 
 //
 // MessageId: ERROR_DS_AUTH_METHOD_NOT_SUPPORTED
@@ -17514,7 +17460,7 @@ static const int ERROR_DS_COMPARE_TRUE            8230L
 //
 // The requested authentication method is not supported by the server.
 //
-static const int ERROR_DS_AUTH_METHOD_NOT_SUPPORTED 8231L
+    ERROR_DS_AUTH_METHOD_NOT_SUPPORTED 8231
 
 //
 // MessageId: ERROR_DS_STRONG_AUTH_REQUIRED
@@ -17523,7 +17469,7 @@ static const int ERROR_DS_AUTH_METHOD_NOT_SUPPORTED 8231L
 //
 // A more secure authentication method is required for this server.
 //
-static const int ERROR_DS_STRONG_AUTH_REQUIRED    8232L
+    ERROR_DS_STRONG_AUTH_REQUIRED    8232
 
 //
 // MessageId: ERROR_DS_INAPPROPRIATE_AUTH
@@ -17532,7 +17478,7 @@ static const int ERROR_DS_STRONG_AUTH_REQUIRED    8232L
 //
 // Inappropriate authentication.
 //
-static const int ERROR_DS_INAPPROPRIATE_AUTH      8233L
+    ERROR_DS_INAPPROPRIATE_AUTH      8233
 
 //
 // MessageId: ERROR_DS_AUTH_UNKNOWN
@@ -17541,7 +17487,7 @@ static const int ERROR_DS_INAPPROPRIATE_AUTH      8233L
 //
 // The authentication mechanism is unknown.
 //
-static const int ERROR_DS_AUTH_UNKNOWN            8234L
+    ERROR_DS_AUTH_UNKNOWN            8234
 
 //
 // MessageId: ERROR_DS_REFERRAL
@@ -17550,7 +17496,7 @@ static const int ERROR_DS_AUTH_UNKNOWN            8234L
 //
 // A referral was returned from the server.
 //
-static const int ERROR_DS_REFERRAL                8235L
+    ERROR_DS_REFERRAL                8235
 
 //
 // MessageId: ERROR_DS_UNAVAILABLE_CRIT_EXTENSION
@@ -17559,7 +17505,7 @@ static const int ERROR_DS_REFERRAL                8235L
 //
 // The server does not support the requested critical extension.
 //
-static const int ERROR_DS_UNAVAILABLE_CRIT_EXTENSION 8236L
+    ERROR_DS_UNAVAILABLE_CRIT_EXTENSION 8236
 
 //
 // MessageId: ERROR_DS_CONFIDENTIALITY_REQUIRED
@@ -17568,7 +17514,7 @@ static const int ERROR_DS_UNAVAILABLE_CRIT_EXTENSION 8236L
 //
 // This request requires a secure connection.
 //
-static const int ERROR_DS_CONFIDENTIALITY_REQUIRED 8237L
+    ERROR_DS_CONFIDENTIALITY_REQUIRED 8237
 
 //
 // MessageId: ERROR_DS_INAPPROPRIATE_MATCHING
@@ -17577,7 +17523,7 @@ static const int ERROR_DS_CONFIDENTIALITY_REQUIRED 8237L
 //
 // Inappropriate matching.
 //
-static const int ERROR_DS_INAPPROPRIATE_MATCHING  8238L
+    ERROR_DS_INAPPROPRIATE_MATCHING  8238
 
 //
 // MessageId: ERROR_DS_CONSTRAINT_VIOLATION
@@ -17586,7 +17532,7 @@ static const int ERROR_DS_INAPPROPRIATE_MATCHING  8238L
 //
 // A constraint violation occurred.
 //
-static const int ERROR_DS_CONSTRAINT_VIOLATION    8239L
+    ERROR_DS_CONSTRAINT_VIOLATION    8239
 
 //
 // MessageId: ERROR_DS_NO_SUCH_OBJECT
@@ -17595,7 +17541,7 @@ static const int ERROR_DS_CONSTRAINT_VIOLATION    8239L
 //
 // There is no such object on the server.
 //
-static const int ERROR_DS_NO_SUCH_OBJECT          8240L
+    ERROR_DS_NO_SUCH_OBJECT          8240
 
 //
 // MessageId: ERROR_DS_ALIAS_PROBLEM
@@ -17604,7 +17550,7 @@ static const int ERROR_DS_NO_SUCH_OBJECT          8240L
 //
 // There is an alias problem.
 //
-static const int ERROR_DS_ALIAS_PROBLEM           8241L
+    ERROR_DS_ALIAS_PROBLEM           8241
 
 //
 // MessageId: ERROR_DS_INVALID_DN_SYNTAX
@@ -17613,7 +17559,7 @@ static const int ERROR_DS_ALIAS_PROBLEM           8241L
 //
 // An invalid dn syntax has been specified.
 //
-static const int ERROR_DS_INVALID_DN_SYNTAX       8242L
+    ERROR_DS_INVALID_DN_SYNTAX       8242
 
 //
 // MessageId: ERROR_DS_IS_LEAF
@@ -17622,7 +17568,7 @@ static const int ERROR_DS_INVALID_DN_SYNTAX       8242L
 //
 // The object is a leaf object.
 //
-static const int ERROR_DS_IS_LEAF                 8243L
+    ERROR_DS_IS_LEAF                 8243
 
 //
 // MessageId: ERROR_DS_ALIAS_DEREF_PROBLEM
@@ -17631,7 +17577,7 @@ static const int ERROR_DS_IS_LEAF                 8243L
 //
 // There is an alias dereferencing problem.
 //
-static const int ERROR_DS_ALIAS_DEREF_PROBLEM     8244L
+    ERROR_DS_ALIAS_DEREF_PROBLEM     8244
 
 //
 // MessageId: ERROR_DS_UNWILLING_TO_PERFORM
@@ -17640,7 +17586,7 @@ static const int ERROR_DS_ALIAS_DEREF_PROBLEM     8244L
 //
 // The server is unwilling to process the request.
 //
-static const int ERROR_DS_UNWILLING_TO_PERFORM    8245L
+    ERROR_DS_UNWILLING_TO_PERFORM    8245
 
 //
 // MessageId: ERROR_DS_LOOP_DETECT
@@ -17649,7 +17595,7 @@ static const int ERROR_DS_UNWILLING_TO_PERFORM    8245L
 //
 // A loop has been detected.
 //
-static const int ERROR_DS_LOOP_DETECT             8246L
+    ERROR_DS_LOOP_DETECT             8246
 
 //
 // MessageId: ERROR_DS_NAMING_VIOLATION
@@ -17658,7 +17604,7 @@ static const int ERROR_DS_LOOP_DETECT             8246L
 //
 // There is a naming violation.
 //
-static const int ERROR_DS_NAMING_VIOLATION        8247L
+    ERROR_DS_NAMING_VIOLATION        8247
 
 //
 // MessageId: ERROR_DS_OBJECT_RESULTS_TOO_LARGE
@@ -17667,7 +17613,7 @@ static const int ERROR_DS_NAMING_VIOLATION        8247L
 //
 // The result set is too large.
 //
-static const int ERROR_DS_OBJECT_RESULTS_TOO_LARGE 8248L
+    ERROR_DS_OBJECT_RESULTS_TOO_LARGE 8248
 
 //
 // MessageId: ERROR_DS_AFFECTS_MULTIPLE_DSAS
@@ -17676,7 +17622,7 @@ static const int ERROR_DS_OBJECT_RESULTS_TOO_LARGE 8248L
 //
 // The operation affects multiple DSAs
 //
-static const int ERROR_DS_AFFECTS_MULTIPLE_DSAS   8249L
+    ERROR_DS_AFFECTS_MULTIPLE_DSAS   8249
 
 //
 // MessageId: ERROR_DS_SERVER_DOWN
@@ -17685,7 +17631,7 @@ static const int ERROR_DS_AFFECTS_MULTIPLE_DSAS   8249L
 //
 // The server is not operational.
 //
-static const int ERROR_DS_SERVER_DOWN             8250L
+    ERROR_DS_SERVER_DOWN             8250
 
 //
 // MessageId: ERROR_DS_LOCAL_ERROR
@@ -17694,7 +17640,7 @@ static const int ERROR_DS_SERVER_DOWN             8250L
 //
 // A local error has occurred.
 //
-static const int ERROR_DS_LOCAL_ERROR             8251L
+    ERROR_DS_LOCAL_ERROR             8251
 
 //
 // MessageId: ERROR_DS_ENCODING_ERROR
@@ -17703,7 +17649,7 @@ static const int ERROR_DS_LOCAL_ERROR             8251L
 //
 // An encoding error has occurred.
 //
-static const int ERROR_DS_ENCODING_ERROR          8252L
+    ERROR_DS_ENCODING_ERROR          8252
 
 //
 // MessageId: ERROR_DS_DECODING_ERROR
@@ -17712,7 +17658,7 @@ static const int ERROR_DS_ENCODING_ERROR          8252L
 //
 // A decoding error has occurred.
 //
-static const int ERROR_DS_DECODING_ERROR          8253L
+    ERROR_DS_DECODING_ERROR          8253
 
 //
 // MessageId: ERROR_DS_FILTER_UNKNOWN
@@ -17721,7 +17667,7 @@ static const int ERROR_DS_DECODING_ERROR          8253L
 //
 // The search filter cannot be recognized.
 //
-static const int ERROR_DS_FILTER_UNKNOWN          8254L
+    ERROR_DS_FILTER_UNKNOWN          8254
 
 //
 // MessageId: ERROR_DS_PARAM_ERROR
@@ -17730,7 +17676,7 @@ static const int ERROR_DS_FILTER_UNKNOWN          8254L
 //
 // One or more parameters are illegal.
 //
-static const int ERROR_DS_PARAM_ERROR             8255L
+    ERROR_DS_PARAM_ERROR             8255
 
 //
 // MessageId: ERROR_DS_NOT_SUPPORTED
@@ -17739,7 +17685,7 @@ static const int ERROR_DS_PARAM_ERROR             8255L
 //
 // The specified method is not supported.
 //
-static const int ERROR_DS_NOT_SUPPORTED           8256L
+    ERROR_DS_NOT_SUPPORTED           8256
 
 //
 // MessageId: ERROR_DS_NO_RESULTS_RETURNED
@@ -17748,7 +17694,7 @@ static const int ERROR_DS_NOT_SUPPORTED           8256L
 //
 // No results were returned.
 //
-static const int ERROR_DS_NO_RESULTS_RETURNED     8257L
+    ERROR_DS_NO_RESULTS_RETURNED     8257
 
 //
 // MessageId: ERROR_DS_CONTROL_NOT_FOUND
@@ -17757,7 +17703,7 @@ static const int ERROR_DS_NO_RESULTS_RETURNED     8257L
 //
 // The specified control is not supported by the server.
 //
-static const int ERROR_DS_CONTROL_NOT_FOUND       8258L
+    ERROR_DS_CONTROL_NOT_FOUND       8258
 
 //
 // MessageId: ERROR_DS_CLIENT_LOOP
@@ -17766,7 +17712,7 @@ static const int ERROR_DS_CONTROL_NOT_FOUND       8258L
 //
 // A referral loop was detected by the client.
 //
-static const int ERROR_DS_CLIENT_LOOP             8259L
+    ERROR_DS_CLIENT_LOOP             8259
 
 //
 // MessageId: ERROR_DS_REFERRAL_LIMIT_EXCEEDED
@@ -17775,7 +17721,7 @@ static const int ERROR_DS_CLIENT_LOOP             8259L
 //
 // The preset referral limit was exceeded.
 //
-static const int ERROR_DS_REFERRAL_LIMIT_EXCEEDED 8260L
+    ERROR_DS_REFERRAL_LIMIT_EXCEEDED 8260
 
 //
 // MessageId: ERROR_DS_SORT_CONTROL_MISSING
@@ -17784,7 +17730,7 @@ static const int ERROR_DS_REFERRAL_LIMIT_EXCEEDED 8260L
 //
 // The search requires a SORT control.
 //
-static const int ERROR_DS_SORT_CONTROL_MISSING    8261L
+    ERROR_DS_SORT_CONTROL_MISSING    8261
 
 //
 // MessageId: ERROR_DS_OFFSET_RANGE_ERROR
@@ -17793,7 +17739,7 @@ static const int ERROR_DS_SORT_CONTROL_MISSING    8261L
 //
 // The search results exceed the offset range specified.
 //
-static const int ERROR_DS_OFFSET_RANGE_ERROR      8262L
+    ERROR_DS_OFFSET_RANGE_ERROR      8262
 
 //
 // MessageId: ERROR_DS_RIDMGR_DISABLED
@@ -17802,7 +17748,7 @@ static const int ERROR_DS_OFFSET_RANGE_ERROR      8262L
 //
 // The directory service detected the subsystem that allocates relative identifiers is disabled. This can occur as a protective mechanism when the system determines a significant portion of relative identifiers (RIDs) have been exhausted. Please see http://go.microsoft.com/fwlink/?LinkId=228610 for recommended diagnostic steps and the procedure to re-enable account creation.
 //
-static const int ERROR_DS_RIDMGR_DISABLED         8263L
+    ERROR_DS_RIDMGR_DISABLED         8263
 
 //
 // MessageId: ERROR_DS_ROOT_MUST_BE_NC
@@ -17811,7 +17757,7 @@ static const int ERROR_DS_RIDMGR_DISABLED         8263L
 //
 // The root object must be the head of a naming context. The root object cannot have an instantiated parent.
 //
-static const int ERROR_DS_ROOT_MUST_BE_NC         8301L
+    ERROR_DS_ROOT_MUST_BE_NC         8301
 
 //
 // MessageId: ERROR_DS_ADD_REPLICA_INHIBITED
@@ -17820,7 +17766,7 @@ static const int ERROR_DS_ROOT_MUST_BE_NC         8301L
 //
 // The add replica operation cannot be performed. The naming context must be writeable in order to create the replica.
 //
-static const int ERROR_DS_ADD_REPLICA_INHIBITED   8302L
+    ERROR_DS_ADD_REPLICA_INHIBITED   8302
 
 //
 // MessageId: ERROR_DS_ATT_NOT_DEF_IN_SCHEMA
@@ -17829,7 +17775,7 @@ static const int ERROR_DS_ADD_REPLICA_INHIBITED   8302L
 //
 // A reference to an attribute that is not defined in the schema occurred.
 //
-static const int ERROR_DS_ATT_NOT_DEF_IN_SCHEMA   8303L
+    ERROR_DS_ATT_NOT_DEF_IN_SCHEMA   8303
 
 //
 // MessageId: ERROR_DS_MAX_OBJ_SIZE_EXCEEDED
@@ -17838,7 +17784,7 @@ static const int ERROR_DS_ATT_NOT_DEF_IN_SCHEMA   8303L
 //
 // The maximum size of an object has been exceeded.
 //
-static const int ERROR_DS_MAX_OBJ_SIZE_EXCEEDED   8304L
+    ERROR_DS_MAX_OBJ_SIZE_EXCEEDED   8304
 
 //
 // MessageId: ERROR_DS_OBJ_STRING_NAME_EXISTS
@@ -17847,7 +17793,7 @@ static const int ERROR_DS_MAX_OBJ_SIZE_EXCEEDED   8304L
 //
 // An attempt was made to add an object to the directory with a name that is already in use.
 //
-static const int ERROR_DS_OBJ_STRING_NAME_EXISTS  8305L
+    ERROR_DS_OBJ_STRING_NAME_EXISTS  8305
 
 //
 // MessageId: ERROR_DS_NO_RDN_DEFINED_IN_SCHEMA
@@ -17856,7 +17802,7 @@ static const int ERROR_DS_OBJ_STRING_NAME_EXISTS  8305L
 //
 // An attempt was made to add an object of a class that does not have an RDN defined in the schema.
 //
-static const int ERROR_DS_NO_RDN_DEFINED_IN_SCHEMA 8306L
+    ERROR_DS_NO_RDN_DEFINED_IN_SCHEMA 8306
 
 //
 // MessageId: ERROR_DS_RDN_DOESNT_MATCH_SCHEMA
@@ -17865,7 +17811,7 @@ static const int ERROR_DS_NO_RDN_DEFINED_IN_SCHEMA 8306L
 //
 // An attempt was made to add an object using an RDN that is not the RDN defined in the schema.
 //
-static const int ERROR_DS_RDN_DOESNT_MATCH_SCHEMA 8307L
+    ERROR_DS_RDN_DOESNT_MATCH_SCHEMA 8307
 
 //
 // MessageId: ERROR_DS_NO_REQUESTED_ATTS_FOUND
@@ -17874,7 +17820,7 @@ static const int ERROR_DS_RDN_DOESNT_MATCH_SCHEMA 8307L
 //
 // None of the requested attributes were found on the objects.
 //
-static const int ERROR_DS_NO_REQUESTED_ATTS_FOUND 8308L
+    ERROR_DS_NO_REQUESTED_ATTS_FOUND 8308
 
 //
 // MessageId: ERROR_DS_USER_BUFFER_TO_SMALL
@@ -17883,7 +17829,7 @@ static const int ERROR_DS_NO_REQUESTED_ATTS_FOUND 8308L
 //
 // The user buffer is too small.
 //
-static const int ERROR_DS_USER_BUFFER_TO_SMALL    8309L
+    ERROR_DS_USER_BUFFER_TO_SMALL    8309
 
 //
 // MessageId: ERROR_DS_ATT_IS_NOT_ON_OBJ
@@ -17892,7 +17838,7 @@ static const int ERROR_DS_USER_BUFFER_TO_SMALL    8309L
 //
 // The attribute specified in the operation is not present on the object.
 //
-static const int ERROR_DS_ATT_IS_NOT_ON_OBJ       8310L
+    ERROR_DS_ATT_IS_NOT_ON_OBJ       8310
 
 //
 // MessageId: ERROR_DS_ILLEGAL_MOD_OPERATION
@@ -17901,7 +17847,7 @@ static const int ERROR_DS_ATT_IS_NOT_ON_OBJ       8310L
 //
 // Illegal modify operation. Some aspect of the modification is not permitted.
 //
-static const int ERROR_DS_ILLEGAL_MOD_OPERATION   8311L
+    ERROR_DS_ILLEGAL_MOD_OPERATION   8311
 
 //
 // MessageId: ERROR_DS_OBJ_TOO_LARGE
@@ -17910,7 +17856,7 @@ static const int ERROR_DS_ILLEGAL_MOD_OPERATION   8311L
 //
 // The specified object is too large.
 //
-static const int ERROR_DS_OBJ_TOO_LARGE           8312L
+    ERROR_DS_OBJ_TOO_LARGE           8312
 
 //
 // MessageId: ERROR_DS_BAD_INSTANCE_TYPE
@@ -17919,7 +17865,7 @@ static const int ERROR_DS_OBJ_TOO_LARGE           8312L
 //
 // The specified instance type is not valid.
 //
-static const int ERROR_DS_BAD_INSTANCE_TYPE       8313L
+    ERROR_DS_BAD_INSTANCE_TYPE       8313
 
 //
 // MessageId: ERROR_DS_MASTERDSA_REQUIRED
@@ -17928,7 +17874,7 @@ static const int ERROR_DS_BAD_INSTANCE_TYPE       8313L
 //
 // The operation must be performed at a master DSA.
 //
-static const int ERROR_DS_MASTERDSA_REQUIRED      8314L
+    ERROR_DS_MASTERDSA_REQUIRED      8314
 
 //
 // MessageId: ERROR_DS_OBJECT_CLASS_REQUIRED
@@ -17937,7 +17883,7 @@ static const int ERROR_DS_MASTERDSA_REQUIRED      8314L
 //
 // The object class attribute must be specified.
 //
-static const int ERROR_DS_OBJECT_CLASS_REQUIRED   8315L
+    ERROR_DS_OBJECT_CLASS_REQUIRED   8315
 
 //
 // MessageId: ERROR_DS_MISSING_REQUIRED_ATT
@@ -17946,7 +17892,7 @@ static const int ERROR_DS_OBJECT_CLASS_REQUIRED   8315L
 //
 // A required attribute is missing.
 //
-static const int ERROR_DS_MISSING_REQUIRED_ATT    8316L
+    ERROR_DS_MISSING_REQUIRED_ATT    8316
 
 //
 // MessageId: ERROR_DS_ATT_NOT_DEF_FOR_CLASS
@@ -17955,7 +17901,7 @@ static const int ERROR_DS_MISSING_REQUIRED_ATT    8316L
 //
 // An attempt was made to modify an object to include an attribute that is not legal for its class.
 //
-static const int ERROR_DS_ATT_NOT_DEF_FOR_CLASS   8317L
+    ERROR_DS_ATT_NOT_DEF_FOR_CLASS   8317
 
 //
 // MessageId: ERROR_DS_ATT_ALREADY_EXISTS
@@ -17964,7 +17910,7 @@ static const int ERROR_DS_ATT_NOT_DEF_FOR_CLASS   8317L
 //
 // The specified attribute is already present on the object.
 //
-static const int ERROR_DS_ATT_ALREADY_EXISTS      8318L
+    ERROR_DS_ATT_ALREADY_EXISTS      8318
 
 // 8319 unused
 //
@@ -17974,7 +17920,7 @@ static const int ERROR_DS_ATT_ALREADY_EXISTS      8318L
 //
 // The specified attribute is not present, or has no values.
 //
-static const int ERROR_DS_CANT_ADD_ATT_VALUES     8320L
+    ERROR_DS_CANT_ADD_ATT_VALUES     8320
 
 //
 // MessageId: ERROR_DS_SINGLE_VALUE_CONSTRAINT
@@ -17983,7 +17929,7 @@ static const int ERROR_DS_CANT_ADD_ATT_VALUES     8320L
 //
 // Multiple values were specified for an attribute that can have only one value.
 //
-static const int ERROR_DS_SINGLE_VALUE_CONSTRAINT 8321L
+    ERROR_DS_SINGLE_VALUE_CONSTRAINT 8321
 
 //
 // MessageId: ERROR_DS_RANGE_CONSTRAINT
@@ -17992,7 +17938,7 @@ static const int ERROR_DS_SINGLE_VALUE_CONSTRAINT 8321L
 //
 // A value for the attribute was not in the acceptable range of values.
 //
-static const int ERROR_DS_RANGE_CONSTRAINT        8322L
+    ERROR_DS_RANGE_CONSTRAINT        8322
 
 //
 // MessageId: ERROR_DS_ATT_VAL_ALREADY_EXISTS
@@ -18001,7 +17947,7 @@ static const int ERROR_DS_RANGE_CONSTRAINT        8322L
 //
 // The specified value already exists.
 //
-static const int ERROR_DS_ATT_VAL_ALREADY_EXISTS  8323L
+    ERROR_DS_ATT_VAL_ALREADY_EXISTS  8323
 
 //
 // MessageId: ERROR_DS_CANT_REM_MISSING_ATT
@@ -18010,7 +17956,7 @@ static const int ERROR_DS_ATT_VAL_ALREADY_EXISTS  8323L
 //
 // The attribute cannot be removed because it is not present on the object.
 //
-static const int ERROR_DS_CANT_REM_MISSING_ATT    8324L
+    ERROR_DS_CANT_REM_MISSING_ATT    8324
 
 //
 // MessageId: ERROR_DS_CANT_REM_MISSING_ATT_VAL
@@ -18019,7 +17965,7 @@ static const int ERROR_DS_CANT_REM_MISSING_ATT    8324L
 //
 // The attribute value cannot be removed because it is not present on the object.
 //
-static const int ERROR_DS_CANT_REM_MISSING_ATT_VAL 8325L
+    ERROR_DS_CANT_REM_MISSING_ATT_VAL 8325
 
 //
 // MessageId: ERROR_DS_ROOT_CANT_BE_SUBREF
@@ -18028,7 +17974,7 @@ static const int ERROR_DS_CANT_REM_MISSING_ATT_VAL 8325L
 //
 // The specified root object cannot be a subref.
 //
-static const int ERROR_DS_ROOT_CANT_BE_SUBREF     8326L
+    ERROR_DS_ROOT_CANT_BE_SUBREF     8326
 
 //
 // MessageId: ERROR_DS_NO_CHAINING
@@ -18037,7 +17983,7 @@ static const int ERROR_DS_ROOT_CANT_BE_SUBREF     8326L
 //
 // Chaining is not permitted.
 //
-static const int ERROR_DS_NO_CHAINING             8327L
+    ERROR_DS_NO_CHAINING             8327
 
 //
 // MessageId: ERROR_DS_NO_CHAINED_EVAL
@@ -18046,7 +17992,7 @@ static const int ERROR_DS_NO_CHAINING             8327L
 //
 // Chained evaluation is not permitted.
 //
-static const int ERROR_DS_NO_CHAINED_EVAL         8328L
+    ERROR_DS_NO_CHAINED_EVAL         8328
 
 //
 // MessageId: ERROR_DS_NO_PARENT_OBJECT
@@ -18055,7 +18001,7 @@ static const int ERROR_DS_NO_CHAINED_EVAL         8328L
 //
 // The operation could not be performed because the object's parent is either uninstantiated or deleted.
 //
-static const int ERROR_DS_NO_PARENT_OBJECT        8329L
+    ERROR_DS_NO_PARENT_OBJECT        8329
 
 //
 // MessageId: ERROR_DS_PARENT_IS_AN_ALIAS
@@ -18064,7 +18010,7 @@ static const int ERROR_DS_NO_PARENT_OBJECT        8329L
 //
 // Having a parent that is an alias is not permitted. Aliases are leaf objects.
 //
-static const int ERROR_DS_PARENT_IS_AN_ALIAS      8330L
+    ERROR_DS_PARENT_IS_AN_ALIAS      8330
 
 //
 // MessageId: ERROR_DS_CANT_MIX_MASTER_AND_REPS
@@ -18073,7 +18019,7 @@ static const int ERROR_DS_PARENT_IS_AN_ALIAS      8330L
 //
 // The object and parent must be of the same type, either both masters or both replicas.
 //
-static const int ERROR_DS_CANT_MIX_MASTER_AND_REPS 8331L
+    ERROR_DS_CANT_MIX_MASTER_AND_REPS 8331
 
 //
 // MessageId: ERROR_DS_CHILDREN_EXIST
@@ -18082,7 +18028,7 @@ static const int ERROR_DS_CANT_MIX_MASTER_AND_REPS 8331L
 //
 // The operation cannot be performed because child objects exist. This operation can only be performed on a leaf object.
 //
-static const int ERROR_DS_CHILDREN_EXIST          8332L
+    ERROR_DS_CHILDREN_EXIST          8332
 
 //
 // MessageId: ERROR_DS_OBJ_NOT_FOUND
@@ -18091,7 +18037,7 @@ static const int ERROR_DS_CHILDREN_EXIST          8332L
 //
 // Directory object not found.
 //
-static const int ERROR_DS_OBJ_NOT_FOUND           8333L
+    ERROR_DS_OBJ_NOT_FOUND           8333
 
 //
 // MessageId: ERROR_DS_ALIASED_OBJ_MISSING
@@ -18100,7 +18046,7 @@ static const int ERROR_DS_OBJ_NOT_FOUND           8333L
 //
 // The aliased object is missing.
 //
-static const int ERROR_DS_ALIASED_OBJ_MISSING     8334L
+    ERROR_DS_ALIASED_OBJ_MISSING     8334
 
 //
 // MessageId: ERROR_DS_BAD_NAME_SYNTAX
@@ -18109,7 +18055,7 @@ static const int ERROR_DS_ALIASED_OBJ_MISSING     8334L
 //
 // The object name has bad syntax.
 //
-static const int ERROR_DS_BAD_NAME_SYNTAX         8335L
+    ERROR_DS_BAD_NAME_SYNTAX         8335
 
 //
 // MessageId: ERROR_DS_ALIAS_POINTS_TO_ALIAS
@@ -18118,7 +18064,7 @@ static const int ERROR_DS_BAD_NAME_SYNTAX         8335L
 //
 // It is not permitted for an alias to refer to another alias.
 //
-static const int ERROR_DS_ALIAS_POINTS_TO_ALIAS   8336L
+    ERROR_DS_ALIAS_POINTS_TO_ALIAS   8336
 
 //
 // MessageId: ERROR_DS_CANT_DEREF_ALIAS
@@ -18127,7 +18073,7 @@ static const int ERROR_DS_ALIAS_POINTS_TO_ALIAS   8336L
 //
 // The alias cannot be dereferenced.
 //
-static const int ERROR_DS_CANT_DEREF_ALIAS        8337L
+    ERROR_DS_CANT_DEREF_ALIAS        8337
 
 //
 // MessageId: ERROR_DS_OUT_OF_SCOPE
@@ -18136,7 +18082,7 @@ static const int ERROR_DS_CANT_DEREF_ALIAS        8337L
 //
 // The operation is out of scope.
 //
-static const int ERROR_DS_OUT_OF_SCOPE            8338L
+    ERROR_DS_OUT_OF_SCOPE            8338
 
 //
 // MessageId: ERROR_DS_OBJECT_BEING_REMOVED
@@ -18145,7 +18091,7 @@ static const int ERROR_DS_OUT_OF_SCOPE            8338L
 //
 // The operation cannot continue because the object is in the process of being removed.
 //
-static const int ERROR_DS_OBJECT_BEING_REMOVED    8339L
+    ERROR_DS_OBJECT_BEING_REMOVED    8339
 
 //
 // MessageId: ERROR_DS_CANT_DELETE_DSA_OBJ
@@ -18154,7 +18100,7 @@ static const int ERROR_DS_OBJECT_BEING_REMOVED    8339L
 //
 // The DSA object cannot be deleted.
 //
-static const int ERROR_DS_CANT_DELETE_DSA_OBJ     8340L
+    ERROR_DS_CANT_DELETE_DSA_OBJ     8340
 
 //
 // MessageId: ERROR_DS_GENERIC_ERROR
@@ -18163,7 +18109,7 @@ static const int ERROR_DS_CANT_DELETE_DSA_OBJ     8340L
 //
 // A directory service error has occurred.
 //
-static const int ERROR_DS_GENERIC_ERROR           8341L
+    ERROR_DS_GENERIC_ERROR           8341
 
 //
 // MessageId: ERROR_DS_DSA_MUST_BE_INT_MASTER
@@ -18172,7 +18118,7 @@ static const int ERROR_DS_GENERIC_ERROR           8341L
 //
 // The operation can only be performed on an internal master DSA object.
 //
-static const int ERROR_DS_DSA_MUST_BE_INT_MASTER  8342L
+    ERROR_DS_DSA_MUST_BE_INT_MASTER  8342
 
 //
 // MessageId: ERROR_DS_CLASS_NOT_DSA
@@ -18181,7 +18127,7 @@ static const int ERROR_DS_DSA_MUST_BE_INT_MASTER  8342L
 //
 // The object must be of class DSA.
 //
-static const int ERROR_DS_CLASS_NOT_DSA           8343L
+    ERROR_DS_CLASS_NOT_DSA           8343
 
 //
 // MessageId: ERROR_DS_INSUFF_ACCESS_RIGHTS
@@ -18190,7 +18136,7 @@ static const int ERROR_DS_CLASS_NOT_DSA           8343L
 //
 // Insufficient access rights to perform the operation.
 //
-static const int ERROR_DS_INSUFF_ACCESS_RIGHTS    8344L
+    ERROR_DS_INSUFF_ACCESS_RIGHTS    8344
 
 //
 // MessageId: ERROR_DS_ILLEGAL_SUPERIOR
@@ -18199,7 +18145,7 @@ static const int ERROR_DS_INSUFF_ACCESS_RIGHTS    8344L
 //
 // The object cannot be added because the parent is not on the list of possible superiors.
 //
-static const int ERROR_DS_ILLEGAL_SUPERIOR        8345L
+    ERROR_DS_ILLEGAL_SUPERIOR        8345
 
 //
 // MessageId: ERROR_DS_ATTRIBUTE_OWNED_BY_SAM
@@ -18208,7 +18154,7 @@ static const int ERROR_DS_ILLEGAL_SUPERIOR        8345L
 //
 // Access to the attribute is not permitted because the attribute is owned by the Security Accounts Manager (SAM).
 //
-static const int ERROR_DS_ATTRIBUTE_OWNED_BY_SAM  8346L
+    ERROR_DS_ATTRIBUTE_OWNED_BY_SAM  8346
 
 //
 // MessageId: ERROR_DS_NAME_TOO_MANY_PARTS
@@ -18217,7 +18163,7 @@ static const int ERROR_DS_ATTRIBUTE_OWNED_BY_SAM  8346L
 //
 // The name has too many parts.
 //
-static const int ERROR_DS_NAME_TOO_MANY_PARTS     8347L
+    ERROR_DS_NAME_TOO_MANY_PARTS     8347
 
 //
 // MessageId: ERROR_DS_NAME_TOO_LONG
@@ -18226,7 +18172,7 @@ static const int ERROR_DS_NAME_TOO_MANY_PARTS     8347L
 //
 // The name is too long.
 //
-static const int ERROR_DS_NAME_TOO_LONG           8348L
+    ERROR_DS_NAME_TOO_LONG           8348
 
 //
 // MessageId: ERROR_DS_NAME_VALUE_TOO_LONG
@@ -18235,7 +18181,7 @@ static const int ERROR_DS_NAME_TOO_LONG           8348L
 //
 // The name value is too long.
 //
-static const int ERROR_DS_NAME_VALUE_TOO_LONG     8349L
+    ERROR_DS_NAME_VALUE_TOO_LONG     8349
 
 //
 // MessageId: ERROR_DS_NAME_UNPARSEABLE
@@ -18244,7 +18190,7 @@ static const int ERROR_DS_NAME_VALUE_TOO_LONG     8349L
 //
 // The directory service encountered an error parsing a name.
 //
-static const int ERROR_DS_NAME_UNPARSEABLE        8350L
+    ERROR_DS_NAME_UNPARSEABLE        8350
 
 //
 // MessageId: ERROR_DS_NAME_TYPE_UNKNOWN
@@ -18253,7 +18199,7 @@ static const int ERROR_DS_NAME_UNPARSEABLE        8350L
 //
 // The directory service cannot get the attribute type for a name.
 //
-static const int ERROR_DS_NAME_TYPE_UNKNOWN       8351L
+    ERROR_DS_NAME_TYPE_UNKNOWN       8351
 
 //
 // MessageId: ERROR_DS_NOT_AN_OBJECT
@@ -18262,7 +18208,7 @@ static const int ERROR_DS_NAME_TYPE_UNKNOWN       8351L
 //
 // The name does not identify an object; the name identifies a phantom.
 //
-static const int ERROR_DS_NOT_AN_OBJECT           8352L
+    ERROR_DS_NOT_AN_OBJECT           8352
 
 //
 // MessageId: ERROR_DS_SEC_DESC_TOO_SHORT
@@ -18271,7 +18217,7 @@ static const int ERROR_DS_NOT_AN_OBJECT           8352L
 //
 // The security descriptor is too short.
 //
-static const int ERROR_DS_SEC_DESC_TOO_SHORT      8353L
+    ERROR_DS_SEC_DESC_TOO_SHORT      8353
 
 //
 // MessageId: ERROR_DS_SEC_DESC_INVALID
@@ -18280,7 +18226,7 @@ static const int ERROR_DS_SEC_DESC_TOO_SHORT      8353L
 //
 // The security descriptor is invalid.
 //
-static const int ERROR_DS_SEC_DESC_INVALID        8354L
+    ERROR_DS_SEC_DESC_INVALID        8354
 
 //
 // MessageId: ERROR_DS_NO_DELETED_NAME
@@ -18289,7 +18235,7 @@ static const int ERROR_DS_SEC_DESC_INVALID        8354L
 //
 // Failed to create name for deleted object.
 //
-static const int ERROR_DS_NO_DELETED_NAME         8355L
+    ERROR_DS_NO_DELETED_NAME         8355
 
 //
 // MessageId: ERROR_DS_SUBREF_MUST_HAVE_PARENT
@@ -18298,7 +18244,7 @@ static const int ERROR_DS_NO_DELETED_NAME         8355L
 //
 // The parent of a new subref must exist.
 //
-static const int ERROR_DS_SUBREF_MUST_HAVE_PARENT 8356L
+    ERROR_DS_SUBREF_MUST_HAVE_PARENT 8356
 
 //
 // MessageId: ERROR_DS_NCNAME_MUST_BE_NC
@@ -18307,7 +18253,7 @@ static const int ERROR_DS_SUBREF_MUST_HAVE_PARENT 8356L
 //
 // The object must be a naming context.
 //
-static const int ERROR_DS_NCNAME_MUST_BE_NC       8357L
+    ERROR_DS_NCNAME_MUST_BE_NC       8357
 
 //
 // MessageId: ERROR_DS_CANT_ADD_SYSTEM_ONLY
@@ -18316,7 +18262,7 @@ static const int ERROR_DS_NCNAME_MUST_BE_NC       8357L
 //
 // It is not permitted to add an attribute which is owned by the system.
 //
-static const int ERROR_DS_CANT_ADD_SYSTEM_ONLY    8358L
+    ERROR_DS_CANT_ADD_SYSTEM_ONLY    8358
 
 //
 // MessageId: ERROR_DS_CLASS_MUST_BE_CONCRETE
@@ -18325,7 +18271,7 @@ static const int ERROR_DS_CANT_ADD_SYSTEM_ONLY    8358L
 //
 // The class of the object must be structural; you cannot instantiate an abstract class.
 //
-static const int ERROR_DS_CLASS_MUST_BE_CONCRETE  8359L
+    ERROR_DS_CLASS_MUST_BE_CONCRETE  8359
 
 //
 // MessageId: ERROR_DS_INVALID_DMD
@@ -18334,7 +18280,7 @@ static const int ERROR_DS_CLASS_MUST_BE_CONCRETE  8359L
 //
 // The schema object could not be found.
 //
-static const int ERROR_DS_INVALID_DMD             8360L
+    ERROR_DS_INVALID_DMD             8360
 
 //
 // MessageId: ERROR_DS_OBJ_GUID_EXISTS
@@ -18343,7 +18289,7 @@ static const int ERROR_DS_INVALID_DMD             8360L
 //
 // A local object with this GUID (dead or alive) already exists.
 //
-static const int ERROR_DS_OBJ_GUID_EXISTS         8361L
+    ERROR_DS_OBJ_GUID_EXISTS         8361
 
 //
 // MessageId: ERROR_DS_NOT_ON_BACKLINK
@@ -18352,7 +18298,7 @@ static const int ERROR_DS_OBJ_GUID_EXISTS         8361L
 //
 // The operation cannot be performed on a back link.
 //
-static const int ERROR_DS_NOT_ON_BACKLINK         8362L
+    ERROR_DS_NOT_ON_BACKLINK         8362
 
 //
 // MessageId: ERROR_DS_NO_CROSSREF_FOR_NC
@@ -18361,7 +18307,7 @@ static const int ERROR_DS_NOT_ON_BACKLINK         8362L
 //
 // The cross reference for the specified naming context could not be found.
 //
-static const int ERROR_DS_NO_CROSSREF_FOR_NC      8363L
+    ERROR_DS_NO_CROSSREF_FOR_NC      8363
 
 //
 // MessageId: ERROR_DS_SHUTTING_DOWN
@@ -18370,7 +18316,7 @@ static const int ERROR_DS_NO_CROSSREF_FOR_NC      8363L
 //
 // The operation could not be performed because the directory service is shutting down.
 //
-static const int ERROR_DS_SHUTTING_DOWN           8364L
+    ERROR_DS_SHUTTING_DOWN           8364
 
 //
 // MessageId: ERROR_DS_UNKNOWN_OPERATION
@@ -18379,7 +18325,7 @@ static const int ERROR_DS_SHUTTING_DOWN           8364L
 //
 // The directory service request is invalid.
 //
-static const int ERROR_DS_UNKNOWN_OPERATION       8365L
+    ERROR_DS_UNKNOWN_OPERATION       8365
 
 //
 // MessageId: ERROR_DS_INVALID_ROLE_OWNER
@@ -18388,7 +18334,7 @@ static const int ERROR_DS_UNKNOWN_OPERATION       8365L
 //
 // The role owner attribute could not be read.
 //
-static const int ERROR_DS_INVALID_ROLE_OWNER      8366L
+    ERROR_DS_INVALID_ROLE_OWNER      8366
 
 //
 // MessageId: ERROR_DS_COULDNT_CONTACT_FSMO
@@ -18397,7 +18343,7 @@ static const int ERROR_DS_INVALID_ROLE_OWNER      8366L
 //
 // The requested FSMO operation failed. The current FSMO holder could not be contacted.
 //
-static const int ERROR_DS_COULDNT_CONTACT_FSMO    8367L
+    ERROR_DS_COULDNT_CONTACT_FSMO    8367
 
 //
 // MessageId: ERROR_DS_CROSS_NC_DN_RENAME
@@ -18406,7 +18352,7 @@ static const int ERROR_DS_COULDNT_CONTACT_FSMO    8367L
 //
 // Modification of a DN across a naming context is not permitted.
 //
-static const int ERROR_DS_CROSS_NC_DN_RENAME      8368L
+    ERROR_DS_CROSS_NC_DN_RENAME      8368
 
 //
 // MessageId: ERROR_DS_CANT_MOD_SYSTEM_ONLY
@@ -18415,7 +18361,7 @@ static const int ERROR_DS_CROSS_NC_DN_RENAME      8368L
 //
 // The attribute cannot be modified because it is owned by the system.
 //
-static const int ERROR_DS_CANT_MOD_SYSTEM_ONLY    8369L
+    ERROR_DS_CANT_MOD_SYSTEM_ONLY    8369
 
 //
 // MessageId: ERROR_DS_REPLICATOR_ONLY
@@ -18424,7 +18370,7 @@ static const int ERROR_DS_CANT_MOD_SYSTEM_ONLY    8369L
 //
 // Only the replicator can perform this function.
 //
-static const int ERROR_DS_REPLICATOR_ONLY         8370L
+    ERROR_DS_REPLICATOR_ONLY         8370
 
 //
 // MessageId: ERROR_DS_OBJ_CLASS_NOT_DEFINED
@@ -18433,7 +18379,7 @@ static const int ERROR_DS_REPLICATOR_ONLY         8370L
 //
 // The specified class is not defined.
 //
-static const int ERROR_DS_OBJ_CLASS_NOT_DEFINED   8371L
+    ERROR_DS_OBJ_CLASS_NOT_DEFINED   8371
 
 //
 // MessageId: ERROR_DS_OBJ_CLASS_NOT_SUBCLASS
@@ -18442,7 +18388,7 @@ static const int ERROR_DS_OBJ_CLASS_NOT_DEFINED   8371L
 //
 // The specified class is not a subclass.
 //
-static const int ERROR_DS_OBJ_CLASS_NOT_SUBCLASS  8372L
+    ERROR_DS_OBJ_CLASS_NOT_SUBCLASS  8372
 
 //
 // MessageId: ERROR_DS_NAME_REFERENCE_INVALID
@@ -18451,7 +18397,7 @@ static const int ERROR_DS_OBJ_CLASS_NOT_SUBCLASS  8372L
 //
 // The name reference is invalid.
 //
-static const int ERROR_DS_NAME_REFERENCE_INVALID  8373L
+    ERROR_DS_NAME_REFERENCE_INVALID  8373
 
 //
 // MessageId: ERROR_DS_CROSS_REF_EXISTS
@@ -18460,7 +18406,7 @@ static const int ERROR_DS_NAME_REFERENCE_INVALID  8373L
 //
 // A cross reference already exists.
 //
-static const int ERROR_DS_CROSS_REF_EXISTS        8374L
+    ERROR_DS_CROSS_REF_EXISTS        8374
 
 //
 // MessageId: ERROR_DS_CANT_DEL_MASTER_CROSSREF
@@ -18469,7 +18415,7 @@ static const int ERROR_DS_CROSS_REF_EXISTS        8374L
 //
 // It is not permitted to delete a master cross reference.
 //
-static const int ERROR_DS_CANT_DEL_MASTER_CROSSREF 8375L
+    ERROR_DS_CANT_DEL_MASTER_CROSSREF 8375
 
 //
 // MessageId: ERROR_DS_SUBTREE_NOTIFY_NOT_NC_HEAD
@@ -18478,7 +18424,7 @@ static const int ERROR_DS_CANT_DEL_MASTER_CROSSREF 8375L
 //
 // Subtree notifications are only supported on NC heads.
 //
-static const int ERROR_DS_SUBTREE_NOTIFY_NOT_NC_HEAD 8376L
+    ERROR_DS_SUBTREE_NOTIFY_NOT_NC_HEAD 8376
 
 //
 // MessageId: ERROR_DS_NOTIFY_FILTER_TOO_COMPLEX
@@ -18487,7 +18433,7 @@ static const int ERROR_DS_SUBTREE_NOTIFY_NOT_NC_HEAD 8376L
 //
 // Notification filter is too complex.
 //
-static const int ERROR_DS_NOTIFY_FILTER_TOO_COMPLEX 8377L
+    ERROR_DS_NOTIFY_FILTER_TOO_COMPLEX 8377
 
 //
 // MessageId: ERROR_DS_DUP_RDN
@@ -18496,7 +18442,7 @@ static const int ERROR_DS_NOTIFY_FILTER_TOO_COMPLEX 8377L
 //
 // Schema update failed: duplicate RDN.
 //
-static const int ERROR_DS_DUP_RDN                 8378L
+    ERROR_DS_DUP_RDN                 8378
 
 //
 // MessageId: ERROR_DS_DUP_OID
@@ -18505,7 +18451,7 @@ static const int ERROR_DS_DUP_RDN                 8378L
 //
 // Schema update failed: duplicate OID.
 //
-static const int ERROR_DS_DUP_OID                 8379L
+    ERROR_DS_DUP_OID                 8379
 
 //
 // MessageId: ERROR_DS_DUP_MAPI_ID
@@ -18514,7 +18460,7 @@ static const int ERROR_DS_DUP_OID                 8379L
 //
 // Schema update failed: duplicate MAPI identifier.
 //
-static const int ERROR_DS_DUP_MAPI_ID             8380L
+    ERROR_DS_DUP_MAPI_ID             8380
 
 //
 // MessageId: ERROR_DS_DUP_SCHEMA_ID_GUID
@@ -18523,7 +18469,7 @@ static const int ERROR_DS_DUP_MAPI_ID             8380L
 //
 // Schema update failed: duplicate schema-id GUID.
 //
-static const int ERROR_DS_DUP_SCHEMA_ID_GUID      8381L
+    ERROR_DS_DUP_SCHEMA_ID_GUID      8381
 
 //
 // MessageId: ERROR_DS_DUP_LDAP_DISPLAY_NAME
@@ -18532,7 +18478,7 @@ static const int ERROR_DS_DUP_SCHEMA_ID_GUID      8381L
 //
 // Schema update failed: duplicate LDAP display name.
 //
-static const int ERROR_DS_DUP_LDAP_DISPLAY_NAME   8382L
+    ERROR_DS_DUP_LDAP_DISPLAY_NAME   8382
 
 //
 // MessageId: ERROR_DS_SEMANTIC_ATT_TEST
@@ -18541,7 +18487,7 @@ static const int ERROR_DS_DUP_LDAP_DISPLAY_NAME   8382L
 //
 // Schema update failed: range-lower less than range upper.
 //
-static const int ERROR_DS_SEMANTIC_ATT_TEST       8383L
+    ERROR_DS_SEMANTIC_ATT_TEST       8383
 
 //
 // MessageId: ERROR_DS_SYNTAX_MISMATCH
@@ -18550,7 +18496,7 @@ static const int ERROR_DS_SEMANTIC_ATT_TEST       8383L
 //
 // Schema update failed: syntax mismatch.
 //
-static const int ERROR_DS_SYNTAX_MISMATCH         8384L
+    ERROR_DS_SYNTAX_MISMATCH         8384
 
 //
 // MessageId: ERROR_DS_EXISTS_IN_MUST_HAVE
@@ -18559,7 +18505,7 @@ static const int ERROR_DS_SYNTAX_MISMATCH         8384L
 //
 // Schema deletion failed: attribute is used in must-contain.
 //
-static const int ERROR_DS_EXISTS_IN_MUST_HAVE     8385L
+    ERROR_DS_EXISTS_IN_MUST_HAVE     8385
 
 //
 // MessageId: ERROR_DS_EXISTS_IN_MAY_HAVE
@@ -18568,7 +18514,7 @@ static const int ERROR_DS_EXISTS_IN_MUST_HAVE     8385L
 //
 // Schema deletion failed: attribute is used in may-contain.
 //
-static const int ERROR_DS_EXISTS_IN_MAY_HAVE      8386L
+    ERROR_DS_EXISTS_IN_MAY_HAVE      8386
 
 //
 // MessageId: ERROR_DS_NONEXISTENT_MAY_HAVE
@@ -18577,7 +18523,7 @@ static const int ERROR_DS_EXISTS_IN_MAY_HAVE      8386L
 //
 // Schema update failed: attribute in may-contain does not exist.
 //
-static const int ERROR_DS_NONEXISTENT_MAY_HAVE    8387L
+    ERROR_DS_NONEXISTENT_MAY_HAVE    8387
 
 //
 // MessageId: ERROR_DS_NONEXISTENT_MUST_HAVE
@@ -18586,7 +18532,7 @@ static const int ERROR_DS_NONEXISTENT_MAY_HAVE    8387L
 //
 // Schema update failed: attribute in must-contain does not exist.
 //
-static const int ERROR_DS_NONEXISTENT_MUST_HAVE   8388L
+    ERROR_DS_NONEXISTENT_MUST_HAVE   8388
 
 //
 // MessageId: ERROR_DS_AUX_CLS_TEST_FAIL
@@ -18595,7 +18541,7 @@ static const int ERROR_DS_NONEXISTENT_MUST_HAVE   8388L
 //
 // Schema update failed: class in aux-class list does not exist or is not an auxiliary class.
 //
-static const int ERROR_DS_AUX_CLS_TEST_FAIL       8389L
+    ERROR_DS_AUX_CLS_TEST_FAIL       8389
 
 //
 // MessageId: ERROR_DS_NONEXISTENT_POSS_SUP
@@ -18604,7 +18550,7 @@ static const int ERROR_DS_AUX_CLS_TEST_FAIL       8389L
 //
 // Schema update failed: class in poss-superiors does not exist.
 //
-static const int ERROR_DS_NONEXISTENT_POSS_SUP    8390L
+    ERROR_DS_NONEXISTENT_POSS_SUP    8390
 
 //
 // MessageId: ERROR_DS_SUB_CLS_TEST_FAIL
@@ -18613,7 +18559,7 @@ static const int ERROR_DS_NONEXISTENT_POSS_SUP    8390L
 //
 // Schema update failed: class in subclassof list does not exist or does not satisfy hierarchy rules.
 //
-static const int ERROR_DS_SUB_CLS_TEST_FAIL       8391L
+    ERROR_DS_SUB_CLS_TEST_FAIL       8391
 
 //
 // MessageId: ERROR_DS_BAD_RDN_ATT_ID_SYNTAX
@@ -18622,7 +18568,7 @@ static const int ERROR_DS_SUB_CLS_TEST_FAIL       8391L
 //
 // Schema update failed: Rdn-Att-Id has wrong syntax.
 //
-static const int ERROR_DS_BAD_RDN_ATT_ID_SYNTAX   8392L
+    ERROR_DS_BAD_RDN_ATT_ID_SYNTAX   8392
 
 //
 // MessageId: ERROR_DS_EXISTS_IN_AUX_CLS
@@ -18631,7 +18577,7 @@ static const int ERROR_DS_BAD_RDN_ATT_ID_SYNTAX   8392L
 //
 // Schema deletion failed: class is used as auxiliary class.
 //
-static const int ERROR_DS_EXISTS_IN_AUX_CLS       8393L
+    ERROR_DS_EXISTS_IN_AUX_CLS       8393
 
 //
 // MessageId: ERROR_DS_EXISTS_IN_SUB_CLS
@@ -18640,7 +18586,7 @@ static const int ERROR_DS_EXISTS_IN_AUX_CLS       8393L
 //
 // Schema deletion failed: class is used as sub class.
 //
-static const int ERROR_DS_EXISTS_IN_SUB_CLS       8394L
+    ERROR_DS_EXISTS_IN_SUB_CLS       8394
 
 //
 // MessageId: ERROR_DS_EXISTS_IN_POSS_SUP
@@ -18649,7 +18595,7 @@ static const int ERROR_DS_EXISTS_IN_SUB_CLS       8394L
 //
 // Schema deletion failed: class is used as poss superior.
 //
-static const int ERROR_DS_EXISTS_IN_POSS_SUP      8395L
+    ERROR_DS_EXISTS_IN_POSS_SUP      8395
 
 //
 // MessageId: ERROR_DS_RECALCSCHEMA_FAILED
@@ -18658,7 +18604,7 @@ static const int ERROR_DS_EXISTS_IN_POSS_SUP      8395L
 //
 // Schema update failed in recalculating validation cache.
 //
-static const int ERROR_DS_RECALCSCHEMA_FAILED     8396L
+    ERROR_DS_RECALCSCHEMA_FAILED     8396
 
 //
 // MessageId: ERROR_DS_TREE_DELETE_NOT_FINISHED
@@ -18667,7 +18613,7 @@ static const int ERROR_DS_RECALCSCHEMA_FAILED     8396L
 //
 // The tree deletion is not finished. The request must be made again to continue deleting the tree.
 //
-static const int ERROR_DS_TREE_DELETE_NOT_FINISHED 8397L
+    ERROR_DS_TREE_DELETE_NOT_FINISHED 8397
 
 //
 // MessageId: ERROR_DS_CANT_DELETE
@@ -18676,7 +18622,7 @@ static const int ERROR_DS_TREE_DELETE_NOT_FINISHED 8397L
 //
 // The requested delete operation could not be performed.
 //
-static const int ERROR_DS_CANT_DELETE             8398L
+    ERROR_DS_CANT_DELETE             8398
 
 //
 // MessageId: ERROR_DS_ATT_SCHEMA_REQ_ID
@@ -18685,7 +18631,7 @@ static const int ERROR_DS_CANT_DELETE             8398L
 //
 // Cannot read the governs class identifier for the schema record.
 //
-static const int ERROR_DS_ATT_SCHEMA_REQ_ID       8399L
+    ERROR_DS_ATT_SCHEMA_REQ_ID       8399
 
 //
 // MessageId: ERROR_DS_BAD_ATT_SCHEMA_SYNTAX
@@ -18694,7 +18640,7 @@ static const int ERROR_DS_ATT_SCHEMA_REQ_ID       8399L
 //
 // The attribute schema has bad syntax.
 //
-static const int ERROR_DS_BAD_ATT_SCHEMA_SYNTAX   8400L
+    ERROR_DS_BAD_ATT_SCHEMA_SYNTAX   8400
 
 //
 // MessageId: ERROR_DS_CANT_CACHE_ATT
@@ -18703,7 +18649,7 @@ static const int ERROR_DS_BAD_ATT_SCHEMA_SYNTAX   8400L
 //
 // The attribute could not be cached.
 //
-static const int ERROR_DS_CANT_CACHE_ATT          8401L
+    ERROR_DS_CANT_CACHE_ATT          8401
 
 //
 // MessageId: ERROR_DS_CANT_CACHE_CLASS
@@ -18712,7 +18658,7 @@ static const int ERROR_DS_CANT_CACHE_ATT          8401L
 //
 // The class could not be cached.
 //
-static const int ERROR_DS_CANT_CACHE_CLASS        8402L
+    ERROR_DS_CANT_CACHE_CLASS        8402
 
 //
 // MessageId: ERROR_DS_CANT_REMOVE_ATT_CACHE
@@ -18721,7 +18667,7 @@ static const int ERROR_DS_CANT_CACHE_CLASS        8402L
 //
 // The attribute could not be removed from the cache.
 //
-static const int ERROR_DS_CANT_REMOVE_ATT_CACHE   8403L
+    ERROR_DS_CANT_REMOVE_ATT_CACHE   8403
 
 //
 // MessageId: ERROR_DS_CANT_REMOVE_CLASS_CACHE
@@ -18730,7 +18676,7 @@ static const int ERROR_DS_CANT_REMOVE_ATT_CACHE   8403L
 //
 // The class could not be removed from the cache.
 //
-static const int ERROR_DS_CANT_REMOVE_CLASS_CACHE 8404L
+    ERROR_DS_CANT_REMOVE_CLASS_CACHE 8404
 
 //
 // MessageId: ERROR_DS_CANT_RETRIEVE_DN
@@ -18739,7 +18685,7 @@ static const int ERROR_DS_CANT_REMOVE_CLASS_CACHE 8404L
 //
 // The distinguished name attribute could not be read.
 //
-static const int ERROR_DS_CANT_RETRIEVE_DN        8405L
+    ERROR_DS_CANT_RETRIEVE_DN        8405
 
 //
 // MessageId: ERROR_DS_MISSING_SUPREF
@@ -18748,7 +18694,7 @@ static const int ERROR_DS_CANT_RETRIEVE_DN        8405L
 //
 // No superior reference has been configured for the directory service. The directory service is therefore unable to issue referrals to objects outside this forest.
 //
-static const int ERROR_DS_MISSING_SUPREF          8406L
+    ERROR_DS_MISSING_SUPREF          8406
 
 //
 // MessageId: ERROR_DS_CANT_RETRIEVE_INSTANCE
@@ -18757,7 +18703,7 @@ static const int ERROR_DS_MISSING_SUPREF          8406L
 //
 // The instance type attribute could not be retrieved.
 //
-static const int ERROR_DS_CANT_RETRIEVE_INSTANCE  8407L
+    ERROR_DS_CANT_RETRIEVE_INSTANCE  8407
 
 //
 // MessageId: ERROR_DS_CODE_INCONSISTENCY
@@ -18766,7 +18712,7 @@ static const int ERROR_DS_CANT_RETRIEVE_INSTANCE  8407L
 //
 // An internal error has occurred.
 //
-static const int ERROR_DS_CODE_INCONSISTENCY      8408L
+    ERROR_DS_CODE_INCONSISTENCY      8408
 
 //
 // MessageId: ERROR_DS_DATABASE_ERROR
@@ -18775,7 +18721,7 @@ static const int ERROR_DS_CODE_INCONSISTENCY      8408L
 //
 // A database error has occurred.
 //
-static const int ERROR_DS_DATABASE_ERROR          8409L
+    ERROR_DS_DATABASE_ERROR          8409
 
 //
 // MessageId: ERROR_DS_GOVERNSID_MISSING
@@ -18784,7 +18730,7 @@ static const int ERROR_DS_DATABASE_ERROR          8409L
 //
 // The attribute GOVERNSID is missing.
 //
-static const int ERROR_DS_GOVERNSID_MISSING       8410L
+    ERROR_DS_GOVERNSID_MISSING       8410
 
 //
 // MessageId: ERROR_DS_MISSING_EXPECTED_ATT
@@ -18793,7 +18739,7 @@ static const int ERROR_DS_GOVERNSID_MISSING       8410L
 //
 // An expected attribute is missing.
 //
-static const int ERROR_DS_MISSING_EXPECTED_ATT    8411L
+    ERROR_DS_MISSING_EXPECTED_ATT    8411
 
 //
 // MessageId: ERROR_DS_NCNAME_MISSING_CR_REF
@@ -18802,7 +18748,7 @@ static const int ERROR_DS_MISSING_EXPECTED_ATT    8411L
 //
 // The specified naming context is missing a cross reference.
 //
-static const int ERROR_DS_NCNAME_MISSING_CR_REF   8412L
+    ERROR_DS_NCNAME_MISSING_CR_REF   8412
 
 //
 // MessageId: ERROR_DS_SECURITY_CHECKING_ERROR
@@ -18811,7 +18757,7 @@ static const int ERROR_DS_NCNAME_MISSING_CR_REF   8412L
 //
 // A security checking error has occurred.
 //
-static const int ERROR_DS_SECURITY_CHECKING_ERROR 8413L
+    ERROR_DS_SECURITY_CHECKING_ERROR 8413
 
 //
 // MessageId: ERROR_DS_SCHEMA_NOT_LOADED
@@ -18820,7 +18766,7 @@ static const int ERROR_DS_SECURITY_CHECKING_ERROR 8413L
 //
 // The schema is not loaded.
 //
-static const int ERROR_DS_SCHEMA_NOT_LOADED       8414L
+    ERROR_DS_SCHEMA_NOT_LOADED       8414
 
 //
 // MessageId: ERROR_DS_SCHEMA_ALLOC_FAILED
@@ -18829,7 +18775,7 @@ static const int ERROR_DS_SCHEMA_NOT_LOADED       8414L
 //
 // Schema allocation failed. Please check if the machine is running low on memory.
 //
-static const int ERROR_DS_SCHEMA_ALLOC_FAILED     8415L
+    ERROR_DS_SCHEMA_ALLOC_FAILED     8415
 
 //
 // MessageId: ERROR_DS_ATT_SCHEMA_REQ_SYNTAX
@@ -18838,7 +18784,7 @@ static const int ERROR_DS_SCHEMA_ALLOC_FAILED     8415L
 //
 // Failed to obtain the required syntax for the attribute schema.
 //
-static const int ERROR_DS_ATT_SCHEMA_REQ_SYNTAX   8416L
+    ERROR_DS_ATT_SCHEMA_REQ_SYNTAX   8416
 
 //
 // MessageId: ERROR_DS_GCVERIFY_ERROR
@@ -18847,7 +18793,7 @@ static const int ERROR_DS_ATT_SCHEMA_REQ_SYNTAX   8416L
 //
 // The global catalog verification failed. The global catalog is not available or does not support the operation. Some part of the directory is currently not available.
 //
-static const int ERROR_DS_GCVERIFY_ERROR          8417L
+    ERROR_DS_GCVERIFY_ERROR          8417
 
 //
 // MessageId: ERROR_DS_DRA_SCHEMA_MISMATCH
@@ -18856,7 +18802,7 @@ static const int ERROR_DS_GCVERIFY_ERROR          8417L
 //
 // The replication operation failed because of a schema mismatch between the servers involved.
 //
-static const int ERROR_DS_DRA_SCHEMA_MISMATCH     8418L
+    ERROR_DS_DRA_SCHEMA_MISMATCH     8418
 
 //
 // MessageId: ERROR_DS_CANT_FIND_DSA_OBJ
@@ -18865,7 +18811,7 @@ static const int ERROR_DS_DRA_SCHEMA_MISMATCH     8418L
 //
 // The DSA object could not be found.
 //
-static const int ERROR_DS_CANT_FIND_DSA_OBJ       8419L
+    ERROR_DS_CANT_FIND_DSA_OBJ       8419
 
 //
 // MessageId: ERROR_DS_CANT_FIND_EXPECTED_NC
@@ -18874,7 +18820,7 @@ static const int ERROR_DS_CANT_FIND_DSA_OBJ       8419L
 //
 // The naming context could not be found.
 //
-static const int ERROR_DS_CANT_FIND_EXPECTED_NC   8420L
+    ERROR_DS_CANT_FIND_EXPECTED_NC   8420
 
 //
 // MessageId: ERROR_DS_CANT_FIND_NC_IN_CACHE
@@ -18883,7 +18829,7 @@ static const int ERROR_DS_CANT_FIND_EXPECTED_NC   8420L
 //
 // The naming context could not be found in the cache.
 //
-static const int ERROR_DS_CANT_FIND_NC_IN_CACHE   8421L
+    ERROR_DS_CANT_FIND_NC_IN_CACHE   8421
 
 //
 // MessageId: ERROR_DS_CANT_RETRIEVE_CHILD
@@ -18892,7 +18838,7 @@ static const int ERROR_DS_CANT_FIND_NC_IN_CACHE   8421L
 //
 // The child object could not be retrieved.
 //
-static const int ERROR_DS_CANT_RETRIEVE_CHILD     8422L
+    ERROR_DS_CANT_RETRIEVE_CHILD     8422
 
 //
 // MessageId: ERROR_DS_SECURITY_ILLEGAL_MODIFY
@@ -18901,7 +18847,7 @@ static const int ERROR_DS_CANT_RETRIEVE_CHILD     8422L
 //
 // The modification was not permitted for security reasons.
 //
-static const int ERROR_DS_SECURITY_ILLEGAL_MODIFY 8423L
+    ERROR_DS_SECURITY_ILLEGAL_MODIFY 8423
 
 //
 // MessageId: ERROR_DS_CANT_REPLACE_HIDDEN_REC
@@ -18910,7 +18856,7 @@ static const int ERROR_DS_SECURITY_ILLEGAL_MODIFY 8423L
 //
 // The operation cannot replace the hidden record.
 //
-static const int ERROR_DS_CANT_REPLACE_HIDDEN_REC 8424L
+    ERROR_DS_CANT_REPLACE_HIDDEN_REC 8424
 
 //
 // MessageId: ERROR_DS_BAD_HIERARCHY_FILE
@@ -18919,7 +18865,7 @@ static const int ERROR_DS_CANT_REPLACE_HIDDEN_REC 8424L
 //
 // The hierarchy file is invalid.
 //
-static const int ERROR_DS_BAD_HIERARCHY_FILE      8425L
+    ERROR_DS_BAD_HIERARCHY_FILE      8425
 
 //
 // MessageId: ERROR_DS_BUILD_HIERARCHY_TABLE_FAILED
@@ -18928,7 +18874,7 @@ static const int ERROR_DS_BAD_HIERARCHY_FILE      8425L
 //
 // The attempt to build the hierarchy table failed.
 //
-static const int ERROR_DS_BUILD_HIERARCHY_TABLE_FAILED 8426L
+    ERROR_DS_BUILD_HIERARCHY_TABLE_FAILED 8426
 
 //
 // MessageId: ERROR_DS_CONFIG_PARAM_MISSING
@@ -18937,7 +18883,7 @@ static const int ERROR_DS_BUILD_HIERARCHY_TABLE_FAILED 8426L
 //
 // The directory configuration parameter is missing from the registry.
 //
-static const int ERROR_DS_CONFIG_PARAM_MISSING    8427L
+    ERROR_DS_CONFIG_PARAM_MISSING    8427
 
 //
 // MessageId: ERROR_DS_COUNTING_AB_INDICES_FAILED
@@ -18946,7 +18892,7 @@ static const int ERROR_DS_CONFIG_PARAM_MISSING    8427L
 //
 // The attempt to count the address book indices failed.
 //
-static const int ERROR_DS_COUNTING_AB_INDICES_FAILED 8428L
+    ERROR_DS_COUNTING_AB_INDICES_FAILED 8428
 
 //
 // MessageId: ERROR_DS_HIERARCHY_TABLE_MALLOC_FAILED
@@ -18955,7 +18901,7 @@ static const int ERROR_DS_COUNTING_AB_INDICES_FAILED 8428L
 //
 // The allocation of the hierarchy table failed.
 //
-static const int ERROR_DS_HIERARCHY_TABLE_MALLOC_FAILED 8429L
+    ERROR_DS_HIERARCHY_TABLE_MALLOC_FAILED 8429
 
 //
 // MessageId: ERROR_DS_INTERNAL_FAILURE
@@ -18964,7 +18910,7 @@ static const int ERROR_DS_HIERARCHY_TABLE_MALLOC_FAILED 8429L
 //
 // The directory service encountered an internal failure.
 //
-static const int ERROR_DS_INTERNAL_FAILURE        8430L
+    ERROR_DS_INTERNAL_FAILURE        8430
 
 //
 // MessageId: ERROR_DS_UNKNOWN_ERROR
@@ -18973,7 +18919,7 @@ static const int ERROR_DS_INTERNAL_FAILURE        8430L
 //
 // The directory service encountered an unknown failure.
 //
-static const int ERROR_DS_UNKNOWN_ERROR           8431L
+    ERROR_DS_UNKNOWN_ERROR           8431
 
 //
 // MessageId: ERROR_DS_ROOT_REQUIRES_CLASS_TOP
@@ -18982,7 +18928,7 @@ static const int ERROR_DS_UNKNOWN_ERROR           8431L
 //
 // A root object requires a class of 'top'.
 //
-static const int ERROR_DS_ROOT_REQUIRES_CLASS_TOP 8432L
+    ERROR_DS_ROOT_REQUIRES_CLASS_TOP 8432
 
 //
 // MessageId: ERROR_DS_REFUSING_FSMO_ROLES
@@ -18991,7 +18937,7 @@ static const int ERROR_DS_ROOT_REQUIRES_CLASS_TOP 8432L
 //
 // This directory server is shutting down, and cannot take ownership of new floating single-master operation roles.
 //
-static const int ERROR_DS_REFUSING_FSMO_ROLES     8433L
+    ERROR_DS_REFUSING_FSMO_ROLES     8433
 
 //
 // MessageId: ERROR_DS_MISSING_FSMO_SETTINGS
@@ -19000,7 +18946,7 @@ static const int ERROR_DS_REFUSING_FSMO_ROLES     8433L
 //
 // The directory service is missing mandatory configuration information, and is unable to determine the ownership of floating single-master operation roles.
 //
-static const int ERROR_DS_MISSING_FSMO_SETTINGS   8434L
+    ERROR_DS_MISSING_FSMO_SETTINGS   8434
 
 //
 // MessageId: ERROR_DS_UNABLE_TO_SURRENDER_ROLES
@@ -19009,7 +18955,7 @@ static const int ERROR_DS_MISSING_FSMO_SETTINGS   8434L
 //
 // The directory service was unable to transfer ownership of one or more floating single-master operation roles to other servers.
 //
-static const int ERROR_DS_UNABLE_TO_SURRENDER_ROLES 8435L
+    ERROR_DS_UNABLE_TO_SURRENDER_ROLES 8435
 
 //
 // MessageId: ERROR_DS_DRA_GENERIC
@@ -19018,7 +18964,7 @@ static const int ERROR_DS_UNABLE_TO_SURRENDER_ROLES 8435L
 //
 // The replication operation failed.
 //
-static const int ERROR_DS_DRA_GENERIC             8436L
+    ERROR_DS_DRA_GENERIC             8436
 
 //
 // MessageId: ERROR_DS_DRA_INVALID_PARAMETER
@@ -19027,7 +18973,7 @@ static const int ERROR_DS_DRA_GENERIC             8436L
 //
 // An invalid parameter was specified for this replication operation.
 //
-static const int ERROR_DS_DRA_INVALID_PARAMETER   8437L
+    ERROR_DS_DRA_INVALID_PARAMETER   8437
 
 //
 // MessageId: ERROR_DS_DRA_BUSY
@@ -19036,7 +18982,7 @@ static const int ERROR_DS_DRA_INVALID_PARAMETER   8437L
 //
 // The directory service is too busy to complete the replication operation at this time.
 //
-static const int ERROR_DS_DRA_BUSY                8438L
+    ERROR_DS_DRA_BUSY                8438
 
 //
 // MessageId: ERROR_DS_DRA_BAD_DN
@@ -19045,7 +18991,7 @@ static const int ERROR_DS_DRA_BUSY                8438L
 //
 // The distinguished name specified for this replication operation is invalid.
 //
-static const int ERROR_DS_DRA_BAD_DN              8439L
+    ERROR_DS_DRA_BAD_DN              8439
 
 //
 // MessageId: ERROR_DS_DRA_BAD_NC
@@ -19054,7 +19000,7 @@ static const int ERROR_DS_DRA_BAD_DN              8439L
 //
 // The naming context specified for this replication operation is invalid.
 //
-static const int ERROR_DS_DRA_BAD_NC              8440L
+    ERROR_DS_DRA_BAD_NC              8440
 
 //
 // MessageId: ERROR_DS_DRA_DN_EXISTS
@@ -19063,7 +19009,7 @@ static const int ERROR_DS_DRA_BAD_NC              8440L
 //
 // The distinguished name specified for this replication operation already exists.
 //
-static const int ERROR_DS_DRA_DN_EXISTS           8441L
+    ERROR_DS_DRA_DN_EXISTS           8441
 
 //
 // MessageId: ERROR_DS_DRA_INTERNAL_ERROR
@@ -19072,7 +19018,7 @@ static const int ERROR_DS_DRA_DN_EXISTS           8441L
 //
 // The replication system encountered an internal error.
 //
-static const int ERROR_DS_DRA_INTERNAL_ERROR      8442L
+    ERROR_DS_DRA_INTERNAL_ERROR      8442
 
 //
 // MessageId: ERROR_DS_DRA_INCONSISTENT_DIT
@@ -19081,7 +19027,7 @@ static const int ERROR_DS_DRA_INTERNAL_ERROR      8442L
 //
 // The replication operation encountered a database inconsistency.
 //
-static const int ERROR_DS_DRA_INCONSISTENT_DIT    8443L
+    ERROR_DS_DRA_INCONSISTENT_DIT    8443
 
 //
 // MessageId: ERROR_DS_DRA_CONNECTION_FAILED
@@ -19090,7 +19036,7 @@ static const int ERROR_DS_DRA_INCONSISTENT_DIT    8443L
 //
 // The server specified for this replication operation could not be contacted.
 //
-static const int ERROR_DS_DRA_CONNECTION_FAILED   8444L
+    ERROR_DS_DRA_CONNECTION_FAILED   8444
 
 //
 // MessageId: ERROR_DS_DRA_BAD_INSTANCE_TYPE
@@ -19099,7 +19045,7 @@ static const int ERROR_DS_DRA_CONNECTION_FAILED   8444L
 //
 // The replication operation encountered an object with an invalid instance type.
 //
-static const int ERROR_DS_DRA_BAD_INSTANCE_TYPE   8445L
+    ERROR_DS_DRA_BAD_INSTANCE_TYPE   8445
 
 //
 // MessageId: ERROR_DS_DRA_OUT_OF_MEM
@@ -19108,7 +19054,7 @@ static const int ERROR_DS_DRA_BAD_INSTANCE_TYPE   8445L
 //
 // The replication operation failed to allocate memory.
 //
-static const int ERROR_DS_DRA_OUT_OF_MEM          8446L
+    ERROR_DS_DRA_OUT_OF_MEM          8446
 
 //
 // MessageId: ERROR_DS_DRA_MAIL_PROBLEM
@@ -19117,7 +19063,7 @@ static const int ERROR_DS_DRA_OUT_OF_MEM          8446L
 //
 // The replication operation encountered an error with the mail system.
 //
-static const int ERROR_DS_DRA_MAIL_PROBLEM        8447L
+    ERROR_DS_DRA_MAIL_PROBLEM        8447
 
 //
 // MessageId: ERROR_DS_DRA_REF_ALREADY_EXISTS
@@ -19126,7 +19072,7 @@ static const int ERROR_DS_DRA_MAIL_PROBLEM        8447L
 //
 // The replication reference information for the target server already exists.
 //
-static const int ERROR_DS_DRA_REF_ALREADY_EXISTS  8448L
+    ERROR_DS_DRA_REF_ALREADY_EXISTS  8448
 
 //
 // MessageId: ERROR_DS_DRA_REF_NOT_FOUND
@@ -19135,7 +19081,7 @@ static const int ERROR_DS_DRA_REF_ALREADY_EXISTS  8448L
 //
 // The replication reference information for the target server does not exist.
 //
-static const int ERROR_DS_DRA_REF_NOT_FOUND       8449L
+    ERROR_DS_DRA_REF_NOT_FOUND       8449
 
 //
 // MessageId: ERROR_DS_DRA_OBJ_IS_REP_SOURCE
@@ -19144,7 +19090,7 @@ static const int ERROR_DS_DRA_REF_NOT_FOUND       8449L
 //
 // The naming context cannot be removed because it is replicated to another server.
 //
-static const int ERROR_DS_DRA_OBJ_IS_REP_SOURCE   8450L
+    ERROR_DS_DRA_OBJ_IS_REP_SOURCE   8450
 
 //
 // MessageId: ERROR_DS_DRA_DB_ERROR
@@ -19153,7 +19099,7 @@ static const int ERROR_DS_DRA_OBJ_IS_REP_SOURCE   8450L
 //
 // The replication operation encountered a database error.
 //
-static const int ERROR_DS_DRA_DB_ERROR            8451L
+    ERROR_DS_DRA_DB_ERROR            8451
 
 //
 // MessageId: ERROR_DS_DRA_NO_REPLICA
@@ -19162,7 +19108,7 @@ static const int ERROR_DS_DRA_DB_ERROR            8451L
 //
 // The naming context is in the process of being removed or is not replicated from the specified server.
 //
-static const int ERROR_DS_DRA_NO_REPLICA          8452L
+    ERROR_DS_DRA_NO_REPLICA          8452
 
 //
 // MessageId: ERROR_DS_DRA_ACCESS_DENIED
@@ -19171,7 +19117,7 @@ static const int ERROR_DS_DRA_NO_REPLICA          8452L
 //
 // Replication access was denied.
 //
-static const int ERROR_DS_DRA_ACCESS_DENIED       8453L
+    ERROR_DS_DRA_ACCESS_DENIED       8453
 
 //
 // MessageId: ERROR_DS_DRA_NOT_SUPPORTED
@@ -19180,7 +19126,7 @@ static const int ERROR_DS_DRA_ACCESS_DENIED       8453L
 //
 // The requested operation is not supported by this version of the directory service.
 //
-static const int ERROR_DS_DRA_NOT_SUPPORTED       8454L
+    ERROR_DS_DRA_NOT_SUPPORTED       8454
 
 //
 // MessageId: ERROR_DS_DRA_RPC_CANCELLED
@@ -19189,7 +19135,7 @@ static const int ERROR_DS_DRA_NOT_SUPPORTED       8454L
 //
 // The replication remote procedure call was cancelled.
 //
-static const int ERROR_DS_DRA_RPC_CANCELLED       8455L
+    ERROR_DS_DRA_RPC_CANCELLED       8455
 
 //
 // MessageId: ERROR_DS_DRA_SOURCE_DISABLED
@@ -19198,7 +19144,7 @@ static const int ERROR_DS_DRA_RPC_CANCELLED       8455L
 //
 // The source server is currently rejecting replication requests.
 //
-static const int ERROR_DS_DRA_SOURCE_DISABLED     8456L
+    ERROR_DS_DRA_SOURCE_DISABLED     8456
 
 //
 // MessageId: ERROR_DS_DRA_SINK_DISABLED
@@ -19207,7 +19153,7 @@ static const int ERROR_DS_DRA_SOURCE_DISABLED     8456L
 //
 // The destination server is currently rejecting replication requests.
 //
-static const int ERROR_DS_DRA_SINK_DISABLED       8457L
+    ERROR_DS_DRA_SINK_DISABLED       8457
 
 //
 // MessageId: ERROR_DS_DRA_NAME_COLLISION
@@ -19216,7 +19162,7 @@ static const int ERROR_DS_DRA_SINK_DISABLED       8457L
 //
 // The replication operation failed due to a collision of object names.
 //
-static const int ERROR_DS_DRA_NAME_COLLISION      8458L
+    ERROR_DS_DRA_NAME_COLLISION      8458
 
 //
 // MessageId: ERROR_DS_DRA_SOURCE_REINSTALLED
@@ -19225,7 +19171,7 @@ static const int ERROR_DS_DRA_NAME_COLLISION      8458L
 //
 // The replication source has been reinstalled.
 //
-static const int ERROR_DS_DRA_SOURCE_REINSTALLED  8459L
+    ERROR_DS_DRA_SOURCE_REINSTALLED  8459
 
 //
 // MessageId: ERROR_DS_DRA_MISSING_PARENT
@@ -19234,7 +19180,7 @@ static const int ERROR_DS_DRA_SOURCE_REINSTALLED  8459L
 //
 // The replication operation failed because a required parent object is missing.
 //
-static const int ERROR_DS_DRA_MISSING_PARENT      8460L
+    ERROR_DS_DRA_MISSING_PARENT      8460
 
 //
 // MessageId: ERROR_DS_DRA_PREEMPTED
@@ -19243,7 +19189,7 @@ static const int ERROR_DS_DRA_MISSING_PARENT      8460L
 //
 // The replication operation was preempted.
 //
-static const int ERROR_DS_DRA_PREEMPTED           8461L
+    ERROR_DS_DRA_PREEMPTED           8461
 
 //
 // MessageId: ERROR_DS_DRA_ABANDON_SYNC
@@ -19252,7 +19198,7 @@ static const int ERROR_DS_DRA_PREEMPTED           8461L
 //
 // The replication synchronization attempt was abandoned because of a lack of updates.
 //
-static const int ERROR_DS_DRA_ABANDON_SYNC        8462L
+    ERROR_DS_DRA_ABANDON_SYNC        8462
 
 //
 // MessageId: ERROR_DS_DRA_SHUTDOWN
@@ -19261,7 +19207,7 @@ static const int ERROR_DS_DRA_ABANDON_SYNC        8462L
 //
 // The replication operation was terminated because the system is shutting down.
 //
-static const int ERROR_DS_DRA_SHUTDOWN            8463L
+    ERROR_DS_DRA_SHUTDOWN            8463
 
 //
 // MessageId: ERROR_DS_DRA_INCOMPATIBLE_PARTIAL_SET
@@ -19270,7 +19216,7 @@ static const int ERROR_DS_DRA_SHUTDOWN            8463L
 //
 // Synchronization attempt failed because the destination DC is currently waiting to synchronize new partial attributes from source. This condition is normal if a recent schema change modified the partial attribute set. The destination partial attribute set is not a subset of source partial attribute set.
 //
-static const int ERROR_DS_DRA_INCOMPATIBLE_PARTIAL_SET 8464L
+    ERROR_DS_DRA_INCOMPATIBLE_PARTIAL_SET 8464
 
 //
 // MessageId: ERROR_DS_DRA_SOURCE_IS_PARTIAL_REPLICA
@@ -19279,7 +19225,7 @@ static const int ERROR_DS_DRA_INCOMPATIBLE_PARTIAL_SET 8464L
 //
 // The replication synchronization attempt failed because a master replica attempted to sync from a partial replica.
 //
-static const int ERROR_DS_DRA_SOURCE_IS_PARTIAL_REPLICA 8465L
+    ERROR_DS_DRA_SOURCE_IS_PARTIAL_REPLICA 8465
 
 //
 // MessageId: ERROR_DS_DRA_EXTN_CONNECTION_FAILED
@@ -19288,7 +19234,7 @@ static const int ERROR_DS_DRA_SOURCE_IS_PARTIAL_REPLICA 8465L
 //
 // The server specified for this replication operation was contacted, but that server was unable to contact an additional server needed to complete the operation.
 //
-static const int ERROR_DS_DRA_EXTN_CONNECTION_FAILED 8466L
+    ERROR_DS_DRA_EXTN_CONNECTION_FAILED 8466
 
 //
 // MessageId: ERROR_DS_INSTALL_SCHEMA_MISMATCH
@@ -19297,7 +19243,7 @@ static const int ERROR_DS_DRA_EXTN_CONNECTION_FAILED 8466L
 //
 // The version of the directory service schema of the source forest is not compatible with the version of directory service on this computer.
 //
-static const int ERROR_DS_INSTALL_SCHEMA_MISMATCH 8467L
+    ERROR_DS_INSTALL_SCHEMA_MISMATCH 8467
 
 //
 // MessageId: ERROR_DS_DUP_LINK_ID
@@ -19306,7 +19252,7 @@ static const int ERROR_DS_INSTALL_SCHEMA_MISMATCH 8467L
 //
 // Schema update failed: An attribute with the same link identifier already exists.
 //
-static const int ERROR_DS_DUP_LINK_ID             8468L
+    ERROR_DS_DUP_LINK_ID             8468
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_RESOLVING
@@ -19315,7 +19261,7 @@ static const int ERROR_DS_DUP_LINK_ID             8468L
 //
 // Name translation: Generic processing error.
 //
-static const int ERROR_DS_NAME_ERROR_RESOLVING    8469L
+    ERROR_DS_NAME_ERROR_RESOLVING    8469
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_NOT_FOUND
@@ -19324,7 +19270,7 @@ static const int ERROR_DS_NAME_ERROR_RESOLVING    8469L
 //
 // Name translation: Could not find the name or insufficient right to see name.
 //
-static const int ERROR_DS_NAME_ERROR_NOT_FOUND    8470L
+    ERROR_DS_NAME_ERROR_NOT_FOUND    8470
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_NOT_UNIQUE
@@ -19333,7 +19279,7 @@ static const int ERROR_DS_NAME_ERROR_NOT_FOUND    8470L
 //
 // Name translation: Input name mapped to more than one output name.
 //
-static const int ERROR_DS_NAME_ERROR_NOT_UNIQUE   8471L
+    ERROR_DS_NAME_ERROR_NOT_UNIQUE   8471
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_NO_MAPPING
@@ -19342,7 +19288,7 @@ static const int ERROR_DS_NAME_ERROR_NOT_UNIQUE   8471L
 //
 // Name translation: Input name found, but not the associated output format.
 //
-static const int ERROR_DS_NAME_ERROR_NO_MAPPING   8472L
+    ERROR_DS_NAME_ERROR_NO_MAPPING   8472
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_DOMAIN_ONLY
@@ -19351,7 +19297,7 @@ static const int ERROR_DS_NAME_ERROR_NO_MAPPING   8472L
 //
 // Name translation: Unable to resolve completely, only the domain was found.
 //
-static const int ERROR_DS_NAME_ERROR_DOMAIN_ONLY  8473L
+    ERROR_DS_NAME_ERROR_DOMAIN_ONLY  8473
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING
@@ -19360,7 +19306,7 @@ static const int ERROR_DS_NAME_ERROR_DOMAIN_ONLY  8473L
 //
 // Name translation: Unable to perform purely syntactical mapping at the client without going out to the wire.
 //
-static const int ERROR_DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING 8474L
+    ERROR_DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING 8474
 
 //
 // MessageId: ERROR_DS_CONSTRUCTED_ATT_MOD
@@ -19369,7 +19315,7 @@ static const int ERROR_DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING 8474L
 //
 // Modification of a constructed attribute is not allowed.
 //
-static const int ERROR_DS_CONSTRUCTED_ATT_MOD     8475L
+    ERROR_DS_CONSTRUCTED_ATT_MOD     8475
 
 //
 // MessageId: ERROR_DS_WRONG_OM_OBJ_CLASS
@@ -19378,7 +19324,7 @@ static const int ERROR_DS_CONSTRUCTED_ATT_MOD     8475L
 //
 // The OM-Object-Class specified is incorrect for an attribute with the specified syntax.
 //
-static const int ERROR_DS_WRONG_OM_OBJ_CLASS      8476L
+    ERROR_DS_WRONG_OM_OBJ_CLASS      8476
 
 //
 // MessageId: ERROR_DS_DRA_REPL_PENDING
@@ -19387,7 +19333,7 @@ static const int ERROR_DS_WRONG_OM_OBJ_CLASS      8476L
 //
 // The replication request has been posted; waiting for reply.
 //
-static const int ERROR_DS_DRA_REPL_PENDING        8477L
+    ERROR_DS_DRA_REPL_PENDING        8477
 
 //
 // MessageId: ERROR_DS_DS_REQUIRED
@@ -19396,7 +19342,7 @@ static const int ERROR_DS_DRA_REPL_PENDING        8477L
 //
 // The requested operation requires a directory service, and none was available.
 //
-static const int ERROR_DS_DS_REQUIRED             8478L
+    ERROR_DS_DS_REQUIRED             8478
 
 //
 // MessageId: ERROR_DS_INVALID_LDAP_DISPLAY_NAME
@@ -19405,7 +19351,7 @@ static const int ERROR_DS_DS_REQUIRED             8478L
 //
 // The LDAP display name of the class or attribute contains non-ASCII characters.
 //
-static const int ERROR_DS_INVALID_LDAP_DISPLAY_NAME 8479L
+    ERROR_DS_INVALID_LDAP_DISPLAY_NAME 8479
 
 //
 // MessageId: ERROR_DS_NON_BASE_SEARCH
@@ -19414,7 +19360,7 @@ static const int ERROR_DS_INVALID_LDAP_DISPLAY_NAME 8479L
 //
 // The requested search operation is only supported for base searches.
 //
-static const int ERROR_DS_NON_BASE_SEARCH         8480L
+    ERROR_DS_NON_BASE_SEARCH         8480
 
 //
 // MessageId: ERROR_DS_CANT_RETRIEVE_ATTS
@@ -19423,7 +19369,7 @@ static const int ERROR_DS_NON_BASE_SEARCH         8480L
 //
 // The search failed to retrieve attributes from the database.
 //
-static const int ERROR_DS_CANT_RETRIEVE_ATTS      8481L
+    ERROR_DS_CANT_RETRIEVE_ATTS      8481
 
 //
 // MessageId: ERROR_DS_BACKLINK_WITHOUT_LINK
@@ -19432,7 +19378,7 @@ static const int ERROR_DS_CANT_RETRIEVE_ATTS      8481L
 //
 // The schema update operation tried to add a backward link attribute that has no corresponding forward link.
 //
-static const int ERROR_DS_BACKLINK_WITHOUT_LINK   8482L
+    ERROR_DS_BACKLINK_WITHOUT_LINK   8482
 
 //
 // MessageId: ERROR_DS_EPOCH_MISMATCH
@@ -19441,7 +19387,7 @@ static const int ERROR_DS_BACKLINK_WITHOUT_LINK   8482L
 //
 // Source and destination of a cross-domain move do not agree on the object's epoch number. Either source or destination does not have the latest version of the object.
 //
-static const int ERROR_DS_EPOCH_MISMATCH          8483L
+    ERROR_DS_EPOCH_MISMATCH          8483
 
 //
 // MessageId: ERROR_DS_SRC_NAME_MISMATCH
@@ -19450,7 +19396,7 @@ static const int ERROR_DS_EPOCH_MISMATCH          8483L
 //
 // Source and destination of a cross-domain move do not agree on the object's current name. Either source or destination does not have the latest version of the object.
 //
-static const int ERROR_DS_SRC_NAME_MISMATCH       8484L
+    ERROR_DS_SRC_NAME_MISMATCH       8484
 
 //
 // MessageId: ERROR_DS_SRC_AND_DST_NC_IDENTICAL
@@ -19459,7 +19405,7 @@ static const int ERROR_DS_SRC_NAME_MISMATCH       8484L
 //
 // Source and destination for the cross-domain move operation are identical. Caller should use local move operation instead of cross-domain move operation.
 //
-static const int ERROR_DS_SRC_AND_DST_NC_IDENTICAL 8485L
+    ERROR_DS_SRC_AND_DST_NC_IDENTICAL 8485
 
 //
 // MessageId: ERROR_DS_DST_NC_MISMATCH
@@ -19468,7 +19414,7 @@ static const int ERROR_DS_SRC_AND_DST_NC_IDENTICAL 8485L
 //
 // Source and destination for a cross-domain move are not in agreement on the naming contexts in the forest. Either source or destination does not have the latest version of the Partitions container.
 //
-static const int ERROR_DS_DST_NC_MISMATCH         8486L
+    ERROR_DS_DST_NC_MISMATCH         8486
 
 //
 // MessageId: ERROR_DS_NOT_AUTHORITIVE_FOR_DST_NC
@@ -19477,7 +19423,7 @@ static const int ERROR_DS_DST_NC_MISMATCH         8486L
 //
 // Destination of a cross-domain move is not authoritative for the destination naming context.
 //
-static const int ERROR_DS_NOT_AUTHORITIVE_FOR_DST_NC 8487L
+    ERROR_DS_NOT_AUTHORITIVE_FOR_DST_NC 8487
 
 //
 // MessageId: ERROR_DS_SRC_GUID_MISMATCH
@@ -19486,7 +19432,7 @@ static const int ERROR_DS_NOT_AUTHORITIVE_FOR_DST_NC 8487L
 //
 // Source and destination of a cross-domain move do not agree on the identity of the source object. Either source or destination does not have the latest version of the source object.
 //
-static const int ERROR_DS_SRC_GUID_MISMATCH       8488L
+    ERROR_DS_SRC_GUID_MISMATCH       8488
 
 //
 // MessageId: ERROR_DS_CANT_MOVE_DELETED_OBJECT
@@ -19495,7 +19441,7 @@ static const int ERROR_DS_SRC_GUID_MISMATCH       8488L
 //
 // Object being moved across-domains is already known to be deleted by the destination server. The source server does not have the latest version of the source object.
 //
-static const int ERROR_DS_CANT_MOVE_DELETED_OBJECT 8489L
+    ERROR_DS_CANT_MOVE_DELETED_OBJECT 8489
 
 //
 // MessageId: ERROR_DS_PDC_OPERATION_IN_PROGRESS
@@ -19504,7 +19450,7 @@ static const int ERROR_DS_CANT_MOVE_DELETED_OBJECT 8489L
 //
 // Another operation which requires exclusive access to the PDC FSMO is already in progress.
 //
-static const int ERROR_DS_PDC_OPERATION_IN_PROGRESS 8490L
+    ERROR_DS_PDC_OPERATION_IN_PROGRESS 8490
 
 //
 // MessageId: ERROR_DS_CROSS_DOMAIN_CLEANUP_REQD
@@ -19513,7 +19459,7 @@ static const int ERROR_DS_PDC_OPERATION_IN_PROGRESS 8490L
 //
 // A cross-domain move operation failed such that two versions of the moved object exist - one each in the source and destination domains. The destination object needs to be removed to restore the system to a consistent state.
 //
-static const int ERROR_DS_CROSS_DOMAIN_CLEANUP_REQD 8491L
+    ERROR_DS_CROSS_DOMAIN_CLEANUP_REQD 8491
 
 //
 // MessageId: ERROR_DS_ILLEGAL_XDOM_MOVE_OPERATION
@@ -19522,7 +19468,7 @@ static const int ERROR_DS_CROSS_DOMAIN_CLEANUP_REQD 8491L
 //
 // This object may not be moved across domain boundaries either because cross-domain moves for this class are disallowed, or the object has some special characteristics, e.g.: trust account or restricted RID, which prevent its move.
 //
-static const int ERROR_DS_ILLEGAL_XDOM_MOVE_OPERATION 8492L
+    ERROR_DS_ILLEGAL_XDOM_MOVE_OPERATION 8492
 
 //
 // MessageId: ERROR_DS_CANT_WITH_ACCT_GROUP_MEMBERSHPS
@@ -19531,7 +19477,7 @@ static const int ERROR_DS_ILLEGAL_XDOM_MOVE_OPERATION 8492L
 //
 // Can't move objects with memberships across domain boundaries as once moved, this would violate the membership conditions of the account group. Remove the object from any account group memberships and retry.
 //
-static const int ERROR_DS_CANT_WITH_ACCT_GROUP_MEMBERSHPS 8493L
+    ERROR_DS_CANT_WITH_ACCT_GROUP_MEMBERSHPS 8493
 
 //
 // MessageId: ERROR_DS_NC_MUST_HAVE_NC_PARENT
@@ -19540,7 +19486,7 @@ static const int ERROR_DS_CANT_WITH_ACCT_GROUP_MEMBERSHPS 8493L
 //
 // A naming context head must be the immediate child of another naming context head, not of an interior node.
 //
-static const int ERROR_DS_NC_MUST_HAVE_NC_PARENT  8494L
+    ERROR_DS_NC_MUST_HAVE_NC_PARENT  8494
 
 //
 // MessageId: ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE
@@ -19549,7 +19495,7 @@ static const int ERROR_DS_NC_MUST_HAVE_NC_PARENT  8494L
 //
 // The directory cannot validate the proposed naming context name because it does not hold a replica of the naming context above the proposed naming context. Please ensure that the domain naming master role is held by a server that is configured as a global catalog server, and that the server is up to date with its replication partners. (Applies only to Windows 2000 Domain Naming masters)
 //
-static const int ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE 8495L
+    ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE 8495
 
 //
 // MessageId: ERROR_DS_DST_DOMAIN_NOT_NATIVE
@@ -19558,7 +19504,7 @@ static const int ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE 8495L
 //
 // Destination domain must be in native mode.
 //
-static const int ERROR_DS_DST_DOMAIN_NOT_NATIVE   8496L
+    ERROR_DS_DST_DOMAIN_NOT_NATIVE   8496
 
 //
 // MessageId: ERROR_DS_MISSING_INFRASTRUCTURE_CONTAINER
@@ -19567,7 +19513,7 @@ static const int ERROR_DS_DST_DOMAIN_NOT_NATIVE   8496L
 //
 // The operation cannot be performed because the server does not have an infrastructure container in the domain of interest.
 //
-static const int ERROR_DS_MISSING_INFRASTRUCTURE_CONTAINER 8497L
+    ERROR_DS_MISSING_INFRASTRUCTURE_CONTAINER 8497
 
 //
 // MessageId: ERROR_DS_CANT_MOVE_ACCOUNT_GROUP
@@ -19576,7 +19522,7 @@ static const int ERROR_DS_MISSING_INFRASTRUCTURE_CONTAINER 8497L
 //
 // Cross-domain move of non-empty account groups is not allowed.
 //
-static const int ERROR_DS_CANT_MOVE_ACCOUNT_GROUP 8498L
+    ERROR_DS_CANT_MOVE_ACCOUNT_GROUP 8498
 
 //
 // MessageId: ERROR_DS_CANT_MOVE_RESOURCE_GROUP
@@ -19585,7 +19531,7 @@ static const int ERROR_DS_CANT_MOVE_ACCOUNT_GROUP 8498L
 //
 // Cross-domain move of non-empty resource groups is not allowed.
 //
-static const int ERROR_DS_CANT_MOVE_RESOURCE_GROUP 8499L
+    ERROR_DS_CANT_MOVE_RESOURCE_GROUP 8499
 
 //
 // MessageId: ERROR_DS_INVALID_SEARCH_FLAG
@@ -19594,7 +19540,7 @@ static const int ERROR_DS_CANT_MOVE_RESOURCE_GROUP 8499L
 //
 // The search flags for the attribute are invalid. The ANR bit is valid only on attributes of Unicode or Teletex strings.
 //
-static const int ERROR_DS_INVALID_SEARCH_FLAG     8500L
+    ERROR_DS_INVALID_SEARCH_FLAG     8500
 
 //
 // MessageId: ERROR_DS_NO_TREE_DELETE_ABOVE_NC
@@ -19603,7 +19549,7 @@ static const int ERROR_DS_INVALID_SEARCH_FLAG     8500L
 //
 // Tree deletions starting at an object which has an NC head as a descendant are not allowed.
 //
-static const int ERROR_DS_NO_TREE_DELETE_ABOVE_NC 8501L
+    ERROR_DS_NO_TREE_DELETE_ABOVE_NC 8501
 
 //
 // MessageId: ERROR_DS_COULDNT_LOCK_TREE_FOR_DELETE
@@ -19612,7 +19558,7 @@ static const int ERROR_DS_NO_TREE_DELETE_ABOVE_NC 8501L
 //
 // The directory service failed to lock a tree in preparation for a tree deletion because the tree was in use.
 //
-static const int ERROR_DS_COULDNT_LOCK_TREE_FOR_DELETE 8502L
+    ERROR_DS_COULDNT_LOCK_TREE_FOR_DELETE 8502
 
 //
 // MessageId: ERROR_DS_COULDNT_IDENTIFY_OBJECTS_FOR_TREE_DELETE
@@ -19621,7 +19567,7 @@ static const int ERROR_DS_COULDNT_LOCK_TREE_FOR_DELETE 8502L
 //
 // The directory service failed to identify the list of objects to delete while attempting a tree deletion.
 //
-static const int ERROR_DS_COULDNT_IDENTIFY_OBJECTS_FOR_TREE_DELETE 8503L
+    ERROR_DS_COULDNT_IDENTIFY_OBJECTS_FOR_TREE_DELETE 8503
 
 //
 // MessageId: ERROR_DS_SAM_INIT_FAILURE
@@ -19631,7 +19577,7 @@ static const int ERROR_DS_COULDNT_IDENTIFY_OBJECTS_FOR_TREE_DELETE 8503L
 // Security Accounts Manager initialization failed because of the following error: %1.
 // Error Status: 0x%2. Please shutdown this system and reboot into Directory Services Restore Mode, check the event log for more detailed information.
 //
-static const int ERROR_DS_SAM_INIT_FAILURE        8504L
+    ERROR_DS_SAM_INIT_FAILURE        8504
 
 //
 // MessageId: ERROR_DS_SENSITIVE_GROUP_VIOLATION
@@ -19640,7 +19586,7 @@ static const int ERROR_DS_SAM_INIT_FAILURE        8504L
 //
 // Only an administrator can modify the membership list of an administrative group.
 //
-static const int ERROR_DS_SENSITIVE_GROUP_VIOLATION 8505L
+    ERROR_DS_SENSITIVE_GROUP_VIOLATION 8505
 
 //
 // MessageId: ERROR_DS_CANT_MOD_PRIMARYGROUPID
@@ -19649,7 +19595,7 @@ static const int ERROR_DS_SENSITIVE_GROUP_VIOLATION 8505L
 //
 // Cannot change the primary group ID of a domain controller account.
 //
-static const int ERROR_DS_CANT_MOD_PRIMARYGROUPID 8506L
+    ERROR_DS_CANT_MOD_PRIMARYGROUPID 8506
 
 //
 // MessageId: ERROR_DS_ILLEGAL_BASE_SCHEMA_MOD
@@ -19658,7 +19604,7 @@ static const int ERROR_DS_CANT_MOD_PRIMARYGROUPID 8506L
 //
 // An attempt is made to modify the base schema.
 //
-static const int ERROR_DS_ILLEGAL_BASE_SCHEMA_MOD 8507L
+    ERROR_DS_ILLEGAL_BASE_SCHEMA_MOD 8507
 
 //
 // MessageId: ERROR_DS_NONSAFE_SCHEMA_CHANGE
@@ -19667,7 +19613,7 @@ static const int ERROR_DS_ILLEGAL_BASE_SCHEMA_MOD 8507L
 //
 // Adding a new mandatory attribute to an existing class, deleting a mandatory attribute from an existing class, or adding an optional attribute to the special class Top that is not a backlink attribute (directly or through inheritance, for example, by adding or deleting an auxiliary class) is not allowed.
 //
-static const int ERROR_DS_NONSAFE_SCHEMA_CHANGE   8508L
+    ERROR_DS_NONSAFE_SCHEMA_CHANGE   8508
 
 //
 // MessageId: ERROR_DS_SCHEMA_UPDATE_DISALLOWED
@@ -19676,7 +19622,7 @@ static const int ERROR_DS_NONSAFE_SCHEMA_CHANGE   8508L
 //
 // Schema update is not allowed on this DC because the DC is not the schema FSMO Role Owner.
 //
-static const int ERROR_DS_SCHEMA_UPDATE_DISALLOWED 8509L
+    ERROR_DS_SCHEMA_UPDATE_DISALLOWED 8509
 
 //
 // MessageId: ERROR_DS_CANT_CREATE_UNDER_SCHEMA
@@ -19685,7 +19631,7 @@ static const int ERROR_DS_SCHEMA_UPDATE_DISALLOWED 8509L
 //
 // An object of this class cannot be created under the schema container. You can only create attribute-schema and class-schema objects under the schema container.
 //
-static const int ERROR_DS_CANT_CREATE_UNDER_SCHEMA 8510L
+    ERROR_DS_CANT_CREATE_UNDER_SCHEMA 8510
 
 //
 // MessageId: ERROR_DS_INSTALL_NO_SRC_SCH_VERSION
@@ -19694,7 +19640,7 @@ static const int ERROR_DS_CANT_CREATE_UNDER_SCHEMA 8510L
 //
 // The replica/child install failed to get the objectVersion attribute on the schema container on the source DC. Either the attribute is missing on the schema container or the credentials supplied do not have permission to read it.
 //
-static const int ERROR_DS_INSTALL_NO_SRC_SCH_VERSION 8511L
+    ERROR_DS_INSTALL_NO_SRC_SCH_VERSION 8511
 
 //
 // MessageId: ERROR_DS_INSTALL_NO_SCH_VERSION_IN_INIFILE
@@ -19703,7 +19649,7 @@ static const int ERROR_DS_INSTALL_NO_SRC_SCH_VERSION 8511L
 //
 // The replica/child install failed to read the objectVersion attribute in the SCHEMA section of the file schema.ini in the system32 directory.
 //
-static const int ERROR_DS_INSTALL_NO_SCH_VERSION_IN_INIFILE 8512L
+    ERROR_DS_INSTALL_NO_SCH_VERSION_IN_INIFILE 8512
 
 //
 // MessageId: ERROR_DS_INVALID_GROUP_TYPE
@@ -19712,7 +19658,7 @@ static const int ERROR_DS_INSTALL_NO_SCH_VERSION_IN_INIFILE 8512L
 //
 // The specified group type is invalid.
 //
-static const int ERROR_DS_INVALID_GROUP_TYPE      8513L
+    ERROR_DS_INVALID_GROUP_TYPE      8513
 
 //
 // MessageId: ERROR_DS_NO_NEST_GLOBALGROUP_IN_MIXEDDOMAIN
@@ -19721,7 +19667,7 @@ static const int ERROR_DS_INVALID_GROUP_TYPE      8513L
 //
 // You cannot nest global groups in a mixed domain if the group is security-enabled.
 //
-static const int ERROR_DS_NO_NEST_GLOBALGROUP_IN_MIXEDDOMAIN 8514L
+    ERROR_DS_NO_NEST_GLOBALGROUP_IN_MIXEDDOMAIN 8514
 
 //
 // MessageId: ERROR_DS_NO_NEST_LOCALGROUP_IN_MIXEDDOMAIN
@@ -19730,7 +19676,7 @@ static const int ERROR_DS_NO_NEST_GLOBALGROUP_IN_MIXEDDOMAIN 8514L
 //
 // You cannot nest local groups in a mixed domain if the group is security-enabled.
 //
-static const int ERROR_DS_NO_NEST_LOCALGROUP_IN_MIXEDDOMAIN 8515L
+    ERROR_DS_NO_NEST_LOCALGROUP_IN_MIXEDDOMAIN 8515
 
 //
 // MessageId: ERROR_DS_GLOBAL_CANT_HAVE_LOCAL_MEMBER
@@ -19739,7 +19685,7 @@ static const int ERROR_DS_NO_NEST_LOCALGROUP_IN_MIXEDDOMAIN 8515L
 //
 // A global group cannot have a local group as a member.
 //
-static const int ERROR_DS_GLOBAL_CANT_HAVE_LOCAL_MEMBER 8516L
+    ERROR_DS_GLOBAL_CANT_HAVE_LOCAL_MEMBER 8516
 
 //
 // MessageId: ERROR_DS_GLOBAL_CANT_HAVE_UNIVERSAL_MEMBER
@@ -19748,7 +19694,7 @@ static const int ERROR_DS_GLOBAL_CANT_HAVE_LOCAL_MEMBER 8516L
 //
 // A global group cannot have a universal group as a member.
 //
-static const int ERROR_DS_GLOBAL_CANT_HAVE_UNIVERSAL_MEMBER 8517L
+    ERROR_DS_GLOBAL_CANT_HAVE_UNIVERSAL_MEMBER 8517
 
 //
 // MessageId: ERROR_DS_UNIVERSAL_CANT_HAVE_LOCAL_MEMBER
@@ -19757,7 +19703,7 @@ static const int ERROR_DS_GLOBAL_CANT_HAVE_UNIVERSAL_MEMBER 8517L
 //
 // A universal group cannot have a local group as a member.
 //
-static const int ERROR_DS_UNIVERSAL_CANT_HAVE_LOCAL_MEMBER 8518L
+    ERROR_DS_UNIVERSAL_CANT_HAVE_LOCAL_MEMBER 8518
 
 //
 // MessageId: ERROR_DS_GLOBAL_CANT_HAVE_CROSSDOMAIN_MEMBER
@@ -19766,7 +19712,7 @@ static const int ERROR_DS_UNIVERSAL_CANT_HAVE_LOCAL_MEMBER 8518L
 //
 // A global group cannot have a cross-domain member.
 //
-static const int ERROR_DS_GLOBAL_CANT_HAVE_CROSSDOMAIN_MEMBER 8519L
+    ERROR_DS_GLOBAL_CANT_HAVE_CROSSDOMAIN_MEMBER 8519
 
 //
 // MessageId: ERROR_DS_LOCAL_CANT_HAVE_CROSSDOMAIN_LOCAL_MEMBER
@@ -19775,7 +19721,7 @@ static const int ERROR_DS_GLOBAL_CANT_HAVE_CROSSDOMAIN_MEMBER 8519L
 //
 // A local group cannot have another cross domain local group as a member.
 //
-static const int ERROR_DS_LOCAL_CANT_HAVE_CROSSDOMAIN_LOCAL_MEMBER 8520L
+    ERROR_DS_LOCAL_CANT_HAVE_CROSSDOMAIN_LOCAL_MEMBER 8520
 
 //
 // MessageId: ERROR_DS_HAVE_PRIMARY_MEMBERS
@@ -19784,7 +19730,7 @@ static const int ERROR_DS_LOCAL_CANT_HAVE_CROSSDOMAIN_LOCAL_MEMBER 8520L
 //
 // A group with primary members cannot change to a security-disabled group.
 //
-static const int ERROR_DS_HAVE_PRIMARY_MEMBERS    8521L
+    ERROR_DS_HAVE_PRIMARY_MEMBERS    8521
 
 //
 // MessageId: ERROR_DS_STRING_SD_CONVERSION_FAILED
@@ -19793,7 +19739,7 @@ static const int ERROR_DS_HAVE_PRIMARY_MEMBERS    8521L
 //
 // The schema cache load failed to convert the string default SD on a class-schema object.
 //
-static const int ERROR_DS_STRING_SD_CONVERSION_FAILED 8522L
+    ERROR_DS_STRING_SD_CONVERSION_FAILED 8522
 
 //
 // MessageId: ERROR_DS_NAMING_MASTER_GC
@@ -19802,7 +19748,7 @@ static const int ERROR_DS_STRING_SD_CONVERSION_FAILED 8522L
 //
 // Only DSAs configured to be Global Catalog servers should be allowed to hold the Domain Naming Master FSMO role. (Applies only to Windows 2000 servers)
 //
-static const int ERROR_DS_NAMING_MASTER_GC        8523L
+    ERROR_DS_NAMING_MASTER_GC        8523
 
 //
 // MessageId: ERROR_DS_DNS_LOOKUP_FAILURE
@@ -19811,7 +19757,7 @@ static const int ERROR_DS_NAMING_MASTER_GC        8523L
 //
 // The DSA operation is unable to proceed because of a DNS lookup failure.
 //
-static const int ERROR_DS_DNS_LOOKUP_FAILURE      8524L
+    ERROR_DS_DNS_LOOKUP_FAILURE      8524
 
 //
 // MessageId: ERROR_DS_COULDNT_UPDATE_SPNS
@@ -19820,7 +19766,7 @@ static const int ERROR_DS_DNS_LOOKUP_FAILURE      8524L
 //
 // While processing a change to the DNS Host Name for an object, the Service Principal Name values could not be kept in sync.
 //
-static const int ERROR_DS_COULDNT_UPDATE_SPNS     8525L
+    ERROR_DS_COULDNT_UPDATE_SPNS     8525
 
 //
 // MessageId: ERROR_DS_CANT_RETRIEVE_SD
@@ -19829,7 +19775,7 @@ static const int ERROR_DS_COULDNT_UPDATE_SPNS     8525L
 //
 // The Security Descriptor attribute could not be read.
 //
-static const int ERROR_DS_CANT_RETRIEVE_SD        8526L
+    ERROR_DS_CANT_RETRIEVE_SD        8526
 
 //
 // MessageId: ERROR_DS_KEY_NOT_UNIQUE
@@ -19838,7 +19784,7 @@ static const int ERROR_DS_CANT_RETRIEVE_SD        8526L
 //
 // The object requested was not found, but an object with that key was found.
 //
-static const int ERROR_DS_KEY_NOT_UNIQUE          8527L
+    ERROR_DS_KEY_NOT_UNIQUE          8527
 
 //
 // MessageId: ERROR_DS_WRONG_LINKED_ATT_SYNTAX
@@ -19847,7 +19793,7 @@ static const int ERROR_DS_KEY_NOT_UNIQUE          8527L
 //
 // The syntax of the linked attribute being added is incorrect. Forward links can only have syntax 2.5.5.1, 2.5.5.7, and 2.5.5.14, and backlinks can only have syntax 2.5.5.1
 //
-static const int ERROR_DS_WRONG_LINKED_ATT_SYNTAX 8528L
+    ERROR_DS_WRONG_LINKED_ATT_SYNTAX 8528
 
 //
 // MessageId: ERROR_DS_SAM_NEED_BOOTKEY_PASSWORD
@@ -19856,7 +19802,7 @@ static const int ERROR_DS_WRONG_LINKED_ATT_SYNTAX 8528L
 //
 // Security Account Manager needs to get the boot password.
 //
-static const int ERROR_DS_SAM_NEED_BOOTKEY_PASSWORD 8529L
+    ERROR_DS_SAM_NEED_BOOTKEY_PASSWORD 8529
 
 //
 // MessageId: ERROR_DS_SAM_NEED_BOOTKEY_FLOPPY
@@ -19865,7 +19811,7 @@ static const int ERROR_DS_SAM_NEED_BOOTKEY_PASSWORD 8529L
 //
 // Security Account Manager needs to get the boot key from floppy disk.
 //
-static const int ERROR_DS_SAM_NEED_BOOTKEY_FLOPPY 8530L
+    ERROR_DS_SAM_NEED_BOOTKEY_FLOPPY 8530
 
 //
 // MessageId: ERROR_DS_CANT_START
@@ -19874,7 +19820,7 @@ static const int ERROR_DS_SAM_NEED_BOOTKEY_FLOPPY 8530L
 //
 // Directory Service cannot start.
 //
-static const int ERROR_DS_CANT_START              8531L
+    ERROR_DS_CANT_START              8531
 
 //
 // MessageId: ERROR_DS_INIT_FAILURE
@@ -19883,7 +19829,7 @@ static const int ERROR_DS_CANT_START              8531L
 //
 // Directory Services could not start.
 //
-static const int ERROR_DS_INIT_FAILURE            8532L
+    ERROR_DS_INIT_FAILURE            8532
 
 //
 // MessageId: ERROR_DS_NO_PKT_PRIVACY_ON_CONNECTION
@@ -19892,7 +19838,7 @@ static const int ERROR_DS_INIT_FAILURE            8532L
 //
 // The connection between client and server requires packet privacy or better.
 //
-static const int ERROR_DS_NO_PKT_PRIVACY_ON_CONNECTION 8533L
+    ERROR_DS_NO_PKT_PRIVACY_ON_CONNECTION 8533
 
 //
 // MessageId: ERROR_DS_SOURCE_DOMAIN_IN_FOREST
@@ -19901,7 +19847,7 @@ static const int ERROR_DS_NO_PKT_PRIVACY_ON_CONNECTION 8533L
 //
 // The source domain may not be in the same forest as destination.
 //
-static const int ERROR_DS_SOURCE_DOMAIN_IN_FOREST 8534L
+    ERROR_DS_SOURCE_DOMAIN_IN_FOREST 8534
 
 //
 // MessageId: ERROR_DS_DESTINATION_DOMAIN_NOT_IN_FOREST
@@ -19910,7 +19856,7 @@ static const int ERROR_DS_SOURCE_DOMAIN_IN_FOREST 8534L
 //
 // The destination domain must be in the forest.
 //
-static const int ERROR_DS_DESTINATION_DOMAIN_NOT_IN_FOREST 8535L
+    ERROR_DS_DESTINATION_DOMAIN_NOT_IN_FOREST 8535
 
 //
 // MessageId: ERROR_DS_DESTINATION_AUDITING_NOT_ENABLED
@@ -19919,7 +19865,7 @@ static const int ERROR_DS_DESTINATION_DOMAIN_NOT_IN_FOREST 8535L
 //
 // The operation requires that destination domain auditing be enabled.
 //
-static const int ERROR_DS_DESTINATION_AUDITING_NOT_ENABLED 8536L
+    ERROR_DS_DESTINATION_AUDITING_NOT_ENABLED 8536
 
 //
 // MessageId: ERROR_DS_CANT_FIND_DC_FOR_SRC_DOMAIN
@@ -19928,7 +19874,7 @@ static const int ERROR_DS_DESTINATION_AUDITING_NOT_ENABLED 8536L
 //
 // The operation couldn't locate a DC for the source domain.
 //
-static const int ERROR_DS_CANT_FIND_DC_FOR_SRC_DOMAIN 8537L
+    ERROR_DS_CANT_FIND_DC_FOR_SRC_DOMAIN 8537
 
 //
 // MessageId: ERROR_DS_SRC_OBJ_NOT_GROUP_OR_USER
@@ -19937,7 +19883,7 @@ static const int ERROR_DS_CANT_FIND_DC_FOR_SRC_DOMAIN 8537L
 //
 // The source object must be a group or user.
 //
-static const int ERROR_DS_SRC_OBJ_NOT_GROUP_OR_USER 8538L
+    ERROR_DS_SRC_OBJ_NOT_GROUP_OR_USER 8538
 
 //
 // MessageId: ERROR_DS_SRC_SID_EXISTS_IN_FOREST
@@ -19946,7 +19892,7 @@ static const int ERROR_DS_SRC_OBJ_NOT_GROUP_OR_USER 8538L
 //
 // The source object's SID already exists in destination forest.
 //
-static const int ERROR_DS_SRC_SID_EXISTS_IN_FOREST 8539L
+    ERROR_DS_SRC_SID_EXISTS_IN_FOREST 8539
 
 //
 // MessageId: ERROR_DS_SRC_AND_DST_OBJECT_CLASS_MISMATCH
@@ -19955,7 +19901,7 @@ static const int ERROR_DS_SRC_SID_EXISTS_IN_FOREST 8539L
 //
 // The source and destination object must be of the same type.
 //
-static const int ERROR_DS_SRC_AND_DST_OBJECT_CLASS_MISMATCH 8540L
+    ERROR_DS_SRC_AND_DST_OBJECT_CLASS_MISMATCH 8540
 
 //
 // MessageId: ERROR_SAM_INIT_FAILURE
@@ -19965,7 +19911,7 @@ static const int ERROR_DS_SRC_AND_DST_OBJECT_CLASS_MISMATCH 8540L
 // Security Accounts Manager initialization failed because of the following error: %1.
 // Error Status: 0x%2. Click OK to shut down the system and reboot into Safe Mode. Check the event log for detailed information.
 //
-static const int ERROR_SAM_INIT_FAILURE           8541L
+    ERROR_SAM_INIT_FAILURE           8541
 
 //
 // MessageId: ERROR_DS_DRA_SCHEMA_INFO_SHIP
@@ -19974,7 +19920,7 @@ static const int ERROR_SAM_INIT_FAILURE           8541L
 //
 // Schema information could not be included in the replication request.
 //
-static const int ERROR_DS_DRA_SCHEMA_INFO_SHIP    8542L
+    ERROR_DS_DRA_SCHEMA_INFO_SHIP    8542
 
 //
 // MessageId: ERROR_DS_DRA_SCHEMA_CONFLICT
@@ -19983,7 +19929,7 @@ static const int ERROR_DS_DRA_SCHEMA_INFO_SHIP    8542L
 //
 // The replication operation could not be completed due to a schema incompatibility.
 //
-static const int ERROR_DS_DRA_SCHEMA_CONFLICT     8543L
+    ERROR_DS_DRA_SCHEMA_CONFLICT     8543
 
 //
 // MessageId: ERROR_DS_DRA_EARLIER_SCHEMA_CONFLICT
@@ -19992,7 +19938,7 @@ static const int ERROR_DS_DRA_SCHEMA_CONFLICT     8543L
 //
 // The replication operation could not be completed due to a previous schema incompatibility.
 //
-static const int ERROR_DS_DRA_EARLIER_SCHEMA_CONFLICT 8544L
+    ERROR_DS_DRA_EARLIER_SCHEMA_CONFLICT 8544
 
 //
 // MessageId: ERROR_DS_DRA_OBJ_NC_MISMATCH
@@ -20001,7 +19947,7 @@ static const int ERROR_DS_DRA_EARLIER_SCHEMA_CONFLICT 8544L
 //
 // The replication update could not be applied because either the source or the destination has not yet received information regarding a recent cross-domain move operation.
 //
-static const int ERROR_DS_DRA_OBJ_NC_MISMATCH     8545L
+    ERROR_DS_DRA_OBJ_NC_MISMATCH     8545
 
 //
 // MessageId: ERROR_DS_NC_STILL_HAS_DSAS
@@ -20010,7 +19956,7 @@ static const int ERROR_DS_DRA_OBJ_NC_MISMATCH     8545L
 //
 // The requested domain could not be deleted because there exist domain controllers that still host this domain.
 //
-static const int ERROR_DS_NC_STILL_HAS_DSAS       8546L
+    ERROR_DS_NC_STILL_HAS_DSAS       8546
 
 //
 // MessageId: ERROR_DS_GC_REQUIRED
@@ -20019,7 +19965,7 @@ static const int ERROR_DS_NC_STILL_HAS_DSAS       8546L
 //
 // The requested operation can be performed only on a global catalog server.
 //
-static const int ERROR_DS_GC_REQUIRED             8547L
+    ERROR_DS_GC_REQUIRED             8547
 
 //
 // MessageId: ERROR_DS_LOCAL_MEMBER_OF_LOCAL_ONLY
@@ -20028,7 +19974,7 @@ static const int ERROR_DS_GC_REQUIRED             8547L
 //
 // A local group can only be a member of other local groups in the same domain.
 //
-static const int ERROR_DS_LOCAL_MEMBER_OF_LOCAL_ONLY 8548L
+    ERROR_DS_LOCAL_MEMBER_OF_LOCAL_ONLY 8548
 
 //
 // MessageId: ERROR_DS_NO_FPO_IN_UNIVERSAL_GROUPS
@@ -20037,7 +19983,7 @@ static const int ERROR_DS_LOCAL_MEMBER_OF_LOCAL_ONLY 8548L
 //
 // Foreign security principals cannot be members of universal groups.
 //
-static const int ERROR_DS_NO_FPO_IN_UNIVERSAL_GROUPS 8549L
+    ERROR_DS_NO_FPO_IN_UNIVERSAL_GROUPS 8549
 
 //
 // MessageId: ERROR_DS_CANT_ADD_TO_GC
@@ -20046,7 +19992,7 @@ static const int ERROR_DS_NO_FPO_IN_UNIVERSAL_GROUPS 8549L
 //
 // The attribute is not allowed to be replicated to the GC because of security reasons.
 //
-static const int ERROR_DS_CANT_ADD_TO_GC          8550L
+    ERROR_DS_CANT_ADD_TO_GC          8550
 
 //
 // MessageId: ERROR_DS_NO_CHECKPOINT_WITH_PDC
@@ -20055,7 +20001,7 @@ static const int ERROR_DS_CANT_ADD_TO_GC          8550L
 //
 // The checkpoint with the PDC could not be taken because there too many modifications being processed currently.
 //
-static const int ERROR_DS_NO_CHECKPOINT_WITH_PDC  8551L
+    ERROR_DS_NO_CHECKPOINT_WITH_PDC  8551
 
 //
 // MessageId: ERROR_DS_SOURCE_AUDITING_NOT_ENABLED
@@ -20064,7 +20010,7 @@ static const int ERROR_DS_NO_CHECKPOINT_WITH_PDC  8551L
 //
 // The operation requires that source domain auditing be enabled.
 //
-static const int ERROR_DS_SOURCE_AUDITING_NOT_ENABLED 8552L
+    ERROR_DS_SOURCE_AUDITING_NOT_ENABLED 8552
 
 //
 // MessageId: ERROR_DS_CANT_CREATE_IN_NONDOMAIN_NC
@@ -20073,7 +20019,7 @@ static const int ERROR_DS_SOURCE_AUDITING_NOT_ENABLED 8552L
 //
 // Security principal objects can only be created inside domain naming contexts.
 //
-static const int ERROR_DS_CANT_CREATE_IN_NONDOMAIN_NC 8553L
+    ERROR_DS_CANT_CREATE_IN_NONDOMAIN_NC 8553
 
 //
 // MessageId: ERROR_DS_INVALID_NAME_FOR_SPN
@@ -20082,7 +20028,7 @@ static const int ERROR_DS_CANT_CREATE_IN_NONDOMAIN_NC 8553L
 //
 // A Service Principal Name (SPN) could not be constructed because the provided hostname is not in the necessary format.
 //
-static const int ERROR_DS_INVALID_NAME_FOR_SPN    8554L
+    ERROR_DS_INVALID_NAME_FOR_SPN    8554
 
 //
 // MessageId: ERROR_DS_FILTER_USES_CONTRUCTED_ATTRS
@@ -20091,7 +20037,7 @@ static const int ERROR_DS_INVALID_NAME_FOR_SPN    8554L
 //
 // A Filter was passed that uses constructed attributes.
 //
-static const int ERROR_DS_FILTER_USES_CONTRUCTED_ATTRS 8555L
+    ERROR_DS_FILTER_USES_CONTRUCTED_ATTRS 8555
 
 //
 // MessageId: ERROR_DS_UNICODEPWD_NOT_IN_QUOTES
@@ -20100,7 +20046,7 @@ static const int ERROR_DS_FILTER_USES_CONTRUCTED_ATTRS 8555L
 //
 // The unicodePwd attribute value must be enclosed in double quotes.
 //
-static const int ERROR_DS_UNICODEPWD_NOT_IN_QUOTES 8556L
+    ERROR_DS_UNICODEPWD_NOT_IN_QUOTES 8556
 
 //
 // MessageId: ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED
@@ -20109,7 +20055,7 @@ static const int ERROR_DS_UNICODEPWD_NOT_IN_QUOTES 8556L
 //
 // Your computer could not be joined to the domain. You have exceeded the maximum number of computer accounts you are allowed to create in this domain. Contact your system administrator to have this limit reset or increased.
 //
-static const int ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED 8557L
+    ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED 8557
 
 //
 // MessageId: ERROR_DS_MUST_BE_RUN_ON_DST_DC
@@ -20118,7 +20064,7 @@ static const int ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED 8557L
 //
 // For security reasons, the operation must be run on the destination DC.
 //
-static const int ERROR_DS_MUST_BE_RUN_ON_DST_DC   8558L
+    ERROR_DS_MUST_BE_RUN_ON_DST_DC   8558
 
 //
 // MessageId: ERROR_DS_SRC_DC_MUST_BE_SP4_OR_GREATER
@@ -20127,7 +20073,7 @@ static const int ERROR_DS_MUST_BE_RUN_ON_DST_DC   8558L
 //
 // For security reasons, the source DC must be NT4SP4 or greater.
 //
-static const int ERROR_DS_SRC_DC_MUST_BE_SP4_OR_GREATER 8559L
+    ERROR_DS_SRC_DC_MUST_BE_SP4_OR_GREATER 8559
 
 //
 // MessageId: ERROR_DS_CANT_TREE_DELETE_CRITICAL_OBJ
@@ -20136,7 +20082,7 @@ static const int ERROR_DS_SRC_DC_MUST_BE_SP4_OR_GREATER 8559L
 //
 // Critical Directory Service System objects cannot be deleted during tree delete operations. The tree delete may have been partially performed.
 //
-static const int ERROR_DS_CANT_TREE_DELETE_CRITICAL_OBJ 8560L
+    ERROR_DS_CANT_TREE_DELETE_CRITICAL_OBJ 8560
 
 //
 // MessageId: ERROR_DS_INIT_FAILURE_CONSOLE
@@ -20146,7 +20092,7 @@ static const int ERROR_DS_CANT_TREE_DELETE_CRITICAL_OBJ 8560L
 // Directory Services could not start because of the following error: %1.
 // Error Status: 0x%2. Please click OK to shutdown the system. You can use the recovery console to diagnose the system further.
 //
-static const int ERROR_DS_INIT_FAILURE_CONSOLE    8561L
+    ERROR_DS_INIT_FAILURE_CONSOLE    8561
 
 //
 // MessageId: ERROR_DS_SAM_INIT_FAILURE_CONSOLE
@@ -20156,7 +20102,7 @@ static const int ERROR_DS_INIT_FAILURE_CONSOLE    8561L
 // Security Accounts Manager initialization failed because of the following error: %1.
 // Error Status: 0x%2. Please click OK to shutdown the system. You can use the recovery console to diagnose the system further.
 //
-static const int ERROR_DS_SAM_INIT_FAILURE_CONSOLE 8562L
+    ERROR_DS_SAM_INIT_FAILURE_CONSOLE 8562
 
 //
 // MessageId: ERROR_DS_FOREST_VERSION_TOO_HIGH
@@ -20165,7 +20111,7 @@ static const int ERROR_DS_SAM_INIT_FAILURE_CONSOLE 8562L
 //
 // The version of the operating system is incompatible with the current AD DS forest functional level or AD LDS Configuration Set functional level. You must upgrade to a new version of the operating system before this server can become an AD DS Domain Controller or add an AD LDS Instance in this AD DS Forest or AD LDS Configuration Set.
 //
-static const int ERROR_DS_FOREST_VERSION_TOO_HIGH 8563L
+    ERROR_DS_FOREST_VERSION_TOO_HIGH 8563
 
 //
 // MessageId: ERROR_DS_DOMAIN_VERSION_TOO_HIGH
@@ -20174,7 +20120,7 @@ static const int ERROR_DS_FOREST_VERSION_TOO_HIGH 8563L
 //
 // The version of the operating system installed is incompatible with the current domain functional level. You must upgrade to a new version of the operating system before this server can become a domain controller in this domain.
 //
-static const int ERROR_DS_DOMAIN_VERSION_TOO_HIGH 8564L
+    ERROR_DS_DOMAIN_VERSION_TOO_HIGH 8564
 
 //
 // MessageId: ERROR_DS_FOREST_VERSION_TOO_LOW
@@ -20183,7 +20129,7 @@ static const int ERROR_DS_DOMAIN_VERSION_TOO_HIGH 8564L
 //
 // The version of the operating system installed on this server no longer supports the current AD DS Forest functional level or AD LDS Configuration Set functional level. You must raise the AD DS Forest functional level or AD LDS Configuration Set functional level before this server can become an AD DS Domain Controller or an AD LDS Instance in this Forest or Configuration Set.
 //
-static const int ERROR_DS_FOREST_VERSION_TOO_LOW  8565L
+    ERROR_DS_FOREST_VERSION_TOO_LOW  8565
 
 //
 // MessageId: ERROR_DS_DOMAIN_VERSION_TOO_LOW
@@ -20192,7 +20138,7 @@ static const int ERROR_DS_FOREST_VERSION_TOO_LOW  8565L
 //
 // The version of the operating system installed on this server no longer supports the current domain functional level. You must raise the domain functional level before this server can become a domain controller in this domain.
 //
-static const int ERROR_DS_DOMAIN_VERSION_TOO_LOW  8566L
+    ERROR_DS_DOMAIN_VERSION_TOO_LOW  8566
 
 //
 // MessageId: ERROR_DS_INCOMPATIBLE_VERSION
@@ -20201,7 +20147,7 @@ static const int ERROR_DS_DOMAIN_VERSION_TOO_LOW  8566L
 //
 // The version of the operating system installed on this server is incompatible with the functional level of the domain or forest.
 //
-static const int ERROR_DS_INCOMPATIBLE_VERSION    8567L
+    ERROR_DS_INCOMPATIBLE_VERSION    8567
 
 //
 // MessageId: ERROR_DS_LOW_DSA_VERSION
@@ -20210,7 +20156,7 @@ static const int ERROR_DS_INCOMPATIBLE_VERSION    8567L
 //
 // The functional level of the domain (or forest) cannot be raised to the requested value, because there exist one or more domain controllers in the domain (or forest) that are at a lower incompatible functional level.
 //
-static const int ERROR_DS_LOW_DSA_VERSION         8568L
+    ERROR_DS_LOW_DSA_VERSION         8568
 
 //
 // MessageId: ERROR_DS_NO_BEHAVIOR_VERSION_IN_MIXEDDOMAIN
@@ -20219,7 +20165,7 @@ static const int ERROR_DS_LOW_DSA_VERSION         8568L
 //
 // The forest functional level cannot be raised to the requested value since one or more domains are still in mixed domain mode. All domains in the forest must be in native mode, for you to raise the forest functional level.
 //
-static const int ERROR_DS_NO_BEHAVIOR_VERSION_IN_MIXEDDOMAIN 8569L
+    ERROR_DS_NO_BEHAVIOR_VERSION_IN_MIXEDDOMAIN 8569
 
 //
 // MessageId: ERROR_DS_NOT_SUPPORTED_SORT_ORDER
@@ -20228,7 +20174,7 @@ static const int ERROR_DS_NO_BEHAVIOR_VERSION_IN_MIXEDDOMAIN 8569L
 //
 // The sort order requested is not supported.
 //
-static const int ERROR_DS_NOT_SUPPORTED_SORT_ORDER 8570L
+    ERROR_DS_NOT_SUPPORTED_SORT_ORDER 8570
 
 //
 // MessageId: ERROR_DS_NAME_NOT_UNIQUE
@@ -20237,7 +20183,7 @@ static const int ERROR_DS_NOT_SUPPORTED_SORT_ORDER 8570L
 //
 // The requested name already exists as a unique identifier.
 //
-static const int ERROR_DS_NAME_NOT_UNIQUE         8571L
+    ERROR_DS_NAME_NOT_UNIQUE         8571
 
 //
 // MessageId: ERROR_DS_MACHINE_ACCOUNT_CREATED_PRENT4
@@ -20246,7 +20192,7 @@ static const int ERROR_DS_NAME_NOT_UNIQUE         8571L
 //
 // The machine account was created pre-NT4. The account needs to be recreated.
 //
-static const int ERROR_DS_MACHINE_ACCOUNT_CREATED_PRENT4 8572L
+    ERROR_DS_MACHINE_ACCOUNT_CREATED_PRENT4 8572
 
 //
 // MessageId: ERROR_DS_OUT_OF_VERSION_STORE
@@ -20255,7 +20201,7 @@ static const int ERROR_DS_MACHINE_ACCOUNT_CREATED_PRENT4 8572L
 //
 // The database is out of version store.
 //
-static const int ERROR_DS_OUT_OF_VERSION_STORE    8573L
+    ERROR_DS_OUT_OF_VERSION_STORE    8573
 
 //
 // MessageId: ERROR_DS_INCOMPATIBLE_CONTROLS_USED
@@ -20264,7 +20210,7 @@ static const int ERROR_DS_OUT_OF_VERSION_STORE    8573L
 //
 // Unable to continue operation because multiple conflicting controls were used.
 //
-static const int ERROR_DS_INCOMPATIBLE_CONTROLS_USED 8574L
+    ERROR_DS_INCOMPATIBLE_CONTROLS_USED 8574
 
 //
 // MessageId: ERROR_DS_NO_REF_DOMAIN
@@ -20273,7 +20219,7 @@ static const int ERROR_DS_INCOMPATIBLE_CONTROLS_USED 8574L
 //
 // Unable to find a valid security descriptor reference domain for this partition.
 //
-static const int ERROR_DS_NO_REF_DOMAIN           8575L
+    ERROR_DS_NO_REF_DOMAIN           8575
 
 //
 // MessageId: ERROR_DS_RESERVED_LINK_ID
@@ -20282,7 +20228,7 @@ static const int ERROR_DS_NO_REF_DOMAIN           8575L
 //
 // Schema update failed: The link identifier is reserved.
 //
-static const int ERROR_DS_RESERVED_LINK_ID        8576L
+    ERROR_DS_RESERVED_LINK_ID        8576
 
 //
 // MessageId: ERROR_DS_LINK_ID_NOT_AVAILABLE
@@ -20291,7 +20237,7 @@ static const int ERROR_DS_RESERVED_LINK_ID        8576L
 //
 // Schema update failed: There are no link identifiers available.
 //
-static const int ERROR_DS_LINK_ID_NOT_AVAILABLE   8577L
+    ERROR_DS_LINK_ID_NOT_AVAILABLE   8577
 
 //
 // MessageId: ERROR_DS_AG_CANT_HAVE_UNIVERSAL_MEMBER
@@ -20300,7 +20246,7 @@ static const int ERROR_DS_LINK_ID_NOT_AVAILABLE   8577L
 //
 // An account group cannot have a universal group as a member.
 //
-static const int ERROR_DS_AG_CANT_HAVE_UNIVERSAL_MEMBER 8578L
+    ERROR_DS_AG_CANT_HAVE_UNIVERSAL_MEMBER 8578
 
 //
 // MessageId: ERROR_DS_MODIFYDN_DISALLOWED_BY_INSTANCE_TYPE
@@ -20309,7 +20255,7 @@ static const int ERROR_DS_AG_CANT_HAVE_UNIVERSAL_MEMBER 8578L
 //
 // Rename or move operations on naming context heads or read-only objects are not allowed.
 //
-static const int ERROR_DS_MODIFYDN_DISALLOWED_BY_INSTANCE_TYPE 8579L
+    ERROR_DS_MODIFYDN_DISALLOWED_BY_INSTANCE_TYPE 8579
 
 //
 // MessageId: ERROR_DS_NO_OBJECT_MOVE_IN_SCHEMA_NC
@@ -20318,7 +20264,7 @@ static const int ERROR_DS_MODIFYDN_DISALLOWED_BY_INSTANCE_TYPE 8579L
 //
 // Move operations on objects in the schema naming context are not allowed.
 //
-static const int ERROR_DS_NO_OBJECT_MOVE_IN_SCHEMA_NC 8580L
+    ERROR_DS_NO_OBJECT_MOVE_IN_SCHEMA_NC 8580
 
 //
 // MessageId: ERROR_DS_MODIFYDN_DISALLOWED_BY_FLAG
@@ -20327,7 +20273,7 @@ static const int ERROR_DS_NO_OBJECT_MOVE_IN_SCHEMA_NC 8580L
 //
 // A system flag has been set on the object and does not allow the object to be moved or renamed.
 //
-static const int ERROR_DS_MODIFYDN_DISALLOWED_BY_FLAG 8581L
+    ERROR_DS_MODIFYDN_DISALLOWED_BY_FLAG 8581
 
 //
 // MessageId: ERROR_DS_MODIFYDN_WRONG_GRANDPARENT
@@ -20336,7 +20282,7 @@ static const int ERROR_DS_MODIFYDN_DISALLOWED_BY_FLAG 8581L
 //
 // This object is not allowed to change its grandparent container. Moves are not forbidden on this object, but are restricted to sibling containers.
 //
-static const int ERROR_DS_MODIFYDN_WRONG_GRANDPARENT 8582L
+    ERROR_DS_MODIFYDN_WRONG_GRANDPARENT 8582
 
 //
 // MessageId: ERROR_DS_NAME_ERROR_TRUST_REFERRAL
@@ -20345,7 +20291,7 @@ static const int ERROR_DS_MODIFYDN_WRONG_GRANDPARENT 8582L
 //
 // Unable to resolve completely, a referral to another forest is generated.
 //
-static const int ERROR_DS_NAME_ERROR_TRUST_REFERRAL 8583L
+    ERROR_DS_NAME_ERROR_TRUST_REFERRAL 8583
 
 //
 // MessageId: ERROR_NOT_SUPPORTED_ON_STANDARD_SERVER
@@ -20354,7 +20300,7 @@ static const int ERROR_DS_NAME_ERROR_TRUST_REFERRAL 8583L
 //
 // The requested action is not supported on standard server.
 //
-static const int ERROR_NOT_SUPPORTED_ON_STANDARD_SERVER 8584L
+    ERROR_NOT_SUPPORTED_ON_STANDARD_SERVER 8584
 
 //
 // MessageId: ERROR_DS_CANT_ACCESS_REMOTE_PART_OF_AD
@@ -20363,7 +20309,7 @@ static const int ERROR_NOT_SUPPORTED_ON_STANDARD_SERVER 8584L
 //
 // Could not access a partition of the directory service located on a remote server. Make sure at least one server is running for the partition in question.
 //
-static const int ERROR_DS_CANT_ACCESS_REMOTE_PART_OF_AD 8585L
+    ERROR_DS_CANT_ACCESS_REMOTE_PART_OF_AD 8585
 
 //
 // MessageId: ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE_V2
@@ -20372,7 +20318,7 @@ static const int ERROR_DS_CANT_ACCESS_REMOTE_PART_OF_AD 8585L
 //
 // The directory cannot validate the proposed naming context (or partition) name because it does not hold a replica nor can it contact a replica of the naming context above the proposed naming context. Please ensure that the parent naming context is properly registered in DNS, and at least one replica of this naming context is reachable by the Domain Naming master.
 //
-static const int ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE_V2 8586L
+    ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE_V2 8586
 
 //
 // MessageId: ERROR_DS_THREAD_LIMIT_EXCEEDED
@@ -20381,7 +20327,7 @@ static const int ERROR_DS_CR_IMPOSSIBLE_TO_VALIDATE_V2 8586L
 //
 // The thread limit for this request was exceeded.
 //
-static const int ERROR_DS_THREAD_LIMIT_EXCEEDED   8587L
+    ERROR_DS_THREAD_LIMIT_EXCEEDED   8587
 
 //
 // MessageId: ERROR_DS_NOT_CLOSEST
@@ -20390,7 +20336,7 @@ static const int ERROR_DS_THREAD_LIMIT_EXCEEDED   8587L
 //
 // The Global catalog server is not in the closest site.
 //
-static const int ERROR_DS_NOT_CLOSEST             8588L
+    ERROR_DS_NOT_CLOSEST             8588
 
 //
 // MessageId: ERROR_DS_CANT_DERIVE_SPN_WITHOUT_SERVER_REF
@@ -20399,7 +20345,7 @@ static const int ERROR_DS_NOT_CLOSEST             8588L
 //
 // The DS cannot derive a service principal name (SPN) with which to mutually authenticate the target server because the corresponding server object in the local DS database has no serverReference attribute.
 //
-static const int ERROR_DS_CANT_DERIVE_SPN_WITHOUT_SERVER_REF 8589L
+    ERROR_DS_CANT_DERIVE_SPN_WITHOUT_SERVER_REF 8589
 
 //
 // MessageId: ERROR_DS_SINGLE_USER_MODE_FAILED
@@ -20408,7 +20354,7 @@ static const int ERROR_DS_CANT_DERIVE_SPN_WITHOUT_SERVER_REF 8589L
 //
 // The Directory Service failed to enter single user mode.
 //
-static const int ERROR_DS_SINGLE_USER_MODE_FAILED 8590L
+    ERROR_DS_SINGLE_USER_MODE_FAILED 8590
 
 //
 // MessageId: ERROR_DS_NTDSCRIPT_SYNTAX_ERROR
@@ -20417,7 +20363,7 @@ static const int ERROR_DS_SINGLE_USER_MODE_FAILED 8590L
 //
 // The Directory Service cannot parse the script because of a syntax error.
 //
-static const int ERROR_DS_NTDSCRIPT_SYNTAX_ERROR  8591L
+    ERROR_DS_NTDSCRIPT_SYNTAX_ERROR  8591
 
 //
 // MessageId: ERROR_DS_NTDSCRIPT_PROCESS_ERROR
@@ -20426,7 +20372,7 @@ static const int ERROR_DS_NTDSCRIPT_SYNTAX_ERROR  8591L
 //
 // The Directory Service cannot process the script because of an error.
 //
-static const int ERROR_DS_NTDSCRIPT_PROCESS_ERROR 8592L
+    ERROR_DS_NTDSCRIPT_PROCESS_ERROR 8592
 
 //
 // MessageId: ERROR_DS_DIFFERENT_REPL_EPOCHS
@@ -20435,7 +20381,7 @@ static const int ERROR_DS_NTDSCRIPT_PROCESS_ERROR 8592L
 //
 // The directory service cannot perform the requested operation because the servers involved are of different replication epochs (which is usually related to a domain rename that is in progress).
 //
-static const int ERROR_DS_DIFFERENT_REPL_EPOCHS   8593L
+    ERROR_DS_DIFFERENT_REPL_EPOCHS   8593
 
 //
 // MessageId: ERROR_DS_DRS_EXTENSIONS_CHANGED
@@ -20444,7 +20390,7 @@ static const int ERROR_DS_DIFFERENT_REPL_EPOCHS   8593L
 //
 // The directory service binding must be renegotiated due to a change in the server extensions information.
 //
-static const int ERROR_DS_DRS_EXTENSIONS_CHANGED  8594L
+    ERROR_DS_DRS_EXTENSIONS_CHANGED  8594
 
 //
 // MessageId: ERROR_DS_REPLICA_SET_CHANGE_NOT_ALLOWED_ON_DISABLED_CR
@@ -20453,7 +20399,7 @@ static const int ERROR_DS_DRS_EXTENSIONS_CHANGED  8594L
 //
 // Operation not allowed on a disabled cross ref.
 //
-static const int ERROR_DS_REPLICA_SET_CHANGE_NOT_ALLOWED_ON_DISABLED_CR 8595L
+    ERROR_DS_REPLICA_SET_CHANGE_NOT_ALLOWED_ON_DISABLED_CR 8595
 
 //
 // MessageId: ERROR_DS_NO_MSDS_INTID
@@ -20462,7 +20408,7 @@ static const int ERROR_DS_REPLICA_SET_CHANGE_NOT_ALLOWED_ON_DISABLED_CR 8595L
 //
 // Schema update failed: No values for msDS-IntId are available.
 //
-static const int ERROR_DS_NO_MSDS_INTID           8596L
+    ERROR_DS_NO_MSDS_INTID           8596
 
 //
 // MessageId: ERROR_DS_DUP_MSDS_INTID
@@ -20471,7 +20417,7 @@ static const int ERROR_DS_NO_MSDS_INTID           8596L
 //
 // Schema update failed: Duplicate msDS-INtId. Retry the operation.
 //
-static const int ERROR_DS_DUP_MSDS_INTID          8597L
+    ERROR_DS_DUP_MSDS_INTID          8597
 
 //
 // MessageId: ERROR_DS_EXISTS_IN_RDNATTID
@@ -20480,7 +20426,7 @@ static const int ERROR_DS_DUP_MSDS_INTID          8597L
 //
 // Schema deletion failed: attribute is used in rDNAttID.
 //
-static const int ERROR_DS_EXISTS_IN_RDNATTID      8598L
+    ERROR_DS_EXISTS_IN_RDNATTID      8598
 
 //
 // MessageId: ERROR_DS_AUTHORIZATION_FAILED
@@ -20489,7 +20435,7 @@ static const int ERROR_DS_EXISTS_IN_RDNATTID      8598L
 //
 // The directory service failed to authorize the request.
 //
-static const int ERROR_DS_AUTHORIZATION_FAILED    8599L
+    ERROR_DS_AUTHORIZATION_FAILED    8599
 
 //
 // MessageId: ERROR_DS_INVALID_SCRIPT
@@ -20498,7 +20444,7 @@ static const int ERROR_DS_AUTHORIZATION_FAILED    8599L
 //
 // The Directory Service cannot process the script because it is invalid.
 //
-static const int ERROR_DS_INVALID_SCRIPT          8600L
+    ERROR_DS_INVALID_SCRIPT          8600
 
 //
 // MessageId: ERROR_DS_REMOTE_CROSSREF_OP_FAILED
@@ -20507,7 +20453,7 @@ static const int ERROR_DS_INVALID_SCRIPT          8600L
 //
 // The remote create cross reference operation failed on the Domain Naming Master FSMO. The operation's error is in the extended data.
 //
-static const int ERROR_DS_REMOTE_CROSSREF_OP_FAILED 8601L
+    ERROR_DS_REMOTE_CROSSREF_OP_FAILED 8601
 
 //
 // MessageId: ERROR_DS_CROSS_REF_BUSY
@@ -20516,7 +20462,7 @@ static const int ERROR_DS_REMOTE_CROSSREF_OP_FAILED 8601L
 //
 // A cross reference is in use locally with the same name.
 //
-static const int ERROR_DS_CROSS_REF_BUSY          8602L
+    ERROR_DS_CROSS_REF_BUSY          8602
 
 //
 // MessageId: ERROR_DS_CANT_DERIVE_SPN_FOR_DELETED_DOMAIN
@@ -20525,7 +20471,7 @@ static const int ERROR_DS_CROSS_REF_BUSY          8602L
 //
 // The DS cannot derive a service principal name (SPN) with which to mutually authenticate the target server because the server's domain has been deleted from the forest.
 //
-static const int ERROR_DS_CANT_DERIVE_SPN_FOR_DELETED_DOMAIN 8603L
+    ERROR_DS_CANT_DERIVE_SPN_FOR_DELETED_DOMAIN 8603
 
 //
 // MessageId: ERROR_DS_CANT_DEMOTE_WITH_WRITEABLE_NC
@@ -20534,7 +20480,7 @@ static const int ERROR_DS_CANT_DERIVE_SPN_FOR_DELETED_DOMAIN 8603L
 //
 // Writeable NCs prevent this DC from demoting.
 //
-static const int ERROR_DS_CANT_DEMOTE_WITH_WRITEABLE_NC 8604L
+    ERROR_DS_CANT_DEMOTE_WITH_WRITEABLE_NC 8604
 
 //
 // MessageId: ERROR_DS_DUPLICATE_ID_FOUND
@@ -20543,7 +20489,7 @@ static const int ERROR_DS_CANT_DEMOTE_WITH_WRITEABLE_NC 8604L
 //
 // The requested object has a non-unique identifier and cannot be retrieved.
 //
-static const int ERROR_DS_DUPLICATE_ID_FOUND      8605L
+    ERROR_DS_DUPLICATE_ID_FOUND      8605
 
 //
 // MessageId: ERROR_DS_INSUFFICIENT_ATTR_TO_CREATE_OBJECT
@@ -20552,7 +20498,7 @@ static const int ERROR_DS_DUPLICATE_ID_FOUND      8605L
 //
 // Insufficient attributes were given to create an object. This object may not exist because it may have been deleted and already garbage collected.
 //
-static const int ERROR_DS_INSUFFICIENT_ATTR_TO_CREATE_OBJECT 8606L
+    ERROR_DS_INSUFFICIENT_ATTR_TO_CREATE_OBJECT 8606
 
 //
 // MessageId: ERROR_DS_GROUP_CONVERSION_ERROR
@@ -20561,7 +20507,7 @@ static const int ERROR_DS_INSUFFICIENT_ATTR_TO_CREATE_OBJECT 8606L
 //
 // The group cannot be converted due to attribute restrictions on the requested group type.
 //
-static const int ERROR_DS_GROUP_CONVERSION_ERROR  8607L
+    ERROR_DS_GROUP_CONVERSION_ERROR  8607
 
 //
 // MessageId: ERROR_DS_CANT_MOVE_APP_BASIC_GROUP
@@ -20570,7 +20516,7 @@ static const int ERROR_DS_GROUP_CONVERSION_ERROR  8607L
 //
 // Cross-domain move of non-empty basic application groups is not allowed.
 //
-static const int ERROR_DS_CANT_MOVE_APP_BASIC_GROUP 8608L
+    ERROR_DS_CANT_MOVE_APP_BASIC_GROUP 8608
 
 //
 // MessageId: ERROR_DS_CANT_MOVE_APP_QUERY_GROUP
@@ -20579,7 +20525,7 @@ static const int ERROR_DS_CANT_MOVE_APP_BASIC_GROUP 8608L
 //
 // Cross-domain move of non-empty query based application groups is not allowed.
 //
-static const int ERROR_DS_CANT_MOVE_APP_QUERY_GROUP 8609L
+    ERROR_DS_CANT_MOVE_APP_QUERY_GROUP 8609
 
 //
 // MessageId: ERROR_DS_ROLE_NOT_VERIFIED
@@ -20588,7 +20534,7 @@ static const int ERROR_DS_CANT_MOVE_APP_QUERY_GROUP 8609L
 //
 // The FSMO role ownership could not be verified because its directory partition has not replicated successfully with at least one replication partner.
 //
-static const int ERROR_DS_ROLE_NOT_VERIFIED       8610L
+    ERROR_DS_ROLE_NOT_VERIFIED       8610
 
 //
 // MessageId: ERROR_DS_WKO_CONTAINER_CANNOT_BE_SPECIAL
@@ -20597,7 +20543,7 @@ static const int ERROR_DS_ROLE_NOT_VERIFIED       8610L
 //
 // The target container for a redirection of a well known object container cannot already be a special container.
 //
-static const int ERROR_DS_WKO_CONTAINER_CANNOT_BE_SPECIAL 8611L
+    ERROR_DS_WKO_CONTAINER_CANNOT_BE_SPECIAL 8611
 
 //
 // MessageId: ERROR_DS_DOMAIN_RENAME_IN_PROGRESS
@@ -20606,7 +20552,7 @@ static const int ERROR_DS_WKO_CONTAINER_CANNOT_BE_SPECIAL 8611L
 //
 // The Directory Service cannot perform the requested operation because a domain rename operation is in progress.
 //
-static const int ERROR_DS_DOMAIN_RENAME_IN_PROGRESS 8612L
+    ERROR_DS_DOMAIN_RENAME_IN_PROGRESS 8612
 
 //
 // MessageId: ERROR_DS_EXISTING_AD_CHILD_NC
@@ -20615,7 +20561,7 @@ static const int ERROR_DS_DOMAIN_RENAME_IN_PROGRESS 8612L
 //
 // The directory service detected a child partition below the requested partition name. The partition hierarchy must be created in a top down method.
 //
-static const int ERROR_DS_EXISTING_AD_CHILD_NC    8613L
+    ERROR_DS_EXISTING_AD_CHILD_NC    8613
 
 //
 // MessageId: ERROR_DS_REPL_LIFETIME_EXCEEDED
@@ -20624,7 +20570,7 @@ static const int ERROR_DS_EXISTING_AD_CHILD_NC    8613L
 //
 // The directory service cannot replicate with this server because the time since the last replication with this server has exceeded the tombstone lifetime.
 //
-static const int ERROR_DS_REPL_LIFETIME_EXCEEDED  8614L
+    ERROR_DS_REPL_LIFETIME_EXCEEDED  8614
 
 //
 // MessageId: ERROR_DS_DISALLOWED_IN_SYSTEM_CONTAINER
@@ -20633,7 +20579,7 @@ static const int ERROR_DS_REPL_LIFETIME_EXCEEDED  8614L
 //
 // The requested operation is not allowed on an object under the system container.
 //
-static const int ERROR_DS_DISALLOWED_IN_SYSTEM_CONTAINER 8615L
+    ERROR_DS_DISALLOWED_IN_SYSTEM_CONTAINER 8615
 
 //
 // MessageId: ERROR_DS_LDAP_SEND_QUEUE_FULL
@@ -20642,7 +20588,7 @@ static const int ERROR_DS_DISALLOWED_IN_SYSTEM_CONTAINER 8615L
 //
 // The LDAP servers network send queue has filled up because the client is not processing the results of its requests fast enough. No more requests will be processed until the client catches up. If the client does not catch up then it will be disconnected.
 //
-static const int ERROR_DS_LDAP_SEND_QUEUE_FULL    8616L
+    ERROR_DS_LDAP_SEND_QUEUE_FULL    8616
 
 //
 // MessageId: ERROR_DS_DRA_OUT_SCHEDULE_WINDOW
@@ -20651,7 +20597,7 @@ static const int ERROR_DS_LDAP_SEND_QUEUE_FULL    8616L
 //
 // The scheduled replication did not take place because the system was too busy to execute the request within the schedule window. The replication queue is overloaded. Consider reducing the number of partners or decreasing the scheduled replication frequency.
 //
-static const int ERROR_DS_DRA_OUT_SCHEDULE_WINDOW 8617L
+    ERROR_DS_DRA_OUT_SCHEDULE_WINDOW 8617
 
 //
 // MessageId: ERROR_DS_POLICY_NOT_KNOWN
@@ -20660,7 +20606,7 @@ static const int ERROR_DS_DRA_OUT_SCHEDULE_WINDOW 8617L
 //
 // At this time, it cannot be determined if the branch replication policy is available on the hub domain controller. Please retry at a later time to account for replication latencies.
 //
-static const int ERROR_DS_POLICY_NOT_KNOWN        8618L
+    ERROR_DS_POLICY_NOT_KNOWN        8618
 
 //
 // MessageId: ERROR_NO_SITE_SETTINGS_OBJECT
@@ -20669,7 +20615,7 @@ static const int ERROR_DS_POLICY_NOT_KNOWN        8618L
 //
 // The site settings object for the specified site does not exist.
 //
-static const int ERROR_NO_SITE_SETTINGS_OBJECT    8619L
+    ERROR_NO_SITE_SETTINGS_OBJECT    8619
 
 //
 // MessageId: ERROR_NO_SECRETS
@@ -20678,7 +20624,7 @@ static const int ERROR_NO_SITE_SETTINGS_OBJECT    8619L
 //
 // The local account store does not contain secret material for the specified account.
 //
-static const int ERROR_NO_SECRETS                 8620L
+    ERROR_NO_SECRETS                 8620
 
 //
 // MessageId: ERROR_NO_WRITABLE_DC_FOUND
@@ -20687,7 +20633,7 @@ static const int ERROR_NO_SECRETS                 8620L
 //
 // Could not find a writable domain controller in the domain.
 //
-static const int ERROR_NO_WRITABLE_DC_FOUND       8621L
+    ERROR_NO_WRITABLE_DC_FOUND       8621
 
 //
 // MessageId: ERROR_DS_NO_SERVER_OBJECT
@@ -20696,7 +20642,7 @@ static const int ERROR_NO_WRITABLE_DC_FOUND       8621L
 //
 // The server object for the domain controller does not exist.
 //
-static const int ERROR_DS_NO_SERVER_OBJECT        8622L
+    ERROR_DS_NO_SERVER_OBJECT        8622
 
 //
 // MessageId: ERROR_DS_NO_NTDSA_OBJECT
@@ -20705,7 +20651,7 @@ static const int ERROR_DS_NO_SERVER_OBJECT        8622L
 //
 // The NTDS Settings object for the domain controller does not exist.
 //
-static const int ERROR_DS_NO_NTDSA_OBJECT         8623L
+    ERROR_DS_NO_NTDSA_OBJECT         8623
 
 //
 // MessageId: ERROR_DS_NON_ASQ_SEARCH
@@ -20714,7 +20660,7 @@ static const int ERROR_DS_NO_NTDSA_OBJECT         8623L
 //
 // The requested search operation is not supported for ASQ searches.
 //
-static const int ERROR_DS_NON_ASQ_SEARCH          8624L
+    ERROR_DS_NON_ASQ_SEARCH          8624
 
 //
 // MessageId: ERROR_DS_AUDIT_FAILURE
@@ -20723,7 +20669,7 @@ static const int ERROR_DS_NON_ASQ_SEARCH          8624L
 //
 // A required audit event could not be generated for the operation.
 //
-static const int ERROR_DS_AUDIT_FAILURE           8625L
+    ERROR_DS_AUDIT_FAILURE           8625
 
 //
 // MessageId: ERROR_DS_INVALID_SEARCH_FLAG_SUBTREE
@@ -20732,7 +20678,7 @@ static const int ERROR_DS_AUDIT_FAILURE           8625L
 //
 // The search flags for the attribute are invalid. The subtree index bit is valid only on single valued attributes.
 //
-static const int ERROR_DS_INVALID_SEARCH_FLAG_SUBTREE 8626L
+    ERROR_DS_INVALID_SEARCH_FLAG_SUBTREE 8626
 
 //
 // MessageId: ERROR_DS_INVALID_SEARCH_FLAG_TUPLE
@@ -20741,7 +20687,7 @@ static const int ERROR_DS_INVALID_SEARCH_FLAG_SUBTREE 8626L
 //
 // The search flags for the attribute are invalid. The tuple index bit is valid only on attributes of Unicode strings.
 //
-static const int ERROR_DS_INVALID_SEARCH_FLAG_TUPLE 8627L
+    ERROR_DS_INVALID_SEARCH_FLAG_TUPLE 8627
 
 //
 // MessageId: ERROR_DS_HIERARCHY_TABLE_TOO_DEEP
@@ -20750,7 +20696,7 @@ static const int ERROR_DS_INVALID_SEARCH_FLAG_TUPLE 8627L
 //
 // The address books are nested too deeply. Failed to build the hierarchy table.
 //
-static const int ERROR_DS_HIERARCHY_TABLE_TOO_DEEP 8628L
+    ERROR_DS_HIERARCHY_TABLE_TOO_DEEP 8628
 
 //
 // MessageId: ERROR_DS_DRA_CORRUPT_UTD_VECTOR
@@ -20759,7 +20705,7 @@ static const int ERROR_DS_HIERARCHY_TABLE_TOO_DEEP 8628L
 //
 // The specified up-to-date-ness vector is corrupt.
 //
-static const int ERROR_DS_DRA_CORRUPT_UTD_VECTOR  8629L
+    ERROR_DS_DRA_CORRUPT_UTD_VECTOR  8629
 
 //
 // MessageId: ERROR_DS_DRA_SECRETS_DENIED
@@ -20768,7 +20714,7 @@ static const int ERROR_DS_DRA_CORRUPT_UTD_VECTOR  8629L
 //
 // The request to replicate secrets is denied.
 //
-static const int ERROR_DS_DRA_SECRETS_DENIED      8630L
+    ERROR_DS_DRA_SECRETS_DENIED      8630
 
 //
 // MessageId: ERROR_DS_RESERVED_MAPI_ID
@@ -20777,7 +20723,7 @@ static const int ERROR_DS_DRA_SECRETS_DENIED      8630L
 //
 // Schema update failed: The MAPI identifier is reserved.
 //
-static const int ERROR_DS_RESERVED_MAPI_ID        8631L
+    ERROR_DS_RESERVED_MAPI_ID        8631
 
 //
 // MessageId: ERROR_DS_MAPI_ID_NOT_AVAILABLE
@@ -20786,7 +20732,7 @@ static const int ERROR_DS_RESERVED_MAPI_ID        8631L
 //
 // Schema update failed: There are no MAPI identifiers available.
 //
-static const int ERROR_DS_MAPI_ID_NOT_AVAILABLE   8632L
+    ERROR_DS_MAPI_ID_NOT_AVAILABLE   8632
 
 //
 // MessageId: ERROR_DS_DRA_MISSING_KRBTGT_SECRET
@@ -20795,7 +20741,7 @@ static const int ERROR_DS_MAPI_ID_NOT_AVAILABLE   8632L
 //
 // The replication operation failed because the required attributes of the local krbtgt object are missing.
 //
-static const int ERROR_DS_DRA_MISSING_KRBTGT_SECRET 8633L
+    ERROR_DS_DRA_MISSING_KRBTGT_SECRET 8633
 
 //
 // MessageId: ERROR_DS_DOMAIN_NAME_EXISTS_IN_FOREST
@@ -20804,7 +20750,7 @@ static const int ERROR_DS_DRA_MISSING_KRBTGT_SECRET 8633L
 //
 // The domain name of the trusted domain already exists in the forest.
 //
-static const int ERROR_DS_DOMAIN_NAME_EXISTS_IN_FOREST 8634L
+    ERROR_DS_DOMAIN_NAME_EXISTS_IN_FOREST 8634
 
 //
 // MessageId: ERROR_DS_FLAT_NAME_EXISTS_IN_FOREST
@@ -20813,7 +20759,7 @@ static const int ERROR_DS_DOMAIN_NAME_EXISTS_IN_FOREST 8634L
 //
 // The flat name of the trusted domain already exists in the forest.
 //
-static const int ERROR_DS_FLAT_NAME_EXISTS_IN_FOREST 8635L
+    ERROR_DS_FLAT_NAME_EXISTS_IN_FOREST 8635
 
 //
 // MessageId: ERROR_INVALID_USER_PRINCIPAL_NAME
@@ -20822,7 +20768,7 @@ static const int ERROR_DS_FLAT_NAME_EXISTS_IN_FOREST 8635L
 //
 // The User Principal Name (UPN) is invalid.
 //
-static const int ERROR_INVALID_USER_PRINCIPAL_NAME 8636L
+    ERROR_INVALID_USER_PRINCIPAL_NAME 8636
 
 //
 // MessageId: ERROR_DS_OID_MAPPED_GROUP_CANT_HAVE_MEMBERS
@@ -20831,7 +20777,7 @@ static const int ERROR_INVALID_USER_PRINCIPAL_NAME 8636L
 //
 // OID mapped groups cannot have members.
 //
-static const int ERROR_DS_OID_MAPPED_GROUP_CANT_HAVE_MEMBERS 8637L
+    ERROR_DS_OID_MAPPED_GROUP_CANT_HAVE_MEMBERS 8637
 
 //
 // MessageId: ERROR_DS_OID_NOT_FOUND
@@ -20840,7 +20786,7 @@ static const int ERROR_DS_OID_MAPPED_GROUP_CANT_HAVE_MEMBERS 8637L
 //
 // The specified OID cannot be found.
 //
-static const int ERROR_DS_OID_NOT_FOUND           8638L
+    ERROR_DS_OID_NOT_FOUND           8638
 
 //
 // MessageId: ERROR_DS_DRA_RECYCLED_TARGET
@@ -20849,7 +20795,7 @@ static const int ERROR_DS_OID_NOT_FOUND           8638L
 //
 // The replication operation failed because the target object referred by a link value is recycled.
 //
-static const int ERROR_DS_DRA_RECYCLED_TARGET     8639L
+    ERROR_DS_DRA_RECYCLED_TARGET     8639
 
 //
 // MessageId: ERROR_DS_DISALLOWED_NC_REDIRECT
@@ -20858,7 +20804,7 @@ static const int ERROR_DS_DRA_RECYCLED_TARGET     8639L
 //
 // The redirect operation failed because the target object is in a NC different from the domain NC of the current domain controller.
 //
-static const int ERROR_DS_DISALLOWED_NC_REDIRECT  8640L
+    ERROR_DS_DISALLOWED_NC_REDIRECT  8640
 
 //
 // MessageId: ERROR_DS_HIGH_ADLDS_FFL
@@ -20867,7 +20813,7 @@ static const int ERROR_DS_DISALLOWED_NC_REDIRECT  8640L
 //
 // The functional level of the AD LDS configuration set cannot be lowered to the requested value.
 //
-static const int ERROR_DS_HIGH_ADLDS_FFL          8641L
+    ERROR_DS_HIGH_ADLDS_FFL          8641
 
 //
 // MessageId: ERROR_DS_HIGH_DSA_VERSION
@@ -20876,7 +20822,7 @@ static const int ERROR_DS_HIGH_ADLDS_FFL          8641L
 //
 // The functional level of the domain (or forest) cannot be lowered to the requested value.
 //
-static const int ERROR_DS_HIGH_DSA_VERSION        8642L
+    ERROR_DS_HIGH_DSA_VERSION        8642
 
 //
 // MessageId: ERROR_DS_LOW_ADLDS_FFL
@@ -20885,7 +20831,7 @@ static const int ERROR_DS_HIGH_DSA_VERSION        8642L
 //
 // The functional level of the AD LDS configuration set cannot be raised to the requested value, because there exist one or more ADLDS instances that are at a lower incompatible functional level.
 //
-static const int ERROR_DS_LOW_ADLDS_FFL           8643L
+    ERROR_DS_LOW_ADLDS_FFL           8643
 
 //
 // MessageId: ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION
@@ -20894,7 +20840,7 @@ static const int ERROR_DS_LOW_ADLDS_FFL           8643L
 //
 // The domain join cannot be completed because the SID of the domain you attempted to join was identical to the SID of this machine. This is a symptom of an improperly cloned operating system install.  You should run sysprep on this machine in order to generate a new machine SID. Please see http://go.microsoft.com/fwlink/?LinkId=168895 for more information.
 //
-static const int ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION 8644L
+    ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION 8644
 
 //
 // MessageId: ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED
@@ -20903,7 +20849,7 @@ static const int ERROR_DOMAIN_SID_SAME_AS_LOCAL_WORKSTATION 8644L
 //
 // The undelete operation failed because the Sam Account Name or Additional Sam Account Name of the object being undeleted conflicts with an existing live object.
 //
-static const int ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED 8645L
+    ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED 8645
 
 //
 // MessageId: ERROR_INCORRECT_ACCOUNT_TYPE
@@ -20912,7 +20858,7 @@ static const int ERROR_DS_UNDELETE_SAM_VALIDATION_FAILED 8645L
 //
 // The system is not authoritative for the specified account and therefore cannot complete the operation. Please retry the operation using the provider associated with this account. If this is an online provider please use the provider's online site.
 //
-static const int ERROR_INCORRECT_ACCOUNT_TYPE     8646L
+    ERROR_INCORRECT_ACCOUNT_TYPE     8646
 
 //
 // MessageId: ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST
@@ -20921,7 +20867,7 @@ static const int ERROR_INCORRECT_ACCOUNT_TYPE     8646L
 //
 // The operation failed because SPN value provided for addition/modification is not unique forest-wide.
 //
-static const int ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST 8647L
+    ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST 8647
 
 //
 // MessageId: ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST
@@ -20930,7 +20876,7 @@ static const int ERROR_DS_SPN_VALUE_NOT_UNIQUE_IN_FOREST 8647L
 //
 // The operation failed because UPN value provided for addition/modification is not unique forest-wide.
 //
-static const int ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST 8648L
+    ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST 8648
 
 //
 // MessageId: ERROR_DS_MISSING_FOREST_TRUST
@@ -20939,7 +20885,7 @@ static const int ERROR_DS_UPN_VALUE_NOT_UNIQUE_IN_FOREST 8648L
 //
 // The operation failed because the addition/modification referenced an inbound forest-wide trust that is not present.
 //
-static const int ERROR_DS_MISSING_FOREST_TRUST    8649L
+    ERROR_DS_MISSING_FOREST_TRUST    8649
 
 //
 // MessageId: ERROR_DS_VALUE_KEY_NOT_UNIQUE
@@ -20948,7 +20894,7 @@ static const int ERROR_DS_MISSING_FOREST_TRUST    8649L
 //
 // The link value specified was not found, but a link value with that key was found.
 //
-static const int ERROR_DS_VALUE_KEY_NOT_UNIQUE    8650L
+    ERROR_DS_VALUE_KEY_NOT_UNIQUE    8650
 
 
 ///////////////////////////////////////////////////
@@ -20974,11 +20920,11 @@ static const int ERROR_DS_VALUE_KEY_NOT_UNIQUE    8650L
 //  DNS response codes.
 //
 
-static const int DNS_ERROR_RESPONSE_CODES_BASE 9000
+    DNS_ERROR_RESPONSE_CODES_BASE 9000
 
-static const int DNS_ERROR_RCODE_NO_ERROR NO_ERROR
+    DNS_ERROR_RCODE_NO_ERROR NO_ERROR
 
-static const int DNS_ERROR_MASK 0x00002328 // 9000 or DNS_ERROR_RESPONSE_CODES_BASE
+    DNS_ERROR_MASK 0x00002328 // 9000 or DNS_ERROR_RESPONSE_CODES_BASE
 
 // DNS_ERROR_RCODE_FORMAT_ERROR          0x00002329
 //
@@ -20988,7 +20934,7 @@ static const int DNS_ERROR_MASK 0x00002328 // 9000 or DNS_ERROR_RESPONSE_CODES_B
 //
 // DNS server unable to interpret format.
 //
-static const int DNS_ERROR_RCODE_FORMAT_ERROR     9001L
+    DNS_ERROR_RCODE_FORMAT_ERROR     9001
 
 // DNS_ERROR_RCODE_SERVER_FAILURE        0x0000232a
 //
@@ -20998,7 +20944,7 @@ static const int DNS_ERROR_RCODE_FORMAT_ERROR     9001L
 //
 // DNS server failure.
 //
-static const int DNS_ERROR_RCODE_SERVER_FAILURE   9002L
+    DNS_ERROR_RCODE_SERVER_FAILURE   9002
 
 // DNS_ERROR_RCODE_NAME_ERROR            0x0000232b
 //
@@ -21008,7 +20954,7 @@ static const int DNS_ERROR_RCODE_SERVER_FAILURE   9002L
 //
 // DNS name does not exist.
 //
-static const int DNS_ERROR_RCODE_NAME_ERROR       9003L
+    DNS_ERROR_RCODE_NAME_ERROR       9003
 
 // DNS_ERROR_RCODE_NOT_IMPLEMENTED       0x0000232c
 //
@@ -21018,7 +20964,7 @@ static const int DNS_ERROR_RCODE_NAME_ERROR       9003L
 //
 // DNS request not supported by name server.
 //
-static const int DNS_ERROR_RCODE_NOT_IMPLEMENTED  9004L
+    DNS_ERROR_RCODE_NOT_IMPLEMENTED  9004
 
 // DNS_ERROR_RCODE_REFUSED               0x0000232d
 //
@@ -21028,7 +20974,7 @@ static const int DNS_ERROR_RCODE_NOT_IMPLEMENTED  9004L
 //
 // DNS operation refused.
 //
-static const int DNS_ERROR_RCODE_REFUSED          9005L
+    DNS_ERROR_RCODE_REFUSED          9005
 
 // DNS_ERROR_RCODE_YXDOMAIN              0x0000232e
 //
@@ -21038,7 +20984,7 @@ static const int DNS_ERROR_RCODE_REFUSED          9005L
 //
 // DNS name that ought not exist, does exist.
 //
-static const int DNS_ERROR_RCODE_YXDOMAIN         9006L
+    DNS_ERROR_RCODE_YXDOMAIN         9006
 
 // DNS_ERROR_RCODE_YXRRSET               0x0000232f
 //
@@ -21048,7 +20994,7 @@ static const int DNS_ERROR_RCODE_YXDOMAIN         9006L
 //
 // DNS RR set that ought not exist, does exist.
 //
-static const int DNS_ERROR_RCODE_YXRRSET          9007L
+    DNS_ERROR_RCODE_YXRRSET          9007
 
 // DNS_ERROR_RCODE_NXRRSET               0x00002330
 //
@@ -21058,7 +21004,7 @@ static const int DNS_ERROR_RCODE_YXRRSET          9007L
 //
 // DNS RR set that ought to exist, does not exist.
 //
-static const int DNS_ERROR_RCODE_NXRRSET          9008L
+    DNS_ERROR_RCODE_NXRRSET          9008
 
 // DNS_ERROR_RCODE_NOTAUTH               0x00002331
 //
@@ -21068,7 +21014,7 @@ static const int DNS_ERROR_RCODE_NXRRSET          9008L
 //
 // DNS server not authoritative for zone.
 //
-static const int DNS_ERROR_RCODE_NOTAUTH          9009L
+    DNS_ERROR_RCODE_NOTAUTH          9009
 
 // DNS_ERROR_RCODE_NOTZONE               0x00002332
 //
@@ -21078,7 +21024,7 @@ static const int DNS_ERROR_RCODE_NOTAUTH          9009L
 //
 // DNS name in update or prereq is not in zone.
 //
-static const int DNS_ERROR_RCODE_NOTZONE          9010L
+    DNS_ERROR_RCODE_NOTZONE          9010
 
 // DNS_ERROR_RCODE_BADSIG                0x00002338
 //
@@ -21088,7 +21034,7 @@ static const int DNS_ERROR_RCODE_NOTZONE          9010L
 //
 // DNS signature failed to verify.
 //
-static const int DNS_ERROR_RCODE_BADSIG           9016L
+    DNS_ERROR_RCODE_BADSIG           9016
 
 // DNS_ERROR_RCODE_BADKEY                0x00002339
 //
@@ -21098,7 +21044,7 @@ static const int DNS_ERROR_RCODE_BADSIG           9016L
 //
 // DNS bad key.
 //
-static const int DNS_ERROR_RCODE_BADKEY           9017L
+    DNS_ERROR_RCODE_BADKEY           9017
 
 // DNS_ERROR_RCODE_BADTIME               0x0000233a
 //
@@ -21108,16 +21054,16 @@ static const int DNS_ERROR_RCODE_BADKEY           9017L
 //
 // DNS signature validity expired.
 //
-static const int DNS_ERROR_RCODE_BADTIME          9018L
+    DNS_ERROR_RCODE_BADTIME          9018
 
-static const int DNS_ERROR_RCODE_LAST DNS_ERROR_RCODE_BADTIME
+    DNS_ERROR_RCODE_LAST DNS_ERROR_RCODE_BADTIME
 
 
 //
 // DNSSEC errors
 //
 
-static const int DNS_ERROR_DNSSEC_BASE 9100
+    DNS_ERROR_DNSSEC_BASE 9100
 
 //
 // MessageId: DNS_ERROR_KEYMASTER_REQUIRED
@@ -21126,7 +21072,7 @@ static const int DNS_ERROR_DNSSEC_BASE 9100
 //
 // Only the DNS server acting as the key master for the zone may perform this operation.
 //
-static const int DNS_ERROR_KEYMASTER_REQUIRED     9101L
+    DNS_ERROR_KEYMASTER_REQUIRED     9101
 
 //
 // MessageId: DNS_ERROR_NOT_ALLOWED_ON_SIGNED_ZONE
@@ -21135,7 +21081,7 @@ static const int DNS_ERROR_KEYMASTER_REQUIRED     9101L
 //
 // This operation is not allowed on a zone that is signed or has signing keys.
 //
-static const int DNS_ERROR_NOT_ALLOWED_ON_SIGNED_ZONE 9102L
+    DNS_ERROR_NOT_ALLOWED_ON_SIGNED_ZONE 9102
 
 //
 // MessageId: DNS_ERROR_NSEC3_INCOMPATIBLE_WITH_RSA_SHA1
@@ -21144,7 +21090,7 @@ static const int DNS_ERROR_NOT_ALLOWED_ON_SIGNED_ZONE 9102L
 //
 // NSEC3 is not compatible with the RSA-SHA-1 algorithm. Choose a different algorithm or use NSEC.
 //
-static const int DNS_ERROR_NSEC3_INCOMPATIBLE_WITH_RSA_SHA1 9103L
+    DNS_ERROR_NSEC3_INCOMPATIBLE_WITH_RSA_SHA1 9103
 
 //
 // MessageId: DNS_ERROR_NOT_ENOUGH_SIGNING_KEY_DESCRIPTORS
@@ -21153,7 +21099,7 @@ static const int DNS_ERROR_NSEC3_INCOMPATIBLE_WITH_RSA_SHA1 9103L
 //
 // The zone does not have enough signing keys. There must be at least one key signing key (KSK) and at least one zone signing key (ZSK).
 //
-static const int DNS_ERROR_NOT_ENOUGH_SIGNING_KEY_DESCRIPTORS 9104L
+    DNS_ERROR_NOT_ENOUGH_SIGNING_KEY_DESCRIPTORS 9104
 
 //
 // MessageId: DNS_ERROR_UNSUPPORTED_ALGORITHM
@@ -21162,7 +21108,7 @@ static const int DNS_ERROR_NOT_ENOUGH_SIGNING_KEY_DESCRIPTORS 9104L
 //
 // The specified algorithm is not supported.
 //
-static const int DNS_ERROR_UNSUPPORTED_ALGORITHM  9105L
+    DNS_ERROR_UNSUPPORTED_ALGORITHM  9105
 
 //
 // MessageId: DNS_ERROR_INVALID_KEY_SIZE
@@ -21171,7 +21117,7 @@ static const int DNS_ERROR_UNSUPPORTED_ALGORITHM  9105L
 //
 // The specified key size is not supported.
 //
-static const int DNS_ERROR_INVALID_KEY_SIZE       9106L
+    DNS_ERROR_INVALID_KEY_SIZE       9106
 
 //
 // MessageId: DNS_ERROR_SIGNING_KEY_NOT_ACCESSIBLE
@@ -21180,7 +21126,7 @@ static const int DNS_ERROR_INVALID_KEY_SIZE       9106L
 //
 // One or more of the signing keys for a zone are not accessible to the DNS server. Zone signing will not be operational until this error is resolved.
 //
-static const int DNS_ERROR_SIGNING_KEY_NOT_ACCESSIBLE 9107L
+    DNS_ERROR_SIGNING_KEY_NOT_ACCESSIBLE 9107
 
 //
 // MessageId: DNS_ERROR_KSP_DOES_NOT_SUPPORT_PROTECTION
@@ -21189,7 +21135,7 @@ static const int DNS_ERROR_SIGNING_KEY_NOT_ACCESSIBLE 9107L
 //
 // The specified key storage provider does not support DPAPI++ data protection. Zone signing will not be operational until this error is resolved.
 //
-static const int DNS_ERROR_KSP_DOES_NOT_SUPPORT_PROTECTION 9108L
+    DNS_ERROR_KSP_DOES_NOT_SUPPORT_PROTECTION 9108
 
 //
 // MessageId: DNS_ERROR_UNEXPECTED_DATA_PROTECTION_ERROR
@@ -21198,7 +21144,7 @@ static const int DNS_ERROR_KSP_DOES_NOT_SUPPORT_PROTECTION 9108L
 //
 // An unexpected DPAPI++ error was encountered. Zone signing will not be operational until this error is resolved.
 //
-static const int DNS_ERROR_UNEXPECTED_DATA_PROTECTION_ERROR 9109L
+    DNS_ERROR_UNEXPECTED_DATA_PROTECTION_ERROR 9109
 
 //
 // MessageId: DNS_ERROR_UNEXPECTED_CNG_ERROR
@@ -21207,7 +21153,7 @@ static const int DNS_ERROR_UNEXPECTED_DATA_PROTECTION_ERROR 9109L
 //
 // An unexpected crypto error was encountered. Zone signing may not be operational until this error is resolved.
 //
-static const int DNS_ERROR_UNEXPECTED_CNG_ERROR   9110L
+    DNS_ERROR_UNEXPECTED_CNG_ERROR   9110
 
 //
 // MessageId: DNS_ERROR_UNKNOWN_SIGNING_PARAMETER_VERSION
@@ -21216,7 +21162,7 @@ static const int DNS_ERROR_UNEXPECTED_CNG_ERROR   9110L
 //
 // The DNS server encountered a signing key with an unknown version. Zone signing will not be operational until this error is resolved.
 //
-static const int DNS_ERROR_UNKNOWN_SIGNING_PARAMETER_VERSION 9111L
+    DNS_ERROR_UNKNOWN_SIGNING_PARAMETER_VERSION 9111
 
 //
 // MessageId: DNS_ERROR_KSP_NOT_ACCESSIBLE
@@ -21225,7 +21171,7 @@ static const int DNS_ERROR_UNKNOWN_SIGNING_PARAMETER_VERSION 9111L
 //
 // The specified key service provider cannot be opened by the DNS server.
 //
-static const int DNS_ERROR_KSP_NOT_ACCESSIBLE     9112L
+    DNS_ERROR_KSP_NOT_ACCESSIBLE     9112
 
 //
 // MessageId: DNS_ERROR_TOO_MANY_SKDS
@@ -21234,7 +21180,7 @@ static const int DNS_ERROR_KSP_NOT_ACCESSIBLE     9112L
 //
 // The DNS server cannot accept any more signing keys with the specified algorithm and KSK flag value for this zone.
 //
-static const int DNS_ERROR_TOO_MANY_SKDS          9113L
+    DNS_ERROR_TOO_MANY_SKDS          9113
 
 //
 // MessageId: DNS_ERROR_INVALID_ROLLOVER_PERIOD
@@ -21243,7 +21189,7 @@ static const int DNS_ERROR_TOO_MANY_SKDS          9113L
 //
 // The specified rollover period is invalid.
 //
-static const int DNS_ERROR_INVALID_ROLLOVER_PERIOD 9114L
+    DNS_ERROR_INVALID_ROLLOVER_PERIOD 9114
 
 //
 // MessageId: DNS_ERROR_INVALID_INITIAL_ROLLOVER_OFFSET
@@ -21252,7 +21198,7 @@ static const int DNS_ERROR_INVALID_ROLLOVER_PERIOD 9114L
 //
 // The specified initial rollover offset is invalid.
 //
-static const int DNS_ERROR_INVALID_INITIAL_ROLLOVER_OFFSET 9115L
+    DNS_ERROR_INVALID_INITIAL_ROLLOVER_OFFSET 9115
 
 //
 // MessageId: DNS_ERROR_ROLLOVER_IN_PROGRESS
@@ -21261,7 +21207,7 @@ static const int DNS_ERROR_INVALID_INITIAL_ROLLOVER_OFFSET 9115L
 //
 // The specified signing key is already in process of rolling over keys.
 //
-static const int DNS_ERROR_ROLLOVER_IN_PROGRESS   9116L
+    DNS_ERROR_ROLLOVER_IN_PROGRESS   9116
 
 //
 // MessageId: DNS_ERROR_STANDBY_KEY_NOT_PRESENT
@@ -21270,7 +21216,7 @@ static const int DNS_ERROR_ROLLOVER_IN_PROGRESS   9116L
 //
 // The specified signing key does not have a standby key to revoke.
 //
-static const int DNS_ERROR_STANDBY_KEY_NOT_PRESENT 9117L
+    DNS_ERROR_STANDBY_KEY_NOT_PRESENT 9117
 
 //
 // MessageId: DNS_ERROR_NOT_ALLOWED_ON_ZSK
@@ -21279,7 +21225,7 @@ static const int DNS_ERROR_STANDBY_KEY_NOT_PRESENT 9117L
 //
 // This operation is not allowed on a zone signing key (ZSK).
 //
-static const int DNS_ERROR_NOT_ALLOWED_ON_ZSK     9118L
+    DNS_ERROR_NOT_ALLOWED_ON_ZSK     9118
 
 //
 // MessageId: DNS_ERROR_NOT_ALLOWED_ON_ACTIVE_SKD
@@ -21288,7 +21234,7 @@ static const int DNS_ERROR_NOT_ALLOWED_ON_ZSK     9118L
 //
 // This operation is not allowed on an active signing key.
 //
-static const int DNS_ERROR_NOT_ALLOWED_ON_ACTIVE_SKD 9119L
+    DNS_ERROR_NOT_ALLOWED_ON_ACTIVE_SKD 9119
 
 //
 // MessageId: DNS_ERROR_ROLLOVER_ALREADY_QUEUED
@@ -21297,7 +21243,7 @@ static const int DNS_ERROR_NOT_ALLOWED_ON_ACTIVE_SKD 9119L
 //
 // The specified signing key is already queued for rollover.
 //
-static const int DNS_ERROR_ROLLOVER_ALREADY_QUEUED 9120L
+    DNS_ERROR_ROLLOVER_ALREADY_QUEUED 9120
 
 //
 // MessageId: DNS_ERROR_NOT_ALLOWED_ON_UNSIGNED_ZONE
@@ -21306,7 +21252,7 @@ static const int DNS_ERROR_ROLLOVER_ALREADY_QUEUED 9120L
 //
 // This operation is not allowed on an unsigned zone.
 //
-static const int DNS_ERROR_NOT_ALLOWED_ON_UNSIGNED_ZONE 9121L
+    DNS_ERROR_NOT_ALLOWED_ON_UNSIGNED_ZONE 9121
 
 //
 // MessageId: DNS_ERROR_BAD_KEYMASTER
@@ -21315,7 +21261,7 @@ static const int DNS_ERROR_NOT_ALLOWED_ON_UNSIGNED_ZONE 9121L
 //
 // This operation could not be completed because the DNS server listed as the current key master for this zone is down or misconfigured. Resolve the problem on the current key master for this zone or use another DNS server to seize the key master role.
 //
-static const int DNS_ERROR_BAD_KEYMASTER          9122L
+    DNS_ERROR_BAD_KEYMASTER          9122
 
 //
 // MessageId: DNS_ERROR_INVALID_SIGNATURE_VALIDITY_PERIOD
@@ -21324,7 +21270,7 @@ static const int DNS_ERROR_BAD_KEYMASTER          9122L
 //
 // The specified signature validity period is invalid.
 //
-static const int DNS_ERROR_INVALID_SIGNATURE_VALIDITY_PERIOD 9123L
+    DNS_ERROR_INVALID_SIGNATURE_VALIDITY_PERIOD 9123
 
 //
 // MessageId: DNS_ERROR_INVALID_NSEC3_ITERATION_COUNT
@@ -21333,7 +21279,7 @@ static const int DNS_ERROR_INVALID_SIGNATURE_VALIDITY_PERIOD 9123L
 //
 // The specified NSEC3 iteration count is higher than allowed by the minimum key length used in the zone.
 //
-static const int DNS_ERROR_INVALID_NSEC3_ITERATION_COUNT 9124L
+    DNS_ERROR_INVALID_NSEC3_ITERATION_COUNT 9124
 
 //
 // MessageId: DNS_ERROR_DNSSEC_IS_DISABLED
@@ -21342,7 +21288,7 @@ static const int DNS_ERROR_INVALID_NSEC3_ITERATION_COUNT 9124L
 //
 // This operation could not be completed because the DNS server has been configured with DNSSEC features disabled. Enable DNSSEC on the DNS server.
 //
-static const int DNS_ERROR_DNSSEC_IS_DISABLED     9125L
+    DNS_ERROR_DNSSEC_IS_DISABLED     9125
 
 //
 // MessageId: DNS_ERROR_INVALID_XML
@@ -21351,7 +21297,7 @@ static const int DNS_ERROR_DNSSEC_IS_DISABLED     9125L
 //
 // This operation could not be completed because the XML stream received is empty or syntactically invalid.
 //
-static const int DNS_ERROR_INVALID_XML            9126L
+    DNS_ERROR_INVALID_XML            9126
 
 //
 // MessageId: DNS_ERROR_NO_VALID_TRUST_ANCHORS
@@ -21360,7 +21306,7 @@ static const int DNS_ERROR_INVALID_XML            9126L
 //
 // This operation completed, but no trust anchors were added because all of the trust anchors received were either invalid, unsupported, expired, or would not become valid in less than 30 days.
 //
-static const int DNS_ERROR_NO_VALID_TRUST_ANCHORS 9127L
+    DNS_ERROR_NO_VALID_TRUST_ANCHORS 9127
 
 //
 // MessageId: DNS_ERROR_ROLLOVER_NOT_POKEABLE
@@ -21369,7 +21315,7 @@ static const int DNS_ERROR_NO_VALID_TRUST_ANCHORS 9127L
 //
 // The specified signing key is not waiting for parental DS update.
 //
-static const int DNS_ERROR_ROLLOVER_NOT_POKEABLE  9128L
+    DNS_ERROR_ROLLOVER_NOT_POKEABLE  9128
 
 //
 // MessageId: DNS_ERROR_NSEC3_NAME_COLLISION
@@ -21378,7 +21324,7 @@ static const int DNS_ERROR_ROLLOVER_NOT_POKEABLE  9128L
 //
 // Hash collision detected during NSEC3 signing. Specify a different user-provided salt, or use a randomly generated salt, and attempt to sign the zone again.
 //
-static const int DNS_ERROR_NSEC3_NAME_COLLISION   9129L
+    DNS_ERROR_NSEC3_NAME_COLLISION   9129
 
 //
 // MessageId: DNS_ERROR_NSEC_INCOMPATIBLE_WITH_NSEC3_RSA_SHA1
@@ -21387,14 +21333,14 @@ static const int DNS_ERROR_NSEC3_NAME_COLLISION   9129L
 //
 // NSEC is not compatible with the NSEC3-RSA-SHA-1 algorithm. Choose a different algorithm or use NSEC3.
 //
-static const int DNS_ERROR_NSEC_INCOMPATIBLE_WITH_NSEC3_RSA_SHA1 9130L
+    DNS_ERROR_NSEC_INCOMPATIBLE_WITH_NSEC3_RSA_SHA1 9130
 
 
 //
 // Packet format
 //
 
-static const int DNS_ERROR_PACKET_FMT_BASE 9500
+    DNS_ERROR_PACKET_FMT_BASE 9500
 
 // DNS_INFO_NO_RECORDS                   0x0000251d
 //
@@ -21404,7 +21350,7 @@ static const int DNS_ERROR_PACKET_FMT_BASE 9500
 //
 // No records found for given DNS query.
 //
-static const int DNS_INFO_NO_RECORDS              9501L
+    DNS_INFO_NO_RECORDS              9501
 
 // DNS_ERROR_BAD_PACKET                  0x0000251e
 //
@@ -21414,7 +21360,7 @@ static const int DNS_INFO_NO_RECORDS              9501L
 //
 // Bad DNS packet.
 //
-static const int DNS_ERROR_BAD_PACKET             9502L
+    DNS_ERROR_BAD_PACKET             9502
 
 // DNS_ERROR_NO_PACKET                   0x0000251f
 //
@@ -21424,7 +21370,7 @@ static const int DNS_ERROR_BAD_PACKET             9502L
 //
 // No DNS packet.
 //
-static const int DNS_ERROR_NO_PACKET              9503L
+    DNS_ERROR_NO_PACKET              9503
 
 // DNS_ERROR_RCODE                       0x00002520
 //
@@ -21434,7 +21380,7 @@ static const int DNS_ERROR_NO_PACKET              9503L
 //
 // DNS error, check rcode.
 //
-static const int DNS_ERROR_RCODE                  9504L
+    DNS_ERROR_RCODE                  9504
 
 // DNS_ERROR_UNSECURE_PACKET             0x00002521
 //
@@ -21444,9 +21390,9 @@ static const int DNS_ERROR_RCODE                  9504L
 //
 // Unsecured DNS packet.
 //
-static const int DNS_ERROR_UNSECURE_PACKET        9505L
+    DNS_ERROR_UNSECURE_PACKET        9505
 
-static const int DNS_STATUS_PACKET_UNSECURE DNS_ERROR_UNSECURE_PACKET
+    DNS_STATUS_PACKET_UNSECURE DNS_ERROR_UNSECURE_PACKET
 
 // DNS_REQUEST_PENDING                     0x00002522
 //
@@ -21456,18 +21402,18 @@ static const int DNS_STATUS_PACKET_UNSECURE DNS_ERROR_UNSECURE_PACKET
 //
 // DNS query request is pending.
 //
-static const int DNS_REQUEST_PENDING              9506L
+    DNS_REQUEST_PENDING              9506
 
 
 //
 // General API errors
 //
 
-static const int DNS_ERROR_NO_MEMORY            ERROR_OUTOFMEMORY
-static const int DNS_ERROR_INVALID_NAME         ERROR_INVALID_NAME
-static const int DNS_ERROR_INVALID_DATA         ERROR_INVALID_DATA
+    DNS_ERROR_NO_MEMORY            ERROR_OUTOFMEMORY
+    DNS_ERROR_INVALID_NAME         ERROR_INVALID_NAME
+    DNS_ERROR_INVALID_DATA         ERROR_INVALID_DATA
 
-static const int DNS_ERROR_GENERAL_API_BASE 9550
+    DNS_ERROR_GENERAL_API_BASE 9550
 
 // DNS_ERROR_INVALID_TYPE                0x0000254f
 //
@@ -21477,7 +21423,7 @@ static const int DNS_ERROR_GENERAL_API_BASE 9550
 //
 // Invalid DNS type.
 //
-static const int DNS_ERROR_INVALID_TYPE           9551L
+    DNS_ERROR_INVALID_TYPE           9551
 
 // DNS_ERROR_INVALID_IP_ADDRESS          0x00002550
 //
@@ -21487,7 +21433,7 @@ static const int DNS_ERROR_INVALID_TYPE           9551L
 //
 // Invalid IP address.
 //
-static const int DNS_ERROR_INVALID_IP_ADDRESS     9552L
+    DNS_ERROR_INVALID_IP_ADDRESS     9552
 
 // DNS_ERROR_INVALID_PROPERTY            0x00002551
 //
@@ -21497,7 +21443,7 @@ static const int DNS_ERROR_INVALID_IP_ADDRESS     9552L
 //
 // Invalid property.
 //
-static const int DNS_ERROR_INVALID_PROPERTY       9553L
+    DNS_ERROR_INVALID_PROPERTY       9553
 
 // DNS_ERROR_TRY_AGAIN_LATER             0x00002552
 //
@@ -21507,7 +21453,7 @@ static const int DNS_ERROR_INVALID_PROPERTY       9553L
 //
 // Try DNS operation again later.
 //
-static const int DNS_ERROR_TRY_AGAIN_LATER        9554L
+    DNS_ERROR_TRY_AGAIN_LATER        9554
 
 // DNS_ERROR_NOT_UNIQUE                  0x00002553
 //
@@ -21517,7 +21463,7 @@ static const int DNS_ERROR_TRY_AGAIN_LATER        9554L
 //
 // Record for given name and type is not unique.
 //
-static const int DNS_ERROR_NOT_UNIQUE             9555L
+    DNS_ERROR_NOT_UNIQUE             9555
 
 // DNS_ERROR_NON_RFC_NAME                0x00002554
 //
@@ -21527,7 +21473,7 @@ static const int DNS_ERROR_NOT_UNIQUE             9555L
 //
 // DNS name does not comply with RFC specifications.
 //
-static const int DNS_ERROR_NON_RFC_NAME           9556L
+    DNS_ERROR_NON_RFC_NAME           9556
 
 // DNS_STATUS_FQDN                       0x00002555
 //
@@ -21537,7 +21483,7 @@ static const int DNS_ERROR_NON_RFC_NAME           9556L
 //
 // DNS name is a fully-qualified DNS name.
 //
-static const int DNS_STATUS_FQDN                  9557L
+    DNS_STATUS_FQDN                  9557
 
 // DNS_STATUS_DOTTED_NAME                0x00002556
 //
@@ -21547,7 +21493,7 @@ static const int DNS_STATUS_FQDN                  9557L
 //
 // DNS name is dotted (multi-label).
 //
-static const int DNS_STATUS_DOTTED_NAME           9558L
+    DNS_STATUS_DOTTED_NAME           9558
 
 // DNS_STATUS_SINGLE_PART_NAME           0x00002557
 //
@@ -21557,7 +21503,7 @@ static const int DNS_STATUS_DOTTED_NAME           9558L
 //
 // DNS name is a single-part name.
 //
-static const int DNS_STATUS_SINGLE_PART_NAME      9559L
+    DNS_STATUS_SINGLE_PART_NAME      9559
 
 // DNS_ERROR_INVALID_NAME_CHAR           0x00002558
 //
@@ -21567,7 +21513,7 @@ static const int DNS_STATUS_SINGLE_PART_NAME      9559L
 //
 // DNS name contains an invalid character.
 //
-static const int DNS_ERROR_INVALID_NAME_CHAR      9560L
+    DNS_ERROR_INVALID_NAME_CHAR      9560
 
 // DNS_ERROR_NUMERIC_NAME                0x00002559
 //
@@ -21577,7 +21523,7 @@ static const int DNS_ERROR_INVALID_NAME_CHAR      9560L
 //
 // DNS name is entirely numeric.
 //
-static const int DNS_ERROR_NUMERIC_NAME           9561L
+    DNS_ERROR_NUMERIC_NAME           9561
 
 // DNS_ERROR_NOT_ALLOWED_ON_ROOT_SERVER  0x0000255A
 //
@@ -21587,7 +21533,7 @@ static const int DNS_ERROR_NUMERIC_NAME           9561L
 //
 // The operation requested is not permitted on a DNS root server.
 //
-static const int DNS_ERROR_NOT_ALLOWED_ON_ROOT_SERVER 9562L
+    DNS_ERROR_NOT_ALLOWED_ON_ROOT_SERVER 9562
 
 // DNS_ERROR_NOT_ALLOWED_UNDER_DELEGATION  0x0000255B
 //
@@ -21597,7 +21543,7 @@ static const int DNS_ERROR_NOT_ALLOWED_ON_ROOT_SERVER 9562L
 //
 // The record could not be created because this part of the DNS namespace has been delegated to another server.
 //
-static const int DNS_ERROR_NOT_ALLOWED_UNDER_DELEGATION 9563L
+    DNS_ERROR_NOT_ALLOWED_UNDER_DELEGATION 9563
 
 // DNS_ERROR_CANNOT_FIND_ROOT_HINTS  0x0000255C
 //
@@ -21607,7 +21553,7 @@ static const int DNS_ERROR_NOT_ALLOWED_UNDER_DELEGATION 9563L
 //
 // The DNS server could not find a set of root hints.
 //
-static const int DNS_ERROR_CANNOT_FIND_ROOT_HINTS 9564L
+    DNS_ERROR_CANNOT_FIND_ROOT_HINTS 9564
 
 // DNS_ERROR_INCONSISTENT_ROOT_HINTS  0x0000255D
 //
@@ -21617,7 +21563,7 @@ static const int DNS_ERROR_CANNOT_FIND_ROOT_HINTS 9564L
 //
 // The DNS server found root hints but they were not consistent across all adapters.
 //
-static const int DNS_ERROR_INCONSISTENT_ROOT_HINTS 9565L
+    DNS_ERROR_INCONSISTENT_ROOT_HINTS 9565
 
 // DNS_ERROR_DWORD_VALUE_TOO_SMALL    0x0000255E
 //
@@ -21627,7 +21573,7 @@ static const int DNS_ERROR_INCONSISTENT_ROOT_HINTS 9565L
 //
 // The specified value is too small for this parameter.
 //
-static const int DNS_ERROR_DWORD_VALUE_TOO_SMALL  9566L
+    DNS_ERROR_DWORD_VALUE_TOO_SMALL  9566
 
 // DNS_ERROR_DWORD_VALUE_TOO_LARGE    0x0000255F
 //
@@ -21637,7 +21583,7 @@ static const int DNS_ERROR_DWORD_VALUE_TOO_SMALL  9566L
 //
 // The specified value is too large for this parameter.
 //
-static const int DNS_ERROR_DWORD_VALUE_TOO_LARGE  9567L
+    DNS_ERROR_DWORD_VALUE_TOO_LARGE  9567
 
 // DNS_ERROR_BACKGROUND_LOADING       0x00002560
 //
@@ -21647,7 +21593,7 @@ static const int DNS_ERROR_DWORD_VALUE_TOO_LARGE  9567L
 //
 // This operation is not allowed while the DNS server is loading zones in the background. Please try again later.
 //
-static const int DNS_ERROR_BACKGROUND_LOADING     9568L
+    DNS_ERROR_BACKGROUND_LOADING     9568
 
 // DNS_ERROR_NOT_ALLOWED_ON_RODC      0x00002561
 //
@@ -21657,7 +21603,7 @@ static const int DNS_ERROR_BACKGROUND_LOADING     9568L
 //
 // The operation requested is not permitted on against a DNS server running on a read-only DC.
 //
-static const int DNS_ERROR_NOT_ALLOWED_ON_RODC    9569L
+    DNS_ERROR_NOT_ALLOWED_ON_RODC    9569
 
 // DNS_ERROR_NOT_ALLOWED_UNDER_DNAME   0x00002562
 //
@@ -21667,7 +21613,7 @@ static const int DNS_ERROR_NOT_ALLOWED_ON_RODC    9569L
 //
 // No data is allowed to exist underneath a DNAME record.
 //
-static const int DNS_ERROR_NOT_ALLOWED_UNDER_DNAME 9570L
+    DNS_ERROR_NOT_ALLOWED_UNDER_DNAME 9570
 
 // DNS_ERROR_DELEGATION_REQUIRED       0x00002563
 //
@@ -21677,7 +21623,7 @@ static const int DNS_ERROR_NOT_ALLOWED_UNDER_DNAME 9570L
 //
 // This operation requires credentials delegation.
 //
-static const int DNS_ERROR_DELEGATION_REQUIRED    9571L
+    DNS_ERROR_DELEGATION_REQUIRED    9571
 
 // DNS_ERROR_INVALID_POLICY_TABLE        0x00002564
 //
@@ -21687,7 +21633,7 @@ static const int DNS_ERROR_DELEGATION_REQUIRED    9571L
 //
 // Name resolution policy table has been corrupted. DNS resolution will fail until it is fixed. Contact your network administrator.
 //
-static const int DNS_ERROR_INVALID_POLICY_TABLE   9572L
+    DNS_ERROR_INVALID_POLICY_TABLE   9572
 
 // DNS_ERROR_ADDRESS_REQUIRED        0x00002565
 //
@@ -21697,14 +21643,14 @@ static const int DNS_ERROR_INVALID_POLICY_TABLE   9572L
 //
 // Not allowed to remove all addresses.
 //
-static const int DNS_ERROR_ADDRESS_REQUIRED       9573L
+    DNS_ERROR_ADDRESS_REQUIRED       9573
 
 
 //
 // Zone errors
 //
 
-static const int DNS_ERROR_ZONE_BASE 9600
+    DNS_ERROR_ZONE_BASE 9600
 
 // DNS_ERROR_ZONE_DOES_NOT_EXIST         0x00002581
 //
@@ -21714,7 +21660,7 @@ static const int DNS_ERROR_ZONE_BASE 9600
 //
 // DNS zone does not exist.
 //
-static const int DNS_ERROR_ZONE_DOES_NOT_EXIST    9601L
+    DNS_ERROR_ZONE_DOES_NOT_EXIST    9601
 
 // DNS_ERROR_NO_ZONE_INFO                0x00002582
 //
@@ -21724,7 +21670,7 @@ static const int DNS_ERROR_ZONE_DOES_NOT_EXIST    9601L
 //
 // DNS zone information not available.
 //
-static const int DNS_ERROR_NO_ZONE_INFO           9602L
+    DNS_ERROR_NO_ZONE_INFO           9602
 
 // DNS_ERROR_INVALID_ZONE_OPERATION      0x00002583
 //
@@ -21734,7 +21680,7 @@ static const int DNS_ERROR_NO_ZONE_INFO           9602L
 //
 // Invalid operation for DNS zone.
 //
-static const int DNS_ERROR_INVALID_ZONE_OPERATION 9603L
+    DNS_ERROR_INVALID_ZONE_OPERATION 9603
 
 // DNS_ERROR_ZONE_CONFIGURATION_ERROR    0x00002584
 //
@@ -21744,7 +21690,7 @@ static const int DNS_ERROR_INVALID_ZONE_OPERATION 9603L
 //
 // Invalid DNS zone configuration.
 //
-static const int DNS_ERROR_ZONE_CONFIGURATION_ERROR 9604L
+    DNS_ERROR_ZONE_CONFIGURATION_ERROR 9604
 
 // DNS_ERROR_ZONE_HAS_NO_SOA_RECORD      0x00002585
 //
@@ -21754,7 +21700,7 @@ static const int DNS_ERROR_ZONE_CONFIGURATION_ERROR 9604L
 //
 // DNS zone has no start of authority (SOA) record.
 //
-static const int DNS_ERROR_ZONE_HAS_NO_SOA_RECORD 9605L
+    DNS_ERROR_ZONE_HAS_NO_SOA_RECORD 9605
 
 // DNS_ERROR_ZONE_HAS_NO_NS_RECORDS      0x00002586
 //
@@ -21764,7 +21710,7 @@ static const int DNS_ERROR_ZONE_HAS_NO_SOA_RECORD 9605L
 //
 // DNS zone has no Name Server (NS) record.
 //
-static const int DNS_ERROR_ZONE_HAS_NO_NS_RECORDS 9606L
+    DNS_ERROR_ZONE_HAS_NO_NS_RECORDS 9606
 
 // DNS_ERROR_ZONE_LOCKED                 0x00002587
 //
@@ -21774,7 +21720,7 @@ static const int DNS_ERROR_ZONE_HAS_NO_NS_RECORDS 9606L
 //
 // DNS zone is locked.
 //
-static const int DNS_ERROR_ZONE_LOCKED            9607L
+    DNS_ERROR_ZONE_LOCKED            9607
 
 // DNS_ERROR_ZONE_CREATION_FAILED        0x00002588
 //
@@ -21784,7 +21730,7 @@ static const int DNS_ERROR_ZONE_LOCKED            9607L
 //
 // DNS zone creation failed.
 //
-static const int DNS_ERROR_ZONE_CREATION_FAILED   9608L
+    DNS_ERROR_ZONE_CREATION_FAILED   9608
 
 // DNS_ERROR_ZONE_ALREADY_EXISTS         0x00002589
 //
@@ -21794,7 +21740,7 @@ static const int DNS_ERROR_ZONE_CREATION_FAILED   9608L
 //
 // DNS zone already exists.
 //
-static const int DNS_ERROR_ZONE_ALREADY_EXISTS    9609L
+    DNS_ERROR_ZONE_ALREADY_EXISTS    9609
 
 // DNS_ERROR_AUTOZONE_ALREADY_EXISTS     0x0000258a
 //
@@ -21804,7 +21750,7 @@ static const int DNS_ERROR_ZONE_ALREADY_EXISTS    9609L
 //
 // DNS automatic zone already exists.
 //
-static const int DNS_ERROR_AUTOZONE_ALREADY_EXISTS 9610L
+    DNS_ERROR_AUTOZONE_ALREADY_EXISTS 9610
 
 // DNS_ERROR_INVALID_ZONE_TYPE           0x0000258b
 //
@@ -21814,7 +21760,7 @@ static const int DNS_ERROR_AUTOZONE_ALREADY_EXISTS 9610L
 //
 // Invalid DNS zone type.
 //
-static const int DNS_ERROR_INVALID_ZONE_TYPE      9611L
+    DNS_ERROR_INVALID_ZONE_TYPE      9611
 
 // DNS_ERROR_SECONDARY_REQUIRES_MASTER_IP 0x0000258c
 //
@@ -21824,7 +21770,7 @@ static const int DNS_ERROR_INVALID_ZONE_TYPE      9611L
 //
 // Secondary DNS zone requires master IP address.
 //
-static const int DNS_ERROR_SECONDARY_REQUIRES_MASTER_IP 9612L
+    DNS_ERROR_SECONDARY_REQUIRES_MASTER_IP 9612
 
 // DNS_ERROR_ZONE_NOT_SECONDARY          0x0000258d
 //
@@ -21834,7 +21780,7 @@ static const int DNS_ERROR_SECONDARY_REQUIRES_MASTER_IP 9612L
 //
 // DNS zone not secondary.
 //
-static const int DNS_ERROR_ZONE_NOT_SECONDARY     9613L
+    DNS_ERROR_ZONE_NOT_SECONDARY     9613
 
 // DNS_ERROR_NEED_SECONDARY_ADDRESSES    0x0000258e
 //
@@ -21844,7 +21790,7 @@ static const int DNS_ERROR_ZONE_NOT_SECONDARY     9613L
 //
 // Need secondary IP address.
 //
-static const int DNS_ERROR_NEED_SECONDARY_ADDRESSES 9614L
+    DNS_ERROR_NEED_SECONDARY_ADDRESSES 9614
 
 // DNS_ERROR_WINS_INIT_FAILED            0x0000258f
 //
@@ -21854,7 +21800,7 @@ static const int DNS_ERROR_NEED_SECONDARY_ADDRESSES 9614L
 //
 // WINS initialization failed.
 //
-static const int DNS_ERROR_WINS_INIT_FAILED       9615L
+    DNS_ERROR_WINS_INIT_FAILED       9615
 
 // DNS_ERROR_NEED_WINS_SERVERS           0x00002590
 //
@@ -21864,7 +21810,7 @@ static const int DNS_ERROR_WINS_INIT_FAILED       9615L
 //
 // Need WINS servers.
 //
-static const int DNS_ERROR_NEED_WINS_SERVERS      9616L
+    DNS_ERROR_NEED_WINS_SERVERS      9616
 
 // DNS_ERROR_NBSTAT_INIT_FAILED          0x00002591
 //
@@ -21874,7 +21820,7 @@ static const int DNS_ERROR_NEED_WINS_SERVERS      9616L
 //
 // NBTSTAT initialization call failed.
 //
-static const int DNS_ERROR_NBSTAT_INIT_FAILED     9617L
+    DNS_ERROR_NBSTAT_INIT_FAILED     9617
 
 // DNS_ERROR_SOA_DELETE_INVALID          0x00002592
 //
@@ -21884,7 +21830,7 @@ static const int DNS_ERROR_NBSTAT_INIT_FAILED     9617L
 //
 // Invalid delete of start of authority (SOA)
 //
-static const int DNS_ERROR_SOA_DELETE_INVALID     9618L
+    DNS_ERROR_SOA_DELETE_INVALID     9618
 
 // DNS_ERROR_FORWARDER_ALREADY_EXISTS    0x00002593
 //
@@ -21894,7 +21840,7 @@ static const int DNS_ERROR_SOA_DELETE_INVALID     9618L
 //
 // A conditional forwarding zone already exists for that name.
 //
-static const int DNS_ERROR_FORWARDER_ALREADY_EXISTS 9619L
+    DNS_ERROR_FORWARDER_ALREADY_EXISTS 9619
 
 // DNS_ERROR_ZONE_REQUIRES_MASTER_IP     0x00002594
 //
@@ -21904,7 +21850,7 @@ static const int DNS_ERROR_FORWARDER_ALREADY_EXISTS 9619L
 //
 // This zone must be configured with one or more master DNS server IP addresses.
 //
-static const int DNS_ERROR_ZONE_REQUIRES_MASTER_IP 9620L
+    DNS_ERROR_ZONE_REQUIRES_MASTER_IP 9620
 
 // DNS_ERROR_ZONE_IS_SHUTDOWN            0x00002595
 //
@@ -21914,7 +21860,7 @@ static const int DNS_ERROR_ZONE_REQUIRES_MASTER_IP 9620L
 //
 // The operation cannot be performed because this zone is shut down.
 //
-static const int DNS_ERROR_ZONE_IS_SHUTDOWN       9621L
+    DNS_ERROR_ZONE_IS_SHUTDOWN       9621
 
 // DNS_ERROR_ZONE_LOCKED_FOR_SIGNING     0x00002596
 //
@@ -21924,14 +21870,14 @@ static const int DNS_ERROR_ZONE_IS_SHUTDOWN       9621L
 //
 // This operation cannot be performed because the zone is currently being signed. Please try again later.
 //
-static const int DNS_ERROR_ZONE_LOCKED_FOR_SIGNING 9622L
+    DNS_ERROR_ZONE_LOCKED_FOR_SIGNING 9622
 
 
 //
 // Datafile errors
 //
 
-static const int DNS_ERROR_DATAFILE_BASE 9650
+    DNS_ERROR_DATAFILE_BASE 9650
 
 // DNS                                   0x000025b3
 //
@@ -21941,7 +21887,7 @@ static const int DNS_ERROR_DATAFILE_BASE 9650
 //
 // Primary DNS zone requires datafile.
 //
-static const int DNS_ERROR_PRIMARY_REQUIRES_DATAFILE 9651L
+    DNS_ERROR_PRIMARY_REQUIRES_DATAFILE 9651
 
 // DNS                                   0x000025b4
 //
@@ -21951,7 +21897,7 @@ static const int DNS_ERROR_PRIMARY_REQUIRES_DATAFILE 9651L
 //
 // Invalid datafile name for DNS zone.
 //
-static const int DNS_ERROR_INVALID_DATAFILE_NAME  9652L
+    DNS_ERROR_INVALID_DATAFILE_NAME  9652
 
 // DNS                                   0x000025b5
 //
@@ -21961,7 +21907,7 @@ static const int DNS_ERROR_INVALID_DATAFILE_NAME  9652L
 //
 // Failed to open datafile for DNS zone.
 //
-static const int DNS_ERROR_DATAFILE_OPEN_FAILURE  9653L
+    DNS_ERROR_DATAFILE_OPEN_FAILURE  9653
 
 // DNS                                   0x000025b6
 //
@@ -21971,7 +21917,7 @@ static const int DNS_ERROR_DATAFILE_OPEN_FAILURE  9653L
 //
 // Failed to write datafile for DNS zone.
 //
-static const int DNS_ERROR_FILE_WRITEBACK_FAILED  9654L
+    DNS_ERROR_FILE_WRITEBACK_FAILED  9654
 
 // DNS                                   0x000025b7
 //
@@ -21981,14 +21927,14 @@ static const int DNS_ERROR_FILE_WRITEBACK_FAILED  9654L
 //
 // Failure while reading datafile for DNS zone.
 //
-static const int DNS_ERROR_DATAFILE_PARSING       9655L
+    DNS_ERROR_DATAFILE_PARSING       9655
 
 
 //
 // Database errors
 //
 
-static const int DNS_ERROR_DATABASE_BASE 9700
+    DNS_ERROR_DATABASE_BASE 9700
 
 // DNS_ERROR_RECORD_DOES_NOT_EXIST       0x000025e5
 //
@@ -21998,7 +21944,7 @@ static const int DNS_ERROR_DATABASE_BASE 9700
 //
 // DNS record does not exist.
 //
-static const int DNS_ERROR_RECORD_DOES_NOT_EXIST  9701L
+    DNS_ERROR_RECORD_DOES_NOT_EXIST  9701
 
 // DNS_ERROR_RECORD_FORMAT               0x000025e6
 //
@@ -22008,7 +21954,7 @@ static const int DNS_ERROR_RECORD_DOES_NOT_EXIST  9701L
 //
 // DNS record format error.
 //
-static const int DNS_ERROR_RECORD_FORMAT          9702L
+    DNS_ERROR_RECORD_FORMAT          9702
 
 // DNS_ERROR_NODE_CREATION_FAILED        0x000025e7
 //
@@ -22018,7 +21964,7 @@ static const int DNS_ERROR_RECORD_FORMAT          9702L
 //
 // Node creation failure in DNS.
 //
-static const int DNS_ERROR_NODE_CREATION_FAILED   9703L
+    DNS_ERROR_NODE_CREATION_FAILED   9703
 
 // DNS_ERROR_UNKNOWN_RECORD_TYPE         0x000025e8
 //
@@ -22028,7 +21974,7 @@ static const int DNS_ERROR_NODE_CREATION_FAILED   9703L
 //
 // Unknown DNS record type.
 //
-static const int DNS_ERROR_UNKNOWN_RECORD_TYPE    9704L
+    DNS_ERROR_UNKNOWN_RECORD_TYPE    9704
 
 // DNS_ERROR_RECORD_TIMED_OUT            0x000025e9
 //
@@ -22038,7 +21984,7 @@ static const int DNS_ERROR_UNKNOWN_RECORD_TYPE    9704L
 //
 // DNS record timed out.
 //
-static const int DNS_ERROR_RECORD_TIMED_OUT       9705L
+    DNS_ERROR_RECORD_TIMED_OUT       9705
 
 // DNS_ERROR_NAME_NOT_IN_ZONE            0x000025ea
 //
@@ -22048,7 +21994,7 @@ static const int DNS_ERROR_RECORD_TIMED_OUT       9705L
 //
 // Name not in DNS zone.
 //
-static const int DNS_ERROR_NAME_NOT_IN_ZONE       9706L
+    DNS_ERROR_NAME_NOT_IN_ZONE       9706
 
 // DNS_ERROR_CNAME_LOOP                  0x000025eb
 //
@@ -22058,7 +22004,7 @@ static const int DNS_ERROR_NAME_NOT_IN_ZONE       9706L
 //
 // CNAME loop detected.
 //
-static const int DNS_ERROR_CNAME_LOOP             9707L
+    DNS_ERROR_CNAME_LOOP             9707
 
 // DNS_ERROR_NODE_IS_CNAME               0x000025ec
 //
@@ -22068,7 +22014,7 @@ static const int DNS_ERROR_CNAME_LOOP             9707L
 //
 // Node is a CNAME DNS record.
 //
-static const int DNS_ERROR_NODE_IS_CNAME          9708L
+    DNS_ERROR_NODE_IS_CNAME          9708
 
 // DNS_ERROR_CNAME_COLLISION             0x000025ed
 //
@@ -22078,7 +22024,7 @@ static const int DNS_ERROR_NODE_IS_CNAME          9708L
 //
 // A CNAME record already exists for given name.
 //
-static const int DNS_ERROR_CNAME_COLLISION        9709L
+    DNS_ERROR_CNAME_COLLISION        9709
 
 // DNS_ERROR_RECORD_ONLY_AT_ZONE_ROOT    0x000025ee
 //
@@ -22088,7 +22034,7 @@ static const int DNS_ERROR_CNAME_COLLISION        9709L
 //
 // Record only at DNS zone root.
 //
-static const int DNS_ERROR_RECORD_ONLY_AT_ZONE_ROOT 9710L
+    DNS_ERROR_RECORD_ONLY_AT_ZONE_ROOT 9710
 
 // DNS_ERROR_RECORD_ALREADY_EXISTS       0x000025ef
 //
@@ -22098,7 +22044,7 @@ static const int DNS_ERROR_RECORD_ONLY_AT_ZONE_ROOT 9710L
 //
 // DNS record already exists.
 //
-static const int DNS_ERROR_RECORD_ALREADY_EXISTS  9711L
+    DNS_ERROR_RECORD_ALREADY_EXISTS  9711
 
 // DNS_ERROR_SECONDARY_DATA              0x000025f0
 //
@@ -22108,7 +22054,7 @@ static const int DNS_ERROR_RECORD_ALREADY_EXISTS  9711L
 //
 // Secondary DNS zone data error.
 //
-static const int DNS_ERROR_SECONDARY_DATA         9712L
+    DNS_ERROR_SECONDARY_DATA         9712
 
 // DNS_ERROR_NO_CREATE_CACHE_DATA        0x000025f1
 //
@@ -22118,7 +22064,7 @@ static const int DNS_ERROR_SECONDARY_DATA         9712L
 //
 // Could not create DNS cache data.
 //
-static const int DNS_ERROR_NO_CREATE_CACHE_DATA   9713L
+    DNS_ERROR_NO_CREATE_CACHE_DATA   9713
 
 // DNS_ERROR_NAME_DOES_NOT_EXIST         0x000025f2
 //
@@ -22128,7 +22074,7 @@ static const int DNS_ERROR_NO_CREATE_CACHE_DATA   9713L
 //
 // DNS name does not exist.
 //
-static const int DNS_ERROR_NAME_DOES_NOT_EXIST    9714L
+    DNS_ERROR_NAME_DOES_NOT_EXIST    9714
 
 // DNS_WARNING_PTR_CREATE_FAILED         0x000025f3
 //
@@ -22138,7 +22084,7 @@ static const int DNS_ERROR_NAME_DOES_NOT_EXIST    9714L
 //
 // Could not create pointer (PTR) record.
 //
-static const int DNS_WARNING_PTR_CREATE_FAILED    9715L
+    DNS_WARNING_PTR_CREATE_FAILED    9715
 
 // DNS_WARNING_DOMAIN_UNDELETED          0x000025f4
 //
@@ -22148,7 +22094,7 @@ static const int DNS_WARNING_PTR_CREATE_FAILED    9715L
 //
 // DNS domain was undeleted.
 //
-static const int DNS_WARNING_DOMAIN_UNDELETED     9716L
+    DNS_WARNING_DOMAIN_UNDELETED     9716
 
 // DNS_ERROR_DS_UNAVAILABLE              0x000025f5
 //
@@ -22158,7 +22104,7 @@ static const int DNS_WARNING_DOMAIN_UNDELETED     9716L
 //
 // The directory service is unavailable.
 //
-static const int DNS_ERROR_DS_UNAVAILABLE         9717L
+    DNS_ERROR_DS_UNAVAILABLE         9717
 
 // DNS_ERROR_DS_ZONE_ALREADY_EXISTS      0x000025f6
 //
@@ -22168,7 +22114,7 @@ static const int DNS_ERROR_DS_UNAVAILABLE         9717L
 //
 // DNS zone already exists in the directory service.
 //
-static const int DNS_ERROR_DS_ZONE_ALREADY_EXISTS 9718L
+    DNS_ERROR_DS_ZONE_ALREADY_EXISTS 9718
 
 // DNS_ERROR_NO_BOOTFILE_IF_DS_ZONE      0x000025f7
 //
@@ -22178,7 +22124,7 @@ static const int DNS_ERROR_DS_ZONE_ALREADY_EXISTS 9718L
 //
 // DNS server not creating or reading the boot file for the directory service integrated DNS zone.
 //
-static const int DNS_ERROR_NO_BOOTFILE_IF_DS_ZONE 9719L
+    DNS_ERROR_NO_BOOTFILE_IF_DS_ZONE 9719
 
 // DNS_ERROR_NODE_IS_DNAME               0x000025f8
 //
@@ -22188,7 +22134,7 @@ static const int DNS_ERROR_NO_BOOTFILE_IF_DS_ZONE 9719L
 //
 // Node is a DNAME DNS record.
 //
-static const int DNS_ERROR_NODE_IS_DNAME          9720L
+    DNS_ERROR_NODE_IS_DNAME          9720
 
 // DNS_ERROR_DNAME_COLLISION             0x000025f9
 //
@@ -22198,7 +22144,7 @@ static const int DNS_ERROR_NODE_IS_DNAME          9720L
 //
 // A DNAME record already exists for given name.
 //
-static const int DNS_ERROR_DNAME_COLLISION        9721L
+    DNS_ERROR_DNAME_COLLISION        9721
 
 // DNS_ERROR_ALIAS_LOOP                  0x000025fa
 //
@@ -22208,14 +22154,14 @@ static const int DNS_ERROR_DNAME_COLLISION        9721L
 //
 // An alias loop has been detected with either CNAME or DNAME records.
 //
-static const int DNS_ERROR_ALIAS_LOOP             9722L
+    DNS_ERROR_ALIAS_LOOP             9722
 
 
 //
 // Operation errors
 //
 
-static const int DNS_ERROR_OPERATION_BASE 9750
+    DNS_ERROR_OPERATION_BASE 9750
 
 // DNS_INFO_AXFR_COMPLETE                0x00002617
 //
@@ -22225,7 +22171,7 @@ static const int DNS_ERROR_OPERATION_BASE 9750
 //
 // DNS AXFR (zone transfer) complete.
 //
-static const int DNS_INFO_AXFR_COMPLETE           9751L
+    DNS_INFO_AXFR_COMPLETE           9751
 
 // DNS_ERROR_AXFR                        0x00002618
 //
@@ -22235,7 +22181,7 @@ static const int DNS_INFO_AXFR_COMPLETE           9751L
 //
 // DNS zone transfer failed.
 //
-static const int DNS_ERROR_AXFR                   9752L
+    DNS_ERROR_AXFR                   9752
 
 // DNS_INFO_ADDED_LOCAL_WINS             0x00002619
 //
@@ -22245,14 +22191,14 @@ static const int DNS_ERROR_AXFR                   9752L
 //
 // Added local WINS server.
 //
-static const int DNS_INFO_ADDED_LOCAL_WINS        9753L
+    DNS_INFO_ADDED_LOCAL_WINS        9753
 
 
 //
 // Secure update
 //
 
-static const int DNS_ERROR_SECURE_BASE 9800
+    DNS_ERROR_SECURE_BASE 9800
 
 // DNS_STATUS_CONTINUE_NEEDED            0x00002649
 //
@@ -22262,14 +22208,14 @@ static const int DNS_ERROR_SECURE_BASE 9800
 //
 // Secure update call needs to continue update request.
 //
-static const int DNS_STATUS_CONTINUE_NEEDED       9801L
+    DNS_STATUS_CONTINUE_NEEDED       9801
 
 
 //
 // Setup errors
 //
 
-static const int DNS_ERROR_SETUP_BASE 9850
+    DNS_ERROR_SETUP_BASE 9850
 
 // DNS_ERROR_NO_TCPIP                    0x0000267b
 //
@@ -22279,7 +22225,7 @@ static const int DNS_ERROR_SETUP_BASE 9850
 //
 // TCP/IP network protocol not installed.
 //
-static const int DNS_ERROR_NO_TCPIP               9851L
+    DNS_ERROR_NO_TCPIP               9851
 
 // DNS_ERROR_NO_DNS_SERVERS              0x0000267c
 //
@@ -22289,14 +22235,14 @@ static const int DNS_ERROR_NO_TCPIP               9851L
 //
 // No DNS servers configured for local system.
 //
-static const int DNS_ERROR_NO_DNS_SERVERS         9852L
+    DNS_ERROR_NO_DNS_SERVERS         9852
 
 
 //
 // Directory partition (DP) errors
 //
 
-static const int DNS_ERROR_DP_BASE 9900
+    DNS_ERROR_DP_BASE 9900
 
 // DNS_ERROR_DP_DOES_NOT_EXIST           0x000026ad
 //
@@ -22306,7 +22252,7 @@ static const int DNS_ERROR_DP_BASE 9900
 //
 // The specified directory partition does not exist.
 //
-static const int DNS_ERROR_DP_DOES_NOT_EXIST      9901L
+    DNS_ERROR_DP_DOES_NOT_EXIST      9901
 
 // DNS_ERROR_DP_ALREADY_EXISTS           0x000026ae
 //
@@ -22316,7 +22262,7 @@ static const int DNS_ERROR_DP_DOES_NOT_EXIST      9901L
 //
 // The specified directory partition already exists.
 //
-static const int DNS_ERROR_DP_ALREADY_EXISTS      9902L
+    DNS_ERROR_DP_ALREADY_EXISTS      9902
 
 // DNS_ERROR_DP_NOT_ENLISTED             0x000026af
 //
@@ -22326,7 +22272,7 @@ static const int DNS_ERROR_DP_ALREADY_EXISTS      9902L
 //
 // This DNS server is not enlisted in the specified directory partition.
 //
-static const int DNS_ERROR_DP_NOT_ENLISTED        9903L
+    DNS_ERROR_DP_NOT_ENLISTED        9903
 
 // DNS_ERROR_DP_ALREADY_ENLISTED         0x000026b0
 //
@@ -22336,7 +22282,7 @@ static const int DNS_ERROR_DP_NOT_ENLISTED        9903L
 //
 // This DNS server is already enlisted in the specified directory partition.
 //
-static const int DNS_ERROR_DP_ALREADY_ENLISTED    9904L
+    DNS_ERROR_DP_ALREADY_ENLISTED    9904
 
 // DNS_ERROR_DP_NOT_AVAILABLE            0x000026b1
 //
@@ -22346,7 +22292,7 @@ static const int DNS_ERROR_DP_ALREADY_ENLISTED    9904L
 //
 // The directory partition is not available at this time. Please wait a few minutes and try again.
 //
-static const int DNS_ERROR_DP_NOT_AVAILABLE       9905L
+    DNS_ERROR_DP_NOT_AVAILABLE       9905
 
 // DNS_ERROR_DP_FSMO_ERROR               0x000026b2
 //
@@ -22356,7 +22302,7 @@ static const int DNS_ERROR_DP_NOT_AVAILABLE       9905L
 //
 // The operation failed because the domain naming master FSMO role could not be reached. The domain controller holding the domain naming master FSMO role is down or unable to service the request or is not running Windows Server 2003 or later.
 //
-static const int DNS_ERROR_DP_FSMO_ERROR          9906L
+    DNS_ERROR_DP_FSMO_ERROR          9906
 
 //
 // DNS RRL errors from 9911 to 9920
@@ -22369,7 +22315,7 @@ static const int DNS_ERROR_DP_FSMO_ERROR          9906L
 //
 // The RRL is not enabled.
 //
-static const int DNS_ERROR_RRL_NOT_ENABLED        9911L
+    DNS_ERROR_RRL_NOT_ENABLED        9911
 
 // DNS_ERROR_RRL_INVALID_WINDOW_SIZE 0x000026B8
 //
@@ -22379,7 +22325,7 @@ static const int DNS_ERROR_RRL_NOT_ENABLED        9911L
 //
 // The window size parameter is invalid. It should be greater than or equal to 1.
 //
-static const int DNS_ERROR_RRL_INVALID_WINDOW_SIZE 9912L
+    DNS_ERROR_RRL_INVALID_WINDOW_SIZE 9912
 
 // DNS_ERROR_RRL_INVALID_IPV4_PREFIX 0x000026B9
 //
@@ -22389,7 +22335,7 @@ static const int DNS_ERROR_RRL_INVALID_WINDOW_SIZE 9912L
 //
 // The IPv4 prefix length parameter is invalid. It should be less than or equal to 32.
 //
-static const int DNS_ERROR_RRL_INVALID_IPV4_PREFIX 9913L
+    DNS_ERROR_RRL_INVALID_IPV4_PREFIX 9913
 
 // DNS_ERROR_RRL_INVALID_IPV6_PREFIX 0x000026BA
 //
@@ -22399,7 +22345,7 @@ static const int DNS_ERROR_RRL_INVALID_IPV4_PREFIX 9913L
 //
 // The IPv6 prefix length parameter is invalid. It should be less than or equal to 128.
 //
-static const int DNS_ERROR_RRL_INVALID_IPV6_PREFIX 9914L
+    DNS_ERROR_RRL_INVALID_IPV6_PREFIX 9914
 
 // DNS_ERROR_RRL_INVALID_TC_RATE 0x000026BB
 //
@@ -22409,7 +22355,7 @@ static const int DNS_ERROR_RRL_INVALID_IPV6_PREFIX 9914L
 //
 // The TC Rate parameter is invalid. It should be less than 10.
 //
-static const int DNS_ERROR_RRL_INVALID_TC_RATE    9915L
+    DNS_ERROR_RRL_INVALID_TC_RATE    9915
 
 // DNS_ERROR_RRL_INVALID_LEAK_RATE 0x000026BC
 //
@@ -22419,7 +22365,7 @@ static const int DNS_ERROR_RRL_INVALID_TC_RATE    9915L
 //
 // The Leak Rate parameter is invalid. It should be either 0, or between 2 and 10.
 //
-static const int DNS_ERROR_RRL_INVALID_LEAK_RATE  9916L
+    DNS_ERROR_RRL_INVALID_LEAK_RATE  9916
 
 // DNS_ERROR_RRL_LEAK_RATE_LESSTHAN_TC_RATE 0x000026BD
 //
@@ -22429,7 +22375,7 @@ static const int DNS_ERROR_RRL_INVALID_LEAK_RATE  9916L
 //
 // The Leak Rate or TC Rate parameter is invalid. Leak Rate should be greater than TC Rate.
 //
-static const int DNS_ERROR_RRL_LEAK_RATE_LESSTHAN_TC_RATE 9917L
+    DNS_ERROR_RRL_LEAK_RATE_LESSTHAN_TC_RATE 9917
 
 
 //
@@ -22443,7 +22389,7 @@ static const int DNS_ERROR_RRL_LEAK_RATE_LESSTHAN_TC_RATE 9917L
 //
 // The virtualization instance already exists.
 //
-static const int DNS_ERROR_VIRTUALIZATION_INSTANCE_ALREADY_EXISTS 9921L
+    DNS_ERROR_VIRTUALIZATION_INSTANCE_ALREADY_EXISTS 9921
 
 // DNS_ERROR_VIRTUALIZATION_INSTANCE_DOES_NOT_EXIST    0x000026c2
 //
@@ -22453,7 +22399,7 @@ static const int DNS_ERROR_VIRTUALIZATION_INSTANCE_ALREADY_EXISTS 9921L
 //
 // The virtualization instance does not exist.
 //
-static const int DNS_ERROR_VIRTUALIZATION_INSTANCE_DOES_NOT_EXIST 9922L
+    DNS_ERROR_VIRTUALIZATION_INSTANCE_DOES_NOT_EXIST 9922
 
 // DNS_ERROR_VIRTUALIZATION_TREE_LOCKED        0x000026c3
 //
@@ -22463,7 +22409,7 @@ static const int DNS_ERROR_VIRTUALIZATION_INSTANCE_DOES_NOT_EXIST 9922L
 //
 // The virtualization tree is locked.
 //
-static const int DNS_ERROR_VIRTUALIZATION_TREE_LOCKED 9923L
+    DNS_ERROR_VIRTUALIZATION_TREE_LOCKED 9923
 
 // DNS_ERROR_INVAILD_VIRTUALIZATION_INSTANCE_NAME      0x000026c4
 //
@@ -22473,7 +22419,7 @@ static const int DNS_ERROR_VIRTUALIZATION_TREE_LOCKED 9923L
 //
 // Invalid virtualization instance name.
 //
-static const int DNS_ERROR_INVAILD_VIRTUALIZATION_INSTANCE_NAME 9924L
+    DNS_ERROR_INVAILD_VIRTUALIZATION_INSTANCE_NAME 9924
 
 // DNS_ERROR_DEFAULT_VIRTUALIZATION_INSTANCE   0x000026c5
 //
@@ -22483,7 +22429,7 @@ static const int DNS_ERROR_INVAILD_VIRTUALIZATION_INSTANCE_NAME 9924L
 //
 // The default virtualization instance cannot be added, removed or modified.
 //
-static const int DNS_ERROR_DEFAULT_VIRTUALIZATION_INSTANCE 9925L
+    DNS_ERROR_DEFAULT_VIRTUALIZATION_INSTANCE 9925
 
 
 //
@@ -22497,7 +22443,7 @@ static const int DNS_ERROR_DEFAULT_VIRTUALIZATION_INSTANCE 9925L
 //
 // The scope already exists for the zone.
 //
-static const int DNS_ERROR_ZONESCOPE_ALREADY_EXISTS 9951L
+    DNS_ERROR_ZONESCOPE_ALREADY_EXISTS 9951
 
 // DNS_ERROR_ZONESCOPE_DOES_NOT_EXIST       0x000026e0
 //
@@ -22507,7 +22453,7 @@ static const int DNS_ERROR_ZONESCOPE_ALREADY_EXISTS 9951L
 //
 // The scope does not exist for the zone.
 //
-static const int DNS_ERROR_ZONESCOPE_DOES_NOT_EXIST 9952L
+    DNS_ERROR_ZONESCOPE_DOES_NOT_EXIST 9952
 
 // DNS_ERROR_DEFAULT_ZONESCOPE 0x000026e1
 //
@@ -22517,7 +22463,7 @@ static const int DNS_ERROR_ZONESCOPE_DOES_NOT_EXIST 9952L
 //
 // The scope is the same as the default zone scope.
 //
-static const int DNS_ERROR_DEFAULT_ZONESCOPE      9953L
+    DNS_ERROR_DEFAULT_ZONESCOPE      9953
 
 // DNS_ERROR_INVALID_ZONESCOPE_NAME 0x000026e2
 //
@@ -22527,7 +22473,7 @@ static const int DNS_ERROR_DEFAULT_ZONESCOPE      9953L
 //
 // The scope name contains invalid characters.
 //
-static const int DNS_ERROR_INVALID_ZONESCOPE_NAME 9954L
+    DNS_ERROR_INVALID_ZONESCOPE_NAME 9954
 
 // DNS_ERROR_NOT_ALLOWED_WITH_ZONESCOPES 0x000026e3
 //
@@ -22537,7 +22483,7 @@ static const int DNS_ERROR_INVALID_ZONESCOPE_NAME 9954L
 //
 // Operation not allowed when the zone has scopes.
 //
-static const int DNS_ERROR_NOT_ALLOWED_WITH_ZONESCOPES 9955L
+    DNS_ERROR_NOT_ALLOWED_WITH_ZONESCOPES 9955
 
 // DNS_ERROR_LOAD_ZONESCOPE_FAILED 0x000026e4
 //
@@ -22547,7 +22493,7 @@ static const int DNS_ERROR_NOT_ALLOWED_WITH_ZONESCOPES 9955L
 //
 // Failed to load zone scope.
 //
-static const int DNS_ERROR_LOAD_ZONESCOPE_FAILED  9956L
+    DNS_ERROR_LOAD_ZONESCOPE_FAILED  9956
 
 // DNS_ERROR_ZONESCOPE_FILE_WRITEBACK_FAILED 0x000026e5
 //
@@ -22557,7 +22503,7 @@ static const int DNS_ERROR_LOAD_ZONESCOPE_FAILED  9956L
 //
 // Failed to write data file for DNS zone scope. Please verify the file exists and is writable.
 //
-static const int DNS_ERROR_ZONESCOPE_FILE_WRITEBACK_FAILED 9957L
+    DNS_ERROR_ZONESCOPE_FILE_WRITEBACK_FAILED 9957
 
 // DNS_ERROR_INVALID_SCOPE_NAME 0x000026e6
 //
@@ -22567,7 +22513,7 @@ static const int DNS_ERROR_ZONESCOPE_FILE_WRITEBACK_FAILED 9957L
 //
 // The scope name contains invalid characters.
 //
-static const int DNS_ERROR_INVALID_SCOPE_NAME     9958L
+    DNS_ERROR_INVALID_SCOPE_NAME     9958
 
 // DNS_ERROR_SCOPE_DOES_NOT_EXIST       0x000026e7
 //
@@ -22577,7 +22523,7 @@ static const int DNS_ERROR_INVALID_SCOPE_NAME     9958L
 //
 // The scope does not exist.
 //
-static const int DNS_ERROR_SCOPE_DOES_NOT_EXIST   9959L
+    DNS_ERROR_SCOPE_DOES_NOT_EXIST   9959
 
 // DNS_ERROR_DEFAULT_SCOPE 0x000026e8
 //
@@ -22587,7 +22533,7 @@ static const int DNS_ERROR_SCOPE_DOES_NOT_EXIST   9959L
 //
 // The scope is the same as the default scope.
 //
-static const int DNS_ERROR_DEFAULT_SCOPE          9960L
+    DNS_ERROR_DEFAULT_SCOPE          9960
 
 // DNS_ERROR_INVALID_SCOPE_OPERATION 0x000026e9
 //
@@ -22597,7 +22543,7 @@ static const int DNS_ERROR_DEFAULT_SCOPE          9960L
 //
 // The operation is invalid on the scope.
 //
-static const int DNS_ERROR_INVALID_SCOPE_OPERATION 9961L
+    DNS_ERROR_INVALID_SCOPE_OPERATION 9961
 
 // DNS_ERROR_SCOPE_LOCKED 0x000026ea
 //
@@ -22607,7 +22553,7 @@ static const int DNS_ERROR_INVALID_SCOPE_OPERATION 9961L
 //
 // The scope is locked.
 //
-static const int DNS_ERROR_SCOPE_LOCKED           9962L
+    DNS_ERROR_SCOPE_LOCKED           9962
 
 // DNS_ERROR_SCOPE_ALREADY_EXISTS 0x000026eb
 //
@@ -22617,7 +22563,7 @@ static const int DNS_ERROR_SCOPE_LOCKED           9962L
 //
 // The scope already exists.
 //
-static const int DNS_ERROR_SCOPE_ALREADY_EXISTS   9963L
+    DNS_ERROR_SCOPE_ALREADY_EXISTS   9963
 
 
 //
@@ -22631,7 +22577,7 @@ static const int DNS_ERROR_SCOPE_ALREADY_EXISTS   9963L
 //
 // A policy with the same name already exists on this level (server level or zone level) on the DNS server.
 //
-static const int DNS_ERROR_POLICY_ALREADY_EXISTS  9971L
+    DNS_ERROR_POLICY_ALREADY_EXISTS  9971
 
 // DNS_ERROR_POLICY_DOES_NOT_EXIST 0x000026f4
 //
@@ -22641,7 +22587,7 @@ static const int DNS_ERROR_POLICY_ALREADY_EXISTS  9971L
 //
 // No policy with this name exists on this level (server level or zone level) on the DNS server.
 //
-static const int DNS_ERROR_POLICY_DOES_NOT_EXIST  9972L
+    DNS_ERROR_POLICY_DOES_NOT_EXIST  9972
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA 0x000026f5
 //
@@ -22651,7 +22597,7 @@ static const int DNS_ERROR_POLICY_DOES_NOT_EXIST  9972L
 //
 // The criteria provided in the policy are invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA 9973L
+    DNS_ERROR_POLICY_INVALID_CRITERIA 9973
 
 // DNS_ERROR_POLICY_INVALID_SETTINGS 0x000026f6
 //
@@ -22661,7 +22607,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA 9973L
 //
 // At least one of the settings of this policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_SETTINGS 9974L
+    DNS_ERROR_POLICY_INVALID_SETTINGS 9974
 
 // DNS_ERROR_CLIENT_SUBNET_IS_ACCESSED 0x000026f7
 //
@@ -22671,7 +22617,7 @@ static const int DNS_ERROR_POLICY_INVALID_SETTINGS 9974L
 //
 // The client subnet cannot be deleted while it is being accessed by a policy.
 //
-static const int DNS_ERROR_CLIENT_SUBNET_IS_ACCESSED 9975L
+    DNS_ERROR_CLIENT_SUBNET_IS_ACCESSED 9975
 
 // DNS_ERROR_CLIENT_SUBNET_DOES_NOT_EXIST 0x000026f8
 //
@@ -22681,7 +22627,7 @@ static const int DNS_ERROR_CLIENT_SUBNET_IS_ACCESSED 9975L
 //
 // The client subnet does not exist on the DNS server.
 //
-static const int DNS_ERROR_CLIENT_SUBNET_DOES_NOT_EXIST 9976L
+    DNS_ERROR_CLIENT_SUBNET_DOES_NOT_EXIST 9976
 
 // DNS_ERROR_CLIENT_SUBNET_ALREADY_EXISTS 0x000026f9
 //
@@ -22691,7 +22637,7 @@ static const int DNS_ERROR_CLIENT_SUBNET_DOES_NOT_EXIST 9976L
 //
 // A client subnet with this name already exists on the DNS server.
 //
-static const int DNS_ERROR_CLIENT_SUBNET_ALREADY_EXISTS 9977L
+    DNS_ERROR_CLIENT_SUBNET_ALREADY_EXISTS 9977
 
 // DNS_ERROR_SUBNET_DOES_NOT_EXIST 0x000026fa
 //
@@ -22701,7 +22647,7 @@ static const int DNS_ERROR_CLIENT_SUBNET_ALREADY_EXISTS 9977L
 //
 // The IP subnet specified does not exist in the client subnet.
 //
-static const int DNS_ERROR_SUBNET_DOES_NOT_EXIST  9978L
+    DNS_ERROR_SUBNET_DOES_NOT_EXIST  9978
 
 // DNS_ERROR_SUBNET_ALREADY_EXISTS 0x000026fb
 //
@@ -22711,7 +22657,7 @@ static const int DNS_ERROR_SUBNET_DOES_NOT_EXIST  9978L
 //
 // The IP subnet that is being added, already exists in the client subnet.
 //
-static const int DNS_ERROR_SUBNET_ALREADY_EXISTS  9979L
+    DNS_ERROR_SUBNET_ALREADY_EXISTS  9979
 
 // DNS_ERROR_POLICY_LOCKED 0x000026fc
 //
@@ -22721,7 +22667,7 @@ static const int DNS_ERROR_SUBNET_ALREADY_EXISTS  9979L
 //
 // The policy is locked.
 //
-static const int DNS_ERROR_POLICY_LOCKED          9980L
+    DNS_ERROR_POLICY_LOCKED          9980
 
 // DNS_ERROR_POLICY_INVALID_WEIGHT 0x000026fd
 //
@@ -22731,7 +22677,7 @@ static const int DNS_ERROR_POLICY_LOCKED          9980L
 //
 // The weight of the scope in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_WEIGHT  9981L
+    DNS_ERROR_POLICY_INVALID_WEIGHT  9981
 
 // DNS_ERROR_POLICY_INVALID_NAME 0x000026fe
 //
@@ -22741,7 +22687,7 @@ static const int DNS_ERROR_POLICY_INVALID_WEIGHT  9981L
 //
 // The DNS policy name is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_NAME    9982L
+    DNS_ERROR_POLICY_INVALID_NAME    9982
 
 // DNS_ERROR_POLICY_MISSING_CRITERIA 0x000026ff
 //
@@ -22751,7 +22697,7 @@ static const int DNS_ERROR_POLICY_INVALID_NAME    9982L
 //
 // The policy is missing criteria.
 //
-static const int DNS_ERROR_POLICY_MISSING_CRITERIA 9983L
+    DNS_ERROR_POLICY_MISSING_CRITERIA 9983
 
 // DNS_ERROR_INVALID_CLIENT_SUBNET_NAME 0x00002700
 //
@@ -22761,7 +22707,7 @@ static const int DNS_ERROR_POLICY_MISSING_CRITERIA 9983L
 //
 // The name of the the client subnet record is invalid.
 //
-static const int DNS_ERROR_INVALID_CLIENT_SUBNET_NAME 9984L
+    DNS_ERROR_INVALID_CLIENT_SUBNET_NAME 9984
 
 // DNS_ERROR_POLICY_PROCESSING_ORDER_INVALID 0x00002701
 //
@@ -22771,7 +22717,7 @@ static const int DNS_ERROR_INVALID_CLIENT_SUBNET_NAME 9984L
 //
 // Invalid policy processing order.
 //
-static const int DNS_ERROR_POLICY_PROCESSING_ORDER_INVALID 9985L
+    DNS_ERROR_POLICY_PROCESSING_ORDER_INVALID 9985
 
 // DNS_ERROR_POLICY_SCOPE_MISSING 0x00002702
 //
@@ -22781,7 +22727,7 @@ static const int DNS_ERROR_POLICY_PROCESSING_ORDER_INVALID 9985L
 //
 // The scope information has not been provided for a policy that requires it.
 //
-static const int DNS_ERROR_POLICY_SCOPE_MISSING   9986L
+    DNS_ERROR_POLICY_SCOPE_MISSING   9986
 
 // DNS_ERROR_POLICY_SCOPE_NOT_ALLOWED 0x00002703
 //
@@ -22791,7 +22737,7 @@ static const int DNS_ERROR_POLICY_SCOPE_MISSING   9986L
 //
 // The scope information has been provided for a policy that does not require it.
 //
-static const int DNS_ERROR_POLICY_SCOPE_NOT_ALLOWED 9987L
+    DNS_ERROR_POLICY_SCOPE_NOT_ALLOWED 9987
 
 // DNS_ERROR_SERVERSCOPE_IS_REFERENCED 0x00002704
 //
@@ -22801,7 +22747,7 @@ static const int DNS_ERROR_POLICY_SCOPE_NOT_ALLOWED 9987L
 //
 // The server scope cannot be deleted because it is referenced by a DNS Policy.
 //
-static const int DNS_ERROR_SERVERSCOPE_IS_REFERENCED 9988L
+    DNS_ERROR_SERVERSCOPE_IS_REFERENCED 9988
 
 // DNS_ERROR_ZONESCOPE_IS_REFERENCED 0x00002705
 //
@@ -22811,7 +22757,7 @@ static const int DNS_ERROR_SERVERSCOPE_IS_REFERENCED 9988L
 //
 // The zone scope cannot be deleted because it is referenced by a DNS Policy.
 //
-static const int DNS_ERROR_ZONESCOPE_IS_REFERENCED 9989L
+    DNS_ERROR_ZONESCOPE_IS_REFERENCED 9989
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_CLIENT_SUBNET 0x00002706
 //
@@ -22821,7 +22767,7 @@ static const int DNS_ERROR_ZONESCOPE_IS_REFERENCED 9989L
 //
 // The criterion client subnet provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_CLIENT_SUBNET 9990L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_CLIENT_SUBNET 9990
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_TRANSPORT_PROTOCOL 0x00002707
 //
@@ -22831,7 +22777,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_CLIENT_SUBNET 9990L
 //
 // The criterion transport protocol provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_TRANSPORT_PROTOCOL 9991L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_TRANSPORT_PROTOCOL 9991
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_NETWORK_PROTOCOL 0x00002708
 //
@@ -22841,7 +22787,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_TRANSPORT_PROTOCOL 9991L
 //
 // The criterion network protocol provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_NETWORK_PROTOCOL 9992L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_NETWORK_PROTOCOL 9992
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_INTERFACE 0x00002709
 //
@@ -22851,7 +22797,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_NETWORK_PROTOCOL 9992L
 //
 // The criterion interface provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_INTERFACE 9993L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_INTERFACE 9993
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_FQDN 0x0000270A
 //
@@ -22861,7 +22807,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_INTERFACE 9993L
 //
 // The criterion FQDN provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_FQDN 9994L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_FQDN 9994
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_QUERY_TYPE 0x0000270B
 //
@@ -22871,7 +22817,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_FQDN 9994L
 //
 // The criterion query type provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_QUERY_TYPE 9995L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_QUERY_TYPE 9995
 
 // DNS_ERROR_POLICY_INVALID_CRITERIA_TIME_OF_DAY 0x0000270C
 //
@@ -22881,7 +22827,7 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_QUERY_TYPE 9995L
 //
 // The criterion time of day provided in the policy is invalid.
 //
-static const int DNS_ERROR_POLICY_INVALID_CRITERIA_TIME_OF_DAY 9996L
+    DNS_ERROR_POLICY_INVALID_CRITERIA_TIME_OF_DAY 9996
 
 
 
@@ -22908,103 +22854,101 @@ static const int DNS_ERROR_POLICY_INVALID_CRITERIA_TIME_OF_DAY 9996L
 //
 --]]
 
-if not WSABASEERR_DEFINED then
-WSABASEERR_DEFINED = true
 ffi.cdef[[
-static const int WSABASEERR = 10000;
-
-
-static const int WSAEINTR                        = 10004;
-static const int WSAEBADF                        = 10009;
-static const int WSAEACCES                       = 10013;
-static const int WSAEFAULT                       = 10014;
-static const int WSAEINVAL                       = 10022;
-static const int WSAEMFILE                       = 10024;
-static const int WSAEWOULDBLOCK                  = 10035;
-static const int WSAEINPROGRESS                  = 10036;
-static const int WSAEALREADY                     = 10037;
-static const int WSAENOTSOCK                     = 10038;
-static const int WSAEDESTADDRREQ                 = 10039;
-static const int WSAEMSGSIZE                     = 10040;
-static const int WSAEPROTOTYPE                   = 10041;
-static const int WSAENOPROTOOPT                  = 10042;
-static const int WSAEPROTONOSUPPORT              = 10043;
-static const int WSAESOCKTNOSUPPORT              = 10044;
-static const int WSAEOPNOTSUPP                   = 10045;
-static const int WSAEPFNOSUPPORT                 = 10046;
-static const int WSAEAFNOSUPPORT                 = 10047;
-static const int WSAEADDRINUSE                   = 10048;
-static const int WSAEADDRNOTAVAIL                = 10049;
-static const int WSAENETDOWN                     = 10050;
-static const int WSAENETUNREACH                  = 10051;
-static const int WSAENETRESET                    = 10052;
-static const int WSAECONNABORTED                 = 10053;
-static const int WSAECONNRESET                   = 10054;
-static const int WSAENOBUFS                      = 10055;
-static const int WSAEISCONN                      = 10056;
-static const int WSAENOTCONN                     = 10057;
-static const int WSAESHUTDOWN                    = 10058;
-static const int WSAETOOMANYREFS                 = 10059;
-static const int WSAETIMEDOUT                    = 10060;
-static const int WSAECONNREFUSED                 = 10061;
-static const int WSAELOOP                        = 10062;
-static const int WSAENAMETOOLONG                 = 10063;
-static const int WSAEHOSTDOWN                    = 10064;
-static const int WSAEHOSTUNREACH                 = 10065;
-static const int WSAENOTEMPTY                    = 10066;
-static const int WSAEPROCLIM                     = 10067;
-static const int WSAEUSERS                       = 10068;
-static const int WSAEDQUOT                       = 10069;
-static const int WSAESTALE                       = 10070;
-static const int WSAEREMOTE                      = 10071;
-static const int WSASYSNOTREADY                  = 10091;
-static const int WSAVERNOTSUPPORTED              = 10092;
-static const int WSANOTINITIALISED               = 10093;
-static const int WSAEDISCON                      = 10101;
-static const int WSAENOMORE                      = 10102;
-static const int WSAECANCELLED                   = 10103;
-static const int WSAEINVALIDPROCTABLE            = 10104;
-static const int WSAEINVALIDPROVIDER             = 10105;
-static const int WSAEPROVIDERFAILEDINIT          = 10106;
-static const int WSASYSCALLFAILURE               = 10107;
-static const int WSASERVICE_NOT_FOUND            = 10108;
-static const int WSATYPE_NOT_FOUND               = 10109;
-static const int WSA_E_NO_MORE                   = 10110;
-static const int WSA_E_CANCELLED                 = 10111;
-static const int WSAEREFUSED                     = 10112;
-static const int WSAHOST_NOT_FOUND               = 11001;
-static const int WSATRY_AGAIN                    = 11002;
-static const int WSANO_RECOVERY                  = 11003;
-static const int WSANO_DATA                      = 11004;
-static const int WSA_QOS_RECEIVERS               = 11005;
-static const int WSA_QOS_SENDERS                 = 11006;
-static const int WSA_QOS_NO_SENDERS              = 11007;
-static const int WSA_QOS_NO_RECEIVERS            = 11008;
-static const int WSA_QOS_REQUEST_CONFIRMED       = 11009;
-static const int WSA_QOS_ADMISSION_FAILURE       = 11010;
-static const int WSA_QOS_POLICY_FAILURE          = 11011;
-static const int WSA_QOS_BAD_STYLE               = 11012;
-static const int WSA_QOS_BAD_OBJECT              = 11013;
-static const int WSA_QOS_TRAFFIC_CTRL_ERROR      = 11014;
-static const int WSA_QOS_GENERIC_ERROR           = 11015;
-static const int WSA_QOS_ESERVICETYPE            = 11016;
-static const int WSA_QOS_EFLOWSPEC               = 11017;
-static const int WSA_QOS_EPROVSPECBUF            = 11018;
-static const int WSA_QOS_EFILTERSTYLE            = 11019;
-static const int WSA_QOS_EFILTERTYPE             = 11020;
-static const int WSA_QOS_EFILTERCOUNT            = 11021;
-static const int WSA_QOS_EOBJLENGTH              = 11022;
-static const int WSA_QOS_EFLOWCOUNT              = 11023;
-static const int WSA_QOS_EUNKOWNPSOBJ            = 11024;
-static const int WSA_QOS_EPOLICYOBJ              = 11025;
-static const int WSA_QOS_EFLOWDESC               = 11026;
-static const int WSA_QOS_EPSFLOWSPEC             = 11027;
-static const int WSA_QOS_EPSFILTERSPEC           = 11028;
-static const int WSA_QOS_ESDMODEOBJ              = 11029;
-static const int WSA_QOS_ESHAPERATEOBJ           = 11030;
-static const int WSA_QOS_RESERVED_PETYPE         = 11031;
-static const int WSA_SECURE_HOST_NOT_FOUND       = 11032;
-static const int WSA_IPSEC_NAME_POLICY_ERROR     = 11033L;
+enum {
+    WSABASEERR = 10000,
+    WSAEINTR = 10004,
+    WSAEBADF = 10009,
+    WSAEACCES = 10013,
+    WSAEFAULT,
+    WSAEINVAL = 10022,
+    WSAEMFILE = 10024,
+    WSAEWOULDBLOCK = 10035,
+    WSAEINPROGRESS,
+    WSAEALREADY,
+    WSAENOTSOCK,
+    WSAEDESTADDRREQ,
+    WSAEMSGSIZE,
+    WSAEPROTOTYPE,
+    WSAENOPROTOOPT,
+    WSAEPROTONOSUPPORT,
+    WSAESOCKTNOSUPPORT,
+    WSAEOPNOTSUPP,
+    WSAEPFNOSUPPORT,
+    WSAEAFNOSUPPORT,
+    WSAEADDRINUSE,
+    WSAEADDRNOTAVAIL,
+    WSAENETDOWN,
+    WSAENETUNREACH,
+    WSAENETRESET,
+    WSAECONNABORTED,
+    WSAECONNRESET,
+    WSAENOBUFS,
+    WSAEISCONN,
+    WSAENOTCONN,
+    WSAESHUTDOWN,
+    WSAETOOMANYREFS,
+    WSAETIMEDOUT,
+    WSAECONNREFUSED,
+    WSAELOOP,
+    WSAENAMETOOLONG,
+    WSAEHOSTDOWN,
+    WSAEHOSTUNREACH,
+    WSAENOTEMPTY,
+    WSAEPROCLIM,
+    WSAEUSERS,
+    WSAEDQUOT,
+    WSAESTALE,
+    WSAEREMOTE,
+    WSASYSNOTREADY                  = 10091,
+    WSAVERNOTSUPPORTED,
+    WSANOTINITIALISED,
+    WSAEDISCON                      = 10101,
+    WSAENOMORE,
+    WSAECANCELLED,
+    WSAEINVALIDPROCTABLE,
+    WSAEINVALIDPROVIDER,
+    WSAEPROVIDERFAILEDINIT,
+    WSASYSCALLFAILURE,
+    WSASERVICE_NOT_FOUND,
+    WSATYPE_NOT_FOUND,
+    WSA_E_NO_MORE,
+    WSA_E_CANCELLED,
+    WSAEREFUSED,
+    WSAHOST_NOT_FOUND               = 11001,
+    WSATRY_AGAIN,
+    WSANO_RECOVERY,
+    WSANO_DATA,
+    WSA_QOS_RECEIVERS,
+    WSA_QOS_SENDERS,
+    WSA_QOS_NO_SENDERS,
+    WSA_QOS_NO_RECEIVERS,
+    WSA_QOS_REQUEST_CONFIRMED,
+    WSA_QOS_ADMISSION_FAILURE,
+    WSA_QOS_POLICY_FAILURE,
+    WSA_QOS_BAD_STYLE,
+    WSA_QOS_BAD_OBJECT,
+    WSA_QOS_TRAFFIC_CTRL_ERROR,
+    WSA_QOS_GENERIC_ERROR,
+    WSA_QOS_ESERVICETYPE,
+    WSA_QOS_EFLOWSPEC,
+    WSA_QOS_EPROVSPECBUF,
+    WSA_QOS_EFILTERSTYLE,
+    WSA_QOS_EFILTERTYPE,
+    WSA_QOS_EFILTERCOUNT,
+    WSA_QOS_EOBJLENGTH,
+    WSA_QOS_EFLOWCOUNT,
+    WSA_QOS_EUNKOWNPSOBJ,
+    WSA_QOS_EPOLICYOBJ,
+    WSA_QOS_EFLOWDESC,
+    WSA_QOS_EPSFLOWSPEC,
+    WSA_QOS_EPSFILTERSPEC,
+    WSA_QOS_ESDMODEOBJ,
+    WSA_QOS_ESHAPERATEOBJ,
+    WSA_QOS_RESERVED_PETYPE,
+    WSA_SECURE_HOST_NOT_FOUND,
+    WSA_IPSEC_NAME_POLICY_ERROR,
+}
 ]]
 
 --[[
@@ -23015,9 +22959,6 @@ static const int WSA_IPSEC_NAME_POLICY_ERROR     = 11033L;
 //                 10000 to 11999                //
 ///////////////////////////////////////////////////
 --]]
-end -- defined(WSABASEERR_DEFINED)
-
-
 
 --[[
 ///////////////////////////////////////////////////
@@ -23042,7 +22983,7 @@ end -- defined(WSABASEERR_DEFINED)
 //
 // The specified quick mode policy already exists.
 //
-static const int ERROR_IPSEC_QM_POLICY_EXISTS     13000L
+    ERROR_IPSEC_QM_POLICY_EXISTS     13000
 
 //
 // MessageId: ERROR_IPSEC_QM_POLICY_NOT_FOUND
@@ -23051,7 +22992,7 @@ static const int ERROR_IPSEC_QM_POLICY_EXISTS     13000L
 //
 // The specified quick mode policy was not found.
 //
-static const int ERROR_IPSEC_QM_POLICY_NOT_FOUND  13001L
+    ERROR_IPSEC_QM_POLICY_NOT_FOUND  13001
 
 //
 // MessageId: ERROR_IPSEC_QM_POLICY_IN_USE
@@ -23060,7 +23001,7 @@ static const int ERROR_IPSEC_QM_POLICY_NOT_FOUND  13001L
 //
 // The specified quick mode policy is being used.
 //
-static const int ERROR_IPSEC_QM_POLICY_IN_USE     13002L
+    ERROR_IPSEC_QM_POLICY_IN_USE     13002
 
 //
 // MessageId: ERROR_IPSEC_MM_POLICY_EXISTS
@@ -23069,7 +23010,7 @@ static const int ERROR_IPSEC_QM_POLICY_IN_USE     13002L
 //
 // The specified main mode policy already exists.
 //
-static const int ERROR_IPSEC_MM_POLICY_EXISTS     13003L
+    ERROR_IPSEC_MM_POLICY_EXISTS     13003
 
 //
 // MessageId: ERROR_IPSEC_MM_POLICY_NOT_FOUND
@@ -23078,7 +23019,7 @@ static const int ERROR_IPSEC_MM_POLICY_EXISTS     13003L
 //
 // The specified main mode policy was not found
 //
-static const int ERROR_IPSEC_MM_POLICY_NOT_FOUND  13004L
+    ERROR_IPSEC_MM_POLICY_NOT_FOUND  13004
 
 //
 // MessageId: ERROR_IPSEC_MM_POLICY_IN_USE
@@ -23087,7 +23028,7 @@ static const int ERROR_IPSEC_MM_POLICY_NOT_FOUND  13004L
 //
 // The specified main mode policy is being used.
 //
-static const int ERROR_IPSEC_MM_POLICY_IN_USE     13005L
+    ERROR_IPSEC_MM_POLICY_IN_USE     13005
 
 //
 // MessageId: ERROR_IPSEC_MM_FILTER_EXISTS
@@ -23096,7 +23037,7 @@ static const int ERROR_IPSEC_MM_POLICY_IN_USE     13005L
 //
 // The specified main mode filter already exists.
 //
-static const int ERROR_IPSEC_MM_FILTER_EXISTS     13006L
+    ERROR_IPSEC_MM_FILTER_EXISTS     13006
 
 //
 // MessageId: ERROR_IPSEC_MM_FILTER_NOT_FOUND
@@ -23105,7 +23046,7 @@ static const int ERROR_IPSEC_MM_FILTER_EXISTS     13006L
 //
 // The specified main mode filter was not found.
 //
-static const int ERROR_IPSEC_MM_FILTER_NOT_FOUND  13007L
+    ERROR_IPSEC_MM_FILTER_NOT_FOUND  13007
 
 //
 // MessageId: ERROR_IPSEC_TRANSPORT_FILTER_EXISTS
@@ -23114,7 +23055,7 @@ static const int ERROR_IPSEC_MM_FILTER_NOT_FOUND  13007L
 //
 // The specified transport mode filter already exists.
 //
-static const int ERROR_IPSEC_TRANSPORT_FILTER_EXISTS 13008L
+    ERROR_IPSEC_TRANSPORT_FILTER_EXISTS 13008
 
 //
 // MessageId: ERROR_IPSEC_TRANSPORT_FILTER_NOT_FOUND
@@ -23123,7 +23064,7 @@ static const int ERROR_IPSEC_TRANSPORT_FILTER_EXISTS 13008L
 //
 // The specified transport mode filter does not exist.
 //
-static const int ERROR_IPSEC_TRANSPORT_FILTER_NOT_FOUND 13009L
+    ERROR_IPSEC_TRANSPORT_FILTER_NOT_FOUND 13009
 
 //
 // MessageId: ERROR_IPSEC_MM_AUTH_EXISTS
@@ -23132,7 +23073,7 @@ static const int ERROR_IPSEC_TRANSPORT_FILTER_NOT_FOUND 13009L
 //
 // The specified main mode authentication list exists.
 //
-static const int ERROR_IPSEC_MM_AUTH_EXISTS       13010L
+    ERROR_IPSEC_MM_AUTH_EXISTS       13010
 
 //
 // MessageId: ERROR_IPSEC_MM_AUTH_NOT_FOUND
@@ -23141,7 +23082,7 @@ static const int ERROR_IPSEC_MM_AUTH_EXISTS       13010L
 //
 // The specified main mode authentication list was not found.
 //
-static const int ERROR_IPSEC_MM_AUTH_NOT_FOUND    13011L
+    ERROR_IPSEC_MM_AUTH_NOT_FOUND    13011
 
 //
 // MessageId: ERROR_IPSEC_MM_AUTH_IN_USE
@@ -23150,7 +23091,7 @@ static const int ERROR_IPSEC_MM_AUTH_NOT_FOUND    13011L
 //
 // The specified main mode authentication list is being used.
 //
-static const int ERROR_IPSEC_MM_AUTH_IN_USE       13012L
+    ERROR_IPSEC_MM_AUTH_IN_USE       13012
 
 //
 // MessageId: ERROR_IPSEC_DEFAULT_MM_POLICY_NOT_FOUND
@@ -23159,7 +23100,7 @@ static const int ERROR_IPSEC_MM_AUTH_IN_USE       13012L
 //
 // The specified default main mode policy was not found.
 //
-static const int ERROR_IPSEC_DEFAULT_MM_POLICY_NOT_FOUND 13013L
+    ERROR_IPSEC_DEFAULT_MM_POLICY_NOT_FOUND 13013
 
 //
 // MessageId: ERROR_IPSEC_DEFAULT_MM_AUTH_NOT_FOUND
@@ -23168,7 +23109,7 @@ static const int ERROR_IPSEC_DEFAULT_MM_POLICY_NOT_FOUND 13013L
 //
 // The specified default main mode authentication list was not found.
 //
-static const int ERROR_IPSEC_DEFAULT_MM_AUTH_NOT_FOUND 13014L
+    ERROR_IPSEC_DEFAULT_MM_AUTH_NOT_FOUND 13014
 
 //
 // MessageId: ERROR_IPSEC_DEFAULT_QM_POLICY_NOT_FOUND
@@ -23177,7 +23118,7 @@ static const int ERROR_IPSEC_DEFAULT_MM_AUTH_NOT_FOUND 13014L
 //
 // The specified default quick mode policy was not found.
 //
-static const int ERROR_IPSEC_DEFAULT_QM_POLICY_NOT_FOUND 13015L
+    ERROR_IPSEC_DEFAULT_QM_POLICY_NOT_FOUND 13015
 
 //
 // MessageId: ERROR_IPSEC_TUNNEL_FILTER_EXISTS
@@ -23186,7 +23127,7 @@ static const int ERROR_IPSEC_DEFAULT_QM_POLICY_NOT_FOUND 13015L
 //
 // The specified tunnel mode filter exists.
 //
-static const int ERROR_IPSEC_TUNNEL_FILTER_EXISTS 13016L
+    ERROR_IPSEC_TUNNEL_FILTER_EXISTS 13016
 
 //
 // MessageId: ERROR_IPSEC_TUNNEL_FILTER_NOT_FOUND
@@ -23195,7 +23136,7 @@ static const int ERROR_IPSEC_TUNNEL_FILTER_EXISTS 13016L
 //
 // The specified tunnel mode filter was not found.
 //
-static const int ERROR_IPSEC_TUNNEL_FILTER_NOT_FOUND 13017L
+    ERROR_IPSEC_TUNNEL_FILTER_NOT_FOUND 13017
 
 //
 // MessageId: ERROR_IPSEC_MM_FILTER_PENDING_DELETION
@@ -23204,7 +23145,7 @@ static const int ERROR_IPSEC_TUNNEL_FILTER_NOT_FOUND 13017L
 //
 // The Main Mode filter is pending deletion.
 //
-static const int ERROR_IPSEC_MM_FILTER_PENDING_DELETION 13018L
+    ERROR_IPSEC_MM_FILTER_PENDING_DELETION 13018
 
 //
 // MessageId: ERROR_IPSEC_TRANSPORT_FILTER_PENDING_DELETION
@@ -23213,7 +23154,7 @@ static const int ERROR_IPSEC_MM_FILTER_PENDING_DELETION 13018L
 //
 // The transport filter is pending deletion.
 //
-static const int ERROR_IPSEC_TRANSPORT_FILTER_PENDING_DELETION 13019L
+    ERROR_IPSEC_TRANSPORT_FILTER_PENDING_DELETION 13019
 
 //
 // MessageId: ERROR_IPSEC_TUNNEL_FILTER_PENDING_DELETION
@@ -23222,7 +23163,7 @@ static const int ERROR_IPSEC_TRANSPORT_FILTER_PENDING_DELETION 13019L
 //
 // The tunnel filter is pending deletion.
 //
-static const int ERROR_IPSEC_TUNNEL_FILTER_PENDING_DELETION 13020L
+    ERROR_IPSEC_TUNNEL_FILTER_PENDING_DELETION 13020
 
 //
 // MessageId: ERROR_IPSEC_MM_POLICY_PENDING_DELETION
@@ -23231,7 +23172,7 @@ static const int ERROR_IPSEC_TUNNEL_FILTER_PENDING_DELETION 13020L
 //
 // The Main Mode policy is pending deletion.
 //
-static const int ERROR_IPSEC_MM_POLICY_PENDING_DELETION 13021L
+    ERROR_IPSEC_MM_POLICY_PENDING_DELETION 13021
 
 //
 // MessageId: ERROR_IPSEC_MM_AUTH_PENDING_DELETION
@@ -23240,7 +23181,7 @@ static const int ERROR_IPSEC_MM_POLICY_PENDING_DELETION 13021L
 //
 // The Main Mode authentication bundle is pending deletion.
 //
-static const int ERROR_IPSEC_MM_AUTH_PENDING_DELETION 13022L
+    ERROR_IPSEC_MM_AUTH_PENDING_DELETION 13022
 
 //
 // MessageId: ERROR_IPSEC_QM_POLICY_PENDING_DELETION
@@ -23249,7 +23190,7 @@ static const int ERROR_IPSEC_MM_AUTH_PENDING_DELETION 13022L
 //
 // The Quick Mode policy is pending deletion.
 //
-static const int ERROR_IPSEC_QM_POLICY_PENDING_DELETION 13023L
+    ERROR_IPSEC_QM_POLICY_PENDING_DELETION 13023
 
 //
 // MessageId: WARNING_IPSEC_MM_POLICY_PRUNED
@@ -23258,7 +23199,7 @@ static const int ERROR_IPSEC_QM_POLICY_PENDING_DELETION 13023L
 //
 // The Main Mode policy was successfully added, but some of the requested offers are not supported.
 //
-static const int WARNING_IPSEC_MM_POLICY_PRUNED   13024L
+    WARNING_IPSEC_MM_POLICY_PRUNED   13024
 
 //
 // MessageId: WARNING_IPSEC_QM_POLICY_PRUNED
@@ -23267,7 +23208,7 @@ static const int WARNING_IPSEC_MM_POLICY_PRUNED   13024L
 //
 // The Quick Mode policy was successfully added, but some of the requested offers are not supported.
 //
-static const int WARNING_IPSEC_QM_POLICY_PRUNED   13025L
+    WARNING_IPSEC_QM_POLICY_PRUNED   13025
 
 //
 // MessageId: ERROR_IPSEC_IKE_NEG_STATUS_BEGIN
@@ -23276,7 +23217,7 @@ static const int WARNING_IPSEC_QM_POLICY_PRUNED   13025L
 //
 //  ERROR_IPSEC_IKE_NEG_STATUS_BEGIN
 //
-static const int ERROR_IPSEC_IKE_NEG_STATUS_BEGIN 13800L
+    ERROR_IPSEC_IKE_NEG_STATUS_BEGIN 13800
 
 //
 // MessageId: ERROR_IPSEC_IKE_AUTH_FAIL
@@ -23285,7 +23226,7 @@ static const int ERROR_IPSEC_IKE_NEG_STATUS_BEGIN 13800L
 //
 // IKE authentication credentials are unacceptable
 //
-static const int ERROR_IPSEC_IKE_AUTH_FAIL        13801L
+    ERROR_IPSEC_IKE_AUTH_FAIL        13801
 
 //
 // MessageId: ERROR_IPSEC_IKE_ATTRIB_FAIL
@@ -23294,7 +23235,7 @@ static const int ERROR_IPSEC_IKE_AUTH_FAIL        13801L
 //
 // IKE security attributes are unacceptable
 //
-static const int ERROR_IPSEC_IKE_ATTRIB_FAIL      13802L
+    ERROR_IPSEC_IKE_ATTRIB_FAIL      13802
 
 //
 // MessageId: ERROR_IPSEC_IKE_NEGOTIATION_PENDING
@@ -23303,7 +23244,7 @@ static const int ERROR_IPSEC_IKE_ATTRIB_FAIL      13802L
 //
 // IKE Negotiation in progress
 //
-static const int ERROR_IPSEC_IKE_NEGOTIATION_PENDING 13803L
+    ERROR_IPSEC_IKE_NEGOTIATION_PENDING 13803
 
 //
 // MessageId: ERROR_IPSEC_IKE_GENERAL_PROCESSING_ERROR
@@ -23312,7 +23253,7 @@ static const int ERROR_IPSEC_IKE_NEGOTIATION_PENDING 13803L
 //
 // General processing error
 //
-static const int ERROR_IPSEC_IKE_GENERAL_PROCESSING_ERROR 13804L
+    ERROR_IPSEC_IKE_GENERAL_PROCESSING_ERROR 13804
 
 //
 // MessageId: ERROR_IPSEC_IKE_TIMED_OUT
@@ -23321,7 +23262,7 @@ static const int ERROR_IPSEC_IKE_GENERAL_PROCESSING_ERROR 13804L
 //
 // Negotiation timed out
 //
-static const int ERROR_IPSEC_IKE_TIMED_OUT        13805L
+    ERROR_IPSEC_IKE_TIMED_OUT        13805
 
 //
 // MessageId: ERROR_IPSEC_IKE_NO_CERT
@@ -23330,7 +23271,7 @@ static const int ERROR_IPSEC_IKE_TIMED_OUT        13805L
 //
 // IKE failed to find valid machine certificate. Contact your Network Security Administrator about installing a valid certificate in the appropriate Certificate Store.
 //
-static const int ERROR_IPSEC_IKE_NO_CERT          13806L
+    ERROR_IPSEC_IKE_NO_CERT          13806
 
 //
 // MessageId: ERROR_IPSEC_IKE_SA_DELETED
@@ -23339,7 +23280,7 @@ static const int ERROR_IPSEC_IKE_NO_CERT          13806L
 //
 // IKE SA deleted by peer before establishment completed
 //
-static const int ERROR_IPSEC_IKE_SA_DELETED       13807L
+    ERROR_IPSEC_IKE_SA_DELETED       13807
 
 //
 // MessageId: ERROR_IPSEC_IKE_SA_REAPED
@@ -23348,7 +23289,7 @@ static const int ERROR_IPSEC_IKE_SA_DELETED       13807L
 //
 // IKE SA deleted before establishment completed
 //
-static const int ERROR_IPSEC_IKE_SA_REAPED        13808L
+    ERROR_IPSEC_IKE_SA_REAPED        13808
 
 //
 // MessageId: ERROR_IPSEC_IKE_MM_ACQUIRE_DROP
@@ -23357,7 +23298,7 @@ static const int ERROR_IPSEC_IKE_SA_REAPED        13808L
 //
 // Negotiation request sat in Queue too long
 //
-static const int ERROR_IPSEC_IKE_MM_ACQUIRE_DROP  13809L
+    ERROR_IPSEC_IKE_MM_ACQUIRE_DROP  13809
 
 //
 // MessageId: ERROR_IPSEC_IKE_QM_ACQUIRE_DROP
@@ -23366,7 +23307,7 @@ static const int ERROR_IPSEC_IKE_MM_ACQUIRE_DROP  13809L
 //
 // Negotiation request sat in Queue too long
 //
-static const int ERROR_IPSEC_IKE_QM_ACQUIRE_DROP  13810L
+    ERROR_IPSEC_IKE_QM_ACQUIRE_DROP  13810
 
 //
 // MessageId: ERROR_IPSEC_IKE_QUEUE_DROP_MM
@@ -23375,7 +23316,7 @@ static const int ERROR_IPSEC_IKE_QM_ACQUIRE_DROP  13810L
 //
 // Negotiation request sat in Queue too long
 //
-static const int ERROR_IPSEC_IKE_QUEUE_DROP_MM    13811L
+    ERROR_IPSEC_IKE_QUEUE_DROP_MM    13811
 
 //
 // MessageId: ERROR_IPSEC_IKE_QUEUE_DROP_NO_MM
@@ -23384,7 +23325,7 @@ static const int ERROR_IPSEC_IKE_QUEUE_DROP_MM    13811L
 //
 // Negotiation request sat in Queue too long
 //
-static const int ERROR_IPSEC_IKE_QUEUE_DROP_NO_MM 13812L
+    ERROR_IPSEC_IKE_QUEUE_DROP_NO_MM 13812
 
 //
 // MessageId: ERROR_IPSEC_IKE_DROP_NO_RESPONSE
@@ -23393,7 +23334,7 @@ static const int ERROR_IPSEC_IKE_QUEUE_DROP_NO_MM 13812L
 //
 // No response from peer
 //
-static const int ERROR_IPSEC_IKE_DROP_NO_RESPONSE 13813L
+    ERROR_IPSEC_IKE_DROP_NO_RESPONSE 13813
 
 //
 // MessageId: ERROR_IPSEC_IKE_MM_DELAY_DROP
@@ -23402,7 +23343,7 @@ static const int ERROR_IPSEC_IKE_DROP_NO_RESPONSE 13813L
 //
 // Negotiation took too long
 //
-static const int ERROR_IPSEC_IKE_MM_DELAY_DROP    13814L
+    ERROR_IPSEC_IKE_MM_DELAY_DROP    13814
 
 //
 // MessageId: ERROR_IPSEC_IKE_QM_DELAY_DROP
@@ -23411,7 +23352,7 @@ static const int ERROR_IPSEC_IKE_MM_DELAY_DROP    13814L
 //
 // Negotiation took too long
 //
-static const int ERROR_IPSEC_IKE_QM_DELAY_DROP    13815L
+    ERROR_IPSEC_IKE_QM_DELAY_DROP    13815
 
 //
 // MessageId: ERROR_IPSEC_IKE_ERROR
@@ -23420,7 +23361,7 @@ static const int ERROR_IPSEC_IKE_QM_DELAY_DROP    13815L
 //
 // Unknown error occurred
 //
-static const int ERROR_IPSEC_IKE_ERROR            13816L
+    ERROR_IPSEC_IKE_ERROR            13816
 
 //
 // MessageId: ERROR_IPSEC_IKE_CRL_FAILED
@@ -23429,7 +23370,7 @@ static const int ERROR_IPSEC_IKE_ERROR            13816L
 //
 // Certificate Revocation Check failed
 //
-static const int ERROR_IPSEC_IKE_CRL_FAILED       13817L
+    ERROR_IPSEC_IKE_CRL_FAILED       13817
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_KEY_USAGE
@@ -23438,7 +23379,7 @@ static const int ERROR_IPSEC_IKE_CRL_FAILED       13817L
 //
 // Invalid certificate key usage
 //
-static const int ERROR_IPSEC_IKE_INVALID_KEY_USAGE 13818L
+    ERROR_IPSEC_IKE_INVALID_KEY_USAGE 13818
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_CERT_TYPE
@@ -23447,7 +23388,7 @@ static const int ERROR_IPSEC_IKE_INVALID_KEY_USAGE 13818L
 //
 // Invalid certificate type
 //
-static const int ERROR_IPSEC_IKE_INVALID_CERT_TYPE 13819L
+    ERROR_IPSEC_IKE_INVALID_CERT_TYPE 13819
 
 //
 // MessageId: ERROR_IPSEC_IKE_NO_PRIVATE_KEY
@@ -23456,7 +23397,7 @@ static const int ERROR_IPSEC_IKE_INVALID_CERT_TYPE 13819L
 //
 // IKE negotiation failed because the machine certificate used does not have a private key. IPsec certificates require a private key. Contact your Network Security administrator about replacing with a certificate that has a private key.
 //
-static const int ERROR_IPSEC_IKE_NO_PRIVATE_KEY   13820L
+    ERROR_IPSEC_IKE_NO_PRIVATE_KEY   13820
 
 //
 // MessageId: ERROR_IPSEC_IKE_SIMULTANEOUS_REKEY
@@ -23465,7 +23406,7 @@ static const int ERROR_IPSEC_IKE_NO_PRIVATE_KEY   13820L
 //
 // Simultaneous rekeys were detected.
 //
-static const int ERROR_IPSEC_IKE_SIMULTANEOUS_REKEY 13821L
+    ERROR_IPSEC_IKE_SIMULTANEOUS_REKEY 13821
 
 //
 // MessageId: ERROR_IPSEC_IKE_DH_FAIL
@@ -23474,7 +23415,7 @@ static const int ERROR_IPSEC_IKE_SIMULTANEOUS_REKEY 13821L
 //
 // Failure in Diffie-Hellman computation
 //
-static const int ERROR_IPSEC_IKE_DH_FAIL          13822L
+    ERROR_IPSEC_IKE_DH_FAIL          13822
 
 //
 // MessageId: ERROR_IPSEC_IKE_CRITICAL_PAYLOAD_NOT_RECOGNIZED
@@ -23483,7 +23424,7 @@ static const int ERROR_IPSEC_IKE_DH_FAIL          13822L
 //
 // Don't know how to process critical payload
 //
-static const int ERROR_IPSEC_IKE_CRITICAL_PAYLOAD_NOT_RECOGNIZED 13823L
+    ERROR_IPSEC_IKE_CRITICAL_PAYLOAD_NOT_RECOGNIZED 13823
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_HEADER
@@ -23492,7 +23433,7 @@ static const int ERROR_IPSEC_IKE_CRITICAL_PAYLOAD_NOT_RECOGNIZED 13823L
 //
 // Invalid header
 //
-static const int ERROR_IPSEC_IKE_INVALID_HEADER   13824L
+    ERROR_IPSEC_IKE_INVALID_HEADER   13824
 
 //
 // MessageId: ERROR_IPSEC_IKE_NO_POLICY
@@ -23501,7 +23442,7 @@ static const int ERROR_IPSEC_IKE_INVALID_HEADER   13824L
 //
 // No policy configured
 //
-static const int ERROR_IPSEC_IKE_NO_POLICY        13825L
+    ERROR_IPSEC_IKE_NO_POLICY        13825
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_SIGNATURE
@@ -23510,7 +23451,7 @@ static const int ERROR_IPSEC_IKE_NO_POLICY        13825L
 //
 // Failed to verify signature
 //
-static const int ERROR_IPSEC_IKE_INVALID_SIGNATURE 13826L
+    ERROR_IPSEC_IKE_INVALID_SIGNATURE 13826
 
 //
 // MessageId: ERROR_IPSEC_IKE_KERBEROS_ERROR
@@ -23519,7 +23460,7 @@ static const int ERROR_IPSEC_IKE_INVALID_SIGNATURE 13826L
 //
 // Failed to authenticate using Kerberos
 //
-static const int ERROR_IPSEC_IKE_KERBEROS_ERROR   13827L
+    ERROR_IPSEC_IKE_KERBEROS_ERROR   13827
 
 //
 // MessageId: ERROR_IPSEC_IKE_NO_PUBLIC_KEY
@@ -23528,7 +23469,7 @@ static const int ERROR_IPSEC_IKE_KERBEROS_ERROR   13827L
 //
 // Peer's certificate did not have a public key
 //
-static const int ERROR_IPSEC_IKE_NO_PUBLIC_KEY    13828L
+    ERROR_IPSEC_IKE_NO_PUBLIC_KEY    13828
 
 // These must stay as a unit.
 //
@@ -23538,7 +23479,7 @@ static const int ERROR_IPSEC_IKE_NO_PUBLIC_KEY    13828L
 //
 // Error processing error payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR      13829L
+    ERROR_IPSEC_IKE_PROCESS_ERR      13829
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_SA
@@ -23547,7 +23488,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR      13829L
 //
 // Error processing SA payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_SA   13830L
+    ERROR_IPSEC_IKE_PROCESS_ERR_SA   13830
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_PROP
@@ -23556,7 +23497,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_SA   13830L
 //
 // Error processing Proposal payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_PROP 13831L
+    ERROR_IPSEC_IKE_PROCESS_ERR_PROP 13831
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_TRANS
@@ -23565,7 +23506,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_PROP 13831L
 //
 // Error processing Transform payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_TRANS 13832L
+    ERROR_IPSEC_IKE_PROCESS_ERR_TRANS 13832
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_KE
@@ -23574,7 +23515,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_TRANS 13832L
 //
 // Error processing KE payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_KE   13833L
+    ERROR_IPSEC_IKE_PROCESS_ERR_KE   13833
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_ID
@@ -23583,7 +23524,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_KE   13833L
 //
 // Error processing ID payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_ID   13834L
+    ERROR_IPSEC_IKE_PROCESS_ERR_ID   13834
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_CERT
@@ -23592,7 +23533,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_ID   13834L
 //
 // Error processing Cert payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_CERT 13835L
+    ERROR_IPSEC_IKE_PROCESS_ERR_CERT 13835
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_CERT_REQ
@@ -23601,7 +23542,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_CERT 13835L
 //
 // Error processing Certificate Request payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_CERT_REQ 13836L
+    ERROR_IPSEC_IKE_PROCESS_ERR_CERT_REQ 13836
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_HASH
@@ -23610,7 +23551,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_CERT_REQ 13836L
 //
 // Error processing Hash payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_HASH 13837L
+    ERROR_IPSEC_IKE_PROCESS_ERR_HASH 13837
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_SIG
@@ -23619,7 +23560,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_HASH 13837L
 //
 // Error processing Signature payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_SIG  13838L
+    ERROR_IPSEC_IKE_PROCESS_ERR_SIG  13838
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_NONCE
@@ -23628,7 +23569,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_SIG  13838L
 //
 // Error processing Nonce payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_NONCE 13839L
+    ERROR_IPSEC_IKE_PROCESS_ERR_NONCE 13839
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_NOTIFY
@@ -23637,7 +23578,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_NONCE 13839L
 //
 // Error processing Notify payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_NOTIFY 13840L
+    ERROR_IPSEC_IKE_PROCESS_ERR_NOTIFY 13840
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_DELETE
@@ -23646,7 +23587,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_NOTIFY 13840L
 //
 // Error processing Delete Payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_DELETE 13841L
+    ERROR_IPSEC_IKE_PROCESS_ERR_DELETE 13841
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_VENDOR
@@ -23655,7 +23596,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_DELETE 13841L
 //
 // Error processing VendorId payload
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_VENDOR 13842L
+    ERROR_IPSEC_IKE_PROCESS_ERR_VENDOR 13842
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_PAYLOAD
@@ -23664,7 +23605,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_VENDOR 13842L
 //
 // Invalid payload received
 //
-static const int ERROR_IPSEC_IKE_INVALID_PAYLOAD  13843L
+    ERROR_IPSEC_IKE_INVALID_PAYLOAD  13843
 
 //
 // MessageId: ERROR_IPSEC_IKE_LOAD_SOFT_SA
@@ -23673,7 +23614,7 @@ static const int ERROR_IPSEC_IKE_INVALID_PAYLOAD  13843L
 //
 // Soft SA loaded
 //
-static const int ERROR_IPSEC_IKE_LOAD_SOFT_SA     13844L
+    ERROR_IPSEC_IKE_LOAD_SOFT_SA     13844
 
 //
 // MessageId: ERROR_IPSEC_IKE_SOFT_SA_TORN_DOWN
@@ -23682,7 +23623,7 @@ static const int ERROR_IPSEC_IKE_LOAD_SOFT_SA     13844L
 //
 // Soft SA torn down
 //
-static const int ERROR_IPSEC_IKE_SOFT_SA_TORN_DOWN 13845L
+    ERROR_IPSEC_IKE_SOFT_SA_TORN_DOWN 13845
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_COOKIE
@@ -23691,7 +23632,7 @@ static const int ERROR_IPSEC_IKE_SOFT_SA_TORN_DOWN 13845L
 //
 // Invalid cookie received.
 //
-static const int ERROR_IPSEC_IKE_INVALID_COOKIE   13846L
+    ERROR_IPSEC_IKE_INVALID_COOKIE   13846
 
 //
 // MessageId: ERROR_IPSEC_IKE_NO_PEER_CERT
@@ -23700,7 +23641,7 @@ static const int ERROR_IPSEC_IKE_INVALID_COOKIE   13846L
 //
 // Peer failed to send valid machine certificate
 //
-static const int ERROR_IPSEC_IKE_NO_PEER_CERT     13847L
+    ERROR_IPSEC_IKE_NO_PEER_CERT     13847
 
 //
 // MessageId: ERROR_IPSEC_IKE_PEER_CRL_FAILED
@@ -23709,7 +23650,7 @@ static const int ERROR_IPSEC_IKE_NO_PEER_CERT     13847L
 //
 // Certification Revocation check of peer's certificate failed
 //
-static const int ERROR_IPSEC_IKE_PEER_CRL_FAILED  13848L
+    ERROR_IPSEC_IKE_PEER_CRL_FAILED  13848
 
 //
 // MessageId: ERROR_IPSEC_IKE_POLICY_CHANGE
@@ -23718,7 +23659,7 @@ static const int ERROR_IPSEC_IKE_PEER_CRL_FAILED  13848L
 //
 // New policy invalidated SAs formed with old policy
 //
-static const int ERROR_IPSEC_IKE_POLICY_CHANGE    13849L
+    ERROR_IPSEC_IKE_POLICY_CHANGE    13849
 
 //
 // MessageId: ERROR_IPSEC_IKE_NO_MM_POLICY
@@ -23727,7 +23668,7 @@ static const int ERROR_IPSEC_IKE_POLICY_CHANGE    13849L
 //
 // There is no available Main Mode IKE policy.
 //
-static const int ERROR_IPSEC_IKE_NO_MM_POLICY     13850L
+    ERROR_IPSEC_IKE_NO_MM_POLICY     13850
 
 //
 // MessageId: ERROR_IPSEC_IKE_NOTCBPRIV
@@ -23736,7 +23677,7 @@ static const int ERROR_IPSEC_IKE_NO_MM_POLICY     13850L
 //
 // Failed to enabled TCB privilege.
 //
-static const int ERROR_IPSEC_IKE_NOTCBPRIV        13851L
+    ERROR_IPSEC_IKE_NOTCBPRIV        13851
 
 //
 // MessageId: ERROR_IPSEC_IKE_SECLOADFAIL
@@ -23745,7 +23686,7 @@ static const int ERROR_IPSEC_IKE_NOTCBPRIV        13851L
 //
 // Failed to load SECURITY.DLL.
 //
-static const int ERROR_IPSEC_IKE_SECLOADFAIL      13852L
+    ERROR_IPSEC_IKE_SECLOADFAIL      13852
 
 //
 // MessageId: ERROR_IPSEC_IKE_FAILSSPINIT
@@ -23754,7 +23695,7 @@ static const int ERROR_IPSEC_IKE_SECLOADFAIL      13852L
 //
 // Failed to obtain security function table dispatch address from SSPI.
 //
-static const int ERROR_IPSEC_IKE_FAILSSPINIT      13853L
+    ERROR_IPSEC_IKE_FAILSSPINIT      13853
 
 //
 // MessageId: ERROR_IPSEC_IKE_FAILQUERYSSP
@@ -23763,7 +23704,7 @@ static const int ERROR_IPSEC_IKE_FAILSSPINIT      13853L
 //
 // Failed to query Kerberos package to obtain max token size.
 //
-static const int ERROR_IPSEC_IKE_FAILQUERYSSP     13854L
+    ERROR_IPSEC_IKE_FAILQUERYSSP     13854
 
 //
 // MessageId: ERROR_IPSEC_IKE_SRVACQFAIL
@@ -23772,7 +23713,7 @@ static const int ERROR_IPSEC_IKE_FAILQUERYSSP     13854L
 //
 // Failed to obtain Kerberos server credentials for ISAKMP/ERROR_IPSEC_IKE service. Kerberos authentication will not function. The most likely reason for this is lack of domain membership. This is normal if your computer is a member of a workgroup.
 //
-static const int ERROR_IPSEC_IKE_SRVACQFAIL       13855L
+    ERROR_IPSEC_IKE_SRVACQFAIL       13855
 
 //
 // MessageId: ERROR_IPSEC_IKE_SRVQUERYCRED
@@ -23781,7 +23722,7 @@ static const int ERROR_IPSEC_IKE_SRVACQFAIL       13855L
 //
 // Failed to determine SSPI principal name for ISAKMP/ERROR_IPSEC_IKE service (QueryCredentialsAttributes).
 //
-static const int ERROR_IPSEC_IKE_SRVQUERYCRED     13856L
+    ERROR_IPSEC_IKE_SRVQUERYCRED     13856
 
 //
 // MessageId: ERROR_IPSEC_IKE_GETSPIFAIL
@@ -23790,7 +23731,7 @@ static const int ERROR_IPSEC_IKE_SRVQUERYCRED     13856L
 //
 // Failed to obtain new SPI for the inbound SA from IPsec driver. The most common cause for this is that the driver does not have the correct filter. Check your policy to verify the filters.
 //
-static const int ERROR_IPSEC_IKE_GETSPIFAIL       13857L
+    ERROR_IPSEC_IKE_GETSPIFAIL       13857
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_FILTER
@@ -23799,7 +23740,7 @@ static const int ERROR_IPSEC_IKE_GETSPIFAIL       13857L
 //
 // Given filter is invalid
 //
-static const int ERROR_IPSEC_IKE_INVALID_FILTER   13858L
+    ERROR_IPSEC_IKE_INVALID_FILTER   13858
 
 //
 // MessageId: ERROR_IPSEC_IKE_OUT_OF_MEMORY
@@ -23808,7 +23749,7 @@ static const int ERROR_IPSEC_IKE_INVALID_FILTER   13858L
 //
 // Memory allocation failed.
 //
-static const int ERROR_IPSEC_IKE_OUT_OF_MEMORY    13859L
+    ERROR_IPSEC_IKE_OUT_OF_MEMORY    13859
 
 //
 // MessageId: ERROR_IPSEC_IKE_ADD_UPDATE_KEY_FAILED
@@ -23817,7 +23758,7 @@ static const int ERROR_IPSEC_IKE_OUT_OF_MEMORY    13859L
 //
 // Failed to add Security Association to IPsec Driver. The most common cause for this is if the IKE negotiation took too long to complete. If the problem persists, reduce the load on the faulting machine.
 //
-static const int ERROR_IPSEC_IKE_ADD_UPDATE_KEY_FAILED 13860L
+    ERROR_IPSEC_IKE_ADD_UPDATE_KEY_FAILED 13860
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_POLICY
@@ -23826,7 +23767,7 @@ static const int ERROR_IPSEC_IKE_ADD_UPDATE_KEY_FAILED 13860L
 //
 // Invalid policy
 //
-static const int ERROR_IPSEC_IKE_INVALID_POLICY   13861L
+    ERROR_IPSEC_IKE_INVALID_POLICY   13861
 
 //
 // MessageId: ERROR_IPSEC_IKE_UNKNOWN_DOI
@@ -23835,7 +23776,7 @@ static const int ERROR_IPSEC_IKE_INVALID_POLICY   13861L
 //
 // Invalid DOI
 //
-static const int ERROR_IPSEC_IKE_UNKNOWN_DOI      13862L
+    ERROR_IPSEC_IKE_UNKNOWN_DOI      13862
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_SITUATION
@@ -23844,7 +23785,7 @@ static const int ERROR_IPSEC_IKE_UNKNOWN_DOI      13862L
 //
 // Invalid situation
 //
-static const int ERROR_IPSEC_IKE_INVALID_SITUATION 13863L
+    ERROR_IPSEC_IKE_INVALID_SITUATION 13863
 
 //
 // MessageId: ERROR_IPSEC_IKE_DH_FAILURE
@@ -23853,7 +23794,7 @@ static const int ERROR_IPSEC_IKE_INVALID_SITUATION 13863L
 //
 // Diffie-Hellman failure
 //
-static const int ERROR_IPSEC_IKE_DH_FAILURE       13864L
+    ERROR_IPSEC_IKE_DH_FAILURE       13864
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_GROUP
@@ -23862,7 +23803,7 @@ static const int ERROR_IPSEC_IKE_DH_FAILURE       13864L
 //
 // Invalid Diffie-Hellman group
 //
-static const int ERROR_IPSEC_IKE_INVALID_GROUP    13865L
+    ERROR_IPSEC_IKE_INVALID_GROUP    13865
 
 //
 // MessageId: ERROR_IPSEC_IKE_ENCRYPT
@@ -23871,7 +23812,7 @@ static const int ERROR_IPSEC_IKE_INVALID_GROUP    13865L
 //
 // Error encrypting payload
 //
-static const int ERROR_IPSEC_IKE_ENCRYPT          13866L
+    ERROR_IPSEC_IKE_ENCRYPT          13866
 
 //
 // MessageId: ERROR_IPSEC_IKE_DECRYPT
@@ -23880,7 +23821,7 @@ static const int ERROR_IPSEC_IKE_ENCRYPT          13866L
 //
 // Error decrypting payload
 //
-static const int ERROR_IPSEC_IKE_DECRYPT          13867L
+    ERROR_IPSEC_IKE_DECRYPT          13867
 
 //
 // MessageId: ERROR_IPSEC_IKE_POLICY_MATCH
@@ -23889,7 +23830,7 @@ static const int ERROR_IPSEC_IKE_DECRYPT          13867L
 //
 // Policy match error
 //
-static const int ERROR_IPSEC_IKE_POLICY_MATCH     13868L
+    ERROR_IPSEC_IKE_POLICY_MATCH     13868
 
 //
 // MessageId: ERROR_IPSEC_IKE_UNSUPPORTED_ID
@@ -23898,7 +23839,7 @@ static const int ERROR_IPSEC_IKE_POLICY_MATCH     13868L
 //
 // Unsupported ID
 //
-static const int ERROR_IPSEC_IKE_UNSUPPORTED_ID   13869L
+    ERROR_IPSEC_IKE_UNSUPPORTED_ID   13869
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_HASH
@@ -23907,7 +23848,7 @@ static const int ERROR_IPSEC_IKE_UNSUPPORTED_ID   13869L
 //
 // Hash verification failed
 //
-static const int ERROR_IPSEC_IKE_INVALID_HASH     13870L
+    ERROR_IPSEC_IKE_INVALID_HASH     13870
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_HASH_ALG
@@ -23916,7 +23857,7 @@ static const int ERROR_IPSEC_IKE_INVALID_HASH     13870L
 //
 // Invalid hash algorithm
 //
-static const int ERROR_IPSEC_IKE_INVALID_HASH_ALG 13871L
+    ERROR_IPSEC_IKE_INVALID_HASH_ALG 13871
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_HASH_SIZE
@@ -23925,7 +23866,7 @@ static const int ERROR_IPSEC_IKE_INVALID_HASH_ALG 13871L
 //
 // Invalid hash size
 //
-static const int ERROR_IPSEC_IKE_INVALID_HASH_SIZE 13872L
+    ERROR_IPSEC_IKE_INVALID_HASH_SIZE 13872
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_ENCRYPT_ALG
@@ -23934,7 +23875,7 @@ static const int ERROR_IPSEC_IKE_INVALID_HASH_SIZE 13872L
 //
 // Invalid encryption algorithm
 //
-static const int ERROR_IPSEC_IKE_INVALID_ENCRYPT_ALG 13873L
+    ERROR_IPSEC_IKE_INVALID_ENCRYPT_ALG 13873
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_AUTH_ALG
@@ -23943,7 +23884,7 @@ static const int ERROR_IPSEC_IKE_INVALID_ENCRYPT_ALG 13873L
 //
 // Invalid authentication algorithm
 //
-static const int ERROR_IPSEC_IKE_INVALID_AUTH_ALG 13874L
+    ERROR_IPSEC_IKE_INVALID_AUTH_ALG 13874
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_SIG
@@ -23952,7 +23893,7 @@ static const int ERROR_IPSEC_IKE_INVALID_AUTH_ALG 13874L
 //
 // Invalid certificate signature
 //
-static const int ERROR_IPSEC_IKE_INVALID_SIG      13875L
+    ERROR_IPSEC_IKE_INVALID_SIG      13875
 
 //
 // MessageId: ERROR_IPSEC_IKE_LOAD_FAILED
@@ -23961,7 +23902,7 @@ static const int ERROR_IPSEC_IKE_INVALID_SIG      13875L
 //
 // Load failed
 //
-static const int ERROR_IPSEC_IKE_LOAD_FAILED      13876L
+    ERROR_IPSEC_IKE_LOAD_FAILED      13876
 
 //
 // MessageId: ERROR_IPSEC_IKE_RPC_DELETE
@@ -23970,7 +23911,7 @@ static const int ERROR_IPSEC_IKE_LOAD_FAILED      13876L
 //
 // Deleted via RPC call
 //
-static const int ERROR_IPSEC_IKE_RPC_DELETE       13877L
+    ERROR_IPSEC_IKE_RPC_DELETE       13877
 
 //
 // MessageId: ERROR_IPSEC_IKE_BENIGN_REINIT
@@ -23979,7 +23920,7 @@ static const int ERROR_IPSEC_IKE_RPC_DELETE       13877L
 //
 // Temporary state created to perform reinitialization. This is not a real failure.
 //
-static const int ERROR_IPSEC_IKE_BENIGN_REINIT    13878L
+    ERROR_IPSEC_IKE_BENIGN_REINIT    13878
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_RESPONDER_LIFETIME_NOTIFY
@@ -23988,7 +23929,7 @@ static const int ERROR_IPSEC_IKE_BENIGN_REINIT    13878L
 //
 // The lifetime value received in the Responder Lifetime Notify is below the Windows 2000 configured minimum value. Please fix the policy on the peer machine.
 //
-static const int ERROR_IPSEC_IKE_INVALID_RESPONDER_LIFETIME_NOTIFY 13879L
+    ERROR_IPSEC_IKE_INVALID_RESPONDER_LIFETIME_NOTIFY 13879
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_MAJOR_VERSION
@@ -23997,7 +23938,7 @@ static const int ERROR_IPSEC_IKE_INVALID_RESPONDER_LIFETIME_NOTIFY 13879L
 //
 // The recipient cannot handle version of IKE specified in the header.
 //
-static const int ERROR_IPSEC_IKE_INVALID_MAJOR_VERSION 13880L
+    ERROR_IPSEC_IKE_INVALID_MAJOR_VERSION 13880
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_CERT_KEYLEN
@@ -24006,7 +23947,7 @@ static const int ERROR_IPSEC_IKE_INVALID_MAJOR_VERSION 13880L
 //
 // Key length in certificate is too small for configured security requirements.
 //
-static const int ERROR_IPSEC_IKE_INVALID_CERT_KEYLEN 13881L
+    ERROR_IPSEC_IKE_INVALID_CERT_KEYLEN 13881
 
 //
 // MessageId: ERROR_IPSEC_IKE_MM_LIMIT
@@ -24015,7 +23956,7 @@ static const int ERROR_IPSEC_IKE_INVALID_CERT_KEYLEN 13881L
 //
 // Max number of established MM SAs to peer exceeded.
 //
-static const int ERROR_IPSEC_IKE_MM_LIMIT         13882L
+    ERROR_IPSEC_IKE_MM_LIMIT         13882
 
 //
 // MessageId: ERROR_IPSEC_IKE_NEGOTIATION_DISABLED
@@ -24024,7 +23965,7 @@ static const int ERROR_IPSEC_IKE_MM_LIMIT         13882L
 //
 // IKE received a policy that disables negotiation.
 //
-static const int ERROR_IPSEC_IKE_NEGOTIATION_DISABLED 13883L
+    ERROR_IPSEC_IKE_NEGOTIATION_DISABLED 13883
 
 //
 // MessageId: ERROR_IPSEC_IKE_QM_LIMIT
@@ -24033,7 +23974,7 @@ static const int ERROR_IPSEC_IKE_NEGOTIATION_DISABLED 13883L
 //
 // Reached maximum quick mode limit for the main mode. New main mode will be started.
 //
-static const int ERROR_IPSEC_IKE_QM_LIMIT         13884L
+    ERROR_IPSEC_IKE_QM_LIMIT         13884
 
 //
 // MessageId: ERROR_IPSEC_IKE_MM_EXPIRED
@@ -24042,7 +23983,7 @@ static const int ERROR_IPSEC_IKE_QM_LIMIT         13884L
 //
 // Main mode SA lifetime expired or peer sent a main mode delete.
 //
-static const int ERROR_IPSEC_IKE_MM_EXPIRED       13885L
+    ERROR_IPSEC_IKE_MM_EXPIRED       13885
 
 //
 // MessageId: ERROR_IPSEC_IKE_PEER_MM_ASSUMED_INVALID
@@ -24051,7 +23992,7 @@ static const int ERROR_IPSEC_IKE_MM_EXPIRED       13885L
 //
 // Main mode SA assumed to be invalid because peer stopped responding.
 //
-static const int ERROR_IPSEC_IKE_PEER_MM_ASSUMED_INVALID 13886L
+    ERROR_IPSEC_IKE_PEER_MM_ASSUMED_INVALID 13886
 
 //
 // MessageId: ERROR_IPSEC_IKE_CERT_CHAIN_POLICY_MISMATCH
@@ -24060,7 +24001,7 @@ static const int ERROR_IPSEC_IKE_PEER_MM_ASSUMED_INVALID 13886L
 //
 // Certificate doesn't chain to a trusted root in IPsec policy.
 //
-static const int ERROR_IPSEC_IKE_CERT_CHAIN_POLICY_MISMATCH 13887L
+    ERROR_IPSEC_IKE_CERT_CHAIN_POLICY_MISMATCH 13887
 
 //
 // MessageId: ERROR_IPSEC_IKE_UNEXPECTED_MESSAGE_ID
@@ -24069,7 +24010,7 @@ static const int ERROR_IPSEC_IKE_CERT_CHAIN_POLICY_MISMATCH 13887L
 //
 // Received unexpected message ID.
 //
-static const int ERROR_IPSEC_IKE_UNEXPECTED_MESSAGE_ID 13888L
+    ERROR_IPSEC_IKE_UNEXPECTED_MESSAGE_ID 13888
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_AUTH_PAYLOAD
@@ -24078,7 +24019,7 @@ static const int ERROR_IPSEC_IKE_UNEXPECTED_MESSAGE_ID 13888L
 //
 // Received invalid authentication offers.
 //
-static const int ERROR_IPSEC_IKE_INVALID_AUTH_PAYLOAD 13889L
+    ERROR_IPSEC_IKE_INVALID_AUTH_PAYLOAD 13889
 
 //
 // MessageId: ERROR_IPSEC_IKE_DOS_COOKIE_SENT
@@ -24087,7 +24028,7 @@ static const int ERROR_IPSEC_IKE_INVALID_AUTH_PAYLOAD 13889L
 //
 // Sent DoS cookie notify to initiator.
 //
-static const int ERROR_IPSEC_IKE_DOS_COOKIE_SENT  13890L
+    ERROR_IPSEC_IKE_DOS_COOKIE_SENT  13890
 
 //
 // MessageId: ERROR_IPSEC_IKE_SHUTTING_DOWN
@@ -24096,7 +24037,7 @@ static const int ERROR_IPSEC_IKE_DOS_COOKIE_SENT  13890L
 //
 // IKE service is shutting down.
 //
-static const int ERROR_IPSEC_IKE_SHUTTING_DOWN    13891L
+    ERROR_IPSEC_IKE_SHUTTING_DOWN    13891
 
 //
 // MessageId: ERROR_IPSEC_IKE_CGA_AUTH_FAILED
@@ -24105,7 +24046,7 @@ static const int ERROR_IPSEC_IKE_SHUTTING_DOWN    13891L
 //
 // Could not verify binding between CGA address and certificate.
 //
-static const int ERROR_IPSEC_IKE_CGA_AUTH_FAILED  13892L
+    ERROR_IPSEC_IKE_CGA_AUTH_FAILED  13892
 
 //
 // MessageId: ERROR_IPSEC_IKE_PROCESS_ERR_NATOA
@@ -24114,7 +24055,7 @@ static const int ERROR_IPSEC_IKE_CGA_AUTH_FAILED  13892L
 //
 // Error processing NatOA payload.
 //
-static const int ERROR_IPSEC_IKE_PROCESS_ERR_NATOA 13893L
+    ERROR_IPSEC_IKE_PROCESS_ERR_NATOA 13893
 
 //
 // MessageId: ERROR_IPSEC_IKE_INVALID_MM_FOR_QM
@@ -24123,7 +24064,7 @@ static const int ERROR_IPSEC_IKE_PROCESS_ERR_NATOA 13893L
 //
 // Parameters of the main mode are invalid for this quick mode.
 //
-static const int ERROR_IPSEC_IKE_INVALID_MM_FOR_QM 13894L
+    ERROR_IPSEC_IKE_INVALID_MM_FOR_QM 13894
 
 //
 // MessageId: ERROR_IPSEC_IKE_QM_EXPIRED
@@ -24132,7 +24073,7 @@ static const int ERROR_IPSEC_IKE_INVALID_MM_FOR_QM 13894L
 //
 // Quick mode SA was expired by IPsec driver.
 //
-static const int ERROR_IPSEC_IKE_QM_EXPIRED       13895L
+    ERROR_IPSEC_IKE_QM_EXPIRED       13895
 
 //
 // MessageId: ERROR_IPSEC_IKE_TOO_MANY_FILTERS
@@ -24141,7 +24082,7 @@ static const int ERROR_IPSEC_IKE_QM_EXPIRED       13895L
 //
 // Too many dynamically added IKEEXT filters were detected.
 //
-static const int ERROR_IPSEC_IKE_TOO_MANY_FILTERS 13896L
+    ERROR_IPSEC_IKE_TOO_MANY_FILTERS 13896
 
 // Do NOT change this final value.  It is used in a public API structure
 //
@@ -24151,7 +24092,7 @@ static const int ERROR_IPSEC_IKE_TOO_MANY_FILTERS 13896L
 //
 //  ERROR_IPSEC_IKE_NEG_STATUS_END
 //
-static const int ERROR_IPSEC_IKE_NEG_STATUS_END   13897L
+    ERROR_IPSEC_IKE_NEG_STATUS_END   13897
 
 //
 // MessageId: ERROR_IPSEC_IKE_KILL_DUMMY_NAP_TUNNEL
@@ -24160,7 +24101,7 @@ static const int ERROR_IPSEC_IKE_NEG_STATUS_END   13897L
 //
 // NAP reauth succeeded and must delete the dummy NAP IKEv2 tunnel.
 //
-static const int ERROR_IPSEC_IKE_KILL_DUMMY_NAP_TUNNEL 13898L
+    ERROR_IPSEC_IKE_KILL_DUMMY_NAP_TUNNEL 13898
 
 //
 // MessageId: ERROR_IPSEC_IKE_INNER_IP_ASSIGNMENT_FAILURE
@@ -24169,7 +24110,7 @@ static const int ERROR_IPSEC_IKE_KILL_DUMMY_NAP_TUNNEL 13898L
 //
 // Error in assigning inner IP address to initiator in tunnel mode.
 //
-static const int ERROR_IPSEC_IKE_INNER_IP_ASSIGNMENT_FAILURE 13899L
+    ERROR_IPSEC_IKE_INNER_IP_ASSIGNMENT_FAILURE 13899
 
 //
 // MessageId: ERROR_IPSEC_IKE_REQUIRE_CP_PAYLOAD_MISSING
@@ -24178,7 +24119,7 @@ static const int ERROR_IPSEC_IKE_INNER_IP_ASSIGNMENT_FAILURE 13899L
 //
 // Require configuration payload missing.
 //
-static const int ERROR_IPSEC_IKE_REQUIRE_CP_PAYLOAD_MISSING 13900L
+    ERROR_IPSEC_IKE_REQUIRE_CP_PAYLOAD_MISSING 13900
 
 //
 // MessageId: ERROR_IPSEC_KEY_MODULE_IMPERSONATION_NEGOTIATION_PENDING
@@ -24187,7 +24128,7 @@ static const int ERROR_IPSEC_IKE_REQUIRE_CP_PAYLOAD_MISSING 13900L
 //
 // A negotiation running as the security principle who issued the connection is in progress
 //
-static const int ERROR_IPSEC_KEY_MODULE_IMPERSONATION_NEGOTIATION_PENDING 13901L
+    ERROR_IPSEC_KEY_MODULE_IMPERSONATION_NEGOTIATION_PENDING 13901
 
 //
 // MessageId: ERROR_IPSEC_IKE_COEXISTENCE_SUPPRESS
@@ -24196,7 +24137,7 @@ static const int ERROR_IPSEC_KEY_MODULE_IMPERSONATION_NEGOTIATION_PENDING 13901L
 //
 // SA was deleted due to IKEv1/AuthIP co-existence suppress check.
 //
-static const int ERROR_IPSEC_IKE_COEXISTENCE_SUPPRESS 13902L
+    ERROR_IPSEC_IKE_COEXISTENCE_SUPPRESS 13902
 
 //
 // MessageId: ERROR_IPSEC_IKE_RATELIMIT_DROP
@@ -24205,7 +24146,7 @@ static const int ERROR_IPSEC_IKE_COEXISTENCE_SUPPRESS 13902L
 //
 // Incoming SA request was dropped due to peer IP address rate limiting.
 //
-static const int ERROR_IPSEC_IKE_RATELIMIT_DROP   13903L
+    ERROR_IPSEC_IKE_RATELIMIT_DROP   13903
 
 //
 // MessageId: ERROR_IPSEC_IKE_PEER_DOESNT_SUPPORT_MOBIKE
@@ -24214,7 +24155,7 @@ static const int ERROR_IPSEC_IKE_RATELIMIT_DROP   13903L
 //
 // Peer does not support MOBIKE.
 //
-static const int ERROR_IPSEC_IKE_PEER_DOESNT_SUPPORT_MOBIKE 13904L
+    ERROR_IPSEC_IKE_PEER_DOESNT_SUPPORT_MOBIKE 13904
 
 //
 // MessageId: ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE
@@ -24223,7 +24164,7 @@ static const int ERROR_IPSEC_IKE_PEER_DOESNT_SUPPORT_MOBIKE 13904L
 //
 // SA establishment is not authorized.
 //
-static const int ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE 13905L
+    ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE 13905
 
 //
 // MessageId: ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_FAILURE
@@ -24232,7 +24173,7 @@ static const int ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE 13905L
 //
 // SA establishment is not authorized because there is not a sufficiently strong PKINIT-based credential.
 //
-static const int ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_FAILURE 13906L
+    ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_FAILURE 13906
 
 //
 // MessageId: ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE_WITH_OPTIONAL_RETRY
@@ -24241,7 +24182,7 @@ static const int ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_FAILURE 13906L
 //
 // SA establishment is not authorized.  You may need to enter updated or different credentials such as a smartcard.
 //
-static const int ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE_WITH_OPTIONAL_RETRY 13907L
+    ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE_WITH_OPTIONAL_RETRY 13907
 
 //
 // MessageId: ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_AND_CERTMAP_FAILURE
@@ -24250,7 +24191,7 @@ static const int ERROR_IPSEC_IKE_AUTHORIZATION_FAILURE_WITH_OPTIONAL_RETRY 13907
 //
 // SA establishment is not authorized because there is not a sufficiently strong PKINIT-based credential. This might be related to certificate-to-account mapping failure for the SA.
 //
-static const int ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_AND_CERTMAP_FAILURE 13908L
+    ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_AND_CERTMAP_FAILURE 13908
 
 // Extended upper bound for IKE errors to accomodate new errors
 //
@@ -24260,7 +24201,7 @@ static const int ERROR_IPSEC_IKE_STRONG_CRED_AUTHORIZATION_AND_CERTMAP_FAILURE 1
 //
 //  ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END
 //
-static const int ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END 13909L
+    ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END 13909
 
 //
 // Following error codes are returned by IPsec kernel.
@@ -24272,7 +24213,7 @@ static const int ERROR_IPSEC_IKE_NEG_STATUS_EXTENDED_END 13909L
 //
 // The SPI in the packet does not match a valid IPsec SA.
 //
-static const int ERROR_IPSEC_BAD_SPI              13910L
+    ERROR_IPSEC_BAD_SPI              13910
 
 //
 // MessageId: ERROR_IPSEC_SA_LIFETIME_EXPIRED
@@ -24281,7 +24222,7 @@ static const int ERROR_IPSEC_BAD_SPI              13910L
 //
 // Packet was received on an IPsec SA whose lifetime has expired.
 //
-static const int ERROR_IPSEC_SA_LIFETIME_EXPIRED  13911L
+    ERROR_IPSEC_SA_LIFETIME_EXPIRED  13911
 
 //
 // MessageId: ERROR_IPSEC_WRONG_SA
@@ -24290,7 +24231,7 @@ static const int ERROR_IPSEC_SA_LIFETIME_EXPIRED  13911L
 //
 // Packet was received on an IPsec SA that does not match the packet characteristics.
 //
-static const int ERROR_IPSEC_WRONG_SA             13912L
+    ERROR_IPSEC_WRONG_SA             13912
 
 //
 // MessageId: ERROR_IPSEC_REPLAY_CHECK_FAILED
@@ -24299,7 +24240,7 @@ static const int ERROR_IPSEC_WRONG_SA             13912L
 //
 // Packet sequence number replay check failed.
 //
-static const int ERROR_IPSEC_REPLAY_CHECK_FAILED  13913L
+    ERROR_IPSEC_REPLAY_CHECK_FAILED  13913
 
 //
 // MessageId: ERROR_IPSEC_INVALID_PACKET
@@ -24308,7 +24249,7 @@ static const int ERROR_IPSEC_REPLAY_CHECK_FAILED  13913L
 //
 // IPsec header and/or trailer in the packet is invalid.
 //
-static const int ERROR_IPSEC_INVALID_PACKET       13914L
+    ERROR_IPSEC_INVALID_PACKET       13914
 
 //
 // MessageId: ERROR_IPSEC_INTEGRITY_CHECK_FAILED
@@ -24317,7 +24258,7 @@ static const int ERROR_IPSEC_INVALID_PACKET       13914L
 //
 // IPsec integrity check failed.
 //
-static const int ERROR_IPSEC_INTEGRITY_CHECK_FAILED 13915L
+    ERROR_IPSEC_INTEGRITY_CHECK_FAILED 13915
 
 //
 // MessageId: ERROR_IPSEC_CLEAR_TEXT_DROP
@@ -24326,7 +24267,7 @@ static const int ERROR_IPSEC_INTEGRITY_CHECK_FAILED 13915L
 //
 // IPsec dropped a clear text packet.
 //
-static const int ERROR_IPSEC_CLEAR_TEXT_DROP      13916L
+    ERROR_IPSEC_CLEAR_TEXT_DROP      13916
 
 //
 // MessageId: ERROR_IPSEC_AUTH_FIREWALL_DROP
@@ -24335,7 +24276,7 @@ static const int ERROR_IPSEC_CLEAR_TEXT_DROP      13916L
 //
 // IPsec dropped an incoming ESP packet in authenticated firewall mode. This drop is benign.
 //
-static const int ERROR_IPSEC_AUTH_FIREWALL_DROP   13917L
+    ERROR_IPSEC_AUTH_FIREWALL_DROP   13917
 
 //
 // MessageId: ERROR_IPSEC_THROTTLE_DROP
@@ -24344,7 +24285,7 @@ static const int ERROR_IPSEC_AUTH_FIREWALL_DROP   13917L
 //
 // IPsec dropped a packet due to DoS throttling.
 //
-static const int ERROR_IPSEC_THROTTLE_DROP        13918L
+    ERROR_IPSEC_THROTTLE_DROP        13918
 
 //
 // MessageId: ERROR_IPSEC_DOSP_BLOCK
@@ -24353,7 +24294,7 @@ static const int ERROR_IPSEC_THROTTLE_DROP        13918L
 //
 // IPsec DoS Protection matched an explicit block rule.
 //
-static const int ERROR_IPSEC_DOSP_BLOCK           13925L
+    ERROR_IPSEC_DOSP_BLOCK           13925
 
 //
 // MessageId: ERROR_IPSEC_DOSP_RECEIVED_MULTICAST
@@ -24362,7 +24303,7 @@ static const int ERROR_IPSEC_DOSP_BLOCK           13925L
 //
 // IPsec DoS Protection received an IPsec specific multicast packet which is not allowed.
 //
-static const int ERROR_IPSEC_DOSP_RECEIVED_MULTICAST 13926L
+    ERROR_IPSEC_DOSP_RECEIVED_MULTICAST 13926
 
 //
 // MessageId: ERROR_IPSEC_DOSP_INVALID_PACKET
@@ -24371,7 +24312,7 @@ static const int ERROR_IPSEC_DOSP_RECEIVED_MULTICAST 13926L
 //
 // IPsec DoS Protection received an incorrectly formatted packet.
 //
-static const int ERROR_IPSEC_DOSP_INVALID_PACKET  13927L
+    ERROR_IPSEC_DOSP_INVALID_PACKET  13927
 
 //
 // MessageId: ERROR_IPSEC_DOSP_STATE_LOOKUP_FAILED
@@ -24380,7 +24321,7 @@ static const int ERROR_IPSEC_DOSP_INVALID_PACKET  13927L
 //
 // IPsec DoS Protection failed to look up state.
 //
-static const int ERROR_IPSEC_DOSP_STATE_LOOKUP_FAILED 13928L
+    ERROR_IPSEC_DOSP_STATE_LOOKUP_FAILED 13928
 
 //
 // MessageId: ERROR_IPSEC_DOSP_MAX_ENTRIES
@@ -24389,7 +24330,7 @@ static const int ERROR_IPSEC_DOSP_STATE_LOOKUP_FAILED 13928L
 //
 // IPsec DoS Protection failed to create state because the maximum number of entries allowed by policy has been reached.
 //
-static const int ERROR_IPSEC_DOSP_MAX_ENTRIES     13929L
+    ERROR_IPSEC_DOSP_MAX_ENTRIES     13929
 
 //
 // MessageId: ERROR_IPSEC_DOSP_KEYMOD_NOT_ALLOWED
@@ -24398,7 +24339,7 @@ static const int ERROR_IPSEC_DOSP_MAX_ENTRIES     13929L
 //
 // IPsec DoS Protection received an IPsec negotiation packet for a keying module which is not allowed by policy.
 //
-static const int ERROR_IPSEC_DOSP_KEYMOD_NOT_ALLOWED 13930L
+    ERROR_IPSEC_DOSP_KEYMOD_NOT_ALLOWED 13930
 
 //
 // MessageId: ERROR_IPSEC_DOSP_NOT_INSTALLED
@@ -24407,7 +24348,7 @@ static const int ERROR_IPSEC_DOSP_KEYMOD_NOT_ALLOWED 13930L
 //
 // IPsec DoS Protection has not been enabled.
 //
-static const int ERROR_IPSEC_DOSP_NOT_INSTALLED   13931L
+    ERROR_IPSEC_DOSP_NOT_INSTALLED   13931
 
 //
 // MessageId: ERROR_IPSEC_DOSP_MAX_PER_IP_RATELIMIT_QUEUES
@@ -24416,7 +24357,7 @@ static const int ERROR_IPSEC_DOSP_NOT_INSTALLED   13931L
 //
 // IPsec DoS Protection failed to create a per internal IP rate limit queue because the maximum number of queues allowed by policy has been reached.
 //
-static const int ERROR_IPSEC_DOSP_MAX_PER_IP_RATELIMIT_QUEUES 13932L
+    ERROR_IPSEC_DOSP_MAX_PER_IP_RATELIMIT_QUEUES 13932
 
 
 ///////////////////////////////////////////////////
@@ -24441,7 +24382,7 @@ static const int ERROR_IPSEC_DOSP_MAX_PER_IP_RATELIMIT_QUEUES 13932L
 //
 // The requested section was not present in the activation context.
 //
-static const int ERROR_SXS_SECTION_NOT_FOUND      14000L
+    ERROR_SXS_SECTION_NOT_FOUND      14000
 
 //
 // MessageId: ERROR_SXS_CANT_GEN_ACTCTX
@@ -24450,7 +24391,7 @@ static const int ERROR_SXS_SECTION_NOT_FOUND      14000L
 //
 // The application has failed to start because its side-by-side configuration is incorrect. Please see the application event log or use the command-line sxstrace.exe tool for more detail.
 //
-static const int ERROR_SXS_CANT_GEN_ACTCTX        14001L
+    ERROR_SXS_CANT_GEN_ACTCTX        14001
 
 //
 // MessageId: ERROR_SXS_INVALID_ACTCTXDATA_FORMAT
@@ -24459,7 +24400,7 @@ static const int ERROR_SXS_CANT_GEN_ACTCTX        14001L
 //
 // The application binding data format is invalid.
 //
-static const int ERROR_SXS_INVALID_ACTCTXDATA_FORMAT 14002L
+    ERROR_SXS_INVALID_ACTCTXDATA_FORMAT 14002
 
 //
 // MessageId: ERROR_SXS_ASSEMBLY_NOT_FOUND
@@ -24468,7 +24409,7 @@ static const int ERROR_SXS_INVALID_ACTCTXDATA_FORMAT 14002L
 //
 // The referenced assembly is not installed on your system.
 //
-static const int ERROR_SXS_ASSEMBLY_NOT_FOUND     14003L
+    ERROR_SXS_ASSEMBLY_NOT_FOUND     14003
 
 //
 // MessageId: ERROR_SXS_MANIFEST_FORMAT_ERROR
@@ -24477,7 +24418,7 @@ static const int ERROR_SXS_ASSEMBLY_NOT_FOUND     14003L
 //
 // The manifest file does not begin with the required tag and format information.
 //
-static const int ERROR_SXS_MANIFEST_FORMAT_ERROR  14004L
+    ERROR_SXS_MANIFEST_FORMAT_ERROR  14004
 
 //
 // MessageId: ERROR_SXS_MANIFEST_PARSE_ERROR
@@ -24486,7 +24427,7 @@ static const int ERROR_SXS_MANIFEST_FORMAT_ERROR  14004L
 //
 // The manifest file contains one or more syntax errors.
 //
-static const int ERROR_SXS_MANIFEST_PARSE_ERROR   14005L
+    ERROR_SXS_MANIFEST_PARSE_ERROR   14005
 
 //
 // MessageId: ERROR_SXS_ACTIVATION_CONTEXT_DISABLED
@@ -24495,7 +24436,7 @@ static const int ERROR_SXS_MANIFEST_PARSE_ERROR   14005L
 //
 // The application attempted to activate a disabled activation context.
 //
-static const int ERROR_SXS_ACTIVATION_CONTEXT_DISABLED 14006L
+    ERROR_SXS_ACTIVATION_CONTEXT_DISABLED 14006
 
 //
 // MessageId: ERROR_SXS_KEY_NOT_FOUND
@@ -24504,7 +24445,7 @@ static const int ERROR_SXS_ACTIVATION_CONTEXT_DISABLED 14006L
 //
 // The requested lookup key was not found in any active activation context.
 //
-static const int ERROR_SXS_KEY_NOT_FOUND          14007L
+    ERROR_SXS_KEY_NOT_FOUND          14007
 
 //
 // MessageId: ERROR_SXS_VERSION_CONFLICT
@@ -24513,7 +24454,7 @@ static const int ERROR_SXS_KEY_NOT_FOUND          14007L
 //
 // A component version required by the application conflicts with another component version already active.
 //
-static const int ERROR_SXS_VERSION_CONFLICT       14008L
+    ERROR_SXS_VERSION_CONFLICT       14008
 
 //
 // MessageId: ERROR_SXS_WRONG_SECTION_TYPE
@@ -24522,7 +24463,7 @@ static const int ERROR_SXS_VERSION_CONFLICT       14008L
 //
 // The type requested activation context section does not match the query API used.
 //
-static const int ERROR_SXS_WRONG_SECTION_TYPE     14009L
+    ERROR_SXS_WRONG_SECTION_TYPE     14009
 
 //
 // MessageId: ERROR_SXS_THREAD_QUERIES_DISABLED
@@ -24531,7 +24472,7 @@ static const int ERROR_SXS_WRONG_SECTION_TYPE     14009L
 //
 // Lack of system resources has required isolated activation to be disabled for the current thread of execution.
 //
-static const int ERROR_SXS_THREAD_QUERIES_DISABLED 14010L
+    ERROR_SXS_THREAD_QUERIES_DISABLED 14010
 
 //
 // MessageId: ERROR_SXS_PROCESS_DEFAULT_ALREADY_SET
@@ -24540,7 +24481,7 @@ static const int ERROR_SXS_THREAD_QUERIES_DISABLED 14010L
 //
 // An attempt to set the process default activation context failed because the process default activation context was already set.
 //
-static const int ERROR_SXS_PROCESS_DEFAULT_ALREADY_SET 14011L
+    ERROR_SXS_PROCESS_DEFAULT_ALREADY_SET 14011
 
 //
 // MessageId: ERROR_SXS_UNKNOWN_ENCODING_GROUP
@@ -24549,7 +24490,7 @@ static const int ERROR_SXS_PROCESS_DEFAULT_ALREADY_SET 14011L
 //
 // The encoding group identifier specified is not recognized.
 //
-static const int ERROR_SXS_UNKNOWN_ENCODING_GROUP 14012L
+    ERROR_SXS_UNKNOWN_ENCODING_GROUP 14012
 
 //
 // MessageId: ERROR_SXS_UNKNOWN_ENCODING
@@ -24558,7 +24499,7 @@ static const int ERROR_SXS_UNKNOWN_ENCODING_GROUP 14012L
 //
 // The encoding requested is not recognized.
 //
-static const int ERROR_SXS_UNKNOWN_ENCODING       14013L
+    ERROR_SXS_UNKNOWN_ENCODING       14013
 
 //
 // MessageId: ERROR_SXS_INVALID_XML_NAMESPACE_URI
@@ -24567,7 +24508,7 @@ static const int ERROR_SXS_UNKNOWN_ENCODING       14013L
 //
 // The manifest contains a reference to an invalid URI.
 //
-static const int ERROR_SXS_INVALID_XML_NAMESPACE_URI 14014L
+    ERROR_SXS_INVALID_XML_NAMESPACE_URI 14014
 
 //
 // MessageId: ERROR_SXS_ROOT_MANIFEST_DEPENDENCY_NOT_INSTALLED
@@ -24576,7 +24517,7 @@ static const int ERROR_SXS_INVALID_XML_NAMESPACE_URI 14014L
 //
 // The application manifest contains a reference to a dependent assembly which is not installed
 //
-static const int ERROR_SXS_ROOT_MANIFEST_DEPENDENCY_NOT_INSTALLED 14015L
+    ERROR_SXS_ROOT_MANIFEST_DEPENDENCY_NOT_INSTALLED 14015
 
 //
 // MessageId: ERROR_SXS_LEAF_MANIFEST_DEPENDENCY_NOT_INSTALLED
@@ -24585,7 +24526,7 @@ static const int ERROR_SXS_ROOT_MANIFEST_DEPENDENCY_NOT_INSTALLED 14015L
 //
 // The manifest for an assembly used by the application has a reference to a dependent assembly which is not installed
 //
-static const int ERROR_SXS_LEAF_MANIFEST_DEPENDENCY_NOT_INSTALLED 14016L
+    ERROR_SXS_LEAF_MANIFEST_DEPENDENCY_NOT_INSTALLED 14016
 
 //
 // MessageId: ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE
@@ -24594,7 +24535,7 @@ static const int ERROR_SXS_LEAF_MANIFEST_DEPENDENCY_NOT_INSTALLED 14016L
 //
 // The manifest contains an attribute for the assembly identity which is not valid.
 //
-static const int ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE 14017L
+    ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE 14017
 
 //
 // MessageId: ERROR_SXS_MANIFEST_MISSING_REQUIRED_DEFAULT_NAMESPACE
@@ -24603,7 +24544,7 @@ static const int ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE 14017L
 //
 // The manifest is missing the required default namespace specification on the assembly element.
 //
-static const int ERROR_SXS_MANIFEST_MISSING_REQUIRED_DEFAULT_NAMESPACE 14018L
+    ERROR_SXS_MANIFEST_MISSING_REQUIRED_DEFAULT_NAMESPACE 14018
 
 //
 // MessageId: ERROR_SXS_MANIFEST_INVALID_REQUIRED_DEFAULT_NAMESPACE
@@ -24612,7 +24553,7 @@ static const int ERROR_SXS_MANIFEST_MISSING_REQUIRED_DEFAULT_NAMESPACE 14018L
 //
 // The manifest has a default namespace specified on the assembly element but its value is not "urn:schemas-microsoft-com:asm.v1".
 //
-static const int ERROR_SXS_MANIFEST_INVALID_REQUIRED_DEFAULT_NAMESPACE 14019L
+    ERROR_SXS_MANIFEST_INVALID_REQUIRED_DEFAULT_NAMESPACE 14019
 
 //
 // MessageId: ERROR_SXS_PRIVATE_MANIFEST_CROSS_PATH_WITH_REPARSE_POINT
@@ -24621,7 +24562,7 @@ static const int ERROR_SXS_MANIFEST_INVALID_REQUIRED_DEFAULT_NAMESPACE 14019L
 //
 // The private manifest probed has crossed a path with an unsupported reparse point.
 //
-static const int ERROR_SXS_PRIVATE_MANIFEST_CROSS_PATH_WITH_REPARSE_POINT 14020L
+    ERROR_SXS_PRIVATE_MANIFEST_CROSS_PATH_WITH_REPARSE_POINT 14020
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_DLL_NAME
@@ -24630,7 +24571,7 @@ static const int ERROR_SXS_PRIVATE_MANIFEST_CROSS_PATH_WITH_REPARSE_POINT 14020L
 //
 // Two or more components referenced directly or indirectly by the application manifest have files by the same name.
 //
-static const int ERROR_SXS_DUPLICATE_DLL_NAME     14021L
+    ERROR_SXS_DUPLICATE_DLL_NAME     14021
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_WINDOWCLASS_NAME
@@ -24639,7 +24580,7 @@ static const int ERROR_SXS_DUPLICATE_DLL_NAME     14021L
 //
 // Two or more components referenced directly or indirectly by the application manifest have window classes with the same name.
 //
-static const int ERROR_SXS_DUPLICATE_WINDOWCLASS_NAME 14022L
+    ERROR_SXS_DUPLICATE_WINDOWCLASS_NAME 14022
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_CLSID
@@ -24648,7 +24589,7 @@ static const int ERROR_SXS_DUPLICATE_WINDOWCLASS_NAME 14022L
 //
 // Two or more components referenced directly or indirectly by the application manifest have the same COM server CLSIDs.
 //
-static const int ERROR_SXS_DUPLICATE_CLSID        14023L
+    ERROR_SXS_DUPLICATE_CLSID        14023
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_IID
@@ -24657,7 +24598,7 @@ static const int ERROR_SXS_DUPLICATE_CLSID        14023L
 //
 // Two or more components referenced directly or indirectly by the application manifest have proxies for the same COM interface IIDs.
 //
-static const int ERROR_SXS_DUPLICATE_IID          14024L
+    ERROR_SXS_DUPLICATE_IID          14024
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_TLBID
@@ -24666,7 +24607,7 @@ static const int ERROR_SXS_DUPLICATE_IID          14024L
 //
 // Two or more components referenced directly or indirectly by the application manifest have the same COM type library TLBIDs.
 //
-static const int ERROR_SXS_DUPLICATE_TLBID        14025L
+    ERROR_SXS_DUPLICATE_TLBID        14025
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_PROGID
@@ -24675,7 +24616,7 @@ static const int ERROR_SXS_DUPLICATE_TLBID        14025L
 //
 // Two or more components referenced directly or indirectly by the application manifest have the same COM ProgIDs.
 //
-static const int ERROR_SXS_DUPLICATE_PROGID       14026L
+    ERROR_SXS_DUPLICATE_PROGID       14026
 
 //
 // MessageId: ERROR_SXS_DUPLICATE_ASSEMBLY_NAME
@@ -24684,7 +24625,7 @@ static const int ERROR_SXS_DUPLICATE_PROGID       14026L
 //
 // Two or more components referenced directly or indirectly by the application manifest are different versions of the same component which is not permitted.
 //
-static const int ERROR_SXS_DUPLICATE_ASSEMBLY_NAME 14027L
+    ERROR_SXS_DUPLICATE_ASSEMBLY_NAME 14027
 
 //
 // MessageId: ERROR_SXS_FILE_HASH_MISMATCH
@@ -24693,7 +24634,7 @@ static const int ERROR_SXS_DUPLICATE_ASSEMBLY_NAME 14027L
 //
 // A component's file does not match the verification information present in the component manifest.
 //
-static const int ERROR_SXS_FILE_HASH_MISMATCH     14028L
+    ERROR_SXS_FILE_HASH_MISMATCH     14028
 
 //
 // MessageId: ERROR_SXS_POLICY_PARSE_ERROR
@@ -24702,7 +24643,7 @@ static const int ERROR_SXS_FILE_HASH_MISMATCH     14028L
 //
 // The policy manifest contains one or more syntax errors.
 //
-static const int ERROR_SXS_POLICY_PARSE_ERROR     14029L
+    ERROR_SXS_POLICY_PARSE_ERROR     14029
 
 //
 // MessageId: ERROR_SXS_XML_E_MISSINGQUOTE
@@ -24711,7 +24652,7 @@ static const int ERROR_SXS_POLICY_PARSE_ERROR     14029L
 //
 // Manifest Parse Error : A string literal was expected, but no opening quote character was found.
 //
-static const int ERROR_SXS_XML_E_MISSINGQUOTE     14030L
+    ERROR_SXS_XML_E_MISSINGQUOTE     14030
 
 //
 // MessageId: ERROR_SXS_XML_E_COMMENTSYNTAX
@@ -24720,7 +24661,7 @@ static const int ERROR_SXS_XML_E_MISSINGQUOTE     14030L
 //
 // Manifest Parse Error : Incorrect syntax was used in a comment.
 //
-static const int ERROR_SXS_XML_E_COMMENTSYNTAX    14031L
+    ERROR_SXS_XML_E_COMMENTSYNTAX    14031
 
 //
 // MessageId: ERROR_SXS_XML_E_BADSTARTNAMECHAR
@@ -24729,7 +24670,7 @@ static const int ERROR_SXS_XML_E_COMMENTSYNTAX    14031L
 //
 // Manifest Parse Error : A name was started with an invalid character.
 //
-static const int ERROR_SXS_XML_E_BADSTARTNAMECHAR 14032L
+    ERROR_SXS_XML_E_BADSTARTNAMECHAR 14032
 
 //
 // MessageId: ERROR_SXS_XML_E_BADNAMECHAR
@@ -24738,7 +24679,7 @@ static const int ERROR_SXS_XML_E_BADSTARTNAMECHAR 14032L
 //
 // Manifest Parse Error : A name contained an invalid character.
 //
-static const int ERROR_SXS_XML_E_BADNAMECHAR      14033L
+    ERROR_SXS_XML_E_BADNAMECHAR      14033
 
 //
 // MessageId: ERROR_SXS_XML_E_BADCHARINSTRING
@@ -24747,7 +24688,7 @@ static const int ERROR_SXS_XML_E_BADNAMECHAR      14033L
 //
 // Manifest Parse Error : A string literal contained an invalid character.
 //
-static const int ERROR_SXS_XML_E_BADCHARINSTRING  14034L
+    ERROR_SXS_XML_E_BADCHARINSTRING  14034
 
 //
 // MessageId: ERROR_SXS_XML_E_XMLDECLSYNTAX
@@ -24756,7 +24697,7 @@ static const int ERROR_SXS_XML_E_BADCHARINSTRING  14034L
 //
 // Manifest Parse Error : Invalid syntax for an xml declaration.
 //
-static const int ERROR_SXS_XML_E_XMLDECLSYNTAX    14035L
+    ERROR_SXS_XML_E_XMLDECLSYNTAX    14035
 
 //
 // MessageId: ERROR_SXS_XML_E_BADCHARDATA
@@ -24765,7 +24706,7 @@ static const int ERROR_SXS_XML_E_XMLDECLSYNTAX    14035L
 //
 // Manifest Parse Error : An Invalid character was found in text content.
 //
-static const int ERROR_SXS_XML_E_BADCHARDATA      14036L
+    ERROR_SXS_XML_E_BADCHARDATA      14036
 
 //
 // MessageId: ERROR_SXS_XML_E_MISSINGWHITESPACE
@@ -24774,7 +24715,7 @@ static const int ERROR_SXS_XML_E_BADCHARDATA      14036L
 //
 // Manifest Parse Error : Required white space was missing.
 //
-static const int ERROR_SXS_XML_E_MISSINGWHITESPACE 14037L
+    ERROR_SXS_XML_E_MISSINGWHITESPACE 14037
 
 //
 // MessageId: ERROR_SXS_XML_E_EXPECTINGTAGEND
@@ -24783,7 +24724,7 @@ static const int ERROR_SXS_XML_E_MISSINGWHITESPACE 14037L
 //
 // Manifest Parse Error : The character '>' was expected.
 //
-static const int ERROR_SXS_XML_E_EXPECTINGTAGEND  14038L
+    ERROR_SXS_XML_E_EXPECTINGTAGEND  14038
 
 //
 // MessageId: ERROR_SXS_XML_E_MISSINGSEMICOLON
@@ -24792,7 +24733,7 @@ static const int ERROR_SXS_XML_E_EXPECTINGTAGEND  14038L
 //
 // Manifest Parse Error : A semi colon character was expected.
 //
-static const int ERROR_SXS_XML_E_MISSINGSEMICOLON 14039L
+    ERROR_SXS_XML_E_MISSINGSEMICOLON 14039
 
 //
 // MessageId: ERROR_SXS_XML_E_UNBALANCEDPAREN
@@ -24801,7 +24742,7 @@ static const int ERROR_SXS_XML_E_MISSINGSEMICOLON 14039L
 //
 // Manifest Parse Error : Unbalanced parentheses.
 //
-static const int ERROR_SXS_XML_E_UNBALANCEDPAREN  14040L
+    ERROR_SXS_XML_E_UNBALANCEDPAREN  14040
 
 //
 // MessageId: ERROR_SXS_XML_E_INTERNALERROR
@@ -24810,7 +24751,7 @@ static const int ERROR_SXS_XML_E_UNBALANCEDPAREN  14040L
 //
 // Manifest Parse Error : Internal error.
 //
-static const int ERROR_SXS_XML_E_INTERNALERROR    14041L
+    ERROR_SXS_XML_E_INTERNALERROR    14041
 
 //
 // MessageId: ERROR_SXS_XML_E_UNEXPECTED_WHITESPACE
@@ -24819,7 +24760,7 @@ static const int ERROR_SXS_XML_E_INTERNALERROR    14041L
 //
 // Manifest Parse Error : Whitespace is not allowed at this location.
 //
-static const int ERROR_SXS_XML_E_UNEXPECTED_WHITESPACE 14042L
+    ERROR_SXS_XML_E_UNEXPECTED_WHITESPACE 14042
 
 //
 // MessageId: ERROR_SXS_XML_E_INCOMPLETE_ENCODING
@@ -24828,7 +24769,7 @@ static const int ERROR_SXS_XML_E_UNEXPECTED_WHITESPACE 14042L
 //
 // Manifest Parse Error : End of file reached in invalid state for current encoding.
 //
-static const int ERROR_SXS_XML_E_INCOMPLETE_ENCODING 14043L
+    ERROR_SXS_XML_E_INCOMPLETE_ENCODING 14043
 
 //
 // MessageId: ERROR_SXS_XML_E_MISSING_PAREN
@@ -24837,7 +24778,7 @@ static const int ERROR_SXS_XML_E_INCOMPLETE_ENCODING 14043L
 //
 // Manifest Parse Error : Missing parenthesis.
 //
-static const int ERROR_SXS_XML_E_MISSING_PAREN    14044L
+    ERROR_SXS_XML_E_MISSING_PAREN    14044
 
 //
 // MessageId: ERROR_SXS_XML_E_EXPECTINGCLOSEQUOTE
@@ -24846,7 +24787,7 @@ static const int ERROR_SXS_XML_E_MISSING_PAREN    14044L
 //
 // Manifest Parse Error : A single or double closing quote character (\' or \") is missing.
 //
-static const int ERROR_SXS_XML_E_EXPECTINGCLOSEQUOTE 14045L
+    ERROR_SXS_XML_E_EXPECTINGCLOSEQUOTE 14045
 
 //
 // MessageId: ERROR_SXS_XML_E_MULTIPLE_COLONS
@@ -24855,7 +24796,7 @@ static const int ERROR_SXS_XML_E_EXPECTINGCLOSEQUOTE 14045L
 //
 // Manifest Parse Error : Multiple colons are not allowed in a name.
 //
-static const int ERROR_SXS_XML_E_MULTIPLE_COLONS  14046L
+    ERROR_SXS_XML_E_MULTIPLE_COLONS  14046
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALID_DECIMAL
@@ -24864,7 +24805,7 @@ static const int ERROR_SXS_XML_E_MULTIPLE_COLONS  14046L
 //
 // Manifest Parse Error : Invalid character for decimal digit.
 //
-static const int ERROR_SXS_XML_E_INVALID_DECIMAL  14047L
+    ERROR_SXS_XML_E_INVALID_DECIMAL  14047
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALID_HEXIDECIMAL
@@ -24873,7 +24814,7 @@ static const int ERROR_SXS_XML_E_INVALID_DECIMAL  14047L
 //
 // Manifest Parse Error : Invalid character for hexadecimal digit.
 //
-static const int ERROR_SXS_XML_E_INVALID_HEXIDECIMAL 14048L
+    ERROR_SXS_XML_E_INVALID_HEXIDECIMAL 14048
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALID_UNICODE
@@ -24882,7 +24823,7 @@ static const int ERROR_SXS_XML_E_INVALID_HEXIDECIMAL 14048L
 //
 // Manifest Parse Error : Invalid unicode character value for this platform.
 //
-static const int ERROR_SXS_XML_E_INVALID_UNICODE  14049L
+    ERROR_SXS_XML_E_INVALID_UNICODE  14049
 
 //
 // MessageId: ERROR_SXS_XML_E_WHITESPACEORQUESTIONMARK
@@ -24891,7 +24832,7 @@ static const int ERROR_SXS_XML_E_INVALID_UNICODE  14049L
 //
 // Manifest Parse Error : Expecting whitespace or '?'.
 //
-static const int ERROR_SXS_XML_E_WHITESPACEORQUESTIONMARK 14050L
+    ERROR_SXS_XML_E_WHITESPACEORQUESTIONMARK 14050
 
 //
 // MessageId: ERROR_SXS_XML_E_UNEXPECTEDENDTAG
@@ -24900,7 +24841,7 @@ static const int ERROR_SXS_XML_E_WHITESPACEORQUESTIONMARK 14050L
 //
 // Manifest Parse Error : End tag was not expected at this location.
 //
-static const int ERROR_SXS_XML_E_UNEXPECTEDENDTAG 14051L
+    ERROR_SXS_XML_E_UNEXPECTEDENDTAG 14051
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDTAG
@@ -24909,7 +24850,7 @@ static const int ERROR_SXS_XML_E_UNEXPECTEDENDTAG 14051L
 //
 // Manifest Parse Error : The following tags were not closed: %1.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDTAG      14052L
+    ERROR_SXS_XML_E_UNCLOSEDTAG      14052
 
 //
 // MessageId: ERROR_SXS_XML_E_DUPLICATEATTRIBUTE
@@ -24918,7 +24859,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDTAG      14052L
 //
 // Manifest Parse Error : Duplicate attribute.
 //
-static const int ERROR_SXS_XML_E_DUPLICATEATTRIBUTE 14053L
+    ERROR_SXS_XML_E_DUPLICATEATTRIBUTE 14053
 
 //
 // MessageId: ERROR_SXS_XML_E_MULTIPLEROOTS
@@ -24927,7 +24868,7 @@ static const int ERROR_SXS_XML_E_DUPLICATEATTRIBUTE 14053L
 //
 // Manifest Parse Error : Only one top level element is allowed in an XML document.
 //
-static const int ERROR_SXS_XML_E_MULTIPLEROOTS    14054L
+    ERROR_SXS_XML_E_MULTIPLEROOTS    14054
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALIDATROOTLEVEL
@@ -24936,7 +24877,7 @@ static const int ERROR_SXS_XML_E_MULTIPLEROOTS    14054L
 //
 // Manifest Parse Error : Invalid at the top level of the document.
 //
-static const int ERROR_SXS_XML_E_INVALIDATROOTLEVEL 14055L
+    ERROR_SXS_XML_E_INVALIDATROOTLEVEL 14055
 
 //
 // MessageId: ERROR_SXS_XML_E_BADXMLDECL
@@ -24945,7 +24886,7 @@ static const int ERROR_SXS_XML_E_INVALIDATROOTLEVEL 14055L
 //
 // Manifest Parse Error : Invalid xml declaration.
 //
-static const int ERROR_SXS_XML_E_BADXMLDECL       14056L
+    ERROR_SXS_XML_E_BADXMLDECL       14056
 
 //
 // MessageId: ERROR_SXS_XML_E_MISSINGROOT
@@ -24954,7 +24895,7 @@ static const int ERROR_SXS_XML_E_BADXMLDECL       14056L
 //
 // Manifest Parse Error : XML document must have a top level element.
 //
-static const int ERROR_SXS_XML_E_MISSINGROOT      14057L
+    ERROR_SXS_XML_E_MISSINGROOT      14057
 
 //
 // MessageId: ERROR_SXS_XML_E_UNEXPECTEDEOF
@@ -24963,7 +24904,7 @@ static const int ERROR_SXS_XML_E_MISSINGROOT      14057L
 //
 // Manifest Parse Error : Unexpected end of file.
 //
-static const int ERROR_SXS_XML_E_UNEXPECTEDEOF    14058L
+    ERROR_SXS_XML_E_UNEXPECTEDEOF    14058
 
 //
 // MessageId: ERROR_SXS_XML_E_BADPEREFINSUBSET
@@ -24972,7 +24913,7 @@ static const int ERROR_SXS_XML_E_UNEXPECTEDEOF    14058L
 //
 // Manifest Parse Error : Parameter entities cannot be used inside markup declarations in an internal subset.
 //
-static const int ERROR_SXS_XML_E_BADPEREFINSUBSET 14059L
+    ERROR_SXS_XML_E_BADPEREFINSUBSET 14059
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDSTARTTAG
@@ -24981,7 +24922,7 @@ static const int ERROR_SXS_XML_E_BADPEREFINSUBSET 14059L
 //
 // Manifest Parse Error : Element was not closed.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDSTARTTAG 14060L
+    ERROR_SXS_XML_E_UNCLOSEDSTARTTAG 14060
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDENDTAG
@@ -24990,7 +24931,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDSTARTTAG 14060L
 //
 // Manifest Parse Error : End element was missing the character '>'.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDENDTAG   14061L
+    ERROR_SXS_XML_E_UNCLOSEDENDTAG   14061
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDSTRING
@@ -24999,7 +24940,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDENDTAG   14061L
 //
 // Manifest Parse Error : A string literal was not closed.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDSTRING   14062L
+    ERROR_SXS_XML_E_UNCLOSEDSTRING   14062
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDCOMMENT
@@ -25008,7 +24949,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDSTRING   14062L
 //
 // Manifest Parse Error : A comment was not closed.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDCOMMENT  14063L
+    ERROR_SXS_XML_E_UNCLOSEDCOMMENT  14063
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDDECL
@@ -25017,7 +24958,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDCOMMENT  14063L
 //
 // Manifest Parse Error : A declaration was not closed.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDDECL     14064L
+    ERROR_SXS_XML_E_UNCLOSEDDECL     14064
 
 //
 // MessageId: ERROR_SXS_XML_E_UNCLOSEDCDATA
@@ -25026,7 +24967,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDDECL     14064L
 //
 // Manifest Parse Error : A CDATA section was not closed.
 //
-static const int ERROR_SXS_XML_E_UNCLOSEDCDATA    14065L
+    ERROR_SXS_XML_E_UNCLOSEDCDATA    14065
 
 //
 // MessageId: ERROR_SXS_XML_E_RESERVEDNAMESPACE
@@ -25035,7 +24976,7 @@ static const int ERROR_SXS_XML_E_UNCLOSEDCDATA    14065L
 //
 // Manifest Parse Error : The namespace prefix is not allowed to start with the reserved string "xml".
 //
-static const int ERROR_SXS_XML_E_RESERVEDNAMESPACE 14066L
+    ERROR_SXS_XML_E_RESERVEDNAMESPACE 14066
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALIDENCODING
@@ -25044,7 +24985,7 @@ static const int ERROR_SXS_XML_E_RESERVEDNAMESPACE 14066L
 //
 // Manifest Parse Error : System does not support the specified encoding.
 //
-static const int ERROR_SXS_XML_E_INVALIDENCODING  14067L
+    ERROR_SXS_XML_E_INVALIDENCODING  14067
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALIDSWITCH
@@ -25053,7 +24994,7 @@ static const int ERROR_SXS_XML_E_INVALIDENCODING  14067L
 //
 // Manifest Parse Error : Switch from current encoding to specified encoding not supported.
 //
-static const int ERROR_SXS_XML_E_INVALIDSWITCH    14068L
+    ERROR_SXS_XML_E_INVALIDSWITCH    14068
 
 //
 // MessageId: ERROR_SXS_XML_E_BADXMLCASE
@@ -25062,7 +25003,7 @@ static const int ERROR_SXS_XML_E_INVALIDSWITCH    14068L
 //
 // Manifest Parse Error : The name 'xml' is reserved and must be lower case.
 //
-static const int ERROR_SXS_XML_E_BADXMLCASE       14069L
+    ERROR_SXS_XML_E_BADXMLCASE       14069
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALID_STANDALONE
@@ -25071,7 +25012,7 @@ static const int ERROR_SXS_XML_E_BADXMLCASE       14069L
 //
 // Manifest Parse Error : The standalone attribute must have the value 'yes' or 'no'.
 //
-static const int ERROR_SXS_XML_E_INVALID_STANDALONE 14070L
+    ERROR_SXS_XML_E_INVALID_STANDALONE 14070
 
 //
 // MessageId: ERROR_SXS_XML_E_UNEXPECTED_STANDALONE
@@ -25080,7 +25021,7 @@ static const int ERROR_SXS_XML_E_INVALID_STANDALONE 14070L
 //
 // Manifest Parse Error : The standalone attribute cannot be used in external entities.
 //
-static const int ERROR_SXS_XML_E_UNEXPECTED_STANDALONE 14071L
+    ERROR_SXS_XML_E_UNEXPECTED_STANDALONE 14071
 
 //
 // MessageId: ERROR_SXS_XML_E_INVALID_VERSION
@@ -25089,7 +25030,7 @@ static const int ERROR_SXS_XML_E_UNEXPECTED_STANDALONE 14071L
 //
 // Manifest Parse Error : Invalid version number.
 //
-static const int ERROR_SXS_XML_E_INVALID_VERSION  14072L
+    ERROR_SXS_XML_E_INVALID_VERSION  14072
 
 //
 // MessageId: ERROR_SXS_XML_E_MISSINGEQUALS
@@ -25098,7 +25039,7 @@ static const int ERROR_SXS_XML_E_INVALID_VERSION  14072L
 //
 // Manifest Parse Error : Missing equals sign between attribute and attribute value.
 //
-static const int ERROR_SXS_XML_E_MISSINGEQUALS    14073L
+    ERROR_SXS_XML_E_MISSINGEQUALS    14073
 
 //
 // MessageId: ERROR_SXS_PROTECTION_RECOVERY_FAILED
@@ -25107,7 +25048,7 @@ static const int ERROR_SXS_XML_E_MISSINGEQUALS    14073L
 //
 // Assembly Protection Error : Unable to recover the specified assembly.
 //
-static const int ERROR_SXS_PROTECTION_RECOVERY_FAILED 14074L
+    ERROR_SXS_PROTECTION_RECOVERY_FAILED 14074
 
 //
 // MessageId: ERROR_SXS_PROTECTION_PUBLIC_KEY_TOO_SHORT
@@ -25116,7 +25057,7 @@ static const int ERROR_SXS_PROTECTION_RECOVERY_FAILED 14074L
 //
 // Assembly Protection Error : The public key for an assembly was too short to be allowed.
 //
-static const int ERROR_SXS_PROTECTION_PUBLIC_KEY_TOO_SHORT 14075L
+    ERROR_SXS_PROTECTION_PUBLIC_KEY_TOO_SHORT 14075
 
 //
 // MessageId: ERROR_SXS_PROTECTION_CATALOG_NOT_VALID
@@ -25125,7 +25066,7 @@ static const int ERROR_SXS_PROTECTION_PUBLIC_KEY_TOO_SHORT 14075L
 //
 // Assembly Protection Error : The catalog for an assembly is not valid, or does not match the assembly's manifest.
 //
-static const int ERROR_SXS_PROTECTION_CATALOG_NOT_VALID 14076L
+    ERROR_SXS_PROTECTION_CATALOG_NOT_VALID 14076
 
 //
 // MessageId: ERROR_SXS_UNTRANSLATABLE_HRESULT
@@ -25134,7 +25075,7 @@ static const int ERROR_SXS_PROTECTION_CATALOG_NOT_VALID 14076L
 //
 // An HRESULT could not be translated to a corresponding Win32 error code.
 //
-static const int ERROR_SXS_UNTRANSLATABLE_HRESULT 14077L
+    ERROR_SXS_UNTRANSLATABLE_HRESULT 14077
 
 //
 // MessageId: ERROR_SXS_PROTECTION_CATALOG_FILE_MISSING
@@ -25143,7 +25084,7 @@ static const int ERROR_SXS_UNTRANSLATABLE_HRESULT 14077L
 //
 // Assembly Protection Error : The catalog for an assembly is missing.
 //
-static const int ERROR_SXS_PROTECTION_CATALOG_FILE_MISSING 14078L
+    ERROR_SXS_PROTECTION_CATALOG_FILE_MISSING 14078
 
 //
 // MessageId: ERROR_SXS_MISSING_ASSEMBLY_IDENTITY_ATTRIBUTE
@@ -25152,7 +25093,7 @@ static const int ERROR_SXS_PROTECTION_CATALOG_FILE_MISSING 14078L
 //
 // The supplied assembly identity is missing one or more attributes which must be present in this context.
 //
-static const int ERROR_SXS_MISSING_ASSEMBLY_IDENTITY_ATTRIBUTE 14079L
+    ERROR_SXS_MISSING_ASSEMBLY_IDENTITY_ATTRIBUTE 14079
 
 //
 // MessageId: ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE_NAME
@@ -25161,7 +25102,7 @@ static const int ERROR_SXS_MISSING_ASSEMBLY_IDENTITY_ATTRIBUTE 14079L
 //
 // The supplied assembly identity has one or more attribute names that contain characters not permitted in XML names.
 //
-static const int ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE_NAME 14080L
+    ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE_NAME 14080
 
 //
 // MessageId: ERROR_SXS_ASSEMBLY_MISSING
@@ -25170,7 +25111,7 @@ static const int ERROR_SXS_INVALID_ASSEMBLY_IDENTITY_ATTRIBUTE_NAME 14080L
 //
 // The referenced assembly could not be found.
 //
-static const int ERROR_SXS_ASSEMBLY_MISSING       14081L
+    ERROR_SXS_ASSEMBLY_MISSING       14081
 
 //
 // MessageId: ERROR_SXS_CORRUPT_ACTIVATION_STACK
@@ -25179,7 +25120,7 @@ static const int ERROR_SXS_ASSEMBLY_MISSING       14081L
 //
 // The activation context activation stack for the running thread of execution is corrupt.
 //
-static const int ERROR_SXS_CORRUPT_ACTIVATION_STACK 14082L
+    ERROR_SXS_CORRUPT_ACTIVATION_STACK 14082
 
 //
 // MessageId: ERROR_SXS_CORRUPTION
@@ -25188,7 +25129,7 @@ static const int ERROR_SXS_CORRUPT_ACTIVATION_STACK 14082L
 //
 // The application isolation metadata for this process or thread has become corrupt.
 //
-static const int ERROR_SXS_CORRUPTION             14083L
+    ERROR_SXS_CORRUPTION             14083
 
 //
 // MessageId: ERROR_SXS_EARLY_DEACTIVATION
@@ -25197,7 +25138,7 @@ static const int ERROR_SXS_CORRUPTION             14083L
 //
 // The activation context being deactivated is not the most recently activated one.
 //
-static const int ERROR_SXS_EARLY_DEACTIVATION     14084L
+    ERROR_SXS_EARLY_DEACTIVATION     14084
 
 //
 // MessageId: ERROR_SXS_INVALID_DEACTIVATION
@@ -25206,7 +25147,7 @@ static const int ERROR_SXS_EARLY_DEACTIVATION     14084L
 //
 // The activation context being deactivated is not active for the current thread of execution.
 //
-static const int ERROR_SXS_INVALID_DEACTIVATION   14085L
+    ERROR_SXS_INVALID_DEACTIVATION   14085
 
 //
 // MessageId: ERROR_SXS_MULTIPLE_DEACTIVATION
@@ -25215,7 +25156,7 @@ static const int ERROR_SXS_INVALID_DEACTIVATION   14085L
 //
 // The activation context being deactivated has already been deactivated.
 //
-static const int ERROR_SXS_MULTIPLE_DEACTIVATION  14086L
+    ERROR_SXS_MULTIPLE_DEACTIVATION  14086
 
 //
 // MessageId: ERROR_SXS_PROCESS_TERMINATION_REQUESTED
@@ -25224,7 +25165,7 @@ static const int ERROR_SXS_MULTIPLE_DEACTIVATION  14086L
 //
 // A component used by the isolation facility has requested to terminate the process.
 //
-static const int ERROR_SXS_PROCESS_TERMINATION_REQUESTED 14087L
+    ERROR_SXS_PROCESS_TERMINATION_REQUESTED 14087
 
 //
 // MessageId: ERROR_SXS_RELEASE_ACTIVATION_CONTEXT
@@ -25233,7 +25174,7 @@ static const int ERROR_SXS_PROCESS_TERMINATION_REQUESTED 14087L
 //
 // A kernel mode component is releasing a reference on an activation context.
 //
-static const int ERROR_SXS_RELEASE_ACTIVATION_CONTEXT 14088L
+    ERROR_SXS_RELEASE_ACTIVATION_CONTEXT 14088
 
 //
 // MessageId: ERROR_SXS_SYSTEM_DEFAULT_ACTIVATION_CONTEXT_EMPTY
@@ -25242,7 +25183,7 @@ static const int ERROR_SXS_RELEASE_ACTIVATION_CONTEXT 14088L
 //
 // The activation context of system default assembly could not be generated.
 //
-static const int ERROR_SXS_SYSTEM_DEFAULT_ACTIVATION_CONTEXT_EMPTY 14089L
+    ERROR_SXS_SYSTEM_DEFAULT_ACTIVATION_CONTEXT_EMPTY 14089
 
 //
 // MessageId: ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_VALUE
@@ -25251,7 +25192,7 @@ static const int ERROR_SXS_SYSTEM_DEFAULT_ACTIVATION_CONTEXT_EMPTY 14089L
 //
 // The value of an attribute in an identity is not within the legal range.
 //
-static const int ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_VALUE 14090L
+    ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_VALUE 14090
 
 //
 // MessageId: ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_NAME
@@ -25260,7 +25201,7 @@ static const int ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_VALUE 14090L
 //
 // The name of an attribute in an identity is not within the legal range.
 //
-static const int ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_NAME 14091L
+    ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_NAME 14091
 
 //
 // MessageId: ERROR_SXS_IDENTITY_DUPLICATE_ATTRIBUTE
@@ -25269,7 +25210,7 @@ static const int ERROR_SXS_INVALID_IDENTITY_ATTRIBUTE_NAME 14091L
 //
 // An identity contains two definitions for the same attribute.
 //
-static const int ERROR_SXS_IDENTITY_DUPLICATE_ATTRIBUTE 14092L
+    ERROR_SXS_IDENTITY_DUPLICATE_ATTRIBUTE 14092
 
 //
 // MessageId: ERROR_SXS_IDENTITY_PARSE_ERROR
@@ -25278,7 +25219,7 @@ static const int ERROR_SXS_IDENTITY_DUPLICATE_ATTRIBUTE 14092L
 //
 // The identity string is malformed. This may be due to a trailing comma, more than two unnamed attributes, missing attribute name or missing attribute value.
 //
-static const int ERROR_SXS_IDENTITY_PARSE_ERROR   14093L
+    ERROR_SXS_IDENTITY_PARSE_ERROR   14093
 
 //
 // MessageId: ERROR_MALFORMED_SUBSTITUTION_STRING
@@ -25287,7 +25228,7 @@ static const int ERROR_SXS_IDENTITY_PARSE_ERROR   14093L
 //
 // A string containing localized substitutable content was malformed. Either a dollar sign ($) was followed by something other than a left parenthesis or another dollar sign or an substitution's right parenthesis was not found.
 //
-static const int ERROR_MALFORMED_SUBSTITUTION_STRING 14094L
+    ERROR_MALFORMED_SUBSTITUTION_STRING 14094
 
 //
 // MessageId: ERROR_SXS_INCORRECT_PUBLIC_KEY_TOKEN
@@ -25296,7 +25237,7 @@ static const int ERROR_MALFORMED_SUBSTITUTION_STRING 14094L
 //
 // The public key token does not correspond to the public key specified.
 //
-static const int ERROR_SXS_INCORRECT_PUBLIC_KEY_TOKEN 14095L
+    ERROR_SXS_INCORRECT_PUBLIC_KEY_TOKEN 14095
 
 //
 // MessageId: ERROR_UNMAPPED_SUBSTITUTION_STRING
@@ -25305,7 +25246,7 @@ static const int ERROR_SXS_INCORRECT_PUBLIC_KEY_TOKEN 14095L
 //
 // A substitution string had no mapping.
 //
-static const int ERROR_UNMAPPED_SUBSTITUTION_STRING 14096L
+    ERROR_UNMAPPED_SUBSTITUTION_STRING 14096
 
 //
 // MessageId: ERROR_SXS_ASSEMBLY_NOT_LOCKED
@@ -25314,7 +25255,7 @@ static const int ERROR_UNMAPPED_SUBSTITUTION_STRING 14096L
 //
 // The component must be locked before making the request.
 //
-static const int ERROR_SXS_ASSEMBLY_NOT_LOCKED    14097L
+    ERROR_SXS_ASSEMBLY_NOT_LOCKED    14097
 
 //
 // MessageId: ERROR_SXS_COMPONENT_STORE_CORRUPT
@@ -25323,7 +25264,7 @@ static const int ERROR_SXS_ASSEMBLY_NOT_LOCKED    14097L
 //
 // The component store has been corrupted.
 //
-static const int ERROR_SXS_COMPONENT_STORE_CORRUPT 14098L
+    ERROR_SXS_COMPONENT_STORE_CORRUPT 14098
 
 //
 // MessageId: ERROR_ADVANCED_INSTALLER_FAILED
@@ -25332,7 +25273,7 @@ static const int ERROR_SXS_COMPONENT_STORE_CORRUPT 14098L
 //
 // An advanced installer failed during setup or servicing.
 //
-static const int ERROR_ADVANCED_INSTALLER_FAILED  14099L
+    ERROR_ADVANCED_INSTALLER_FAILED  14099
 
 //
 // MessageId: ERROR_XML_ENCODING_MISMATCH
@@ -25341,7 +25282,7 @@ static const int ERROR_ADVANCED_INSTALLER_FAILED  14099L
 //
 // The character encoding in the XML declaration did not match the encoding used in the document.
 //
-static const int ERROR_XML_ENCODING_MISMATCH      14100L
+    ERROR_XML_ENCODING_MISMATCH      14100
 
 //
 // MessageId: ERROR_SXS_MANIFEST_IDENTITY_SAME_BUT_CONTENTS_DIFFERENT
@@ -25350,7 +25291,7 @@ static const int ERROR_XML_ENCODING_MISMATCH      14100L
 //
 // The identities of the manifests are identical but their contents are different.
 //
-static const int ERROR_SXS_MANIFEST_IDENTITY_SAME_BUT_CONTENTS_DIFFERENT 14101L
+    ERROR_SXS_MANIFEST_IDENTITY_SAME_BUT_CONTENTS_DIFFERENT 14101
 
 //
 // MessageId: ERROR_SXS_IDENTITIES_DIFFERENT
@@ -25359,7 +25300,7 @@ static const int ERROR_SXS_MANIFEST_IDENTITY_SAME_BUT_CONTENTS_DIFFERENT 14101L
 //
 // The component identities are different.
 //
-static const int ERROR_SXS_IDENTITIES_DIFFERENT   14102L
+    ERROR_SXS_IDENTITIES_DIFFERENT   14102
 
 //
 // MessageId: ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT
@@ -25368,7 +25309,7 @@ static const int ERROR_SXS_IDENTITIES_DIFFERENT   14102L
 //
 // The assembly is not a deployment.
 //
-static const int ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT 14103L
+    ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT 14103
 
 //
 // MessageId: ERROR_SXS_FILE_NOT_PART_OF_ASSEMBLY
@@ -25377,7 +25318,7 @@ static const int ERROR_SXS_ASSEMBLY_IS_NOT_A_DEPLOYMENT 14103L
 //
 // The file is not a part of the assembly.
 //
-static const int ERROR_SXS_FILE_NOT_PART_OF_ASSEMBLY 14104L
+    ERROR_SXS_FILE_NOT_PART_OF_ASSEMBLY 14104
 
 //
 // MessageId: ERROR_SXS_MANIFEST_TOO_BIG
@@ -25386,7 +25327,7 @@ static const int ERROR_SXS_FILE_NOT_PART_OF_ASSEMBLY 14104L
 //
 // The size of the manifest exceeds the maximum allowed.
 //
-static const int ERROR_SXS_MANIFEST_TOO_BIG       14105L
+    ERROR_SXS_MANIFEST_TOO_BIG       14105
 
 //
 // MessageId: ERROR_SXS_SETTING_NOT_REGISTERED
@@ -25395,7 +25336,7 @@ static const int ERROR_SXS_MANIFEST_TOO_BIG       14105L
 //
 // The setting is not registered.
 //
-static const int ERROR_SXS_SETTING_NOT_REGISTERED 14106L
+    ERROR_SXS_SETTING_NOT_REGISTERED 14106
 
 //
 // MessageId: ERROR_SXS_TRANSACTION_CLOSURE_INCOMPLETE
@@ -25404,7 +25345,7 @@ static const int ERROR_SXS_SETTING_NOT_REGISTERED 14106L
 //
 // One or more required members of the transaction are not present.
 //
-static const int ERROR_SXS_TRANSACTION_CLOSURE_INCOMPLETE 14107L
+    ERROR_SXS_TRANSACTION_CLOSURE_INCOMPLETE 14107
 
 //
 // MessageId: ERROR_SMI_PRIMITIVE_INSTALLER_FAILED
@@ -25413,7 +25354,7 @@ static const int ERROR_SXS_TRANSACTION_CLOSURE_INCOMPLETE 14107L
 //
 // The SMI primitive installer failed during setup or servicing.
 //
-static const int ERROR_SMI_PRIMITIVE_INSTALLER_FAILED 14108L
+    ERROR_SMI_PRIMITIVE_INSTALLER_FAILED 14108
 
 //
 // MessageId: ERROR_GENERIC_COMMAND_FAILED
@@ -25422,7 +25363,7 @@ static const int ERROR_SMI_PRIMITIVE_INSTALLER_FAILED 14108L
 //
 // A generic command executable returned a result that indicates failure.
 //
-static const int ERROR_GENERIC_COMMAND_FAILED     14109L
+    ERROR_GENERIC_COMMAND_FAILED     14109
 
 //
 // MessageId: ERROR_SXS_FILE_HASH_MISSING
@@ -25431,7 +25372,7 @@ static const int ERROR_GENERIC_COMMAND_FAILED     14109L
 //
 // A component is missing file verification information in its manifest.
 //
-static const int ERROR_SXS_FILE_HASH_MISSING      14110L
+    ERROR_SXS_FILE_HASH_MISSING      14110
 
 
 ///////////////////////////////////////////////////
@@ -25456,7 +25397,7 @@ static const int ERROR_SXS_FILE_HASH_MISSING      14110L
 //
 // The specified channel path is invalid.
 //
-static const int ERROR_EVT_INVALID_CHANNEL_PATH   15000L
+    ERROR_EVT_INVALID_CHANNEL_PATH   15000
 
 //
 // MessageId: ERROR_EVT_INVALID_QUERY
@@ -25465,7 +25406,7 @@ static const int ERROR_EVT_INVALID_CHANNEL_PATH   15000L
 //
 // The specified query is invalid.
 //
-static const int ERROR_EVT_INVALID_QUERY          15001L
+    ERROR_EVT_INVALID_QUERY          15001
 
 //
 // MessageId: ERROR_EVT_PUBLISHER_METADATA_NOT_FOUND
@@ -25474,7 +25415,7 @@ static const int ERROR_EVT_INVALID_QUERY          15001L
 //
 // The publisher metadata cannot be found in the resource.
 //
-static const int ERROR_EVT_PUBLISHER_METADATA_NOT_FOUND 15002L
+    ERROR_EVT_PUBLISHER_METADATA_NOT_FOUND 15002
 
 //
 // MessageId: ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND
@@ -25483,7 +25424,7 @@ static const int ERROR_EVT_PUBLISHER_METADATA_NOT_FOUND 15002L
 //
 // The template for an event definition cannot be found in the resource (error = %1).
 //
-static const int ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND 15003L
+    ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND 15003
 
 //
 // MessageId: ERROR_EVT_INVALID_PUBLISHER_NAME
@@ -25492,7 +25433,7 @@ static const int ERROR_EVT_EVENT_TEMPLATE_NOT_FOUND 15003L
 //
 // The specified publisher name is invalid.
 //
-static const int ERROR_EVT_INVALID_PUBLISHER_NAME 15004L
+    ERROR_EVT_INVALID_PUBLISHER_NAME 15004
 
 //
 // MessageId: ERROR_EVT_INVALID_EVENT_DATA
@@ -25501,7 +25442,7 @@ static const int ERROR_EVT_INVALID_PUBLISHER_NAME 15004L
 //
 // The event data raised by the publisher is not compatible with the event template definition in the publisher's manifest.
 //
-static const int ERROR_EVT_INVALID_EVENT_DATA     15005L
+    ERROR_EVT_INVALID_EVENT_DATA     15005
 
 //
 // MessageId: ERROR_EVT_CHANNEL_NOT_FOUND
@@ -25510,7 +25451,7 @@ static const int ERROR_EVT_INVALID_EVENT_DATA     15005L
 //
 // The specified channel could not be found.
 //
-static const int ERROR_EVT_CHANNEL_NOT_FOUND      15007L
+    ERROR_EVT_CHANNEL_NOT_FOUND      15007
 
 //
 // MessageId: ERROR_EVT_MALFORMED_XML_TEXT
@@ -25519,7 +25460,7 @@ static const int ERROR_EVT_CHANNEL_NOT_FOUND      15007L
 //
 // The specified XML text was not well-formed. See Extended Error for more details.
 //
-static const int ERROR_EVT_MALFORMED_XML_TEXT     15008L
+    ERROR_EVT_MALFORMED_XML_TEXT     15008
 
 //
 // MessageId: ERROR_EVT_SUBSCRIPTION_TO_DIRECT_CHANNEL
@@ -25528,7 +25469,7 @@ static const int ERROR_EVT_MALFORMED_XML_TEXT     15008L
 //
 // The events for a direct channel go directly to a log file and cannot be subscribed to.
 //
-static const int ERROR_EVT_SUBSCRIPTION_TO_DIRECT_CHANNEL 15009L
+    ERROR_EVT_SUBSCRIPTION_TO_DIRECT_CHANNEL 15009
 
 //
 // MessageId: ERROR_EVT_CONFIGURATION_ERROR
@@ -25537,7 +25478,7 @@ static const int ERROR_EVT_SUBSCRIPTION_TO_DIRECT_CHANNEL 15009L
 //
 // Configuration error.
 //
-static const int ERROR_EVT_CONFIGURATION_ERROR    15010L
+    ERROR_EVT_CONFIGURATION_ERROR    15010
 
 //
 // MessageId: ERROR_EVT_QUERY_RESULT_STALE
@@ -25546,7 +25487,7 @@ static const int ERROR_EVT_CONFIGURATION_ERROR    15010L
 //
 // The query result is stale or invalid and must be recreated. This may be due to the log being cleared or rolling over after the query result was created.
 //
-static const int ERROR_EVT_QUERY_RESULT_STALE     15011L
+    ERROR_EVT_QUERY_RESULT_STALE     15011
 
 //
 // MessageId: ERROR_EVT_QUERY_RESULT_INVALID_POSITION
@@ -25555,7 +25496,7 @@ static const int ERROR_EVT_QUERY_RESULT_STALE     15011L
 //
 // The query result is currently at an invalid position.
 //
-static const int ERROR_EVT_QUERY_RESULT_INVALID_POSITION 15012L
+    ERROR_EVT_QUERY_RESULT_INVALID_POSITION 15012
 
 //
 // MessageId: ERROR_EVT_NON_VALIDATING_MSXML
@@ -25564,7 +25505,7 @@ static const int ERROR_EVT_QUERY_RESULT_INVALID_POSITION 15012L
 //
 // Registered MSXML doesn't support validation.
 //
-static const int ERROR_EVT_NON_VALIDATING_MSXML   15013L
+    ERROR_EVT_NON_VALIDATING_MSXML   15013
 
 //
 // MessageId: ERROR_EVT_FILTER_ALREADYSCOPED
@@ -25573,7 +25514,7 @@ static const int ERROR_EVT_NON_VALIDATING_MSXML   15013L
 //
 // An expression can only be followed by a change-of-scope operation if the expression evaluates to a node set and is not already part of another change-of-scope operation.
 //
-static const int ERROR_EVT_FILTER_ALREADYSCOPED   15014L
+    ERROR_EVT_FILTER_ALREADYSCOPED   15014
 
 //
 // MessageId: ERROR_EVT_FILTER_NOTELTSET
@@ -25582,7 +25523,7 @@ static const int ERROR_EVT_FILTER_ALREADYSCOPED   15014L
 //
 // Cannot perform a step operation from a term that does not represent an element set.
 //
-static const int ERROR_EVT_FILTER_NOTELTSET       15015L
+    ERROR_EVT_FILTER_NOTELTSET       15015
 
 //
 // MessageId: ERROR_EVT_FILTER_INVARG
@@ -25591,7 +25532,7 @@ static const int ERROR_EVT_FILTER_NOTELTSET       15015L
 //
 // Left-hand side arguments to binary operators must be either attributes, nodes or variables. Right-hand side arguments must be constants.
 //
-static const int ERROR_EVT_FILTER_INVARG          15016L
+    ERROR_EVT_FILTER_INVARG          15016
 
 //
 // MessageId: ERROR_EVT_FILTER_INVTEST
@@ -25600,7 +25541,7 @@ static const int ERROR_EVT_FILTER_INVARG          15016L
 //
 // A step operation must involve a node test or, in the case of a predicate, an algebraic expression against which to test each node in the preceeding node set.
 //
-static const int ERROR_EVT_FILTER_INVTEST         15017L
+    ERROR_EVT_FILTER_INVTEST         15017
 
 //
 // MessageId: ERROR_EVT_FILTER_INVTYPE
@@ -25609,7 +25550,7 @@ static const int ERROR_EVT_FILTER_INVTEST         15017L
 //
 // This data type is currently unsupported.
 //
-static const int ERROR_EVT_FILTER_INVTYPE         15018L
+    ERROR_EVT_FILTER_INVTYPE         15018
 
 //
 // MessageId: ERROR_EVT_FILTER_PARSEERR
@@ -25618,7 +25559,7 @@ static const int ERROR_EVT_FILTER_INVTYPE         15018L
 //
 // A syntax error occurred at position %1!d!
 //
-static const int ERROR_EVT_FILTER_PARSEERR        15019L
+    ERROR_EVT_FILTER_PARSEERR        15019
 
 //
 // MessageId: ERROR_EVT_FILTER_UNSUPPORTEDOP
@@ -25627,7 +25568,7 @@ static const int ERROR_EVT_FILTER_PARSEERR        15019L
 //
 // This operator is unsupported by this implementation of the filter.
 //
-static const int ERROR_EVT_FILTER_UNSUPPORTEDOP   15020L
+    ERROR_EVT_FILTER_UNSUPPORTEDOP   15020
 
 //
 // MessageId: ERROR_EVT_FILTER_UNEXPECTEDTOKEN
@@ -25636,7 +25577,7 @@ static const int ERROR_EVT_FILTER_UNSUPPORTEDOP   15020L
 //
 // An unexpected token was encountered.
 //
-static const int ERROR_EVT_FILTER_UNEXPECTEDTOKEN 15021L
+    ERROR_EVT_FILTER_UNEXPECTEDTOKEN 15021
 
 //
 // MessageId: ERROR_EVT_INVALID_OPERATION_OVER_ENABLED_DIRECT_CHANNEL
@@ -25645,7 +25586,7 @@ static const int ERROR_EVT_FILTER_UNEXPECTEDTOKEN 15021L
 //
 // The requested operation cannot be performed over an enabled direct channel. The channel must first be disabled.
 //
-static const int ERROR_EVT_INVALID_OPERATION_OVER_ENABLED_DIRECT_CHANNEL 15022L
+    ERROR_EVT_INVALID_OPERATION_OVER_ENABLED_DIRECT_CHANNEL 15022
 
 //
 // MessageId: ERROR_EVT_INVALID_CHANNEL_PROPERTY_VALUE
@@ -25654,7 +25595,7 @@ static const int ERROR_EVT_INVALID_OPERATION_OVER_ENABLED_DIRECT_CHANNEL 15022L
 //
 // Channel property %1!s! contains an invalid value. The value has an invalid type, is outside of its valid range, cannot be changed, or is not supported by this type of channel.
 //
-static const int ERROR_EVT_INVALID_CHANNEL_PROPERTY_VALUE 15023L
+    ERROR_EVT_INVALID_CHANNEL_PROPERTY_VALUE 15023
 
 //
 // MessageId: ERROR_EVT_INVALID_PUBLISHER_PROPERTY_VALUE
@@ -25663,7 +25604,7 @@ static const int ERROR_EVT_INVALID_CHANNEL_PROPERTY_VALUE 15023L
 //
 // Publisher property %1!s! contains an invalid value. The value has an invalid type, is outside of its valid range, cannot be changed, or is not supported by this type of publisher.
 //
-static const int ERROR_EVT_INVALID_PUBLISHER_PROPERTY_VALUE 15024L
+    ERROR_EVT_INVALID_PUBLISHER_PROPERTY_VALUE 15024
 
 //
 // MessageId: ERROR_EVT_CHANNEL_CANNOT_ACTIVATE
@@ -25672,7 +25613,7 @@ static const int ERROR_EVT_INVALID_PUBLISHER_PROPERTY_VALUE 15024L
 //
 // The channel failed to activate.
 //
-static const int ERROR_EVT_CHANNEL_CANNOT_ACTIVATE 15025L
+    ERROR_EVT_CHANNEL_CANNOT_ACTIVATE 15025
 
 //
 // MessageId: ERROR_EVT_FILTER_TOO_COMPLEX
@@ -25681,7 +25622,7 @@ static const int ERROR_EVT_CHANNEL_CANNOT_ACTIVATE 15025L
 //
 // The XPath expression exceeded the supported complexity. Simplify the expression or split it into multiple expressions.
 //
-static const int ERROR_EVT_FILTER_TOO_COMPLEX     15026L
+    ERROR_EVT_FILTER_TOO_COMPLEX     15026
 
 //
 // MessageId: ERROR_EVT_MESSAGE_NOT_FOUND
@@ -25690,7 +25631,7 @@ static const int ERROR_EVT_FILTER_TOO_COMPLEX     15026L
 //
 // The message resource is present but the message was not found in the message table.
 //
-static const int ERROR_EVT_MESSAGE_NOT_FOUND      15027L
+    ERROR_EVT_MESSAGE_NOT_FOUND      15027
 
 //
 // MessageId: ERROR_EVT_MESSAGE_ID_NOT_FOUND
@@ -25699,7 +25640,7 @@ static const int ERROR_EVT_MESSAGE_NOT_FOUND      15027L
 //
 // The message ID for the desired message could not be found.
 //
-static const int ERROR_EVT_MESSAGE_ID_NOT_FOUND   15028L
+    ERROR_EVT_MESSAGE_ID_NOT_FOUND   15028
 
 //
 // MessageId: ERROR_EVT_UNRESOLVED_VALUE_INSERT
@@ -25708,7 +25649,7 @@ static const int ERROR_EVT_MESSAGE_ID_NOT_FOUND   15028L
 //
 // The substitution string for insert index (%1) could not be found.
 //
-static const int ERROR_EVT_UNRESOLVED_VALUE_INSERT 15029L
+    ERROR_EVT_UNRESOLVED_VALUE_INSERT 15029
 
 //
 // MessageId: ERROR_EVT_UNRESOLVED_PARAMETER_INSERT
@@ -25717,7 +25658,7 @@ static const int ERROR_EVT_UNRESOLVED_VALUE_INSERT 15029L
 //
 // The description string for parameter reference (%1) could not be found.
 //
-static const int ERROR_EVT_UNRESOLVED_PARAMETER_INSERT 15030L
+    ERROR_EVT_UNRESOLVED_PARAMETER_INSERT 15030
 
 //
 // MessageId: ERROR_EVT_MAX_INSERTS_REACHED
@@ -25726,7 +25667,7 @@ static const int ERROR_EVT_UNRESOLVED_PARAMETER_INSERT 15030L
 //
 // The maximum number of replacements has been reached.
 //
-static const int ERROR_EVT_MAX_INSERTS_REACHED    15031L
+    ERROR_EVT_MAX_INSERTS_REACHED    15031
 
 //
 // MessageId: ERROR_EVT_EVENT_DEFINITION_NOT_FOUND
@@ -25735,7 +25676,7 @@ static const int ERROR_EVT_MAX_INSERTS_REACHED    15031L
 //
 // The event definition could not be found for event ID (%1).
 //
-static const int ERROR_EVT_EVENT_DEFINITION_NOT_FOUND 15032L
+    ERROR_EVT_EVENT_DEFINITION_NOT_FOUND 15032
 
 //
 // MessageId: ERROR_EVT_MESSAGE_LOCALE_NOT_FOUND
@@ -25744,7 +25685,7 @@ static const int ERROR_EVT_EVENT_DEFINITION_NOT_FOUND 15032L
 //
 // The locale specific resource for the desired message is not present.
 //
-static const int ERROR_EVT_MESSAGE_LOCALE_NOT_FOUND 15033L
+    ERROR_EVT_MESSAGE_LOCALE_NOT_FOUND 15033
 
 //
 // MessageId: ERROR_EVT_VERSION_TOO_OLD
@@ -25753,7 +25694,7 @@ static const int ERROR_EVT_MESSAGE_LOCALE_NOT_FOUND 15033L
 //
 // The resource is too old and is not supported.
 //
-static const int ERROR_EVT_VERSION_TOO_OLD        15034L
+    ERROR_EVT_VERSION_TOO_OLD        15034
 
 //
 // MessageId: ERROR_EVT_VERSION_TOO_NEW
@@ -25762,7 +25703,7 @@ static const int ERROR_EVT_VERSION_TOO_OLD        15034L
 //
 // The resource is too new and is not supported.
 //
-static const int ERROR_EVT_VERSION_TOO_NEW        15035L
+    ERROR_EVT_VERSION_TOO_NEW        15035
 
 //
 // MessageId: ERROR_EVT_CANNOT_OPEN_CHANNEL_OF_QUERY
@@ -25771,7 +25712,7 @@ static const int ERROR_EVT_VERSION_TOO_NEW        15035L
 //
 // The channel at index %1!d! of the query can't be opened.
 //
-static const int ERROR_EVT_CANNOT_OPEN_CHANNEL_OF_QUERY 15036L
+    ERROR_EVT_CANNOT_OPEN_CHANNEL_OF_QUERY 15036
 
 //
 // MessageId: ERROR_EVT_PUBLISHER_DISABLED
@@ -25780,7 +25721,7 @@ static const int ERROR_EVT_CANNOT_OPEN_CHANNEL_OF_QUERY 15036L
 //
 // The publisher has been disabled and its resource is not available. This usually occurs when the publisher is in the process of being uninstalled or upgraded.
 //
-static const int ERROR_EVT_PUBLISHER_DISABLED     15037L
+    ERROR_EVT_PUBLISHER_DISABLED     15037
 
 //
 // MessageId: ERROR_EVT_FILTER_OUT_OF_RANGE
@@ -25789,7 +25730,7 @@ static const int ERROR_EVT_PUBLISHER_DISABLED     15037L
 //
 // Attempted to create a numeric type that is outside of its valid range.
 //
-static const int ERROR_EVT_FILTER_OUT_OF_RANGE    15038L
+    ERROR_EVT_FILTER_OUT_OF_RANGE    15038
 
 
 ///////////////////////////////////////////////////
@@ -25806,7 +25747,7 @@ static const int ERROR_EVT_FILTER_OUT_OF_RANGE    15038L
 //
 // The subscription fails to activate.
 //
-static const int ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE 15080L
+    ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE 15080
 
 //
 // MessageId: ERROR_EC_LOG_DISABLED
@@ -25815,7 +25756,7 @@ static const int ERROR_EC_SUBSCRIPTION_CANNOT_ACTIVATE 15080L
 //
 // The log of the subscription is in disabled state, and can not be used to forward events to. The log must first be enabled before the subscription can be activated.
 //
-static const int ERROR_EC_LOG_DISABLED            15081L
+    ERROR_EC_LOG_DISABLED            15081
 
 //
 // MessageId: ERROR_EC_CIRCULAR_FORWARDING
@@ -25824,7 +25765,7 @@ static const int ERROR_EC_LOG_DISABLED            15081L
 //
 // When forwarding events from local machine to itself, the query of the subscription can't contain target log of the subscription.
 //
-static const int ERROR_EC_CIRCULAR_FORWARDING     15082L
+    ERROR_EC_CIRCULAR_FORWARDING     15082
 
 //
 // MessageId: ERROR_EC_CREDSTORE_FULL
@@ -25833,7 +25774,7 @@ static const int ERROR_EC_CIRCULAR_FORWARDING     15082L
 //
 // The credential store that is used to save credentials is full.
 //
-static const int ERROR_EC_CREDSTORE_FULL          15083L
+    ERROR_EC_CREDSTORE_FULL          15083
 
 //
 // MessageId: ERROR_EC_CRED_NOT_FOUND
@@ -25842,7 +25783,7 @@ static const int ERROR_EC_CREDSTORE_FULL          15083L
 //
 // The credential used by this subscription can't be found in credential store.
 //
-static const int ERROR_EC_CRED_NOT_FOUND          15084L
+    ERROR_EC_CRED_NOT_FOUND          15084
 
 //
 // MessageId: ERROR_EC_NO_ACTIVE_CHANNEL
@@ -25851,7 +25792,7 @@ static const int ERROR_EC_CRED_NOT_FOUND          15084L
 //
 // No active channel is found for the query.
 //
-static const int ERROR_EC_NO_ACTIVE_CHANNEL       15085L
+    ERROR_EC_NO_ACTIVE_CHANNEL       15085
 
 
 ///////////////////////////////////////////////////
@@ -25868,7 +25809,7 @@ static const int ERROR_EC_NO_ACTIVE_CHANNEL       15085L
 //
 // The resource loader failed to find MUI file.
 //
-static const int ERROR_MUI_FILE_NOT_FOUND         15100L
+    ERROR_MUI_FILE_NOT_FOUND         15100
 
 //
 // MessageId: ERROR_MUI_INVALID_FILE
@@ -25877,7 +25818,7 @@ static const int ERROR_MUI_FILE_NOT_FOUND         15100L
 //
 // The resource loader failed to load MUI file because the file fail to pass validation.
 //
-static const int ERROR_MUI_INVALID_FILE           15101L
+    ERROR_MUI_INVALID_FILE           15101
 
 //
 // MessageId: ERROR_MUI_INVALID_RC_CONFIG
@@ -25886,7 +25827,7 @@ static const int ERROR_MUI_INVALID_FILE           15101L
 //
 // The RC Manifest is corrupted with garbage data or unsupported version or missing required item.
 //
-static const int ERROR_MUI_INVALID_RC_CONFIG      15102L
+    ERROR_MUI_INVALID_RC_CONFIG      15102
 
 //
 // MessageId: ERROR_MUI_INVALID_LOCALE_NAME
@@ -25895,7 +25836,7 @@ static const int ERROR_MUI_INVALID_RC_CONFIG      15102L
 //
 // The RC Manifest has invalid culture name.
 //
-static const int ERROR_MUI_INVALID_LOCALE_NAME    15103L
+    ERROR_MUI_INVALID_LOCALE_NAME    15103
 
 //
 // MessageId: ERROR_MUI_INVALID_ULTIMATEFALLBACK_NAME
@@ -25904,7 +25845,7 @@ static const int ERROR_MUI_INVALID_LOCALE_NAME    15103L
 //
 // The RC Manifest has invalid ultimatefallback name.
 //
-static const int ERROR_MUI_INVALID_ULTIMATEFALLBACK_NAME 15104L
+    ERROR_MUI_INVALID_ULTIMATEFALLBACK_NAME 15104
 
 //
 // MessageId: ERROR_MUI_FILE_NOT_LOADED
@@ -25913,7 +25854,7 @@ static const int ERROR_MUI_INVALID_ULTIMATEFALLBACK_NAME 15104L
 //
 // The resource loader cache doesn't have loaded MUI entry.
 //
-static const int ERROR_MUI_FILE_NOT_LOADED        15105L
+    ERROR_MUI_FILE_NOT_LOADED        15105
 
 //
 // MessageId: ERROR_RESOURCE_ENUM_USER_STOP
@@ -25922,7 +25863,7 @@ static const int ERROR_MUI_FILE_NOT_LOADED        15105L
 //
 // User stopped resource enumeration.
 //
-static const int ERROR_RESOURCE_ENUM_USER_STOP    15106L
+    ERROR_RESOURCE_ENUM_USER_STOP    15106
 
 //
 // MessageId: ERROR_MUI_INTLSETTINGS_UILANG_NOT_INSTALLED
@@ -25931,7 +25872,7 @@ static const int ERROR_RESOURCE_ENUM_USER_STOP    15106L
 //
 // UI language installation failed.
 //
-static const int ERROR_MUI_INTLSETTINGS_UILANG_NOT_INSTALLED 15107L
+    ERROR_MUI_INTLSETTINGS_UILANG_NOT_INSTALLED 15107
 
 //
 // MessageId: ERROR_MUI_INTLSETTINGS_INVALID_LOCALE_NAME
@@ -25940,7 +25881,7 @@ static const int ERROR_MUI_INTLSETTINGS_UILANG_NOT_INSTALLED 15107L
 //
 // Locale installation failed.
 //
-static const int ERROR_MUI_INTLSETTINGS_INVALID_LOCALE_NAME 15108L
+    ERROR_MUI_INTLSETTINGS_INVALID_LOCALE_NAME 15108
 
 //
 // MessageId: ERROR_MRM_RUNTIME_NO_DEFAULT_OR_NEUTRAL_RESOURCE
@@ -25949,7 +25890,7 @@ static const int ERROR_MUI_INTLSETTINGS_INVALID_LOCALE_NAME 15108L
 //
 // A resource does not have default or neutral value.
 //
-static const int ERROR_MRM_RUNTIME_NO_DEFAULT_OR_NEUTRAL_RESOURCE 15110L
+    ERROR_MRM_RUNTIME_NO_DEFAULT_OR_NEUTRAL_RESOURCE 15110
 
 //
 // MessageId: ERROR_MRM_INVALID_PRICONFIG
@@ -25958,7 +25899,7 @@ static const int ERROR_MRM_RUNTIME_NO_DEFAULT_OR_NEUTRAL_RESOURCE 15110L
 //
 // Invalid PRI config file.
 //
-static const int ERROR_MRM_INVALID_PRICONFIG      15111L
+    ERROR_MRM_INVALID_PRICONFIG      15111
 
 //
 // MessageId: ERROR_MRM_INVALID_FILE_TYPE
@@ -25967,7 +25908,7 @@ static const int ERROR_MRM_INVALID_PRICONFIG      15111L
 //
 // Invalid file type.
 //
-static const int ERROR_MRM_INVALID_FILE_TYPE      15112L
+    ERROR_MRM_INVALID_FILE_TYPE      15112
 
 //
 // MessageId: ERROR_MRM_UNKNOWN_QUALIFIER
@@ -25976,7 +25917,7 @@ static const int ERROR_MRM_INVALID_FILE_TYPE      15112L
 //
 // Unknown qualifier.
 //
-static const int ERROR_MRM_UNKNOWN_QUALIFIER      15113L
+    ERROR_MRM_UNKNOWN_QUALIFIER      15113
 
 //
 // MessageId: ERROR_MRM_INVALID_QUALIFIER_VALUE
@@ -25985,7 +25926,7 @@ static const int ERROR_MRM_UNKNOWN_QUALIFIER      15113L
 //
 // Invalid qualifier value.
 //
-static const int ERROR_MRM_INVALID_QUALIFIER_VALUE 15114L
+    ERROR_MRM_INVALID_QUALIFIER_VALUE 15114
 
 //
 // MessageId: ERROR_MRM_NO_CANDIDATE
@@ -25994,7 +25935,7 @@ static const int ERROR_MRM_INVALID_QUALIFIER_VALUE 15114L
 //
 // No Candidate found.
 //
-static const int ERROR_MRM_NO_CANDIDATE           15115L
+    ERROR_MRM_NO_CANDIDATE           15115
 
 //
 // MessageId: ERROR_MRM_NO_MATCH_OR_DEFAULT_CANDIDATE
@@ -26003,7 +25944,7 @@ static const int ERROR_MRM_NO_CANDIDATE           15115L
 //
 // The ResourceMap or NamedResource has an item that does not have default or neutral resource..
 //
-static const int ERROR_MRM_NO_MATCH_OR_DEFAULT_CANDIDATE 15116L
+    ERROR_MRM_NO_MATCH_OR_DEFAULT_CANDIDATE 15116
 
 //
 // MessageId: ERROR_MRM_RESOURCE_TYPE_MISMATCH
@@ -26012,7 +25953,7 @@ static const int ERROR_MRM_NO_MATCH_OR_DEFAULT_CANDIDATE 15116L
 //
 // Invalid ResourceCandidate type.
 //
-static const int ERROR_MRM_RESOURCE_TYPE_MISMATCH 15117L
+    ERROR_MRM_RESOURCE_TYPE_MISMATCH 15117
 
 //
 // MessageId: ERROR_MRM_DUPLICATE_MAP_NAME
@@ -26021,7 +25962,7 @@ static const int ERROR_MRM_RESOURCE_TYPE_MISMATCH 15117L
 //
 // Duplicate Resource Map.
 //
-static const int ERROR_MRM_DUPLICATE_MAP_NAME     15118L
+    ERROR_MRM_DUPLICATE_MAP_NAME     15118
 
 //
 // MessageId: ERROR_MRM_DUPLICATE_ENTRY
@@ -26030,7 +25971,7 @@ static const int ERROR_MRM_DUPLICATE_MAP_NAME     15118L
 //
 // Duplicate Entry.
 //
-static const int ERROR_MRM_DUPLICATE_ENTRY        15119L
+    ERROR_MRM_DUPLICATE_ENTRY        15119
 
 //
 // MessageId: ERROR_MRM_INVALID_RESOURCE_IDENTIFIER
@@ -26039,7 +25980,7 @@ static const int ERROR_MRM_DUPLICATE_ENTRY        15119L
 //
 // Invalid Resource Identifier.
 //
-static const int ERROR_MRM_INVALID_RESOURCE_IDENTIFIER 15120L
+    ERROR_MRM_INVALID_RESOURCE_IDENTIFIER 15120
 
 //
 // MessageId: ERROR_MRM_FILEPATH_TOO_LONG
@@ -26048,7 +25989,7 @@ static const int ERROR_MRM_INVALID_RESOURCE_IDENTIFIER 15120L
 //
 // Filepath too long.
 //
-static const int ERROR_MRM_FILEPATH_TOO_LONG      15121L
+    ERROR_MRM_FILEPATH_TOO_LONG      15121
 
 //
 // MessageId: ERROR_MRM_UNSUPPORTED_DIRECTORY_TYPE
@@ -26057,7 +25998,7 @@ static const int ERROR_MRM_FILEPATH_TOO_LONG      15121L
 //
 // Unsupported directory type.
 //
-static const int ERROR_MRM_UNSUPPORTED_DIRECTORY_TYPE 15122L
+    ERROR_MRM_UNSUPPORTED_DIRECTORY_TYPE 15122
 
 //
 // MessageId: ERROR_MRM_INVALID_PRI_FILE
@@ -26066,7 +26007,7 @@ static const int ERROR_MRM_UNSUPPORTED_DIRECTORY_TYPE 15122L
 //
 // Invalid PRI File.
 //
-static const int ERROR_MRM_INVALID_PRI_FILE       15126L
+    ERROR_MRM_INVALID_PRI_FILE       15126
 
 //
 // MessageId: ERROR_MRM_NAMED_RESOURCE_NOT_FOUND
@@ -26075,7 +26016,7 @@ static const int ERROR_MRM_INVALID_PRI_FILE       15126L
 //
 // NamedResource Not Found.
 //
-static const int ERROR_MRM_NAMED_RESOURCE_NOT_FOUND 15127L
+    ERROR_MRM_NAMED_RESOURCE_NOT_FOUND 15127
 
 //
 // MessageId: ERROR_MRM_MAP_NOT_FOUND
@@ -26084,7 +26025,7 @@ static const int ERROR_MRM_NAMED_RESOURCE_NOT_FOUND 15127L
 //
 // ResourceMap Not Found.
 //
-static const int ERROR_MRM_MAP_NOT_FOUND          15135L
+    ERROR_MRM_MAP_NOT_FOUND          15135
 
 //
 // MessageId: ERROR_MRM_UNSUPPORTED_PROFILE_TYPE
@@ -26093,7 +26034,7 @@ static const int ERROR_MRM_MAP_NOT_FOUND          15135L
 //
 // Unsupported MRT profile type.
 //
-static const int ERROR_MRM_UNSUPPORTED_PROFILE_TYPE 15136L
+    ERROR_MRM_UNSUPPORTED_PROFILE_TYPE 15136
 
 //
 // MessageId: ERROR_MRM_INVALID_QUALIFIER_OPERATOR
@@ -26102,7 +26043,7 @@ static const int ERROR_MRM_UNSUPPORTED_PROFILE_TYPE 15136L
 //
 // Invalid qualifier operator.
 //
-static const int ERROR_MRM_INVALID_QUALIFIER_OPERATOR 15137L
+    ERROR_MRM_INVALID_QUALIFIER_OPERATOR 15137
 
 //
 // MessageId: ERROR_MRM_INDETERMINATE_QUALIFIER_VALUE
@@ -26111,7 +26052,7 @@ static const int ERROR_MRM_INVALID_QUALIFIER_OPERATOR 15137L
 //
 // Unable to determine qualifier value or qualifier value has not been set.
 //
-static const int ERROR_MRM_INDETERMINATE_QUALIFIER_VALUE 15138L
+    ERROR_MRM_INDETERMINATE_QUALIFIER_VALUE 15138
 
 //
 // MessageId: ERROR_MRM_AUTOMERGE_ENABLED
@@ -26120,7 +26061,7 @@ static const int ERROR_MRM_INDETERMINATE_QUALIFIER_VALUE 15138L
 //
 // Automerge is enabled in the PRI file.
 //
-static const int ERROR_MRM_AUTOMERGE_ENABLED      15139L
+    ERROR_MRM_AUTOMERGE_ENABLED      15139
 
 //
 // MessageId: ERROR_MRM_TOO_MANY_RESOURCES
@@ -26129,7 +26070,7 @@ static const int ERROR_MRM_AUTOMERGE_ENABLED      15139L
 //
 // Too many resources defined for package.
 //
-static const int ERROR_MRM_TOO_MANY_RESOURCES     15140L
+    ERROR_MRM_TOO_MANY_RESOURCES     15140
 
 //
 // MessageId: ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_MERGE
@@ -26138,7 +26079,7 @@ static const int ERROR_MRM_TOO_MANY_RESOURCES     15140L
 //
 // Resource File can not be used for merge operation.
 //
-static const int ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_MERGE 15141L
+    ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_MERGE 15141
 
 //
 // MessageId: ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_LOAD_UNLOAD_PRI_FILE
@@ -26147,7 +26088,7 @@ static const int ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_MERGE 15141L
 //
 // Load/UnloadPriFiles cannot be used with resource packages.
 //
-static const int ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_LOAD_UNLOAD_PRI_FILE 15142L
+    ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_LOAD_UNLOAD_PRI_FILE 15142
 
 //
 // MessageId: ERROR_MRM_NO_CURRENT_VIEW_ON_THREAD
@@ -26156,7 +26097,7 @@ static const int ERROR_MRM_UNSUPPORTED_FILE_TYPE_FOR_LOAD_UNLOAD_PRI_FILE 15142L
 //
 // Resource Contexts may not be created on threads that do not have a CoreWindow.
 //
-static const int ERROR_MRM_NO_CURRENT_VIEW_ON_THREAD 15143L
+    ERROR_MRM_NO_CURRENT_VIEW_ON_THREAD 15143
 
 //
 // MessageId: ERROR_DIFFERENT_PROFILE_RESOURCE_MANAGER_EXIST
@@ -26165,7 +26106,7 @@ static const int ERROR_MRM_NO_CURRENT_VIEW_ON_THREAD 15143L
 //
 // The singleton Resource Manager with different profile is already created.
 //
-static const int ERROR_DIFFERENT_PROFILE_RESOURCE_MANAGER_EXIST 15144L
+    ERROR_DIFFERENT_PROFILE_RESOURCE_MANAGER_EXIST 15144
 
 //
 // MessageId: ERROR_OPERATION_NOT_ALLOWED_FROM_SYSTEM_COMPONENT
@@ -26174,7 +26115,7 @@ static const int ERROR_DIFFERENT_PROFILE_RESOURCE_MANAGER_EXIST 15144L
 //
 // The system component cannot operate given API operation
 //
-static const int ERROR_OPERATION_NOT_ALLOWED_FROM_SYSTEM_COMPONENT 15145L
+    ERROR_OPERATION_NOT_ALLOWED_FROM_SYSTEM_COMPONENT 15145
 
 //
 // MessageId: ERROR_MRM_DIRECT_REF_TO_NON_DEFAULT_RESOURCE
@@ -26183,7 +26124,7 @@ static const int ERROR_OPERATION_NOT_ALLOWED_FROM_SYSTEM_COMPONENT 15145L
 //
 // The resource is a direct reference to a non-default resource candidate.
 //
-static const int ERROR_MRM_DIRECT_REF_TO_NON_DEFAULT_RESOURCE 15146L
+    ERROR_MRM_DIRECT_REF_TO_NON_DEFAULT_RESOURCE 15146
 
 //
 // MessageId: ERROR_MRM_GENERATION_COUNT_MISMATCH
@@ -26192,7 +26133,7 @@ static const int ERROR_MRM_DIRECT_REF_TO_NON_DEFAULT_RESOURCE 15146L
 //
 // Resource Map has been re-generated and the query string is not valid anymore.
 //
-static const int ERROR_MRM_GENERATION_COUNT_MISMATCH 15147L
+    ERROR_MRM_GENERATION_COUNT_MISMATCH 15147
 
 //
 // MessageId: ERROR_PRI_MERGE_VERSION_MISMATCH
@@ -26201,7 +26142,7 @@ static const int ERROR_MRM_GENERATION_COUNT_MISMATCH 15147L
 //
 // The PRI files to be merged have incompatible versions.
 //
-static const int ERROR_PRI_MERGE_VERSION_MISMATCH 15148L
+    ERROR_PRI_MERGE_VERSION_MISMATCH 15148
 
 //
 // MessageId: ERROR_PRI_MERGE_MISSING_SCHEMA
@@ -26210,7 +26151,7 @@ static const int ERROR_PRI_MERGE_VERSION_MISMATCH 15148L
 //
 // The primary PRI files to be merged does not contain a schema.
 //
-static const int ERROR_PRI_MERGE_MISSING_SCHEMA   15149L
+    ERROR_PRI_MERGE_MISSING_SCHEMA   15149
 
 //
 // MessageId: ERROR_PRI_MERGE_LOAD_FILE_FAILED
@@ -26219,7 +26160,7 @@ static const int ERROR_PRI_MERGE_MISSING_SCHEMA   15149L
 //
 // Unable to load one of the PRI files to be merged.
 //
-static const int ERROR_PRI_MERGE_LOAD_FILE_FAILED 15150L
+    ERROR_PRI_MERGE_LOAD_FILE_FAILED 15150
 
 //
 // MessageId: ERROR_PRI_MERGE_ADD_FILE_FAILED
@@ -26228,7 +26169,7 @@ static const int ERROR_PRI_MERGE_LOAD_FILE_FAILED 15150L
 //
 // Unable to add one of the PRI files to the merged file.
 //
-static const int ERROR_PRI_MERGE_ADD_FILE_FAILED  15151L
+    ERROR_PRI_MERGE_ADD_FILE_FAILED  15151
 
 //
 // MessageId: ERROR_PRI_MERGE_WRITE_FILE_FAILED
@@ -26237,7 +26178,7 @@ static const int ERROR_PRI_MERGE_ADD_FILE_FAILED  15151L
 //
 // Unable to create the merged PRI file.
 //
-static const int ERROR_PRI_MERGE_WRITE_FILE_FAILED 15152L
+    ERROR_PRI_MERGE_WRITE_FILE_FAILED 15152
 
 //
 // MessageId: ERROR_PRI_MERGE_MULTIPLE_PACKAGE_FAMILIES_NOT_ALLOWED
@@ -26246,7 +26187,7 @@ static const int ERROR_PRI_MERGE_WRITE_FILE_FAILED 15152L
 //
 // Packages for a PRI file merge must all be from the same package family.
 //
-static const int ERROR_PRI_MERGE_MULTIPLE_PACKAGE_FAMILIES_NOT_ALLOWED 15153L
+    ERROR_PRI_MERGE_MULTIPLE_PACKAGE_FAMILIES_NOT_ALLOWED 15153
 
 //
 // MessageId: ERROR_PRI_MERGE_MULTIPLE_MAIN_PACKAGES_NOT_ALLOWED
@@ -26255,7 +26196,7 @@ static const int ERROR_PRI_MERGE_MULTIPLE_PACKAGE_FAMILIES_NOT_ALLOWED 15153L
 //
 // Packages for a PRI file merge must not include multiple main packages.
 //
-static const int ERROR_PRI_MERGE_MULTIPLE_MAIN_PACKAGES_NOT_ALLOWED 15154L
+    ERROR_PRI_MERGE_MULTIPLE_MAIN_PACKAGES_NOT_ALLOWED 15154
 
 //
 // MessageId: ERROR_PRI_MERGE_BUNDLE_PACKAGES_NOT_ALLOWED
@@ -26264,7 +26205,7 @@ static const int ERROR_PRI_MERGE_MULTIPLE_MAIN_PACKAGES_NOT_ALLOWED 15154L
 //
 // Packages for a PRI file merge must not include bundle packages.
 //
-static const int ERROR_PRI_MERGE_BUNDLE_PACKAGES_NOT_ALLOWED 15155L
+    ERROR_PRI_MERGE_BUNDLE_PACKAGES_NOT_ALLOWED 15155
 
 //
 // MessageId: ERROR_PRI_MERGE_MAIN_PACKAGE_REQUIRED
@@ -26273,7 +26214,7 @@ static const int ERROR_PRI_MERGE_BUNDLE_PACKAGES_NOT_ALLOWED 15155L
 //
 // Packages for a PRI file merge must include one main package.
 //
-static const int ERROR_PRI_MERGE_MAIN_PACKAGE_REQUIRED 15156L
+    ERROR_PRI_MERGE_MAIN_PACKAGE_REQUIRED 15156
 
 //
 // MessageId: ERROR_PRI_MERGE_RESOURCE_PACKAGE_REQUIRED
@@ -26282,7 +26223,7 @@ static const int ERROR_PRI_MERGE_MAIN_PACKAGE_REQUIRED 15156L
 //
 // Packages for a PRI file merge must include at least one resource package.
 //
-static const int ERROR_PRI_MERGE_RESOURCE_PACKAGE_REQUIRED 15157L
+    ERROR_PRI_MERGE_RESOURCE_PACKAGE_REQUIRED 15157
 
 //
 // MessageId: ERROR_PRI_MERGE_INVALID_FILE_NAME
@@ -26291,7 +26232,7 @@ static const int ERROR_PRI_MERGE_RESOURCE_PACKAGE_REQUIRED 15157L
 //
 // Invalid name supplied for a canonical merged PRI file.
 //
-static const int ERROR_PRI_MERGE_INVALID_FILE_NAME 15158L
+    ERROR_PRI_MERGE_INVALID_FILE_NAME 15158
 
 
 ///////////////////////////////////////////////////
@@ -26308,7 +26249,7 @@ static const int ERROR_PRI_MERGE_INVALID_FILE_NAME 15158L
 //
 // The monitor returned a DDC/CI capabilities string that did not comply with the ACCESS.bus 3.0, DDC/CI 1.1 or MCCS 2 Revision 1 specification.
 //
-static const int ERROR_MCA_INVALID_CAPABILITIES_STRING 15200L
+    ERROR_MCA_INVALID_CAPABILITIES_STRING 15200
 
 //
 // MessageId: ERROR_MCA_INVALID_VCP_VERSION
@@ -26317,7 +26258,7 @@ static const int ERROR_MCA_INVALID_CAPABILITIES_STRING 15200L
 //
 // The monitor's VCP Version (0xDF) VCP code returned an invalid version value.
 //
-static const int ERROR_MCA_INVALID_VCP_VERSION    15201L
+    ERROR_MCA_INVALID_VCP_VERSION    15201
 
 //
 // MessageId: ERROR_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION
@@ -26326,7 +26267,7 @@ static const int ERROR_MCA_INVALID_VCP_VERSION    15201L
 //
 // The monitor does not comply with the MCCS specification it claims to support.
 //
-static const int ERROR_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION 15202L
+    ERROR_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION 15202
 
 //
 // MessageId: ERROR_MCA_MCCS_VERSION_MISMATCH
@@ -26335,7 +26276,7 @@ static const int ERROR_MCA_MONITOR_VIOLATES_MCCS_SPECIFICATION 15202L
 //
 // The MCCS version in a monitor's mccs_ver capability does not match the MCCS version the monitor reports when the VCP Version (0xDF) VCP code is used.
 //
-static const int ERROR_MCA_MCCS_VERSION_MISMATCH  15203L
+    ERROR_MCA_MCCS_VERSION_MISMATCH  15203
 
 //
 // MessageId: ERROR_MCA_UNSUPPORTED_MCCS_VERSION
@@ -26344,7 +26285,7 @@ static const int ERROR_MCA_MCCS_VERSION_MISMATCH  15203L
 //
 // The Monitor Configuration API only works with monitors that support the MCCS 1.0 specification, MCCS 2.0 specification or the MCCS 2.0 Revision 1 specification.
 //
-static const int ERROR_MCA_UNSUPPORTED_MCCS_VERSION 15204L
+    ERROR_MCA_UNSUPPORTED_MCCS_VERSION 15204
 
 //
 // MessageId: ERROR_MCA_INTERNAL_ERROR
@@ -26353,7 +26294,7 @@ static const int ERROR_MCA_UNSUPPORTED_MCCS_VERSION 15204L
 //
 // An internal Monitor Configuration API error occurred.
 //
-static const int ERROR_MCA_INTERNAL_ERROR         15205L
+    ERROR_MCA_INTERNAL_ERROR         15205
 
 //
 // MessageId: ERROR_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED
@@ -26362,7 +26303,7 @@ static const int ERROR_MCA_INTERNAL_ERROR         15205L
 //
 // The monitor returned an invalid monitor technology type. CRT, Plasma and LCD (TFT) are examples of monitor technology types. This error implies that the monitor violated the MCCS 2.0 or MCCS 2.0 Revision 1 specification.
 //
-static const int ERROR_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED 15206L
+    ERROR_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED 15206
 
 //
 // MessageId: ERROR_MCA_UNSUPPORTED_COLOR_TEMPERATURE
@@ -26371,7 +26312,7 @@ static const int ERROR_MCA_INVALID_TECHNOLOGY_TYPE_RETURNED 15206L
 //
 // The caller of SetMonitorColorTemperature specified a color temperature that the current monitor did not support. This error implies that the monitor violated the MCCS 2.0 or MCCS 2.0 Revision 1 specification.
 //
-static const int ERROR_MCA_UNSUPPORTED_COLOR_TEMPERATURE 15207L
+    ERROR_MCA_UNSUPPORTED_COLOR_TEMPERATURE 15207
 
 
 //////////////////////////////////////////////////
@@ -26395,7 +26336,7 @@ static const int ERROR_MCA_UNSUPPORTED_COLOR_TEMPERATURE 15207L
 //
 // The requested system device cannot be identified due to multiple indistinguishable devices potentially matching the identification criteria.
 //
-static const int ERROR_AMBIGUOUS_SYSTEM_DEVICE    15250L
+    ERROR_AMBIGUOUS_SYSTEM_DEVICE    15250
 
 //
 // MessageId: ERROR_SYSTEM_DEVICE_NOT_FOUND
@@ -26404,7 +26345,7 @@ static const int ERROR_AMBIGUOUS_SYSTEM_DEVICE    15250L
 //
 // The requested system device cannot be found.
 //
-static const int ERROR_SYSTEM_DEVICE_NOT_FOUND    15299L
+    ERROR_SYSTEM_DEVICE_NOT_FOUND    15299
 
 //////////////////////////////////////////////////
 //                                              //
@@ -26420,7 +26361,7 @@ static const int ERROR_SYSTEM_DEVICE_NOT_FOUND    15299L
 //
 // Hash generation for the specified hash version and hash type is not enabled on the server.
 //
-static const int ERROR_HASH_NOT_SUPPORTED         15300L
+    ERROR_HASH_NOT_SUPPORTED         15300
 
 //
 // MessageId: ERROR_HASH_NOT_PRESENT
@@ -26429,7 +26370,7 @@ static const int ERROR_HASH_NOT_SUPPORTED         15300L
 //
 // The hash requested from the server is not available or no longer valid.
 //
-static const int ERROR_HASH_NOT_PRESENT           15301L
+    ERROR_HASH_NOT_PRESENT           15301
 
 //////////////////////////////////////////////////
 //                                              //
@@ -26445,7 +26386,7 @@ static const int ERROR_HASH_NOT_PRESENT           15301L
 //
 // The secondary interrupt controller instance that manages the specified interrupt is not registered.
 //
-static const int ERROR_SECONDARY_IC_PROVIDER_NOT_REGISTERED 15321L
+    ERROR_SECONDARY_IC_PROVIDER_NOT_REGISTERED 15321
 
 //
 // MessageId: ERROR_GPIO_CLIENT_INFORMATION_INVALID
@@ -26454,7 +26395,7 @@ static const int ERROR_SECONDARY_IC_PROVIDER_NOT_REGISTERED 15321L
 //
 // The information supplied by the GPIO client driver is invalid.
 //
-static const int ERROR_GPIO_CLIENT_INFORMATION_INVALID 15322L
+    ERROR_GPIO_CLIENT_INFORMATION_INVALID 15322
 
 //
 // MessageId: ERROR_GPIO_VERSION_NOT_SUPPORTED
@@ -26463,7 +26404,7 @@ static const int ERROR_GPIO_CLIENT_INFORMATION_INVALID 15322L
 //
 // The version specified by the GPIO client driver is not supported.
 //
-static const int ERROR_GPIO_VERSION_NOT_SUPPORTED 15323L
+    ERROR_GPIO_VERSION_NOT_SUPPORTED 15323
 
 //
 // MessageId: ERROR_GPIO_INVALID_REGISTRATION_PACKET
@@ -26472,7 +26413,7 @@ static const int ERROR_GPIO_VERSION_NOT_SUPPORTED 15323L
 //
 // The registration packet supplied by the GPIO client driver is not valid.
 //
-static const int ERROR_GPIO_INVALID_REGISTRATION_PACKET 15324L
+    ERROR_GPIO_INVALID_REGISTRATION_PACKET 15324
 
 //
 // MessageId: ERROR_GPIO_OPERATION_DENIED
@@ -26481,7 +26422,7 @@ static const int ERROR_GPIO_INVALID_REGISTRATION_PACKET 15324L
 //
 // The requested operation is not suppported for the specified handle.
 //
-static const int ERROR_GPIO_OPERATION_DENIED      15325L
+    ERROR_GPIO_OPERATION_DENIED      15325
 
 //
 // MessageId: ERROR_GPIO_INCOMPATIBLE_CONNECT_MODE
@@ -26490,7 +26431,7 @@ static const int ERROR_GPIO_OPERATION_DENIED      15325L
 //
 // The requested connect mode conflicts with an existing mode on one or more of the specified pins.
 //
-static const int ERROR_GPIO_INCOMPATIBLE_CONNECT_MODE 15326L
+    ERROR_GPIO_INCOMPATIBLE_CONNECT_MODE 15326
 
 //
 // MessageId: ERROR_GPIO_INTERRUPT_ALREADY_UNMASKED
@@ -26499,7 +26440,7 @@ static const int ERROR_GPIO_INCOMPATIBLE_CONNECT_MODE 15326L
 //
 // The interrupt requested to be unmasked is not masked.
 //
-static const int ERROR_GPIO_INTERRUPT_ALREADY_UNMASKED 15327L
+    ERROR_GPIO_INTERRUPT_ALREADY_UNMASKED 15327
 
 //////////////////////////////////////////////////
 //                                              //
@@ -26515,7 +26456,7 @@ static const int ERROR_GPIO_INTERRUPT_ALREADY_UNMASKED 15327L
 //
 // The requested run level switch cannot be completed successfully.
 //
-static const int ERROR_CANNOT_SWITCH_RUNLEVEL     15400L
+    ERROR_CANNOT_SWITCH_RUNLEVEL     15400
 
 //
 // MessageId: ERROR_INVALID_RUNLEVEL_SETTING
@@ -26525,7 +26466,7 @@ static const int ERROR_CANNOT_SWITCH_RUNLEVEL     15400L
 // The service has an invalid run level setting. The run level for a service
 // must not be higher than the run level of its dependent services.
 //
-static const int ERROR_INVALID_RUNLEVEL_SETTING   15401L
+    ERROR_INVALID_RUNLEVEL_SETTING   15401
 
 //
 // MessageId: ERROR_RUNLEVEL_SWITCH_TIMEOUT
@@ -26535,7 +26476,7 @@ static const int ERROR_INVALID_RUNLEVEL_SETTING   15401L
 // The requested run level switch cannot be completed successfully since
 // one or more services will not stop or restart within the specified timeout.
 //
-static const int ERROR_RUNLEVEL_SWITCH_TIMEOUT    15402L
+    ERROR_RUNLEVEL_SWITCH_TIMEOUT    15402
 
 //
 // MessageId: ERROR_RUNLEVEL_SWITCH_AGENT_TIMEOUT
@@ -26544,7 +26485,7 @@ static const int ERROR_RUNLEVEL_SWITCH_TIMEOUT    15402L
 //
 // A run level switch agent did not respond within the specified timeout.
 //
-static const int ERROR_RUNLEVEL_SWITCH_AGENT_TIMEOUT 15403L
+    ERROR_RUNLEVEL_SWITCH_AGENT_TIMEOUT 15403
 
 //
 // MessageId: ERROR_RUNLEVEL_SWITCH_IN_PROGRESS
@@ -26553,7 +26494,7 @@ static const int ERROR_RUNLEVEL_SWITCH_AGENT_TIMEOUT 15403L
 //
 // A run level switch is currently in progress.
 //
-static const int ERROR_RUNLEVEL_SWITCH_IN_PROGRESS 15404L
+    ERROR_RUNLEVEL_SWITCH_IN_PROGRESS 15404
 
 //
 // MessageId: ERROR_SERVICES_FAILED_AUTOSTART
@@ -26562,7 +26503,7 @@ static const int ERROR_RUNLEVEL_SWITCH_IN_PROGRESS 15404L
 //
 // One or more services failed to start during the service startup phase of a run level switch.
 //
-static const int ERROR_SERVICES_FAILED_AUTOSTART  15405L
+    ERROR_SERVICES_FAILED_AUTOSTART  15405
 
 //////////////////////////////////////////////////
 //                                              //
@@ -26579,7 +26520,7 @@ static const int ERROR_SERVICES_FAILED_AUTOSTART  15405L
 // The task stop request cannot be completed immediately since
 // task needs more time to shutdown.
 //
-static const int ERROR_COM_TASK_STOP_PENDING      15501L
+    ERROR_COM_TASK_STOP_PENDING      15501
 
 ////////////////////////////////////////
 //                                    //
@@ -26593,7 +26534,7 @@ static const int ERROR_COM_TASK_STOP_PENDING      15501L
 //
 // Package could not be opened.
 //
-static const int ERROR_INSTALL_OPEN_PACKAGE_FAILED 15600L
+    ERROR_INSTALL_OPEN_PACKAGE_FAILED 15600
 
 //
 // MessageId: ERROR_INSTALL_PACKAGE_NOT_FOUND
@@ -26602,7 +26543,7 @@ static const int ERROR_INSTALL_OPEN_PACKAGE_FAILED 15600L
 //
 // Package was not found.
 //
-static const int ERROR_INSTALL_PACKAGE_NOT_FOUND  15601L
+    ERROR_INSTALL_PACKAGE_NOT_FOUND  15601
 
 //
 // MessageId: ERROR_INSTALL_INVALID_PACKAGE
@@ -26611,7 +26552,7 @@ static const int ERROR_INSTALL_PACKAGE_NOT_FOUND  15601L
 //
 // Package data is invalid.
 //
-static const int ERROR_INSTALL_INVALID_PACKAGE    15602L
+    ERROR_INSTALL_INVALID_PACKAGE    15602
 
 //
 // MessageId: ERROR_INSTALL_RESOLVE_DEPENDENCY_FAILED
@@ -26620,7 +26561,7 @@ static const int ERROR_INSTALL_INVALID_PACKAGE    15602L
 //
 // Package failed updates, dependency or conflict validation.
 //
-static const int ERROR_INSTALL_RESOLVE_DEPENDENCY_FAILED 15603L
+    ERROR_INSTALL_RESOLVE_DEPENDENCY_FAILED 15603
 
 //
 // MessageId: ERROR_INSTALL_OUT_OF_DISK_SPACE
@@ -26629,7 +26570,7 @@ static const int ERROR_INSTALL_RESOLVE_DEPENDENCY_FAILED 15603L
 //
 // There is not enough disk space on your computer. Please free up some space and try again.
 //
-static const int ERROR_INSTALL_OUT_OF_DISK_SPACE  15604L
+    ERROR_INSTALL_OUT_OF_DISK_SPACE  15604
 
 //
 // MessageId: ERROR_INSTALL_NETWORK_FAILURE
@@ -26638,7 +26579,7 @@ static const int ERROR_INSTALL_OUT_OF_DISK_SPACE  15604L
 //
 // There was a problem downloading your product.
 //
-static const int ERROR_INSTALL_NETWORK_FAILURE    15605L
+    ERROR_INSTALL_NETWORK_FAILURE    15605
 
 //
 // MessageId: ERROR_INSTALL_REGISTRATION_FAILURE
@@ -26647,7 +26588,7 @@ static const int ERROR_INSTALL_NETWORK_FAILURE    15605L
 //
 // Package could not be registered.
 //
-static const int ERROR_INSTALL_REGISTRATION_FAILURE 15606L
+    ERROR_INSTALL_REGISTRATION_FAILURE 15606
 
 //
 // MessageId: ERROR_INSTALL_DEREGISTRATION_FAILURE
@@ -26656,7 +26597,7 @@ static const int ERROR_INSTALL_REGISTRATION_FAILURE 15606L
 //
 // Package could not be unregistered.
 //
-static const int ERROR_INSTALL_DEREGISTRATION_FAILURE 15607L
+    ERROR_INSTALL_DEREGISTRATION_FAILURE 15607
 
 //
 // MessageId: ERROR_INSTALL_CANCEL
@@ -26665,7 +26606,7 @@ static const int ERROR_INSTALL_DEREGISTRATION_FAILURE 15607L
 //
 // User cancelled the install request.
 //
-static const int ERROR_INSTALL_CANCEL             15608L
+    ERROR_INSTALL_CANCEL             15608
 
 //
 // MessageId: ERROR_INSTALL_FAILED
@@ -26674,7 +26615,7 @@ static const int ERROR_INSTALL_CANCEL             15608L
 //
 // Install failed. Please contact your software vendor.
 //
-static const int ERROR_INSTALL_FAILED             15609L
+    ERROR_INSTALL_FAILED             15609
 
 //
 // MessageId: ERROR_REMOVE_FAILED
@@ -26683,7 +26624,7 @@ static const int ERROR_INSTALL_FAILED             15609L
 //
 // Removal failed. Please contact your software vendor.
 //
-static const int ERROR_REMOVE_FAILED              15610L
+    ERROR_REMOVE_FAILED              15610
 
 //
 // MessageId: ERROR_PACKAGE_ALREADY_EXISTS
@@ -26692,7 +26633,7 @@ static const int ERROR_REMOVE_FAILED              15610L
 //
 // The provided package is already installed, and reinstallation of the package was blocked. Check the AppXDeployment-Server event log for details.
 //
-static const int ERROR_PACKAGE_ALREADY_EXISTS     15611L
+    ERROR_PACKAGE_ALREADY_EXISTS     15611
 
 //
 // MessageId: ERROR_NEEDS_REMEDIATION
@@ -26701,7 +26642,7 @@ static const int ERROR_PACKAGE_ALREADY_EXISTS     15611L
 //
 // The application cannot be started. Try reinstalling the application to fix the problem.
 //
-static const int ERROR_NEEDS_REMEDIATION          15612L
+    ERROR_NEEDS_REMEDIATION          15612
 
 //
 // MessageId: ERROR_INSTALL_PREREQUISITE_FAILED
@@ -26710,7 +26651,7 @@ static const int ERROR_NEEDS_REMEDIATION          15612L
 //
 // A Prerequisite for an install could not be satisfied.
 //
-static const int ERROR_INSTALL_PREREQUISITE_FAILED 15613L
+    ERROR_INSTALL_PREREQUISITE_FAILED 15613
 
 //
 // MessageId: ERROR_PACKAGE_REPOSITORY_CORRUPTED
@@ -26719,7 +26660,7 @@ static const int ERROR_INSTALL_PREREQUISITE_FAILED 15613L
 //
 // The package repository is corrupted.
 //
-static const int ERROR_PACKAGE_REPOSITORY_CORRUPTED 15614L
+    ERROR_PACKAGE_REPOSITORY_CORRUPTED 15614
 
 //
 // MessageId: ERROR_INSTALL_POLICY_FAILURE
@@ -26728,7 +26669,7 @@ static const int ERROR_PACKAGE_REPOSITORY_CORRUPTED 15614L
 //
 // To install this application you need either a Windows developer license or a sideloading-enabled system.
 //
-static const int ERROR_INSTALL_POLICY_FAILURE     15615L
+    ERROR_INSTALL_POLICY_FAILURE     15615
 
 //
 // MessageId: ERROR_PACKAGE_UPDATING
@@ -26737,7 +26678,7 @@ static const int ERROR_INSTALL_POLICY_FAILURE     15615L
 //
 // The application cannot be started because it is currently updating.
 //
-static const int ERROR_PACKAGE_UPDATING           15616L
+    ERROR_PACKAGE_UPDATING           15616
 
 //
 // MessageId: ERROR_DEPLOYMENT_BLOCKED_BY_POLICY
@@ -26746,7 +26687,7 @@ static const int ERROR_PACKAGE_UPDATING           15616L
 //
 // The package deployment operation is blocked by policy. Please contact your system administrator.
 //
-static const int ERROR_DEPLOYMENT_BLOCKED_BY_POLICY 15617L
+    ERROR_DEPLOYMENT_BLOCKED_BY_POLICY 15617
 
 //
 // MessageId: ERROR_PACKAGES_IN_USE
@@ -26755,7 +26696,7 @@ static const int ERROR_DEPLOYMENT_BLOCKED_BY_POLICY 15617L
 //
 // The package could not be installed because resources it modifies are currently in use.
 //
-static const int ERROR_PACKAGES_IN_USE            15618L
+    ERROR_PACKAGES_IN_USE            15618
 
 //
 // MessageId: ERROR_RECOVERY_FILE_CORRUPT
@@ -26764,7 +26705,7 @@ static const int ERROR_PACKAGES_IN_USE            15618L
 //
 // The package could not be recovered because necessary data for recovery have been corrupted.
 //
-static const int ERROR_RECOVERY_FILE_CORRUPT      15619L
+    ERROR_RECOVERY_FILE_CORRUPT      15619
 
 //
 // MessageId: ERROR_INVALID_STAGED_SIGNATURE
@@ -26773,7 +26714,7 @@ static const int ERROR_RECOVERY_FILE_CORRUPT      15619L
 //
 // The signature is invalid. To register in developer mode, AppxSignature.p7x and AppxBlockMap.xml must be valid or should not be present.
 //
-static const int ERROR_INVALID_STAGED_SIGNATURE   15620L
+    ERROR_INVALID_STAGED_SIGNATURE   15620
 
 //
 // MessageId: ERROR_DELETING_EXISTING_APPLICATIONDATA_STORE_FAILED
@@ -26782,7 +26723,7 @@ static const int ERROR_INVALID_STAGED_SIGNATURE   15620L
 //
 // An error occurred while deleting the package's previously existing application data.
 //
-static const int ERROR_DELETING_EXISTING_APPLICATIONDATA_STORE_FAILED 15621L
+    ERROR_DELETING_EXISTING_APPLICATIONDATA_STORE_FAILED 15621
 
 //
 // MessageId: ERROR_INSTALL_PACKAGE_DOWNGRADE
@@ -26791,7 +26732,7 @@ static const int ERROR_DELETING_EXISTING_APPLICATIONDATA_STORE_FAILED 15621L
 //
 // The package could not be installed because a higher version of this package is already installed.
 //
-static const int ERROR_INSTALL_PACKAGE_DOWNGRADE  15622L
+    ERROR_INSTALL_PACKAGE_DOWNGRADE  15622
 
 //
 // MessageId: ERROR_SYSTEM_NEEDS_REMEDIATION
@@ -26800,7 +26741,7 @@ static const int ERROR_INSTALL_PACKAGE_DOWNGRADE  15622L
 //
 // An error in a system binary was detected. Try refreshing the PC to fix the problem.
 //
-static const int ERROR_SYSTEM_NEEDS_REMEDIATION   15623L
+    ERROR_SYSTEM_NEEDS_REMEDIATION   15623
 
 //
 // MessageId: ERROR_APPX_INTEGRITY_FAILURE_CLR_NGEN
@@ -26809,7 +26750,7 @@ static const int ERROR_SYSTEM_NEEDS_REMEDIATION   15623L
 //
 // A corrupted CLR NGEN binary was detected on the system.
 //
-static const int ERROR_APPX_INTEGRITY_FAILURE_CLR_NGEN 15624L
+    ERROR_APPX_INTEGRITY_FAILURE_CLR_NGEN 15624
 
 //
 // MessageId: ERROR_RESILIENCY_FILE_CORRUPT
@@ -26818,7 +26759,7 @@ static const int ERROR_APPX_INTEGRITY_FAILURE_CLR_NGEN 15624L
 //
 // The operation could not be resumed because necessary data for recovery have been corrupted.
 //
-static const int ERROR_RESILIENCY_FILE_CORRUPT    15625L
+    ERROR_RESILIENCY_FILE_CORRUPT    15625
 
 //
 // MessageId: ERROR_INSTALL_FIREWALL_SERVICE_NOT_RUNNING
@@ -26827,7 +26768,7 @@ static const int ERROR_RESILIENCY_FILE_CORRUPT    15625L
 //
 // The package could not be installed because the Windows Firewall service is not running. Enable the Windows Firewall service and try again.
 //
-static const int ERROR_INSTALL_FIREWALL_SERVICE_NOT_RUNNING 15626L
+    ERROR_INSTALL_FIREWALL_SERVICE_NOT_RUNNING 15626
 
 //
 // MessageId: ERROR_PACKAGE_MOVE_FAILED
@@ -26836,7 +26777,7 @@ static const int ERROR_INSTALL_FIREWALL_SERVICE_NOT_RUNNING 15626L
 //
 // Package move failed.
 //
-static const int ERROR_PACKAGE_MOVE_FAILED        15627L
+    ERROR_PACKAGE_MOVE_FAILED        15627
 
 //
 // MessageId: ERROR_INSTALL_VOLUME_NOT_EMPTY
@@ -26845,7 +26786,7 @@ static const int ERROR_PACKAGE_MOVE_FAILED        15627L
 //
 // The deployment operation failed because the volume is not empty.
 //
-static const int ERROR_INSTALL_VOLUME_NOT_EMPTY   15628L
+    ERROR_INSTALL_VOLUME_NOT_EMPTY   15628
 
 //
 // MessageId: ERROR_INSTALL_VOLUME_OFFLINE
@@ -26854,7 +26795,7 @@ static const int ERROR_INSTALL_VOLUME_NOT_EMPTY   15628L
 //
 // The deployment operation failed because the volume is offline.
 //
-static const int ERROR_INSTALL_VOLUME_OFFLINE     15629L
+    ERROR_INSTALL_VOLUME_OFFLINE     15629
 
 //
 // MessageId: ERROR_INSTALL_VOLUME_CORRUPT
@@ -26863,7 +26804,7 @@ static const int ERROR_INSTALL_VOLUME_OFFLINE     15629L
 //
 // The deployment operation failed because the specified volume is corrupt.
 //
-static const int ERROR_INSTALL_VOLUME_CORRUPT     15630L
+    ERROR_INSTALL_VOLUME_CORRUPT     15630
 
 //
 // MessageId: ERROR_NEEDS_REGISTRATION
@@ -26872,7 +26813,7 @@ static const int ERROR_INSTALL_VOLUME_CORRUPT     15630L
 //
 // The deployment operation failed because the specified application needs to be registered first.
 //
-static const int ERROR_NEEDS_REGISTRATION         15631L
+    ERROR_NEEDS_REGISTRATION         15631
 
 //
 // MessageId: ERROR_INSTALL_WRONG_PROCESSOR_ARCHITECTURE
@@ -26881,7 +26822,7 @@ static const int ERROR_NEEDS_REGISTRATION         15631L
 //
 // The deployment operation failed because the package targets the wrong processor architecture.
 //
-static const int ERROR_INSTALL_WRONG_PROCESSOR_ARCHITECTURE 15632L
+    ERROR_INSTALL_WRONG_PROCESSOR_ARCHITECTURE 15632
 
 //
 // MessageId: ERROR_DEV_SIDELOAD_LIMIT_EXCEEDED
@@ -26890,7 +26831,7 @@ static const int ERROR_INSTALL_WRONG_PROCESSOR_ARCHITECTURE 15632L
 //
 // You have reached the maximum number of developer sideloaded packages allowed on this device. Please uninstall a sideloaded package and try again.
 //
-static const int ERROR_DEV_SIDELOAD_LIMIT_EXCEEDED 15633L
+    ERROR_DEV_SIDELOAD_LIMIT_EXCEEDED 15633
 
 //
 // MessageId: ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE
@@ -26899,7 +26840,7 @@ static const int ERROR_DEV_SIDELOAD_LIMIT_EXCEEDED 15633L
 //
 // A main app package is required to install this optional package.  Install the main package first and try again.
 //
-static const int ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE 15634L
+    ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE 15634
 
 //
 // MessageId: ERROR_PACKAGE_NOT_SUPPORTED_ON_FILESYSTEM
@@ -26908,7 +26849,7 @@ static const int ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE 15634L
 //
 // This app package type is not supported on this filesystem
 //
-static const int ERROR_PACKAGE_NOT_SUPPORTED_ON_FILESYSTEM 15635L
+    ERROR_PACKAGE_NOT_SUPPORTED_ON_FILESYSTEM 15635
 
 //
 // MessageId: ERROR_PACKAGE_MOVE_BLOCKED_BY_STREAMING
@@ -26917,7 +26858,7 @@ static const int ERROR_PACKAGE_NOT_SUPPORTED_ON_FILESYSTEM 15635L
 //
 // Package move operation is blocked until the application has finished streaming
 //
-static const int ERROR_PACKAGE_MOVE_BLOCKED_BY_STREAMING 15636L
+    ERROR_PACKAGE_MOVE_BLOCKED_BY_STREAMING 15636
 
 //
 // MessageId: ERROR_INSTALL_OPTIONAL_PACKAGE_APPLICATIONID_NOT_UNIQUE
@@ -26926,7 +26867,7 @@ static const int ERROR_PACKAGE_MOVE_BLOCKED_BY_STREAMING 15636L
 //
 // A main or another optional app package has the same application ID as this optional package.  Change the application ID for the optional package to avoid conflicts.
 //
-static const int ERROR_INSTALL_OPTIONAL_PACKAGE_APPLICATIONID_NOT_UNIQUE 15637L
+    ERROR_INSTALL_OPTIONAL_PACKAGE_APPLICATIONID_NOT_UNIQUE 15637
 
 //
 // MessageId: ERROR_PACKAGE_STAGING_ONHOLD
@@ -26935,7 +26876,7 @@ static const int ERROR_INSTALL_OPTIONAL_PACKAGE_APPLICATIONID_NOT_UNIQUE 15637L
 //
 // This staging session has been held to allow another staging operation to be prioritized.
 //
-static const int ERROR_PACKAGE_STAGING_ONHOLD     15638L
+    ERROR_PACKAGE_STAGING_ONHOLD     15638
 
 //
 // MessageId: ERROR_INSTALL_INVALID_RELATED_SET_UPDATE
@@ -26944,7 +26885,7 @@ static const int ERROR_PACKAGE_STAGING_ONHOLD     15638L
 //
 // A related set cannot be updated because the updated set is invalid. All packages in the related set must be updated at the same time.
 //
-static const int ERROR_INSTALL_INVALID_RELATED_SET_UPDATE 15639L
+    ERROR_INSTALL_INVALID_RELATED_SET_UPDATE 15639
 
 //
 // MessageId: ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_FULLTRUST_CAPABILITY
@@ -26953,7 +26894,7 @@ static const int ERROR_INSTALL_INVALID_RELATED_SET_UPDATE 15639L
 //
 // An optional package with a FullTrust entry point requires the main package to have the runFullTrust capability.
 //
-static const int ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_FULLTRUST_CAPABILITY 15640L
+    ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_FULLTRUST_CAPABILITY 15640
 
 //
 // MessageId: ERROR_DEPLOYMENT_BLOCKED_BY_USER_LOG_OFF
@@ -26962,7 +26903,7 @@ static const int ERROR_INSTALL_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_FULLTRUST_
 //
 // An error occurred because a user was logged off.
 //
-static const int ERROR_DEPLOYMENT_BLOCKED_BY_USER_LOG_OFF 15641L
+    ERROR_DEPLOYMENT_BLOCKED_BY_USER_LOG_OFF 15641
 
 //
 // MessageId: ERROR_PROVISION_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_PROVISIONED
@@ -26971,7 +26912,7 @@ static const int ERROR_DEPLOYMENT_BLOCKED_BY_USER_LOG_OFF 15641L
 //
 // An optional package provision requires the dependency main package to also be provisioned.
 //
-static const int ERROR_PROVISION_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_PROVISIONED 15642L
+    ERROR_PROVISION_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_PROVISIONED 15642
 
 //
 // MessageId: ERROR_PACKAGES_REPUTATION_CHECK_FAILED
@@ -26980,7 +26921,7 @@ static const int ERROR_PROVISION_OPTIONAL_PACKAGE_REQUIRES_MAIN_PACKAGE_PROVISIO
 //
 // The packages failed the SmartScreen reputation check.
 //
-static const int ERROR_PACKAGES_REPUTATION_CHECK_FAILED 15643L
+    ERROR_PACKAGES_REPUTATION_CHECK_FAILED 15643
 
 //
 // MessageId: ERROR_PACKAGES_REPUTATION_CHECK_TIMEDOUT
@@ -26989,7 +26930,7 @@ static const int ERROR_PACKAGES_REPUTATION_CHECK_FAILED 15643L
 //
 // The SmartScreen reputation check operation timed out.
 //
-static const int ERROR_PACKAGES_REPUTATION_CHECK_TIMEDOUT 15644L
+    ERROR_PACKAGES_REPUTATION_CHECK_TIMEDOUT 15644
 
 //////////////////////////
 //                      //
@@ -27004,7 +26945,7 @@ static const int ERROR_PACKAGES_REPUTATION_CHECK_TIMEDOUT 15644L
 //
 // The process has no package identity.
 //
-static const int APPMODEL_ERROR_NO_PACKAGE        15700L
+    APPMODEL_ERROR_NO_PACKAGE        15700
 
 //
 // MessageId: APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT
@@ -27013,7 +26954,7 @@ static const int APPMODEL_ERROR_NO_PACKAGE        15700L
 //
 // The package runtime information is corrupted.
 //
-static const int APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT 15701L
+    APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT 15701
 
 //
 // MessageId: APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT
@@ -27022,7 +26963,7 @@ static const int APPMODEL_ERROR_PACKAGE_RUNTIME_CORRUPT 15701L
 //
 // The package identity is corrupted.
 //
-static const int APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT 15702L
+    APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT 15702
 
 //
 // MessageId: APPMODEL_ERROR_NO_APPLICATION
@@ -27031,7 +26972,7 @@ static const int APPMODEL_ERROR_PACKAGE_IDENTITY_CORRUPT 15702L
 //
 // The process has no application identity.
 //
-static const int APPMODEL_ERROR_NO_APPLICATION    15703L
+    APPMODEL_ERROR_NO_APPLICATION    15703
 
 //
 // MessageId: APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED
@@ -27040,7 +26981,7 @@ static const int APPMODEL_ERROR_NO_APPLICATION    15703L
 //
 // One or more AppModel Runtime group policy values could not be read. Please contact your system administrator with the contents of your AppModel Runtime event log.
 //
-static const int APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED 15704L
+    APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED 15704
 
 //
 // MessageId: APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID
@@ -27049,7 +26990,7 @@ static const int APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED 15704L
 //
 // One or more AppModel Runtime group policy values are invalid. Please contact your system administrator with the contents of your AppModel Runtime event log.
 //
-static const int APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID 15705L
+    APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID 15705
 
 //
 // MessageId: APPMODEL_ERROR_PACKAGE_NOT_AVAILABLE
@@ -27058,7 +26999,7 @@ static const int APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID 15705L
 //
 // The package is currently not available.
 //
-static const int APPMODEL_ERROR_PACKAGE_NOT_AVAILABLE 15706L
+    APPMODEL_ERROR_PACKAGE_NOT_AVAILABLE 15706
 
 /////////////////////////////
 //                         //
@@ -27073,7 +27014,7 @@ static const int APPMODEL_ERROR_PACKAGE_NOT_AVAILABLE 15706L
 //
 // Loading the state store failed.
 //
-static const int ERROR_STATE_LOAD_STORE_FAILED    15800L
+    ERROR_STATE_LOAD_STORE_FAILED    15800
 
 //
 // MessageId: ERROR_STATE_GET_VERSION_FAILED
@@ -27082,7 +27023,7 @@ static const int ERROR_STATE_LOAD_STORE_FAILED    15800L
 //
 // Retrieving the state version for the application failed.
 //
-static const int ERROR_STATE_GET_VERSION_FAILED   15801L
+    ERROR_STATE_GET_VERSION_FAILED   15801
 
 //
 // MessageId: ERROR_STATE_SET_VERSION_FAILED
@@ -27091,7 +27032,7 @@ static const int ERROR_STATE_GET_VERSION_FAILED   15801L
 //
 // Setting the state version for the application failed.
 //
-static const int ERROR_STATE_SET_VERSION_FAILED   15802L
+    ERROR_STATE_SET_VERSION_FAILED   15802
 
 //
 // MessageId: ERROR_STATE_STRUCTURED_RESET_FAILED
@@ -27100,7 +27041,7 @@ static const int ERROR_STATE_SET_VERSION_FAILED   15802L
 //
 // Resetting the structured state of the application failed.
 //
-static const int ERROR_STATE_STRUCTURED_RESET_FAILED 15803L
+    ERROR_STATE_STRUCTURED_RESET_FAILED 15803
 
 //
 // MessageId: ERROR_STATE_OPEN_CONTAINER_FAILED
@@ -27109,7 +27050,7 @@ static const int ERROR_STATE_STRUCTURED_RESET_FAILED 15803L
 //
 // State Manager failed to open the container.
 //
-static const int ERROR_STATE_OPEN_CONTAINER_FAILED 15804L
+    ERROR_STATE_OPEN_CONTAINER_FAILED 15804
 
 //
 // MessageId: ERROR_STATE_CREATE_CONTAINER_FAILED
@@ -27118,7 +27059,7 @@ static const int ERROR_STATE_OPEN_CONTAINER_FAILED 15804L
 //
 // State Manager failed to create the container.
 //
-static const int ERROR_STATE_CREATE_CONTAINER_FAILED 15805L
+    ERROR_STATE_CREATE_CONTAINER_FAILED 15805
 
 //
 // MessageId: ERROR_STATE_DELETE_CONTAINER_FAILED
@@ -27127,7 +27068,7 @@ static const int ERROR_STATE_CREATE_CONTAINER_FAILED 15805L
 //
 // State Manager failed to delete the container.
 //
-static const int ERROR_STATE_DELETE_CONTAINER_FAILED 15806L
+    ERROR_STATE_DELETE_CONTAINER_FAILED 15806
 
 //
 // MessageId: ERROR_STATE_READ_SETTING_FAILED
@@ -27136,7 +27077,7 @@ static const int ERROR_STATE_DELETE_CONTAINER_FAILED 15806L
 //
 // State Manager failed to read the setting.
 //
-static const int ERROR_STATE_READ_SETTING_FAILED  15807L
+    ERROR_STATE_READ_SETTING_FAILED  15807
 
 //
 // MessageId: ERROR_STATE_WRITE_SETTING_FAILED
@@ -27145,7 +27086,7 @@ static const int ERROR_STATE_READ_SETTING_FAILED  15807L
 //
 // State Manager failed to write the setting.
 //
-static const int ERROR_STATE_WRITE_SETTING_FAILED 15808L
+    ERROR_STATE_WRITE_SETTING_FAILED 15808
 
 //
 // MessageId: ERROR_STATE_DELETE_SETTING_FAILED
@@ -27154,7 +27095,7 @@ static const int ERROR_STATE_WRITE_SETTING_FAILED 15808L
 //
 // State Manager failed to delete the setting.
 //
-static const int ERROR_STATE_DELETE_SETTING_FAILED 15809L
+    ERROR_STATE_DELETE_SETTING_FAILED 15809
 
 //
 // MessageId: ERROR_STATE_QUERY_SETTING_FAILED
@@ -27163,7 +27104,7 @@ static const int ERROR_STATE_DELETE_SETTING_FAILED 15809L
 //
 // State Manager failed to query the setting.
 //
-static const int ERROR_STATE_QUERY_SETTING_FAILED 15810L
+    ERROR_STATE_QUERY_SETTING_FAILED 15810
 
 //
 // MessageId: ERROR_STATE_READ_COMPOSITE_SETTING_FAILED
@@ -27172,7 +27113,7 @@ static const int ERROR_STATE_QUERY_SETTING_FAILED 15810L
 //
 // State Manager failed to read the composite setting.
 //
-static const int ERROR_STATE_READ_COMPOSITE_SETTING_FAILED 15811L
+    ERROR_STATE_READ_COMPOSITE_SETTING_FAILED 15811
 
 //
 // MessageId: ERROR_STATE_WRITE_COMPOSITE_SETTING_FAILED
@@ -27181,7 +27122,7 @@ static const int ERROR_STATE_READ_COMPOSITE_SETTING_FAILED 15811L
 //
 // State Manager failed to write the composite setting.
 //
-static const int ERROR_STATE_WRITE_COMPOSITE_SETTING_FAILED 15812L
+    ERROR_STATE_WRITE_COMPOSITE_SETTING_FAILED 15812
 
 //
 // MessageId: ERROR_STATE_ENUMERATE_CONTAINER_FAILED
@@ -27190,7 +27131,7 @@ static const int ERROR_STATE_WRITE_COMPOSITE_SETTING_FAILED 15812L
 //
 // State Manager failed to enumerate the containers.
 //
-static const int ERROR_STATE_ENUMERATE_CONTAINER_FAILED 15813L
+    ERROR_STATE_ENUMERATE_CONTAINER_FAILED 15813
 
 //
 // MessageId: ERROR_STATE_ENUMERATE_SETTINGS_FAILED
@@ -27199,7 +27140,7 @@ static const int ERROR_STATE_ENUMERATE_CONTAINER_FAILED 15813L
 //
 // State Manager failed to enumerate the settings.
 //
-static const int ERROR_STATE_ENUMERATE_SETTINGS_FAILED 15814L
+    ERROR_STATE_ENUMERATE_SETTINGS_FAILED 15814
 
 //
 // MessageId: ERROR_STATE_COMPOSITE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED
@@ -27208,7 +27149,7 @@ static const int ERROR_STATE_ENUMERATE_SETTINGS_FAILED 15814L
 //
 // The size of the state manager composite setting value has exceeded the limit.
 //
-static const int ERROR_STATE_COMPOSITE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED 15815L
+    ERROR_STATE_COMPOSITE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED 15815
 
 //
 // MessageId: ERROR_STATE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED
@@ -27217,7 +27158,7 @@ static const int ERROR_STATE_COMPOSITE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED 15815L
 //
 // The size of the state manager setting value has exceeded the limit.
 //
-static const int ERROR_STATE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED 15816L
+    ERROR_STATE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED 15816
 
 //
 // MessageId: ERROR_STATE_SETTING_NAME_SIZE_LIMIT_EXCEEDED
@@ -27226,7 +27167,7 @@ static const int ERROR_STATE_SETTING_VALUE_SIZE_LIMIT_EXCEEDED 15816L
 //
 // The length of the state manager setting name has exceeded the limit.
 //
-static const int ERROR_STATE_SETTING_NAME_SIZE_LIMIT_EXCEEDED 15817L
+    ERROR_STATE_SETTING_NAME_SIZE_LIMIT_EXCEEDED 15817
 
 //
 // MessageId: ERROR_STATE_CONTAINER_NAME_SIZE_LIMIT_EXCEEDED
@@ -27235,7 +27176,7 @@ static const int ERROR_STATE_SETTING_NAME_SIZE_LIMIT_EXCEEDED 15817L
 //
 // The length of the state manager container name has exceeded the limit.
 //
-static const int ERROR_STATE_CONTAINER_NAME_SIZE_LIMIT_EXCEEDED 15818L
+    ERROR_STATE_CONTAINER_NAME_SIZE_LIMIT_EXCEEDED 15818
 
 /////////////////////////////////
 //                             //
@@ -27250,11 +27191,12 @@ static const int ERROR_STATE_CONTAINER_NAME_SIZE_LIMIT_EXCEEDED 15818L
 //
 // This API cannot be used in the context of the caller's application type.
 //
-static const int ERROR_API_UNAVAILABLE            15841L
+    ERROR_API_UNAVAILABLE            15841
 -]]
 
 
 ffi.cdef[[
+enum {
 //
 // MessageId: E_NOTIMPL
 //
@@ -27262,7 +27204,7 @@ ffi.cdef[[
 //
 // Not implemented
 //
-static const int  E_NOTIMPL                       = 0x80004001;
+     E_NOTIMPL                       = 0x80004001,
 
 //
 // MessageId: E_OUTOFMEMORY
@@ -27271,7 +27213,7 @@ static const int  E_NOTIMPL                       = 0x80004001;
 //
 // Ran out of memory
 //
-static const int  E_OUTOFMEMORY                   = 0x8007000E;
+     E_OUTOFMEMORY                   = 0x8007000E,
 
 //
 // MessageId: E_INVALIDARG
@@ -27280,7 +27222,7 @@ static const int  E_OUTOFMEMORY                   = 0x8007000E;
 //
 // One or more arguments are invalid
 //
-static const int  E_INVALIDARG                    = 0x80070057;
+     E_INVALIDARG                    = 0x80070057,
 
 //
 // MessageId: E_NOINTERFACE
@@ -27289,7 +27231,7 @@ static const int  E_INVALIDARG                    = 0x80070057;
 //
 // No such interface supported
 //
-static const int  E_NOINTERFACE                   = 0x80004002;
+     E_NOINTERFACE                   = 0x80004002,
 
 //
 // MessageId: E_POINTER
@@ -27298,7 +27240,7 @@ static const int  E_NOINTERFACE                   = 0x80004002;
 //
 // Invalid pointer
 //
-static const int  E_POINTER                       = 0x80004003;
+     E_POINTER                       = 0x80004003,
 
 //
 // MessageId: E_HANDLE
@@ -27307,7 +27249,7 @@ static const int  E_POINTER                       = 0x80004003;
 //
 // Invalid handle
 //
-static const int  E_HANDLE                        = 0x80070006;
+     E_HANDLE                        = 0x80070006,
 
 //
 // MessageId: E_ABORT
@@ -27316,7 +27258,7 @@ static const int  E_HANDLE                        = 0x80070006;
 //
 // Operation aborted
 //
-static const int  E_ABORT                         = 0x80004004;
+     E_ABORT                         = 0x80004004,
 
 
 
@@ -27327,7 +27269,7 @@ static const int  E_ABORT                         = 0x80004004;
 //
 // Unspecified error
 //
-static const int E_FAIL                         =  0x80004005;
+    E_FAIL                         =  0x80004005,
 
 
 
@@ -27339,12 +27281,12 @@ static const int E_FAIL                         =  0x80004005;
 //
 // General access denied error
 //
-static const int  E_ACCESSDENIED                  = 0x80070005;
+     E_ACCESSDENIED                  = 0x80070005,
 
-static const int CO_E_FIRST      =  0x800401F0;
-static const int CO_E_LAST       =  0x800401FF;
-static const int CO_S_FIRST      =  0x000401F0;
-static const int CO_S_LAST       =  0x000401FF;
+    CO_E_FIRST      =  0x800401F0,
+    CO_E_LAST       =  0x800401FF,
+    CO_S_FIRST      =  0x000401F0,
+    CO_S_LAST       =  0x000401FF,
 
 //
 // MessageId: CO_E_NOTINITIALIZED
@@ -27353,5 +27295,6 @@ static const int CO_S_LAST       =  0x000401FF;
 //
 // CoInitialize has not been called.
 //
-static const int CO_E_NOTINITIALIZED              = 0x800401F0;
+    CO_E_NOTINITIALIZED              = 0x800401F0,
+}
 ]]

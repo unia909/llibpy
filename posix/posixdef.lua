@@ -1,23 +1,34 @@
-require "posix/posixtypes"
-require "posix/errno"
+require "posix.posixtypes"
 require("ffi").cdef[[
     typedef struct{} DIR;
     enum
     {
-        DT_UNKNOWN = 0,
-        DT_FIFO = 1,
-        DT_CHR = 2,
+        DT_UNKNOWN,
+        DT_FIFO,
+        DT_CHR,
         DT_DIR = 4,
         DT_BLK = 6,
         DT_REG = 8,
         DT_LNK = 10,
         DT_SOCK = 12,
-        DT_WHT = 14
+        DT_WHT = 14,
+
+        SIGINT = 2,
+        SIGQUIT,
+        SIGILL,
+        SIGTRAP,
+        SIGABRT,
+        SIGFPE = 8,
+        SIGKILL,
+        SIGSEGV = 11,
+        SIGPIPE = 13,
+        SIGALRM,
+        SIGTERM
     };
     struct dirent
     {
-        __ino_t d_ino;
-        __off_t d_off;
+        ino_t d_ino;
+        off_t d_off;
         unsigned short int d_reclen;
         unsigned char d_type;
         char d_name[256];
@@ -26,7 +37,11 @@ require("ffi").cdef[[
     struct dirent* readdir(DIR *dirstream);
     int closedir(DIR *dirstream);
 
-    typedef long unsigned int pid_t;
     pid_t getpid();
     pid_t getppid();
+    int kill(pid_t pid, int sig);
+
+    char *getenv(const char *envname);
+
+    locale_t newlocale(int category_mask, const char *locale, locale_t base);
 ]]

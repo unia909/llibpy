@@ -1,6 +1,24 @@
 local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
+require "win32.errnodef"
+
+local hOut = ffi.C.GetStdHandle(-11)
+
+function _win_convtowide(str, len)
+    len = len or #str + 1
+    local wide = ffi.new("wchar_t[?]", len)
+    ffi.C.MultiByteToWideChar(ffi.C.CP_UTF8, 0, str, len, wide, len)
+    return wide
+end
+
+function _win_convtostr(wide, len)
+    len = len or ffi.C.wcslen(wide) + 1
+    local size = ffi.C.WideCharToMultiByte(ffi.C.CP_UTF8, 0, wide, len, nil, 0, nil, nil)
+    local str = ffi.new("char[?]", size)
+    ffi.C.WideCharToMultiByte(ffi.C.CP_UTF8, 0, wide, len, str, size, nil, nil)
+    return ffi.string(str, size)
+end
 
 local function scandir(path)
     if path then
@@ -21,7 +39,7 @@ local function scandir(path)
     local fdata = ffi.new("WIN32_FIND_DATAW")
     
     hFind = ffi.C.FindFirstFileW(pathw, fdata)
-    if hFind == INVALID_HANDLE_VALUE then
+    if hFind == ffi.C.INVALID_HANDLE_VALUE then
         error("can't open directory")
     end
 
@@ -57,17 +75,39 @@ end
 
 return {
     name = "nt",
-    listdir = function(path)
-        local out = {}
-        for dir in scandir(path) do
-            table.insert(out, dir)
+    abort = function()
+        ffi.C.ExitProcess(3)
+    end,
+    write = function(str)
+        local len = #str
+        ffi.C.WriteConsoleW(hOut, _win_convtowide(str, len), len, nil, nil)
+    end,
+    getenv = function(key, default)
+        local buf = ffi.new("wchar_t[32767]") -- 32767 is the maximum environment variable size as stated on MSDN
+        local ret = ffi.C.GetEnvironmentVariableW(_win_convtowide(key), buf, 32767) -- on success ret is a length of the variable
+        if ret == 0 then -- if there a error
+            local err = ffi.C.GetLastError()
+            if err == ffi.C.ERROR_ENVVAR_NOT_FOUND then
+                return default
+            end
+            error("strange error in libpy: "..err)
         end
-        return out
+        return _win_convtostr(buf, ret + 1) -- include null character
     end,
     scandir = scandir,
+    strerror = function(code)
+        local buf = ffi.new("wchar_t*[1]")
+        -- 0x00000100 is a flag telling Windows to allocate memory for the buffer
+        -- 0x00001000 is a flag for getting error message from system
+        -- 0x00000100 | 0x00001000 is 4352 in decimal
+        local ret = ffi.C.FormatMessageW(4352, nil, code, 0, buf, 0, nil)
+        local out = _win_convtostr(buf[0], ret + 1)
+        ffi.C.LocalFree(buf[0])
+        return out
+    end,
     getpid = ffi.C.GetCurrentProcessId,
     getppid = function()
-        local hSnapShot = ffi.C.CreateToolhelp32Snapshot(TH32CS_SNAPPROCESS, 0)
+        local hSnapShot = ffi.C.CreateToolhelp32Snapshot(ffi.C.TH32CS_SNAPPROCESS, 0)
         if hSnapShot == nil then
             error("error: "..ffi.C.GetLastError())
         end
@@ -76,16 +116,17 @@ return {
         local bContinue = ffi.C.Process32First(hSnapShot, procentry)
         local pid = 0
         -- While there are processes, keep looping.
-		local crtpid = ffi.C.GetCurrentProcessId()
+        local crtpid = ffi.C.GetCurrentProcessId()
         while bContinue do
-			if crtpid == procentry.th32ProcessID then
-				pid = procentry.th32ParentProcessID
+            if crtpid == procentry.th32ProcessID then
+                pid = procentry.th32ParentProcessID
                 break
             end
-				
+                
             procentry.dwSize = ffi.sizeof("PROCESSENTRY32")
             bContinue = ffi.C.Process32Next(hSnapShot, procentry)
         end
+        ffi.C.CloseHandle(hSnapShot)
         return pid
     end
 }

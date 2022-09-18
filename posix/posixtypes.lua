@@ -1,6 +1,6 @@
 require("ffi").cdef[[
-    typedef long unsigned int __ino_t;
-    typedef __ino_t ino_t;
-    typedef __ino_t __off_t;
-    typedef ino_t off_t;
+    typedef unsigned int ino_t;
+    typedef int off_t;
+    typedef int pid_t;
+    typedef void *locale_t;
 ]]

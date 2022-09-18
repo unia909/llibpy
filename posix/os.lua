@@ -1,5 +1,12 @@
 local ffi = require "ffi"
+require "libcdef"
 require "posix.posixdef"
+local errno = require "posix.errnodef"
+local locale = ffi.C.newlocale(63, "", nil)
+
+local function strerror(code)
+    return ffi.string(ffi.C.strerror_l(code, locale))
+end
 
 local function scandir(path)
     path = path or "./"
@@ -7,7 +14,7 @@ local function scandir(path)
     local ep = ffi.new("struct dirent*")
     dp = ffi.C.opendir(path)
     if dp == nil then
-        error("[Errno "..errno[0].."] "..ffi.string(ffi.C.strerror(errno[0]))..": "..path)
+        error("[Errno "..errno[0].."] "..strerror(errno[0])..": "..path)
     end
     return function()
         while true do
@@ -26,14 +33,19 @@ end
 
 return {
     name = "posix",
-    listdir = function(path)
-        local out = {}
-        for dir in scandir(path) do
-            table.insert(out, dir)
+    abort = function()
+        ffi.C.kill(ffi.C.getpid(), ffi.C.SIGABRT)
+    end,
+    write = require("io").write,
+    getenv = function(key, default)
+        local ptr = ffi.C.getenv(key)
+        if ptr == nil then
+            return default
         end
-        return out
+        return ffi.string(ptr)
     end,
     scandir = scandir,
+    strerror = strerror,
     getpid = ffi.C.getpid,
     getppid = ffi.C.getppid
 }
