@@ -8,7 +8,7 @@ end
 
 function os.listdir(path)
     local out = {}
-    for dir in scandir(path) do
+    for dir in os.scandir(path) do
         table.insert(out, dir)
     end
     return out

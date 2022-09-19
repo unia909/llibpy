@@ -63,7 +63,15 @@ function table:toString()
             result = result.."['"..k.."']".."="
         end
 
-        result = result..str(v)..", "
+        -- Check the value type
+        if type(v) == "table" then
+            result = result..table.toString(v)
+        elseif type(v) == "boolean" then
+            result = result..tostring(v)
+        else
+            result = result.."'"..v.."'"
+        end
+        result = result..", "
     end
     -- Remove leading commas from the result
     if result ~= "" then
@@ -80,7 +88,15 @@ function table:toStringLua()
             result = result.."['"..k.."']".."="
         end
 
-        result = result..str(v)..", "
+        -- Check the value type
+        if type(v) == "table" then
+            result = result..table.toString(v)
+        elseif type(v) == "boolean" then
+            result = result..tostring(v)
+        else
+            result = result.."'"..v.."'"
+        end
+        result = result..", "
     end
     -- Remove leading commas from the result
     if result ~= "" then

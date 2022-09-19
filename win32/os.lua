@@ -30,15 +30,10 @@ local function scandir(path)
         path = ".\\*"
     end
 
-    local pathlen = #path + 1
-    local pathw = ffi.new("wchar_t[?]", pathlen)
-    ffi.C.MultiByteToWideChar(ffi.C.CP_UTF8, 0, path, pathlen, pathw, pathlen)
-
-    local isFirst = false
     local hFind = ffi.new("void*")
     local fdata = ffi.new("WIN32_FIND_DATAW")
     
-    hFind = ffi.C.FindFirstFileW(pathw, fdata)
+    hFind = ffi.C.FindFirstFileW(_win_convtowide(path), fdata)
     if hFind == ffi.C.INVALID_HANDLE_VALUE then
         error("can't open directory")
     end
@@ -54,22 +49,23 @@ local function scandir(path)
         end
     end
 
+    -- if first file is current directory (.)
+    if ffi.C.memcmp(fdata.cFileName, ffi.new("char[4]", 46, 0, 0, 0), 4) == 0 then
+        ffi.C.FindNextFileW(hFind, fdata) -- skip this file
+        return function()
+            if findNextFile() then return nil end -- and first call also skips prevision directory (..)
+            return _win_convtostr(fdata.cFileName)
+        end
+    end
+
+    local isFirst = true
     return function()
         if isFirst then
             isFirst = false
         else
             if findNextFile() then return nil end
         end
-        while true do
-            local namelen = ffi.C.wcslen(fdata.cFileName) + 1
-            local name = ffi.new("char[?]", namelen)
-            ffi.C.WideCharToMultiByte(ffi.C.CP_UTF8, 0, fdata.cFileName, namelen, name, namelen, nil, nil)
-            local s = ffi.string(name)
-            if s ~= "." and s ~= ".." then
-                return s
-            end
-            if findNextFile() then return nil end
-        end
+        return _win_convtostr(fdata.cFileName)
     end
 end
 

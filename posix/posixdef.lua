@@ -1,6 +1,5 @@
 require "posix.posixtypes"
 require("ffi").cdef[[
-    typedef struct{} DIR;
     enum
     {
         DT_UNKNOWN,
@@ -33,9 +32,9 @@ require("ffi").cdef[[
         unsigned char d_type;
         char d_name[256];
     };
-    DIR* opendir(const char *dirname);
-    struct dirent* readdir(DIR *dirstream);
-    int closedir(DIR *dirstream);
+    void *opendir(const char *dirname);
+    struct dirent *readdir(void *dirstream);
+    int closedir(void *dirstream);
 
     pid_t getpid();
     pid_t getppid();
