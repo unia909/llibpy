@@ -101,21 +101,38 @@ end
 str = tostring
 int = tonumber
 chr = string.char
+pow = math.pow
 
 function eval(expression)
     return loadstring("return "..expression)()
 end
 
+float = eval
+
 function exec(expression)
     loadstring(expression)()
 end
 
-float = eval
+function callable(object)
+    return type(object) == "function"
+end
+
+function sum(iterable, start)
+    local _sum = start or 0
+    for i in iterable do
+        _sum = _sum + i
+    end
+    return _sum
+end
 
 function print(objects, sep, _end)
     local os = require "./os"
-    sep = sep or " "
     _end = _end or "\n"
+    if objects == nil then
+        os.write(_end)
+        return
+    end
+    sep = sep or " "
     os.write(str(objects).._end)
 end
 

@@ -13,7 +13,7 @@ return setmetatable({}, {
         EINTR = 4,
         EIO = 5,
         ENXIO = 6,
-		E2BIG = 7,
+        E2BIG = 7,
         ENOEXEC = 8,
         EBADF = 9,
         ECHILD = 10,

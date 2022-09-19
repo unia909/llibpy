@@ -122,7 +122,7 @@ return {
                 pid = procentry.th32ParentProcessID
                 break
             end
-                
+
             procentry.dwSize = ffi.sizeof("PROCESSENTRY32")
             bContinue = ffi.C.Process32Next(hSnapShot, procentry)
         end
