@@ -1,4 +1,3 @@
-require "posix.posixtypes"
 require("ffi").cdef[[
     enum
     {
@@ -26,8 +25,8 @@ require("ffi").cdef[[
     };
     struct dirent
     {
-        ino_t d_ino;
-        off_t d_off;
+        size_t d_ino;
+        size_t d_off;
         unsigned short int d_reclen;
         unsigned char d_type;
         char d_name[256];
@@ -36,11 +35,11 @@ require("ffi").cdef[[
     struct dirent *readdir(void *dirstream);
     int closedir(void *dirstream);
 
-    pid_t getpid();
-    pid_t getppid();
-    int kill(pid_t pid, int sig);
+    int getpid();
+    int getppid();
+    int kill(int pid, int sig);
 
     char *getenv(const char *envname);
 
-    locale_t newlocale(int category_mask, const char *locale, locale_t base);
+    void *newlocale(int category_mask, const char *locale, void *base);
 ]]

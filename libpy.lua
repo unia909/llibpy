@@ -105,6 +105,36 @@ function table:toStringLua()
     return result.."}"
 end
 
+abs = math.abs
+
+function aiter(async_iterable)
+    return async_iterable.__aiter__()
+end
+
+function all(iterable)
+    for element in iterable do
+        if not element then
+            return false
+        end
+    end
+    return true
+end
+
+function any(iterable)
+    for element in iterable do
+        if element then
+            return true
+        end
+    end
+    return false
+end
+
+function callable(object)
+    return type(object) == "function"
+end
+
+chr = string.char
+
 local _tostring = tostring
 function tostring(obj)
     if type(obj) == "table" then
@@ -116,7 +146,6 @@ end
 
 str = tostring
 int = tonumber
-chr = string.char
 pow = math.pow
 
 function eval(expression)
@@ -127,10 +156,6 @@ float = eval
 
 function exec(expression)
     loadstring(expression)()
-end
-
-function callable(object)
-    return type(object) == "function"
 end
 
 function sum(iterable, start)
