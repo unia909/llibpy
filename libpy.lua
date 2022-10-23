@@ -1,26 +1,26 @@
 local io = require "io"
+local ffi = require "ffi"
+require "libcdef"
+local utf8 = require "utf8"
 
 -- from https://stackoverflow.com/a/779960
 -- converted to luajit code
 function string:replace(rep, with)
-    require "libcdef"
-    local ffi = require "ffi"
+    local C = ffi.C
 
     local len_rep = #rep
     local len_with = #with
-    local len_front = 0
 
     local orig_len = #self
-    local orig_ptr = ffi.C.malloc(orig_len + 1)
-    ffi.copy(orig_ptr, self)
+    local orig_ptr = C.malloc(orig_len + 1)
+    C.memcpy(orig_ptr, self, orig_len + 1)
 
-    local orig = ffi.cast('const char*', orig_ptr)
+    local orig = ffi.cast('char*', orig_ptr)
 
     local ins = orig
     local count = ffi.new('int')
-    local tmp = 0
     while true do
-        tmp = ffi.C.strstr(ins, rep)
+        local tmp = C.strstr(ins, rep)
         if tmp == nil then
             break
         end
@@ -28,7 +28,7 @@ function string:replace(rep, with)
         count = count + 1
     end
 
-    tmp = ffi.C.malloc(orig_len + (len_with - len_rep) * count + 1)
+    local tmp = C.malloc(orig_len + (len_with - len_rep) * count + 1)
     local result = tmp
 
     -- first time through the loop, all the variable are set correctly
@@ -40,17 +40,16 @@ function string:replace(rep, with)
         if count == 0 then
             break
         end
-        ins = ffi.C.strstr(orig, rep)
-        len_front = ins - orig
-        tmp = ffi.C.strncpy(tmp, orig, len_front) + len_front
-        tmp = ffi.C.strcpy(tmp, with) + len_with
-        orig = orig + len_front + len_rep -- move to next "end of rep"
         count = count - 1
+        local len_front = C.strstr(orig, rep) - orig
+        tmp = C.memcpy(tmp, orig, len_front) + len_front
+        tmp = C.memcpy(tmp, with, len_with) + len_with
+        orig = orig + len_front + len_rep -- move to next "end of rep"
     end
 
-    local luastr = ffi.string(result) .. ffi.string(orig)
-    ffi.C.free(result)
-    ffi.C.free(orig_ptr)
+    local luastr = ffi.string(result)..ffi.string(orig)
+    C.free(result)
+    C.free(orig_ptr)
     return luastr
 end
 
@@ -147,6 +146,8 @@ end
 str = tostring
 int = tonumber
 pow = math.pow
+
+len = utf8.len
 
 function eval(expression)
     return loadstring("return "..expression)()
