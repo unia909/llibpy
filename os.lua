@@ -1,3 +1,4 @@
+local random = require "random"
 local _os = require "os"
 local os
 if jit.os ~= "Windows" then
@@ -14,6 +15,7 @@ function os.listdir(path)
     return out
 end
 
+os.urandom = random.randbytes
 os.remove = _os.remove
 os.rename = _os.rename
 os._exit = _os.exit

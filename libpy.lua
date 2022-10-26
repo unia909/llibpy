@@ -136,6 +136,7 @@ function string:join(iterable)
     end
     return out
 end
+
 -- code based on https://gist.github.com/justnom/9816256
 function table:toString()
     local result = "["

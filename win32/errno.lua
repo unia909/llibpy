@@ -1,3 +1,4 @@
+local ffi = require "ffi"
 require "win32.errnodef"
 return setmetatable({}, {
     __index = function() return ffi.C.GetLastError() end,

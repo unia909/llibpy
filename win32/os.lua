@@ -86,17 +86,17 @@ return {
             if err == C.ERROR_ENVVAR_NOT_FOUND then
                 return default
             end
-            error("strange error in libpy: "..err)
+            error("strange error in getenv: "..err)
         end
         return _win_convtostr(buf, ret)
     end,
     scandir = scandir,
     strerror = function(code)
         local buf = ffi.new("wchar_t*[1]")
-        -- 0x00000100 is a flag telling Windows to allocate memory for the buffer
-        -- 0x00001000 is a flag for getting error message from system
-        -- 0x00000100 | 0x00001000 is 4352 in decimal
-        local ret = C.FormatMessageW(4352, nil, code, 0, buf, 0, nil)
+        -- 0x0100 is a flag telling Windows to allocate memory for the buffer
+        -- 0x1000 is a flag for getting error message from system
+        -- 0x0100 | 0x1000 is 0x1100
+        local ret = C.FormatMessageW(0x1100, nil, code, 0, buf, 0, nil)
         local out = _win_convtostr(buf[0], ret + 1)
         C.LocalFree(buf[0])
         return out
