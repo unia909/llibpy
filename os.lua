@@ -15,6 +15,9 @@ function os.listdir(path)
     return out
 end
 
+os.curdir = "."
+os.pardir = ".."
+os.extsep = "."
 os.urandom = random.randbytes
 os.remove = _os.remove
 os.rename = _os.rename

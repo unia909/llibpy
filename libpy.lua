@@ -1,13 +1,12 @@
 local io = require "io"
 local ffi = require "ffi"
 require "libcdef"
+local C = ffi.C
 local utf8 = require "utf8"
 
 -- from https://stackoverflow.com/a/779960
 -- converted to luajit code
 function string:replace(rep, with)
-    local C = ffi.C
-
     local len_rep = #rep
     local len_with = #with
 
@@ -15,10 +14,10 @@ function string:replace(rep, with)
     local orig_ptr = C.malloc(orig_len + 1)
     C.memcpy(orig_ptr, self, orig_len + 1)
 
-    local orig = ffi.cast('char*', orig_ptr)
+    local orig = ffi.cast("char*", orig_ptr)
 
     local ins = orig
-    local count = ffi.new('int')
+    local count = ffi.new("int")
     while true do
         local tmp = C.strstr(ins, rep)
         if tmp == nil then
@@ -28,7 +27,8 @@ function string:replace(rep, with)
         count = count + 1
     end
 
-    local tmp = C.malloc(orig_len + (len_with - len_rep) * count + 1)
+    local len_tmp = orig_len + (len_with - len_rep) * count
+    local tmp = C.malloc(len_tmp)
     local result = tmp
 
     -- first time through the loop, all the variable are set correctly
@@ -47,7 +47,7 @@ function string:replace(rep, with)
         orig = orig + len_front + len_rep -- move to next "end of rep"
     end
 
-    local luastr = ffi.string(result)..ffi.string(orig)
+    local luastr = ffi.string(result, len_tmp)..ffi.string(orig)
     C.free(result)
     C.free(orig_ptr)
     return luastr
@@ -116,14 +116,23 @@ function string:split(sep, maxlines)
     return out
 end
 
-function iter(val)
-    if type(val) == "table" then
-        return pairs(val)
-    elseif val.__iter__ ~= nil then
-        return val.__iter__()
-    else
-        error("'"..type(val).."' object is not iterable")
+-- code from https://stackoverflow.com/a/9052540
+function string:count(sub, start, _end)
+    if start == nil then
+        start = 0
     end
+    local count = 0
+    local tmp = ffi.cast("char*", self) + start
+    if _end ~= nil then
+        tmp[_end] = 0
+    end
+    while true do
+        tmp = C.strstr(tmp, sub)
+        if tmp == nil then break end
+        count = count + 1
+        tmp = tmp + 1
+    end
+    return count
 end
 
 function string:join(iterable)
@@ -188,6 +197,14 @@ function table:toStringLua()
     return result.."}"
 end
 
+len = utf8.len
+
+function string:zfill(width)
+    local l = len(self)
+    if l <= width then return self end
+    
+end
+
 abs = math.abs
 
 function aiter(async_iterable)
@@ -231,8 +248,6 @@ str = tostring
 int = tonumber
 pow = math.pow
 
-len = utf8.len
-
 function eval(expression)
     return loadstring("return "..expression)()
 end
@@ -241,6 +256,16 @@ float = eval
 
 function exec(expression)
     loadstring(expression)()
+end
+
+function iter(val)
+    if type(val) == "table" then
+        return pairs(val)
+    elseif val.__iter__ ~= nil then
+        return val.__iter__()
+    else
+        error("'"..type(val).."' object is not iterable")
+    end
 end
 
 function sum(iterable, start)
@@ -287,7 +312,7 @@ end
 
 function input(prompt)
     if type(prompt) == "string" then
-        io.write(prompt)
+        print(prompt, nil, "")
     end
     return io.read()
 end

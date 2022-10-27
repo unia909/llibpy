@@ -32,6 +32,10 @@ end
 
 return {
     name = "posix",
+    sep = "/",
+    altsep = nil,
+    pathsep = ":",
+    devnull = io.open("/dev/null"),
     abort = function()
         C.kill(C.getpid(), ffi.C.SIGABRT)
     end,

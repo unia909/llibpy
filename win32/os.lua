@@ -71,6 +71,10 @@ end
 
 return {
     name = "nt",
+    sep = "\\",
+    altsep = "/",
+    pathsep = ";",
+    devnull = io.open("nil"),
     abort = function()
         C.ExitProcess(3)
     end,
