@@ -7,8 +7,8 @@ math.randomseed(os.time())
 return {
     seed = math.randomseed,
     randbytes = function(n)
-        local b = ffi.new("unsigned char[?]", n)
-        rand(b, n)
+        local b = bytes(n)
+        rand(b.source, n)
         return b
     end,
     randint = math.random

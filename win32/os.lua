@@ -2,24 +2,9 @@ local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
 require "win32.errnodef"
+local con = require "_con"
+local ntstr = require "win32.string"
 local C = ffi.C
-
-local hOut = C.GetStdHandle(-11)
-
-function _win_convtowide(str, len)
-    len = len or #str + 1 -- we need to add 1 to get valid C string with null-terminator
-    local wide = ffi.new("wchar_t[?]", len)
-    C.MultiByteToWideChar(C.CP_UTF8, 0, str, len, wide, len)
-    return wide
-end
-
-function _win_convtostr(wide, len)
-    len = len or C.wcslen(wide) -- no need to add 1 for null-terminator in _win_convtostr due to copying in ffi.string
-    local size = C.WideCharToMultiByte(C.CP_UTF8, 0, wide, len, nil, 0, nil, nil)
-    local str = ffi.new("char[?]", size)
-    C.WideCharToMultiByte(C.CP_UTF8, 0, wide, len, str, size, nil, nil)
-    return ffi.string(str, size)
-end
 
 local function scandir(path)
     if path then
@@ -34,7 +19,7 @@ local function scandir(path)
     local hFind = ffi.new("void*")
     local fdata = ffi.new("WIN32_FIND_DATAW")
     
-    hFind = C.FindFirstFileW(_win_convtowide(path), fdata)
+    hFind = C.FindFirstFileW(ntstr.convtowide(path), fdata)
     if hFind == C.INVALID_HANDLE_VALUE then
         error("can't open directory")
     end
@@ -54,7 +39,7 @@ local function scandir(path)
         C.FindNextFileW(hFind, fdata) -- skip this file
         return function()
             if findNextFile() then return nil end -- and first call also skips prevision directory (..)
-            return _win_convtostr(fdata.cFileName)
+            return ntstr.convtostr(fdata.cFileName)
         end
     end
 
@@ -65,7 +50,7 @@ local function scandir(path)
         else
             if findNextFile() then return nil end
         end
-        return _win_convtostr(fdata.cFileName)
+        return ntstr.convtostr(fdata.cFileName)
     end
 end
 
@@ -78,13 +63,11 @@ return {
     abort = function()
         C.ExitProcess(3)
     end,
-    write = function(str)
-        local len = #str
-        C.WriteConsoleW(hOut, _win_convtowide(str, len), len, nil, nil)
-    end,
+    read = con.read,
+    write = con.write,
     getenv = function(key, default)
         local buf = ffi.new("wchar_t[32767]") -- 32767 is the maximum environment variable size as stated on MSDN
-        local ret = C.GetEnvironmentVariableW(_win_convtowide(key), buf, 32767) -- on success ret is a length of the variable
+        local ret = C.GetEnvironmentVariableW(ntstr.convtowide(key), buf, 32767) -- on success ret is a length of the variable
         if ret == 0 then -- if there a error
             local err = C.GetLastError()
             if err == C.ERROR_ENVVAR_NOT_FOUND then
@@ -92,7 +75,7 @@ return {
             end
             error("strange error in getenv: "..err)
         end
-        return _win_convtostr(buf, ret)
+        return ntstr.convtostr(buf, ret)
     end,
     scandir = scandir,
     strerror = function(code)
@@ -101,7 +84,7 @@ return {
         -- 0x1000 is a flag for getting error message from system
         -- 0x0100 | 0x1000 is 0x1100
         local ret = C.FormatMessageW(0x1100, nil, code, 0, buf, 0, nil)
-        local out = _win_convtostr(buf[0], ret + 1)
+        local out = ntstr.convtostr(buf[0], ret + 1)
         C.LocalFree(buf[0])
         return out
     end,

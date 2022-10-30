@@ -37,9 +37,10 @@ return {
     pathsep = ":",
     devnull = io.open("/dev/null"),
     abort = function()
-        C.kill(C.getpid(), ffi.C.SIGABRT)
+        C.kill(C.getpid(), C.SIGABRT)
     end,
-    write = require("io").write,
+    write = io.write,
+    read = io.read,
     getenv = function(key, default)
         local ptr = C.getenv(key)
         if ptr == nil then

@@ -13,6 +13,7 @@ ffi.cdef[[
     int CloseHandle(void *hObject);
     void* GetStdHandle(DWORD nStdHandle);
     int WriteConsoleW(void *hConsoleOutput, const void *lpBuffer, DWORD nNumberOfCharsToWrite, DWORD *lpNumberOfCharsWritten, void *lpReserved);
+    int ReadConsoleW(void *hConsoleInput, void *lpBuffer, DWORD nNumberOfCharsToRead, DWORD *lpNumberOfCharsRead, void *pInputControl);
     void ExitProcess(unsigned int uExitCode);
     DWORD FormatMessageW(DWORD dwFlags, const void *lpSource, DWORD dwMessageId, DWORD dwLanguageId, wchar_t **lpBuffer, DWORD nSize, va_list *Arguments);
     void* LocalFree(void *hMem);
@@ -72,11 +73,7 @@ ffi.cdef[[
 
     DWORD GetEnvironmentVariableW(const wchar_t *lpName, wchar_t *lpBuffer, DWORD nSize);
 
-    // not currently in use
     int GetCurrentProcessId();
-    void* GetCurrentProcess();
-    long NtQueryInformationProcess(void *ProcessHandle, DWORD ProcessInformationClass, void *ProcessInformation,
-                                             DWORD ProcessInformationLength, DWORD *ReturnLength);
 ]]
 --NtDll = ffi.load("NTDLL.DLL")
 

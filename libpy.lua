@@ -1,8 +1,9 @@
-local io = require "io"
 local ffi = require "ffi"
 require "libcdef"
 local C = ffi.C
 local utf8 = require "utf8"
+local con = require "_con"
+local libpyex = require "libpyex"
 
 -- from https://stackoverflow.com/a/779960
 -- converted to luajit code
@@ -158,7 +159,7 @@ function table:toString()
         -- Check the value type
         if type(v) == "table" then
             result = result..table.toString(v)
-        elseif type(v) == "boolean" then
+        elseif type(v) == "boolean" or type(v) == "function" then
             result = result..tostring(v)
         else
             result = result.."'"..v.."'"
@@ -183,7 +184,7 @@ function table:toStringLua()
         -- Check the value type
         if type(v) == "table" then
             result = result..table.toString(v)
-        elseif type(v) == "boolean" then
+        elseif type(v) == "boolean" or type(v) == "function" then
             result = result..tostring(v)
         else
             result = result.."'"..v.."'"
@@ -229,6 +230,57 @@ function any(iterable)
     return false
 end
 
+bytes = setmetatable({
+    __pyclass__ = true,
+    __str__ = function(self)
+        local s = "b'"
+        for i in range(self.size) do
+            s = s..libpyex.getescorprntchar(self.source[i])
+        end
+        return s.."'"
+    end,
+    __sizeof__ = function(self) return self.size end
+}, {
+    __call = function(self, source, size)
+        if type(source) == "number" then
+            size = source
+            source = ffi.new("unsigned char[?]", source)
+        elseif size == nil then
+            size = #source
+        end
+        if type(source) == "string" then
+            source = ffi.cast("unsigned char*", source)
+        end
+        return setmetatable({source=source, size=size}, {__index=bytes})
+    end
+})
+b = bytes
+
+bytearray = setmetatable({
+    __pyclass__ = true,
+    __str__ = function(self)
+        local s = "b'"
+        for i in range(self.size) do
+            s = s..libpyex.getescorprntchar(self.source[i])
+        end
+        return s.."'"
+    end,
+    __sizeof__ = function(self) return self.size end
+}, {
+    __call = function(self, source, size)
+        if type(source) == "number" then
+            size = source
+            source = ffi.new("unsigned char[?]", source)
+        elseif size == nil then
+            size = #source
+        end
+        if type(source) == "string" then
+            source = ffi.cast("unsigned char*", source)
+        end
+        return setmetatable({source=source, size=size}, {__index=bytes})
+    end
+})
+
 function callable(object)
     return type(object) == "function"
 end
@@ -238,6 +290,9 @@ chr = string.char
 local _tostring = tostring
 function tostring(obj)
     if type(obj) == "table" then
+        if obj.__pyclass__ then
+            return obj:__str__()
+        end
         return table.toString(obj)
     else
         return _tostring(obj)
@@ -277,14 +332,13 @@ function sum(iterable, start)
 end
 
 function print(objects, sep, _end)
-    local os = require "./os"
     _end = _end or "\n"
     if objects == nil then
-        os.write(_end)
+        con.write(_end)
         return
     end
     sep = sep or " "
-    os.write(str(objects).._end)
+    con.write(str(objects).._end)
 end
 
 function range(start, stop, step)
@@ -314,7 +368,7 @@ function input(prompt)
     if type(prompt) == "string" then
         print(prompt, nil, "")
     end
-    return io.read()
+    return con.read()
 end
 
 function open(file, mode)
