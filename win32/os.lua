@@ -1,7 +1,6 @@
 local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
-require "win32.errnodef"
 local con = require "_con"
 local ntstr = require "win32.string"
 local C = ffi.C
@@ -27,8 +26,9 @@ local function scandir(path)
     local findNextFile = function()
         if C.FindNextFileW(hFind, fdata) == 0 then
             C.FindClose(hFind)
-            if C.GetLastError() ~= C.ERROR_NO_MORE_FILES then
-                error("some other error with opening directory: "..C.GetLastError())
+            local err = ffi.errno()
+            if err ~= C.ERROR_NO_MORE_FILES then
+                error("some other error with opening directory: "..err)
             end
             return true
         end
@@ -69,7 +69,7 @@ return {
         local buf = ffi.new("wchar_t[32767]") -- 32767 is the maximum environment variable size as stated on MSDN
         local ret = C.GetEnvironmentVariableW(ntstr.convtowide(key), buf, 32767) -- on success ret is a length of the variable
         if ret == 0 then -- if there a error
-            local err = C.GetLastError()
+            local err = ffi.errno()
             if err == C.ERROR_ENVVAR_NOT_FOUND then
                 return default
             end
@@ -92,7 +92,7 @@ return {
     getppid = function()
         local hSnapShot = C.CreateToolhelp32Snapshot(C.TH32CS_SNAPPROCESS, 0)
         if hSnapShot == nil then
-            error("error: "..C.GetLastError())
+            error("error: "..ffi.errno())
         end
         local procentry = ffi.new("PROCESSENTRY32")
         procentry.dwSize = ffi.sizeof(procentry)

@@ -1,7 +1,6 @@
 local ffi = require "ffi"
 require "libcdef"
 require "posix.posixdef"
-local errno = require "posix.errnodef"
 local C = ffi.C
 local locale = C.newlocale(63, "", nil)
 
@@ -13,7 +12,7 @@ local function scandir(path)
     path = path or "./"
     local dp = C.opendir(path)
     if dp == nil then
-        error("[Errno "..errno[0].."] "..strerror(errno[0])..": "..path)
+        error("[Errno "..ffi.errno().."] "..strerror(ffi.errno())..": "..path)
     end
     return function()
         while true do

@@ -10,11 +10,10 @@ local advapi = ffi.load("Advapi32.dll")
 
 local phandle = ffi.cast("size_t*", ffi.C.malloc(ffi.sizeof("size_t")))
 if advapi.CryptAcquireContextA(phandle, nil, nil, 1, 0xF0000040) == 0 then
-    require "win32.errnodef"
-    local err = ffi.C.GetLastError()
+    local err = ffi.errno()
     if err == 0x80090016 then -- 0x80090016 is NTE_BAD_KEYSET
         if advapi.CryptAcquireContextA(handle, 0, 0, 1, 0xF0000048) == 0 then -- 8 is CRYPT_NEWKEYSET
-            error("Error creating new crypto keyset. Error "..ffi.C.GetLastError()) -- bad, but how did Windows start?
+            error("Error creating new crypto keyset. Error "..ffi.errno()) -- bad, but how did Windows start?
         end
     else
         error("Error acquiring crypt context. Error "..err)
