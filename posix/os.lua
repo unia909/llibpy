@@ -4,6 +4,12 @@ require "posix.posixdef"
 local C = ffi.C
 local locale = C.newlocale(63, "", nil)
 
+ffi.cdef[[
+    void *popen(const char *command, const char *type);
+    size_t fread(void *ptrvoid, size_t size, size_t count, void *filestream);
+    int pclose(void *stream);
+]]
+
 local function strerror(code)
     return ffi.string(C.strerror_l(code, locale))
 end
@@ -45,10 +51,35 @@ return {
         if ptr == nil then
             return default
         end
-        return string(ptr)
+        return ffi.string(ptr)
     end,
+    putenv = function(key, value)
+        C.setenv(key, value, 1)
+    end,
+    unsetenv = C.unsetenv,
     scandir = scandir,
     strerror = strerror,
     getpid = C.getpid,
-    getppid = C.getppid
+    getppid = C.getppid,
+    uname = function()
+        local read = function(cmd)
+            local f = C.popen(cmd, "r")
+            local s = ""
+            local buf = ffi.new("char[128]")
+            local readed = 128
+            while readed == 128 do
+                readed = C.fread(buf, 1, 128, f)
+                s = s..ffi.string(buf, readed)
+            end
+            C.pclose(f)
+            return s:sub(1, -2)
+        end
+        return {
+            sysname = read("uname -s"),
+            nodename = read("uname -n"),
+            release = read("uname -r"),
+            version = read("uname -v"),
+            machine = read("uname -m")
+        }
+    end
 }

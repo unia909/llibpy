@@ -1,5 +1,5 @@
 local random = require "random"
-local _os = require "os"
+local _os = os
 local os
 if jit.os ~= "Windows" then
     os = require "posix.os"
@@ -21,6 +21,7 @@ os.extsep = "."
 os.urandom = random.randbytes
 os.remove = _os.remove
 os.rename = _os.rename
+os.system = _os.execute
 os._exit = _os.exit
 
 return os

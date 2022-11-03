@@ -77,6 +77,12 @@ return {
         end
         return ntstr.convtostr(buf, ret)
     end,
+    putenv = function(key, value)
+        C.SetEnvironmentVariableW(ntstr.convtowide(key), ntstr.convtowide(value))
+    end,
+    unsetenv = function(name)
+        C.SetEnvironmentVariableW(ntstr.convtowide(name), nil)
+    end,
     scandir = scandir,
     strerror = function(code)
         local buf = ffi.new("wchar_t*[1]")

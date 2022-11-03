@@ -4,8 +4,10 @@ return {
             return "\\t"
         elseif byte == 10 then
             return "\\n"
-        elseif byte == 14 then
+        elseif byte == 13 then
             return "\\r"
+        elseif byte == 39 then
+            return "\\'"
         elseif byte == 92 then
             return "\\\\"
         elseif byte > 31 and byte < 127 then

@@ -1,9 +1,7 @@
-local ffi = require("ffi")
-ffi.cdef[[
+require("ffi").cdef[[
     typedef unsigned short WORD;
     typedef unsigned long DWORD;
-
-    typedef unsigned long *ULONG_PTR;
+    typedef unsigned long long QWORD;
 
     typedef char *PSTR;
     typedef const char *PCSTR;
@@ -20,12 +18,14 @@ ffi.cdef[[
 
     enum {
         MAX_PATH = 260,
+        ERROR_NO_MORE_FILES = 18,
+        ERROR_ENVVAR_NOT_FOUND = 203,
         INVALID_HANDLE_VALUE = 0xffffffff,
 
         TH32CS_SNAPHEAPLIST = 0x00000001,
-        TH32CS_SNAPPROCESS = 0x00000002,
-        TH32CS_SNAPTHREAD = 0x00000004,
-        TH32CS_SNAPMODULE = 0x00000008,
+        TH32CS_SNAPPROCESS  = 0x00000002,
+        TH32CS_SNAPTHREAD   = 0x00000004,
+        TH32CS_SNAPMODULE   = 0x00000008,
         TH32CS_SNAPMODULE32 = 0x00000010
     };
 
@@ -58,7 +58,7 @@ ffi.cdef[[
         DWORD     dwSize;
         DWORD     cntUsage;
         DWORD     th32ProcessID;
-        ULONG_PTR th32DefaultHeapID;
+        DWORD    *th32DefaultHeapID;
         DWORD     th32ModuleID;
         DWORD     cntThreads;
         DWORD     th32ParentProcessID;
@@ -72,10 +72,22 @@ ffi.cdef[[
     int Process32Next(void *hSnapshot, PROCESSENTRY32 *lppe);
 
     DWORD GetEnvironmentVariableW(const wchar_t *lpName, wchar_t *lpBuffer, DWORD nSize);
+    int SetEnvironmentVariableW(const wchar_t *lpName, const wchar_t *lpValue);
 
     int GetCurrentProcessId();
-]]
---NtDll = ffi.load("NTDLL.DLL")
 
-require "win32.winntstringapisetdef"
-require "win32.winerror"
+    enum {
+        CP_ACP,
+        CP_OEMCP,
+        CP_MACCP,
+        CP_THREAD_ACP,
+        CP_SYMBOL = 42,
+        CP_UTF7 = 65000,
+        CP_UTF8 = 65001
+    };
+
+    int MultiByteToWideChar(unsigned int CodePage, unsigned long dwFlags, const char *lpMultiByteStr, int cbMultiByte,
+                            wchar_t *lpWideCharStr, int cchWideChar);
+    int WideCharToMultiByte(unsigned int CodePage, unsigned long dwFlags, const wchar_t *lpWideCharStr, int cchWideChar,
+                            char *lpMultiByteStr, int cbMultiByte, const char *lpDefaultChar, int *lpUsedDefaultChar);
+]]

@@ -119,9 +119,7 @@ end
 
 -- code from https://stackoverflow.com/a/9052540
 function string:count(sub, start, _end)
-    if start == nil then
-        start = 0
-    end
+    start = start or 0
     local count = 0
     local tmp = ffi.cast("char*", self) + start
     if _end ~= nil then
@@ -255,37 +253,14 @@ bytes = setmetatable({
     end
 })
 b = bytes
-
-bytearray = setmetatable({
-    __pyclass__ = true,
-    __str__ = function(self)
-        local s = "b'"
-        for i in range(self.size) do
-            s = s..libpyex.getescorprntchar(self.source[i])
-        end
-        return s.."'"
-    end,
-    __sizeof__ = function(self) return self.size end
-}, {
-    __call = function(self, source, size)
-        if type(source) == "number" then
-            size = source
-            source = ffi.new("unsigned char[?]", source)
-        elseif size == nil then
-            size = #source
-        end
-        if type(source) == "string" then
-            source = ffi.cast("unsigned char*", source)
-        end
-        return setmetatable({source=source, size=size}, {__index=bytes})
-    end
-})
+bytearray = bytes
 
 function callable(object)
     return type(object) == "function"
 end
 
 chr = string.char
+-- TODO utf8.codepoint
 
 local _tostring = tostring
 function tostring(obj)

@@ -40,6 +40,8 @@ require("ffi").cdef[[
     int kill(int pid, int sig);
 
     char *getenv(const char *envname);
+    int setenv(const char *name, const char *value, int overwrite);
+    int unsetenv(const char *name);
 
     void *newlocale(int category_mask, const char *locale, void *base);
 ]]
