@@ -6,8 +6,8 @@ ffi.cdef [[
     int RegCloseKey(size_t hKey);
     int RegConnectRegistryW(const wchar_t *lpMachineName, size_t hKey, size_t *phkResult);
     int RegCreateKeyW(size_t hKey, const wchar_t *lpSubKey, size_t *phkResult);
-    //int RegCreateKeyExW(size_t hKey, const wchar_t *lpSubKey, DWORD Reserved, wchar_t *lpClass, DWORD dwOptions, int samDesired,
-    //                    const LPSECURITY_ATTRIBUTES lpSecurityAttributes, size_t *phkResult, DWORD *lpdwDisposition);
+    int RegCreateKeyExW(size_t hKey, const wchar_t *lpSubKey, DWORD Reserved, wchar_t *lpClass, DWORD dwOptions, int samDesired,
+                        const LPSECURITY_ATTRIBUTES lpSecurityAttributes, size_t *phkResult, DWORD *lpdwDisposition);
     int RegDeleteKeyW(size_t hKey, const wchar_t *lpSubKey);
     //int RegDeleteKeyExW(size_t hKey, const wchar_t *lpSubKey, int samDesired, DWORD Reserved);
     int RegDeleteValueW(size_t hKey, const wchar_t *lpValueName);
@@ -24,8 +24,8 @@ ffi.cdef [[
     int RegQueryValueW(size_t hKey, const wchar_t *lpSubKey, wchar_t *lpData, int *lpcbData);
     int RegQueryValueExW(size_t hKey, const wchar_t *lpValueName, DWORD *lpReserved, DWORD *lpType, unsigned char *lpData, DWORD *lpcbData);
     int RegSaveKeyW(size_t hKey, const wchar_t *lpFile, const void *lpSecurityAttributes);
-    //int RegSetValueW(size_t hKey, const wchar_t *lpSubKey, DWORD dwType, const wchar_t *lpData, DWORD cbData);
-    //int RegSetValueExW(size_t hKey, const wchar_t *lpValueName, DWORD Reserved, DWORD dwType, const unsigned char *lpData, DWORD cbData);
+    int RegSetValueW(size_t hKey, const wchar_t *lpSubKey, DWORD dwType, const wchar_t *lpData, DWORD cbData);
+    int RegSetValueExW(size_t hKey, const wchar_t *lpValueName, DWORD Reserved, DWORD dwType, const unsigned char *lpData, DWORD cbData);
     int RegDisableReflectionKey(size_t hBase);
     int RegEnableReflectionKey(size_t hBase);
     int RegQueryReflectionKey(size_t hBase, int *bIsReflectionDisabled);
@@ -86,6 +86,13 @@ return {
         C.free(pointer)
         return ret
     end,
+    CreateKeyEx = function(key, sub_key, reserved, access)
+        local pointer = ffi.cast("size_t*", C.malloc(ffi.sizeof("size_t")))
+        check(advapi.RegCreateKeyExW(key, ntstr.convtowide(sub_key), reserved or 0, nil, 0, access or 0x00020019, nil, pointer, 0))
+        local ret = pointer[0]
+        C.free(pointer)
+        return ret
+    end,
     DeleteKey = function(key, sub_key)
         check(advapi.RegDeleteKeyW(key, ntstr.convtowide(sub_key)))
     end,
@@ -138,7 +145,7 @@ return {
         local lpcSubKeys = ffi.cast("DWORD*", C.malloc(ffi.sizeof("DWORD")))
         local lpcValues = ffi.cast("DWORD*", C.malloc(ffi.sizeof("DWORD")))
         local lpftFileTime = ffi.cast("QWORD*", C.malloc(ffi.sizeof("QWORD")))
-        check(advapi.RegQueryInfoKeyW(key, nil, nil, kocSubKeys, nil, nil, lpcValues, nil, nil, nil, nil))
+        check(advapi.RegQueryInfoKeyW(key, nil, nil, kocSubKeys, nil, nil, lpcValues, nil, nil, nil, lpftFileTime))
         local csk = tonumber(lpcSubKeys[0])
         C.free(lpcSubKeys)
         local cv = tonumber(lpcValues[0])
@@ -150,9 +157,9 @@ return {
     QueryValue = function(key, sub_key)
         local wsk = ntstr.convtowide(sub_key)
         local size = ffi.cast("int*", C.malloc(ffi.sizeof("int")))
-        advapi.RegQueryValueW(key, wsk, nil, size)
+        check(advapi.RegQueryValueW(key, wsk, nil, size))
         local buf = ffi.new("wchar_t[?]", size[0])
-        advapi.RegQueryValueW(key, wsk, buf, size)
+        check(advapi.RegQueryValueW(key, wsk, buf, size))
         C.free(size)
         return ntstr.convtostr(buf)
     end,
@@ -171,6 +178,35 @@ return {
     end,
     SaveKey = function(key, file_name)
         check(advapi.RegSaveKeyW(key, ntstr.convtowide(file_name), nil))
+    end,
+    SetValue = function(key, sub_key, _type, value)
+        check(advapi.RegSetValueW(key, ntstr.convtowide(sub_key), _type, value, #value))
+    end,
+    SetValueEx = function(key, value_name, reserved, _type, value)
+        local _bytes
+        local size
+        local needFree = false
+        if _type == 1 then
+            _bytes = ffi.cast("const char*", value)
+            size = #value
+        elseif _type == 3 then
+            _bytes = value.source
+            size = #value
+        elseif _type == 4 then
+            size = ffi.sizeof("DWORD")
+            _bytes = ffi.cast("DWORD*", C.malloc(size))
+            _bytes[0] = value
+            needFree = true
+        elseif _type == 11 then
+            size = ffi.sizeof("QWORD")
+            _bytes = ffi.cast("QWORD*", C.malloc(size))
+            _bytes[0] = value
+            needFree = true
+        end
+        check(advapi.RegSetValueExW(key, ntstr.convtowide(value_name), reserved, _type, _bytes, size))
+        if needFree then
+            C.free(_bytes)
+        end
     end,
     DisableReflectionKey = function(key)
         check(advapi.RegDisableReflectionKey(key))
