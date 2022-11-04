@@ -353,3 +353,11 @@ function open(file, mode)
     mode = mode or "r"
     return io.open(file, mode)
 end
+
+function zip(iterables, strict)
+    local i = 0
+    return function()
+        i = i + 1
+        return unpack(iterables[i])
+    end
+end
