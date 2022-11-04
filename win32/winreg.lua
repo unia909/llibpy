@@ -7,9 +7,9 @@ ffi.cdef [[
     int RegConnectRegistryW(const wchar_t *lpMachineName, size_t hKey, size_t *phkResult);
     int RegCreateKeyW(size_t hKey, const wchar_t *lpSubKey, size_t *phkResult);
     int RegCreateKeyExW(size_t hKey, const wchar_t *lpSubKey, DWORD Reserved, wchar_t *lpClass, DWORD dwOptions, int samDesired,
-                        const LPSECURITY_ATTRIBUTES lpSecurityAttributes, size_t *phkResult, DWORD *lpdwDisposition);
+                        const void *lpSecurityAttributes, size_t *phkResult, DWORD *lpdwDisposition);
     int RegDeleteKeyW(size_t hKey, const wchar_t *lpSubKey);
-    //int RegDeleteKeyExW(size_t hKey, const wchar_t *lpSubKey, int samDesired, DWORD Reserved);
+    int RegDeleteKeyExW(size_t hKey, const wchar_t *lpSubKey, int samDesired, DWORD Reserved);
     int RegDeleteValueW(size_t hKey, const wchar_t *lpValueName);
     int RegEnumKeyW(size_t hKey, DWORD dwIndex, wchar_t *lpName, DWORD cchName);
     int RegEnumValueW(size_t hKey, DWORD dwIndex, wchar_t *lpValueName, DWORD *lpcchValueName, DWORD *lpReserved, DWORD *lpType,
@@ -95,6 +95,9 @@ return {
     end,
     DeleteKey = function(key, sub_key)
         check(advapi.RegDeleteKeyW(key, ntstr.convtowide(sub_key)))
+    end,
+    DeleteKeyEx = function(key, sub_key, access, reserved)
+        check(advapi.RegDeleteKeyExW(key, ntstr.convtowide(sub_key), access or 0x00000100, reserved or 0))
     end,
     DeleteValue = function(key, value)
         check(advapi.RegDeleteValueW(key, ntstr.convtowide(value)))
