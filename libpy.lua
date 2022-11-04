@@ -239,7 +239,8 @@ bytes = setmetatable({
     end,
     __bool__ = function(self)
         return self.source ~= nil
-    end
+    end,
+    __sizeof__ = function(self) return self.size end
 }, {
     __call = function(self, source, size)
         if type(source) == "number" then
@@ -252,9 +253,6 @@ bytes = setmetatable({
             source = ffi.cast("unsigned char*", source)
         end
         return setmetatable({source=source, size=size}, {__index=bytes})
-    end,
-    __len = function(self)
-        return self.size
     end
 })
 b = bytes
