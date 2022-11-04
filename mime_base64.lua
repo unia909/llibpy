@@ -23,16 +23,18 @@ local bor = bit.bor
 local band = bit.band
 local floor = math.floor
 
-local mime64chars = ffi.new("uint8_t[64]",
+local u16arr = ffi.typeof"uint16_t[?]"
+local u8arr= ffi.typeof"uint8_t[?]"
+
+local mime64chars = u8arr(64,
  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/")
-local mime64lookup = ffi.new("uint8_t[256]")
+local mime64lookup = u8arr(256)
 ffi.fill(mime64lookup, 256, 0xFF)
 for i=0,63 do
     mime64lookup[mime64chars[i]]=i
 end
 
-local u8arr= ffi.typeof'uint8_t[?]'
-local u8ptr=ffi.typeof'uint8_t*'
+local u8ptr=ffi.typeof"uint8_t*"
 
 --- Base64 decode a string or a FFI char *.
 -- @param str (String or char*) Bytearray to decode.
@@ -41,7 +43,7 @@ local u8ptr=ffi.typeof'uint8_t*'
 function escape.base64_decode(str, sz)
     if (type(str)=="string") and (sz == nil) then sz=#str end
     local m64, b1 -- value 0 to 63, partial byte
-    local bin_arr=ffi.new(u8arr, floor(bit.rshift(sz*3,2)))
+    local bin_arr=ffi.new(u8arr, floor(rshift(sz*3,2)))
     local mptr = ffi.cast(u8ptr,bin_arr) -- position in binary mime64 output array
     local bptr = ffi.cast(u8ptr,str)
     local i = 0
@@ -78,7 +80,7 @@ function escape.base64_decode(str, sz)
 end
 
 
-local mime64shorts=ffi.new('uint16_t[4096]')
+local mime64shorts=u16arr(4096)
 for i=0,63 do
     for j=0,63 do
         local v
@@ -91,8 +93,7 @@ for i=0,63 do
     end
 end
 
-local u16arr = ffi.typeof"uint16_t[?]"
-local crlf16 = ffi.new("uint16_t[1]")
+local crlf16 = u16arr(1)
 if ffi.abi("le") then
     crlf16[0] = (0x0A*256)+0x0D
 else
@@ -108,7 +109,7 @@ function escape.base64_encode(str, sz, disable_break)
     if (type(str)=="string") and (sz == nil) then sz=#str end
     local outlen = floor(sz*2/3)
     outlen = outlen + floor(outlen/19)+3
-    local m64arr=ffi.new(u16arr,outlen)
+    local m64arr=u16arr(outlen)
     local l,p,v=0,0
     local bptr = ffi.cast(u8ptr,str)
     local c = disable_break and -1 or 38 -- put a new line after every 76 characters

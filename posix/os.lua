@@ -4,6 +4,9 @@ require "posix.posixdef"
 local C = ffi.C
 local locale = C.newlocale(63, "", nil)
 
+local ffit = require "ffitypes"
+local chara = require "chara"
+
 ffi.cdef[[
     void *popen(const char *command, const char *type);
     size_t fread(void *ptrvoid, size_t size, size_t count, void *filestream);
@@ -65,7 +68,7 @@ return {
         local read = function(cmd)
             local f = C.popen(cmd, "r")
             local s = ""
-            local buf = ffi.new("char[128]")
+            local buf = chara(128)
             local readed = 128
             while readed == 128 do
                 readed = C.fread(buf, 1, 128, f)

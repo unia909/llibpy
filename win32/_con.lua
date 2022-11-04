@@ -3,6 +3,11 @@ require "libcdef"
 require "win32.winntdef"
 local ntstr = require "win32.string"
 local C = ffi.C
+local malloc = C.malloc
+local free = C.free
+
+local ffit = require "ffitypes"
+local wchara = ffit.wchara
 
 --local hErr = C.GetStdHandle(-12)
 local hOut = C.GetStdHandle(-11)
@@ -16,9 +21,9 @@ return {
     read = function()
         local size = 4096
         local readed = size
-        local read = ffi.cast("DWORD*", C.malloc(4))
+        local read = ffi.cast("DWORD*", malloc(4))
         local out = ""
-        local buf = ffi.new("wchar_t[?]", size)
+        local buf = wchara(size)
         while true do
             C.ReadConsoleW(hIn, buf, size, read, nil)
             out = out..(ntstr.convtostr(buf, size))
@@ -27,7 +32,7 @@ return {
                 break
             end
         end
-        C.free(read)
+        free(read)
         return out
     end
 }

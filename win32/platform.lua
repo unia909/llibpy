@@ -1,11 +1,15 @@
 local ffi = require "ffi"
+require "libcdef"
 require "win32.winntdef"
+local C = ffi.C
+local malloc = C.malloc
+local free = C.free
+
 local ntstr = require "win32.string"
 local winreg = require "win32.winreg"
-
-ffi.cdef [[
-    int GetComputerNameW(const wchar_t *lpBuffer, DWORD *nSize);
-]]
+local ffit = require "ffitypes"
+local ulongp = ffit.ulongp
+local wchara = ffit.wchara
 
 local releases = {
     ["5.0"] = "2000Professional",
@@ -19,11 +23,11 @@ local releases = {
 }
 
 local function node()
-    local buf = ffi.new("wchar_t[15]") -- max computer name size is 15 o_O
-    local size = ffi.cast("DWORD*", ffi.C.malloc(4))
-    ffi.C.GetComputerNameW(buf, size)
+    local buf = wchara(15) -- max computer name size is 15 o_O
+    local size = ffi.cast(ulongp, malloc(4))
+    C.GetComputerNameW(buf, size)
     local nodesize = size[0]
-    ffi.C.free(size)
+    free(size)
     return ntstr.convtostr(buf, nodesize)
 end
 

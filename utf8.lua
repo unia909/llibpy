@@ -1,10 +1,19 @@
 local bit = require "bit"
 local ffi = require "ffi"
+local ffit = require "ffitypes"
+
+local band = bit.band
+local bor = bit.bor
+local bnot = bit.bnot
+local lshift = bit.lshift
+local rshift = bit.rshift
+
+local ucharp = ffit.ucharp
 
 local UTF8_BUFFSZ = 8
 local UTF8_MAX = 0x7FFFFFFF
 local UTF8_MAXCP = 0x10FFFF
-local function iscont(p) return bit.band(p[0], 0xC0) == 0x80 end
+local function iscont(p) return band(p[0], 0xC0) == 0x80 end
 
 local function utf8_invalid(ch)
   return (ch > UTF8_MAXCP or (0xD800 <= ch and ch <= 0xDFFF))
@@ -14,41 +23,40 @@ local function utf8_encode(buff, x)
   local n = 1 -- number of bytes put in buffer (backwards)
   assert(x <= UTF8_MAX)
   if x < 0x80 then -- ascii?
-    buff[UTF8_BUFFSZ - 1] = bit.band(x, 0x7F)
+    buff[UTF8_BUFFSZ - 1] = band(x, 0x7F)
   else -- need continuation bytes
     local mfb = 0x3f -- maximum that fits in first byte
     while true do -- add continuation bytes
-      buff[UTF8_BUFFSZ - n] = bit.bor(0x80, bit.band(x, 0x3f))
+      buff[UTF8_BUFFSZ - n] = bor(0x80, band(x, 0x3f))
       n = n + 1
-      x = bit.rshift(x, 6) -- remove added bits
-      mfb = bit.rshift(mfb, 1) -- now there is one less bit available in first byte
+      x = rshift(x, 6) -- remove added bits
+      mfb = rshift(mfb, 1) -- now there is one less bit available in first byte
       if x > mfb then break end -- still needs continuation byte?
     end
-    buff[UTF8_BUFFSZ - n] = bit.band(bit.bor(bit.lshift(bit.bnot(mfb), 1), x), 0xFF); -- add first byte
+    buff[UTF8_BUFFSZ - n] = band(bor(lshift(bnot(mfb), 1), x), 0xFF); -- add first byte
   end
   return n
 end
 
+local limits = {bnot(0), 0x80, 0x800, 0x10000, 0x200000, 0x4000000}
 local function utf8_decode(s, strict)
-  local limits = {bit.bnot(0), 0x80, 0x800, 0x10000, 0x200000, 0x4000000}
   local c = s[0]
   local res = 0 -- final result
   if c < 0x80 then -- ascii?
     res = c
   else
     local count = 0 -- to count number of continuation bytes
-    while bit.band(c, 0x40) ~= 0 do -- while it needs continuation bytes...
+    while band(c, 0x40) ~= 0 do -- while it needs continuation bytes...
       count = count + 1
       local cc = s[count] -- read next byte
-      if bit.band(cc, 0xC0) ~= 0x80 then -- not a continuation byte?
+      if band(cc, 0xC0) ~= 0x80 then -- not a continuation byte?
         return nil, nil -- invalid byte sequence
       end
-      res = bit.bor(bit.lshift(res, 6), bit.band(cc, 0x3F)) -- add lower 6 bits from cont. byte
-      c = bit.lshift(c, 1)
+      res = bor(lshift(res, 6), band(cc, 0x3F)) -- add lower 6 bits from cont. byte
+      c = lshift(c, 1)
     end
-    res = bit.bor(res, bit.lshift(bit.band(c, 0x7F), count * 5)) -- add first byte
+    res = bor(res, lshift(band(c, 0x7F), count * 5)) -- add first byte
     if count > 5 or res > UTF8_MAX or res < limits[count] then
-      print("nil 2")
       return nil, nil -- invalid byte sequence
     end
     s = s + count -- skip continuation bytes read
@@ -93,7 +101,7 @@ end
 
 local function Lutf8_len(s, posi, pose, lax)
   local len = #s
-  s = ffi.cast("const unsigned char*", s)
+  s = ffi.cast(ucharp, s)
   posi = byte_relat(posi or 1, len)
   pose = byte_relat(pose or -1, len)
   posi = posi - 1

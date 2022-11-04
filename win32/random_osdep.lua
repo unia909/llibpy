@@ -6,9 +6,16 @@ ffi.cdef[[
     int CryptGenRandom(size_t hProv, DWORD dwLen, void *pbBuffer);
     int CryptReleaseContext(size_t hProv, DWORD dwFlags);
 ]]
+local ffit = require "ffitypes"
+local sizet = ffit.sizet
+local sizetp = ffit.sizetp
+local C = ffi.C
+local malloc = C.malloc
+local free = C.free
+
 local advapi = ffi.load("Advapi32.dll")
 
-local phandle = ffi.cast("size_t*", ffi.C.malloc(ffi.sizeof("size_t")))
+local phandle = ffi.cast(sizetp, malloc(ffi.sizeof(sizet)))
 if advapi.CryptAcquireContextA(phandle, nil, nil, 1, 0xF0000040) == 0 then
     local err = ffi.errno()
     if err == 0x80090016 then -- 0x80090016 is NTE_BAD_KEYSET
@@ -26,6 +33,6 @@ return setmetatable({}, {
     end,
     __gc = function()
         advapi.CryptReleaseContext(phandle[0], 0)
-        ffi.C.free(phandle)
+        free(phandle)
     end
 })

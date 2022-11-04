@@ -3,14 +3,32 @@ ffi.cdef [[
     double fabs(double val);
 ]]
 local C = ffi.C
+local bit = require "bit"
+local lshift = bit.lshift
+local rshift = bit.rshift
 
-local nan = math.huge/math.huge
+local inf = math.huge
+local nan = inf/inf
 
+-- from https://stackoverflow.com/a/35499347
+-- converted to luajit code
 local function factorial(a)
     if a == 0 then
         return 1
     end
     return a * factorial(a - 1)
+end
+
+-- from https://www.codeproject.com/Tips/156748/Fast-Greatest-Common-Divisor-GCD-Algorithm-3
+-- converted to luajit code
+local function gcd(a, b)
+    local q
+    while b ~= 0 do
+        q = b
+        b = a % b
+        a = q
+    end
+    return a
 end
 
 return {
@@ -30,19 +48,47 @@ return {
     fmod = math.fmod,
     --frepx =
     --fsum =
-    --gcd =
+    gcd = gcd,
     --isclose =
     isfinite = function(x)
-        return x == math.huge or x == nan or x == 0
+        return x == inf or x == nan or x == 0
     end,
     isinf = function(x)
-        return x == math.huge or x == -math.huge
+        return x == inf or x == -inf
     end,
     isnan = function(x)
         return x == nan
     end,
-    --isqrt =
-    --lcm =
+    -- from https://github.com/AlanCxxx/isqrt
+    -- converted to luajit code
+    isqrt = function(n)
+        local res = 0
+        local one = 0x40000000
+
+        while one > n do
+            one = rshift(one, 2)
+        end
+        while one ~= 0 do
+            if n >= res + one then
+                n = n - res - one
+                res = res + lshift(one, 1)
+            end
+            res = rshift(res, 1)
+            one = rshift(one, 2)
+        end
+        return res
+    end,
+    -- from https://qnaplus.com/c-program-compute-lcm-multiple-integers/
+    -- converted to luajit code
+    lcm = function(...)
+        local nargs = select("#", ...)
+        local res = select(1, ...)
+        for i in range(2, nargs + 1) do
+            local a = select(i, ...)
+            res = (res / gcd(res, a)) * a
+        end
+        return res
+    end,
     --ldexp =
     modf = math.modf,
     --nextafter =
@@ -107,6 +153,6 @@ return {
     pi = math.pi,
     e = 2.718281828459045, -- full value 2.718281828459045235360287471352662497757247093699959574966967627724076630353
     tau = 6.283185307179586,
-    inf = math.huge,
+    inf = inf,
     nan = nan
 }

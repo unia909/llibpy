@@ -1,9 +1,12 @@
 local ffi = require "ffi"
+local C = ffi.C
 require "libcdef"
 require "win32.winntdef"
 local con = require "_con"
 local ntstr = require "win32.string"
-local C = ffi.C
+local ffit = require "ffitypes"
+local chara = ffit.chara
+local wchara = ffit.wchara
 
 local function scandir(path)
     if path then
@@ -35,7 +38,7 @@ local function scandir(path)
     end
 
     -- if first file is current directory (.)
-    if C.memcmp(fdata.cFileName, ffi.new("char[4]", 46, 0, 0, 0), 4) == 0 then
+    if C.memcmp(fdata.cFileName, chara(4, 46, 0, 0, 0), 4) == 0 then
         C.FindNextFileW(hFind, fdata) -- skip this file
         return function()
             if findNextFile() then return nil end -- and first call also skips prevision directory (..)
@@ -66,7 +69,7 @@ return {
     read = con.read,
     write = con.write,
     getenv = function(key, default)
-        local buf = ffi.new("wchar_t[32767]") -- 32767 is the maximum environment variable size as stated on MSDN
+        local buf = wchara(32767) -- 32767 is the maximum environment variable size as stated on MSDN
         local ret = C.GetEnvironmentVariableW(ntstr.convtowide(key), buf, 32767) -- on success ret is a length of the variable
         if ret == 0 then -- if there a error
             local err = ffi.errno()

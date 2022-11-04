@@ -4,6 +4,17 @@ local C = ffi.C
 local utf8 = require "utf8"
 local con = require "_con"
 local libpyex = require "libpyex"
+local ffit = require "ffitypes"
+local charp = ffit.charp
+local uchara = ffit.uchara
+local ucharp = ffit.ucharp
+local int = ffit.int
+local lstr = ffi.string
+
+local malloc = C.malloc
+local free = C.free
+local strstr = C.strstr
+local memcpy = C.memcpy
 
 -- from https://stackoverflow.com/a/779960
 -- converted to luajit code
@@ -12,15 +23,15 @@ function string:replace(rep, with)
     local len_with = #with
 
     local orig_len = #self
-    local orig_ptr = C.malloc(orig_len + 1)
-    C.memcpy(orig_ptr, self, orig_len + 1)
+    local orig_ptr = malloc(orig_len + 1)
+    memcpy(orig_ptr, self, orig_len + 1)
 
-    local orig = ffi.cast("char*", orig_ptr)
+    local orig = ffi.cast(charp, orig_ptr)
 
     local ins = orig
-    local count = ffi.new("int")
+    local count = int()
     while true do
-        local tmp = C.strstr(ins, rep)
+        local tmp = strstr(ins, rep)
         if tmp == nil then
             break
         end
@@ -29,7 +40,7 @@ function string:replace(rep, with)
     end
 
     local len_tmp = orig_len + (len_with - len_rep) * count
-    local tmp = C.malloc(len_tmp)
+    local tmp = malloc(len_tmp)
     local result = tmp
 
     -- first time through the loop, all the variable are set correctly
@@ -42,15 +53,15 @@ function string:replace(rep, with)
             break
         end
         count = count - 1
-        local len_front = C.strstr(orig, rep) - orig
-        tmp = C.memcpy(tmp, orig, len_front) + len_front
-        tmp = C.memcpy(tmp, with, len_with) + len_with
+        local len_front = strstr(orig, rep) - orig
+        tmp = memcpy(tmp, orig, len_front) + len_front
+        tmp = memcpy(tmp, with, len_with) + len_with
         orig = orig + len_front + len_rep -- move to next "end of rep"
     end
 
-    local luastr = ffi.string(result, len_tmp)..ffi.string(orig)
-    C.free(result)
-    C.free(orig_ptr)
+    local luastr = lstr(result, len_tmp)..lstr(orig)
+    free(result)
+    free(orig_ptr)
     return luastr
 end
 
@@ -121,7 +132,7 @@ end
 function string:count(sub, start, _end)
     start = start or 0
     local count = 0
-    local tmp = ffi.cast("char*", self) + start
+    local tmp = ffi.cast(charp, self) + start
     if _end ~= nil then
         tmp[_end] = 0
     end
@@ -245,12 +256,12 @@ bytes = setmetatable({
     __call = function(self, source, size)
         if type(source) == "number" then
             size = source
-            source = ffi.new("unsigned char[?]", source)
+            source = uchara(source)
         elseif size == nil then
             size = #source
         end
         if type(source) == "string" then
-            source = ffi.cast("unsigned char*", source)
+            source = ffi.cast(ucharp, source)
         end
         return setmetatable({source=source, size=size}, {__index=bytes})
     end

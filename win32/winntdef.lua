@@ -90,4 +90,6 @@ require("ffi").cdef[[
                             wchar_t *lpWideCharStr, int cchWideChar);
     int WideCharToMultiByte(unsigned int CodePage, unsigned long dwFlags, const wchar_t *lpWideCharStr, int cchWideChar,
                             char *lpMultiByteStr, int cbMultiByte, const char *lpDefaultChar, int *lpUsedDefaultChar);
+
+    int GetComputerNameW(const wchar_t *lpBuffer, DWORD *nSize);
 ]]
