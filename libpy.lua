@@ -147,11 +147,11 @@ end
 
 function string:join(iterable)
     local out = ""
-    for i in iter(iterable) do
+    for i, item in pairs(iterable) do
         if out ~= "" then
             out = out..self
         end
-        out = out..i
+        out = out..item
     end
     return out
 end
@@ -222,7 +222,7 @@ function aiter(async_iterable)
 end
 
 function all(iterable)
-    for element in iterable do
+    for i, element in pairs(iterable) do
         if not element then
             return false
         end
@@ -231,7 +231,7 @@ function all(iterable)
 end
 
 function any(iterable)
-    for element in iterable do
+    for i, element in pairs(iterable) do
         if element then
             return true
         end
@@ -302,20 +302,20 @@ function exec(expression)
     loadstring(expression)()
 end
 
-function iter(val)
-    if type(val) == "table" then
-        return pairs(val)
-    elseif val.__iter__ ~= nil then
-        return val.__iter__()
-    else
-        error("'"..type(val).."' object is not iterable")
+iter = function(iterable)
+    local f = pairs(iterable)
+    local previ = 0
+    return function()
+        local i, item = f(iterable, previ)
+        previ = i
+        return item
     end
 end
 
 function sum(iterable, start)
     local _sum = start or 0
-    for i in iterable do
-        _sum = _sum + i
+    for i, item in pairs(iterable) do
+        _sum = _sum + item
     end
     return _sum
 end
@@ -326,8 +326,20 @@ function print(objects, sep, _end)
         con.write(_end)
         return
     end
+    local nobj = #objects
+    if nobj == 0 then
+        con.write(_end)
+        return
+    elseif nobj == 1 then
+        con.write(objects[1].._end)
+        return
+    end
     sep = sep or " "
-    con.write(str(objects).._end)
+    local out = objects[1]..sep
+    for i in range(2, nobj) do
+        out = out..objects[i]..sep
+    end
+    con.write(out..objects[nobj].._end)
 end
 
 function range(start, stop, step)
@@ -335,7 +347,7 @@ function range(start, stop, step)
         local i = -1
         return function()
             i = i + 1
-            if i == start then
+            if i >= start then
                 return nil
             end
             return i
@@ -345,7 +357,7 @@ function range(start, stop, step)
         local i = start - step
         return function()
             i = i + step
-            if i == stop then
+            if i >= stop then
                 return nil
             end
             return i
