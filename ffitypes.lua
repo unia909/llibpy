@@ -14,13 +14,16 @@ return {
     ulong = t"unsigned long",
     ulongp = t"unsigned long*",
     ulonga = t"unsigned long[?]",
+    ll = t"long long",
+    llp = t"long long*",
+    lla = t"long long[?]",
     ull = t"unsigned long long",
     ullp = t"unsigned long long*",
     ulla = t"unsigned long long[?]",
-    chara = t"char[?]",
     charp = t"char*",
-    uchara = t"unsigned char[?]",
+    chara = t"char[?]",
     ucharp = t"unsigned char*",
-    wchara = t"wchar_t[?]",
-    wcharp = t"wchar_t*"
+    uchara = t"unsigned char[?]",
+    wcharp = t"wchar_t*",
+    wchara = t"wchar_t[?]"
 }

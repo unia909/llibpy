@@ -1,22 +1,30 @@
 local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
+ffi.cdef [[
+    void* GetStdHandle(DWORD nStdHandle);
+    int WriteConsoleW(void *hConsoleOutput, const void *lpBuffer, DWORD nNumberOfCharsToWrite, DWORD *lpNumberOfCharsWritten, void *lpReserved);
+    int ReadConsoleW(void *hConsoleInput, void *lpBuffer, DWORD nNumberOfCharsToRead, DWORD *lpNumberOfCharsRead, void *pInputControl);
+]]
 local ntstr = require "win32.string"
 local C = ffi.C
 local malloc = C.malloc
 local free = C.free
+local GetStdHandle = C.GetStdHandle
+local WriteConsoleW = C.WriteConsoleW
+local ReadConsoleW = C.ReadConsoleW
 
 local ffit = require "ffitypes"
 local wchara = ffit.wchara
 
---local hErr = C.GetStdHandle(-12)
-local hOut = C.GetStdHandle(-11)
-local hIn = C.GetStdHandle(-10)
+--local hErr = GetStdHandle(-12)
+local hOut = GetStdHandle(-11)
+local hIn = GetStdHandle(-10)
 
 return {
     write = function(str)
         local len = #str
-        C.WriteConsoleW(hOut, ntstr.convtowide(str, len), len, nil, nil)
+        WriteConsoleW(hOut, ntstr.convtowide(str, len), len, nil, nil)
     end,
     read = function()
         local size = 4096
@@ -25,7 +33,7 @@ return {
         local out = ""
         local buf = wchara(size)
         while true do
-            C.ReadConsoleW(hIn, buf, size, read, nil)
+            ReadConsoleW(hIn, buf, size, read, nil)
             out = out..(ntstr.convtostr(buf, size))
             readed = tonumber(read[0])
             if buf[readed - 2] == 13 and buf[readed - 1] == 10 then

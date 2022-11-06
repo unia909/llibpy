@@ -1,7 +1,73 @@
 local ffi = require "ffi"
-local C = ffi.C
 require "libcdef"
 require "win32.winntdef"
+ffi.cdef [[
+    int CloseHandle(void *hObject);
+    void ExitProcess(unsigned int uExitCode);
+    DWORD FormatMessageW(DWORD dwFlags, const void *lpSource, DWORD dwMessageId, DWORD dwLanguageId, wchar_t **lpBuffer, DWORD nSize, va_list *Arguments);
+    void* LocalFree(void *hMem);
+
+    enum {
+        MAX_PATH = 260,
+        ERROR_NO_MORE_FILES = 18,
+        ERROR_ENVVAR_NOT_FOUND = 203,
+        INVALID_HANDLE_VALUE = 0xffffffff,
+
+        TH32CS_SNAPHEAPLIST = 0x00000001,
+        TH32CS_SNAPPROCESS  = 0x00000002,
+        TH32CS_SNAPTHREAD   = 0x00000004,
+        TH32CS_SNAPMODULE   = 0x00000008,
+        TH32CS_SNAPMODULE32 = 0x00000010
+    };
+
+    typedef struct {
+        DWORD dwLowDateTime;
+        DWORD dwHighDateTime;
+    } FILETIME;
+
+    typedef struct {
+        DWORD    dwFileAttributes;
+        FILETIME ftCreationTime;
+        FILETIME ftLastAccessTime;
+        FILETIME ftLastWriteTime;
+        DWORD    nFileSizeHigh;
+        DWORD    nFileSizeLow;
+        DWORD    dwReserved0;
+        DWORD    dwReserved1;
+        wchar_t  cFileName[MAX_PATH];
+        wchar_t  cAlternateFileName[14];
+        DWORD    dwFileType; // Obsolete. Do not use.
+        DWORD    dwCreatorType; // Obsolete. Do not use
+        WORD     wFinderFlags; // Obsolete. Do not use
+    } WIN32_FIND_DATAW;
+
+    void* FindFirstFileW(const wchar_t *lpFileName, WIN32_FIND_DATAW *lpFindFileData);
+    int FindNextFileW(void *hFindFile, WIN32_FIND_DATAW *lpFindFileData);
+    int FindClose(void *hFindFile);
+
+    typedef struct {
+        DWORD     dwSize;
+        DWORD     cntUsage;
+        DWORD     th32ProcessID;
+        DWORD    *th32DefaultHeapID;
+        DWORD     th32ModuleID;
+        DWORD     cntThreads;
+        DWORD     th32ParentProcessID;
+        long      pcPriClassBase;
+        DWORD     dwFlags;
+        char      szExeFile[MAX_PATH];
+    } PROCESSENTRY32;
+
+    void* CreateToolhelp32Snapshot(DWORD dwFlags, DWORD th32ProcessID);
+    int Process32First(void *hSnapshot, PROCESSENTRY32 *lppe);
+    int Process32Next(void *hSnapshot, PROCESSENTRY32 *lppe);
+
+    DWORD GetEnvironmentVariableW(const wchar_t *lpName, wchar_t *lpBuffer, DWORD nSize);
+    int SetEnvironmentVariableW(const wchar_t *lpName, const wchar_t *lpValue);
+
+    int GetCurrentProcessId();
+]]
+local C = ffi.C
 local con = require "_con"
 local ntstr = require "win32.string"
 local ffit = require "ffitypes"

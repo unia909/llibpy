@@ -1,6 +1,9 @@
 local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
+ffi.cdef [[
+    int GetComputerNameW(const wchar_t *lpBuffer, DWORD *nSize);
+]]
 local C = ffi.C
 local malloc = C.malloc
 local free = C.free

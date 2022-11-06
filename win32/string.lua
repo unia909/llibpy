@@ -1,6 +1,12 @@
 local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
+ffi.cdef [[
+    int MultiByteToWideChar(unsigned int CodePage, unsigned long dwFlags, const char *lpMultiByteStr, int cbMultiByte,
+                            wchar_t *lpWideCharStr, int cchWideChar);
+    int WideCharToMultiByte(unsigned int CodePage, unsigned long dwFlags, const wchar_t *lpWideCharStr, int cchWideChar,
+                            char *lpMultiByteStr, int cbMultiByte, const char *lpDefaultChar, int *lpUsedDefaultChar);
+]]
 local C = ffi.C
 local lstr = ffi.string
 local ffit = require "ffitypes"
@@ -11,7 +17,7 @@ local wcslen = C.wcslen
 local MultiByteToWideChar = C.MultiByteToWideChar
 local WideCharToMultiByte = C.WideCharToMultiByte
 
-local CP_UTF8 = C.CP_UTF8
+local CP_UTF8 = 65001
 
 return {
     convtowide = function(str, len)

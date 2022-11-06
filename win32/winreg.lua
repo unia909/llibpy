@@ -2,6 +2,7 @@ require "libpy"
 local ffi = require "ffi"
 local ntstr = require "win32.stringsafe"
 local os = require "win32.os"
+require "win32.winntdef"
 ffi.cdef [[
     int RegCloseKey(size_t hKey);
     int RegConnectRegistryW(const wchar_t *lpMachineName, size_t hKey, size_t *phkResult);
