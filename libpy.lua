@@ -8,7 +8,7 @@ local ffit = require "ffitypes"
 local charp = ffit.charp
 local uchara = ffit.uchara
 local ucharp = ffit.ucharp
-local int = ffit.int
+local intt = ffit.int
 local lstr = ffi.string
 
 local malloc = C.malloc
@@ -29,7 +29,7 @@ function string:replace(rep, with)
     local orig = ffi.cast(charp, orig_ptr)
 
     local ins = orig
-    local count = int()
+    local count = intt()
     while true do
         local tmp = strstr(ins, rep)
         if tmp == nil then
@@ -207,7 +207,19 @@ function table:toStringLua()
     return result.."}"
 end
 
-len = utf8.len
+function len(obj)
+    if type(obj) == "string" then
+        return utf8.len(obj)
+    elseif type(obj) == "table" then
+        if type(obj.__len__) == "function" then
+            return obj:__len__()
+        else
+            return #obj
+        end
+    else
+        error("TypeError: object of type '"..type(obj).."' has no len()")
+    end
+end
 
 function string:zfill(width)
     local l = len(self)
@@ -279,7 +291,7 @@ ord = utf8.codepoint
 local _tostring = tostring
 function tostring(obj)
     if type(obj) == "table" then
-        if obj.__pyclass__ then
+        if type(obj.__str__) == "function" then
             return obj:__str__()
         end
         return table.toString(obj)
