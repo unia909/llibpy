@@ -11,9 +11,9 @@ time.process_time = os.clock
 time.perf_counter = time.monotonic
 function time.get_clock_info(name)
     if name == "monotonic" then
-        error("time.get_clock_info: NotSupported name monotonic")
+        return time.monotonic()
     elseif name == "perf_counter" then
-        error("time.get_clock_info: NotSupported name perf_counter")
+        return time.monotonic()
     elseif name == "process_time" then
         return os.clock()
     elseif name == "thread_time" then
