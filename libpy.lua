@@ -273,8 +273,8 @@ function callable(object)
     return type(object) == "function"
 end
 
-chr = string.char
--- TODO utf8.codepoint
+chr = utf8.char
+ord = utf8.codepoint
 
 local _tostring = tostring
 function tostring(obj)
@@ -331,15 +331,15 @@ function print(objects, sep, _end)
         con.write(_end)
         return
     elseif nobj == 1 then
-        con.write(objects[1].._end)
+        con.write(str(objects[1]).._end)
         return
     end
     sep = sep or " "
-    local out = objects[1]..sep
-    for i in range(2, nobj) do
-        out = out..objects[i]..sep
+    local out = str(objects[1])..sep
+    for i = 2, nobj - 1 do
+        out = out..str(objects[i])..sep
     end
-    con.write(out..objects[nobj].._end)
+    con.write(out..str(objects[nobj]).._end)
 end
 
 function range(start, stop, step)
@@ -367,7 +367,7 @@ end
 
 function input(prompt)
     if type(prompt) == "string" then
-        print(prompt, nil, "")
+        print({prompt}, nil, "")
     end
     return con.read()
 end
