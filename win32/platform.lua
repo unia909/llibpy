@@ -1,17 +1,14 @@
 local ffi = require "ffi"
-require "libcdef"
 require "win32.winntdef"
 ffi.cdef [[
     int GetComputerNameW(const wchar_t *lpBuffer, DWORD *nSize);
 ]]
 local C = ffi.C
-local malloc = C.malloc
-local free = C.free
 
 local ntstr = require "win32.string"
 local winreg = require "win32.winreg"
 local ffit = require "ffitypes"
-local ulongp = ffit.ulongp
+local ulonga = ffit.ulonga
 local wchara = ffit.wchara
 
 local releases = {
@@ -27,11 +24,9 @@ local releases = {
 
 local function node()
     local buf = wchara(15) -- max computer name size is 15 o_O
-    local size = ffi.cast(ulongp, malloc(4))
+    local size = ulonga(1, 15)
     C.GetComputerNameW(buf, size)
-    local nodesize = size[0]
-    free(size)
-    return ntstr.convtostr(buf, nodesize)
+    return ntstr.convtostr(buf, size[0])
 end
 
 local reg = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion")

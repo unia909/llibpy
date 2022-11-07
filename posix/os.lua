@@ -35,46 +35,28 @@ ffi.cdef[[
     int unsetenv(const char *name);
 
     void *newlocale(int category_mask, const char *locale, void *base);
-
-    void *popen(const char *command, const char *type);
-    size_t fread(void *ptrvoid, size_t size, size_t count, void *filestream);
-    int pclose(void *stream);
 ]]
 local C = ffi.C
 local locale = C.newlocale(63, "", nil)
-local strerror_l = C.strerror_l
-local opendir = C.opendir
-local readdir = C.readdir
-local closedir = C.closedir
-local kill = C.kill
-local getpid = C.getpid
-local getppid = C.getppid
-local SIGABRT = C.SIGABRT
-local getenv = C.getenv
-local setenv = C.setenv
-local unsetenv = C.unsetenv
-local popen = C.popen
-local fread = C.fread
-local pclose = C.pclose
 
 local ffit = require "ffitypes"
-local chara = require "chara"
+local chara = ffit.chara
 
 local function strerror(code)
-    return ffi.string(strerror_l(code, locale))
+    return ffi.string(C.strerror_l(code, locale))
 end
 
 local function scandir(path)
     path = path or "./"
-    local dp = opendir(path)
+    local dp = C.opendir(path)
     if dp == nil then
         error("[Errno "..ffi.errno().."] "..strerror(ffi.errno())..": "..path)
     end
     return function()
         while true do
-            local ep = readdir(dp)
+            local ep = C.readdir(dp)
             if ep == nil then
-                closedir(dp)
+                C.closedir(dp)
                 return nil
             end
             local s = ffi.string(ep.d_name)
@@ -92,36 +74,30 @@ return {
     pathsep = ":",
     devnull = io.open("/dev/null"),
     abort = function()
-        kill(getpid(), SIGABRT)
+        C.kill(C.getpid(), SIGABRT)
     end,
     write = io.write,
     read = io.read,
     getenv = function(key, default)
-        local ptr = getenv(key)
+        local ptr = C.getenv(key)
         if ptr == nil then
             return default
         end
         return ffi.string(ptr)
     end,
     putenv = function(key, value)
-        setenv(key, value, 1)
+        C.setenv(key, value, 1)
     end,
-    unsetenv = unsetenv,
+    unsetenv = C.unsetenv,
     scandir = scandir,
     strerror = strerror,
-    getpid = getpid,
-    getppid = getppid,
+    getpid = C.getpid,
+    getppid = C.getppid,
     uname = function()
         local read = function(cmd)
-            local f = popen(cmd, "r")
-            local s = ""
-            local buf = chara(128)
-            local readed = 128
-            while readed == 128 do
-                readed = fread(buf, 1, 128, f)
-                s = s..ffi.string(buf, readed)
-            end
-            pclose(f)
+            local f = io.popen(cmd)
+            local s = f:read("*a")
+            f:close()
             return s:sub(1, -2)
         end
         return {

@@ -11,11 +11,6 @@ local ucharp = ffit.ucharp
 local intt = ffit.int
 local lstr = ffi.string
 
-local malloc = C.malloc
-local free = C.free
-local strstr = C.strstr
-local memcpy = C.memcpy
-
 -- from https://stackoverflow.com/a/779960
 -- converted to luajit code
 function string:replace(rep, with)
@@ -23,15 +18,15 @@ function string:replace(rep, with)
     local len_with = #with
 
     local orig_len = #self
-    local orig_ptr = malloc(orig_len + 1)
-    memcpy(orig_ptr, self, orig_len + 1)
+    local orig_ptr = C.malloc(orig_len + 1)
+    C.memcpy(orig_ptr, self, orig_len + 1)
 
     local orig = ffi.cast(charp, orig_ptr)
 
     local ins = orig
     local count = intt()
     while true do
-        local tmp = strstr(ins, rep)
+        local tmp = C.strstr(ins, rep)
         if tmp == nil then
             break
         end
@@ -53,15 +48,15 @@ function string:replace(rep, with)
             break
         end
         count = count - 1
-        local len_front = strstr(orig, rep) - orig
-        tmp = memcpy(tmp, orig, len_front) + len_front
-        tmp = memcpy(tmp, with, len_with) + len_with
+        local len_front = C.strstr(orig, rep) - orig
+        tmp = C.memcpy(tmp, orig, len_front) + len_front
+        tmp = C.memcpy(tmp, with, len_with) + len_with
         orig = orig + len_front + len_rep -- move to next "end of rep"
     end
 
     local luastr = lstr(result, len_tmp)..lstr(orig)
-    free(result)
-    free(orig_ptr)
+    C.free(result)
+    C.free(orig_ptr)
     return luastr
 end
 
@@ -211,13 +206,27 @@ function len(obj)
     if type(obj) == "string" then
         return utf8.len(obj)
     elseif type(obj) == "table" then
-        if type(obj.__len__) == "function" then
-            return obj:__len__()
-        else
-            return #obj
-        end
+        return #obj
     else
         error("TypeError: object of type '"..type(obj).."' has no len()")
+    end
+end
+
+function bool(obj)
+    if type(obj) == "boolean" then
+        return obj
+    elseif type(obj) == "string" then
+        return #obj ~= 0
+    elseif type(obj) == "number" then
+        return number ~= 0
+    elseif type(obj) == "table" then
+        if type(obj.__bool__) == "function" then
+            return obj:__bool__()
+        else
+            return true
+        end
+    else
+        return false
     end
 end
 
@@ -251,33 +260,42 @@ function any(iterable)
     return false
 end
 
-bytes = setmetatable({
-    __pyclass__ = true,
-    __str__ = function(self)
+ffi.cdef [[
+    typedef struct {
+        unsigned char *source;
+        long long size;
+        const char *encoding;
+    } bytes_t;
+]]
+
+local bytes_t = ffi.metatype("bytes_t", {
+    __len = function(self) return self.size end,
+    __tostring = function(self)
         local s = "b'"
         for i in range(self.size) do
             s = s..libpyex.getescorprntchar(self.source[i])
         end
         return s.."'"
     end,
-    __bool__ = function(self)
-        return self.source ~= nil
-    end,
-    __sizeof__ = function(self) return self.size end
-}, {
-    __call = function(self, source, size)
-        if type(source) == "number" then
-            size = source
-            source = uchara(source)
-        elseif size == nil then
-            size = #source
+    __index = {
+        __bool__ = function(self)
+            return self.source ~= nil
         end
-        if type(source) == "string" then
-            source = ffi.cast(ucharp, source)
-        end
-        return setmetatable({source=source, size=size}, {__index=bytes})
-    end
+    }
 })
+
+function bytes(source, size)
+    if type(source) == "number" then
+        size = source
+        source = uchara(source)
+    elseif size == nil then
+        size = #source
+    end
+    if type(source) == "string" then
+        source = ffi.cast(ucharp, source)
+    end
+    return bytes_t(source, size)
+end
 b = bytes
 bytearray = bytes
 
@@ -291,13 +309,9 @@ ord = utf8.codepoint
 local _tostring = tostring
 function tostring(obj)
     if type(obj) == "table" then
-        if type(obj.__str__) == "function" then
-            return obj:__str__()
-        end
         return table.toString(obj)
-    else
-        return _tostring(obj)
     end
+    return _tostring(obj)
 end
 
 str = tostring

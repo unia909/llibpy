@@ -33,20 +33,17 @@ ffi.cdef [[
 ]]
 local C = ffi.C
 local ffit = require "ffitypes"
-local int = ffit.int
-local intp = ffit.intp
-local sizet = ffit.sizet
-local sizetp = ffit.sizetp
+local inta = ffit.inta
+local sizeta = ffit.sizeta
 local ulong = ffit.ulong
 local ulongp = ffit.ulongp
+local ulonga = ffit.ulonga
 local ull = ffit.ull
 local ullp = ffit.ullp
+local ulla = ffit.ulla
 local charp = ffit.charp
 local wchara = ffit.wchara
 local wcharp = ffit.wcharp
-
-local malloc = C.malloc
-local free = C.free
 
 local advapi = ffi.load("Advapi32.dll")
 
@@ -66,11 +63,9 @@ local function check(ret, ret_is_errno)
 end
 
 local function OpenKey(key, sub_key, reserved, access)
-    local pointer = ffi.cast(sizetp, malloc(ffi.sizeof(sizet)))
-    check(advapi.RegOpenKeyExW(key, ntstr.convtowide(sub_key), reserved or 0, access or 0x00020019, pointer))
-    local ret = pointer[0]
-    free(pointer)
-    return ret
+    local ptr = sizeta(1)
+    check(advapi.RegOpenKeyExW(key, ntstr.convtowide(sub_key), reserved or 0, access or 0x00020019, ptr))
+    return ptr[0]
 end
 
 local function getdata(_bytes, _type)
@@ -90,25 +85,19 @@ return {
         check(advapi.RegCloseKey(hKey))
     end,
     ConnectRegistry = function(computer_name, key)
-        local pointer = ffi.cast(sizetp, malloc(ffi.sizeof(sizet)))
-        check(advapi.RegConnectRegistryW(ntstr.convtowide(computer_name), key, pointer))
-        local ret = pointer[0]
-        free(pointer)
-        return ret
+        local ptr = sizeta(1)
+        check(advapi.RegConnectRegistryW(ntstr.convtowide(computer_name), key, ptr))
+        return ptr[0]
     end,
     CreateKey = function(key, sub_key)
-        local pointer = ffi.cast(sizetp, malloc(ffi.sizeof(sizet)))
-        check(advapi.RegCreateKeyW(key, ntstr.convtowide(sub_key), pointer))
-        local ret = pointer[0]
-        free(pointer)
-        return ret
+        local ptr = sizeta(1)
+        check(advapi.RegCreateKeyW(key, ntstr.convtowide(sub_key), ptr))
+        return ptr[0]
     end,
     CreateKeyEx = function(key, sub_key, reserved, access)
-        local pointer = ffi.cast(sizetp, malloc(ffi.sizeof(sizet)))
-        check(advapi.RegCreateKeyExW(key, ntstr.convtowide(sub_key), reserved or 0, nil, 0, access or 0x00020019, nil, pointer, 0))
-        local ret = pointer[0]
-        free(pointer)
-        return ret
+        local ptr = sizeta(1)
+        check(advapi.RegCreateKeyExW(key, ntstr.convtowide(sub_key), reserved or 0, nil, 0, access or 0x00020019, nil, ptr, 0))
+        return ptr[0]
     end,
     DeleteKey = function(key, sub_key)
         check(advapi.RegDeleteKeyW(key, ntstr.convtowide(sub_key)))
@@ -125,23 +114,15 @@ return {
         return ffi.string(buf)
     end,
     EnumValue = function(key, index)
-        local valSize = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        valSize[0] = 32767
-        local valName = wchara(valSize[0])
-        local lpType = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        local lpSize = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        check(advapi.RegEnumValueW(key, index, valName, valSize, nil, lpType, nil, lpSize), true)
-        valSize[0] = valSize[0] + 1 -- add null-terminator
-        local _type = lpType[0]
-        free(lpType)
-        local buf = bytes(lpSize[0])
-        check(advapi.RegEnumValueW(key, index, valName, valSize, nil, nil, buf.source, lpSize), true)
-        free(lpSize)
-
-        local valName = ntstr.convtostr(valName, valSize[0])
-        free(valSize)
-
-        return valName, getdata(buf, _type), _type
+        local values = ulonga(3)
+        values[0] = 32767
+        local valName = wchara(values[0])
+        check(advapi.RegEnumValueW(key, index, valName, values, nil, values+1, nil, values+2), true)
+        values[0] = values[0] + 1 -- add null-terminator
+        local _type = values[1]
+        local buf = bytes(values[2])
+        check(advapi.RegEnumValueW(key, index, valName, values, nil, nil, buf.source, values+2), true)
+        return ntstr.convtostr(valName, values[0]), getdata(buf, _type), _type
     end,
     ExpandEnvironmentStrings = function(str)
         local wstr = ntstr.convtowide(str)
@@ -162,38 +143,26 @@ return {
     OpenKey = OpenKey,
     OpenKeyEx = OpenKey,
     QueryInfoKey = function(key)
-        local lpcSubKeys = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        local lpcValues = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        local lpftFileTime = ffi.cast(ullp, malloc(ffi.sizeof(ulong)))
-        check(advapi.RegQueryInfoKeyW(key, nil, nil, kocSubKeys, nil, nil, lpcValues, nil, nil, nil, lpftFileTime))
-        local csk = tonumber(lpcSubKeys[0])
-        free(lpcSubKeys)
-        local cv = tonumber(lpcValues[0])
-        free(lpcValues)
-        local ft = tonumber(lpftFileTime[0])
-        free(lpftFileTime)
-        return csk, cv, ft
+        local values = ulonga(2)
+        local key_modify = ulla(1)
+        check(advapi.RegQueryInfoKeyW(key, nil, nil, nil, values, nil, nil, values + 1, nil, nil, nil, key_modify))
+        return values[0], values[1], key_modify[0]
     end,
     QueryValue = function(key, sub_key)
         local wsk = ntstr.convtowide(sub_key)
-        local size = ffi.cast(intp, malloc(ffi.sizeof(int)))
+        local size = inta(1)
         check(advapi.RegQueryValueW(key, wsk, nil, size))
         local buf = wchara(size[0])
         check(advapi.RegQueryValueW(key, wsk, buf, size))
-        free(size)
-        return ntstr.convtostr(buf)
+        return ntstr.convtostr(buf, size[0])
     end,
     QueryValueEx = function(key, value_name)
         local wval = ntstr.convtowide(value_name)
-        local lpType = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        local lpSize = ffi.cast(ulongp, malloc(ffi.sizeof(ulong)))
-        check(advapi.RegQueryValueExW(key, wval, nil, lpType, nil, lpSize))
-        local _type = lpType[0]
-        free(lpType)
-        local buf = bytes(lpSize[0])
-        check(advapi.RegQueryValueExW(key, wval, nil, nil, buf.source, lpSize))
-        free(lpSize)
-
+        local values = ulonga(2)
+        check(advapi.RegQueryValueExW(key, wval, nil, values, nil, values+1))
+        local _type = values[0]
+        local buf = bytes(values[1])
+        check(advapi.RegQueryValueExW(key, wval, nil, nil, buf.source, values+1))
         return getdata(buf, _type), _type
     end,
     SaveKey = function(key, file_name)
@@ -214,19 +183,15 @@ return {
             size = #value
         elseif _type == 4 then
             size = ffi.sizeof(ulong)
-            _bytes = ffi.cast(ulongp, malloc(size))
+            _bytes = ulonga(1)
             _bytes[0] = value
             needFree = true
         elseif _type == 11 then
             size = ffi.sizeof(ull)
-            _bytes = ffi.cast(ulongp, malloc(size))
+            _bytes = ulla(1)
             _bytes[0] = value
-            needFree = true
         end
         check(advapi.RegSetValueExW(key, ntstr.convtowide(value_name), reserved, _type, _bytes, size))
-        if needFree then
-            free(_bytes)
-        end
     end,
     DisableReflectionKey = function(key)
         check(advapi.RegDisableReflectionKey(key))
@@ -235,16 +200,13 @@ return {
         check(advapi.RegEnableReflectionKey(key))
     end,
     QueryReflectionKey = function(key)
-        local bRet = ffi.cast(intp, malloc(ffi.sizeof(int)))
+        local bRet = inta(1)
         check(advapi.RegQueryReflectionKey(key, bRet))
-        local ret
         if bRet == 1 then
-            ret = true
+            return true
         else
-            ret = false
+            return false
         end
-        free(bRet)
-        return ret
     end,
 
     HKEY_CLASSES_ROOT      = 0x80000000,

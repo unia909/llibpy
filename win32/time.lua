@@ -7,11 +7,6 @@ ffi.cdef [[
     int QueryPerformanceCounter(long long *lpFrequency);
 ]]
 local C = ffi.C
-local malloc = C.malloc
-local free = C.free
-local Sleep = C.Sleep
-local QueryPerformanceFrequency = C.QueryPerformanceFrequency
-local QueryPerformanceCounter = C.QueryPerformanceCounter
 local cast = ffi.cast
 local sizeof = ffi.sizeof
 local ffit = require "ffitypes"
@@ -20,15 +15,15 @@ local llp = ffit.llp
 
 return {
     sleep = function(secs)
-        Sleep(secs/1000)
+        C.Sleep(secs/1000)
     end,
     monotonic = function()
-        local freqp = cast(llp, malloc(sizeof(ll)))
-        QueryPerformanceFrequency(freqp)
+        local freqp = cast(llp, C.malloc(sizeof(ll)))
+        C.QueryPerformanceFrequency(freqp)
         local freq = tonumber(freqp[0])
-        QueryPerformanceCounter(freqp)
+        C.QueryPerformanceCounter(freqp)
         local now = tonumber(freqp[0])
-        free(freqp)
+        C.free(freqp)
         return now / freq
     end
 }

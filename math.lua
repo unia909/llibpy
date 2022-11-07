@@ -7,7 +7,6 @@ ffi.cdef [[
     double asinh(double);
     double atanh(double);
     double log1p(double);
-    double log2(double);
     double erf(double);
     double erfc(double);
     double cbrt(double);
@@ -30,10 +29,8 @@ local ceil = math.ceil
 local log = math.log
 local abs = math.abs
 local max = math.max
-local fabs = C.fabs
 local frexp = math.frexp
 local ldexp = math.ldexp
-local nexttoward = C.nexttoward
 local exp1 = exp(1)
 
 -- from https://stackoverflow.com/a/35499347
@@ -125,7 +122,7 @@ return {
         end
         return x
     end,
-    fabs = fabs,
+    fabs = C.fabs,
     factorial = factorial,
     floor = floor,
     fmod = math.fmod,
@@ -248,9 +245,9 @@ return {
     -- converted to luajit
     ulp = function(x)
         if x > 0 then
-            return nexttoward(x, inf) - x
+            return C.nexttoward(x, inf) - x
         else
-            return x - nexttoward(x, -inf)
+            return x - C.nexttoward(x, -inf)
         end
     end,
 
@@ -262,7 +259,10 @@ return {
     end,
     log = log,
     log1p = C.log1p,
-    log2 = C.log2,
+    -- C function is much slower than lua
+    log2 = function(x)
+        return log(x) / log(2)
+    end,
     log10 = math.log10,
     pow = pow,
     sqrt = sqrt,
