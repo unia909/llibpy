@@ -6,6 +6,13 @@ ffi.cdef [[
     double acosh(double);
     double asinh(double);
     double atanh(double);
+    double log1p(double);
+    double log2(double);
+    double erf(double);
+    double erfc(double);
+    double cbrt(double);
+    double nexttoward(double, double);
+    double remainder(double, double);
 ]]
 local C = ffi.C
 local bit = require "bit"
@@ -19,8 +26,14 @@ local sin = math.sin
 local exp = math.exp
 local sqrt = math.sqrt
 local floor = math.floor
+local ceil = math.ceil
 local log = math.log
 local abs = math.abs
+local max = math.max
+local fabs = C.fabs
+local frexp = math.frexp
+local ldexp = math.ldexp
+local nexttoward = C.nexttoward
 local exp1 = exp(1)
 
 -- from https://stackoverflow.com/a/35499347
@@ -102,7 +115,7 @@ local function lgamma(z)
 end
 
 return {
-    ceil = math.ceil,
+    ceil = ceil,
     comb = function(n, k)
         return factorial(n) / (factorial(k) * factorial(n - k))
     end,
@@ -112,11 +125,11 @@ return {
         end
         return x
     end,
-    fabs = C.fabs,
+    fabs = fabs,
     factorial = factorial,
     floor = floor,
     fmod = math.fmod,
-    frexp = math.frexp,
+    frexp = frexp,
     -- from http://lua-users.org/wiki/FloatSum
     fsum = function(iterable)
         local p = {1}        -- p[1] == #p
@@ -152,7 +165,9 @@ return {
         return x
     end,
     gcd = gcd,
-    --isclose =
+    isclose = function(a, b, rel_tol, abs_tol)
+        return abs(a-b) <= max((rel_tol or 1e-09) * max(abs(a), abs(b)), (abs_tol or 0))
+    end,
     isfinite = function(x)
         return x == inf or x == nan or x == 0
     end,
@@ -192,24 +207,62 @@ return {
         end
         return res
     end,
-    ldexp = math.ldexp,
+    ldexp = ldexp,
     modf = math.modf,
-    --nextafter =
-    --perm =
-    --prod =
-    --remainder =
-    --trunc =
-    --ulp =
+    nextafter = function(x, y)
+        if x > y then
+            return x - .0000000000001
+        else
+            return x + .0000000000001
+        end
+    end,
+    perm = function(n, k)
+        if k == nil then
+            k = n
+        elseif n < k then
+            return 0
+        end
+        return factorial(n) / factorial(n - k)
+    end,
+    prod = function(iterable, start)
+        local start = start or 1
+        for i, n in pairs(iterable) do
+            start = start * n
+        end
+        return start
+    end,
+    remainder = C.remainder,
+    trunc = function(x)
+        if type(x) ~= "number" then
+            if type(x.__trunc__) == "function" then
+                return x:__trunc__()
+            else
+                error("ValueError: x doesn't define __trunc__ method")
+            end
+        elseif x < 0 then
+            return ceil(x)
+        end
+        return floor(x)
+    end,
+    -- from https://stackoverflow.com/a/54462832
+    -- converted to luajit
+    ulp = function(x)
+        if x > 0 then
+            return nexttoward(x, inf) - x
+        else
+            return x - nexttoward(x, -inf)
+        end
+    end,
 
-    --cbrt
+    cbrt = C.cbrt,
     exp = exp,
     exp2 = C.exp2,
     expm1 = function(x)
         return exp(x) - 1
     end,
     log = log,
-    --log1p =
-    --log2 =
+    log1p = C.log1p,
+    log2 = C.log2,
     log10 = math.log10,
     pow = pow,
     sqrt = sqrt,
@@ -248,8 +301,8 @@ return {
     sinh = math.sinh,
     tanh = math.tanh,
 
-    --erf =
-    --erfc =
+    erf = C.erf,
+    erfc = C.erfc,
     gamma = gamma,
     lgamma = lgamma,
 

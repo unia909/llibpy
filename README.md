@@ -14,8 +14,8 @@ print({"Hello", "world"}, nil, "!\nThis will be written on the new line!\n")
 ```
 First argument there is a `objects` to write. Second is a `sep`. If argument is nil, it takes default value. And the last argument is a `end`
 # Features
-- full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`
-- partially implemented modules: `base64`, `math`, `os`, `sys`, `platform`, `random`, `time`
+- full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`, `math`
+- partially implemented modules: `base64`, `os`, `sys`, `platform`, `random`, `time`
 - unicode console input/output on Windows
 - modules, that does not depend on main libpy: `math`, `winsound`, `utf8`(lua library for utf8, partially rewritten in lua)
 # Some other examples of the programs
