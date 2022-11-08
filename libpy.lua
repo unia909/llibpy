@@ -306,6 +306,10 @@ end
 chr = utf8.char
 ord = utf8.codepoint
 
+function hex(n)
+    return string.format("0x%x", n)
+end
+
 local _tostring = tostring
 function tostring(obj)
     if type(obj) == "table" then
