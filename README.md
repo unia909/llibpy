@@ -27,7 +27,7 @@ local sys = require "sys"
 local total = 0
 for i in range(2, len(sys.argv) + 1) do
     total = total + sys.argv[i]
-endthe 
+end
 print{'sum =', total}
 ```
 - "Guess the Number" Game (converted) from http://inventwithpython.com
