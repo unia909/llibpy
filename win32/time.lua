@@ -15,7 +15,7 @@ local llp = ffit.llp
 
 return {
     sleep = function(secs)
-        C.Sleep(secs/1000)
+        C.Sleep(secs*1000)
     end,
     monotonic = function()
         local freqp = cast(llp, C.malloc(sizeof(ll)))

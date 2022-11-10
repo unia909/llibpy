@@ -21,7 +21,9 @@ local hIn = C.GetStdHandle(-10)
 return {
     write = function(str)
         local len = #str
-        C.WriteConsoleW(hOut, ntstr.convtowide(str, len), len, nil, nil)
+        local wide = ntstr.convtowide(str, len)
+        local wlen = C.wcslen(wide)
+        C.WriteConsoleW(hOut, , len, nil, nil)
     end,
     read = function()
         local size = 4096
