@@ -23,7 +23,7 @@ return {
         local len = #str
         local wide = ntstr.convtowide(str, len)
         local wlen = C.wcslen(wide)
-        C.WriteConsoleW(hOut, , len, nil, nil)
+        C.WriteConsoleW(hOut, wide, wlen, nil, nil)
     end,
     read = function()
         local size = 4096
