@@ -64,7 +64,7 @@ function string:lstrip(chars)
     if chars == nil then
         chars = " "
     elseif type(chars) ~= "string" then
-        error("TypeError: lstrip arg must be nil or string")
+        raise(TypeError("lstrip arg must be nil or string"))
     end
     
     return string.gsub(self, "^["..chars.."]+", "")
@@ -74,7 +74,7 @@ function string:rstrip(chars)
     if chars == nil then
         chars = " "
     elseif type(chars) ~= "string" then
-        error("TypeError: rstrip arg must be nil or string")
+        raise(TypeError("rstrip arg must be nil or string"))
     end
     
     return string.gsub(self, "["..chars.."]+$", "")
@@ -88,13 +88,13 @@ function string:split(sep, maxlines)
     if sep == nil then
         sep = " "
     elseif type(sep) ~= "string" then
-        error("TypeError: sep must be string or nil, not "..type(sep))
+        raise(TypeError("sep must be string or nil, not "..type(sep)))
     elseif sep == '' then
-        error("ValueError: empty separator")
+        raise(ValueError("empty separator"))
     end
     
     if maxlines ~= nil and type(maxlines) ~= "number" then
-        error("TypeError: number type expected, not "..type(maxlines))
+        raise(TypeError("number type expected, not "..type(maxlines)))
     end
     
     local out = {}
@@ -208,7 +208,7 @@ function len(obj)
     elseif type(obj) == "table" then
         return #obj
     else
-        error("TypeError: object of type '"..type(obj).."' has no len()")
+        raise(TypeError("object of type '"..type(obj).."' has no len()"))
     end
 end
 
@@ -413,4 +413,38 @@ function zip(iterables, strict)
         i = i + 1
         return unpack(iterables[i])
     end
+end
+
+function class(name, _parent, init, static, meta)
+    local meta = meta or {}
+    local static = static or setmetatable({}, {__index=_parent})
+    local parent
+    if _parent == nil then
+        parent = {name}
+        _parent = function() return {} end
+    else
+        parent = {unpack(_parent.__bases__)}
+        table.insert(parent, name)
+    end
+    static.__bases__ = parent
+    static.__name__ = name
+    meta.__call = init or function(self, ...)
+        return setmetatable(_parent(...), {__index=static})
+    end
+    return setmetatable(static, meta)
+end
+
+Exception = class("Exception", nil, function(self, args)
+    return setmetatable({args = args}, {__index=Exception})
+end)
+
+OSError = class("OSError", Exception)
+TypeError = class("TypeError", Exception)
+ValueError = class("ValueError", Exception)
+
+function raise(exc)
+    if exc.args == nil then
+        error(exc.__name__, 2)
+    end
+    error(exc.__name__..": "..str(exc.args), 2) -- 2 is throw to the caller
 end
