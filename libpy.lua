@@ -300,7 +300,7 @@ b = bytes
 bytearray = bytes
 
 function callable(object)
-    return type(object) == "function"
+    return type(object) == "function" or (type(object) == "table" and type(getmetatable(object).__call) == "function")
 end
 
 chr = utf8.char
@@ -350,8 +350,8 @@ function sum(iterable, start)
     return _sum
 end
 
-function print(objects, sep, _end)
-    _end = _end or "\n"
+function print(objects)
+    local _end = objects._end or "\n"
     if objects == nil then
         con.write(_end)
         return
@@ -364,7 +364,7 @@ function print(objects, sep, _end)
         con.write(str(objects[1]).._end)
         return
     end
-    sep = sep or " "
+    local sep = objects.sep or " "
     local out = str(objects[1])..sep
     for i = 2, nobj - 1 do
         out = out..str(objects[i])..sep
@@ -397,7 +397,7 @@ end
 
 function input(prompt)
     if type(prompt) == "string" then
-        print({prompt}, nil, "")
+        print{prompt, _end=""}
     end
     return con.read()
 end

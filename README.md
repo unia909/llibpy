@@ -7,10 +7,10 @@ require "libpy"
 print{"Hello world!"}
 ```
 ## Why is it necessary use curly braces in print?
-Because of optional arguments. If you will write `print("hello", "world")` in round brackets you cannot specify optional arguments like `sep` and `end`. If you want to use them, you need to use that syntax.
+because you can't specify named arguments in the standard function call syntax. If you want to use them, you need to specify them in the same brackets.
 ```lua
 require "libpy"
-print({"Hello", "world"}, nil, "!\nThis will be written on the new line!\n")
+print{"Hello", "world", _end="!\nThis will be written on the new line!\n"}
 ```
 First argument there is a `objects` to write. Second is a `sep`. If argument is nil, it takes default value. And the last argument is a `end`
 # Features
@@ -25,6 +25,7 @@ require "libpy"
 local sys = require "sys"
 
 local total = 0
+-- lua tables index starts with 1
 for i in range(2, len(sys.argv) + 1) do
     total = total + sys.argv[i]
 end
