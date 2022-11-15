@@ -16,7 +16,7 @@ print{"Hello", "world", _end="!\nThis will be written on the new line!\n"}
 - full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`, `math`
 - partially implemented modules: `base64`, `os`, `sys`, `platform`, `random`, `time`
 - unicode console input/output on Windows
-- modules, that does not depend on the main library: `math`, `winsound`, `utf8`(lua library for utf8, partially rewritten in lua)
+- modules, that does not depend on the main library: `math`, `winsound`, `errno`, `utf8`(lua library for utf8, partially rewritten in lua)
 # Some other examples of the programs
 - Command line arguments example. Here `local sys = require "sys"` is the same as `import sys` in Python. Take into consideration, that some modules as `os` and `math` requires `./` at the beggining of they names because they already exist in standart lua library.
 ```lua
