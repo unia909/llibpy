@@ -3,25 +3,24 @@ This repository contains Cpython standart library implementation for luajit. It 
 ## How it works?
 Let's write a simple hello world program
 ```lua
-require "libpy"
+require "llibpy"
 print{"Hello world!"}
 ```
 ## Why is it necessary use curly braces in print?
 because you can't specify named arguments in the standard function call syntax. If you want to use them, you need to specify them in the same brackets.
 ```lua
-require "libpy"
+require "llibpy"
 print{"Hello", "world", _end="!\nThis will be written on the new line!\n"}
 ```
-First argument there is a `objects` to write. Second is a `sep`. If argument is nil, it takes default value. And the last argument is a `end`
 # Features
 - full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`, `math`
 - partially implemented modules: `base64`, `os`, `sys`, `platform`, `random`, `time`
 - unicode console input/output on Windows
-- modules, that does not depend on main libpy: `math`, `winsound`, `utf8`(lua library for utf8, partially rewritten in lua)
+- modules, that does not depend on the main library: `math`, `winsound`, `utf8`(lua library for utf8, partially rewritten in lua)
 # Some other examples of the programs
 - Command line arguments example. Here `local sys = require "sys"` is the same as `import sys` in Python. Take into consideration, that some modules as `os` and `math` requires `./` at the beggining of they names because they already exist in standart lua library.
 ```lua
-require "libpy"
+require "llibpy"
 local sys = require "sys"
 
 local total = 0
@@ -33,7 +32,7 @@ print{'sum =', total}
 ```
 - "Guess the Number" Game (converted) from http://inventwithpython.com
 ```lua
-require "libpy"
+require "llibpy"
 local random = require "random"
 
 local guesses_made = 0
