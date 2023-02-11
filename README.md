@@ -1,16 +1,16 @@
-# llibpy
+# libpy
 This repository contains Cpython standart library implementation for luajit. It makes lua more like Python by just adding one line in top of the file. This library expect, that source files in utf-8 encoding
 ## How can i use it?
 Let's write a simple hello world program
 ```lua
-require "llibpy"
+require "libpy"
 print{"Hello world!"}
 ```
 ## Why is it necessary use curly braces in print?
 because you can't specify named arguments in the standard function call syntax. If you want to use them, you need to specify them in the same brackets.
 ```lua
-require "llibpy"
-print{"Hello", "world", _end="!\nThis will be written on the new line!\n"}
+require "libpy"
+print{"Hello world!", "Привет мир!", _end="\nThis will be written on the new line!\n"}
 ```
 # Features
 - full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`, `math`
