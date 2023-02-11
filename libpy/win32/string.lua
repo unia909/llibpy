@@ -8,25 +8,22 @@ ffi.cdef [[
                             char *lpMultiByteStr, int cbMultiByte, const char *lpDefaultChar, int *lpUsedDefaultChar);
 ]]
 local C = ffi.C
-local lstr = ffi.string
 local ffit = require "ffitypes"
-local chara = ffit.chara
-local wchara = ffit.wchara
 
 local CP_UTF8 = 65001
 
 return {
     convtowide = function(str, len)
         len = len or #str + 1 -- we need to add 1 to get valid C string with null-terminator
-        local wide = wchara(len)
+        local wide = ffit.wchara(len)
         C.MultiByteToWideChar(CP_UTF8, 0, str, len, wide, len)
         return wide
     end,
     convtostr = function(wide, len)
         len = len or C.wcslen(wide) -- no need to add 1 for null-terminator in _win_convtostr due to copying in ffi.string
         local size = C.WideCharToMultiByte(CP_UTF8, 0, wide, len, nil, 0, nil, nil)
-        local str = chara(size)
+        local str = ffit.chara(size)
         C.WideCharToMultiByte(CP_UTF8, 0, wide, len, str, size, nil, nil)
-        return lstr(str, size)
+        return ffi.string(str, size)
     end
 }

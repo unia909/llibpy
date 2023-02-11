@@ -1,6 +1,6 @@
 # llibpy
 This repository contains Cpython standart library implementation for luajit. It makes lua more like Python by just adding one line in top of the file. This library expect, that source files in utf-8 encoding
-## How it works?
+## How can i use it?
 Let's write a simple hello world program
 ```lua
 require "llibpy"
@@ -15,12 +15,12 @@ print{"Hello", "world", _end="!\nThis will be written on the new line!\n"}
 # Features
 - full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`, `math`
 - partially implemented modules: `base64`, `os`, `sys`, `platform`, `random`, `time`
-- unicode console input/output on Windows
+- unicode console input/output on Windows NT systems (Microsoft Windows/Wine/ReactOS/Windows 98+KernelEx)
 - modules, that does not depend on the main library: `math`, `winsound`, `errno`, `utf8`(lua library for utf8, partially rewritten in lua)
 # Some other examples of the programs
 - Command line arguments example. Here `local sys = require "sys"` is the same as `import sys` in Python. Take into consideration, that some modules as `os` and `math` requires `./` at the beggining of they names because they already exist in standart lua library.
 ```lua
-require "llibpy"
+require "libpy"
 local sys = require "sys"
 
 local total = 0
@@ -32,7 +32,7 @@ print{'sum =', total}
 ```
 - "Guess the Number" Game (converted) from http://inventwithpython.com
 ```lua
-require "llibpy"
+require "libpy"
 local random = require "random"
 
 local guesses_made = 0
@@ -56,7 +56,6 @@ while guesses_made < 6 do
         break
     end
 end
-
 
 if guess == number then
     print{'Good job, '..name..'! You guessed my number in '..guesses_made..' guesses!'}

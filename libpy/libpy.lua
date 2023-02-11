@@ -35,7 +35,7 @@ function string:replace(rep, with)
     end
 
     local len_tmp = orig_len + (len_with - len_rep) * count
-    local tmp = malloc(len_tmp)
+    local tmp = C.malloc(len_tmp)
     local result = tmp
 
     -- first time through the loop, all the variable are set correctly
@@ -208,6 +208,10 @@ function len(obj)
     end
 end
 
+local function safe_bool_call(obj)
+    return obj:__bool__()
+end
+
 function bool(obj)
     if type(obj) == "boolean" then
         return obj
@@ -215,21 +219,31 @@ function bool(obj)
         return #obj ~= 0
     elseif type(obj) == "number" then
         return number ~= 0
-    elseif type(obj) == "table" then
-        if type(obj.__bool__) == "function" then
-            return obj:__bool__()
-        else
-            return true
-        end
     else
-        return false
+        local stat, ret = pcall(safe_bool_call, obj)
+        if not stat then
+            if type(obj) == "table" then
+                return true
+            else
+                return false
+            end
+        else
+            return ret
+        end
     end
+end
+
+function string:at(idx)
+    return string.sub(self, idx, idx)
 end
 
 function string:zfill(width)
     local l = len(self)
-    if l <= width then return self end
-    
+    if width <= l then return self end
+    if self:at(1) == '-' then
+        return '-'..string.rep('0', width - l)..self:sub(2)
+    end
+    return string.rep('0', width - l)..self
 end
 
 abs = math.abs

@@ -76,7 +76,7 @@ local function getdata(_bytes, _type)
     elseif _type == 11 then
         return tonumber(ffi.cast(ullp, _bytes.source)[0])
     else
-        return buf
+        return _bytes
     end
 end
 
@@ -174,7 +174,6 @@ return {
     SetValueEx = function(key, value_name, reserved, _type, value)
         local _bytes
         local size
-        local needFree = false
         if _type == 1 then
             _bytes = ffi.cast(charp, value)
             size = #value
@@ -185,7 +184,6 @@ return {
             size = ffi.sizeof(ulong)
             _bytes = ulonga(1)
             _bytes[0] = value
-            needFree = true
         elseif _type == 11 then
             size = ffi.sizeof(ull)
             _bytes = ulla(1)
