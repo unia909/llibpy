@@ -13,7 +13,6 @@ local lstr = ffi.string
 local chara = ffit.chara
 local charp = ffit.charp
 local ucharp = ffit.ucharp
-local ucharp = ffit.ucharp
 
 local UTF8_BUFFSZ = 8
 local UTF8_MAX = 0x7FFFFFFF

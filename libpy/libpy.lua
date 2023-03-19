@@ -151,6 +151,36 @@ function string:join(iterable)
     return out
 end
 
+function string:format(table)
+    local out = ""
+    local prev_capture = 1
+    for i = 1, #self do
+        if self:at(i) == '{' then
+            local capture_begin = i + 1
+            local capture_end = i + 2
+            for j = capture_end, #self do
+                if self:at(j) == '}' then
+                    capture_end = j
+                    break
+                end
+            end
+            if self:at(capture_end) ~= '}' then
+                error(ValueError("Single '{' encountered in format string"))
+            end
+            local replacement_name = self:sub(capture_begin, capture_end - 1)
+            -- convert to number if possible
+            replacement_name = tonumber(replacement_name) or replacement_name
+            local replacement = table[replacement_name]
+            if replacement == nil then
+                raise(IndexError("Replacement index "..replacement_name.." out of range for positional args tuple"))
+            end
+            out = out..self:sub(prev_capture, capture_begin - 2)..replacement
+            prev_capture = capture_end + 1
+        end
+    end
+    return out..self:sub(prev_capture)
+end
+
 -- code based on https://gist.github.com/justnom/9816256
 function table:toString()
     local result = "["
@@ -323,7 +353,13 @@ end
 local _tostring = tostring
 function tostring(obj)
     if type(obj) == "table" then
-        return table.toString(obj)
+        if type(obj.__str__) == "function" then
+            return obj:__str__()
+        end
+        local mt = getmetatable(obj)
+        if mt == nil or type(mt.__tostring) ~= "function" then
+            return table.toStringLua(obj)
+        end
     end
     return _tostring(obj)
 end
@@ -413,8 +449,7 @@ function input(prompt)
 end
 
 function open(file, mode)
-    mode = mode or "r"
-    return io.open(file, mode)
+    return io.open(file, mode or "r")
 end
 
 function zip(iterables, strict)
@@ -425,36 +460,139 @@ function zip(iterables, strict)
     end
 end
 
-function class(name, _parent, init, static, meta)
-    local meta = meta or {}
-    local static = static or setmetatable({}, {__index=_parent})
-    local parent
-    if _parent == nil then
-        parent = {name}
-        _parent = function() return {} end
-    else
-        parent = {unpack(_parent.__bases__)}
-        table.insert(parent, name)
+function index_bases(table, key)
+    for i, e in ipairs(table.__bases__) do
+        local val = e[key]
+        if val ~= nil then return val end
     end
-    static.__bases__ = parent
+end
+
+function class(name, bases, init, static, meta)
+    local meta = meta or {}
+    local static = static or {}
+    if bases == nil then
+        bases = {}
+    end
+    local init = init or function(selfptr, ...)
+        if bases[1] ~= nil and callable(bases[1].__init__) then
+            bases[1].__init__(selfptr, ...)
+        end
+    end
+    static.__init__ = init
+    static.__bases__ = bases
     static.__name__ = name
-    meta.__call = init or function(self, ...)
-        return setmetatable(_parent(...), {__index=static})
+    static.__mro__ = {}
+
+    meta.__index = index_bases
+    if meta.__call == nil then
+        meta.__call = function(self, ...)
+            local table = setmetatable({}, {__index=self})
+            init({table}, ...)
+            return table
+        end
     end
     return setmetatable(static, meta)
 end
 
-Exception = class("Exception", nil, function(self, args)
-    return setmetatable({args = args}, {__index=Exception})
-end)
+function isinstance(class, what_i_want)
+    if type(what_i_want) == "table" and type(what_i_want.__name__) == "string" then
+        what_i_want = what_i_want.__name__
+    elseif type(what_i_want) ~= "string" then
+        return false
+    end
+    if class.__name__ == what_i_want then
+        return true
+    end
+    for i, e in ipairs(class.__bases__) do
+        local is_it = isinstance(e, what_i_want)
+        if is_it then return true end
+    end
+    return false
+end
 
-OSError = class("OSError", Exception)
-TypeError = class("TypeError", Exception)
-ValueError = class("ValueError", Exception)
+BaseException = class("BaseException", {}, function(selfptr, args)
+    local self = selfptr[1]
+    self.args = args
+end, {
+    __str__ = function(self)
+        return str(self.args)
+    end
+})
+
+SystemExit = class("SystemExit", {BaseException})
+KeyboardInterrupt = class("KeyboardInterrupt", {BaseException})
+GeneratorExit = class("GeneratorExit", {BaseException})
+Exception = class("Exception", {BaseException})
+    StopIteration = class("StopIteration", {Exception})
+    StopAsyncIteration = class("StopAsyncIteration", {Exception})
+    ArithmeticError = class("ArithmeticError", {Exception})
+        FloatingPointError = class("FloatingPointError", {ArithmeticError})
+        OverflowError = class("OverflowError", {ArithmeticError})
+        ZeroDivisionError = class("ZeroDivisionError", {ArithmeticError})
+    AssertionError = class("AssertionError", {Exception})
+    AttributeError = class("AttributeError", {Exception})
+    BufferError = class("BufferError", {Exception})
+    EOFError = class("EOFError", {Exception})
+    ImportError = class("ImportError", {Exception})
+        ModuleNotFoundError = class("ModuleNotFoundError", {ImportError})
+    LookupError = class("LookupError", {Exception})
+        IndexError = class("IndexError", {LookupError})
+        KeyError = class("KeyError", {LookupError})
+    MemoryError = class("MemoryError", {Exception})
+    NameError = class("NameError", {Exception})
+        UnboundLocalError = class("UnboundLocalError", NameError)
+    OSError = class("OSError", {Exception})
+        BlockingIOError = class("BlockingIOError", {OSError})
+        ChildProcessError = class("ChildProcessError", {OSError})
+        ConnectionError = class("ConnectionError", {OSError})
+            BrokenPipeError = class("BrokenPipeError", {ConnectionError})
+            ConnectionAbortedError = class("ConnectionAbortedError", {ConnectionError})
+            ConnectionRefusedError = class("ConnectionRefusedError", {ConnectionError})
+            ConnectionResetError = class("ConnectionResetError", {ConnectionError})
+        FileExistsError = class("FileExistsError", {OSError})
+        FileNotFoundError = class("FileNotFoundError", {OSError})
+        InterruptedError = class("InterruptedError", {OSError})
+        IsADirectoryError = class("IsADirectoryError", {OSError})
+        NotADirectoryError = class("NotADirectoryError", {OSError})
+        PermissionError = class("PermissionError", {OSError})
+        ProcessLookupError = class("ProcessLookupError", {OSError})
+        TimeoutError = class("TimeoutError", {OSError})
+    ReferenceError = class("ReferenceError", {Exception})
+    RuntimeError = class("RuntimeError", {Exception})
+        NotImplementedError = class("NotImplementedError", {RuntimeError})
+        RecursionError = class("RecursionError", {RuntimeError})
+    SyntaxError = class("SyntaxError", {Exception})
+        IndentationError = class("IndentationError", {SyntaxError})
+            TabError = class("TabError", {IndentationError})
+    SystemError = class("SystemError", {Exception})
+    TypeError = class("TypeError", {Exception})
+    ValueError = class("ValueError", {Exception})
+        UnicodeError = class("UnicodeError", {ValueError})
+            UnicodeDecodeError = class("UnicodeDecodeError", {UnicodeError})
+            UnicodeEncodeError = class("UnicodeEncodeError", {UnicodeError})
+            UnicodeTranslateError = class("UnicodeTranslateError", {UnicodeError})
+    Warning = class("Warning", {Exception})
+        DeprecationWarning = class("DeprecationWarning", {Warning})
+        PendingDeprecationWarning = class("PendingDeprecationWarning", {Warning})
+        RuntimeWarning = class("RuntimeWarning", {Warning})
+        SyntaxWarning = class("SyntaxWarning", {Warning})
+        UserWarning = class("UserWarning", {Warning})
+        FutureWarning = class("FutureWarning", {Warning})
+        ImportWarning = class("ImportWarning", {Warning})
+        UnicodeWarning = class("UnicodeWarning", {Warning})
+        BytesWarning = class("BytesWarning", {Warning})
+        EncodingWarning = class("EncodingWarning", {Warning})
+        ResourceWarning = class("ResourceWarning", {Warning})
 
 function raise(exc)
-    if exc.args == nil then
-        error(exc.__name__, 2)
+    if not isinstance(exc, BaseException) then
+        raise(TypeError("exceptions must derive from BaseException"))
     end
-    error(exc.__name__..": "..str(exc.args), 2) -- 2 is throw to the caller
+    __raised_exception = exc
+    local message = str(exc)
+    if message == nil then
+        error(exc.__name__, 2)
+    else
+        error(exc.__name__..": "..str(exc.args), 2)
+    end
 end

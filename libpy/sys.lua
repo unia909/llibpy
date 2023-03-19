@@ -6,8 +6,8 @@ ffi.cdef [[
         int serial;
     } version_info_t;
 ]]
-local version_info = ffi.new("version_info_t", 3, 11, 0, "final", 0)
-local version = "3.11.0 (main) ["..jit.version.."]"
+local version_info = ffi.new("version_info_t", 3, 11, 2, "final", 0)
+local version = "3.11.2 (main) ["..jit.version.."]"
 local maxsize
 if ffi.abi("32bit") then
     maxsize = 2147483647
