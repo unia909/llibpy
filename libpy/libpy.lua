@@ -151,13 +151,15 @@ function string:join(iterable)
     return out
 end
 
-function string:format(table)
+function string:format(...)
+    local table = _multiple_args(...)
     local out = ""
     local prev_capture = 1
+    local next_num = 1
     for i = 1, #self do
         if self:at(i) == '{' then
             local capture_begin = i + 1
-            local capture_end = i + 2
+            local capture_end = i + 1
             for j = capture_end, #self do
                 if self:at(j) == '}' then
                     capture_end = j
@@ -167,10 +169,21 @@ function string:format(table)
             if self:at(capture_end) ~= '}' then
                 error(ValueError("Single '{' encountered in format string"))
             end
-            local replacement_name = self:sub(capture_begin, capture_end - 1)
-            -- convert to number if possible
-            replacement_name = tonumber(replacement_name) or replacement_name
-            local replacement = table[replacement_name]
+            local replacement_name, replacement
+            -- automatic capture numbering
+            if capture_end == i + 1 then
+                if next_num == nil then
+                    raise(ValueError("cannot switch from manual field specification to automatic field numbering"))
+                end
+                replacement_name = next_num
+                next_num = next_num + 1
+            else
+                next_num = nil
+                replacement_name = self:sub(capture_begin, capture_end - 1)
+                -- convert to number if possible
+                replacement_name = tonumber(replacement_name) or replacement_name
+            end
+            replacement = table[replacement_name]
             if replacement == nil then
                 raise(IndexError("Replacement index "..replacement_name.." out of range for positional args tuple"))
             end
@@ -396,7 +409,19 @@ function sum(iterable, start)
     return _sum
 end
 
-function print(objects)
+function _multiple_args(...)
+    if select("#", ...) == 1 then
+        local obj = select(1, ...)
+        if type(obj) ~= "table" then
+            return {obj}
+        end
+        return obj
+    end
+    return {...}
+end
+
+function print(...)
+    local objects = _multiple_args(...)
     local _end = objects._end or "\n"
     if objects == nil then
         con.write(_end)

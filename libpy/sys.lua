@@ -39,7 +39,7 @@ All Rights Reserved.
         elseif type(arg) == "number" then
             os.exit(arg)
         else
-            print{arg}
+            print(arg)
             os.exit(1)
         end
     end,

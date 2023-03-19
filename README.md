@@ -4,19 +4,13 @@ This repository contains Cpython standart library implementation for luajit. It 
 Let's write a simple hello world program
 ```lua
 require "libpy"
-print{"Hello world!"}
-```
-## Why is it necessary use curly braces in print?
-because you can't specify named arguments in the standard function call syntax. If you want to use them, you need to specify them in the same brackets.
-```lua
-require "libpy"
-print{"Hello world!", "Привет мир!", _end="\nThis will be written on the new line!\n"}
+print("Hello world!")
 ```
 # Features
 - full implemented modules: `errno`, `winreg`, `winsound`, `msvcrt`, `math`, `colorsys`
-- partially implemented modules: `base64`, `os`, `sys`, `platform`, `random`, `time`, `calendar`, `string`
+- partially implemented modules: `base64`, `os`, `sys`, `platform`, `random`, `time`, `calendar`, `string`, `gc`
 - unicode console input/output on Windows NT systems (Microsoft Windows/Wine/ReactOS/Windows 98+KernelEx)
-- modules, that does not depend on the main library: `math`, `winsound`, `errno`, `colorsys`, `utf8`(lua library for utf8, partially rewritten in lua)
+- modules, that does not depend on the main library: `math`, `winsound`, `errno`, `colorsys`, `gc`, `utf8`(lua library for utf8, partially rewritten in lua)
 # Some other examples of the programs
 - Command line arguments example. Here `local sys = require "sys"` is the same as `import sys` in Python. Take into consideration, that some modules as `os` and `math` requires `./` at the beggining of they names because they already exist in standart lua library.
 ```lua
@@ -28,7 +22,7 @@ local total = 0
 for i in range(2, len(sys.argv) + 1) do
     total = total + sys.argv[i]
 end
-print{'sum =', total}
+print('sum =', total)
 ```
 - "Guess the Number" Game (converted) from http://inventwithpython.com
 ```lua
@@ -41,7 +35,7 @@ local guess = 0
 local name = input('Hello! What is your name?\n')
 
 local number = random.randint(1, 20)
-print{'Well, '..name..', I am thinking of a number between 1 and 20.'}
+print('Well, '..name..', I am thinking of a number between 1 and 20.')
 
 while guesses_made < 6 do
     guess = int(input('Take a guess: '))
@@ -49,17 +43,17 @@ while guesses_made < 6 do
     guesses_made = guesses_made + 1
 
     if guess < number then
-        print{'Your guess is too low.'}
+        print('Your guess is too low.')
     elseif guess > number then
-        print{'Your guess is too high.'}
+        print('Your guess is too high.')
     elseif guess == number then
         break
     end
 end
 
 if guess == number then
-    print{'Good job, '..name..'! You guessed my number in '..guesses_made..' guesses!'}
+    print('Good job, '..name..'! You guessed my number in '..guesses_made..' guesses!')
 else
-    print{'Nope. The number I was thinking of was '..number}
+    print('Nope. The number I was thinking of was '..number)
 end
 ```
