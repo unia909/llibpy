@@ -1,21 +1,26 @@
 local ffi = require "ffi"
-ffi.cdef"int atexit(void(*)());"
 
 local registered_functions = {}
 
 local function atexit()
-    for key, value in pairs(registered_functions) do
-        key(unpack(value))
+    for i, value in ipairs(registered_functions) do
+        value[1](unpack(value[2]))
     end
 end
 
-ffi.C.atexit(atexit)
+-- analog to __gc in luajit
+ffi.gc(ffi.cast("void*", 0), atexit)
 
 return {
     register = function(func, ...)
-        registered_functions[func] = {...}
+        table.insert(registered_functions, {func, {...}})
     end,
     unregister = function(func)
-        registered_functions[func] = nil
+        for i, value in ipairs(registered_functions) do
+            if value == func then
+                table.remove(registered_functions, i)
+                break
+            end
+        end
     end
 }

@@ -13,5 +13,5 @@ end
 local path = package.searchpath('libpy.__init__', package.path)
 local idx = path:rfindchr('/') or path:rfindchr('\\')
 
-package.path = package.path..(path:sub(1, idx).."?.lua;")
+package.path = package.path..";"..(path:sub(1, idx).."?.lua")
 return require "libpy.libpy"

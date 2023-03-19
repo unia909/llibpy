@@ -34,6 +34,7 @@ return {
 All Rights Reserved.
 ]],
     exit = function(arg)
+        collectgarbage() -- call atexit handlers
         if arg == nil then
             os.exit(0)
         elseif type(arg) == "number" then
