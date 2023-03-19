@@ -2,6 +2,26 @@ local ffi = require "ffi"
 require "libcdef"
 require "win32.winntdef"
 ffi.cdef [[
+    typedef struct {
+        union {
+            DWORD dwOemId;
+            struct {
+                WORD wProcessorArchitecture;
+                WORD wReserved;
+            };
+        };
+        DWORD  dwPageSize;
+        void*  lpMinimumApplicationAddress;
+        void*  lpMaximumApplicationAddress;
+        size_t dwActiveProcessorMask;
+        DWORD  dwNumberOfProcessors;
+        DWORD  dwProcessorType;
+        DWORD  dwAllocationGranularity;
+        WORD   wProcessorLevel;
+        WORD   wProcessorRevision;
+    } SYSTEM_INFO;
+    void GetSystemInfo(SYSTEM_INFO *lpSystemInfo);
+
     int CloseHandle(void *hObject);
     void ExitProcess(unsigned int uExitCode);
     DWORD FormatMessageW(DWORD dwFlags, const void *lpSource, DWORD dwMessageId, DWORD dwLanguageId, wchar_t **lpBuffer, DWORD nSize, va_list *Arguments);
@@ -125,6 +145,11 @@ end
 
 return {
     name = "nt",
+    cpu_count = function()
+        local system_info = ffi.new("SYSTEM_INFO")
+        C.GetSystemInfo(system_info)
+        return system_info.dwNumberOfProcessors
+    end,
     sep = "\\",
     altsep = "/",
     pathsep = ";",

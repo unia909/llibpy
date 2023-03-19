@@ -39,9 +39,6 @@ ffi.cdef[[
 local C = ffi.C
 local locale = C.newlocale(63, "", nil)
 
-local ffit = require "ffitypes"
-local chara = ffit.chara
-
 local function strerror(code)
     return ffi.string(C.strerror_l(code, locale))
 end
@@ -69,6 +66,9 @@ end
 
 return {
     name = "posix",
+    cpu_count = function()
+        return tonumber(os.execute("cat /proc/cpuinfo | grep processor | wc -l"))
+    end,
     sep = "/",
     altsep = nil,
     pathsep = ":",

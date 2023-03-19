@@ -8,7 +8,6 @@ ffi.cdef[[
 ]]
 local ffit = require "ffitypes"
 local sizeta = ffit.sizeta
-local C = ffi.C
 
 local advapi = ffi.load("Advapi32.dll")
 

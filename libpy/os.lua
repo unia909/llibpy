@@ -22,6 +22,7 @@ os.urandom = random.randbytes
 os.remove = _os.remove
 os.rename = _os.rename
 os.system = _os.execute
+os.popen = io.popen
 
 local ffi = require "ffi"
 ffi.cdef"void _exit(int status);"
