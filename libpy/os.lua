@@ -23,6 +23,10 @@ os.remove = _os.remove
 os.rename = _os.rename
 os.system = _os.execute
 os.popen = io.popen
+os.open = io.open
+os.close = io.close
+
+os.EX_OK = 0
 
 local ffi = require "ffi"
 ffi.cdef"void _exit(int status);"
